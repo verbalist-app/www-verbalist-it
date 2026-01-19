@@ -3,12 +3,5 @@ export default function KeystaticLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <div className="keystatic-wrapper" style={{
-      all: 'initial',
-      display: 'contents'
-    }}>
-      {children}
-    </div>
-  )
+  return children
 }
