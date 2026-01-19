@@ -6,7 +6,7 @@ export default config({
     kind: process.env.NODE_ENV === 'development' ? 'local' : 'cloud',
   },
   cloud: {
-    project: 'verbalist/verbalist', // Da configurare con il tuo progetto Keystatic Cloud
+    project: 'verbalist/www-verbalist-it',
   },
   collections: {
     posts: collection({
