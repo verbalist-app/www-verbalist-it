@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "title": "Verbalist — Content Automation for SEO, AEO, GEO",
+    "description": "Analyze Google competitors, extract winning patterns and generate optimized content for SEO, AEO and GEO. From keyword to complete article in minutes."
+  },
+  "nav": {
+    "product": "Product",
+    "platform": "Platform",
+    "solutions": "Solutions",
+    "pricing": "Pricing",
+    "guides": "Guides",
+    "integrations": "Integrations",
+    "login": "Login",
+    "startFreeTrial": "Start free trial"
+  },
+  "hero": {
+    "title": "Content Automation for SEO, AEO, GEO",
+    "subtitle": "Analyze Google competitors, extract winning patterns and generate optimized content. From keyword to complete article in minutes.",
+    "cta": "Start free trial",
+    "ctaSecondary": "See how it works"
+  },
+  "footer": {
+    "description": "The content automation platform that analyzes SERP, extracts winning patterns and generates SEO-optimized content.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "copyright": "All rights reserved."
+  }
+}
