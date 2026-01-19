@@ -1,4 +1,8 @@
+'use client'
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Globe } from "lucide-react"
 
 const links = {
   prodotto: [
@@ -15,6 +19,24 @@ const links = {
     { name: "Cookie Policy", href: "/cookie-policy" },
     { name: "Termini", href: "/termini" },
   ],
+}
+
+function LanguageSwitcher() {
+  const pathname = usePathname()
+  const isEnglish = pathname.startsWith('/en')
+  const pathWithoutLocale = isEnglish ? pathname.replace(/^\/en/, '') || '/' : pathname
+  const alternatePath = isEnglish ? pathWithoutLocale : `/en${pathname === '/' ? '' : pathname}`
+
+  return (
+    <Link
+      href={alternatePath}
+      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+      title={isEnglish ? 'Passa all\'italiano' : 'Switch to English'}
+    >
+      <Globe className="size-3.5" />
+      <span className="font-medium">{isEnglish ? 'Italiano' : 'English'}</span>
+    </Link>
+  )
 }
 
 export function Footer() {
@@ -108,15 +130,18 @@ export function Footer() {
                 NUR Digital Marketing
               </a>.
             </p>
-            <a
-              href="https://status.verbalist.it"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <span className="size-2 rounded-full bg-green-500" />
-              All systems normal
-            </a>
+            <div className="flex items-center gap-6">
+              <LanguageSwitcher />
+              <a
+                href="https://status.verbalist.it"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <span className="size-2 rounded-full bg-green-500" />
+                All systems normal
+              </a>
+            </div>
           </div>
         </div>
       </div>

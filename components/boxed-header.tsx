@@ -2,9 +2,8 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { Logo } from '@/components/logo'
-import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, Cpu, GraduationCap, HelpCircle, History, Globe } from 'lucide-react'
+import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, Cpu, GraduationCap, HelpCircle, History } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
     NavigationMenu,
@@ -42,24 +41,6 @@ const risorse = [
     { title: "Guide", href: "/guide", icon: GraduationCap },
     { title: "FAQ", href: "/faq", icon: HelpCircle },
 ]
-
-const LanguageSwitcher = () => {
-    const pathname = usePathname()
-    const isEnglish = pathname.startsWith('/en')
-    const pathWithoutLocale = isEnglish ? pathname.replace(/^\/en/, '') || '/' : pathname
-    const alternatePath = isEnglish ? pathWithoutLocale : `/en${pathname === '/' ? '' : pathname}`
-
-    return (
-        <Link
-            href={alternatePath}
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            title={isEnglish ? 'Passa all\'italiano' : 'Switch to English'}
-        >
-            <Globe className="size-4" />
-            <span className="uppercase font-medium">{isEnglish ? 'IT' : 'EN'}</span>
-        </Link>
-    )
-}
 
 export const BoxedHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
@@ -241,9 +222,8 @@ export const BoxedHeader = () => {
                                         Prenota una demo
                                     </Link>
                                 </div>
-                                <div className="mt-6 pt-4 border-t flex items-center justify-between gap-4">
-                                    <LanguageSwitcher />
-                                    <Button asChild variant="outline" size="sm" className="flex-1">
+                                <div className="mt-6 pt-4 border-t">
+                                    <Button asChild variant="outline" size="sm" className="w-full">
                                         <Link href="/login">
                                             <span>Accedi</span>
                                         </Link>
@@ -251,7 +231,6 @@ export const BoxedHeader = () => {
                                 </div>
                             </div>
                             <div className="hidden lg:flex w-full flex-col space-y-3 sm:flex-row sm:items-center sm:gap-3 sm:space-y-0 md:w-fit">
-                                <LanguageSwitcher />
                                 <Button asChild variant="outline" size="sm">
                                     <Link href="/login">
                                         <span>Accedi</span>
