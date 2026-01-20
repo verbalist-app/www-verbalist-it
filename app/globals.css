@@ -90,9 +90,9 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist), "Geist", system-ui, sans-serif;
+  --font-sans: var(--font-bdo-grotesk), "BDO Grotesk", system-ui, sans-serif;
   --font-serif: var(--font-playfair), "Playfair Display", serif;
-  --font-mono: var(--font-mono), "Geist Mono", monospace;
+  --font-mono: ui-monospace, "SF Mono", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

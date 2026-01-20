@@ -46,9 +46,13 @@ Usati **esclusivamente** per indicare stati. Sempre nella variante 500.
 
 | Tipo | Font | Uso |
 |------|------|-----|
-| Sans-serif | **Geist** | Testo principale, UI |
-| Serif | **Playfair Display** | Titoli marketing, landing pages |
-| Monospace | **Geist Mono** | Codice, keyword, dati tecnici |
+| Sans-serif | **BDO Grotesk** | Testo principale, UI, titoli |
+| Serif | **Playfair Display** | Titoli marketing (opzionale) |
+| Monospace | **SF Mono / system** | Codice, keyword, dati tecnici |
+
+### Font Source
+- **BDO Grotesk**: [github.com/LCTipografi/BDO-Grotesk](https://github.com/LCTipografi/BDO-Grotesk)
+- Licenza: SIL Open Font License (gratuito per uso commerciale)
 
 ### Font Weights
 
