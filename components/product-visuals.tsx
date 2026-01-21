@@ -173,7 +173,7 @@ export function PatternDetectionVisual() {
               {metric.label}
             </div>
             <div className={cn(
-              "text-[16px] font-semibold",
+              "text-[16px] font-medium",
               activeSection === idx ? "text-white" : "text-neutral-900"
             )}>
               {metric.value}

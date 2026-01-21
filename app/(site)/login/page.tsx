@@ -25,7 +25,7 @@ export default function LoginPage() {
         <main className="flex flex-1 flex-col items-center justify-center px-6 pb-20">
           <div className="w-full max-w-sm space-y-8">
             <div className="space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">
+              <h1 className="text-2xl font-medium tracking-tight">
                 Qual è la tua email?
               </h1>
               <p className="text-sm text-muted-foreground">
