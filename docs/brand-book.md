@@ -46,12 +46,12 @@ Usati **esclusivamente** per indicare stati. Sempre nella variante 500.
 
 | Tipo | Font | Uso |
 |------|------|-----|
-| Sans-serif | **BDO Grotesk** | Testo principale, UI, titoli |
+| Sans-serif | **Inter** | Testo principale, UI, titoli |
 | Serif | **Playfair Display** | Titoli marketing (opzionale) |
 | Monospace | **SF Mono / system** | Codice, keyword, dati tecnici |
 
 ### Font Source
-- **BDO Grotesk**: [github.com/LCTipografi/BDO-Grotesk](https://github.com/LCTipografi/BDO-Grotesk)
+- **Inter**: [Google Fonts](https://fonts.google.com/specimen/Inter)
 - Licenza: SIL Open Font License (gratuito per uso commerciale)
 
 ### Font Weights

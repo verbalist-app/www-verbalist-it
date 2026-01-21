@@ -1,49 +1,13 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import localFont from 'next/font/local'
+import { Inter } from 'next/font/google'
 
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const bdoGrotesk = localFont({
-  src: [
-    {
-      path: '../public/fonts/BDOGrotesk-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/BDOGrotesk-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/BDOGrotesk-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/BDOGrotesk-DemiBold.woff2',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/BDOGrotesk-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/BDOGrotesk-ExtraBold.woff2',
-      weight: '800',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/BDOGrotesk-Black.woff2',
-      weight: '900',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-bdo-grotesk',
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
   display: 'swap',
 })
 
@@ -152,7 +116,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
-      <body className={`${bdoGrotesk.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
+      <body className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
         {children}
         <Analytics />
       </body>
