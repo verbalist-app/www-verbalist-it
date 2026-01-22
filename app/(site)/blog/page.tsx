@@ -35,7 +35,7 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <section className="pt-32 pb-24">
+    <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-5xl mx-auto px-6">
         <div className="mb-12">
           <Badge variant="secondary" className="mb-4">

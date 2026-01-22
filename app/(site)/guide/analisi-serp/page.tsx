@@ -37,7 +37,7 @@ const articles = [
 
 export default function AnalisiSerpPage() {
   return (
-    <section className="pt-32 pb-24">
+    <section className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
           <Link
             href="/guide"

@@ -162,7 +162,7 @@ export default function GuidePage() {
   const isSearching = searchQuery.trim().length > 0
 
   return (
-    <section className="pt-32 pb-24 md:pb-32">
+    <section className="pt-20 md:pt-28 pb-24 md:pb-32">
         <div className="mx-auto max-w-5xl px-6">
           {/* Header with Search */}
           <div className="mb-12 text-center">

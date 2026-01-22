@@ -76,7 +76,7 @@ const changelogEntries: ChangelogEntry[] = [
 
 export default function ChangelogPage() {
   return (
-    <section className="pt-32 pb-24 md:pb-32">
+    <section className="pt-20 md:pt-28 pb-24 md:pb-32">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mx-auto max-w-3xl">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">

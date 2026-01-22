@@ -18,7 +18,7 @@ const post = {
 
 export default function BlogPostPage() {
   return (
-    <article className="pt-32 pb-24">
+    <article className="pt-20 md:pt-28 pb-24">
       {/* Header */}
       <div className="max-w-4xl mx-auto px-6">
         <div className="mb-8">

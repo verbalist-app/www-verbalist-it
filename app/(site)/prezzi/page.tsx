@@ -68,7 +68,7 @@ const plans = [
 
 export default function PrezziPage() {
   return (
-    <section className="pt-32 pb-24">
+    <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">

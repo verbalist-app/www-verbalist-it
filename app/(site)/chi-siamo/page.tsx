@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function ChiSiamoPage() {
   return (
-    <section className="pt-32 pb-24">
+    <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-4xl mx-auto px-6">
         <div className="mb-12">
           <Link

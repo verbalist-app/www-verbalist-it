@@ -105,7 +105,7 @@ export default function ContattiPage() {
   }
 
   return (
-    <section className="pt-32 pb-24 md:pb-32">
+    <section className="pt-20 md:pt-28 pb-24 md:pb-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col items-center gap-4 lg:items-start lg:gap-8">
