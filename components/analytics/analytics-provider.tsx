@@ -3,7 +3,7 @@
 import * as React from "react"
 import { GoogleAnalytics } from "./google-analytics"
 import { Hotjar } from "./hotjar"
-import { CookieConsent } from "@/components/cookie-consent"
+import { CookieConsent, type CookiePreferences } from "@/components/cookie-consent"
 
 type Locale = "it" | "en"
 
@@ -20,34 +20,24 @@ export function AnalyticsProvider({
   hotjarSiteId,
   children,
 }: AnalyticsProviderProps) {
-  const [hasConsent, setHasConsent] = React.useState(false)
+  const [preferences, setPreferences] = React.useState<CookiePreferences | null>(null)
 
-  // Check initial consent on mount
-  React.useEffect(() => {
-    const consent = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("cookieConsent="))
-      ?.split("=")[1]
-
-    if (consent === "accepted") {
-      setHasConsent(true)
-    }
-  }, [])
-
-  const handleAccept = React.useCallback(() => {
-    setHasConsent(true)
+  const handleAccept = React.useCallback((prefs: CookiePreferences) => {
+    setPreferences(prefs)
   }, [])
 
   const handleDecline = React.useCallback(() => {
-    setHasConsent(false)
+    setPreferences({ necessary: true, analytics: false, marketing: false })
   }, [])
+
+  const analyticsEnabled = preferences?.analytics === true
 
   return (
     <>
-      {hasConsent && gaMeasurementId && (
+      {analyticsEnabled && gaMeasurementId && (
         <GoogleAnalytics measurementId={gaMeasurementId} />
       )}
-      {hasConsent && hotjarSiteId && (
+      {analyticsEnabled && hotjarSiteId && (
         <Hotjar siteId={hotjarSiteId} />
       )}
       <CookieConsent

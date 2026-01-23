@@ -1,230 +1,282 @@
 "use client"
 
-import { X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react"
 import Link from "next/link"
+import { X, ChevronDown } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Switch } from "@/components/ui/switch"
+import { cn } from "@/lib/utils"
 
 type Locale = "it" | "en"
 
+export interface CookiePreferences {
+  necessary: boolean
+  analytics: boolean
+  marketing: boolean
+}
+
 interface CookieConsentProps {
-  variant?: "default" | "small" | "minimal"
   locale?: Locale
-  onAcceptCallback?: () => void
+  onAcceptCallback?: (preferences: CookiePreferences) => void
   onDeclineCallback?: () => void
 }
 
 const translations = {
   it: {
     title: "Utilizziamo i cookie",
-    description: "Utilizziamo i cookie per offrirti la migliore esperienza sul nostro sito. Per maggiori informazioni, consulta la nostra cookie policy.",
-    acceptNote: "Cliccando",
-    accept: "Accetta",
-    acceptSuffix: ", acconsenti all'uso dei cookie.",
-    decline: "Rifiuta",
-    learnMore: "Maggiori informazioni",
+    description: "Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito.",
+    managePreferences: "Gestisci preferenze",
+    declineAll: "Rifiuta",
+    acceptAll: "Accetta tutti",
+    savePreferences: "Salva preferenze",
+    learnMore: "Cookie Policy",
     learnMoreHref: "/cookie-policy",
-    minimal: "Utilizziamo i cookie per migliorare la tua esperienza.",
-    cookieNotice: "Cookie",
+    necessary: "Necessari",
+    necessaryDesc: "Essenziali per il funzionamento del sito. Non possono essere disattivati.",
+    analytics: "Analitici",
+    analyticsDesc: "Ci aiutano a capire come utilizzi il sito (Google Analytics, Hotjar).",
+    marketing: "Marketing",
+    marketingDesc: "Utilizzati per mostrarti pubblicità pertinenti.",
+    alwaysActive: "Sempre attivi",
   },
   en: {
     title: "We use cookies",
-    description: "We use cookies to ensure you get the best experience on our website. For more information on how we use cookies, please see our cookie policy.",
-    acceptNote: "By clicking",
-    accept: "Accept",
-    acceptSuffix: ", you agree to our use of cookies.",
-    decline: "Decline",
-    learnMore: "Learn more",
+    description: "We use cookies to improve your experience on our website.",
+    managePreferences: "Manage preferences",
+    declineAll: "Decline",
+    acceptAll: "Accept all",
+    savePreferences: "Save preferences",
+    learnMore: "Cookie Policy",
     learnMoreHref: "/en/cookie-policy",
-    minimal: "We use cookies to enhance your browsing experience.",
-    cookieNotice: "Cookies",
+    necessary: "Necessary",
+    necessaryDesc: "Essential for the website to function. Cannot be disabled.",
+    analytics: "Analytics",
+    analyticsDesc: "Help us understand how you use the site (Google Analytics, Hotjar).",
+    marketing: "Marketing",
+    marketingDesc: "Used to show you relevant advertising.",
+    alwaysActive: "Always active",
   },
 }
 
+function getStoredPreferences(): CookiePreferences | null {
+  if (typeof document === "undefined") return null
+
+  const consent = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("cookieConsent="))
+    ?.split("=")[1]
+
+  if (!consent) return null
+
+  try {
+    return JSON.parse(decodeURIComponent(consent))
+  } catch {
+    // Legacy format: "accepted" or "declined"
+    if (consent === "accepted") {
+      return { necessary: true, analytics: true, marketing: true }
+    }
+    if (consent === "declined") {
+      return { necessary: true, analytics: false, marketing: false }
+    }
+    return null
+  }
+}
+
+function setStoredPreferences(preferences: CookiePreferences, months: number = 12) {
+  const expiryDate = new Date()
+  expiryDate.setMonth(expiryDate.getMonth() + months)
+  const value = encodeURIComponent(JSON.stringify(preferences))
+  document.cookie = `cookieConsent=${value}; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`
+}
+
 export function CookieConsent({
-  variant = "default",
   locale = "it",
   onAcceptCallback = () => {},
   onDeclineCallback = () => {},
 }: CookieConsentProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [hide, setHide] = useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [hide, setHide] = React.useState(false)
+  const [showPreferences, setShowPreferences] = React.useState(false)
+  const [preferences, setPreferences] = React.useState<CookiePreferences>({
+    necessary: true,
+    analytics: false,
+    marketing: false,
+  })
 
   const t = translations[locale]
 
-  const accept = () => {
+  const handleAcceptAll = React.useCallback(() => {
+    const allAccepted: CookiePreferences = {
+      necessary: true,
+      analytics: true,
+      marketing: true,
+    }
+    setStoredPreferences(allAccepted)
     setIsOpen(false)
-    // Set cookie for 1 year
-    const expiryDate = new Date()
-    expiryDate.setFullYear(expiryDate.getFullYear() + 1)
-    document.cookie = `cookieConsent=accepted; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`
-    setTimeout(() => {
-      setHide(true)
-    }, 700)
-    onAcceptCallback()
-  }
+    setTimeout(() => setHide(true), 500)
+    onAcceptCallback(allAccepted)
+  }, [onAcceptCallback])
 
-  const decline = () => {
+  const handleDeclineAll = React.useCallback(() => {
+    const allDeclined: CookiePreferences = {
+      necessary: true,
+      analytics: false,
+      marketing: false,
+    }
+    setStoredPreferences(allDeclined, 6)
     setIsOpen(false)
-    // Set cookie for 6 months
-    const expiryDate = new Date()
-    expiryDate.setMonth(expiryDate.getMonth() + 6)
-    document.cookie = `cookieConsent=declined; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`
-    setTimeout(() => {
-      setHide(true)
-    }, 700)
+    setTimeout(() => setHide(true), 500)
     onDeclineCallback()
-  }
+  }, [onDeclineCallback])
 
-  useEffect(() => {
-    try {
-      const consent = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("cookieConsent="))
-        ?.split("=")[1]
+  const handleSavePreferences = React.useCallback(() => {
+    setStoredPreferences(preferences)
+    setIsOpen(false)
+    setTimeout(() => setHide(true), 500)
+    onAcceptCallback(preferences)
+  }, [preferences, onAcceptCallback])
 
-      if (consent === "accepted") {
-        setHide(true)
-        onAcceptCallback()
-      } else if (consent === "declined") {
-        setHide(true)
-      } else {
-        // Small delay before showing
-        setTimeout(() => {
-          setIsOpen(true)
-        }, 1000)
+  React.useEffect(() => {
+    const stored = getStoredPreferences()
+    if (stored) {
+      setHide(true)
+      if (stored.analytics || stored.marketing) {
+        onAcceptCallback(stored)
       }
-    } catch (error) {
-      console.error("Error checking cookie consent:", error)
+    } else {
+      setTimeout(() => setIsOpen(true), 1000)
     }
   }, [onAcceptCallback])
 
   if (hide) return null
 
-  return variant === "default" ? (
+  return (
     <div
       className={cn(
-        "fixed z-[200] bottom-0 left-0 right-0 p-4 sm:p-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md duration-700",
+        "fixed z-[200] bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 sm:right-auto w-full sm:max-w-md duration-500 ease-out",
         !isOpen
           ? "transition-[opacity,transform] translate-y-8 opacity-0"
           : "transition-[opacity,transform] translate-y-0 opacity-100"
       )}
     >
-      <div className="dark:bg-card bg-background rounded-lg sm:rounded-md border border-border shadow-lg relative">
+      <div className="m-3 sm:m-0 bg-background rounded-lg border border-border shadow-lg relative">
         {/* X button */}
         <button
-          onClick={decline}
+          onClick={handleDeclineAll}
           className="absolute top-3 right-3 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-          aria-label={t.decline}
+          aria-label={t.declineAll}
         >
           <X className="h-4 w-4" />
         </button>
-        <div className="grid gap-2">
-          <div className="border-b border-border h-12 sm:h-14 flex items-center p-3 sm:p-4 pr-10">
-            <h1 className="text-base sm:text-lg font-medium">{t.title}</h1>
-          </div>
-          <div className="p-3 sm:p-4">
-            <p className="text-xs sm:text-sm font-normal text-start text-muted-foreground">
-              {t.description}
-              <br />
-              <br />
-              <span className="text-xs">
-                {t.acceptNote}{" "}
-                <span className="font-medium text-foreground">{t.accept}</span>
-                {t.acceptSuffix}
-              </span>
-              <br />
-              <Link href={t.learnMoreHref} className="text-xs underline hover:no-underline">
-                {t.learnMore}
-              </Link>
-            </p>
-          </div>
-          <div className="grid grid-cols-2 items-center gap-2 p-3 sm:p-4 sm:py-5 border-t border-border dark:bg-background/20">
-            <Button onClick={accept} variant="default" className="w-full">
-              {t.accept}
-            </Button>
-            <Button onClick={decline} variant="outline" className="w-full">
-              {t.decline}
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
-  ) : variant === "small" ? (
-    <div
-      className={cn(
-        "fixed z-[200] bottom-0 left-0 right-0 p-4 sm:p-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md duration-700",
-        !isOpen
-          ? "transition-[opacity,transform] translate-y-8 opacity-0"
-          : "transition-[opacity,transform] translate-y-0 opacity-100"
-      )}
-    >
-      <div className="m-0 sm:m-3 dark:bg-card bg-background border border-border rounded-lg shadow-lg relative">
-        {/* X button */}
-        <button
-          onClick={decline}
-          className="absolute top-2 right-2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-          aria-label={t.decline}
-        >
-          <X className="h-4 w-4" />
-        </button>
-        <div className="flex items-center p-3 pr-10">
-          <h1 className="text-base sm:text-lg font-medium">{t.title}</h1>
-        </div>
-        <div className="p-3 -mt-2">
-          <p className="text-xs sm:text-sm text-left text-muted-foreground">
-            {t.description}
+
+        <div className="p-4 pr-10">
+          <h2 className="text-base font-medium mb-2">{t.title}</h2>
+          <p className="text-sm text-muted-foreground">
+            {t.description}{" "}
+            <Link
+              href={t.learnMoreHref}
+              className="underline underline-offset-2 hover:text-foreground"
+            >
+              {t.learnMore}
+            </Link>
           </p>
         </div>
-        <div className="grid grid-cols-2 items-center gap-2 p-3 mt-2 border-t">
-          <Button onClick={accept} className="w-full">
-            {t.accept}
-          </Button>
-          <Button onClick={decline} className="w-full" variant="outline">
-            {t.decline}
-          </Button>
+
+        {/* Preferences panel */}
+        {showPreferences && (
+          <div className="px-4 pb-2 space-y-3 border-t border-border pt-4">
+            {/* Necessary */}
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium">{t.necessary}</p>
+                <p className="text-xs text-muted-foreground">{t.necessaryDesc}</p>
+              </div>
+              <span className="text-xs text-muted-foreground">{t.alwaysActive}</span>
+            </div>
+
+            {/* Analytics */}
+            <div className="flex items-center justify-between">
+              <div className="flex-1 pr-4">
+                <p className="text-sm font-medium">{t.analytics}</p>
+                <p className="text-xs text-muted-foreground">{t.analyticsDesc}</p>
+              </div>
+              <Switch
+                checked={preferences.analytics}
+                onCheckedChange={(checked) =>
+                  setPreferences((prev) => ({ ...prev, analytics: checked }))
+                }
+              />
+            </div>
+
+            {/* Marketing */}
+            <div className="flex items-center justify-between">
+              <div className="flex-1 pr-4">
+                <p className="text-sm font-medium">{t.marketing}</p>
+                <p className="text-xs text-muted-foreground">{t.marketingDesc}</p>
+              </div>
+              <Switch
+                checked={preferences.marketing}
+                onCheckedChange={(checked) =>
+                  setPreferences((prev) => ({ ...prev, marketing: checked }))
+                }
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Buttons */}
+        <div className="p-4 pt-3 border-t border-border">
+          {!showPreferences ? (
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowPreferences(true)}
+                className="text-xs h-9 justify-start sm:justify-center"
+              >
+                {t.managePreferences}
+                <ChevronDown className="ml-1 h-3 w-3" />
+              </Button>
+              <div className="flex gap-2 sm:ml-auto">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleDeclineAll}
+                  className="text-xs h-9 flex-1 sm:flex-none"
+                >
+                  {t.declineAll}
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={handleAcceptAll}
+                  className="text-xs h-9 flex-1 sm:flex-none"
+                >
+                  {t.acceptAll}
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowPreferences(false)}
+                className="text-xs h-9"
+              >
+                ←
+              </Button>
+              <Button
+                size="sm"
+                onClick={handleSavePreferences}
+                className="text-xs h-9 flex-1"
+              >
+                {t.savePreferences}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>
-  ) : (
-    variant === "minimal" && (
-      <div
-        className={cn(
-          "fixed z-[200] bottom-0 left-0 right-0 p-4 sm:p-0 sm:left-4 sm:bottom-4 w-full sm:max-w-[300px] duration-700",
-          !isOpen
-            ? "transition-[opacity,transform] translate-y-8 opacity-0"
-            : "transition-[opacity,transform] translate-y-0 opacity-100"
-        )}
-      >
-        <div className="m-0 sm:m-3 dark:bg-card bg-background border border-border rounded-lg shadow-lg relative">
-          {/* X button */}
-          <button
-            onClick={decline}
-            className="absolute top-2 right-2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-            aria-label={t.decline}
-          >
-            <X className="h-3.5 w-3.5" />
-          </button>
-          <div className="p-3 flex items-center border-b border-border pr-8">
-            <span className="text-xs sm:text-sm font-medium">{t.cookieNotice}</span>
-          </div>
-          <div className="p-3">
-            <p className="text-[11px] sm:text-xs text-muted-foreground">
-              {t.minimal}
-            </p>
-            <div className="grid grid-cols-2 items-center gap-2 mt-3">
-              <Button onClick={accept} variant="default" className="w-full h-8 text-xs">
-                {t.accept}
-              </Button>
-              <Button onClick={decline} variant="ghost" className="w-full h-8 text-xs">
-                {t.decline}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
   )
 }
 
