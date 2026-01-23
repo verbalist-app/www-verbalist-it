@@ -111,8 +111,8 @@ export default function MarketingTeamsPage() {
     <>
       <SubPageHeroEn
         label="Content Manager"
-        title="From keyword to draft, you refine"
-        description="Structured drafts based on ranking patterns. You define the tone, Verbalist generates the first draft."
+        title="Create SEO-optimized content without the research"
+        description="Skip the manual SERP analysis. Get structured drafts based on proven ranking patterns, in your tone of voice, ready for your editorial touch."
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

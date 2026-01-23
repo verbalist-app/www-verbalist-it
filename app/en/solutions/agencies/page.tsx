@@ -95,8 +95,8 @@ export default function AgenciesPage() {
     <>
       <SubPageHeroEn
         label="Agencies"
-        title="Scale content production for clients"
-        description="SERP analysis and content drafts for every client. Less time on research, more time on strategy and quality."
+        title="Deliver more content, faster, for every client"
+        description="Streamline SERP analysis and content creation across all your accounts. Spend less time on research, more time on strategy and client results."
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

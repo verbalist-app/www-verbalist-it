@@ -119,8 +119,8 @@ export default function SerpAnalysisPage() {
     <>
       <SubPageHeroEn
         label="SERP Analysis"
-        title="See who's ranking and why"
-        description="Fetches the top 10 Google results for your keyword. Title, meta, structure and search intent in one click."
+        title="Understand exactly what makes content rank"
+        description="Analyze the top 10 Google results in seconds. Extract titles, meta descriptions, heading structures and search intent patterns that drive rankings."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
 

@@ -142,8 +142,8 @@ export default function ContentGenerationPage() {
     <>
       <SubPageHeroEn
         label="Content Generation"
-        title="From analysis to draft in one click"
-        description="Writes the article based on patterns that work. Title, meta, structure and text. Ready to publish."
+        title="Transform SERP insights into publish-ready content"
+        description="Generate optimized articles based on proven ranking patterns. Complete with title, meta, heading structure and body text—ready for your refinement."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
 

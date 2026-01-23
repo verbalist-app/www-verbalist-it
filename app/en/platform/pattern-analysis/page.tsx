@@ -133,8 +133,8 @@ export default function PatternAnalysisPage() {
     <>
       <SubPageHeroEn
         label="Pattern Analysis"
-        title="Discover what works on page one"
-        description="Find what ranking content has in common. Length, structure, topics covered."
+        title="Decode the patterns behind top rankings"
+        description="Uncover what first-page content has in common. Word count ranges, heading structures, topic coverage and E-E-A-T signals that correlate with success."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
 

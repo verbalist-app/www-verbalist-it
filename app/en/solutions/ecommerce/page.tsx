@@ -106,8 +106,8 @@ export default function EcommercePage() {
     <>
       <SubPageHeroEn
         label="eCommerce"
-        title="Product pages that rank and convert"
-        description="Analyzes ranking product pages. Generates drafts with the structure that works: descriptions, features, specifications."
+        title="Turn product pages into traffic magnets"
+        description="Analyze top-ranking product pages and generate optimized descriptions, features and specifications that drive both rankings and conversions."
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

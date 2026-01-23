@@ -22,10 +22,10 @@ export default function AboutPage() {
             About Us
           </p>
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-            25 years of SEO, 430+ clients
+            Built on 25 years of SEO expertise
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">
-            Verbalist is a product of <a href="https://www.nur.it/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline font-medium">NUR Digital Marketing</a>. SEO, GEO and content optimization since 1999.
+            Verbalist is a product of <a href="https://www.nur.it/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline font-medium">NUR Digital Marketing</a>. 430+ clients served since 1999, now accessible to everyone through software.
           </p>
         </div>
 

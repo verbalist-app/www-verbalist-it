@@ -101,8 +101,8 @@ export default function AIStrategistPage() {
     <>
       <SubPageHeroEn
         label="AI Strategist"
-        title="Content optimized to be cited by LLMs"
-        description="Structured content to be cited by LLMs. E-E-A-T analysis, citability patterns and structures optimized for AEO and GEO."
+        title="Get your content cited by AI assistants"
+        description="Optimize for ChatGPT, Perplexity and AI Overview. Analyze E-E-A-T signals, citability patterns and structures that LLMs prefer to reference."
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

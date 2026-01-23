@@ -108,8 +108,8 @@ export default function SeoTeamsPage() {
     <>
       <SubPageHeroEn
         label="SEO Specialists"
-        title="The data you need to compete in SERP"
-        description="SERP analysis, pattern detection, competitor metrics. Concrete data to build content that competes."
+        title="Get the competitive edge in every SERP"
+        description="Access real-time SERP data, pattern detection and competitor insights. Make data-driven decisions that consistently outrank the competition."
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

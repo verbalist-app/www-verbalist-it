@@ -78,10 +78,10 @@ export default function PricingPage() {
             Pricing
           </p>
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-            Three plans. Free 14-day trial
+            Simple pricing, powerful results
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Start free, upgrade when you need it. No commitment.
+            Start with a free 14-day trial. Scale up as your content needs grow. No hidden fees, no commitment.
           </p>
         </div>
 
