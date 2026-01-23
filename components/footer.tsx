@@ -166,7 +166,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-6xl px-6 lg:px-12">
-          <div className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col items-center gap-4 py-6 sm:flex-row sm:justify-between">
             {/* Manage cookies */}
             <button
               onClick={() => {
