@@ -110,6 +110,11 @@ export default function TeamSeoPage() {
         icon={Search}
         title="Verbalist per SEO Specialist"
         description="Analisi SERP, pattern detection, metriche dei competitor. Dati concreti per costruire contenuti che competono."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Soluzioni", href: "/soluzioni/team-seo" },
+          { label: "Team SEO" },
+        ]}
       />
 
       <TrustedBy />

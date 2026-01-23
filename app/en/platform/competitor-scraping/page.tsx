@@ -137,6 +137,11 @@ export default function CompetitorScrapingPage() {
         icon={Download}
         title="Competitor Scraping"
         description="Downloads competitor page content. Converts it to clean Markdown, ready for analysis."
+        breadcrumbs={[
+          { label: "Home", href: "/en" },
+          { label: "Platform", href: "/en/platform/competitor-scraping" },
+          { label: "Competitor Scraping" },
+        ]}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />

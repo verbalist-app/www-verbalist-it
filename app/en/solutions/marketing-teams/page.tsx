@@ -113,6 +113,11 @@ export default function MarketingTeamsPage() {
         icon={PenTool}
         title="Verbalist for Content Managers"
         description="Structured drafts based on ranking patterns. You define the tone, Verbalist generates the first draft."
+        breadcrumbs={[
+          { label: "Home", href: "/en" },
+          { label: "Solutions", href: "/en/solutions/marketing-teams" },
+          { label: "Marketing Teams" },
+        ]}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

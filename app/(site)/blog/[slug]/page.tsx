@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { reader, formatDate, getTranslation } from "@/lib/keystatic"
 import { ArticleSchema } from "@/components/schema"
+import { PageBreadcrumb } from "@/components/page-breadcrumb"
 import Markdoc from "@markdoc/markdoc"
 import React from "react"
 import type { Metadata } from "next"
@@ -60,15 +61,14 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Header */}
         <div className="max-w-4xl mx-auto px-6">
         <div className="mb-8 flex items-center justify-between">
-          <Link
-            href="/blog"
-            className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Torna al blog
-          </Link>
+          <PageBreadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Blog", href: "/blog" },
+              { label: post.title },
+            ]}
+            className="mb-0"
+          />
           {translation && (
             <Link
               href={`/en/blog/${translation.slug}`}

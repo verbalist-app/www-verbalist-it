@@ -108,6 +108,11 @@ export default function EcommercePage() {
         icon={ShoppingBag}
         title="Verbalist for eCommerce"
         description="Analyzes ranking product pages. Generates drafts with the structure that works: descriptions, features, specifications."
+        breadcrumbs={[
+          { label: "Home", href: "/en" },
+          { label: "Solutions", href: "/en/solutions/ecommerce" },
+          { label: "eCommerce" },
+        ]}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

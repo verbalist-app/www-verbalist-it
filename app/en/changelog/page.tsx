@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 type ChangelogEntry = {
   version: string
@@ -79,6 +80,12 @@ export default function ChangelogPage() {
     <section className="pt-20 md:pt-28 pb-24 md:pb-32">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mx-auto max-w-3xl">
+          <PageBreadcrumb
+            items={[
+              { label: "Home", href: "/en" },
+              { label: "Changelog" },
+            ]}
+          />
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Updates
           </p>

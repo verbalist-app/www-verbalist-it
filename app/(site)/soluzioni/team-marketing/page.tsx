@@ -113,6 +113,11 @@ export default function TeamMarketingPage() {
         icon={PenTool}
         title="Verbalist per Content Manager"
         description="Bozze strutturate basate sui pattern vincenti. Tu definisci il tono, Verbalist genera la prima stesura."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Soluzioni", href: "/soluzioni/team-marketing" },
+          { label: "Team Marketing" },
+        ]}
       />
 
       <TrustedBy />

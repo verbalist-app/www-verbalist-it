@@ -1,5 +1,6 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -17,16 +18,13 @@ export default function AboutPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-4xl mx-auto px-6">
+        <PageBreadcrumb
+          items={[
+            { label: "Home", href: "/en" },
+            { label: "About" },
+          ]}
+        />
         <div className="mb-12">
-          <Link
-            href="/en"
-            className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 mb-8 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to home
-          </Link>
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Company
           </p>

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { PageBreadcrumb } from "@/components/page-breadcrumb"
 import {
   Card,
   CardContent,
@@ -43,6 +44,12 @@ export default async function BlogPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-5xl mx-auto px-6">
+        <PageBreadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Blog" },
+          ]}
+        />
         <div className="mb-12">
           <Badge variant="secondary" className="mb-4">
             Risorse

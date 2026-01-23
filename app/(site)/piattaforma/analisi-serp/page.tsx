@@ -121,6 +121,11 @@ export default function AnalisiSerpPage() {
         icon={Search}
         title="Analisi SERP"
         description="Prende i primi 10 risultati Google per la tua keyword. Vedi chi sta rankando e perché."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Piattaforma", href: "/piattaforma/analisi-serp" },
+          { label: "Analisi SERP" },
+        ]}
       />
 
       <TrustedBy />

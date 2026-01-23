@@ -97,6 +97,11 @@ export default function AgenziePage() {
         icon={Building2}
         title="Verbalist per Agenzie"
         description="Analisi SERP e bozze di contenuto per ogni cliente. Meno tempo sulla ricerca, più tempo sulla strategia e sulla qualità."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Soluzioni", href: "/soluzioni/agenzie" },
+          { label: "Agenzie" },
+        ]}
       />
 
       <TrustedBy />

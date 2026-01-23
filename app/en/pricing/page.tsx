@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Check } from "lucide-react"
 import type { Metadata } from "next"
+import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -66,6 +67,15 @@ export default function PricingPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-6xl mx-auto px-6">
+        <div className="flex justify-center mb-6">
+          <PageBreadcrumb
+            items={[
+              { label: "Home", href: "/en" },
+              { label: "Pricing" },
+            ]}
+            className="mb-0"
+          />
+        </div>
         <div className="text-center mb-16">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Plans

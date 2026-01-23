@@ -1,12 +1,14 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { PageBreadcrumb, type BreadcrumbItem } from "@/components/page-breadcrumb"
 import type { LucideIcon } from "lucide-react"
 
 interface SubPageHeroProps {
   icon?: LucideIcon
   title: string
   description: string
+  breadcrumbs?: BreadcrumbItem[]
   primaryCta?: {
     text: string
     href: string
@@ -22,13 +24,19 @@ export function SubPageHero({
   icon: Icon,
   title,
   description,
+  breadcrumbs,
   primaryCta = { text: "Prenota una demo", href: "/contatti" },
   secondaryCta,
   className,
 }: SubPageHeroProps) {
   return (
-    <section className={cn("py-20 md:py-28", className)}>
+    <section className={cn("pt-20 md:pt-28 pb-12 md:pb-16", className)}>
       <div className="mx-auto max-w-3xl px-6 text-center">
+        {breadcrumbs && breadcrumbs.length > 0 && (
+          <div className="flex justify-center mb-6">
+            <PageBreadcrumb items={breadcrumbs} className="mb-0" />
+          </div>
+        )}
         {Icon && (
           <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
             <Icon className="size-6" strokeWidth={1.5} />

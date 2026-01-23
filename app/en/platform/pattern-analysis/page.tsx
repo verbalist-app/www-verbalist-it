@@ -135,6 +135,11 @@ export default function PatternAnalysisPage() {
         icon={BarChart3}
         title="Pattern Analysis"
         description="Find what ranking content has in common. Length, structure, topics covered."
+        breadcrumbs={[
+          { label: "Home", href: "/en" },
+          { label: "Platform", href: "/en/platform/pattern-analysis" },
+          { label: "Pattern Analysis" },
+        ]}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
