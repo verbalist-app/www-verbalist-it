@@ -8,7 +8,7 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Analisi SERP Automatica | Strumento SEO",
+  title: "Analisi SERP Automatica | Verbalist",
   description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati SERP pronti per l'ottimizzazione.",
   alternates: {
     canonical: "/piattaforma/analisi-serp",
@@ -118,9 +118,9 @@ export default function AnalisiSerpPage() {
   return (
     <>
       <SubPageHero
-        icon={Search}
-        title="Analisi SERP"
-        description="Prende i primi 10 risultati Google per la tua keyword. Vedi chi sta rankando e perché."
+        label="Analisi SERP"
+        title="Vedi chi sta rankando e perché"
+        description="Prende i primi 10 risultati Google per la tua keyword. Title, meta, struttura e search intent in un click."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

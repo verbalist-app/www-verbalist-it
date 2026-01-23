@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Strumenti SEO per Agenzie | Content Platform",
+  title: "Strumenti SEO per Agenzie | Verbalist",
   description: "Piattaforma SEO per agenzie: analisi SERP, generazione contenuti AI e gestione multi-cliente. Scala la produzione di contenuti per i tuoi clienti.",
   alternates: {
     canonical: "/soluzioni/agenzie",
@@ -94,9 +94,9 @@ export default function AgenziePage() {
   return (
     <>
       <SubPageHero
-        icon={Building2}
-        title="Verbalist per Agenzie"
-        description="Analisi SERP e bozze di contenuto per ogni cliente. Meno tempo sulla ricerca, più tempo sulla strategia e sulla qualità."
+        label="Agenzie"
+        title="Scala la produzione di contenuti per i clienti"
+        description="Analisi SERP e bozze per ogni cliente. Meno tempo sulla ricerca, più tempo sulla strategia."
       />
 
       <TrustedBy />

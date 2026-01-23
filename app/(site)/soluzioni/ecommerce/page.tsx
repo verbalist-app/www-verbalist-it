@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "SEO per eCommerce | Ottimizzazione Schede Prodotto",
+  title: "SEO per eCommerce | Verbalist",
   description: "Descrizioni prodotto SEO generate con AI. Analisi pattern SERP, contenuti ottimizzati per categorie e schede prodotto che convertono.",
   alternates: {
     canonical: "/soluzioni/ecommerce",
@@ -105,9 +105,9 @@ export default function EcommercePage() {
   return (
     <>
       <SubPageHero
-        icon={ShoppingBag}
-        title="Verbalist per eCommerce"
-        description="Analizza le pagine prodotto meglio posizionate. Genera bozze con la struttura che funziona: descrizioni, features, specifiche."
+        label="eCommerce"
+        title="Pagine prodotto che rankano e convertono"
+        description="Analizza le pagine prodotto meglio posizionate. Genera bozze con descrizioni, features e specifiche."
       />
 
       <TrustedBy />

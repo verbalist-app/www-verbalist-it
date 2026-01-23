@@ -8,13 +8,13 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Generatore Testi AI per SEO | Scrittura Automatica",
+  title: "Generazione Contenuti AI | Verbalist",
   description: "Genera contenuti SEO con AI basandosi sui pattern SERP. Title, meta description, struttura heading e testo ottimizzato. Pronto per pubblicare.",
   alternates: {
     canonical: "/piattaforma/generazione-contenuto",
   },
   openGraph: {
-    title: "Generatore Testi AI per SEO — Verbalist",
+    title: "Generazione Contenuti AI — Verbalist",
     description: "Genera contenuti SEO con AI basandosi sui pattern SERP. Title, meta description, struttura heading e testo ottimizzato. Pronto per pubblicare.",
   },
 }
@@ -141,9 +141,9 @@ export default function GenerazioneContenutoPage() {
   return (
     <>
       <SubPageHero
-        icon={FileText}
-        title="Generazione Contenuto"
-        description="Scrive l'articolo basandosi sui pattern che funzionano. Title, meta, struttura e testo. Pronto per pubblicare."
+        label="Generazione Contenuto"
+        title="Dall'analisi alla bozza in un click"
+        description="Scrive l'articolo basandosi sui pattern vincenti. Title, meta, struttura e testo. Pronto per pubblicare."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

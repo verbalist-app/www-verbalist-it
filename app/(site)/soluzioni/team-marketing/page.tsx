@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Generatore Contenuti AI per Content Manager",
+  title: "Generatore Contenuti AI | Verbalist",
   description: "Scrittura AI per blog, landing page e guide. Tone of voice personalizzabile, struttura SEO-ready e contenuti pronti da pubblicare.",
   alternates: {
     canonical: "/soluzioni/team-marketing",
@@ -110,8 +110,8 @@ export default function TeamMarketingPage() {
   return (
     <>
       <SubPageHero
-        icon={PenTool}
-        title="Verbalist per Content Manager"
+        label="Content Manager"
+        title="Dalla keyword alla bozza, tu rifinisci"
         description="Bozze strutturate basate sui pattern vincenti. Tu definisci il tono, Verbalist genera la prima stesura."
       />
 

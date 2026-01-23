@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "GEO e AEO Optimization | Tool per AI Strategist",
+  title: "GEO e AEO Optimization | Verbalist",
   description: "Ottimizza i contenuti per AI Overview, ChatGPT e Perplexity. Generative Engine Optimization (GEO) e Answer Engine Optimization (AEO) con dati SERP.",
   alternates: {
     canonical: "/soluzioni/ai-strategist",
@@ -100,9 +100,9 @@ export default function AIStrategistPage() {
   return (
     <>
       <SubPageHero
-        icon={Bot}
-        title="Verbalist per AI Strategist"
-        description="Contenuti strutturati per essere citati dagli LLM. Analisi E-E-A-T, pattern di citabilità e strutture ottimizzate per AEO e GEO."
+        label="AI Strategist"
+        title="Contenuti ottimizzati per essere citati dagli LLM"
+        description="Analisi E-E-A-T, pattern di citabilità e strutture per AI Overview, ChatGPT e Perplexity."
       />
 
       <TrustedBy />

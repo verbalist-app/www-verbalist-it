@@ -8,13 +8,13 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Pattern Detection SEO | Analisi Contenuti SERP",
+  title: "Analisi Pattern SEO | Verbalist",
   description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali E-E-A-T. Dati per il SEO copywriting.",
   alternates: {
     canonical: "/piattaforma/analisi-pattern",
   },
   openGraph: {
-    title: "Pattern Detection SEO — Verbalist",
+    title: "Analisi Pattern SEO — Verbalist",
     description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali E-E-A-T. Dati per il SEO copywriting.",
   },
 }
@@ -132,9 +132,9 @@ export default function AnalisiPatternPage() {
   return (
     <>
       <SubPageHero
-        icon={BarChart3}
-        title="Analisi Pattern"
-        description="Trova cosa hanno in comune i contenuti in prima pagina. Lunghezza, struttura, argomenti trattati."
+        label="Analisi Pattern"
+        title="Scopri cosa funziona in prima pagina"
+        description="Trova i pattern comuni: lunghezza, struttura heading, argomenti. Dati per replicare quello che ranka."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

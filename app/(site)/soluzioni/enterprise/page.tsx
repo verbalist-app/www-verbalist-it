@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Software SEO Enterprise | Soluzione Scalabile",
+  title: "Software SEO Enterprise | Verbalist",
   description: "Piattaforma SEO per grandi organizzazioni. Analisi SERP, generazione contenuti AI e workflow scalabili. Team dedicato e configurazioni custom.",
   alternates: {
     canonical: "/soluzioni/enterprise",
@@ -120,9 +120,9 @@ export default function EnterprisePage() {
   return (
     <>
       <SubPageHero
-        icon={Building}
-        title="Verbalist Enterprise"
-        description="Soluzioni su misura per organizzazioni con esigenze specifiche. Supporto dedicato, configurazioni custom e SLA garantiti."
+        label="Enterprise"
+        title="Soluzioni su misura per grandi organizzazioni"
+        description="Supporto dedicato, configurazioni custom e SLA garantiti per team che scalano."
       />
 
       <TrustedBy />

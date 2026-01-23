@@ -5,8 +5,13 @@ import { cn } from "@/lib/utils"
 import type { LucideIcon } from "lucide-react"
 
 interface SubPageHeroProps {
+  /** Small label at top (feature/page name) */
+  label?: string
+  /** @deprecated Use label instead */
   icon?: LucideIcon
+  /** H1 - descriptive value proposition */
   title: string
+  /** Subtitle/description */
   description: string
   backLink?: {
     label: string
@@ -24,6 +29,7 @@ interface SubPageHeroProps {
 }
 
 export function SubPageHero({
+  label,
   icon: Icon,
   title,
   description,
@@ -46,11 +52,15 @@ export function SubPageHero({
             </Link>
           </div>
         )}
-        {Icon && (
+        {label ? (
+          <p className="mb-4 text-sm font-medium text-foreground inline-flex items-center gap-2 border-b border-foreground/20 pb-1">
+            {label}
+          </p>
+        ) : Icon ? (
           <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
             <Icon className="size-6" strokeWidth={1.5} />
           </div>
-        )}
+        ) : null}
         <h1 className="text-3xl font-medium tracking-tight md:text-4xl">
           {title}
         </h1>

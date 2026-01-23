@@ -3,7 +3,7 @@ import { Check, ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Prezzi Strumento SEO | Piani da €49/mese",
+  title: "Prezzi e Piani | Verbalist",
   description: "Scegli il piano Verbalist: Starter €49, Professional €149, Enterprise custom. Prova gratuita 14 giorni, nessun vincolo. Analisi SERP e contenuti AI.",
   alternates: {
     canonical: "/prezzi",

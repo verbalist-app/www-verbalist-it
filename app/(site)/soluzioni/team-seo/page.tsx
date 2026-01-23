@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "SEO Tool per Specialist | Analisi e Automazione",
+  title: "SEO Tool per Specialist | Verbalist",
   description: "Strumenti SEO per specialist: analisi SERP automatica, pattern detection, content gap analysis e generazione contenuti. Dati per decisioni informate.",
   alternates: {
     canonical: "/soluzioni/team-seo",
@@ -107,9 +107,9 @@ export default function TeamSeoPage() {
   return (
     <>
       <SubPageHero
-        icon={Search}
-        title="Verbalist per SEO Specialist"
-        description="Analisi SERP, pattern detection, metriche dei competitor. Dati concreti per costruire contenuti che competono."
+        label="SEO Specialist"
+        title="I dati che ti servono per competere in SERP"
+        description="Analisi SERP, pattern detection, metriche dei competitor. Dati concreti per costruire contenuti che rankano."
       />
 
       <TrustedBy />

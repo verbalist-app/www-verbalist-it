@@ -8,13 +8,13 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Analisi Competitor SEO | Scraping Contenuti",
+  title: "Scraping Contenuti Competitor | Verbalist",
   description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine che rankano. Dati per la tua content strategy.",
   alternates: {
     canonical: "/piattaforma/scraping-competitor",
   },
   openGraph: {
-    title: "Analisi Competitor SEO — Verbalist",
+    title: "Scraping Contenuti Competitor — Verbalist",
     description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine che rankano. Dati per la tua content strategy.",
   },
 }
@@ -134,9 +134,9 @@ export default function ScrapingCompetitorPage() {
   return (
     <>
       <SubPageHero
-        icon={Download}
-        title="Scraping Competitor"
-        description="Scarica il contenuto delle pagine competitor. Lo converte in Markdown pulito, pronto per l'analisi."
+        label="Scraping Competitor"
+        title="Estrai i contenuti che rankano"
+        description="Scarica le pagine competitor e convertile in Markdown pulito. Pronto per analisi e confronto."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

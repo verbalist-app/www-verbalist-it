@@ -2,7 +2,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Chi Siamo | NUR Digital Marketing + Verbalist",
+  title: "Chi Siamo | Verbalist",
   description: "Verbalist è un prodotto di NUR Digital Marketing. 25 anni di SEO, 430+ clienti, primi in Italia sulla GEO. Il team dietro al software.",
   alternates: {
     canonical: "/chi-siamo",
