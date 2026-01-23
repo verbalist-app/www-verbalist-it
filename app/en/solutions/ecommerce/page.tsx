@@ -7,13 +7,13 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist for eCommerce",
+  title: "SEO for eCommerce | Verbalist",
   description: "Optimized product pages based on SERP patterns. Descriptions, specifications and content that converts.",
   alternates: {
     canonical: "/en/solutions/ecommerce",
   },
   openGraph: {
-    title: "Verbalist for eCommerce",
+    title: "SEO for eCommerce — Verbalist",
     description: "Optimized product pages based on SERP patterns. Descriptions, specifications and content that converts.",
   },
 }
@@ -105,8 +105,8 @@ export default function EcommercePage() {
   return (
     <>
       <SubPageHeroEn
-        icon={ShoppingBag}
-        title="Verbalist for eCommerce"
+        label="eCommerce"
+        title="Product pages that rank and convert"
         description="Analyzes ranking product pages. Generates drafts with the structure that works: descriptions, features, specifications."
       />
 

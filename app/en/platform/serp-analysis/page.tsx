@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "SERP Analysis",
-  description: "Fetches the top 10 Google results for your keyword. See who's ranking and why.",
+  title: "Automated SERP Analysis | Verbalist",
+  description: "Analyze the top 10 Google results in one click. Extract title, meta, structure and search intent for any keyword.",
   alternates: {
     canonical: "/en/platform/serp-analysis",
   },
   openGraph: {
-    title: "SERP Analysis — Verbalist",
-    description: "Fetches the top 10 Google results for your keyword. See who's ranking and why.",
+    title: "Automated SERP Analysis — Verbalist",
+    description: "Analyze the top 10 Google results in one click. Extract title, meta, structure and search intent for any keyword.",
   },
 }
 
@@ -118,9 +118,9 @@ export default function SerpAnalysisPage() {
   return (
     <>
       <SubPageHeroEn
-        icon={Search}
-        title="SERP Analysis"
-        description="Fetches the top 10 Google results for your keyword. See who's ranking and why."
+        label="SERP Analysis"
+        title="See who's ranking and why"
+        description="Fetches the top 10 Google results for your keyword. Title, meta, structure and search intent in one click."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
 

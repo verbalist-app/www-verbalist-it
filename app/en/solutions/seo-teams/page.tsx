@@ -7,13 +7,13 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist for SEO Specialists",
+  title: "SEO Tools for Specialists | Verbalist",
   description: "Automatic SERP analysis, pattern detection and content gap analysis. Concrete data for informed decisions.",
   alternates: {
     canonical: "/en/solutions/seo-teams",
   },
   openGraph: {
-    title: "Verbalist for SEO Specialists",
+    title: "SEO Tools for Specialists — Verbalist",
     description: "Automatic SERP analysis, pattern detection and content gap analysis. Concrete data for informed decisions.",
   },
 }
@@ -107,8 +107,8 @@ export default function SeoTeamsPage() {
   return (
     <>
       <SubPageHeroEn
-        icon={Search}
-        title="Verbalist for SEO Specialists"
+        label="SEO Specialists"
+        title="The data you need to compete in SERP"
         description="SERP analysis, pattern detection, competitor metrics. Concrete data to build content that competes."
       />
 

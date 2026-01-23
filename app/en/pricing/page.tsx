@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Pricing | Verbalist",
   description: "Verbalist plans and pricing. Starter, Professional and Enterprise. Free 14-day trial.",
   alternates: {
     canonical: "/en/pricing",
@@ -74,14 +74,14 @@ export default function PricingPage() {
           ]}
         />
         <div className="text-center mb-16">
-          <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            Plans
+          <p className="mb-4 text-sm font-medium text-foreground inline-flex items-center gap-2 border-b border-foreground/20 pb-1">
+            Pricing
           </p>
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-            Pricing
+            Three plans. Free 14-day trial
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Three plans. Free 14-day trial. No commitment.
+            Start free, upgrade when you need it. No commitment.
           </p>
         </div>
 

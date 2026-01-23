@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Competitor Scraping",
-  description: "Downloads competitor page content. Converts it to clean Markdown, ready for analysis.",
+  title: "Competitor Content Scraping | Verbalist",
+  description: "Extract competitor content as clean Markdown. Analyze structure, headings and topics from ranking pages.",
   alternates: {
     canonical: "/en/platform/competitor-scraping",
   },
   openGraph: {
-    title: "Competitor Scraping — Verbalist",
-    description: "Downloads competitor page content. Converts it to clean Markdown, ready for analysis.",
+    title: "Competitor Content Scraping — Verbalist",
+    description: "Extract competitor content as clean Markdown. Analyze structure, headings and topics from ranking pages.",
   },
 }
 
@@ -134,8 +134,8 @@ export default function CompetitorScrapingPage() {
   return (
     <>
       <SubPageHeroEn
-        icon={Download}
-        title="Competitor Scraping"
+        label="Competitor Scraping"
+        title="Extract the content that ranks"
         description="Downloads competitor page content. Converts it to clean Markdown, ready for analysis."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />

@@ -7,13 +7,13 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist Enterprise",
+  title: "Enterprise SEO Software | Verbalist",
   description: "Custom solutions for large organizations. Dedicated team, custom configurations and priority support.",
   alternates: {
     canonical: "/en/solutions/enterprise",
   },
   openGraph: {
-    title: "Verbalist Enterprise",
+    title: "Enterprise SEO Software — Verbalist",
     description: "Custom solutions for large organizations. Dedicated team, custom configurations and priority support.",
   },
 }
@@ -120,8 +120,8 @@ export default function EnterprisePage() {
   return (
     <>
       <SubPageHeroEn
-        icon={Building}
-        title="Verbalist Enterprise"
+        label="Enterprise"
+        title="Custom solutions for large organizations"
         description="Tailored solutions for organizations with specific needs. Dedicated support, custom configurations and guaranteed SLAs."
       />
 

@@ -7,13 +7,13 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist for AI Strategists",
+  title: "GEO and AEO Optimization | Verbalist",
   description: "Content optimized to be cited by ChatGPT, Perplexity and AI Overview. AEO and GEO with SERP data.",
   alternates: {
     canonical: "/en/solutions/ai-strategist",
   },
   openGraph: {
-    title: "Verbalist for AI Strategists",
+    title: "GEO and AEO Optimization — Verbalist",
     description: "Content optimized to be cited by ChatGPT, Perplexity and AI Overview. AEO and GEO with SERP data.",
   },
 }
@@ -100,8 +100,8 @@ export default function AIStrategistPage() {
   return (
     <>
       <SubPageHeroEn
-        icon={Bot}
-        title="Verbalist for AI Strategists"
+        label="AI Strategist"
+        title="Content optimized to be cited by LLMs"
         description="Structured content to be cited by LLMs. E-E-A-T analysis, citability patterns and structures optimized for AEO and GEO."
       />
 

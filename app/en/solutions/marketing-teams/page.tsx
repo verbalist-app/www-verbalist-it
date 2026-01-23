@@ -7,13 +7,13 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist for Content Managers",
+  title: "AI Content Generator | Verbalist",
   description: "Structured drafts for blogs, landing pages and guides. Configurable tone of voice, output ready to refine.",
   alternates: {
     canonical: "/en/solutions/marketing-teams",
   },
   openGraph: {
-    title: "Verbalist for Content Managers",
+    title: "AI Content Generator — Verbalist",
     description: "Structured drafts for blogs, landing pages and guides. Configurable tone of voice, output ready to refine.",
   },
 }
@@ -110,8 +110,8 @@ export default function MarketingTeamsPage() {
   return (
     <>
       <SubPageHeroEn
-        icon={PenTool}
-        title="Verbalist for Content Managers"
+        label="Content Manager"
+        title="From keyword to draft, you refine"
         description="Structured drafts based on ranking patterns. You define the tone, Verbalist generates the first draft."
       />
 

@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Pattern Analysis",
-  description: "Find what ranking content has in common. Length, structure, topics covered.",
+  title: "SEO Pattern Analysis | Verbalist",
+  description: "Discover patterns in ranking content: word count, heading structure, topic coverage and E-E-A-T signals.",
   alternates: {
     canonical: "/en/platform/pattern-analysis",
   },
   openGraph: {
-    title: "Pattern Analysis — Verbalist",
-    description: "Find what ranking content has in common. Length, structure, topics covered.",
+    title: "SEO Pattern Analysis — Verbalist",
+    description: "Discover patterns in ranking content: word count, heading structure, topic coverage and E-E-A-T signals.",
   },
 }
 
@@ -132,8 +132,8 @@ export default function PatternAnalysisPage() {
   return (
     <>
       <SubPageHeroEn
-        icon={BarChart3}
-        title="Pattern Analysis"
+        label="Pattern Analysis"
+        title="Discover what works on page one"
         description="Find what ranking content has in common. Length, structure, topics covered."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />

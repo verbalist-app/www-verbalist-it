@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Content Generation",
-  description: "Writes the article based on patterns that work. Title, meta, structure and text. Ready to publish.",
+  title: "AI Content Generation | Verbalist",
+  description: "Generate SEO content with AI based on SERP patterns. Title, meta, heading structure and optimized text.",
   alternates: {
     canonical: "/en/platform/content-generation",
   },
   openGraph: {
-    title: "Content Generation — Verbalist",
-    description: "Writes the article based on patterns that work. Title, meta, structure and text. Ready to publish.",
+    title: "AI Content Generation — Verbalist",
+    description: "Generate SEO content with AI based on SERP patterns. Title, meta, heading structure and optimized text.",
   },
 }
 
@@ -141,8 +141,8 @@ export default function ContentGenerationPage() {
   return (
     <>
       <SubPageHeroEn
-        icon={FileText}
-        title="Content Generation"
+        label="Content Generation"
+        title="From analysis to draft in one click"
         description="Writes the article based on patterns that work. Title, meta, structure and text. Ready to publish."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
