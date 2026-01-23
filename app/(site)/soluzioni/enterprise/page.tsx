@@ -7,14 +7,14 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist Enterprise",
-  description: "Soluzioni personalizzate per grandi organizzazioni. Team dedicato, configurazioni custom e supporto prioritario.",
+  title: "Software SEO Enterprise | Soluzione Scalabile",
+  description: "Piattaforma SEO per grandi organizzazioni. Analisi SERP, generazione contenuti AI e workflow scalabili. Team dedicato e configurazioni custom.",
   alternates: {
     canonical: "/soluzioni/enterprise",
   },
   openGraph: {
-    title: "Verbalist Enterprise",
-    description: "Soluzioni personalizzate per grandi organizzazioni. Team dedicato, configurazioni custom e supporto prioritario.",
+    title: "Software SEO Enterprise — Verbalist",
+    description: "Piattaforma SEO per grandi organizzazioni. Analisi SERP, generazione contenuti AI e workflow scalabili. Team dedicato e configurazioni custom.",
   },
 }
 

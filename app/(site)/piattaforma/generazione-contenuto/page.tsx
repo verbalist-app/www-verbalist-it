@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Generazione Contenuto",
-  description: "Scrive l'articolo basandosi sui pattern che funzionano. Title, meta, struttura e testo. Pronto per pubblicare.",
+  title: "Generatore Testi AI per SEO | Scrittura Automatica",
+  description: "Genera contenuti SEO con AI basandosi sui pattern SERP. Title, meta description, struttura heading e testo ottimizzato. Pronto per pubblicare.",
   alternates: {
     canonical: "/piattaforma/generazione-contenuto",
   },
   openGraph: {
-    title: "Generazione Contenuto — Verbalist",
-    description: "Scrive l'articolo basandosi sui pattern che funzionano. Title, meta, struttura e testo. Pronto per pubblicare.",
+    title: "Generatore Testi AI per SEO — Verbalist",
+    description: "Genera contenuti SEO con AI basandosi sui pattern SERP. Title, meta description, struttura heading e testo ottimizzato. Pronto per pubblicare.",
   },
 }
 

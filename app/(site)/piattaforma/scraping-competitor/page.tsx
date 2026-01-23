@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Scraping Competitor",
-  description: "Scarica il contenuto delle pagine competitor. Lo converte in Markdown pulito, pronto per l'analisi.",
+  title: "Analisi Competitor SEO | Scraping Contenuti",
+  description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine che rankano. Dati per la tua content strategy.",
   alternates: {
     canonical: "/piattaforma/scraping-competitor",
   },
   openGraph: {
-    title: "Scraping Competitor — Verbalist",
-    description: "Scarica il contenuto delle pagine competitor. Lo converte in Markdown pulito, pronto per l'analisi.",
+    title: "Analisi Competitor SEO — Verbalist",
+    description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine che rankano. Dati per la tua content strategy.",
   },
 }
 

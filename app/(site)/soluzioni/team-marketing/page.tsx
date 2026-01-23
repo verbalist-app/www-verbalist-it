@@ -7,14 +7,14 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist per Content Manager",
-  description: "Bozze strutturate per blog, landing page e guide. Tone of voice configurabile, output pronto da rifinire.",
+  title: "Generatore Contenuti AI per Content Manager",
+  description: "Scrittura AI per blog, landing page e guide. Tone of voice personalizzabile, struttura SEO-ready e contenuti pronti da pubblicare.",
   alternates: {
     canonical: "/soluzioni/team-marketing",
   },
   openGraph: {
-    title: "Verbalist per Content Manager",
-    description: "Bozze strutturate per blog, landing page e guide. Tone of voice configurabile, output pronto da rifinire.",
+    title: "Generatore Contenuti AI per Content Manager — Verbalist",
+    description: "Scrittura AI per blog, landing page e guide. Tone of voice personalizzabile, struttura SEO-ready e contenuti pronti da pubblicare.",
   },
 }
 

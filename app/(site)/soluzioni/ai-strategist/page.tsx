@@ -7,14 +7,14 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist per AI Strategist",
-  description: "Contenuti ottimizzati per essere citati da ChatGPT, Perplexity e AI Overview. AEO e GEO con dati SERP.",
+  title: "GEO e AEO Optimization | Tool per AI Strategist",
+  description: "Ottimizza i contenuti per AI Overview, ChatGPT e Perplexity. Generative Engine Optimization (GEO) e Answer Engine Optimization (AEO) con dati SERP.",
   alternates: {
     canonical: "/soluzioni/ai-strategist",
   },
   openGraph: {
-    title: "Verbalist per AI Strategist",
-    description: "Contenuti ottimizzati per essere citati da ChatGPT, Perplexity e AI Overview. AEO e GEO con dati SERP.",
+    title: "GEO e AEO Optimization — Verbalist",
+    description: "Ottimizza i contenuti per AI Overview, ChatGPT e Perplexity. Generative Engine Optimization (GEO) e Answer Engine Optimization (AEO) con dati SERP.",
   },
 }
 

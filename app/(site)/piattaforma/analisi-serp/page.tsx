@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Analisi SERP",
-  description: "Prende i primi 10 risultati Google per la tua keyword. Vedi chi sta rankando e perché.",
+  title: "Analisi SERP Automatica | Strumento SEO",
+  description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati SERP pronti per l'ottimizzazione.",
   alternates: {
     canonical: "/piattaforma/analisi-serp",
   },
   openGraph: {
-    title: "Analisi SERP — Verbalist",
-    description: "Prende i primi 10 risultati Google per la tua keyword. Vedi chi sta rankando e perché.",
+    title: "Analisi SERP Automatica — Verbalist",
+    description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati SERP pronti per l'ottimizzazione.",
   },
 }
 

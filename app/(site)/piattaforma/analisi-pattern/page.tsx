@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Analisi Pattern",
-  description: "Trova cosa hanno in comune i contenuti in prima pagina. Lunghezza, struttura, argomenti trattati.",
+  title: "Pattern Detection SEO | Analisi Contenuti SERP",
+  description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali E-E-A-T. Dati per il SEO copywriting.",
   alternates: {
     canonical: "/piattaforma/analisi-pattern",
   },
   openGraph: {
-    title: "Analisi Pattern — Verbalist",
-    description: "Trova cosa hanno in comune i contenuti in prima pagina. Lunghezza, struttura, argomenti trattati.",
+    title: "Pattern Detection SEO — Verbalist",
+    description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali E-E-A-T. Dati per il SEO copywriting.",
   },
 }
 

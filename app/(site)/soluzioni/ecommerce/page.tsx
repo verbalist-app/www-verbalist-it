@@ -7,14 +7,14 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist per eCommerce",
-  description: "Pagine prodotto ottimizzate basate sui pattern SERP. Descrizioni, specifiche e contenuti che convertono.",
+  title: "SEO per eCommerce | Ottimizzazione Schede Prodotto",
+  description: "Descrizioni prodotto SEO generate con AI. Analisi pattern SERP, contenuti ottimizzati per categorie e schede prodotto che convertono.",
   alternates: {
     canonical: "/soluzioni/ecommerce",
   },
   openGraph: {
-    title: "Verbalist per eCommerce",
-    description: "Pagine prodotto ottimizzate basate sui pattern SERP. Descrizioni, specifiche e contenuti che convertono.",
+    title: "SEO per eCommerce — Verbalist",
+    description: "Descrizioni prodotto SEO generate con AI. Analisi pattern SERP, contenuti ottimizzati per categorie e schede prodotto che convertono.",
   },
 }
 

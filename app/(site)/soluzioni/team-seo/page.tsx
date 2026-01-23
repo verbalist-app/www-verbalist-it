@@ -7,14 +7,14 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Verbalist per SEO Specialist",
-  description: "Analisi SERP automatica, pattern detection e content gap analysis. Dati concreti per decisioni informate.",
+  title: "SEO Tool per Specialist | Analisi e Automazione",
+  description: "Strumenti SEO per specialist: analisi SERP automatica, pattern detection, content gap analysis e generazione contenuti. Dati per decisioni informate.",
   alternates: {
     canonical: "/soluzioni/team-seo",
   },
   openGraph: {
-    title: "Verbalist per SEO Specialist",
-    description: "Analisi SERP automatica, pattern detection e content gap analysis. Dati concreti per decisioni informate.",
+    title: "SEO Tool per Specialist — Verbalist",
+    description: "Strumenti SEO per specialist: analisi SERP automatica, pattern detection, content gap analysis e generazione contenuti. Dati per decisioni informate.",
   },
 }
 

@@ -1,17 +1,16 @@
 import Link from "next/link"
-import { Check } from "lucide-react"
+import { Check, ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
-import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 export const metadata: Metadata = {
-  title: "Prezzi",
-  description: "Piani e prezzi di Verbalist. Starter, Professional ed Enterprise. Prova gratis per 14 giorni.",
+  title: "Prezzi Strumento SEO | Piani da €49/mese",
+  description: "Scegli il piano Verbalist: Starter €49, Professional €149, Enterprise custom. Prova gratuita 14 giorni, nessun vincolo. Analisi SERP e contenuti AI.",
   alternates: {
     canonical: "/prezzi",
   },
   openGraph: {
-    title: "Prezzi — Verbalist",
-    description: "Piani e prezzi di Verbalist. Starter, Professional ed Enterprise. Prova gratis per 14 giorni.",
+    title: "Prezzi Strumento SEO — Verbalist",
+    description: "Scegli il piano Verbalist: Starter €49, Professional €149, Enterprise custom. Prova gratuita 14 giorni, nessun vincolo.",
   },
 }
 
@@ -71,12 +70,13 @@ export default function PrezziPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-6xl mx-auto px-6">
-        <PageBreadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Prezzi" },
-          ]}
-        />
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+        >
+          <ArrowLeft className="size-4" />
+          Torna alla Home
+        </Link>
         <div className="text-center mb-16">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Piani
