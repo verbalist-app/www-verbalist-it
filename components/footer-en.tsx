@@ -2,37 +2,62 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Globe } from "lucide-react"
+import { Globe, ArrowUpRight } from "lucide-react"
 
-const links = {
-  product: [
-    { name: "Platform", href: "/en/platform" },
-    { name: "Pricing", href: "/en/pricing" },
-  ],
-  solutions: [
-    { name: "Agencies", href: "/en/solutions/agencies" },
-    { name: "SEO Specialist", href: "/en/solutions/seo-teams" },
-    { name: "Content Manager", href: "/en/solutions/marketing-teams" },
-    { name: "AI Strategist", href: "/en/solutions/ai-strategist" },
-    { name: "eCommerce", href: "/en/solutions/ecommerce" },
-    { name: "Enterprise", href: "/en/solutions/enterprise" },
-  ],
-  company: [
-    { name: "About us", href: "/en/about" },
-    { name: "LinkedIn", href: "https://www.linkedin.com/showcase/softwareverbalist/", external: true },
-  ],
-  legal: [
-    { name: "Privacy Policy", href: "/en/privacy-policy" },
-    { name: "Cookie Policy", href: "/en/cookie-policy" },
-    { name: "Terms", href: "/en/terms" },
-  ],
+const footerLinks = {
+  platform: {
+    title: "Platform",
+    links: [
+      { name: "SERP Analysis", href: "/en/platform/serp-analysis" },
+      { name: "Competitor Scraping", href: "/en/platform/competitor-scraping" },
+      { name: "Pattern Analysis", href: "/en/platform/pattern-analysis" },
+      { name: "Content Generation", href: "/en/platform/content-generation" },
+      { name: "Pricing", href: "/en/pricing" },
+      { name: "Sign in", href: "/en/login", external: true },
+    ],
+  },
+  solutions: {
+    title: "Solutions",
+    links: [
+      { name: "Agencies", href: "/en/solutions/agencies" },
+      { name: "SEO Teams", href: "/en/solutions/seo-teams" },
+      { name: "Marketing Teams", href: "/en/solutions/marketing-teams" },
+      { name: "AI Strategist", href: "/en/solutions/ai-strategist" },
+      { name: "Ecommerce", href: "/en/solutions/ecommerce" },
+      { name: "Enterprise", href: "/en/solutions/enterprise" },
+    ],
+  },
+  resources: {
+    title: "Resources",
+    links: [
+      { name: "Blog", href: "/en/blog" },
+      { name: "Docs", href: "/en/docs" },
+      { name: "Changelog", href: "/en/changelog" },
+      { name: "FAQ", href: "/en/faq" },
+    ],
+  },
+  company: {
+    title: "Company",
+    links: [
+      { name: "About us", href: "/en/about" },
+      { name: "Contact", href: "/en/contact" },
+      { name: "LinkedIn", href: "https://www.linkedin.com/showcase/softwareverbalist/", external: true },
+    ],
+  },
+  legal: {
+    title: "Legal",
+    links: [
+      { name: "Privacy Policy", href: "/en/privacy-policy" },
+      { name: "Cookie Policy", href: "/en/cookie-policy" },
+      { name: "Terms of Service", href: "/en/terms" },
+    ],
+  },
 }
 
 function LanguageSwitcher() {
   const pathname = usePathname()
   const isEnglish = pathname.startsWith('/en')
 
-  // Map English slugs to Italian slugs
   const slugMap: Record<string, string> = {
     '/en': '/',
     '/en/platform': '/piattaforma',
@@ -50,7 +75,6 @@ function LanguageSwitcher() {
     '/en/contact': '/contatti',
     '/en/about': '/chi-siamo',
     '/en/blog': '/blog',
-    '/en/blog/geo-ai-optimization': '/blog/geo-ottimizzazione-ai',
     '/en/faq': '/faq',
     '/en/docs': '/guide',
     '/en/changelog': '/changelog',
@@ -60,7 +84,6 @@ function LanguageSwitcher() {
     '/en/login': '/login',
   }
 
-  // Reverse map for Italian to English
   const reverseSlugMap: Record<string, string> = Object.fromEntries(
     Object.entries(slugMap).map(([en, it]) => [it, en])
   )
@@ -75,113 +98,94 @@ function LanguageSwitcher() {
   return (
     <Link
       href={alternatePath}
-      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-sm transition-colors hover:bg-muted"
       title={isEnglish ? 'Switch to Italian' : 'Switch to English'}
     >
-      <Globe className="size-3.5" />
-      <span className="font-medium">{isEnglish ? 'Italiano' : 'English'}</span>
+      <Globe className="size-4" />
+      <span>{isEnglish ? 'Italiano' : 'English'}</span>
     </Link>
+  )
+}
+
+function FooterLink({ href, children, external }: { href: string; children: React.ReactNode; external?: boolean }) {
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1 text-sm text-foreground transition-colors hover:text-muted-foreground"
+      >
+        {children}
+        <ArrowUpRight className="size-3.5" />
+      </a>
+    )
+  }
+
+  return (
+    <Link
+      href={href}
+      className="text-sm text-foreground transition-colors hover:text-muted-foreground"
+    >
+      {children}
+    </Link>
+  )
+}
+
+function FooterSection({ title, links }: { title: string; links: Array<{ name: string; href: string; external?: boolean }> }) {
+  return (
+    <div>
+      <h3 className="text-sm text-muted-foreground">{title}</h3>
+      <ul className="mt-4 space-y-3">
+        {links.map((link) => (
+          <li key={link.name}>
+            <FooterLink href={link.href} external={link.external}>
+              {link.name}
+            </FooterLink>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
 export function FooterEn() {
   return (
-    <footer className="border-t py-16">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="flex flex-col gap-12 md:flex-row md:justify-between">
-          <div className="max-w-sm">
-            <img src="/logo-full.svg" alt="Verbalist" className="h-7 w-auto" />
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              The first Content Automation platform for SEO and AI Search (AEO/GEO).
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-10">
-            <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Product</h3>
-              <ul className="mt-4 space-y-3">
-                {links.product.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Solutions</h3>
-              <ul className="mt-4 space-y-3">
-                {links.solutions.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Company</h3>
-              <ul className="mt-4 space-y-3">
-                {links.company.map((link) => (
-                  <li key={link.name}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {link.name}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Legal</h3>
-              <ul className="mt-4 space-y-3">
-                {links.legal.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    <footer className="border-t border-border bg-background">
+      {/* Main footer content */}
+      <div className="mx-auto max-w-6xl px-6 py-16 lg:px-12">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5 lg:gap-12">
+          <FooterSection {...footerLinks.platform} />
+          <FooterSection {...footerLinks.solutions} />
+          <FooterSection {...footerLinks.resources} />
+          <FooterSection {...footerLinks.company} />
+          <FooterSection {...footerLinks.legal} />
         </div>
-
       </div>
 
-      {/* Bottom bar - full width */}
-      <div className="mt-16 border-t">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Verbalist. A product by{" "}
+      {/* Bottom bar */}
+      <div className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-12">
+          <div className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
+            {/* Social links */}
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.linkedin.com/showcase/softwareverbalist/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                aria-label="LinkedIn"
+              >
+                <svg className="size-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+            </div>
+
+            {/* Copyright and manage cookies */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
+              <span>© {new Date().getFullYear()} Verbalist</span>
+              <span className="hidden sm:inline">·</span>
               <a
                 href="https://www.nur.it/"
                 target="_blank"
@@ -189,28 +193,22 @@ export function FooterEn() {
                 className="transition-colors hover:text-foreground"
               >
                 NUR Digital Marketing
-              </a>.
-            </p>
-            <div className="flex items-center gap-6">
-              <LanguageSwitcher />
+              </a>
+              <span className="hidden sm:inline">·</span>
               <button
                 onClick={() => {
                   document.cookie = "cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
                   window.location.reload()
                 }}
-                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="transition-colors hover:text-foreground"
               >
                 Manage Cookies
               </button>
-              <a
-                href="https://status.verbalist.it"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
-              >
-                <span className="size-2 rounded-full bg-green-500" />
-                All systems normal
-              </a>
+            </div>
+
+            {/* Language switcher */}
+            <div className="flex items-center">
+              <LanguageSwitcher />
             </div>
           </div>
         </div>
