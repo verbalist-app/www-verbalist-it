@@ -144,7 +144,7 @@ export default function MarketingTeamsPage() {
       <HighlightBlock
         icon={Palette}
         title="Your tone of voice, always"
-        description="Configure your brand's style once. Every piece of generated content follows your guidelines. Professional, friendly, technical: you choose, Verbalist executes."
+        description="Configure your brand's style once. Every draft follows your guidelines. Professional, friendly, technical: you define the style, Verbalist helps you get started."
         visual={<ToneIllustration />}
       />
 

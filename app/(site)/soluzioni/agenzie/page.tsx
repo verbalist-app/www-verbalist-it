@@ -9,13 +9,13 @@ import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
   title: "Verbalist per Agenzie",
-  description: "Più clienti, stesso team. Verbalist scala la produzione di contenuti SEO per la tua agenzia.",
+  description: "Verbalist supporta il tuo team nella produzione di contenuti SEO. Analisi, pattern e bozze pronte da rifinire.",
   alternates: {
     canonical: "/soluzioni/agenzie",
   },
   openGraph: {
     title: "Verbalist per Agenzie",
-    description: "Più clienti, stesso team. Verbalist scala la produzione di contenuti SEO per la tua agenzia.",
+    description: "Verbalist supporta il tuo team nella produzione di contenuti SEO. Analisi, pattern e bozze pronte da rifinire.",
   },
 }
 
@@ -48,15 +48,15 @@ const featureColumns = [
 
 const testimonials = [
   {
-    metric: "+180%",
-    quote: "Abbiamo triplicato l'output di contenuti mantenendo la stessa qualità. I clienti non si accorgono che usiamo AI.",
+    metric: "80% tempo",
+    quote: "L'analisi SERP e la ricerca pattern ci prendevano ore. Ora il team può concentrarsi sulla strategia e sulla rifinitura dei contenuti.",
     author: "Marco R.",
     role: "Head of Content",
     company: "Agenzia SEO Milano",
   },
   {
-    metric: "3x clienti",
-    quote: "Prima rifiutavamo progetti. Ora possiamo gestire il triplo dei clienti con lo stesso team.",
+    metric: "Più focus",
+    quote: "Il team dedica più tempo alla qualità e al cliente, meno alle attività ripetitive di analisi.",
     author: "Laura B.",
     role: "CEO",
     company: "Digital Agency Roma",
@@ -113,7 +113,7 @@ export default function AgenziePage() {
       <SubPageHero
         icon={Building2}
         title="Verbalist per Agenzie"
-        description="Più contenuti per i tuoi clienti. Stesso team. Stessa qualità. Scala la produzione SEO senza assumere."
+        description="Analisi SERP, pattern detection e bozze di contenuto. Verbalist supporta il tuo team nella fase di ricerca e prima stesura."
       />
 
       <TrustedBy />

@@ -9,13 +9,13 @@ import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
   title: "Verbalist for Agencies",
-  description: "More clients, same team. Verbalist scales SEO content production for your agency.",
+  description: "Verbalist supports your team in SEO content production. Analysis, patterns and drafts ready to refine.",
   alternates: {
     canonical: "/en/solutions/agencies",
   },
   openGraph: {
     title: "Verbalist for Agencies",
-    description: "More clients, same team. Verbalist scales SEO content production for your agency.",
+    description: "Verbalist supports your team in SEO content production. Analysis, patterns and drafts ready to refine.",
   },
 }
 
@@ -48,15 +48,15 @@ const featureColumns = [
 
 const testimonials = [
   {
-    metric: "+180%",
-    quote: "We tripled content output while maintaining the same quality. Clients don't notice we use AI.",
+    metric: "80% time saved",
+    quote: "SERP analysis and pattern research used to take hours. Now the team can focus on strategy and refining content.",
     author: "Marco R.",
     role: "Head of Content",
     company: "SEO Agency Milan",
   },
   {
-    metric: "3x clients",
-    quote: "We used to turn down projects. Now we can handle triple the clients with the same team.",
+    metric: "More focus",
+    quote: "The team spends more time on quality and client work, less on repetitive analysis tasks.",
     author: "Laura B.",
     role: "CEO",
     company: "Digital Agency Rome",
@@ -113,7 +113,7 @@ export default function AgenciesPage() {
       <SubPageHeroEn
         icon={Building2}
         title="Verbalist for Agencies"
-        description="More content for your clients. Same team. Same quality. Scale SEO production without hiring."
+        description="SERP analysis, pattern detection and content drafts. Verbalist supports your team in the research and first draft phase."
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
