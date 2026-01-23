@@ -144,11 +144,7 @@ export default function GenerazioneContenutoPage() {
         icon={FileText}
         title="Generazione Contenuto"
         description="Scrive l'articolo basandosi sui pattern che funzionano. Title, meta, struttura e testo. Pronto per pubblicare."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Piattaforma", href: "/piattaforma/generazione-contenuto" },
-          { label: "Generazione Contenuto" },
-        ]}
+        backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
       <TrustedBy />

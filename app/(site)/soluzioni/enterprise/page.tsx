@@ -123,11 +123,6 @@ export default function EnterprisePage() {
         icon={Building}
         title="Verbalist Enterprise"
         description="Soluzioni su misura per organizzazioni con esigenze specifiche. Supporto dedicato, configurazioni custom e SLA garantiti."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Soluzioni", href: "/soluzioni/enterprise" },
-          { label: "Enterprise" },
-        ]}
       />
 
       <TrustedBy />

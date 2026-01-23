@@ -1,14 +1,17 @@
 import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { PageBreadcrumb, type BreadcrumbItem } from "@/components/page-breadcrumb"
 import type { LucideIcon } from "lucide-react"
 
 interface SubPageHeroProps {
   icon?: LucideIcon
   title: string
   description: string
-  breadcrumbs?: BreadcrumbItem[]
+  backLink?: {
+    label: string
+    href: string
+  }
   primaryCta?: {
     text: string
     href: string
@@ -24,7 +27,7 @@ export function SubPageHero({
   icon: Icon,
   title,
   description,
-  breadcrumbs,
+  backLink,
   primaryCta = { text: "Prenota una demo", href: "/contatti" },
   secondaryCta,
   className,
@@ -32,8 +35,16 @@ export function SubPageHero({
   return (
     <section className={cn("pt-20 md:pt-28 pb-12 md:pb-16", className)}>
       <div className="mx-auto max-w-3xl px-6 text-center">
-        {breadcrumbs && breadcrumbs.length > 0 && (
-          <PageBreadcrumb items={breadcrumbs} className="mb-6 text-left" />
+        {backLink && (
+          <div className="mb-6 text-left">
+            <Link
+              href={backLink.href}
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="size-3.5" />
+              Torna a {backLink.label}
+            </Link>
+          </div>
         )}
         {Icon && (
           <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">

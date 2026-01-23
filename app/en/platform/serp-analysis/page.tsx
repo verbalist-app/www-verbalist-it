@@ -121,11 +121,7 @@ export default function SerpAnalysisPage() {
         icon={Search}
         title="SERP Analysis"
         description="Fetches the top 10 Google results for your keyword. See who's ranking and why."
-        breadcrumbs={[
-          { label: "Home", href: "/en" },
-          { label: "Platform", href: "/en/platform/serp-analysis" },
-          { label: "SERP Analysis" },
-        ]}
+        backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />

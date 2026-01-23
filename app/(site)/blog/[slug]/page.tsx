@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { reader, formatDate, getTranslation } from "@/lib/keystatic"
 import { ArticleSchema } from "@/components/schema"
-import { PageBreadcrumb } from "@/components/page-breadcrumb"
+import { ArrowLeft } from "lucide-react"
 import Markdoc from "@markdoc/markdoc"
 import React from "react"
 import type { Metadata } from "next"
@@ -61,14 +61,13 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Header */}
         <div className="max-w-4xl mx-auto px-6">
         <div className="mb-8 flex items-center justify-between">
-          <PageBreadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Blog", href: "/blog" },
-              { label: post.title },
-            ]}
-            className="mb-0"
-          />
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="size-3.5" />
+            Torna a Blog
+          </Link>
           {translation && (
             <Link
               href={`/en/blog/${translation.slug}`}

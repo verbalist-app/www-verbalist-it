@@ -1,6 +1,5 @@
 import Link from "next/link"
 import type { Metadata } from "next"
-import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -53,12 +52,6 @@ export default function FaqPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-3xl mx-auto px-6">
-        <PageBreadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "FAQ" },
-          ]}
-        />
         <div className="mb-12">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Supporto

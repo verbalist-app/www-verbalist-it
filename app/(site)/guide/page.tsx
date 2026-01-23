@@ -16,7 +16,6 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 import { Button } from "@/components/ui/button"
-import { PageBreadcrumb } from "@/components/page-breadcrumb"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 
@@ -165,12 +164,6 @@ export default function GuidePage() {
   return (
     <section className="pt-20 md:pt-28 pb-24 md:pb-32">
         <div className="mx-auto max-w-5xl px-6">
-          <PageBreadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Guide" },
-            ]}
-          />
           {/* Header with Search */}
           <div className="mb-12 text-center">
             <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">

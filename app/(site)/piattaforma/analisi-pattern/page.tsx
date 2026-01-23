@@ -135,11 +135,7 @@ export default function AnalisiPatternPage() {
         icon={BarChart3}
         title="Analisi Pattern"
         description="Trova cosa hanno in comune i contenuti in prima pagina. Lunghezza, struttura, argomenti trattati."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Piattaforma", href: "/piattaforma/analisi-pattern" },
-          { label: "Analisi Pattern" },
-        ]}
+        backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
       <TrustedBy />

@@ -123,11 +123,6 @@ export default function EnterprisePage() {
         icon={Building}
         title="Verbalist Enterprise"
         description="Tailored solutions for organizations with specific needs. Dedicated support, custom configurations and guaranteed SLAs."
-        breadcrumbs={[
-          { label: "Home", href: "/en" },
-          { label: "Solutions", href: "/en/solutions/enterprise" },
-          { label: "Enterprise" },
-        ]}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

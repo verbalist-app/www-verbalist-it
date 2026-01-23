@@ -103,11 +103,6 @@ export default function AIStrategistPage() {
         icon={Bot}
         title="Verbalist per AI Strategist"
         description="Contenuti strutturati per essere citati dagli LLM. Analisi E-E-A-T, pattern di citabilità e strutture ottimizzate per AEO e GEO."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Soluzioni", href: "/soluzioni/ai-strategist" },
-          { label: "AI Strategist" },
-        ]}
       />
 
       <TrustedBy />

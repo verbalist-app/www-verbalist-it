@@ -110,11 +110,6 @@ export default function SeoTeamsPage() {
         icon={Search}
         title="Verbalist for SEO Specialists"
         description="SERP analysis, pattern detection, competitor metrics. Concrete data to build content that competes."
-        breadcrumbs={[
-          { label: "Home", href: "/en" },
-          { label: "Solutions", href: "/en/solutions/seo-teams" },
-          { label: "SEO Teams" },
-        ]}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

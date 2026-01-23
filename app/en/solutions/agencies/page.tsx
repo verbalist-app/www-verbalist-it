@@ -97,11 +97,6 @@ export default function AgenciesPage() {
         icon={Building2}
         title="Verbalist for Agencies"
         description="SERP analysis and content drafts for every client. Less time on research, more time on strategy and quality."
-        breadcrumbs={[
-          { label: "Home", href: "/en" },
-          { label: "Solutions", href: "/en/solutions/agencies" },
-          { label: "Agencies" },
-        ]}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies" />

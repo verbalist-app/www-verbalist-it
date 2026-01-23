@@ -144,11 +144,7 @@ export default function ContentGenerationPage() {
         icon={FileText}
         title="Content Generation"
         description="Writes the article based on patterns that work. Title, meta, structure and text. Ready to publish."
-        breadcrumbs={[
-          { label: "Home", href: "/en" },
-          { label: "Platform", href: "/en/platform/content-generation" },
-          { label: "Content Generation" },
-        ]}
+        backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
       <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
