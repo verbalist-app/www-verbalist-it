@@ -15,6 +15,7 @@ import {
   ChevronDown,
   Search,
   ExternalLink,
+  Globe,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -240,6 +241,13 @@ export default function DashboardLayout({
           </Button>
 
           <div className="flex-1" />
+
+          <Button asChild variant="ghost" size="sm">
+            <Link href="/en" title="Switch to English">
+              <Globe className="mr-2 size-4" />
+              EN
+            </Link>
+          </Button>
 
           <Button asChild variant="ghost" size="sm">
             <Link href="/" target="_blank">
