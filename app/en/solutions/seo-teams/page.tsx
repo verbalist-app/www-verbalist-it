@@ -1,65 +1,47 @@
-import { Search, Target, Zap, TrendingUp } from "lucide-react"
+import { Search, BarChart3, Target, TrendingUp } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHeroEn } from "@/components/sub-page-hero-en"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Verbalist for SEO Teams",
-  description: "SERP analysis, pattern detection and content. Everything your SEO team needs.",
+  title: "Verbalist for SEO Specialists",
+  description: "Automatic SERP analysis, pattern detection and content gap analysis. Concrete data for informed decisions.",
   alternates: {
     canonical: "/en/solutions/seo-teams",
   },
   openGraph: {
-    title: "Verbalist for SEO Teams",
-    description: "SERP analysis, pattern detection and content. Everything your SEO team needs.",
+    title: "Verbalist for SEO Specialists",
+    description: "Automatic SERP analysis, pattern detection and content gap analysis. Concrete data for informed decisions.",
   },
 }
 
 const featureColumns = [
   {
     items: [
-      "Automatic top 10 SERP analysis",
+      "Top 10 organic results",
       "Search intent detection",
-      "Competitor benchmarking",
-      "Keyword clustering",
+      "Title and meta description",
+      "Word count per result",
     ],
   },
   {
     items: [
-      "Winning structural patterns",
-      "Optimal word count",
-      "Topic coverage analysis",
-      "E-E-A-T signals detection",
+      "Structural patterns (H1, H2, H3)",
+      "Recurring topics and subtopics",
+      "Average word count and range",
+      "Winning heading structure",
     ],
   },
   {
     items: [
+      "E-E-A-T signals detected",
       "Content gap identification",
-      "Heading structure analysis",
-      "Semantic keyword extraction",
-      "SERP feature tracking",
+      "SEO/Readability/Trust scores",
+      "Optimization priorities",
     ],
-  },
-]
-
-const testimonials = [
-  {
-    metric: "80% time saved",
-    quote: "The SERP analysis that used to take hours now takes minutes. More time for strategy, less for data entry.",
-    author: "Alessandro T.",
-    role: "SEO Manager",
-    company: "Fashion E-commerce",
-  },
-  {
-    metric: "+45% ranking",
-    quote: "Content generated with winning patterns ranks better. We have concrete data to prove it.",
-    author: "Giulia M.",
-    role: "Head of SEO",
-    company: "Tech Startup",
   },
 ]
 
@@ -106,6 +88,16 @@ function PatternIllustration() {
             ))}
           </div>
         </div>
+        <div className="flex gap-2">
+          <div className="flex-1 rounded-lg border bg-background p-2 shadow-sm text-center">
+            <div className="text-sm font-medium">1,450</div>
+            <div className="text-[10px] text-muted-foreground">Avg words</div>
+          </div>
+          <div className="flex-1 rounded-lg border bg-background p-2 shadow-sm text-center">
+            <div className="text-sm font-medium">1.2-1.8k</div>
+            <div className="text-[10px] text-muted-foreground">Range</div>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -116,38 +108,36 @@ export default function SeoTeamsPage() {
     <>
       <SubPageHeroEn
         icon={Search}
-        title="Verbalist for SEO Teams"
-        description="Analysis, patterns, content. All in one place. Data-driven, not opinion-based."
+        title="Verbalist for SEO Specialists"
+        description="SERP analysis, pattern detection, competitor metrics. Concrete data to build content that competes."
       />
 
-      <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
+      <TrustedBy text="Trusted by SEO teams and agencies" />
 
       <FeatureChecklist
-        title="SERP data that makes a difference"
-        description="Automatic analysis, pattern detection and actionable insights for every keyword."
+        title="The data you need for every keyword"
+        description="Top 10 results, search intent, heading structure, word count, E-E-A-T signals. All automatic."
         columns={featureColumns}
       />
 
       <HighlightBlock
         icon={Search}
-        title="SERP analysis in seconds"
-        description="Enter the keyword, get the top 10 results with all the data you need. Title, description, word count, heading structure, topic coverage. All automatic."
+        title="SERP analysis in one click"
+        description="Enter the keyword. Verbalist extracts the top 10 organic results with title, description, URL and word count. Identifies the dominant search intent: informational, commercial, transactional or navigational."
         visual={<SerpAnalysisIllustration />}
       />
 
       <HighlightBlock
-        icon={TrendingUp}
-        title="Patterns that work"
-        description="Find what ranking content has in common. Structure, length, topics. Replicate what works, avoid what doesn't."
+        icon={BarChart3}
+        title="Patterns that rank"
+        description="Analyzes what first page content has in common. Recurring heading structure, covered topics, average word count and range. Data to replicate what works."
         visual={<PatternIllustration />}
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
-
       <SubPageCTA
         title="Want to see it in action?"
-        description="We'll show you how it works with a demo. See SERP analysis, pattern detection and content generation on your case."
+        description="We'll show you how it works with a demo on your case."
         primaryCta={{ text: "Book a demo", href: "/en/contact" }}
         secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
       />

@@ -8,10 +8,19 @@ const links = {
   prodotto: [
     { name: "Piattaforma", href: "/piattaforma" },
     { name: "Tecnologia", href: "/integrazioni" },
-    { name: "Contatti", href: "/contatti" },
+    { name: "Prezzi", href: "/prezzi" },
+  ],
+  soluzioni: [
+    { name: "Agenzie", href: "/soluzioni/agenzie" },
+    { name: "SEO Specialist", href: "/soluzioni/team-seo" },
+    { name: "Content Manager", href: "/soluzioni/team-marketing" },
+    { name: "AI Strategist", href: "/soluzioni/ai-strategist" },
+    { name: "eCommerce", href: "/soluzioni/ecommerce" },
+    { name: "Enterprise", href: "/soluzioni/enterprise" },
   ],
   azienda: [
     { name: "Chi siamo", href: "/chi-siamo" },
+    { name: "Contatti", href: "/contatti" },
     { name: "LinkedIn", href: "https://www.linkedin.com/showcase/softwareverbalist/", external: true },
   ],
   legale: [
@@ -36,6 +45,9 @@ function LanguageSwitcher() {
     '/soluzioni/agenzie': '/en/solutions/agencies',
     '/soluzioni/team-seo': '/en/solutions/seo-teams',
     '/soluzioni/team-marketing': '/en/solutions/marketing-teams',
+    '/soluzioni/ai-strategist': '/en/solutions/ai-strategist',
+    '/soluzioni/ecommerce': '/en/solutions/ecommerce',
+    '/soluzioni/enterprise': '/en/solutions/enterprise',
     '/prezzi': '/en/pricing',
     '/contatti': '/en/contact',
     '/chi-siamo': '/en/about',

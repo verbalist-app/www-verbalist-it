@@ -1,67 +1,71 @@
-import { Megaphone, PenTool, Palette, Sparkles } from "lucide-react"
+import { PenTool, FileText, Palette, RefreshCw } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Verbalist per Team Marketing",
-  description: "Contenuti che rankano e convertono. Per team marketing che non vogliono scegliere tra SEO e copy.",
+  title: "Verbalist per Content Manager",
+  description: "Bozze strutturate per blog, landing page e guide. Tone of voice configurabile, output pronto da rifinire.",
   alternates: {
     canonical: "/soluzioni/team-marketing",
   },
   openGraph: {
-    title: "Verbalist per Team Marketing",
-    description: "Contenuti che rankano e convertono. Per team marketing che non vogliono scegliere tra SEO e copy.",
+    title: "Verbalist per Content Manager",
+    description: "Bozze strutturate per blog, landing page e guide. Tone of voice configurabile, output pronto da rifinire.",
   },
 }
 
 const featureColumns = [
   {
     items: [
-      "Blog post ottimizzati SEO",
-      "Landing page che convertono",
-      "Copy per campagne",
-      "Contenuti social ready",
+      "Blog post",
+      "Landing page",
+      "Guide e tutorial",
+      "Pagine prodotto",
     ],
   },
   {
     items: [
-      "Tone of voice personalizzabile",
-      "Brand guidelines integrate",
-      "Template riutilizzabili",
-      "Stile consistente",
+      "Tone of voice configurabile",
+      "Professionale, conversazionale, tecnico",
+      "Target audience personalizzabile",
+      "Brand guidelines rispettate",
     ],
   },
   {
     items: [
-      "Calendario editoriale",
-      "Workflow di approvazione",
-      "Export multi-formato",
-      "Integrazione CMS",
+      "Title tag e meta description",
+      "Struttura heading ottimizzata",
+      "Suggerimenti media e immagini",
+      "Export Markdown e HTML",
     ],
   },
 ]
 
-const testimonials = [
-  {
-    metric: "5x più veloce",
-    quote: "Dalla keyword al contenuto pubblicato in un pomeriggio. Prima ci voleva una settimana.",
-    author: "Francesca D.",
-    role: "Content Manager",
-    company: "SaaS B2B",
-  },
-  {
-    metric: "Consistenza 100%",
-    quote: "Finalmente tutti i contenuti seguono lo stesso tone of voice. Il brand è riconoscibile ovunque.",
-    author: "Roberto L.",
-    role: "Marketing Director",
-    company: "E-commerce",
-  },
-]
+function ContentTypesIllustration() {
+  return (
+    <div className="flex h-full w-full items-center justify-center p-6">
+      <div className="w-full max-w-xs space-y-2">
+        {[
+          { type: "Blog Post", icon: "article" },
+          { type: "Landing Page", icon: "web" },
+          { type: "Guida", icon: "book" },
+          { type: "Pagina Prodotto", icon: "shopping" },
+        ].map((item) => (
+          <div key={item.type} className="flex items-center gap-3 rounded-lg border bg-background p-3 shadow-sm">
+            <div className="size-8 rounded bg-muted flex items-center justify-center">
+              <span className="text-xs text-muted-foreground">{item.icon.charAt(0).toUpperCase()}</span>
+            </div>
+            <span className="text-sm font-medium">{item.type}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 function ToneIllustration() {
   return (
@@ -69,16 +73,15 @@ function ToneIllustration() {
       <div className="w-full max-w-xs space-y-3">
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="text-xs font-medium text-muted-foreground mb-3">Tone of Voice</div>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-3 gap-2">
             {[
-              { tone: "Professional", active: true },
-              { tone: "Friendly", active: false },
-              { tone: "Technical", active: false },
-              { tone: "Casual", active: false },
+              { tone: "Professionale", active: true },
+              { tone: "Conversazionale", active: false },
+              { tone: "Tecnico", active: false },
             ].map((item) => (
               <div
                 key={item.tone}
-                className={`rounded p-2 text-center text-xs ${
+                className={`rounded p-2 text-center text-[10px] ${
                   item.active ? "bg-foreground text-background font-medium" : "bg-muted"
                 }`}
               >
@@ -88,37 +91,16 @@ function ToneIllustration() {
           </div>
         </div>
         <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="space-y-2">
+          <div className="text-xs font-medium text-muted-foreground mb-2">Output</div>
+          <div className="space-y-1.5">
             <div className="h-2 w-full rounded bg-foreground/60" />
             <div className="h-2 w-4/5 rounded bg-foreground/40" />
             <div className="h-2 w-3/4 rounded bg-foreground/40" />
           </div>
-          <div className="mt-3 text-[10px] text-muted-foreground text-center">
-            Contenuto generato con il tuo stile
+          <div className="mt-2 text-[10px] text-muted-foreground">
+            Bozza con il tuo stile, pronta da rifinire
           </div>
         </div>
-      </div>
-    </div>
-  )
-}
-
-function ContentIllustration() {
-  return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-2">
-        {[
-          { type: "Blog Post", status: "Pubblicato", color: "bg-green-500" },
-          { type: "Landing Page", status: "In review", color: "bg-yellow-500" },
-          { type: "Social Copy", status: "Draft", color: "bg-muted-foreground" },
-        ].map((item) => (
-          <div key={item.type} className="flex items-center justify-between rounded-lg border bg-background p-3 shadow-sm">
-            <div className="flex items-center gap-2">
-              <div className={`size-2 rounded-full ${item.color}`} />
-              <span className="text-sm">{item.type}</span>
-            </div>
-            <span className="text-[10px] text-muted-foreground">{item.status}</span>
-          </div>
-        ))}
       </div>
     </div>
   )
@@ -128,35 +110,33 @@ export default function TeamMarketingPage() {
   return (
     <>
       <SubPageHero
-        icon={Megaphone}
-        title="Verbalist per Team Marketing"
-        description="Contenuti che si posizionano e convertono. Senza scegliere tra SEO e copy."
+        icon={PenTool}
+        title="Verbalist per Content Manager"
+        description="Bozze strutturate basate sui pattern che rankano. Tu definisci il tono, Verbalist genera la prima stesura."
       />
 
       <TrustedBy />
 
       <FeatureChecklist
-        title="Content marketing senza compromessi"
-        description="SEO e copy insieme. Qualità e velocità. Brand e performance."
+        title="Contenuti per ogni formato"
+        description="Blog post, landing page, guide, pagine prodotto. Ogni formato con la struttura ottimale per la SERP."
         columns={featureColumns}
       />
 
       <HighlightBlock
-        icon={Palette}
-        title="Il tuo tone of voice, sempre"
-        description="Configura lo stile del tuo brand una volta. Ogni bozza generata rispetta le tue guidelines. Professionale, friendly, tecnico: tu definisci lo stile, Verbalist ti aiuta a partire."
-        visual={<ToneIllustration />}
+        icon={FileText}
+        title="Il formato giusto per ogni contenuto"
+        description="Scegli il tipo di contenuto: blog post, landing page, guida o pagina prodotto. Verbalist adatta struttura, sezioni e CTA in base al formato e al search intent."
+        visual={<ContentTypesIllustration />}
       />
 
       <HighlightBlock
-        icon={PenTool}
-        title="Da idea a pubblicazione"
-        description="Blog, landing, social: tutti i formati che servono. Workflow di approvazione integrato. Export diretto al tuo CMS. Meno passaggi, più contenuti."
-        visual={<ContentIllustration />}
+        icon={Palette}
+        title="Il tuo tone of voice"
+        description="Configura lo stile: professionale, conversazionale o tecnico. Definisci il target audience. Ogni bozza rispetta le tue indicazioni. Tu rifinisci e pubblichi."
+        visual={<ToneIllustration />}
         reverse
       />
-
-      <Testimonials testimonials={testimonials} />
 
       <SubPageCTA />
     </>

@@ -8,7 +8,15 @@ const links = {
   product: [
     { name: "Platform", href: "/en/platform" },
     { name: "Technology", href: "/en/integrations" },
-    { name: "Contact", href: "/en/contact" },
+    { name: "Pricing", href: "/en/pricing" },
+  ],
+  solutions: [
+    { name: "Agencies", href: "/en/solutions/agencies" },
+    { name: "SEO Specialist", href: "/en/solutions/seo-teams" },
+    { name: "Content Manager", href: "/en/solutions/marketing-teams" },
+    { name: "AI Strategist", href: "/en/solutions/ai-strategist" },
+    { name: "eCommerce", href: "/en/solutions/ecommerce" },
+    { name: "Enterprise", href: "/en/solutions/enterprise" },
   ],
   company: [
     { name: "About us", href: "/en/about" },
@@ -36,6 +44,9 @@ function LanguageSwitcher() {
     '/en/solutions/agencies': '/soluzioni/agenzie',
     '/en/solutions/seo-teams': '/soluzioni/team-seo',
     '/en/solutions/marketing-teams': '/soluzioni/team-marketing',
+    '/en/solutions/ai-strategist': '/soluzioni/ai-strategist',
+    '/en/solutions/ecommerce': '/soluzioni/ecommerce',
+    '/en/solutions/enterprise': '/soluzioni/enterprise',
     '/en/pricing': '/prezzi',
     '/en/contact': '/contatti',
     '/en/about': '/chi-siamo',

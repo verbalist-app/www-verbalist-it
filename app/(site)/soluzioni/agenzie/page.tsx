@@ -1,65 +1,47 @@
-import { Building2, Users, Zap, BarChart3 } from "lucide-react"
+import { Building2, Users, FolderKanban, FileOutput } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
   title: "Verbalist per Agenzie",
-  description: "Verbalist supporta il tuo team nella produzione di contenuti SEO. Analisi, pattern e bozze pronte da rifinire.",
+  description: "Analisi SERP, pattern detection e bozze di contenuto per ogni cliente. Verbalist supporta il workflow della tua agenzia.",
   alternates: {
     canonical: "/soluzioni/agenzie",
   },
   openGraph: {
     title: "Verbalist per Agenzie",
-    description: "Verbalist supporta il tuo team nella produzione di contenuti SEO. Analisi, pattern e bozze pronte da rifinire.",
+    description: "Analisi SERP, pattern detection e bozze di contenuto per ogni cliente. Verbalist supporta il workflow della tua agenzia.",
   },
 }
 
 const featureColumns = [
   {
     items: [
-      "Multi-progetto in una dashboard",
-      "Organizzazione per cliente",
+      "Progetti separati per cliente",
+      "Dashboard multi-progetto",
       "Gestione team e permessi",
-      "Workspace separati",
+      "Workspace organizzati",
     ],
   },
   {
     items: [
-      "Report white-label",
-      "Export personalizzabili",
-      "Branding completo",
-      "Delivery automatico",
-    ],
-  },
-  {
-    items: [
-      "Analisi SERP bulk",
+      "Analisi SERP per ogni keyword",
       "Pattern detection automatico",
-      "Generazione contenuti scalabile",
-      "API per integrazioni",
+      "Bozze contenuto da rifinire",
+      "Ottimizzazione contenuti esistenti",
     ],
   },
-]
-
-const testimonials = [
   {
-    metric: "80% tempo",
-    quote: "L'analisi SERP e la ricerca pattern ci prendevano ore. Ora il team può concentrarsi sulla strategia e sulla rifinitura dei contenuti.",
-    author: "Marco R.",
-    role: "Head of Content",
-    company: "Agenzia SEO Milano",
-  },
-  {
-    metric: "Più focus",
-    quote: "Il team dedica più tempo alla qualità e al cliente, meno alle attività ripetitive di analisi.",
-    author: "Laura B.",
-    role: "CEO",
-    company: "Digital Agency Roma",
+    items: [
+      "Export in Markdown e HTML",
+      "Tone of voice per cliente",
+      "Supporto multi-lingua",
+      "Storico documenti",
+    ],
   },
 ]
 
@@ -73,7 +55,7 @@ function DashboardIllustration() {
             {["Cliente A - E-commerce", "Cliente B - SaaS", "Cliente C - Local"].map((project) => (
               <div key={project} className="flex items-center justify-between rounded bg-muted p-2">
                 <span className="text-xs">{project}</span>
-                <span className="text-[10px] text-green-600">12 articoli</span>
+                <span className="text-[10px] text-muted-foreground">3 documenti</span>
               </div>
             ))}
           </div>
@@ -83,25 +65,26 @@ function DashboardIllustration() {
   )
 }
 
-function ReportIllustration() {
+function WorkflowIllustration() {
   return (
     <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-3">
-        <div className="rounded-lg border bg-background p-4 shadow-sm">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="size-8 rounded bg-foreground/10" />
-            <div className="text-xs font-medium">Il tuo logo</div>
+      <div className="w-full max-w-xs space-y-2">
+        {[
+          { step: "1", label: "Analisi SERP", status: "done" },
+          { step: "2", label: "Pattern detection", status: "done" },
+          { step: "3", label: "Bozza contenuto", status: "done" },
+          { step: "4", label: "Review del team", status: "current" },
+        ].map((item) => (
+          <div key={item.step} className="flex items-center gap-3 rounded-lg border bg-background p-3 shadow-sm">
+            <span className={`flex size-6 items-center justify-center rounded-full text-xs font-medium ${
+              item.status === "done" ? "bg-foreground text-background" :
+              item.status === "current" ? "bg-muted-foreground/20 text-foreground" : "bg-muted text-muted-foreground"
+            }`}>
+              {item.status === "done" ? "✓" : item.step}
+            </span>
+            <span className="text-sm">{item.label}</span>
           </div>
-          <div className="space-y-2">
-            <div className="h-2 w-3/4 rounded bg-muted-foreground/30" />
-            <div className="h-2 w-full rounded bg-muted-foreground/20" />
-            <div className="h-2 w-2/3 rounded bg-muted-foreground/20" />
-          </div>
-          <div className="mt-4 pt-4 border-t flex justify-between text-[10px] text-muted-foreground">
-            <span>Report generato per Cliente A</span>
-            <span>PDF</span>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   )
@@ -113,33 +96,31 @@ export default function AgenziePage() {
       <SubPageHero
         icon={Building2}
         title="Verbalist per Agenzie"
-        description="Analisi SERP, pattern detection e bozze di contenuto. Verbalist supporta il tuo team nella fase di ricerca e prima stesura."
+        description="Analisi SERP e bozze di contenuto per ogni cliente. Meno tempo sulla ricerca, più tempo sulla strategia e sulla qualità."
       />
 
       <TrustedBy />
 
       <FeatureChecklist
-        title="Tutto quello che serve alla tua agenzia"
-        description="Gestione multi-cliente, report brandizzati e produzione scalabile."
+        title="Workflow strutturato per ogni cliente"
+        description="Organizza progetti, analizza competitor e genera bozze. Il tuo team si concentra su strategia e rifinitura."
         columns={featureColumns}
       />
 
       <HighlightBlock
-        icon={Users}
-        title="Una dashboard, tutti i clienti"
-        description="Organizza progetti per cliente. Vedi lo stato di ogni contenuto. Gestisci il team con permessi granulari. Tutto da un posto solo."
+        icon={FolderKanban}
+        title="Un progetto per ogni cliente"
+        description="Organizza il lavoro per cliente con workspace separati. Ogni progetto ha le sue keyword, i suoi documenti e il suo storico. Tutto in un posto."
         visual={<DashboardIllustration />}
       />
 
       <HighlightBlock
-        icon={BarChart3}
-        title="Report col tuo brand"
-        description="Esporta report personalizzati con il tuo logo. Mostra ai clienti i risultati dell'analisi SERP e dei contenuti generati. White-label completo."
-        visual={<ReportIllustration />}
+        icon={FileOutput}
+        title="Dalla keyword alla bozza"
+        description="Inserisci la keyword, Verbalist analizza la SERP, identifica i pattern vincenti e genera una bozza strutturata. Il tuo team la rifinisce e la pubblica."
+        visual={<WorkflowIllustration />}
         reverse
       />
-
-      <Testimonials testimonials={testimonials} />
 
       <SubPageCTA />
     </>
