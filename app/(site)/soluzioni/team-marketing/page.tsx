@@ -111,8 +111,8 @@ export default function TeamMarketingPage() {
     <>
       <SubPageHero
         label="Content Manager"
-        title="Dalla keyword alla bozza, tu rifinisci"
-        description="Bozze strutturate basate sui pattern vincenti. Tu definisci il tono, Verbalist genera la prima stesura."
+        title="Crea contenuti SEO-optimized senza fare ricerca"
+        description="Salta l'analisi SERP manuale. Ottieni bozze strutturate basate su pattern di ranking provati, nel tuo tone of voice, pronte per il tuo tocco editoriale."
       />
 
       <TrustedBy />

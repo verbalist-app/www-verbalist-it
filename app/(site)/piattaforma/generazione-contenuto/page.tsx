@@ -142,8 +142,8 @@ export default function GenerazioneContenutoPage() {
     <>
       <SubPageHero
         label="Generazione Contenuto"
-        title="Dall'analisi alla bozza in un click"
-        description="Scrive l'articolo basandosi sui pattern vincenti. Title, meta, struttura e testo. Pronto per pubblicare."
+        title="Trasforma le insight SERP in contenuti pronti da pubblicare"
+        description="Genera articoli ottimizzati basati su pattern di ranking provati. Title, meta, struttura heading e body text—pronti per la tua rifinitura."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

@@ -79,13 +79,13 @@ export default function PrezziPage() {
         </Link>
         <div className="text-center mb-16">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            Piani
+            Prezzi
           </p>
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-            Prezzi
+            Prezzi semplici, risultati concreti
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Tre piani. Prova gratis per 14 giorni. Nessun vincolo.
+            Inizia con 14 giorni gratis. Scala quando cresci. Nessun costo nascosto, nessun vincolo.
           </p>
         </div>
 

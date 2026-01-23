@@ -53,7 +53,7 @@ export function SubPageHeroEn({
           </div>
         )}
         {label ? (
-          <p className="mb-4 text-sm font-medium text-foreground inline-flex items-center gap-2 border-b border-foreground/20 pb-1">
+          <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             {label}
           </p>
         ) : Icon ? (

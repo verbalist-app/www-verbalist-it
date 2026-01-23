@@ -108,8 +108,8 @@ export default function TeamSeoPage() {
     <>
       <SubPageHero
         label="SEO Specialist"
-        title="I dati che ti servono per competere in SERP"
-        description="Analisi SERP, pattern detection, metriche dei competitor. Dati concreti per costruire contenuti che rankano."
+        title="Ottieni il vantaggio competitivo in ogni SERP"
+        description="Accedi a dati SERP in tempo reale, pattern detection e insight sui competitor. Prendi decisioni data-driven che superano costantemente la concorrenza."
       />
 
       <TrustedBy />

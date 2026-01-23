@@ -135,8 +135,8 @@ export default function ScrapingCompetitorPage() {
     <>
       <SubPageHero
         label="Scraping Competitor"
-        title="Estrai i contenuti che rankano"
-        description="Scarica le pagine competitor e convertile in Markdown pulito. Pronto per analisi e confronto."
+        title="Accedi alla strategia di contenuto di ogni competitor"
+        description="Estrai e analizza i contenuti competitor come Markdown pulito. Comprendi struttura, argomenti e approccio—pronti per l'analisi strategica."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

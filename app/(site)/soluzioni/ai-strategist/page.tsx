@@ -101,8 +101,8 @@ export default function AIStrategistPage() {
     <>
       <SubPageHero
         label="AI Strategist"
-        title="Contenuti ottimizzati per essere citati dagli LLM"
-        description="Analisi E-E-A-T, pattern di citabilità e strutture per AI Overview, ChatGPT e Perplexity."
+        title="Fai citare i tuoi contenuti dagli assistenti AI"
+        description="Ottimizza per ChatGPT, Perplexity e AI Overview. Analizza segnali E-E-A-T, pattern di citabilità e strutture che gli LLM preferiscono referenziare."
       />
 
       <TrustedBy />

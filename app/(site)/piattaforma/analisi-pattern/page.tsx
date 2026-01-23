@@ -133,8 +133,8 @@ export default function AnalisiPatternPage() {
     <>
       <SubPageHero
         label="Analisi Pattern"
-        title="Scopri cosa funziona in prima pagina"
-        description="Trova i pattern comuni: lunghezza, struttura heading, argomenti. Dati per replicare quello che ranka."
+        title="Decodifica i pattern che portano in prima pagina"
+        description="Scopri cosa hanno in comune i contenuti top. Word count, struttura heading, topic coverage e segnali E-E-A-T che correlano con il successo."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

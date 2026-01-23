@@ -121,8 +121,8 @@ export default function EnterprisePage() {
     <>
       <SubPageHero
         label="Enterprise"
-        title="Soluzioni su misura per grandi organizzazioni"
-        description="Supporto dedicato, configurazioni custom e SLA garantiti per team che scalano."
+        title="SEO content enterprise-grade su scala"
+        description="Distribuisci Verbalist in tutta la tua organizzazione con supporto dedicato, configurazioni custom, permessi granulari e SLA garantiti."
       />
 
       <TrustedBy />

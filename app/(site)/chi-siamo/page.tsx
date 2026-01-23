@@ -19,13 +19,13 @@ export default function ChiSiamoPage() {
       <div className="max-w-4xl mx-auto px-6">
         <div className="mb-12">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            Company
+            Chi Siamo
           </p>
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-            Chi siamo
+            25 anni di esperienza SEO, ora in un software
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">
-            Verbalist è un prodotto di <a href="https://www.nur.it/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline font-medium">NUR Digital Marketing</a>. 25 anni di SEO, GEO e content optimization.
+            Verbalist è un prodotto di <a href="https://www.nur.it/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline font-medium">NUR Digital Marketing</a>. 430+ clienti dal 1999, ora accessibile a tutti.
           </p>
         </div>
 
