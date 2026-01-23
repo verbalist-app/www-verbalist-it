@@ -165,15 +165,12 @@ export default function DocsPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24 md:pb-32">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="flex justify-center mb-6">
-            <PageBreadcrumb
-              items={[
-                { label: "Home", href: "/en" },
-                { label: "Docs" },
-              ]}
-              className="mb-0"
-            />
-          </div>
+          <PageBreadcrumb
+            items={[
+              { label: "Home", href: "/en" },
+              { label: "Docs" },
+            ]}
+          />
           {/* Header with Search */}
           <div className="mb-12 text-center">
             <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">

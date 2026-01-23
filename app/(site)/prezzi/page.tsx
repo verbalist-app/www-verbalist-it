@@ -71,15 +71,12 @@ export default function PrezziPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex justify-center mb-6">
-          <PageBreadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Prezzi" },
-            ]}
-            className="mb-0"
-          />
-        </div>
+        <PageBreadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Prezzi" },
+          ]}
+        />
         <div className="text-center mb-16">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Piani

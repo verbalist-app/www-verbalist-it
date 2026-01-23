@@ -33,9 +33,7 @@ export function SubPageHeroEn({
     <section className={cn("pt-20 md:pt-28 pb-12 md:pb-16", className)}>
       <div className="mx-auto max-w-3xl px-6 text-center">
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <div className="flex justify-center mb-6">
-            <PageBreadcrumb items={breadcrumbs} className="mb-0" />
-          </div>
+          <PageBreadcrumb items={breadcrumbs} className="mb-6 text-left" />
         )}
         {Icon && (
           <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
