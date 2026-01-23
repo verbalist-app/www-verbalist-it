@@ -1,6 +1,6 @@
 "use client"
 
-import { CookieIcon, X } from "lucide-react"
+import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
@@ -121,9 +121,8 @@ export function CookieConsent({
           <X className="h-4 w-4" />
         </button>
         <div className="grid gap-2">
-          <div className="border-b border-border h-12 sm:h-14 flex items-center justify-between p-3 sm:p-4 pr-10">
+          <div className="border-b border-border h-12 sm:h-14 flex items-center p-3 sm:p-4 pr-10">
             <h1 className="text-base sm:text-lg font-medium">{t.title}</h1>
-            <CookieIcon className="h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]" />
           </div>
           <div className="p-3 sm:p-4">
             <p className="text-xs sm:text-sm font-normal text-start text-muted-foreground">
@@ -170,9 +169,8 @@ export function CookieConsent({
         >
           <X className="h-4 w-4" />
         </button>
-        <div className="flex items-center justify-between p-3 pr-10">
+        <div className="flex items-center p-3 pr-10">
           <h1 className="text-base sm:text-lg font-medium">{t.title}</h1>
-          <CookieIcon className="h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]" />
         </div>
         <div className="p-3 -mt-2">
           <p className="text-xs sm:text-sm text-left text-muted-foreground">
@@ -208,11 +206,8 @@ export function CookieConsent({
           >
             <X className="h-3.5 w-3.5" />
           </button>
-          <div className="p-3 flex items-center justify-between border-b border-border pr-8">
-            <div className="flex items-center gap-2">
-              <CookieIcon className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="text-xs sm:text-sm font-medium">{t.cookieNotice}</span>
-            </div>
+          <div className="p-3 flex items-center border-b border-border pr-8">
+            <span className="text-xs sm:text-sm font-medium">{t.cookieNotice}</span>
           </div>
           <div className="p-3">
             <p className="text-[11px] sm:text-xs text-muted-foreground">
