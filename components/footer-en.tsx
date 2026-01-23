@@ -193,6 +193,15 @@ export function FooterEn() {
             </p>
             <div className="flex items-center gap-6">
               <LanguageSwitcher />
+              <button
+                onClick={() => {
+                  document.cookie = "cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+                  window.location.reload()
+                }}
+                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Manage Cookies
+              </button>
               <a
                 href="https://status.verbalist.it"
                 target="_blank"

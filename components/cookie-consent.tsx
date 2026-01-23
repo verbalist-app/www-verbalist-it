@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -111,8 +112,16 @@ const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
         )}
         {...props}
       >
-        <Card className="m-3 sm:m-0 py-4 shadow-lg border-border/50 bg-background/95 backdrop-blur-sm">
-          <CardContent className="flex flex-col sm:flex-row gap-4 p-0 px-4">
+        <Card className="m-3 sm:m-0 py-4 shadow-lg border-border/50 bg-background/95 backdrop-blur-sm relative">
+          {/* X button to close/decline */}
+          <button
+            onClick={handleDecline}
+            className="absolute top-2 right-2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            aria-label={t.decline}
+          >
+            <X className="h-4 w-4" />
+          </button>
+          <CardContent className="flex flex-col sm:flex-row gap-4 p-0 px-4 pr-8">
             <CardDescription className="text-xs sm:text-sm flex-1 text-foreground/80">
               {t.description}{" "}
               <Link
