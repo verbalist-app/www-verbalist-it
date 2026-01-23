@@ -5,19 +5,19 @@ import { usePathname } from "next/navigation"
 import { Globe } from "lucide-react"
 
 const links = {
-  prodotto: [
-    { name: "Piattaforma", href: "/piattaforma" },
-    { name: "Tecnologia", href: "/integrazioni" },
-    { name: "Contatti", href: "/contatti" },
+  product: [
+    { name: "Platform", href: "/en/platform" },
+    { name: "Technology", href: "/en/integrations" },
+    { name: "Contact", href: "/en/contact" },
   ],
-  azienda: [
-    { name: "Chi siamo", href: "/chi-siamo" },
+  company: [
+    { name: "About us", href: "/en/about" },
     { name: "LinkedIn", href: "https://www.linkedin.com/showcase/softwareverbalist/", external: true },
   ],
-  legale: [
-    { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Cookie Policy", href: "/cookie-policy" },
-    { name: "Termini", href: "/termini" },
+  legal: [
+    { name: "Privacy Policy", href: "/en/privacy-policy" },
+    { name: "Cookie Policy", href: "/en/cookie-policy" },
+    { name: "Terms", href: "/en/terms" },
   ],
 }
 
@@ -25,49 +25,49 @@ function LanguageSwitcher() {
   const pathname = usePathname()
   const isEnglish = pathname.startsWith('/en')
 
-  // Map Italian slugs to English slugs
+  // Map English slugs to Italian slugs
   const slugMap: Record<string, string> = {
-    '/': '/en',
-    '/piattaforma': '/en/platform',
-    '/piattaforma/analisi-serp': '/en/platform/serp-analysis',
-    '/piattaforma/scraping-competitor': '/en/platform/competitor-scraping',
-    '/piattaforma/analisi-pattern': '/en/platform/pattern-analysis',
-    '/piattaforma/generazione-contenuto': '/en/platform/content-generation',
-    '/soluzioni/agenzie': '/en/solutions/agencies',
-    '/soluzioni/team-seo': '/en/solutions/seo-teams',
-    '/soluzioni/team-marketing': '/en/solutions/marketing-teams',
-    '/prezzi': '/en/pricing',
-    '/contatti': '/en/contact',
-    '/chi-siamo': '/en/about',
-    '/blog': '/en/blog',
-    '/blog/geo-ottimizzazione-ai': '/en/blog/geo-ai-optimization',
-    '/faq': '/en/faq',
-    '/guide': '/en/docs',
-    '/changelog': '/en/changelog',
-    '/integrazioni': '/en/integrations',
-    '/privacy-policy': '/en/privacy-policy',
-    '/cookie-policy': '/en/cookie-policy',
-    '/termini': '/en/terms',
-    '/login': '/en/login',
+    '/en': '/',
+    '/en/platform': '/piattaforma',
+    '/en/platform/serp-analysis': '/piattaforma/analisi-serp',
+    '/en/platform/competitor-scraping': '/piattaforma/scraping-competitor',
+    '/en/platform/pattern-analysis': '/piattaforma/analisi-pattern',
+    '/en/platform/content-generation': '/piattaforma/generazione-contenuto',
+    '/en/solutions/agencies': '/soluzioni/agenzie',
+    '/en/solutions/seo-teams': '/soluzioni/team-seo',
+    '/en/solutions/marketing-teams': '/soluzioni/team-marketing',
+    '/en/pricing': '/prezzi',
+    '/en/contact': '/contatti',
+    '/en/about': '/chi-siamo',
+    '/en/blog': '/blog',
+    '/en/blog/geo-ai-optimization': '/blog/geo-ottimizzazione-ai',
+    '/en/faq': '/faq',
+    '/en/docs': '/guide',
+    '/en/changelog': '/changelog',
+    '/en/integrations': '/integrazioni',
+    '/en/privacy-policy': '/privacy-policy',
+    '/en/cookie-policy': '/cookie-policy',
+    '/en/terms': '/termini',
+    '/en/login': '/login',
   }
 
-  // Reverse map for English to Italian
+  // Reverse map for Italian to English
   const reverseSlugMap: Record<string, string> = Object.fromEntries(
-    Object.entries(slugMap).map(([it, en]) => [en, it])
+    Object.entries(slugMap).map(([en, it]) => [it, en])
   )
 
   let alternatePath: string
   if (isEnglish) {
-    alternatePath = reverseSlugMap[pathname] || '/'
+    alternatePath = slugMap[pathname] || '/'
   } else {
-    alternatePath = slugMap[pathname] || '/en'
+    alternatePath = reverseSlugMap[pathname] || '/en'
   }
 
   return (
     <Link
       href={alternatePath}
       className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
-      title={isEnglish ? 'Passa all\'italiano' : 'Switch to English'}
+      title={isEnglish ? 'Switch to Italian' : 'Switch to English'}
     >
       <Globe className="size-3.5" />
       <span className="font-medium">{isEnglish ? 'Italiano' : 'English'}</span>
@@ -75,7 +75,7 @@ function LanguageSwitcher() {
   )
 }
 
-export function Footer() {
+export function FooterEn() {
   return (
     <footer className="border-t py-16">
       <div className="mx-auto max-w-5xl px-6">
@@ -83,15 +83,15 @@ export function Footer() {
           <div className="max-w-sm">
             <img src="/logo-full.svg" alt="Verbalist" className="h-7 w-auto" />
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              La prima piattaforma di Content Automation per SEO e AI Search (AEO/GEO).
+              The first Content Automation platform for SEO and AI Search (AEO/GEO).
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-12">
             <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Prodotto</h3>
+              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Product</h3>
               <ul className="mt-4 space-y-3">
-                {links.prodotto.map((link) => (
+                {links.product.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
@@ -105,9 +105,9 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Azienda</h3>
+              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Company</h3>
               <ul className="mt-4 space-y-3">
-                {links.azienda.map((link) => (
+                {links.company.map((link) => (
                   <li key={link.name}>
                     {link.external ? (
                       <a
@@ -132,9 +132,9 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Legale</h3>
+              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Legal</h3>
               <ul className="mt-4 space-y-3">
-                {links.legale.map((link) => (
+                {links.legal.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
@@ -156,7 +156,7 @@ export function Footer() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Verbalist. Un prodotto{" "}
+              © {new Date().getFullYear()} Verbalist. A product by{" "}
               <a
                 href="https://www.nur.it/"
                 target="_blank"

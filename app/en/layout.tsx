@@ -1,37 +1,18 @@
-import type React from "react"
-import type { Metadata } from "next"
+import { BoxedHeaderEn } from "@/components/boxed-header-en"
+import { FooterEn } from "@/components/footer-en"
 
-const siteUrl = "https://verbalist.it"
-
-export const metadata: Metadata = {
-  title: {
-    default: "Verbalist — Content Automation for SEO, AEO, GEO",
-    template: "%s — Verbalist",
-  },
-  description:
-    "Analyze Google competitors, extract winning patterns and generate optimized content for SEO, AEO and GEO. From keyword to complete article in minutes.",
-  alternates: {
-    canonical: "/en",
-    languages: {
-      'it': '/',
-      'en': '/en',
-      'x-default': '/',
-    },
-  },
-  openGraph: {
-    locale: "en_US",
-    alternateLocale: "it_IT",
-  },
-}
-
-export default function EnglishLayout({
+export default function SiteEnLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <div lang="en">
-      {children}
-    </div>
+    <>
+      <div className="mx-auto max-w-6xl border-x border-border min-h-screen flex flex-col">
+        <BoxedHeaderEn />
+        <main className="flex-1">{children}</main>
+      </div>
+      <FooterEn />
+    </>
   )
 }

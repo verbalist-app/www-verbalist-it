@@ -59,6 +59,10 @@ export default config({
           ],
           defaultValue: 'it',
         }),
+        translationOf: fields.text({
+          label: 'Slug traduzione',
+          description: 'Slug del post nella lingua alternativa (es: per un post IT, inserisci lo slug del post EN)',
+        }),
         content: fields.markdoc({
           label: 'Contenuto',
           options: {

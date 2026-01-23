@@ -12,13 +12,13 @@ import { getPostsByLocale, formatDate } from "@/lib/keystatic"
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Articoli su SEO, AI, GEO e content. Cose pratiche che puoi applicare subito.",
+  description: "Articles on SEO, AI, GEO and content. Practical things you can apply right away.",
   alternates: {
-    canonical: "/blog",
+    canonical: "/en/blog",
   },
   openGraph: {
     title: "Blog — Verbalist",
-    description: "Articoli su SEO, AI, GEO e content. Cose pratiche che puoi applicare subito.",
+    description: "Articles on SEO, AI, GEO and content. Practical things you can apply right away.",
   },
 }
 
@@ -26,12 +26,12 @@ const categoryLabels: Record<string, string> = {
   'seo': 'SEO',
   'content-marketing': 'Content Marketing',
   'ai-automation': 'AI & Automation',
-  'guide': 'Guide',
+  'guide': 'Guides',
   'news': 'News',
 }
 
 export default async function BlogPage() {
-  const posts = await getPostsByLocale('it')
+  const posts = await getPostsByLocale('en')
 
   // Sort by date, newest first
   const sortedPosts = posts.sort((a, b) => {
@@ -45,13 +45,13 @@ export default async function BlogPage() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="mb-12">
           <Badge variant="secondary" className="mb-4">
-            Risorse
+            Resources
           </Badge>
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
             Blog
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
-            SEO, AI, GEO, content. Cose pratiche che puoi applicare subito.
+            SEO, AI, GEO, content. Practical things you can apply right away.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default async function BlogPage() {
               >
                 <div className="aspect-[16/9] w-full">
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/en/blog/${post.slug}`}
                     className="block transition-opacity duration-200 hover:opacity-70"
                   >
                     <img
@@ -80,11 +80,11 @@ export default async function BlogPage() {
                       {categoryLabels[post.entry.category] || post.entry.category}
                     </span>
                     <span className="text-xs text-muted-foreground">
-                      {formatDate(post.entry.publishedAt, 'it')}
+                      {formatDate(post.entry.publishedAt, 'en')}
                     </span>
                   </div>
                   <h2 className="text-base font-medium hover:underline">
-                    <Link href={`/blog/${post.slug}`}>
+                    <Link href={`/en/blog/${post.slug}`}>
                       {post.entry.title}
                     </Link>
                   </h2>
@@ -94,10 +94,10 @@ export default async function BlogPage() {
                 </CardContent>
                 <CardFooter>
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/en/blog/${post.slug}`}
                     className="flex items-center text-sm text-foreground hover:underline"
                   >
-                    Leggi articolo
+                    Read article
                     <ArrowRight className="ml-2 size-3.5" />
                   </Link>
                 </CardFooter>
@@ -106,13 +106,13 @@ export default async function BlogPage() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">Nessun articolo disponibile.</p>
+            <p className="text-muted-foreground">No articles available.</p>
           </div>
         )}
 
         <div className="mt-12 pt-8 border-t text-center">
           <p className="text-sm text-muted-foreground">
-            Altri articoli in arrivo.
+            More articles coming soon.
           </p>
         </div>
       </div>
