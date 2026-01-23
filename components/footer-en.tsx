@@ -154,12 +154,22 @@ export function FooterEn() {
     <footer className="border-t border-border bg-background">
       {/* Main footer content */}
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-12">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5 lg:gap-12">
-          <FooterSection {...footerLinks.platform} />
-          <FooterSection {...footerLinks.solutions} />
-          <FooterSection {...footerLinks.resources} />
-          <FooterSection {...footerLinks.company} />
-          <FooterSection {...footerLinks.legal} />
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5 lg:gap-0">
+          <div className="lg:border-r lg:border-border lg:pr-8">
+            <FooterSection {...footerLinks.platform} />
+          </div>
+          <div className="lg:border-r lg:border-border lg:px-8">
+            <FooterSection {...footerLinks.solutions} />
+          </div>
+          <div className="lg:border-r lg:border-border lg:px-8">
+            <FooterSection {...footerLinks.resources} />
+          </div>
+          <div className="lg:border-r lg:border-border lg:px-8">
+            <FooterSection {...footerLinks.company} />
+          </div>
+          <div className="lg:pl-8">
+            <FooterSection {...footerLinks.legal} />
+          </div>
         </div>
       </div>
 
@@ -183,7 +193,7 @@ export function FooterEn() {
               href="https://www.nur.it/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
             >
               © 2026 NUR Digital Marketing
             </a>
