@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, GraduationCap, HelpCircle, History, ShoppingCart, Sparkles, Landmark } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { CommandMenu } from '@/components/command-menu'
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -233,6 +234,7 @@ export const BoxedHeader = () => {
                                 </div>
                             </div>
                             <div className="hidden lg:flex w-full flex-col space-y-3 sm:flex-row sm:items-center sm:gap-3 sm:space-y-0 md:w-fit">
+                                <CommandMenu locale="it" />
                                 <Button asChild variant="outline" size="sm">
                                     <Link href="/login">
                                         <span>Accedi</span>
