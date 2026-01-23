@@ -98,8 +98,61 @@ export default function CookiePolicyPage() {
             </ul>
 
             <h4 className="text-sm font-medium text-foreground mb-2">2.2 Cookie di profilazione</h4>
+            <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+              I cookie di profilazione sono cookie non tecnici che consentono a NUR di fornirti servizi personalizzati in base alle tue esigenze.
+            </p>
+
+            <h4 className="text-sm font-medium text-foreground mb-2">2.3 Elenco dei cookie utilizzati</h4>
+            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+              Di seguito l'elenco dei cookie utilizzati sul Sito:
+            </p>
+
+            <div className="overflow-x-auto mb-4">
+              <table className="w-full text-sm border border-border">
+                <thead>
+                  <tr className="bg-muted/50">
+                    <th className="text-left p-3 border-b border-border font-medium">Cookie</th>
+                    <th className="text-left p-3 border-b border-border font-medium">Tipologia</th>
+                    <th className="text-left p-3 border-b border-border font-medium">Fornitore</th>
+                    <th className="text-left p-3 border-b border-border font-medium">Durata</th>
+                    <th className="text-left p-3 border-b border-border font-medium">Descrizione</th>
+                  </tr>
+                </thead>
+                <tbody className="text-foreground/80">
+                  <tr>
+                    <td className="p-3 border-b border-border">cookieConsent</td>
+                    <td className="p-3 border-b border-border">Tecnico</td>
+                    <td className="p-3 border-b border-border">Verbalist</td>
+                    <td className="p-3 border-b border-border">12 mesi</td>
+                    <td className="p-3 border-b border-border">Memorizza le preferenze sui cookie espresse dall'utente</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 border-b border-border">_ga</td>
+                    <td className="p-3 border-b border-border">Analitico</td>
+                    <td className="p-3 border-b border-border">Google Analytics</td>
+                    <td className="p-3 border-b border-border">2 anni</td>
+                    <td className="p-3 border-b border-border">Utilizzato per distinguere gli utenti</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 border-b border-border">_ga_*</td>
+                    <td className="p-3 border-b border-border">Analitico</td>
+                    <td className="p-3 border-b border-border">Google Analytics</td>
+                    <td className="p-3 border-b border-border">2 anni</td>
+                    <td className="p-3 border-b border-border">Utilizzato per mantenere lo stato della sessione</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 border-b border-border">_cs_*</td>
+                    <td className="p-3 border-b border-border">Analitico</td>
+                    <td className="p-3 border-b border-border">Contentsquare</td>
+                    <td className="p-3 border-b border-border">13 mesi</td>
+                    <td className="p-3 border-b border-border">Analisi del comportamento utente e ottimizzazione UX</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <p className="text-sm text-foreground/80 leading-relaxed">
-              I cookie di profilazione sono cookie non tecnici che consentono a NUR di fornirti servizi personalizzati in base alle tue esigenze. NUR utilizza i cookie di profilazione elencati.
+              <strong>Nota:</strong> Vercel Analytics e Speed Insights sono servizi privacy-friendly che non utilizzano cookie e non richiedono consenso in quanto non tracciano dati personali identificabili.
             </p>
           </section>
 

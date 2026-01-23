@@ -32,12 +32,11 @@ const translations = {
     learnMore: "Cookie Policy",
     learnMoreHref: "/cookie-policy",
     necessary: "Necessari",
-    necessaryDesc: "Essenziali per il funzionamento del sito. Non possono essere disattivati.",
+    necessaryDesc: "Essenziali per il funzionamento del sito.",
     analytics: "Analitici",
     analyticsDesc: "Ci aiutano a capire come utilizzi il sito (Google Analytics, Hotjar).",
     marketing: "Marketing",
     marketingDesc: "Utilizzati per mostrarti pubblicità pertinenti.",
-    alwaysActive: "Sempre attivi",
   },
   en: {
     title: "We use cookies",
@@ -49,12 +48,11 @@ const translations = {
     learnMore: "Cookie Policy",
     learnMoreHref: "/en/cookie-policy",
     necessary: "Necessary",
-    necessaryDesc: "Essential for the website to function. Cannot be disabled.",
+    necessaryDesc: "Essential for the website to function.",
     analytics: "Analytics",
     analyticsDesc: "Help us understand how you use the site (Google Analytics, Hotjar).",
     marketing: "Marketing",
     marketingDesc: "Used to show you relevant advertising.",
-    alwaysActive: "Always active",
   },
 }
 
@@ -187,11 +185,15 @@ export function CookieConsent({
           <div className="px-4 pb-2 space-y-3 border-t border-border pt-4">
             {/* Necessary */}
             <div className="flex items-center justify-between">
-              <div>
+              <div className="flex-1 pr-4">
                 <p className="text-sm font-medium">{t.necessary}</p>
                 <p className="text-xs text-muted-foreground">{t.necessaryDesc}</p>
               </div>
-              <span className="text-xs text-muted-foreground">{t.alwaysActive}</span>
+              <Switch
+                checked={true}
+                disabled
+                className="opacity-50 cursor-not-allowed"
+              />
             </div>
 
             {/* Analytics */}
