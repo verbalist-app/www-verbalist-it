@@ -3,7 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
-import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, GraduationCap, HelpCircle, History } from 'lucide-react'
+import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, GraduationCap, HelpCircle, History, ShoppingCart, Sparkles, Landmark } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
     NavigationMenu,
@@ -25,6 +25,9 @@ const soluzioni = [
     { title: "Agenzie", href: "/soluzioni/agenzie", icon: Building2 },
     { title: "Team SEO", href: "/soluzioni/team-seo", icon: Users },
     { title: "Team Marketing", href: "/soluzioni/team-marketing", icon: Megaphone },
+    { title: "Enterprise", href: "/soluzioni/enterprise", icon: Landmark },
+    { title: "Ecommerce", href: "/soluzioni/ecommerce", icon: ShoppingCart },
+    { title: "AI Strategist", href: "/soluzioni/ai-strategist", icon: Sparkles },
 ]
 
 const funzionalita = [
