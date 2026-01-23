@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from 'next/font/google'
 
 import { Analytics } from "@vercel/analytics/next"
+import { OrganizationSchema } from "@/components/schema"
 import "./globals.css"
 
 const inter = Inter({
@@ -116,6 +117,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
+      <head>
+        <OrganizationSchema />
+      </head>
       <body className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
         {children}
         <Analytics />

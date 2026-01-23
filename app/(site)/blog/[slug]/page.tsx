@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { reader, formatDate, getTranslation } from "@/lib/keystatic"
+import { ArticleSchema } from "@/components/schema"
 import Markdoc from "@markdoc/markdoc"
 import React from "react"
 import type { Metadata } from "next"
@@ -45,9 +46,19 @@ export default async function BlogPostPage({ params }: PageProps) {
   const rendered = Markdoc.renderers.react(content, React)
 
   return (
-    <article className="pt-20 md:pt-28 pb-24">
-      {/* Header */}
-      <div className="max-w-4xl mx-auto px-6">
+    <>
+      <ArticleSchema
+        title={post.title}
+        description={post.description}
+        slug={slug}
+        publishedAt={post.publishedAt}
+        authorName={post.author || "Team Verbalist"}
+        locale="it"
+        imageUrl={post.featuredImage || undefined}
+      />
+      <article className="pt-20 md:pt-28 pb-24">
+        {/* Header */}
+        <div className="max-w-4xl mx-auto px-6">
         <div className="mb-8 flex items-center justify-between">
           <Link
             href="/blog"
@@ -106,23 +117,24 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* CTA */}
-      <div className="max-w-3xl mx-auto px-6 mt-16">
-        <div className="bg-muted rounded-xl p-8 md:p-12">
-          <h2 className="text-xl font-medium tracking-tight mb-4">
-            Vuoi vedere Verbalist in azione?
-          </h2>
-          <p className="text-sm text-muted-foreground mb-6 max-w-2xl">
-            Ti mostriamo come funziona con una demo sul tuo caso.
-          </p>
-          <Link
-            href="/contatti"
-            className="inline-flex items-center gap-2 text-sm bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
-          >
-            Prenota una demo
-          </Link>
+        {/* CTA */}
+        <div className="max-w-3xl mx-auto px-6 mt-16">
+          <div className="bg-muted rounded-xl p-8 md:p-12">
+            <h2 className="text-xl font-medium tracking-tight mb-4">
+              Vuoi vedere Verbalist in azione?
+            </h2>
+            <p className="text-sm text-muted-foreground mb-6 max-w-2xl">
+              Ti mostriamo come funziona con una demo sul tuo caso.
+            </p>
+            <Link
+              href="/contatti"
+              className="inline-flex items-center gap-2 text-sm bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
+            >
+              Prenota una demo
+            </Link>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </>
   )
 }

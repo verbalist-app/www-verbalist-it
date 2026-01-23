@@ -1,5 +1,6 @@
 import { BoxedHeaderEn } from "@/components/boxed-header-en"
 import { FooterEn } from "@/components/footer-en"
+import { SoftwareApplicationSchema } from "@/components/schema"
 
 export default function SiteEnLayout({
   children,
@@ -8,6 +9,7 @@ export default function SiteEnLayout({
 }) {
   return (
     <>
+      <SoftwareApplicationSchema locale="en" />
       <div className="mx-auto max-w-6xl border-x border-border min-h-screen flex flex-col">
         <BoxedHeaderEn />
         <main className="flex-1">{children}</main>
