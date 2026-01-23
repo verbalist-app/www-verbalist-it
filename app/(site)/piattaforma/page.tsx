@@ -46,7 +46,7 @@ const funzionalita = [
   {
     slug: "analisi-pattern",
     title: "Analisi Pattern",
-    description: "Trova cosa hanno in comune i contenuti che rankano. Intent, struttura, segnali E-E-A-T.",
+    description: "Trova cosa hanno in comune i contenuti in prima pagina. Intent, struttura, segnali E-E-A-T.",
     cosa: "Analizza tutti i competitor per capire search intent, topic ricorrenti, struttura heading, word count medio.",
     risultato: "Report con i pattern vincenti e la struttura consigliata.",
     icon: (

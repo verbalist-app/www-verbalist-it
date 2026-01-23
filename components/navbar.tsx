@@ -90,12 +90,6 @@ export function Navbar() {
                 </div>
               )}
             </div>
-            <Link
-              href="/integrazioni"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Tecnologia
-            </Link>
             <Link href="/chi-siamo" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Chi siamo
             </Link>

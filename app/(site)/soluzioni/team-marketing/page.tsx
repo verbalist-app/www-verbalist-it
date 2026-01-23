@@ -112,7 +112,7 @@ export default function TeamMarketingPage() {
       <SubPageHero
         icon={PenTool}
         title="Verbalist per Content Manager"
-        description="Bozze strutturate basate sui pattern che rankano. Tu definisci il tono, Verbalist genera la prima stesura."
+        description="Bozze strutturate basate sui pattern vincenti. Tu definisci il tono, Verbalist genera la prima stesura."
       />
 
       <TrustedBy />

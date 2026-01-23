@@ -153,7 +153,7 @@ const featureBlocks = [
     id: "feature-3",
     step: "Step 3",
     title: "Analisi Pattern",
-    description: "Trova cosa hanno in comune i contenuti che rankano. Struttura, argomenti, segnali E-E-A-T, lunghezza media.",
+    description: "Trova cosa hanno in comune i contenuti meglio posizionati. Struttura, argomenti, segnali E-E-A-T, lunghezza media.",
     href: "/piattaforma/analisi-pattern",
     illustration: <PatternIllustration />,
   },

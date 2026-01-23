@@ -6,14 +6,14 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 export const metadata: Metadata = {
   title: "Come Funziona",
   description:
-    "Scopri come Verbalist analizza la SERP, estrae i pattern dai competitor e genera articoli SEO completi. 4 step automatizzati per contenuti che rankano.",
+    "Scopri come Verbalist analizza la SERP, estrae i pattern dai competitor e genera articoli SEO completi. 4 step automatizzati per contenuti che si posizionano.",
   alternates: {
     canonical: "/prodotto",
   },
   openGraph: {
     title: "Come Funziona — Verbalist",
     description:
-      "Scopri come Verbalist analizza la SERP, estrae i pattern dai competitor e genera articoli SEO completi. 4 step automatizzati per contenuti che rankano.",
+      "Scopri come Verbalist analizza la SERP, estrae i pattern dai competitor e genera articoli SEO completi. 4 step automatizzati per contenuti che si posizionano.",
   },
 }
 

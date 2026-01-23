@@ -3,7 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
-import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, Cpu, GraduationCap, HelpCircle, History } from 'lucide-react'
+import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, GraduationCap, HelpCircle, History } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
     NavigationMenu,
@@ -37,7 +37,6 @@ const features = [
 const resources = [
     { title: "Blog", href: "/en/blog", icon: BookOpen },
     { title: "Changelog", href: "/en/changelog", icon: History },
-    { title: "Technology", href: "/en/integrations", icon: Cpu },
     { title: "Docs", href: "/en/docs", icon: GraduationCap },
     { title: "FAQ", href: "/en/faq", icon: HelpCircle },
 ]

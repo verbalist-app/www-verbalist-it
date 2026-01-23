@@ -22,7 +22,7 @@ const homeTestimonials = [
     company: "E-commerce Brand",
   },
   {
-    quote: "I contenuti generati rankano in prima pagina nel 70% dei casi. Un ROI incredibile per il nostro team.",
+    quote: "I contenuti generati arrivano in prima pagina nel 70% dei casi. Un ROI incredibile per il nostro team.",
     metric: "70%",
     author: "Giuseppe Verdi",
     role: "SEO Specialist",
@@ -53,7 +53,7 @@ export default function Home() {
       <HeroSection showHeader={false} />
       <TrustedBy text="Scelto da team SEO e agenzie in Italia e all'estero" />
       <FeatureChecklist
-        title="Una piattaforma per creare contenuti che rankano"
+        title="Una piattaforma per creare contenuti che si posizionano"
         columns={homeFeatures}
       />
       <FeaturesSection className="border-t" />

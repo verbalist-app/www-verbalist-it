@@ -7,7 +7,6 @@ import { Globe } from "lucide-react"
 const links = {
   product: [
     { name: "Platform", href: "/en/platform" },
-    { name: "Technology", href: "/en/integrations" },
     { name: "Pricing", href: "/en/pricing" },
   ],
   solutions: [
@@ -55,7 +54,6 @@ function LanguageSwitcher() {
     '/en/faq': '/faq',
     '/en/docs': '/guide',
     '/en/changelog': '/changelog',
-    '/en/integrations': '/integrazioni',
     '/en/privacy-policy': '/privacy-policy',
     '/en/cookie-policy': '/cookie-policy',
     '/en/terms': '/termini',
@@ -98,11 +96,27 @@ export function FooterEn() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-12">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-10">
             <div>
               <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Product</h3>
               <ul className="mt-4 space-y-3">
                 {links.product.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">Solutions</h3>
+              <ul className="mt-4 space-y-3">
+                {links.solutions.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}

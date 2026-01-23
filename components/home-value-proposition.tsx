@@ -14,7 +14,7 @@ export function HomeValueProposition({ className }: HomeValuePropositionProps) {
             <Sparkles className="size-6" strokeWidth={1.5} />
           </div>
           <h2 className="text-2xl font-medium tracking-tight md:text-3xl max-w-2xl">
-            Una piattaforma per creare contenuti che rankano
+            Una piattaforma per creare contenuti che si posizionano
           </h2>
           <p className="mt-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
             Verbalist analizza i contenuti che funzionano in SERP e genera articoli ottimizzati per SEO, AEO e GEO.

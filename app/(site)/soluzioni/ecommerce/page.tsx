@@ -107,7 +107,7 @@ export default function EcommercePage() {
       <SubPageHero
         icon={ShoppingBag}
         title="Verbalist per eCommerce"
-        description="Analizza le pagine prodotto che rankano. Genera bozze con la struttura che funziona: descrizioni, features, specifiche."
+        description="Analizza le pagine prodotto meglio posizionate. Genera bozze con la struttura che funziona: descrizioni, features, specifiche."
       />
 
       <TrustedBy />
@@ -121,7 +121,7 @@ export default function EcommercePage() {
       <HighlightBlock
         icon={Package}
         title="Struttura pagina prodotto"
-        description="Verbalist genera bozze per pagine prodotto con hero, key features, specifiche tecniche e sezione use case. Basate sui pattern delle pagine che rankano per la tua keyword."
+        description="Verbalist genera bozze per pagine prodotto con hero, key features, specifiche tecniche e sezione use case. Basate sui pattern delle pagine meglio posizionate per la tua keyword."
         visual={<ProductPageIllustration />}
       />
 

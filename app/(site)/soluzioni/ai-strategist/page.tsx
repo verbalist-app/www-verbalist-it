@@ -116,7 +116,7 @@ export default function AIStrategistPage() {
       <HighlightBlock
         icon={Shield}
         title="Segnali E-E-A-T dai competitor"
-        description="Verbalist analizza quali segnali di autorevolezza usano i contenuti che rankano: author bio, fonti citate, credenziali, date di aggiornamento. Li trovi nel report per replicarli."
+        description="Verbalist analizza quali segnali di autorevolezza usano i contenuti meglio posizionati: author bio, fonti citate, credenziali, date di aggiornamento. Li trovi nel report per replicarli."
         visual={<EEATIllustration />}
       />
 

@@ -4,7 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Logo } from '@/components/logo'
-import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, Cpu, GraduationCap, HelpCircle, History, Globe } from 'lucide-react'
+import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, GraduationCap, HelpCircle, History, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
     NavigationMenu,
@@ -39,7 +39,6 @@ const funzionalita = [
 const risorse = [
     { title: "Blog", href: "/blog", icon: BookOpen },
     { title: "Changelog", href: "/changelog", icon: History },
-    { title: "Tecnologia", href: "/integrazioni", icon: Cpu },
     { title: "Guide", href: "/guide", icon: GraduationCap },
     { title: "FAQ", href: "/faq", icon: HelpCircle },
 ]

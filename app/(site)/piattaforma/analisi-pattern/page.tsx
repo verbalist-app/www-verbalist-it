@@ -9,13 +9,13 @@ import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
   title: "Analisi Pattern",
-  description: "Trova cosa hanno in comune i contenuti che rankano. Lunghezza, struttura, argomenti trattati.",
+  description: "Trova cosa hanno in comune i contenuti in prima pagina. Lunghezza, struttura, argomenti trattati.",
   alternates: {
     canonical: "/piattaforma/analisi-pattern",
   },
   openGraph: {
     title: "Analisi Pattern — Verbalist",
-    description: "Trova cosa hanno in comune i contenuti che rankano. Lunghezza, struttura, argomenti trattati.",
+    description: "Trova cosa hanno in comune i contenuti in prima pagina. Lunghezza, struttura, argomenti trattati.",
   },
 }
 
@@ -49,7 +49,7 @@ const featureColumns = [
 const testimonials = [
   {
     metric: "Pattern chiari",
-    quote: "Prima era tutto a intuito. Ora vedo esattamente cosa hanno in comune i contenuti che rankano.",
+    quote: "Prima era tutto a intuito. Ora vedo esattamente cosa hanno in comune i contenuti in prima pagina.",
     author: "Luca M.",
     role: "Content Manager",
     company: "Media Company",
@@ -134,7 +134,7 @@ export default function AnalisiPatternPage() {
       <SubPageHero
         icon={BarChart3}
         title="Analisi Pattern"
-        description="Trova cosa hanno in comune i contenuti che rankano. Lunghezza, struttura, argomenti trattati."
+        description="Trova cosa hanno in comune i contenuti in prima pagina. Lunghezza, struttura, argomenti trattati."
       />
 
       <TrustedBy />
@@ -148,7 +148,7 @@ export default function AnalisiPatternPage() {
       <HighlightBlock
         icon={TrendingUp}
         title="Word count che funziona"
-        description="Calcola il word count medio dei contenuti che rankano. Vedi la distribuzione, il range ottimale e quanto devi scrivere per competere."
+        description="Calcola il word count medio dei contenuti in prima pagina. Vedi la distribuzione, il range ottimale e quanto devi scrivere per competere."
         visual={<WordCountIllustration />}
       />
 

@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Analisi Pattern",
-  description: "Come Verbalist identifica i pattern vincenti nei contenuti che rankano.",
+  description: "Come Verbalist identifica i pattern vincenti nei contenuti meglio posizionati.",
 }
 
 const articles = [

@@ -34,7 +34,7 @@ export default function CompetitorPage() {
 
             <h2 className="text-xl font-medium mt-8 mb-4">Analizzare i title tag</h2>
             <p className="text-foreground/80 mb-4">
-              Guarda i title dei top 3. Quali keyword includono? Che formato usano? (guida, lista, how-to). I title che rankano bene ti indicano cosa funziona per quella query.
+              Guarda i title dei top 3. Quali keyword includono? Che formato usano? (guida, lista, how-to). I title in prima pagina ti indicano cosa funziona per quella query.
             </p>
 
             <h2 className="text-xl font-medium mt-8 mb-4">Studiare la struttura</h2>
@@ -49,7 +49,7 @@ export default function CompetitorPage() {
 
             <h2 className="text-xl font-medium mt-8 mb-4">Valutare la qualità</h2>
             <p className="text-foreground/80 mb-4">
-              Non tutti i contenuti che rankano sono eccellenti. Leggi i contenuti dei competitor e valuta: sono aggiornati? Completi? Ben scritti? Se la qualità è bassa, hai spazio per fare meglio.
+              Non tutti i contenuti in prima pagina sono eccellenti. Leggi i contenuti dei competitor e valuta: sono aggiornati? Completi? Ben scritti? Se la qualità è bassa, hai spazio per fare meglio.
             </p>
 
             <h2 className="text-xl font-medium mt-8 mb-4">Benchmark di lunghezza</h2>

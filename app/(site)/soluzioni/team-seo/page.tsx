@@ -129,7 +129,7 @@ export default function TeamSeoPage() {
 
       <HighlightBlock
         icon={BarChart3}
-        title="Pattern che rankano"
+        title="Pattern vincenti"
         description="Analizza cosa hanno in comune i contenuti in prima pagina. Struttura heading ricorrente, topic trattati, word count medio e range. Dati per replicare quello che funziona."
         visual={<PatternIllustration />}
         reverse

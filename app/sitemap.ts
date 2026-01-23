@@ -23,7 +23,6 @@ const itToEnSlugMap: Record<string, string> = {
   '/chi-siamo': '/en/about',
   '/faq': '/en/faq',
   '/changelog': '/en/changelog',
-  '/integrazioni': '/en/integrations',
   '/blog': '/en/blog',
   // Guide → Docs mapping
   '/guide': '/en/docs',
@@ -84,7 +83,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '',
     '/prodotto',
     '/prezzi',
-    '/integrazioni',
     '/chi-siamo',
     '/contatti',
     '/faq',

@@ -44,7 +44,7 @@ export default function GettingStartedPage() {
 
             <h2 className="text-xl font-medium mt-8 mb-4">4. Rivedi i pattern</h2>
             <p className="text-foreground/80 mb-4">
-              Nella scheda "Pattern" vedrai un riepilogo di cosa hanno in comune i contenuti che rankano: lunghezza media, struttura degli heading, argomenti trattati e segnali di autorevolezza.
+              Nella scheda "Pattern" vedrai un riepilogo di cosa hanno in comune i contenuti in prima pagina: lunghezza media, struttura degli heading, argomenti trattati e segnali di autorevolezza.
             </p>
 
             <h2 className="text-xl font-medium mt-8 mb-4">5. Genera il contenuto</h2>
