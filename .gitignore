@@ -30,5 +30,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# temporary/external folders
-nurdeveloper-www.v2.verbalist.it-2e8791f2edac/
