@@ -1,19 +1,15 @@
 "use client"
 
-import * as React from "react"
-import Link from "next/link"
-import { X } from "lucide-react"
+import { CookieIcon, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-} from "@/components/ui/card"
+import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 type Locale = "it" | "en"
 
-interface CookieConsentProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CookieConsentProps {
+  variant?: "default" | "small" | "minimal"
   locale?: Locale
   onAcceptCallback?: () => void
   onDeclineCallback?: () => void
@@ -21,141 +17,220 @@ interface CookieConsentProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const translations = {
   it: {
-    description: "Utilizziamo cookie per migliorare la tua esperienza. Accettando, ci consenti di usare cookie analitici.",
-    decline: "Rifiuta",
+    title: "Utilizziamo i cookie",
+    description: "Utilizziamo i cookie per offrirti la migliore esperienza sul nostro sito. Per maggiori informazioni, consulta la nostra cookie policy.",
+    acceptNote: "Cliccando",
     accept: "Accetta",
-    learnMore: "Cookie Policy",
+    acceptSuffix: ", acconsenti all'uso dei cookie.",
+    decline: "Rifiuta",
+    learnMore: "Maggiori informazioni",
     learnMoreHref: "/cookie-policy",
+    minimal: "Utilizziamo i cookie per migliorare la tua esperienza.",
+    cookieNotice: "Cookie",
   },
   en: {
-    description: "We use cookies to improve your experience. By accepting, you allow us to use analytics cookies.",
-    decline: "Decline",
+    title: "We use cookies",
+    description: "We use cookies to ensure you get the best experience on our website. For more information on how we use cookies, please see our cookie policy.",
+    acceptNote: "By clicking",
     accept: "Accept",
-    learnMore: "Cookie Policy",
+    acceptSuffix: ", you agree to our use of cookies.",
+    decline: "Decline",
+    learnMore: "Learn more",
     learnMoreHref: "/en/cookie-policy",
+    minimal: "We use cookies to enhance your browsing experience.",
+    cookieNotice: "Cookies",
   },
 }
 
-const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
-  (
-    {
-      locale = "it",
-      onAcceptCallback = () => {},
-      onDeclineCallback = () => {},
-      className,
-      ...props
-    },
-    ref,
-  ) => {
-    const [isOpen, setIsOpen] = React.useState(false)
-    const [hide, setHide] = React.useState(false)
+export function CookieConsent({
+  variant = "default",
+  locale = "it",
+  onAcceptCallback = () => {},
+  onDeclineCallback = () => {},
+}: CookieConsentProps) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [hide, setHide] = useState(false)
 
-    const t = translations[locale]
+  const t = translations[locale]
 
-    const handleAccept = React.useCallback(() => {
-      setIsOpen(false)
-      // Set cookie for 1 year
-      const expiryDate = new Date()
-      expiryDate.setFullYear(expiryDate.getFullYear() + 1)
-      document.cookie = `cookieConsent=accepted; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`
-      setTimeout(() => {
-        setHide(true)
-      }, 500)
-      onAcceptCallback()
-    }, [onAcceptCallback])
+  const accept = () => {
+    setIsOpen(false)
+    // Set cookie for 1 year
+    const expiryDate = new Date()
+    expiryDate.setFullYear(expiryDate.getFullYear() + 1)
+    document.cookie = `cookieConsent=accepted; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`
+    setTimeout(() => {
+      setHide(true)
+    }, 700)
+    onAcceptCallback()
+  }
 
-    const handleDecline = React.useCallback(() => {
-      setIsOpen(false)
-      // Set cookie for 6 months (user declined, we remember but ask again later)
-      const expiryDate = new Date()
-      expiryDate.setMonth(expiryDate.getMonth() + 6)
-      document.cookie = `cookieConsent=declined; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`
-      setTimeout(() => {
-        setHide(true)
-      }, 500)
-      onDeclineCallback()
-    }, [onDeclineCallback])
+  const decline = () => {
+    setIsOpen(false)
+    // Set cookie for 6 months
+    const expiryDate = new Date()
+    expiryDate.setMonth(expiryDate.getMonth() + 6)
+    document.cookie = `cookieConsent=declined; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`
+    setTimeout(() => {
+      setHide(true)
+    }, 700)
+    onDeclineCallback()
+  }
 
-    React.useEffect(() => {
-      // Check if user already made a choice
+  useEffect(() => {
+    try {
       const consent = document.cookie
         .split("; ")
         .find((row) => row.startsWith("cookieConsent="))
         ?.split("=")[1]
 
-      if (consent === "accepted" || consent === "declined") {
+      if (consent === "accepted") {
         setHide(true)
-        if (consent === "accepted") {
-          onAcceptCallback()
-        }
+        onAcceptCallback()
+      } else if (consent === "declined") {
+        setHide(true)
       } else {
-        // Small delay before showing to avoid flash
-        const timer = setTimeout(() => {
+        // Small delay before showing
+        setTimeout(() => {
           setIsOpen(true)
         }, 1000)
-        return () => clearTimeout(timer)
       }
-    }, [onAcceptCallback])
+    } catch (error) {
+      console.error("Error checking cookie consent:", error)
+    }
+  }, [onAcceptCallback])
 
-    if (hide) return null
+  if (hide) return null
 
-    return (
+  return variant === "default" ? (
+    <div
+      className={cn(
+        "fixed z-[200] bottom-0 left-0 right-0 p-4 sm:p-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md duration-700",
+        !isOpen
+          ? "transition-[opacity,transform] translate-y-8 opacity-0"
+          : "transition-[opacity,transform] translate-y-0 opacity-100"
+      )}
+    >
+      <div className="dark:bg-card bg-background rounded-lg sm:rounded-md border border-border shadow-lg relative">
+        {/* X button */}
+        <button
+          onClick={decline}
+          className="absolute top-3 right-3 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          aria-label={t.decline}
+        >
+          <X className="h-4 w-4" />
+        </button>
+        <div className="grid gap-2">
+          <div className="border-b border-border h-12 sm:h-14 flex items-center justify-between p-3 sm:p-4 pr-10">
+            <h1 className="text-base sm:text-lg font-medium">{t.title}</h1>
+            <CookieIcon className="h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]" />
+          </div>
+          <div className="p-3 sm:p-4">
+            <p className="text-xs sm:text-sm font-normal text-start text-muted-foreground">
+              {t.description}
+              <br />
+              <br />
+              <span className="text-xs">
+                {t.acceptNote}{" "}
+                <span className="font-medium text-foreground">{t.accept}</span>
+                {t.acceptSuffix}
+              </span>
+              <br />
+              <Link href={t.learnMoreHref} className="text-xs underline hover:no-underline">
+                {t.learnMore}
+              </Link>
+            </p>
+          </div>
+          <div className="grid grid-cols-2 items-center gap-2 p-3 sm:p-4 sm:py-5 border-t border-border dark:bg-background/20">
+            <Button onClick={accept} variant="default" className="w-full">
+              {t.accept}
+            </Button>
+            <Button onClick={decline} variant="outline" className="w-full">
+              {t.decline}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : variant === "small" ? (
+    <div
+      className={cn(
+        "fixed z-[200] bottom-0 left-0 right-0 p-4 sm:p-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md duration-700",
+        !isOpen
+          ? "transition-[opacity,transform] translate-y-8 opacity-0"
+          : "transition-[opacity,transform] translate-y-0 opacity-100"
+      )}
+    >
+      <div className="m-0 sm:m-3 dark:bg-card bg-background border border-border rounded-lg shadow-lg relative">
+        {/* X button */}
+        <button
+          onClick={decline}
+          className="absolute top-2 right-2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          aria-label={t.decline}
+        >
+          <X className="h-4 w-4" />
+        </button>
+        <div className="flex items-center justify-between p-3 pr-10">
+          <h1 className="text-base sm:text-lg font-medium">{t.title}</h1>
+          <CookieIcon className="h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]" />
+        </div>
+        <div className="p-3 -mt-2">
+          <p className="text-xs sm:text-sm text-left text-muted-foreground">
+            {t.description}
+          </p>
+        </div>
+        <div className="grid grid-cols-2 items-center gap-2 p-3 mt-2 border-t">
+          <Button onClick={accept} className="w-full">
+            {t.accept}
+          </Button>
+          <Button onClick={decline} className="w-full" variant="outline">
+            {t.decline}
+          </Button>
+        </div>
+      </div>
+    </div>
+  ) : (
+    variant === "minimal" && (
       <div
-        ref={ref}
         className={cn(
-          "fixed z-50 transition-all duration-500 ease-out",
-          "bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 sm:right-auto w-full sm:max-w-lg",
+          "fixed z-[200] bottom-0 left-0 right-0 p-4 sm:p-0 sm:left-4 sm:bottom-4 w-full sm:max-w-[300px] duration-700",
           !isOpen
-            ? "translate-y-full opacity-0"
-            : "translate-y-0 opacity-100",
-          className,
+            ? "transition-[opacity,transform] translate-y-8 opacity-0"
+            : "transition-[opacity,transform] translate-y-0 opacity-100"
         )}
-        {...props}
       >
-        <Card className="m-3 sm:m-0 py-4 shadow-lg border-border/50 bg-background/95 backdrop-blur-sm relative">
-          {/* X button to close/decline */}
+        <div className="m-0 sm:m-3 dark:bg-card bg-background border border-border rounded-lg shadow-lg relative">
+          {/* X button */}
           <button
-            onClick={handleDecline}
+            onClick={decline}
             className="absolute top-2 right-2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
             aria-label={t.decline}
           >
-            <X className="h-4 w-4" />
+            <X className="h-3.5 w-3.5" />
           </button>
-          <CardContent className="flex flex-col sm:flex-row gap-4 p-0 px-4 pr-8">
-            <CardDescription className="text-xs sm:text-sm flex-1 text-foreground/80">
-              {t.description}{" "}
-              <Link
-                href={t.learnMoreHref}
-                className="text-foreground underline underline-offset-2 hover:no-underline"
-              >
-                {t.learnMore}
-              </Link>
-            </CardDescription>
-            <div className="flex items-center gap-2 justify-end shrink-0">
-              <Button
-                onClick={handleDecline}
-                size="sm"
-                variant="ghost"
-                className="text-xs h-8 px-3"
-              >
-                {t.decline}
-              </Button>
-              <Button
-                onClick={handleAccept}
-                size="sm"
-                className="text-xs h-8 px-4"
-              >
+          <div className="p-3 flex items-center justify-between border-b border-border pr-8">
+            <div className="flex items-center gap-2">
+              <CookieIcon className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="text-xs sm:text-sm font-medium">{t.cookieNotice}</span>
+            </div>
+          </div>
+          <div className="p-3">
+            <p className="text-[11px] sm:text-xs text-muted-foreground">
+              {t.minimal}
+            </p>
+            <div className="grid grid-cols-2 items-center gap-2 mt-3">
+              <Button onClick={accept} variant="default" className="w-full h-8 text-xs">
                 {t.accept}
               </Button>
+              <Button onClick={decline} variant="ghost" className="w-full h-8 text-xs">
+                {t.decline}
+              </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     )
-  },
-)
+  )
+}
 
-CookieConsent.displayName = "CookieConsent"
-
-export { CookieConsent }
 export default CookieConsent
