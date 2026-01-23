@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { Globe } from "lucide-react"
 import { Logo } from "@/components/logo"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -53,7 +54,15 @@ export default function LoginPage() {
           <Link href="/en" className="flex items-center">
             <Logo />
           </Link>
-          <div className="flex items-center gap-2 sm:gap-4 text-sm">
+          <div className="flex items-center gap-3 sm:gap-4 text-sm">
+            <Link
+              href="/login"
+              className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+              title="Passa all'italiano"
+            >
+              <Globe className="size-4" />
+              <span className="hidden sm:inline">IT</span>
+            </Link>
             <span className="text-muted-foreground hidden sm:inline">Don't have an account?</span>
             <Button asChild variant="outline" size="sm">
               <Link href="/en/contact">Request access</Link>
