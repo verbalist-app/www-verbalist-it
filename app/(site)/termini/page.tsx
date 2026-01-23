@@ -1,5 +1,5 @@
-import Link from "next/link"
 import type { Metadata } from "next"
+import { BreadcrumbSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
   title: "Termini di Servizio",
@@ -15,22 +15,20 @@ export const metadata: Metadata = {
 
 export default function TerminiPage() {
   return (
-    <section className="pt-20 md:pt-28 pb-24">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="mb-12">
-          <Link
-            href="/"
-            className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 mb-8 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Torna alla home
-          </Link>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-foreground mb-6">
-            Termini di servizio
-          </h1>
-        </div>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Termini di Servizio", url: "/termini" },
+        ]}
+      />
+      <section className="pt-20 md:pt-28 pb-24">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="mb-12">
+            <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-foreground mb-6">
+              Termini di servizio
+            </h1>
+          </div>
 
         <div className="prose prose-neutral max-w-none space-y-8">
           <section>
@@ -170,8 +168,9 @@ export default function TerminiPage() {
               Ultimo aggiornamento: Dicembre 2024
             </p>
           </section>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

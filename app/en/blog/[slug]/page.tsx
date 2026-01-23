@@ -2,8 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { reader, formatDate, getTranslation } from "@/lib/keystatic"
-import { ArticleSchema } from "@/components/schema"
-import { ArrowLeft } from "lucide-react"
+import { ArticleSchema, BreadcrumbSchema } from "@/components/schema"
 import Markdoc from "@markdoc/markdoc"
 import React from "react"
 import type { Metadata } from "next"
@@ -57,18 +56,18 @@ export default async function BlogPostPage({ params }: PageProps) {
         locale="en"
         imageUrl={post.featuredImage || undefined}
       />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/en" },
+          { name: "Blog", url: "/en/blog" },
+          { name: post.title, url: `/en/blog/${slug}` },
+        ]}
+      />
       <article className="pt-20 md:pt-28 pb-24">
         {/* Header */}
         <div className="max-w-4xl mx-auto px-6">
-        <div className="mb-8 flex items-center justify-between">
-          <Link
-            href="/en/blog"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="size-3.5" />
-            Back to Blog
-          </Link>
-          {translation && (
+        {translation && (
+          <div className="mb-8 flex justify-end">
             <Link
               href={`/blog/${translation.slug}`}
               className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
@@ -79,8 +78,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               </svg>
               Leggi in italiano
             </Link>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="flex flex-col items-center text-center">
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4 max-w-3xl">

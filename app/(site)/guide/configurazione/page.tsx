@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { ArrowLeft, ChevronRight } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import type { Metadata } from "next"
+import { BreadcrumbSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
   title: "Configurazione",
@@ -27,16 +28,16 @@ const articles = [
 
 export default function ConfigurazionePage() {
   return (
-    <section className="pt-20 md:pt-28 pb-24">
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Guide", url: "/guide" },
+          { name: "Configurazione", url: "/guide/configurazione" },
+        ]}
+      />
+      <section className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
-          <Link
-            href="/guide"
-            className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 mb-8 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Torna alle guide
-          </Link>
-
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
             Configurazione
           </h1>
@@ -60,6 +61,7 @@ export default function ConfigurazionePage() {
             ))}
           </div>
         </div>
-    </section>
+      </section>
+    </>
   )
 }

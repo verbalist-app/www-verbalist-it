@@ -1,6 +1,5 @@
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
+import { BreadcrumbSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
   title: "Best Practice",
@@ -9,16 +8,16 @@ export const metadata: Metadata = {
 
 export default function BestPracticePage() {
   return (
-    <article className="pt-20 md:pt-28 pb-24">
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Guide", url: "/guide" },
+          { name: "Best Practice", url: "/guide/best-practice" },
+        ]}
+      />
+      <article className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
-          <Link
-            href="/guide"
-            className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 mb-8 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Torna alle guide
-          </Link>
-
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
             Best Practice
           </h1>
@@ -68,6 +67,7 @@ export default function BestPracticePage() {
             </p>
           </div>
         </div>
-    </article>
+      </article>
+    </>
   )
 }

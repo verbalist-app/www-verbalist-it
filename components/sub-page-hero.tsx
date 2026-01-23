@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import type { LucideIcon } from "lucide-react"
@@ -13,10 +12,6 @@ interface SubPageHeroProps {
   title: string
   /** Subtitle/description */
   description: string
-  backLink?: {
-    label: string
-    href: string
-  }
   primaryCta?: {
     text: string
     href: string
@@ -33,7 +28,6 @@ export function SubPageHero({
   icon: Icon,
   title,
   description,
-  backLink,
   primaryCta = { text: "Prenota una demo", href: "/contatti" },
   secondaryCta,
   className,
@@ -41,17 +35,6 @@ export function SubPageHero({
   return (
     <section className={cn("pt-20 md:pt-28 pb-12 md:pb-16", className)}>
       <div className="mx-auto max-w-3xl px-6 text-center">
-        {backLink && (
-          <div className="mb-6 text-left">
-            <Link
-              href={backLink.href}
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <ArrowLeft className="size-3.5" />
-              Torna a {backLink.label}
-            </Link>
-          </div>
-        )}
         {label ? (
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             {label}

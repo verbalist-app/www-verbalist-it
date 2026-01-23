@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { Check, ArrowLeft } from "lucide-react"
+import { Check } from "lucide-react"
 import type { Metadata } from "next"
+import { BreadcrumbSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
   title: "Prezzi e Piani | Verbalist",
@@ -68,16 +69,16 @@ const plans = [
 
 export default function PrezziPage() {
   return (
-    <section className="pt-20 md:pt-28 pb-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-        >
-          <ArrowLeft className="size-4" />
-          Torna alla Home
-        </Link>
-        <div className="text-center mb-16">
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Prezzi", url: "/prezzi" },
+        ]}
+      />
+      <section className="pt-20 md:pt-28 pb-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Prezzi
           </p>
@@ -142,12 +143,13 @@ export default function PrezziPage() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-sm text-muted-foreground">
-            Serve aiuto? <Link href="/contatti" className="text-foreground hover:underline font-medium">Scrivici</Link>.
-          </p>
+          <div className="mt-16 text-center">
+            <p className="text-sm text-muted-foreground">
+              Serve aiuto? <Link href="/contatti" className="text-foreground hover:underline font-medium">Scrivici</Link>.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
