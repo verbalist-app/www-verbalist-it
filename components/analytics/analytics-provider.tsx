@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { GoogleAnalytics } from "./google-analytics"
-import { Hotjar } from "./hotjar"
+import { Contentsquare } from "./contentsquare"
 import { CookieConsent, type CookiePreferences } from "@/components/cookie-consent"
 
 type Locale = "it" | "en"
@@ -10,14 +10,14 @@ type Locale = "it" | "en"
 interface AnalyticsProviderProps {
   locale?: Locale
   gaMeasurementId?: string
-  hotjarSiteId?: string
+  contentsquareTagId?: string
   children?: React.ReactNode
 }
 
 export function AnalyticsProvider({
   locale = "it",
   gaMeasurementId,
-  hotjarSiteId,
+  contentsquareTagId,
   children,
 }: AnalyticsProviderProps) {
   const [preferences, setPreferences] = React.useState<CookiePreferences | null>(null)
@@ -37,8 +37,8 @@ export function AnalyticsProvider({
       {analyticsEnabled && gaMeasurementId && (
         <GoogleAnalytics measurementId={gaMeasurementId} />
       )}
-      {analyticsEnabled && hotjarSiteId && (
-        <Hotjar siteId={hotjarSiteId} />
+      {analyticsEnabled && contentsquareTagId && (
+        <Contentsquare tagId={contentsquareTagId} />
       )}
       <CookieConsent
         locale={locale}

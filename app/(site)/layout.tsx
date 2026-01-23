@@ -19,7 +19,7 @@ export default function SiteLayout({
       <AnalyticsProvider
         locale="it"
         gaMeasurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
-        hotjarSiteId={process.env.NEXT_PUBLIC_HOTJAR_SITE_ID}
+        contentsquareTagId={process.env.NEXT_PUBLIC_CONTENTSQUARE_TAG_ID}
       />
     </>
   )
