@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { BreadcrumbSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
-  title: "Prezzi e Piani | Verbalist",
+  title: "Prezzi e Piani",
   description: "Scegli il piano Verbalist: Starter €49, Professional €149, Enterprise custom. Prova gratuita 14 giorni, nessun vincolo. Analisi SERP e contenuti AI.",
   alternates: {
     canonical: "/prezzi",

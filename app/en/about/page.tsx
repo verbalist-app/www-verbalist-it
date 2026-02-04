@@ -2,7 +2,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "About Us | Verbalist",
+  title: "About Us",
   description: "Verbalist is a product of NUR Digital Marketing. 25 years of SEO, 430+ clients. The team behind the software.",
   alternates: {
     canonical: "/en/about",

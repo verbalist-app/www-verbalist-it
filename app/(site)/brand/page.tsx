@@ -3,7 +3,7 @@ import Image from "next/image"
 import { Download } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Linee Guida del Brand — Verbalist",
+  title: "Linee Guida del Brand",
   description:
     "Linee guida del brand Verbalist. Loghi, colori, tipografia e regole d'uso per rappresentare correttamente il marchio.",
   alternates: {

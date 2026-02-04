@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "SEO for eCommerce | Verbalist",
+  title: "SEO for eCommerce",
   description: "Optimized product pages based on SERP patterns. Descriptions, specifications and content that converts.",
   alternates: {
     canonical: "/en/solutions/ecommerce",

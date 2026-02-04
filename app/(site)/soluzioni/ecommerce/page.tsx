@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "SEO per eCommerce | Verbalist",
+  title: "SEO per eCommerce",
   description: "Descrizioni prodotto SEO generate con AI. Analisi pattern SERP, contenuti ottimizzati per categorie e schede prodotto che convertono.",
   alternates: {
     canonical: "/soluzioni/ecommerce",

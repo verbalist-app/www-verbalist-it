@@ -7,13 +7,13 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Strumenti SEO per Agenzie | Verbalist",
+  title: "Strumento SEO per Agenzie",
   description: "Piattaforma SEO per agenzie: analisi SERP, generazione contenuti AI e gestione multi-cliente. Scala la produzione di contenuti per i tuoi clienti.",
   alternates: {
     canonical: "/soluzioni/agenzie",
   },
   openGraph: {
-    title: "Strumenti SEO per Agenzie — Verbalist",
+    title: "Strumento SEO per Agenzie — Verbalist",
     description: "Piattaforma SEO per agenzie: analisi SERP, generazione contenuti AI e gestione multi-cliente. Scala la produzione di contenuti per i tuoi clienti.",
   },
 }

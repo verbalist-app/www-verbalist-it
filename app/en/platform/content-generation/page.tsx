@@ -8,7 +8,7 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "AI Content Generation | Verbalist",
+  title: "AI Content Generation",
   description: "Generate SEO content with AI based on SERP patterns. Title, meta, heading structure and optimized text.",
   alternates: {
     canonical: "/en/platform/content-generation",

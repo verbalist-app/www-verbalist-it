@@ -8,7 +8,7 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Competitor Content Scraping | Verbalist",
+  title: "Competitor Content Scraping",
   description: "Extract competitor content as clean Markdown. Analyze structure, headings and topics from ranking pages.",
   alternates: {
     canonical: "/en/platform/competitor-scraping",

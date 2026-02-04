@@ -8,7 +8,7 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Scraping Contenuti Competitor | Verbalist",
+  title: "Scraping Contenuti Competitor",
   description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine che rankano. Dati per la tua content strategy.",
   alternates: {
     canonical: "/piattaforma/scraping-competitor",

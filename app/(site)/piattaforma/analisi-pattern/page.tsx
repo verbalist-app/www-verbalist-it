@@ -8,7 +8,7 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Analisi Pattern SEO | Verbalist",
+  title: "Analisi Pattern SEO",
   description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali E-E-A-T. Dati per il SEO copywriting.",
   alternates: {
     canonical: "/piattaforma/analisi-pattern",

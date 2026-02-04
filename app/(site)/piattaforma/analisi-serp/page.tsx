@@ -8,7 +8,7 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Analisi SERP Automatica | Verbalist",
+  title: "Analisi SERP Automatica",
   description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati SERP pronti per l'ottimizzazione.",
   alternates: {
     canonical: "/piattaforma/analisi-serp",

@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { PageBreadcrumb } from "@/components/page-breadcrumb"
 
 export const metadata: Metadata = {
-  title: "Pricing | Verbalist",
+  title: "Pricing",
   description: "Verbalist plans and pricing. Starter, Professional and Enterprise. Free 14-day trial.",
   alternates: {
     canonical: "/en/pricing",

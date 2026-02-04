@@ -8,7 +8,7 @@ import { HighlightBlock } from "@/components/highlight-block"
 import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
-  title: "Automated SERP Analysis | Verbalist",
+  title: "Automated SERP Analysis",
   description: "Analyze the top 10 Google results in one click. Extract title, meta, structure and search intent for any keyword.",
   alternates: {
     canonical: "/en/platform/serp-analysis",

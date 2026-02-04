@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "SEO Tool per Specialist | Verbalist",
+  title: "SEO Tool per Specialist",
   description: "Strumenti SEO per specialist: analisi SERP automatica, pattern detection, content gap analysis e generazione contenuti. Dati per decisioni informate.",
   alternates: {
     canonical: "/soluzioni/team-seo",

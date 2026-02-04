@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Software SEO Enterprise | Verbalist",
+  title: "Software SEO Enterprise",
   description: "Piattaforma SEO per grandi organizzazioni. Analisi SERP, generazione contenuti AI e workflow scalabili. Team dedicato e configurazioni custom.",
   alternates: {
     canonical: "/soluzioni/enterprise",

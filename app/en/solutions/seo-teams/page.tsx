@@ -7,13 +7,13 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "SEO Tools for Specialists | Verbalist",
+  title: "SEO Tool for Specialists",
   description: "Automatic SERP analysis, pattern detection and content gap analysis. Concrete data for informed decisions.",
   alternates: {
     canonical: "/en/solutions/seo-teams",
   },
   openGraph: {
-    title: "SEO Tools for Specialists — Verbalist",
+    title: "SEO Tool for Specialists — Verbalist",
     description: "Automatic SERP analysis, pattern detection and content gap analysis. Concrete data for informed decisions.",
   },
 }

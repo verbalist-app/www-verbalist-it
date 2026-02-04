@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "GEO e AEO Optimization | Verbalist",
+  title: "GEO e AEO Optimization",
   description: "Ottimizza i contenuti per AI Overview, ChatGPT e Perplexity. Generative Engine Optimization (GEO) e Answer Engine Optimization (AEO) con dati SERP.",
   alternates: {
     canonical: "/soluzioni/ai-strategist",

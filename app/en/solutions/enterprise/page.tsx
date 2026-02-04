@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Enterprise SEO Software | Verbalist",
+  title: "Enterprise SEO Software",
   description: "Custom solutions for large organizations. Dedicated team, custom configurations and priority support.",
   alternates: {
     canonical: "/en/solutions/enterprise",

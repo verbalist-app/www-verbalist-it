@@ -7,7 +7,7 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
 
 export const metadata: Metadata = {
-  title: "Generatore Contenuti AI | Verbalist",
+  title: "Generatore Contenuti AI",
   description: "Scrittura AI per blog, landing page e guide. Tone of voice personalizzabile, struttura SEO-ready e contenuti pronti da pubblicare.",
   alternates: {
     canonical: "/soluzioni/team-marketing",
