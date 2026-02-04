@@ -65,7 +65,7 @@ export default function LoginPage() {
             </Link>
             <span className="text-muted-foreground hidden sm:inline">Non hai un account?</span>
             <Button asChild variant="outline" size="sm">
-              <Link href="/contatti">Richiedi accesso</Link>
+              <Link href="/prenota-demo">Richiedi accesso</Link>
             </Button>
           </div>
         </header>

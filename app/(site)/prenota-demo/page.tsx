@@ -7,18 +7,8 @@ import React, { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
+import { HubSpotForm } from "@/components/hubspot-form"
 
 const InfiniteMovingCarousel = ({ images }: { images: string[] }) => {
   const carouselRef = useRef<HTMLDivElement>(null)
@@ -78,10 +68,6 @@ const InfiniteMovingCarousel = ({ images }: { images: string[] }) => {
   )
 }
 
-const FormGroup = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex w-full flex-col gap-2">{children}</div>
-}
-
 const benefits = [
   "Demo sulla tua keyword, non su esempi generici.",
   "Vedi l'analisi SERP, il pattern detection e la generazione contenuto.",
@@ -97,13 +83,7 @@ const companies = [
   "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-6.svg",
 ]
 
-export default function ContattiPage() {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Qui andrà la logica di invio del form
-    console.log("Form submitted")
-  }
-
+export default function PrenotaDemoPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24 md:pb-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -135,74 +115,13 @@ export default function ContattiPage() {
               <InfiniteMovingCarousel images={companies} />
             </div>
           </div>
-          <Card className="w-full max-w-xl place-self-center bg-muted/50 px-4 pt-10 pb-4 lg:max-w-none lg:place-self-start">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-              <div className="flex w-full items-center gap-4">
-                <FormGroup>
-                  <Label className="text-sm">Nome</Label>
-                  <Input
-                    type="text"
-                    placeholder="Mario"
-                    className="bg-background"
-                    required
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Label className="text-sm">Cognome</Label>
-                  <Input
-                    type="text"
-                    placeholder="Rossi"
-                    className="bg-background"
-                    required
-                  />
-                </FormGroup>
-              </div>
-              <FormGroup>
-                <Label className="text-sm">Email aziendale</Label>
-                <Input
-                  type="email"
-                  placeholder="mario.rossi@azienda.it"
-                  className="bg-background"
-                  required
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label className="text-sm">Ruolo</Label>
-                <Input
-                  type="text"
-                  placeholder="SEO Specialist, Content Manager..."
-                  className="bg-background"
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label className="text-sm">Cosa vorresti vedere nella demo?</Label>
-                <Textarea
-                  placeholder="Keyword, settore, quanti contenuti produci al mese..."
-                  className="bg-background"
-                  rows={4}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label className="text-sm">Come ci hai conosciuto?</Label>
-                <Select>
-                  <SelectTrigger className="w-full bg-background">
-                    <SelectValue placeholder="Seleziona un'opzione" />
-                  </SelectTrigger>
-                  <SelectContent className="w-full">
-                    <SelectItem value="google">Ricerca Google</SelectItem>
-                    <SelectItem value="linkedin">LinkedIn</SelectItem>
-                    <SelectItem value="twitter">Twitter/X</SelectItem>
-                    <SelectItem value="blog">Blog/Articolo</SelectItem>
-                    <SelectItem value="referral">Passaparola</SelectItem>
-                    <SelectItem value="evento">Evento/Webinar</SelectItem>
-                    <SelectItem value="altro">Altro</SelectItem>
-                  </SelectContent>
-                </Select>
-              </FormGroup>
-              <Button type="submit" className="w-fit place-self-end">
-                Invia richiesta
-              </Button>
-            </form>
+          <Card className="w-full max-w-xl place-self-center bg-muted/50 px-6 py-10 lg:max-w-none lg:place-self-start">
+            <HubSpotForm
+              portalId="26552285"
+              formId="4267f028-3ada-4953-863f-7fcde9648c1c"
+              region="eu1"
+              locale="it"
+            />
           </Card>
           <div className="mt-10 block w-full overflow-hidden lg:hidden">
             <InfiniteMovingCarousel images={companies} />

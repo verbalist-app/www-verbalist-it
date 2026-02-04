@@ -120,7 +120,8 @@ export default function PrivacyPolicyPage() {
               <li>companies that offer information society services, including hosting services;</li>
               <li>companies that carry out statistical and market research;</li>
               <li>auditing companies;</li>
-              <li>partner companies of the Data Controller.</li>
+              <li>partner companies of the Data Controller;</li>
+              <li>HubSpot Inc., as a data processor, for the management of contact forms and the collection of data submitted through the HubSpot CRM platform.</li>
             </ul>
           </section>
 
@@ -137,7 +138,7 @@ export default function PrivacyPolicyPage() {
               NUR intends to transfer Personal Data to entities established in a third country outside the European Union or to an international organization. Such transfers are made in the presence of an adequacy decision by the European Commission, which has verified that the third country guarantees an adequate level of protection.
             </p>
             <p className="text-sm text-foreground/80 leading-relaxed">
-              Personal Data may be transferred to the following countries: United States of America. To obtain a copy of such Personal Data or the place where they have been made available, simply send the relevant request to NUR at gdpr@nur.it.
+              Personal Data may be transferred to the following countries: United States of America. In particular, HubSpot Inc. processes Personal Data collected through the contact forms on the Site in accordance with the Data Processing Agreement signed with NUR and the Standard Contractual Clauses adopted by the European Commission. To obtain a copy of such Personal Data or the place where they have been made available, simply send the relevant request to NUR at gdpr@nur.it.
             </p>
           </section>
 

@@ -28,7 +28,7 @@ const plans = [
       "Supporto email",
     ],
     cta: "Inizia gratis",
-    href: "/contatti",
+    href: "/prenota-demo",
     highlighted: false,
   },
   {
@@ -45,7 +45,7 @@ const plans = [
       "Supporto prioritario",
     ],
     cta: "Inizia ora",
-    href: "/contatti",
+    href: "/prenota-demo",
     highlighted: true,
   },
   {
@@ -62,7 +62,7 @@ const plans = [
       "SLA garantito",
     ],
     cta: "Contattaci",
-    href: "/contatti",
+    href: "/prenota-demo",
     highlighted: false,
   },
 ]
@@ -145,7 +145,7 @@ export default function PrezziPage() {
 
           <div className="mt-16 text-center">
             <p className="text-sm text-muted-foreground">
-              Serve aiuto? <Link href="/contatti" className="text-foreground hover:underline font-medium">Scrivici</Link>.
+              Serve aiuto? <Link href="/prenota-demo" className="text-foreground hover:underline font-medium">Scrivici</Link>.
             </p>
           </div>
         </div>

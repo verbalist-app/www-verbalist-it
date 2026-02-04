@@ -85,7 +85,7 @@ export default function FaqPage() {
             Scrivici e ti rispondiamo.
           </p>
           <Link
-            href="/contatti"
+            href="/prenota-demo"
             className="inline-flex items-center gap-2 text-sm bg-foreground text-background px-6 py-3 rounded-lg hover:bg-foreground/90 transition-colors font-medium"
           >
             Contattaci

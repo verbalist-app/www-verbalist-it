@@ -13,7 +13,7 @@ const footerLinks = {
       { name: "Analisi Pattern", href: "/piattaforma/analisi-pattern" },
       { name: "Generazione Contenuto", href: "/piattaforma/generazione-contenuto" },
       { name: "Prezzi", href: "/prezzi" },
-      { name: "Accedi", href: "/login", external: true },
+      { name: "Accedi", href: "https://app.verbalist.it", external: true },
     ],
   },
   soluzioni: {
@@ -40,7 +40,7 @@ const footerLinks = {
     title: "Azienda",
     links: [
       { name: "Chi siamo", href: "/chi-siamo" },
-      { name: "Contatti", href: "/contatti" },
+      { name: "Contatti", href: "https://www.nur.it/contatti", external: true },
       { name: "LinkedIn", href: "https://www.linkedin.com/showcase/softwareverbalist/", external: true },
     ],
   },
@@ -72,7 +72,7 @@ function LanguageSwitcher() {
     '/soluzioni/ecommerce': '/en/solutions/ecommerce',
     '/soluzioni/enterprise': '/en/solutions/enterprise',
     '/prezzi': '/en/pricing',
-    '/contatti': '/en/contact',
+    '/prenota-demo': '/en/book-demo',
     '/chi-siamo': '/en/about',
     '/blog': '/en/blog',
     '/faq': '/en/faq',
@@ -81,8 +81,7 @@ function LanguageSwitcher() {
     '/privacy-policy': '/en/privacy-policy',
     '/cookie-policy': '/en/cookie-policy',
     '/termini': '/en/terms',
-    '/login': '/en/login',
-  }
+      }
 
   const reverseSlugMap: Record<string, string> = Object.fromEntries(
     Object.entries(slugMap).map(([it, en]) => [en, it])

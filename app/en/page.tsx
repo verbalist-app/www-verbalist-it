@@ -79,7 +79,7 @@ export default function HomeEn() {
       <SubPageCTA
         title="Want to see it in action?"
         description="We'll show you how it works with a demo. See SERP analysis, pattern detection and content generation on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/contact" }}
+        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
         secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
       />
     </>

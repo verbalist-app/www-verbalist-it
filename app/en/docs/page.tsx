@@ -274,7 +274,7 @@ export default function DocsPage() {
               Need more help?
             </p>
             <Button className="mt-3" asChild>
-              <Link href="/en/contact">Contact us</Link>
+              <Link href="/en/book-demo">Contact us</Link>
             </Button>
           </div>
         </div>

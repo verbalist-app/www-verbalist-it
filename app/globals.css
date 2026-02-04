@@ -234,6 +234,206 @@
   }
 }
 
+/* ── HubSpot form: shadcn/ui style override ── */
+#hubspot-form-container .hs-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+  font-family: var(--font-sans) !important;
+}
+
+#hubspot-form-container .hs-form fieldset {
+  max-width: 100% !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#hubspot-form-container .hs-form-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+#hubspot-form-container .hs-form-field label:not(.hs-error-msg) {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+  user-select: none !important;
+  color: var(--foreground) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#hubspot-form-container .hs-form-field label .hs-form-required {
+  color: var(--muted-foreground) !important;
+}
+
+#hubspot-form-container .hs-input,
+#hubspot-form-container input[type="text"],
+#hubspot-form-container input[type="email"],
+#hubspot-form-container input[type="tel"],
+#hubspot-form-container input[type="number"],
+#hubspot-form-container input[type="url"] {
+  height: 2.25rem !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  border-radius: calc(var(--radius) - 2px) !important;
+  border: 1px solid var(--input) !important;
+  background-color: var(--background) !important;
+  padding: 0.25rem 0.75rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  color: var(--foreground) !important;
+  outline: none !important;
+  transition: color 0.15s, box-shadow 0.15s !important;
+  font-family: var(--font-sans) !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#hubspot-form-container .hs-input:focus,
+#hubspot-form-container input:focus {
+  border-color: var(--ring) !important;
+  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 0.5) !important;
+}
+
+#hubspot-form-container .hs-input::placeholder,
+#hubspot-form-container input::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+#hubspot-form-container textarea.hs-input {
+  height: auto !important;
+  min-height: 6rem !important;
+  padding: 0.5rem 0.75rem !important;
+  resize: vertical !important;
+}
+
+#hubspot-form-container select.hs-input {
+  height: 2.25rem !important;
+  width: 100% !important;
+  border-radius: calc(var(--radius) - 2px) !important;
+  border: 1px solid var(--input) !important;
+  background-color: var(--background) !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.875rem !important;
+  color: var(--foreground) !important;
+  outline: none !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.75rem center !important;
+  padding-right: 2.5rem !important;
+  font-family: var(--font-sans) !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+#hubspot-form-container select.hs-input:focus {
+  border-color: var(--ring) !important;
+  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 0.5) !important;
+}
+
+#hubspot-form-container .hs-submit {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+#hubspot-form-container .hs-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  white-space: nowrap !important;
+  border-radius: calc(var(--radius) - 2px) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  height: 2.25rem !important;
+  padding: 0.5rem 1rem !important;
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s !important;
+  font-family: var(--font-sans) !important;
+  box-shadow: none !important;
+}
+
+#hubspot-form-container .hs-button:hover {
+  background-color: oklch(from var(--primary) l c h / 0.9) !important;
+}
+
+#hubspot-form-container .hs-error-msgs {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0.25rem 0 0 !important;
+}
+
+#hubspot-form-container .hs-error-msg {
+  font-size: 0.75rem !important;
+  color: oklch(0.55 0.2 27) !important;
+}
+
+#hubspot-form-container .hs-richtext {
+  font-size: 0.875rem !important;
+  color: var(--muted-foreground) !important;
+  line-height: 1.5 !important;
+}
+
+#hubspot-form-container .hs-richtext a {
+  color: var(--foreground) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+
+#hubspot-form-container .hs-richtext a:hover {
+  color: var(--muted-foreground) !important;
+}
+
+#hubspot-form-container .legal-consent-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+}
+
+#hubspot-form-container .legal-consent-container .hs-form-booleancheckbox-display {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.5rem !important;
+  font-size: 0.875rem !important;
+  color: var(--muted-foreground) !important;
+}
+
+#hubspot-form-container .legal-consent-container input[type="checkbox"] {
+  width: 1rem !important;
+  height: 1rem !important;
+  margin-top: 0.125rem !important;
+  accent-color: var(--primary) !important;
+  flex-shrink: 0 !important;
+}
+
+#hubspot-form-container .submitted-message {
+  font-size: 0.875rem !important;
+  color: var(--foreground) !important;
+  text-align: center !important;
+  padding: 2rem 0 !important;
+}
+
+/* Two-column layout for name fields (fieldset with multiple fields) */
+#hubspot-form-container .hs-form fieldset.form-columns-2 {
+  display: flex !important;
+  gap: 1rem !important;
+}
+
+#hubspot-form-container .hs-form fieldset.form-columns-2 .hs-form-field {
+  flex: 1 !important;
+}
+
 html body[data-scroll-locked] {
   overflow-y: scroll !important;
   --removed-body-scroll-bar-size: 0 !important;

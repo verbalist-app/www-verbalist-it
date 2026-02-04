@@ -118,7 +118,8 @@ export default function PrivacyPolicyPage() {
               <li>le società che offrono servizi della società dell'informazione, ivi incluse, in particolare, quelle che offrono servizi di hosting;</li>
               <li>le società che effettuano indagini statistiche e di mercato, qualora sia stato espresso il relativo consenso;</li>
               <li>le società di revisione contabile;</li>
-              <li>le società partner del Titolare.</li>
+              <li>le società partner del Titolare;</li>
+              <li>HubSpot Inc., in qualità di responsabile del trattamento, per la gestione dei moduli di contatto e la raccolta dei dati ivi inseriti tramite la piattaforma HubSpot CRM.</li>
             </ul>
           </section>
 
@@ -143,7 +144,7 @@ export default function PrivacyPolicyPage() {
               <li>organizzazioni controllate e/o controllanti.</li>
             </ul>
             <p className="text-sm text-foreground/80 leading-relaxed mb-3">
-              Il trasferimento di Dati Personali verso tali soggetti, qualora stabiliti in un Paese terzo o un'organizzazione internazionale, è effettuata in presenza di una decisione di adeguatezza della Commissione Europea, che ha verificato come il Paese terzo, il territorio o uno o più settori specifici all'interno del paese terzo, o l'organizzazione internazionale in questione garantiscono un livello di protezione adeguato dei diritti. In ogni caso NUR, se lo ritenga comunque opportuno, si riserva di concludere specifici separati accordi che obblighino tali soggetti ad adottare adeguate misure di sicurezza, anche organizzative, volte ad offrire garanzie appropriate per i tuoi diritti. I Dati Personali potranno essere così trasferiti nei seguenti Paesi: Stati Uniti d'America. Per ottenere una copia di tali Dati Personali o il luogo dove sono stati resi disponibili, è sufficiente inviare la relativa richiesta a NUR, all'indirizzo email gdpr@nur.it.
+              Il trasferimento di Dati Personali verso tali soggetti, qualora stabiliti in un Paese terzo o un&apos;organizzazione internazionale, è effettuata in presenza di una decisione di adeguatezza della Commissione Europea, che ha verificato come il Paese terzo, il territorio o uno o più settori specifici all&apos;interno del paese terzo, o l&apos;organizzazione internazionale in questione garantiscono un livello di protezione adeguato dei diritti. In ogni caso NUR, se lo ritenga comunque opportuno, si riserva di concludere specifici separati accordi che obblighino tali soggetti ad adottare adeguate misure di sicurezza, anche organizzative, volte ad offrire garanzie appropriate per i tuoi diritti. I Dati Personali potranno essere così trasferiti nei seguenti Paesi: Stati Uniti d&apos;America. In particolare, HubSpot Inc. tratta i Dati Personali raccolti tramite i moduli di contatto presenti sul Sito in conformità al Data Processing Agreement sottoscritto con NUR e alle Standard Contractual Clauses adottate dalla Commissione Europea. Per ottenere una copia di tali Dati Personali o il luogo dove sono stati resi disponibili, è sufficiente inviare la relativa richiesta a NUR, all&apos;indirizzo email gdpr@nur.it.
             </p>
           </section>
 

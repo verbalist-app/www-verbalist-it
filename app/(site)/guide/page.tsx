@@ -274,7 +274,7 @@ export default function GuidePage() {
               Serve altro?
             </p>
             <Button className="mt-3" asChild>
-              <Link href="/contatti">Contattaci</Link>
+              <Link href="/prenota-demo">Contattaci</Link>
             </Button>
           </div>
         </div>

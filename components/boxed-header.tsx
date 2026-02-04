@@ -64,7 +64,7 @@ export const BoxedHeader = () => {
 
                             <div className="flex items-center gap-2 lg:hidden">
                                 <Button asChild size="sm">
-                                    <Link href="/contatti">
+                                    <Link href="/prenota-demo">
                                         <span>Inizia ora</span>
                                     </Link>
                                 </Button>
@@ -156,7 +156,7 @@ export const BoxedHeader = () => {
                                     {/* Prenota una demo */}
                                     <NavigationMenuItem>
                                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                            <Link href="/contatti">Prenota una demo</Link>
+                                            <Link href="/prenota-demo">Prenota una demo</Link>
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
                                 </NavigationMenuList>
@@ -220,26 +220,26 @@ export const BoxedHeader = () => {
                                     <Link href="/prezzi" className="text-foreground font-medium block py-2">
                                         Prezzi
                                     </Link>
-                                    <Link href="/contatti" className="text-foreground font-medium block py-2">
+                                    <Link href="/prenota-demo" className="text-foreground font-medium block py-2">
                                         Prenota una demo
                                     </Link>
                                 </div>
                                 <div className="mt-6 pt-4 border-t">
                                     <Button asChild variant="outline" size="sm" className="w-full">
-                                        <Link href="/login">
+                                        <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
                                             <span>Accedi</span>
-                                        </Link>
+                                        </a>
                                     </Button>
                                 </div>
                             </div>
                             <div className="hidden lg:flex w-full flex-col space-y-3 sm:flex-row sm:items-center sm:gap-3 sm:space-y-0 md:w-fit">
                                 <Button asChild variant="outline" size="sm">
-                                    <Link href="/login">
+                                    <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
                                         <span>Accedi</span>
-                                    </Link>
+                                    </a>
                                 </Button>
                                 <Button asChild size="sm">
-                                    <Link href="/contatti">
+                                    <Link href="/prenota-demo">
                                         <span>Inizia ora</span>
                                     </Link>
                                 </Button>

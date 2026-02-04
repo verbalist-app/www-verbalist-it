@@ -24,7 +24,7 @@ const plans = [
       "Email support",
     ],
     cta: "Start free",
-    href: "/en/contact",
+    href: "/en/book-demo",
     highlighted: false,
   },
   {
@@ -41,7 +41,7 @@ const plans = [
       "Priority support",
     ],
     cta: "Start now",
-    href: "/en/contact",
+    href: "/en/book-demo",
     highlighted: true,
   },
   {
@@ -58,7 +58,7 @@ const plans = [
       "Guaranteed SLA",
     ],
     cta: "Contact us",
-    href: "/en/contact",
+    href: "/en/book-demo",
     highlighted: false,
   },
 ]
@@ -140,7 +140,7 @@ export default function PricingPage() {
 
         <div className="mt-16 text-center">
           <p className="text-sm text-muted-foreground">
-            Need help? <Link href="/en/contact" className="text-foreground hover:underline font-medium">Contact us</Link>.
+            Need help? <Link href="/en/book-demo" className="text-foreground hover:underline font-medium">Contact us</Link>.
           </p>
         </div>
       </div>

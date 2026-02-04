@@ -28,7 +28,7 @@ export function SubPageHero({
   icon: Icon,
   title,
   description,
-  primaryCta = { text: "Prenota una demo", href: "/contatti" },
+  primaryCta = { text: "Prenota una demo", href: "/prenota-demo" },
   secondaryCta,
   className,
 }: SubPageHeroProps) {

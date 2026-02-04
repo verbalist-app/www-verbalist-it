@@ -54,7 +54,7 @@ export function LoginForm({
           </Button>
           <FieldDescription className="text-center">
             Non hai un account?{" "}
-            <a href="/contatti" className="underline underline-offset-4">
+            <a href="/prenota-demo" className="underline underline-offset-4">
               Registrati
             </a>
           </FieldDescription>

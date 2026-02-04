@@ -24,7 +24,7 @@ export function CTASection({
   buttons = {
     primary: {
       text: "Prenota una demo",
-      url: "/contatti",
+      url: "/prenota-demo",
     },
     secondary: {
       text: "Vedi i prezzi",

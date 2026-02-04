@@ -85,7 +85,7 @@ export default function FaqPage() {
             Contact us and we'll get back to you.
           </p>
           <Link
-            href="/en/contact"
+            href="/en/book-demo"
             className="inline-flex items-center gap-2 text-sm bg-foreground text-background px-6 py-3 rounded-lg hover:bg-foreground/90 transition-colors font-medium"
           >
             Contact us

@@ -151,7 +151,7 @@ export default function EnterprisePage() {
       <SubPageCTA
         title="Let's discuss your needs"
         description="Contact us for a personalized demo and to discuss the configurations best suited to your organization."
-        primaryCta={{ text: "Book a demo", href: "/en/contact" }}
+        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
         secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
       />
     </>

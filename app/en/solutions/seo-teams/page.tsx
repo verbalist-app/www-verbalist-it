@@ -138,7 +138,7 @@ export default function SeoTeamsPage() {
       <SubPageCTA
         title="Want to see it in action?"
         description="We'll show you how it works with a demo on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/contact" }}
+        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
         secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
       />
     </>

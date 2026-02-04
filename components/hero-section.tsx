@@ -85,7 +85,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   className="mt-10 flex flex-col items-center justify-center gap-3 md:flex-row"
                 >
                   <Button asChild size="lg" className="rounded-full px-6">
-                    <Link href="/contatti">Prenota una demo</Link>
+                    <Link href="/prenota-demo">Prenota una demo</Link>
                   </Button>
                   <Button asChild size="lg" variant="ghost" className="rounded-full px-6">
                     <Link href="/piattaforma">Come funziona</Link>

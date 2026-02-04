@@ -143,6 +143,41 @@ export default function CookiePolicyPage() {
                     <td className="p-3 border-b border-border">13 months</td>
                     <td className="p-3 border-b border-border">User behavior analysis and UX optimization</td>
                   </tr>
+                  <tr>
+                    <td className="p-3 border-b border-border">__hstc</td>
+                    <td className="p-3 border-b border-border">Profiling</td>
+                    <td className="p-3 border-b border-border">HubSpot</td>
+                    <td className="p-3 border-b border-border">13 months</td>
+                    <td className="p-3 border-b border-border">Main tracking cookie: identifies the visitor, traffic source, session and interactions with the site</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 border-b border-border">__hssc</td>
+                    <td className="p-3 border-b border-border">Profiling</td>
+                    <td className="p-3 border-b border-border">HubSpot</td>
+                    <td className="p-3 border-b border-border">30 minutes</td>
+                    <td className="p-3 border-b border-border">Tracks the current visitor session and determines whether the __hstc cookie needs to be updated</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 border-b border-border">__hssrc</td>
+                    <td className="p-3 border-b border-border">Technical</td>
+                    <td className="p-3 border-b border-border">HubSpot</td>
+                    <td className="p-3 border-b border-border">Session</td>
+                    <td className="p-3 border-b border-border">Checks whether the visitor has restarted their browser to determine the start of a new session</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 border-b border-border">hubspotutk</td>
+                    <td className="p-3 border-b border-border">Profiling</td>
+                    <td className="p-3 border-b border-border">HubSpot</td>
+                    <td className="p-3 border-b border-border">13 months</td>
+                    <td className="p-3 border-b border-border">Uniquely identifies the visitor and links them to the corresponding contact in HubSpot CRM upon form submission</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 border-b border-border">__hs_opt_out</td>
+                    <td className="p-3 border-b border-border">Technical</td>
+                    <td className="p-3 border-b border-border">HubSpot</td>
+                    <td className="p-3 border-b border-border">13 months</td>
+                    <td className="p-3 border-b border-border">Stores the opt-out preference expressed by the visitor through the cookie banner</td>
+                  </tr>
                 </tbody>
               </table>
             </div>

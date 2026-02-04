@@ -97,7 +97,7 @@ export const HeroHeader = () => {
 
                             <div className="flex items-center gap-2 lg:hidden">
                                 <Button asChild size="sm">
-                                    <Link href="/contatti">
+                                    <Link href="/prenota-demo">
                                         <span>Inizia ora</span>
                                     </Link>
                                 </Button>
@@ -189,7 +189,7 @@ export const HeroHeader = () => {
                                     {/* Prenota una demo */}
                                     <NavigationMenuItem>
                                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                            <Link href="/contatti">Prenota una demo</Link>
+                                            <Link href="/prenota-demo">Prenota una demo</Link>
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
                                 </NavigationMenuList>
@@ -253,16 +253,16 @@ export const HeroHeader = () => {
                                     <Link href="/prezzi" className="text-foreground font-medium block py-2">
                                         Prezzi
                                     </Link>
-                                    <Link href="/contatti" className="text-foreground font-medium block py-2">
+                                    <Link href="/prenota-demo" className="text-foreground font-medium block py-2">
                                         Prenota una demo
                                     </Link>
                                 </div>
                                 <div className="mt-6 pt-4 border-t flex items-center justify-between gap-4">
                                     <LanguageSwitcher />
                                     <Button asChild variant="outline" size="sm" className="flex-1">
-                                        <Link href="/login">
+                                        <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
                                             <span>Accedi</span>
-                                        </Link>
+                                        </a>
                                     </Button>
                                 </div>
                             </div>
@@ -273,15 +273,15 @@ export const HeroHeader = () => {
                                     variant="outline"
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/login">
+                                    <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
                                         <span>Accedi</span>
-                                    </Link>
+                                    </a>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/contatti">
+                                    <Link href="/prenota-demo">
                                         <span>Inizia ora</span>
                                     </Link>
                                 </Button>
@@ -289,7 +289,7 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="/contatti">
+                                    <Link href="/prenota-demo">
                                         <span>Inizia ora</span>
                                     </Link>
                                 </Button>

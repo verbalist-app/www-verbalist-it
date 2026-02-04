@@ -121,7 +121,7 @@ export function InteractiveDemo() {
 
             <div className="space-y-2">
               <Link
-                href="/contatti"
+                href="/prenota-demo"
                 className="block w-full py-2.5 bg-neutral-900 text-white text-[13px] font-medium rounded-lg hover:bg-neutral-800 transition-colors text-center"
               >
                 Prenota una demo

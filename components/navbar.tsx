@@ -93,17 +93,14 @@ export function Navbar() {
             <Link href="/chi-siamo" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Chi siamo
             </Link>
-            <Link href="/contatti" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-              Contatti
-            </Link>
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="/login" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Accedi
-            </Link>
+            </a>
             <Link
-              href="/contatti"
+              href="/prenota-demo"
               className="rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background transition-colors hover:bg-foreground/90"
             >
               Prenota una demo

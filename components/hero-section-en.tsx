@@ -81,7 +81,7 @@ export function HeroSectionEn({ className }: HeroSectionEnProps) {
                 className="mt-10 flex flex-col items-center justify-center gap-3 md:flex-row"
               >
                 <Button asChild size="lg" className="rounded-full px-6">
-                  <Link href="/en/contact">Book a demo</Link>
+                  <Link href="/en/book-demo">Book a demo</Link>
                 </Button>
                 <Button asChild size="lg" variant="ghost" className="rounded-full px-6">
                   <Link href="/en/platform">How it works</Link>

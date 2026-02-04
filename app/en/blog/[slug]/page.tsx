@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               We'll show you how it works with a demo on your case.
             </p>
             <Link
-              href="/en/contact"
+              href="/en/book-demo"
               className="inline-flex items-center gap-2 text-sm bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
             >
               Book a demo
