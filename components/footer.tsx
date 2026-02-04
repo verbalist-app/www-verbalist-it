@@ -34,6 +34,7 @@ const footerLinks = {
       { name: "Guide", href: "/guide" },
       { name: "Changelog", href: "/changelog" },
       { name: "FAQ", href: "/faq" },
+      { name: "Status", href: "https://uptime.verbalist.it", external: true },
     ],
   },
   azienda: {
