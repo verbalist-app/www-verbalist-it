@@ -175,7 +175,7 @@ export const BoxedHeader = () => {
                                             <ul className="space-y-3 pl-2 pb-2">
                                                 {funzionalita.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block py-1 duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -191,7 +191,7 @@ export const BoxedHeader = () => {
                                             <ul className="space-y-3 pl-2 pb-2">
                                                 {soluzioni.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block py-1 duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -207,7 +207,7 @@ export const BoxedHeader = () => {
                                             <ul className="space-y-3 pl-2 pb-2">
                                                 {risorse.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block py-1 duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -217,10 +217,10 @@ export const BoxedHeader = () => {
                                     </AccordionItem>
                                 </Accordion>
                                 <div className="mt-4 space-y-3">
-                                    <Link href="/prezzi" className="text-foreground font-medium block py-2">
+                                    <Link href="/prezzi" onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
                                         Prezzi
                                     </Link>
-                                    <Link href="/prenota-demo" className="text-foreground font-medium block py-2">
+                                    <Link href="/prenota-demo" onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
                                         Prenota una demo
                                     </Link>
                                 </div>
