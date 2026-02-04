@@ -3,7 +3,7 @@ import Image from "next/image"
 import { Download } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Brand | Verbalist",
+  title: "Brand Guidelines | Verbalist",
   description:
     "Verbalist brand guidelines. Logos, colors, typography, and usage rules to correctly represent the brand.",
   alternates: {
