@@ -1,8 +1,6 @@
 import { HeroSectionEn } from "@/components/hero-section-en"
 import { TrustedBy } from "@/components/trusted-by"
-import { FeatureChecklist } from "@/components/feature-checklist"
 import { FeaturesSectionEn } from "@/components/features-section-en"
-import { IncentivesSectionEn } from "@/components/incentives-section-en"
 import { Testimonials } from "@/components/testimonials"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import type { Metadata } from "next"
@@ -44,34 +42,12 @@ const homeTestimonials = [
   },
 ]
 
-const homeFeatures = [
-  {
-    items: [
-      "Automatic SERP analysis",
-      "Competitor content scraping",
-      "AI pattern detection",
-    ],
-  },
-  {
-    items: [
-      "SEO content generation",
-      "Optimized for AEO and GEO",
-      "Based on real data",
-    ],
-  },
-]
-
 export default function HomeEn() {
   return (
     <>
       <HeroSectionEn />
       <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
-      <FeatureChecklist
-        title="One platform to create content that ranks"
-        columns={homeFeatures}
-      />
       <FeaturesSectionEn className="border-t" />
-      <IncentivesSectionEn className="border-t" />
       <Testimonials
         title="What our customers say"
         testimonials={homeTestimonials}

@@ -36,7 +36,7 @@ export function FeatureChecklist({
           </div>
         )}
         <div className={cn(
-          "grid gap-8 md:gap-12",
+          "grid gap-4 md:gap-12",
           columns.length === 2 && "md:grid-cols-2",
           columns.length === 3 && "md:grid-cols-3",
           columns.length === 4 && "md:grid-cols-4"

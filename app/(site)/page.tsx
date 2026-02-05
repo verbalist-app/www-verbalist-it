@@ -1,8 +1,6 @@
 import { HeroSection } from "@/components/hero-section"
 import { TrustedBy } from "@/components/trusted-by"
-import { FeatureChecklist } from "@/components/feature-checklist"
 import { FeaturesSection } from "@/components/features-section"
-import { IncentivesSection } from "@/components/incentives-section"
 import { Testimonials } from "@/components/testimonials"
 import { SubPageCTA } from "@/components/sub-page-cta"
 
@@ -30,34 +28,12 @@ const homeTestimonials = [
   },
 ]
 
-const homeFeatures = [
-  {
-    items: [
-      "Analisi SERP automatica",
-      "Scraping contenuti competitor",
-      "Pattern detection AI",
-    ],
-  },
-  {
-    items: [
-      "Generazione contenuti SEO",
-      "Ottimizzato per AEO e GEO",
-      "Basato su dati reali",
-    ],
-  },
-]
-
 export default function Home() {
   return (
     <>
       <HeroSection showHeader={false} />
       <TrustedBy text="Scelto da team SEO e agenzie in Italia e all'estero" />
-      <FeatureChecklist
-        title="Una piattaforma per creare contenuti che si posizionano"
-        columns={homeFeatures}
-      />
       <FeaturesSection className="border-t" />
-      <IncentivesSection className="border-t" />
       <Testimonials
         title="Cosa dicono i nostri clienti"
         testimonials={homeTestimonials}

@@ -43,39 +43,35 @@ export default function ProdottoPage() {
             </section>
 
             <section>
-              <h2 className="mb-6 text-2xl font-medium tracking-tight text-foreground">Come funziona</h2>
-              <p className="mb-8 leading-relaxed text-muted-foreground">Il processo è completamente automatizzato:</p>
-              <div className="space-y-6">
+              <h2 className="mb-3 text-2xl font-medium tracking-tight text-foreground">Come funziona</h2>
+              <p className="mb-10 leading-relaxed text-muted-foreground">Il processo è completamente automatizzato.</p>
+              <div className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
                 {[
                   {
-                    step: "1",
+                    step: "01",
                     title: "Analizza i competitor vincenti",
-                    description: "Identifica chi ranka nelle prime posizioni Google per la tua keyword e perché",
+                    description: "Identifica chi ranka nelle prime posizioni Google per la tua keyword e perché.",
                   },
                   {
-                    step: "2",
+                    step: "02",
                     title: "Estrae i pattern di successo",
-                    description: "Studia struttura, topic, word count e segnali di autorevolezza dei top performer",
+                    description: "Studia struttura, topic, word count e segnali di autorevolezza dei top performer.",
                   },
                   {
-                    step: "3",
+                    step: "03",
                     title: "Genera contenuto ottimizzato",
-                    description: "Crea contenuto completo che replica e supera i pattern vincenti identificati",
+                    description: "Crea contenuto completo che replica e supera i pattern vincenti identificati.",
                   },
                   {
-                    step: "4",
+                    step: "04",
                     title: "Ottimizza contenuti esistenti",
-                    description: "Migliora articoli già pubblicati identificando gap e problemi prioritari",
+                    description: "Migliora articoli già pubblicati identificando gap e problemi prioritari.",
                   },
                 ].map((item) => (
-                  <div key={item.step} className="flex items-start gap-4">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-sm font-medium text-foreground">
-                      {item.step}
-                    </div>
-                    <div>
-                      <h3 className="mb-2 text-lg font-medium text-foreground">{item.title}</h3>
-                      <p className="leading-relaxed text-muted-foreground">{item.description}</p>
-                    </div>
+                  <div key={item.step} className="border-t border-border pt-6">
+                    <span className="text-sm font-medium text-muted-foreground">{item.step}</span>
+                    <h3 className="mt-3 text-lg font-medium text-foreground">{item.title}</h3>
+                    <p className="mt-2 leading-relaxed text-muted-foreground">{item.description}</p>
                   </div>
                 ))}
               </div>

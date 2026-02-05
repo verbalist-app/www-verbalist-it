@@ -151,129 +151,123 @@ export function CookieConsent({
   return (
     <div
       className={cn(
-        "fixed z-[200] bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 sm:right-auto w-full sm:max-w-md duration-500 ease-out",
+        "fixed z-[200] bottom-0 left-0 right-0 w-full duration-500 ease-out",
         !isOpen
           ? "transition-[opacity,transform] translate-y-8 opacity-0"
           : "transition-[opacity,transform] translate-y-0 opacity-100"
       )}
     >
-      <div className="m-3 sm:m-0 bg-background rounded-lg border border-border shadow-lg relative">
-        {/* X button */}
+      <div className="relative bg-background border-t border-border shadow-[0_-4px_24px_-4px_rgba(0,0,0,0.08)]">
+        {/* X — rifiuta tutto, nessun cookie non tecnico */}
         <button
           onClick={handleDeclineAll}
-          className="absolute top-3 right-3 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          className="absolute top-3 right-3 sm:right-6 p-1.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
           aria-label={t.declineAll}
         >
-          <X className="h-4 w-4" />
+          <X className="size-4" />
         </button>
 
-        <div className="p-4 pr-10">
-          <h2 className="text-base font-medium mb-2">{t.title}</h2>
-          <p className="text-sm text-muted-foreground">
-            {t.description}{" "}
-            <Link
-              href={t.learnMoreHref}
-              className="underline underline-offset-2 hover:text-foreground"
-            >
-              {t.learnMore}
-            </Link>
-          </p>
-        </div>
-
-        {/* Preferences panel */}
-        {showPreferences && (
-          <div className="px-4 pb-2 space-y-3 border-t border-border pt-4">
-            {/* Necessary */}
-            <div className="flex items-center justify-between">
-              <div className="flex-1 pr-4">
-                <p className="text-sm font-medium">{t.necessary}</p>
-                <p className="text-xs text-muted-foreground">{t.necessaryDesc}</p>
-              </div>
-              <Switch
-                checked={true}
-                disabled
-                className="opacity-50 cursor-not-allowed"
-              />
-            </div>
-
-            {/* Analytics */}
-            <div className="flex items-center justify-between">
-              <div className="flex-1 pr-4">
-                <p className="text-sm font-medium">{t.analytics}</p>
-                <p className="text-xs text-muted-foreground">{t.analyticsDesc}</p>
-              </div>
-              <Switch
-                checked={preferences.analytics}
-                onCheckedChange={(checked) =>
-                  setPreferences((prev) => ({ ...prev, analytics: checked }))
-                }
-              />
-            </div>
-
-            {/* Marketing */}
-            <div className="flex items-center justify-between">
-              <div className="flex-1 pr-4">
-                <p className="text-sm font-medium">{t.marketing}</p>
-                <p className="text-xs text-muted-foreground">{t.marketingDesc}</p>
-              </div>
-              <Switch
-                checked={preferences.marketing}
-                onCheckedChange={(checked) =>
-                  setPreferences((prev) => ({ ...prev, marketing: checked }))
-                }
-              />
-            </div>
-          </div>
-        )}
-
-        {/* Buttons */}
-        <div className="p-4 pt-3 border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 py-4 pr-12 sm:pr-6">
           {!showPreferences ? (
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowPreferences(true)}
-                className="text-xs h-9 justify-start sm:justify-center"
-              >
-                {t.managePreferences}
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </Button>
-              <div className="flex gap-2 sm:ml-auto">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:pr-8">
+              <div className="flex-1 min-w-0">
+                <p className="text-sm text-foreground">
+                  {t.description}{" "}
+                  <Link
+                    href={t.learnMoreHref}
+                    className="underline underline-offset-2 text-muted-foreground hover:text-foreground"
+                  >
+                    {t.learnMore}
+                  </Link>
+                </p>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setShowPreferences(true)}
+                  className="text-xs h-9"
+                >
+                  {t.managePreferences}
+                </Button>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={handleDeclineAll}
-                  className="text-xs h-9 flex-1 sm:flex-none"
+                  className="text-xs h-9"
                 >
                   {t.declineAll}
                 </Button>
                 <Button
                   size="sm"
                   onClick={handleAcceptAll}
-                  className="text-xs h-9 flex-1 sm:flex-none"
+                  className="text-xs h-9"
                 >
                   {t.acceptAll}
                 </Button>
               </div>
             </div>
           ) : (
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setShowPreferences(false)}
-                className="text-xs h-9"
-              >
-                ←
-              </Button>
-              <Button
-                size="sm"
-                onClick={handleSavePreferences}
-                className="text-xs h-9 flex-1"
-              >
-                {t.savePreferences}
-              </Button>
+            <div className="space-y-4 sm:pr-8">
+              <div className="grid gap-4 sm:grid-cols-3">
+                {/* Necessary */}
+                <div className="flex items-center justify-between sm:flex-col sm:items-start sm:gap-2">
+                  <div className="flex-1 pr-4 sm:pr-0">
+                    <p className="text-sm font-medium">{t.necessary}</p>
+                    <p className="text-xs text-muted-foreground">{t.necessaryDesc}</p>
+                  </div>
+                  <Switch
+                    checked={true}
+                    disabled
+                    className="opacity-50 cursor-not-allowed"
+                  />
+                </div>
+
+                {/* Analytics */}
+                <div className="flex items-center justify-between sm:flex-col sm:items-start sm:gap-2">
+                  <div className="flex-1 pr-4 sm:pr-0">
+                    <p className="text-sm font-medium">{t.analytics}</p>
+                    <p className="text-xs text-muted-foreground">{t.analyticsDesc}</p>
+                  </div>
+                  <Switch
+                    checked={preferences.analytics}
+                    onCheckedChange={(checked) =>
+                      setPreferences((prev) => ({ ...prev, analytics: checked }))
+                    }
+                  />
+                </div>
+
+                {/* Marketing */}
+                <div className="flex items-center justify-between sm:flex-col sm:items-start sm:gap-2">
+                  <div className="flex-1 pr-4 sm:pr-0">
+                    <p className="text-sm font-medium">{t.marketing}</p>
+                    <p className="text-xs text-muted-foreground">{t.marketingDesc}</p>
+                  </div>
+                  <Switch
+                    checked={preferences.marketing}
+                    onCheckedChange={(checked) =>
+                      setPreferences((prev) => ({ ...prev, marketing: checked }))
+                    }
+                  />
+                </div>
+              </div>
+              <div className="flex gap-2 justify-end">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setShowPreferences(false)}
+                  className="text-xs h-9"
+                >
+                  ←
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={handleSavePreferences}
+                  className="text-xs h-9"
+                >
+                  {t.savePreferences}
+                </Button>
+              </div>
             </div>
           )}
         </div>

@@ -95,6 +95,113 @@ export function SerpAnalysisVisual() {
   )
 }
 
+// Visualizzazione Scraping Competitor - Estrazione contenuti competitor
+export function ScrapingVisual() {
+  const [visibleItems, setVisibleItems] = useState(0)
+  const [isComplete, setIsComplete] = useState(false)
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout
+
+    if (!isComplete) {
+      timer = setInterval(() => {
+        setVisibleItems((prev) => {
+          if (prev < 3) {
+            return prev + 1
+          } else {
+            setIsComplete(true)
+            return prev
+          }
+        })
+      }, 600)
+    } else {
+      timer = setTimeout(() => {
+        setVisibleItems(0)
+        setIsComplete(false)
+      }, 2000)
+    }
+
+    return () => {
+      clearInterval(timer)
+      clearTimeout(timer)
+    }
+  }, [isComplete])
+
+  const pages = [
+    {
+      domain: "materassi.it",
+      headings: ["H1: Guida alla scelta del materasso", "H2: Tipologie di materasso", "H2: Materiali e composizione", "H2: Dimensioni e misure"],
+      words: "2.847",
+    },
+    {
+      domain: "dormire-bene.com",
+      headings: ["H1: Come scegliere il materasso", "H2: Per chi dorme di lato", "H2: Budget e fascia di prezzo", "H2: FAQ"],
+      words: "2.134",
+    },
+    {
+      domain: "consumatori.it",
+      headings: ["H1: Guida completa all'acquisto", "H2: Tipologie a confronto", "H2: Consigli degli esperti", "H2: Prezzi e offerte"],
+      words: "3.201",
+    },
+  ]
+
+  return (
+    <div className="h-full bg-white p-6 overflow-hidden">
+      <div className="flex items-center justify-between mb-6">
+        <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Scraping competitor</div>
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="text-[12px] text-neutral-500">Estrazione in corso</span>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        {pages.map((page, idx) => (
+          <div
+            key={page.domain}
+            className={cn(
+              "rounded-lg border p-3 transition-all duration-500",
+              idx < visibleItems
+                ? "opacity-100 translate-y-0 border-neutral-200 bg-neutral-50"
+                : "opacity-0 translate-y-2 border-transparent"
+            )}
+          >
+            <div className="flex items-center gap-2 mb-2 pb-2 border-b border-neutral-100">
+              <div className="flex gap-0.5">
+                <div className="size-1.5 rounded-full bg-red-400" />
+                <div className="size-1.5 rounded-full bg-yellow-400" />
+                <div className="size-1.5 rounded-full bg-green-400" />
+              </div>
+              <span className="text-[11px] text-neutral-500">{page.domain}</span>
+              <span className="ml-auto text-[10px] text-neutral-400">{page.words} parole</span>
+            </div>
+            <div className="space-y-0.5">
+              {page.headings.map((h, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    "text-[11px]",
+                    h.startsWith("H1") ? "text-neutral-900 font-medium" : "text-neutral-500 pl-3"
+                  )}
+                >
+                  {h}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {isComplete && (
+        <div className="mt-4 pt-3 border-t border-neutral-100 text-[12px] text-neutral-500">
+          <span className="text-neutral-900 font-medium">3 pagine</span> estratte · Convertite in{" "}
+          <span className="text-neutral-900 font-medium">Markdown</span>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // Visualizzazione Pattern Detection - Analisi AI dei contenuti competitor
 export function PatternDetectionVisual() {
   const [activeSection, setActiveSection] = useState(0)
