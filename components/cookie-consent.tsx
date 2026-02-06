@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { X, ChevronDown } from "lucide-react"
+import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
 import { cn } from "@/lib/utils"
@@ -151,68 +151,70 @@ export function CookieConsent({
   return (
     <div
       className={cn(
-        "fixed z-[200] bottom-0 left-0 right-0 w-full duration-500 ease-out",
+        "fixed z-[200] bottom-4 left-4 w-full max-w-md duration-500 ease-out",
         !isOpen
           ? "transition-[opacity,transform] translate-y-8 opacity-0"
           : "transition-[opacity,transform] translate-y-0 opacity-100"
       )}
     >
-      <div className="relative bg-background border-t border-border shadow-[0_-4px_24px_-4px_rgba(0,0,0,0.08)]">
+      <div className="relative rounded-lg border border-border bg-background shadow-lg">
         {/* X — rifiuta tutto, nessun cookie non tecnico */}
         <button
           onClick={handleDeclineAll}
-          className="absolute top-3 right-3 sm:right-6 p-1.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          className="absolute top-3 right-3 p-1.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
           aria-label={t.declineAll}
         >
           <X className="size-4" />
         </button>
 
-        <div className="mx-auto max-w-6xl px-6 py-4 pr-12 sm:pr-6">
+        <div className="p-5 pr-10">
           {!showPreferences ? (
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:pr-8">
-              <div className="flex-1 min-w-0">
-                <p className="text-sm text-foreground">
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm font-medium text-foreground mb-1">{t.title}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   {t.description}{" "}
                   <Link
                     href={t.learnMoreHref}
-                    className="underline underline-offset-2 text-muted-foreground hover:text-foreground"
+                    className="underline underline-offset-2 hover:text-foreground"
                   >
                     {t.learnMore}
                   </Link>
                 </p>
               </div>
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="flex items-center gap-2">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => setShowPreferences(true)}
-                  className="text-xs h-9"
+                  className="text-xs h-8"
                 >
                   {t.managePreferences}
                 </Button>
+                <div className="flex-1" />
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={handleDeclineAll}
-                  className="text-xs h-9"
+                  className="text-xs h-8"
                 >
                   {t.declineAll}
                 </Button>
                 <Button
                   size="sm"
                   onClick={handleAcceptAll}
-                  className="text-xs h-9"
+                  className="text-xs h-8"
                 >
                   {t.acceptAll}
                 </Button>
               </div>
             </div>
           ) : (
-            <div className="space-y-4 sm:pr-8">
-              <div className="grid gap-4 sm:grid-cols-3">
+            <div className="space-y-4">
+              <div className="space-y-3">
                 {/* Necessary */}
-                <div className="flex items-center justify-between sm:flex-col sm:items-start sm:gap-2">
-                  <div className="flex-1 pr-4 sm:pr-0">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium">{t.necessary}</p>
                     <p className="text-xs text-muted-foreground">{t.necessaryDesc}</p>
                   </div>
@@ -224,8 +226,8 @@ export function CookieConsent({
                 </div>
 
                 {/* Analytics */}
-                <div className="flex items-center justify-between sm:flex-col sm:items-start sm:gap-2">
-                  <div className="flex-1 pr-4 sm:pr-0">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium">{t.analytics}</p>
                     <p className="text-xs text-muted-foreground">{t.analyticsDesc}</p>
                   </div>
@@ -238,8 +240,8 @@ export function CookieConsent({
                 </div>
 
                 {/* Marketing */}
-                <div className="flex items-center justify-between sm:flex-col sm:items-start sm:gap-2">
-                  <div className="flex-1 pr-4 sm:pr-0">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium">{t.marketing}</p>
                     <p className="text-xs text-muted-foreground">{t.marketingDesc}</p>
                   </div>
@@ -256,14 +258,14 @@ export function CookieConsent({
                   variant="outline"
                   size="sm"
                   onClick={() => setShowPreferences(false)}
-                  className="text-xs h-9"
+                  className="text-xs h-8"
                 >
                   ←
                 </Button>
                 <Button
                   size="sm"
                   onClick={handleSavePreferences}
-                  className="text-xs h-9"
+                  className="text-xs h-8"
                 >
                   {t.savePreferences}
                 </Button>

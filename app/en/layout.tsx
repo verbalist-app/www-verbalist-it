@@ -11,8 +11,8 @@ export default function SiteEnLayout({
   return (
     <>
       <SoftwareApplicationSchema locale="en" />
+      <BoxedHeaderEn />
       <div className="mx-auto max-w-6xl border-x border-border min-h-screen flex flex-col">
-        <BoxedHeaderEn />
         <main className="flex-1">{children}</main>
       </div>
       <FooterEn />

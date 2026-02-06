@@ -53,7 +53,7 @@ export const BoxedHeaderEn = () => {
             <nav
                 data-state={menuState && 'active'}
                 className="w-full">
-                <div className="px-6 lg:px-12">
+                <div className="mx-auto max-w-7xl px-6 lg:px-12">
                     <div className="relative flex flex-wrap items-center justify-between gap-6 py-4 lg:gap-0">
                         <div className="flex w-full justify-between lg:w-auto">
                             <Link
