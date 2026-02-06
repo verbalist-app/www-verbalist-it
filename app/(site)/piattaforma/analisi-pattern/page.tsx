@@ -133,30 +133,30 @@ export default function AnalisiPatternPage() {
     <>
       <SubPageHero
         label="Analisi Pattern"
-        title="Decodifica i pattern che portano in prima pagina"
-        description="Scopri cosa hanno in comune i contenuti top. Word count, struttura heading, topic coverage e segnali E-E-A-T che correlano con il successo."
+        title="Identifica i pattern dei contenuti meglio posizionati"
+        description="Scopri cosa hanno in comune i primi risultati. Word count, struttura heading, copertura dei topic e segnali E-E-A-T."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
       <TrustedBy />
 
       <FeatureChecklist
-        title="Scopri i pattern vincenti"
-        description="Analizza automaticamente struttura, lunghezza e topic dei top performer."
+        title="Scopri i pattern ricorrenti"
+        description="Analizza automaticamente struttura, lunghezza e topic dei contenuti meglio posizionati."
         columns={featureColumns}
       />
 
       <HighlightBlock
         icon={TrendingUp}
-        title="Word count che funziona"
-        description="Calcola il word count medio dei contenuti in prima pagina. Vedi la distribuzione, il range ottimale e quanto devi scrivere per competere."
+        title="Word count medio e distribuzione"
+        description="Calcola il word count medio dei primi risultati. Mostra la distribuzione, il range e la lunghezza di riferimento per la keyword."
         visual={<WordCountIllustration />}
       />
 
       <HighlightBlock
         icon={Layers}
-        title="Struttura che converte"
-        description="Trova i pattern strutturali comuni. Quali H2, in che ordine, quanti H3. Replica la struttura che funziona in SERP."
+        title="Struttura heading ricorrente"
+        description="Trova i pattern strutturali comuni: quali H2, in che ordine, quanti H3. Una mappa della struttura usata dai primi risultati."
         visual={<StructureIllustration />}
         reverse
       />

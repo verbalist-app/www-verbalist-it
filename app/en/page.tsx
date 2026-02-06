@@ -1,6 +1,7 @@
 import { HeroSectionEn } from "@/components/hero-section-en"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeaturesSectionEn } from "@/components/features-section-en"
+import { StatsBar } from "@/components/stats-bar"
 import { Testimonials } from "@/components/testimonials"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import type { Metadata } from "next"
@@ -48,6 +49,14 @@ export default function HomeEn() {
       <HeroSectionEn />
       <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
       <FeaturesSectionEn className="border-t" />
+      <StatsBar
+        stats={[
+          { value: "10 results", label: "SERP analyzed per keyword" },
+          { value: "< 3 min", label: "From keyword to full article" },
+          { value: "4 AI models", label: "Available for generation" },
+          { value: "100%", label: "Based on real SERP data" },
+        ]}
+      />
       <Testimonials
         title="What our customers say"
         testimonials={homeTestimonials}

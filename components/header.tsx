@@ -2,9 +2,8 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { Logo } from '@/components/logo'
-import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, GraduationCap, HelpCircle, History, Globe, ShoppingCart, Sparkles, Landmark } from 'lucide-react'
+import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, GraduationCap, HelpCircle, History, ShoppingCart, Sparkles, Landmark } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
     NavigationMenu,
@@ -22,6 +21,7 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
+import { LanguageSwitcher } from '@/components/language-switcher'
 
 const soluzioni = [
     { title: "Agenzie", href: "/soluzioni/agenzie", icon: Building2 },
@@ -45,28 +45,6 @@ const risorse = [
     { title: "Guide", href: "/guide", icon: GraduationCap },
     { title: "FAQ", href: "/faq", icon: HelpCircle },
 ]
-
-const LanguageSwitcher = () => {
-    const pathname = usePathname()
-    const isEnglish = pathname.startsWith('/en')
-
-    // Get the path without locale prefix
-    const pathWithoutLocale = isEnglish ? pathname.replace(/^\/en/, '') || '/' : pathname
-
-    // Create the alternate locale path
-    const alternatePath = isEnglish ? pathWithoutLocale : `/en${pathname === '/' ? '' : pathname}`
-
-    return (
-        <Link
-            href={alternatePath}
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            title={isEnglish ? 'Passa all\'italiano' : 'Switch to English'}
-        >
-            <Globe className="size-4" />
-            <span className="uppercase font-medium">{isEnglish ? 'IT' : 'EN'}</span>
-        </Link>
-    )
-}
 
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
@@ -208,7 +186,7 @@ export const HeroHeader = () => {
                                             <ul className="space-y-3 pl-2 pb-2">
                                                 {funzionalita.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -224,7 +202,7 @@ export const HeroHeader = () => {
                                             <ul className="space-y-3 pl-2 pb-2">
                                                 {soluzioni.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -240,7 +218,7 @@ export const HeroHeader = () => {
                                             <ul className="space-y-3 pl-2 pb-2">
                                                 {risorse.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -250,15 +228,15 @@ export const HeroHeader = () => {
                                     </AccordionItem>
                                 </Accordion>
                                 <div className="mt-4 space-y-3">
-                                    <Link href="/prezzi" className="text-foreground font-medium block py-2">
+                                    <Link href="/prezzi" onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
                                         Prezzi
                                     </Link>
-                                    <Link href="/prenota-demo" className="text-foreground font-medium block py-2">
+                                    <Link href="/prenota-demo" onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
                                         Prenota una demo
                                     </Link>
                                 </div>
                                 <div className="mt-6 pt-4 border-t flex items-center justify-between gap-4">
-                                    <LanguageSwitcher />
+                                    <LanguageSwitcher variant="header" />
                                     <Button asChild variant="outline" size="sm" className="flex-1">
                                         <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
                                             <span>Accedi</span>
@@ -267,7 +245,7 @@ export const HeroHeader = () => {
                                 </div>
                             </div>
                             <div className="hidden lg:flex w-full flex-col space-y-3 sm:flex-row sm:items-center sm:gap-3 sm:space-y-0 md:w-fit">
-                                <LanguageSwitcher />
+                                <LanguageSwitcher variant="header" />
                                 <Button
                                     asChild
                                     variant="outline"

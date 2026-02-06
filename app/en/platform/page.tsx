@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHeroEn } from "@/components/sub-page-hero-en"
 import { SubPageCTA } from "@/components/sub-page-cta"
@@ -98,6 +98,41 @@ export default function PlatformPage() {
           </section>
         )
       })}
+
+      <section className="border-t py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="mb-8 text-2xl font-medium tracking-tight text-foreground">What you get</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                title: "Complete content",
+                items: [
+                  "Fully optimized article",
+                  "Title tag and meta description",
+                  "Optimal heading structure",
+                  "Ready to publish",
+                ],
+              },
+              {
+                title: "SEO, AEO, GEO, AI optimization",
+                items: ["Google organic ranking", "Featured snippets", "Generative engines", "AI assistants"],
+              },
+            ].map((section) => (
+              <div key={section.title} className="rounded-xl border border-border bg-card p-6">
+                <h3 className="mb-5 text-lg font-medium text-foreground">{section.title}</h3>
+                <ul className="space-y-3">
+                  {section.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-muted-foreground">
+                      <Check className="mt-0.5 size-4 shrink-0 text-foreground" strokeWidth={2} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <SubPageCTA
         title="Want to see it in action?"

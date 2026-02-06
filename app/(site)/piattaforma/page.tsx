@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
@@ -27,7 +27,7 @@ const funzionalita = [
   {
     slug: "analisi-serp",
     title: "Analisi SERP",
-    description: "Vedi chi sta rankando per la tua keyword. Capisci perché sono in prima pagina.",
+    description: "Vedi chi si posiziona per la tua keyword. Capisci perché sono nei primi risultati.",
     detail: "Prende i primi 10 risultati organici, filtra aggregatori e social, estrae tutti i metadata.",
     visual: SerpAnalysisVisual,
   },
@@ -41,7 +41,7 @@ const funzionalita = [
   {
     slug: "analisi-pattern",
     title: "Analisi Pattern",
-    description: "Trova cosa hanno in comune i contenuti in prima pagina. Intent, struttura, segnali E-E-A-T.",
+    description: "Trova cosa hanno in comune i contenuti meglio posizionati. Intent, struttura, segnali E-E-A-T.",
     detail: "Analizza tutti i competitor per capire search intent, topic ricorrenti, struttura heading, word count medio.",
     visual: PatternDetectionVisual,
   },
@@ -59,8 +59,8 @@ export default function PiattaformaPage() {
     <>
       <SubPageHero
         label="Piattaforma"
-        title="Dall'analisi SERP alla generazione del contenuto. Tutto automatico."
-        description="Quattro passaggi. Dalla keyword al contenuto ottimizzato per SEO, AEO e GEO."
+        title="Dall'analisi SERP alla generazione del contenuto. Quattro passaggi."
+        description="Dalla keyword al contenuto ottimizzato per SEO, AEO e GEO. Ogni fase è automatizzata."
       />
 
       {funzionalita.map((funz, index) => {
@@ -102,6 +102,41 @@ export default function PiattaformaPage() {
           </section>
         )
       })}
+
+      <section className="border-t py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="mb-8 text-2xl font-medium tracking-tight text-foreground">Cosa ottieni</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                title: "Contenuto completo",
+                items: [
+                  "Articolo completo ottimizzato",
+                  "Title tag e meta description",
+                  "Struttura heading ottimale",
+                  "Pronto per pubblicare",
+                ],
+              },
+              {
+                title: "Ottimizzazione SEO, AEO, GEO, AI",
+                items: ["Ranking organico Google", "Featured snippets", "Motori generativi", "Assistenti AI"],
+              },
+            ].map((section) => (
+              <div key={section.title} className="rounded-xl border border-border bg-card p-6">
+                <h3 className="mb-5 text-lg font-medium text-foreground">{section.title}</h3>
+                <ul className="space-y-3">
+                  {section.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-muted-foreground">
+                      <Check className="mt-0.5 size-4 shrink-0 text-foreground" strokeWidth={2} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <SubPageCTA />
     </>

@@ -40,7 +40,7 @@ export function HeroSectionEn({ className }: HeroSectionEnProps) {
               <AnimatedGroup variants={transitionVariants}>
                 <Link
                   href="/en/platform"
-                  className="group mx-auto flex w-fit items-center gap-3 rounded-full border border-border bg-card px-4 py-2 transition-colors duration-300 hover:bg-muted"
+                  className="group mx-auto flex w-fit items-center gap-3 rounded-full border border-border bg-muted px-4 py-2 transition-colors duration-300 hover:bg-accent"
                 >
                   <span className="text-foreground text-xs font-medium">See how it works</span>
                   <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />

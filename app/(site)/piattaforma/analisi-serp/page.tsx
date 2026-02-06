@@ -119,8 +119,8 @@ export default function AnalisiSerpPage() {
     <>
       <SubPageHero
         label="Analisi SERP"
-        title="Capisci esattamente cosa fa rankare i contenuti"
-        description="Analizza i primi 10 risultati Google in pochi secondi. Estrai title, meta, struttura heading e pattern di search intent che guidano il ranking."
+        title="Capisci cosa posiziona i contenuti nei primi risultati"
+        description="Analizza i primi 10 risultati Google in pochi secondi. Estrai title, meta, struttura heading e pattern di search intent."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

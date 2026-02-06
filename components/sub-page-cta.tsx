@@ -18,7 +18,7 @@ interface SubPageCTAProps {
 
 export function SubPageCTA({
   title = "Vuoi vederlo in azione?",
-  description = "Ti mostriamo come funziona con una demo. Vedi l'analisi SERP, il pattern detection e la generazione contenuti sul tuo caso.",
+  description = "Ti mostriamo come funziona con una demo. Vedi analisi SERP, rilevamento pattern e generazione contenuti applicati al tuo caso.",
   primaryCta = { text: "Prenota una demo", href: "/prenota-demo" },
   secondaryCta = { text: "Vedi i prezzi", href: "/prezzi" },
   className,

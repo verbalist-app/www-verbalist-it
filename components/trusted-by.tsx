@@ -11,7 +11,7 @@ export function TrustedBy({
 }: TrustedByProps) {
   return (
     <section className={cn("border-t py-12 md:py-16", className)}>
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <div className={cn(
           "flex flex-col gap-8",
           text && "lg:flex-row lg:items-center lg:gap-16"

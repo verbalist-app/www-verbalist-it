@@ -4,6 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { Menu, X, Building2, Users, Megaphone, Search, Download, BarChart3, FileText, BookOpen, GraduationCap, HelpCircle, History, ShoppingCart, Sparkles, Landmark } from 'lucide-react'
+import { LanguageSwitcher } from '@/components/language-switcher'
 import { Button } from '@/components/ui/button'
 import {
     NavigationMenu,
@@ -224,8 +225,9 @@ export const BoxedHeader = () => {
                                         Prenota una demo
                                     </Link>
                                 </div>
-                                <div className="mt-6 pt-4 border-t">
-                                    <Button asChild variant="outline" size="sm" className="w-full">
+                                <div className="mt-6 pt-4 border-t flex items-center justify-between gap-4">
+                                    <LanguageSwitcher variant="header" />
+                                    <Button asChild variant="outline" size="sm" className="flex-1">
                                         <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
                                             <span>Accedi</span>
                                         </a>
@@ -233,6 +235,7 @@ export const BoxedHeader = () => {
                                 </div>
                             </div>
                             <div className="hidden lg:flex w-full flex-col space-y-3 sm:flex-row sm:items-center sm:gap-3 sm:space-y-0 md:w-fit">
+                                <LanguageSwitcher variant="header" />
                                 <Button asChild variant="outline" size="sm">
                                     <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
                                         <span>Accedi</span>

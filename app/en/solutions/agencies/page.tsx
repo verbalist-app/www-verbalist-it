@@ -1,10 +1,8 @@
-import { Building2, Users, FolderKanban, FileOutput } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHeroEn } from "@/components/sub-page-hero-en"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
-import { HighlightBlock } from "@/components/highlight-block"
+import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "SEO Tool for Agencies",
@@ -45,50 +43,28 @@ const featureColumns = [
   },
 ]
 
-function DashboardIllustration() {
-  return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-3">
-        <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="text-xs font-medium text-muted-foreground mb-2">Active projects</div>
-          <div className="space-y-2">
-            {["Client A - E-commerce", "Client B - SaaS", "Client C - Local"].map((project) => (
-              <div key={project} className="flex items-center justify-between rounded bg-muted p-2">
-                <span className="text-xs">{project}</span>
-                <span className="text-[10px] text-muted-foreground">3 documents</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function WorkflowIllustration() {
-  return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-2">
-        {[
-          { step: "1", label: "SERP Analysis", status: "done" },
-          { step: "2", label: "Pattern detection", status: "done" },
-          { step: "3", label: "Content draft", status: "done" },
-          { step: "4", label: "Team review", status: "current" },
-        ].map((item) => (
-          <div key={item.step} className="flex items-center gap-3 rounded-lg border bg-background p-3 shadow-sm">
-            <span className={`flex size-6 items-center justify-center rounded-full text-xs font-medium ${
-              item.status === "done" ? "bg-foreground text-background" :
-              item.status === "current" ? "bg-muted-foreground/20 text-foreground" : "bg-muted text-muted-foreground"
-            }`}>
-              {item.status === "done" ? "✓" : item.step}
-            </span>
-            <span className="text-sm">{item.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
+const workflowSteps = [
+  {
+    step: 1,
+    title: "Create the project for the client",
+    description: "Dedicated workspace with separate keywords, documents and history for each account.",
+  },
+  {
+    step: 2,
+    title: "Automatic SERP analysis",
+    description: "Enter the keyword, Verbalist retrieves the top 10 results and analyzes content, structure and patterns.",
+  },
+  {
+    step: 3,
+    title: "Structured draft generation",
+    description: "Draft with title, meta, headings and body text based on winning patterns. Customized tone of voice per client.",
+  },
+  {
+    step: 4,
+    title: "Review and publish",
+    description: "Your team refines the draft, applies the editorial touch and publishes. Export in Markdown or HTML.",
+  },
+]
 
 export default function AgenciesPage() {
   return (
@@ -99,27 +75,16 @@ export default function AgenciesPage() {
         description="Streamline SERP analysis and content creation across all your accounts. Spend less time on research, more time on strategy and client results."
       />
 
-      <TrustedBy text="Trusted by SEO teams and agencies" />
+      <WorkflowSteps
+        title="Structured workflow for every client"
+        description="From keyword to draft in 4 steps. Your team focuses on strategy and refinement."
+        steps={workflowSteps}
+      />
 
       <FeatureChecklist
-        title="Structured workflow for every client"
+        title="Everything your agency needs"
         description="Organize projects, analyze competitors and generate drafts. Your team focuses on strategy and refinement."
         columns={featureColumns}
-      />
-
-      <HighlightBlock
-        icon={FolderKanban}
-        title="One project per client"
-        description="Organize work by client with separate workspaces. Each project has its own keywords, documents and history. Everything in one place."
-        visual={<DashboardIllustration />}
-      />
-
-      <HighlightBlock
-        icon={FileOutput}
-        title="From keyword to draft"
-        description="Enter the keyword, Verbalist analyzes the SERP, identifies winning patterns and generates a structured draft. Your team refines and publishes it."
-        visual={<WorkflowIllustration />}
-        reverse
       />
 
       <SubPageCTA

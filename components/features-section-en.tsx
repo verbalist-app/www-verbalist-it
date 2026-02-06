@@ -172,7 +172,32 @@ export function FeaturesSectionEn({ className }: FeaturesSectionEnProps) {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-1 md:grid-cols-2 xl:grid-cols-4">
+        {/* Mobile: static cards */}
+        <div className="grid grid-cols-1 gap-4 md:hidden">
+          {featureBlocks.map((feature) => (
+            <Link href={feature.href} key={feature.id} className="block">
+              <div className="overflow-hidden bg-muted">
+                <div className="flex h-48 items-center justify-center">
+                  {feature.illustration}
+                </div>
+                <div className="space-y-2 p-6">
+                  <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                    {feature.step}
+                  </span>
+                  <h3 className="text-lg font-medium text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Desktop: hover animation */}
+        <div className="hidden md:grid grid-cols-2 gap-1 xl:grid-cols-4">
           {featureBlocks.map((feature) => (
             <Link href={feature.href} key={feature.id}>
               <motion.div
@@ -194,7 +219,7 @@ export function FeaturesSectionEn({ className }: FeaturesSectionEnProps) {
                     },
                   }}
                   transition={{ duration: 0.4, ease: easeTransition }}
-                  className="relative z-0 flex h-full min-h-80 flex-col items-center justify-center md:min-h-96"
+                  className="relative z-0 flex h-full min-h-96 flex-col items-center justify-center"
                 >
                   <div className="flex h-full w-full items-center justify-center">
                     {feature.illustration}
@@ -225,7 +250,7 @@ export function FeaturesSectionEn({ className }: FeaturesSectionEnProps) {
                     hover: { opacity: 1, y: 0 },
                   }}
                   transition={{ duration: 0.4, ease: easeTransition }}
-                  className="absolute inset-0 z-20 flex min-h-80 items-center justify-center p-6 text-background md:min-h-96"
+                  className="absolute inset-0 z-20 flex min-h-96 items-center justify-center p-6 text-background"
                 >
                   <div className="space-y-3">
                     <p className="text-xs font-medium uppercase tracking-wider opacity-70">

@@ -1,5 +1,6 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import { FaqAccordion } from "@/components/faq-accordion"
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -64,18 +65,7 @@ export default function FaqPage() {
           </p>
         </div>
 
-        <div className="space-y-6">
-          {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-border pb-6">
-              <h3 className="text-base font-medium mb-3">
-                {faq.question}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
-          ))}
-        </div>
+        <FaqAccordion faqs={faqs} />
 
         <div className="mt-12 bg-muted rounded-xl p-8 border border-border text-center">
           <h3 className="text-lg font-medium mb-3">

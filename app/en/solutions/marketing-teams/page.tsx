@@ -1,10 +1,8 @@
-import { PenTool, FileText, Palette, RefreshCw } from "lucide-react"
+import { FileText, Palette, PenTool, Target, Layers, RefreshCw } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHeroEn } from "@/components/sub-page-hero-en"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import { TrustedBy } from "@/components/trusted-by"
-import { FeatureChecklist } from "@/components/feature-checklist"
-import { HighlightBlock } from "@/components/highlight-block"
+import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
   title: "AI Content Generator",
@@ -18,93 +16,38 @@ export const metadata: Metadata = {
   },
 }
 
-const featureColumns = [
+const features = [
   {
-    items: [
-      "Blog posts",
-      "Landing pages",
-      "Guides and tutorials",
-      "Product pages",
-    ],
+    icon: FileText,
+    title: "Optimized blog posts",
+    description: "Structured drafts with headings, paragraphs and meta tags based on patterns from top-ranking content.",
   },
   {
-    items: [
-      "Configurable tone of voice",
-      "Professional, conversational, technical",
-      "Customizable target audience",
-      "Brand guidelines respected",
-    ],
+    icon: Palette,
+    title: "Configurable tone of voice",
+    description: "Professional, conversational or technical. Every draft follows your style and brand guidelines.",
   },
   {
-    items: [
-      "Title tag and meta description",
-      "Optimized heading structure",
-      "Media and image suggestions",
-      "Export Markdown and HTML",
-    ],
+    icon: PenTool,
+    title: "Landing pages and guides",
+    description: "Structure, sections and CTAs adapted to the format. From search intent to final content.",
+  },
+  {
+    icon: Target,
+    title: "Customizable target audience",
+    description: "Define your target audience and Verbalist adapts language, depth and tone accordingly.",
+  },
+  {
+    icon: Layers,
+    title: "Title tag and meta description",
+    description: "SEO on-page generated automatically: title, meta description, slug and optimized heading structure.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Export and iteration",
+    description: "Export in Markdown and HTML. Refine, iterate and publish. Document history for every project.",
   },
 ]
-
-function ContentTypesIllustration() {
-  return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-2">
-        {[
-          { type: "Blog Post", icon: "article" },
-          { type: "Landing Page", icon: "web" },
-          { type: "Guide", icon: "book" },
-          { type: "Product Page", icon: "shopping" },
-        ].map((item) => (
-          <div key={item.type} className="flex items-center gap-3 rounded-lg border bg-background p-3 shadow-sm">
-            <div className="size-8 rounded bg-muted flex items-center justify-center">
-              <span className="text-xs text-muted-foreground">{item.icon.charAt(0).toUpperCase()}</span>
-            </div>
-            <span className="text-sm font-medium">{item.type}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function ToneIllustration() {
-  return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-3">
-        <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="text-xs font-medium text-muted-foreground mb-3">Tone of Voice</div>
-          <div className="grid grid-cols-3 gap-2">
-            {[
-              { tone: "Professional", active: true },
-              { tone: "Conversational", active: false },
-              { tone: "Technical", active: false },
-            ].map((item) => (
-              <div
-                key={item.tone}
-                className={`rounded p-2 text-center text-[10px] ${
-                  item.active ? "bg-foreground text-background font-medium" : "bg-muted"
-                }`}
-              >
-                {item.tone}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="text-xs font-medium text-muted-foreground mb-2">Output</div>
-          <div className="space-y-1.5">
-            <div className="h-2 w-full rounded bg-foreground/60" />
-            <div className="h-2 w-4/5 rounded bg-foreground/40" />
-            <div className="h-2 w-3/4 rounded bg-foreground/40" />
-          </div>
-          <div className="mt-2 text-[10px] text-muted-foreground">
-            Draft with your style, ready to refine
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function MarketingTeamsPage() {
   return (
@@ -115,27 +58,10 @@ export default function MarketingTeamsPage() {
         description="Skip the manual SERP analysis. Get structured drafts based on proven ranking patterns, in your tone of voice, ready for your editorial touch."
       />
 
-      <TrustedBy text="Trusted by SEO teams and agencies" />
-
-      <FeatureChecklist
+      <FeatureGrid
         title="Content for every format"
         description="Blog posts, landing pages, guides, product pages. Every format with the optimal structure for SERP."
-        columns={featureColumns}
-      />
-
-      <HighlightBlock
-        icon={FileText}
-        title="The right format for every content"
-        description="Choose the content type: blog post, landing page, guide or product page. Verbalist adapts structure, sections and CTAs based on format and search intent."
-        visual={<ContentTypesIllustration />}
-      />
-
-      <HighlightBlock
-        icon={Palette}
-        title="Your tone of voice"
-        description="Configure the style: professional, conversational or technical. Define the target audience. Every draft follows your guidelines. You refine and publish."
-        visual={<ToneIllustration />}
-        reverse
+        items={features}
       />
 
       <SubPageCTA

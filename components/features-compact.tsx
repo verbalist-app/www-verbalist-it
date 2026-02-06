@@ -25,7 +25,7 @@ const features = [
 export function FeaturesCompact() {
     return (
         <section className="py-20 border-t">
-            <div className="mx-auto max-w-5xl px-6">
+            <div className="mx-auto max-w-6xl px-6">
                 <div className="grid gap-8 md:grid-cols-3">
                     {features.map((feature) => (
                         <Link

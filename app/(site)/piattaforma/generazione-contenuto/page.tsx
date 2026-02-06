@@ -38,9 +38,9 @@ const featureColumns = [
   },
   {
     items: [
-      "Tone of voice personalizzabile",
-      "Brand guidelines integrate",
-      "Media suggestions",
+      "Tono di voce personalizzabile",
+      "Linee guida del brand integrate",
+      "Suggerimenti media",
       "Export multi-formato",
     ],
   },
@@ -103,13 +103,13 @@ function ToneIllustration() {
     <div className="flex h-full w-full items-center justify-center p-6">
       <div className="w-full max-w-xs space-y-3">
         <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="text-xs font-medium text-muted-foreground mb-3">Tone of Voice</div>
+          <div className="text-xs font-medium text-muted-foreground mb-3">Tono di voce</div>
           <div className="grid grid-cols-2 gap-2">
             {[
-              { tone: "Professional", active: true },
-              { tone: "Friendly", active: false },
-              { tone: "Technical", active: false },
-              { tone: "Educational", active: false },
+              { tone: "Professionale", active: true },
+              { tone: "Informale", active: false },
+              { tone: "Tecnico", active: false },
+              { tone: "Divulgativo", active: false },
             ].map((item) => (
               <div
                 key={item.tone}
@@ -142,16 +142,16 @@ export default function GenerazioneContenutoPage() {
     <>
       <SubPageHero
         label="Generazione Contenuto"
-        title="Trasforma le insight SERP in contenuti pronti da pubblicare"
-        description="Genera articoli ottimizzati basati su pattern di ranking provati. Title, meta, struttura heading e body text—pronti per la tua rifinitura."
+        title="Dai dati SERP a contenuti pronti da pubblicare"
+        description="Genera articoli ottimizzati basati sui pattern dei primi risultati. Title, meta, struttura heading e testo completo, pronti per la tua revisione."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
       <TrustedBy />
 
       <FeatureChecklist
-        title="Contenuti ottimizzati per rankare"
-        description="SEO metadata, struttura vincente e tone of voice personalizzabile."
+        title="Contenuti ottimizzati per posizionarsi"
+        description="SEO metadata, struttura basata sui pattern e tono di voce personalizzabile."
         columns={featureColumns}
       />
 
@@ -164,8 +164,8 @@ export default function GenerazioneContenutoPage() {
 
       <HighlightBlock
         icon={Palette}
-        title="Il tuo tone of voice"
-        description="Scegli lo stile: professionale, friendly, tecnico, educational. Ogni contenuto rispetta le tue brand guidelines. Consistenza garantita."
+        title="Il tuo tono di voce"
+        description="Scegli lo stile: professionale, informale, tecnico, divulgativo. Ogni contenuto rispetta le linee guida del tuo brand. Risultato coerente, sempre."
         visual={<ToneIllustration />}
         reverse
       />

@@ -20,7 +20,7 @@ interface CTASectionProps {
 
 export function CTASection({
   heading = "Vuoi vederlo in azione?",
-  description = "Ti mostriamo come funziona con una demo. Vedi l'analisi SERP, il pattern detection e la generazione contenuti sul tuo caso.",
+  description = "Ti mostriamo come funziona con una demo. Vedi analisi SERP, rilevamento pattern e generazione contenuti applicati al tuo caso.",
   buttons = {
     primary: {
       text: "Prenota una demo",
@@ -35,7 +35,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section className={cn("py-16 md:py-20", className)}>
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <div className="flex w-full flex-col gap-6 overflow-hidden rounded-xl bg-muted p-8 md:p-12 lg:flex-row lg:items-center lg:gap-16">
           <div className="flex-1">
             <h2 className="text-xl font-medium tracking-tight mb-4">

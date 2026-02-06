@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { Check } from "lucide-react"
 import type { Metadata } from "next"
 import { PageBreadcrumb } from "@/components/page-breadcrumb"
+import { PricingToggle, type PricingPlan } from "@/components/pricing-toggle"
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -11,12 +11,14 @@ export const metadata: Metadata = {
   },
 }
 
-const plans = [
+const plans: PricingPlan[] = [
   {
     name: "Starter",
     description: "For freelancers and small projects",
-    price: "49",
+    monthlyPrice: "49",
+    annualPrice: "39",
     period: "/month",
+    annualNote: "billed annually",
     features: [
       "10 contents per month",
       "Basic SERP analysis",
@@ -30,8 +32,10 @@ const plans = [
   {
     name: "Professional",
     description: "For growing SEO teams and agencies",
-    price: "149",
+    monthlyPrice: "149",
+    annualPrice: "119",
     period: "/month",
+    annualNote: "billed annually",
     features: [
       "50 contents per month",
       "Advanced SERP analysis",
@@ -47,8 +51,10 @@ const plans = [
   {
     name: "Enterprise",
     description: "For large organizations",
-    price: "Custom",
+    monthlyPrice: "Custom",
+    annualPrice: "Custom",
     period: "",
+    annualNote: "",
     features: [
       "Unlimited contents",
       "All features",
@@ -85,64 +91,17 @@ export default function PricingPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`rounded-2xl p-8 ${
-                plan.highlighted
-                  ? "bg-foreground text-background ring-2 ring-foreground"
-                  : "bg-muted border border-border"
-              }`}
-            >
-              <div className="mb-6">
-                <h3 className={`text-lg font-medium mb-2 ${plan.highlighted ? "text-background" : "text-foreground"}`}>
-                  {plan.name}
-                </h3>
-                <p className={`text-sm ${plan.highlighted ? "text-background/70" : "text-muted-foreground"}`}>
-                  {plan.description}
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <span className={`text-4xl font-medium ${plan.highlighted ? "text-background" : "text-foreground"}`}>
-                  {plan.price === "Custom" ? "" : "€"}{plan.price}
-                </span>
-                <span className={`text-sm ${plan.highlighted ? "text-background/70" : "text-muted-foreground"}`}>
-                  {plan.period}
-                </span>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <Check className={`size-5 shrink-0 ${plan.highlighted ? "text-background" : "text-foreground"}`} />
-                    <span className={`text-sm ${plan.highlighted ? "text-background/80" : "text-muted-foreground"}`}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                href={plan.href}
-                className={`block w-full text-center py-3 px-6 rounded-lg text-sm font-medium transition-colors ${
-                  plan.highlighted
-                    ? "bg-background text-foreground hover:bg-background/90"
-                    : "bg-foreground text-background hover:bg-foreground/90"
-                }`}
-              >
-                {plan.cta}
-              </Link>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <p className="text-sm text-muted-foreground">
-            Need help? <Link href="/en/book-demo" className="text-foreground hover:underline font-medium">Contact us</Link>.
-          </p>
-        </div>
+        <PricingToggle
+          plans={plans}
+          monthlyLabel="Monthly"
+          annualLabel="Annual"
+          saveBadge="Save 20%"
+          helpText={
+            <p className="text-sm text-muted-foreground">
+              Need help? <Link href="/en/book-demo" className="text-foreground hover:underline font-medium">Contact us</Link>.
+            </p>
+          }
+        />
       </div>
     </section>
   )

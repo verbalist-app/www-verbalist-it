@@ -44,7 +44,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                 <AnimatedGroup variants={transitionVariants}>
                   <Link
                     href="/piattaforma"
-                    className="group mx-auto flex w-fit items-center gap-3 rounded-full border border-border bg-card px-4 py-2 transition-colors duration-300 hover:bg-muted"
+                    className="group mx-auto flex w-fit items-center gap-3 rounded-full border border-border bg-muted px-4 py-2 transition-colors duration-300 hover:bg-accent"
                   >
                     <span className="text-foreground text-xs font-medium">Vedi come funziona</span>
                     <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -67,7 +67,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   as="p"
                   className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground"
                 >
-                  Dal dato SERP al testo finale: analisi top 10, pattern vincenti (struttura, lunghezza, topic, E-E-A-T) e generazione ottimizzata per Google e risposte AI.
+                  Analizza i primi 10 risultati Google, estrae i pattern ricorrenti (struttura, lunghezza, topic, E-E-A-T) e genera contenuti ottimizzati per SEO e motori AI.
                 </TextEffect>
 
                 <AnimatedGroup

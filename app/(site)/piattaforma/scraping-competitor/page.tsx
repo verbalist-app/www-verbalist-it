@@ -9,13 +9,13 @@ import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
   title: "Scraping Contenuti Competitor",
-  description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine che rankano. Dati per la tua content strategy.",
+  description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine meglio posizionate.",
   alternates: {
     canonical: "/piattaforma/scraping-competitor",
   },
   openGraph: {
     title: "Scraping Contenuti Competitor — Verbalist",
-    description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine che rankano. Dati per la tua content strategy.",
+    description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine meglio posizionate.",
   },
 }
 
@@ -135,8 +135,8 @@ export default function ScrapingCompetitorPage() {
     <>
       <SubPageHero
         label="Scraping Competitor"
-        title="Accedi alla strategia di contenuto di ogni competitor"
-        description="Estrai e analizza i contenuti competitor come Markdown pulito. Comprendi struttura, argomenti e approccio—pronti per l'analisi strategica."
+        title="Estrai e analizza i contenuti di ogni competitor"
+        description="Scarica i contenuti delle pagine competitor e convertili in Markdown. Struttura, argomenti e approccio editoriale, pronti per l'analisi."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
@@ -158,7 +158,7 @@ export default function ScrapingCompetitorPage() {
       <HighlightBlock
         icon={Zap}
         title="Gestisce contenuti dinamici"
-        description="Aspetta il rendering JavaScript. Cattura lazy-load, infinite scroll e SPA. Il contenuto completo, sempre."
+        description="Gestisce il rendering JavaScript, il lazy-load, l'infinite scroll e le SPA. Estrae sempre il contenuto completo."
         visual={<DynamicContentIllustration />}
         reverse
       />

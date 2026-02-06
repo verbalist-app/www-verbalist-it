@@ -1,8 +1,8 @@
 'use client'
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Globe, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 const footerLinks = {
   platform: {
@@ -53,58 +53,6 @@ const footerLinks = {
       { name: "Terms of Service", href: "/en/terms" },
     ],
   },
-}
-
-function LanguageSwitcher() {
-  const pathname = usePathname()
-  const isEnglish = pathname.startsWith('/en')
-
-  const slugMap: Record<string, string> = {
-    '/en': '/',
-    '/en/platform': '/piattaforma',
-    '/en/platform/serp-analysis': '/piattaforma/analisi-serp',
-    '/en/platform/competitor-scraping': '/piattaforma/scraping-competitor',
-    '/en/platform/pattern-analysis': '/piattaforma/analisi-pattern',
-    '/en/platform/content-generation': '/piattaforma/generazione-contenuto',
-    '/en/solutions/agencies': '/soluzioni/agenzie',
-    '/en/solutions/seo-teams': '/soluzioni/team-seo',
-    '/en/solutions/marketing-teams': '/soluzioni/team-marketing',
-    '/en/solutions/ai-strategist': '/soluzioni/ai-strategist',
-    '/en/solutions/ecommerce': '/soluzioni/ecommerce',
-    '/en/solutions/enterprise': '/soluzioni/enterprise',
-    '/en/pricing': '/prezzi',
-    '/en/book-demo': '/prenota-demo',
-    '/en/about': '/chi-siamo',
-    '/en/blog': '/blog',
-    '/en/faq': '/faq',
-    '/en/docs': '/guide',
-    '/en/changelog': '/changelog',
-    '/en/privacy-policy': '/privacy-policy',
-    '/en/cookie-policy': '/cookie-policy',
-    '/en/terms': '/termini',
-      }
-
-  const reverseSlugMap: Record<string, string> = Object.fromEntries(
-    Object.entries(slugMap).map(([en, it]) => [it, en])
-  )
-
-  let alternatePath: string
-  if (isEnglish) {
-    alternatePath = slugMap[pathname] || '/'
-  } else {
-    alternatePath = reverseSlugMap[pathname] || '/en'
-  }
-
-  return (
-    <Link
-      href={alternatePath}
-      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-sm transition-colors hover:bg-muted"
-      title={isEnglish ? 'Switch to Italian' : 'Switch to English'}
-    >
-      <Globe className="size-4" />
-      <span>{isEnglish ? 'Italiano' : 'English'}</span>
-    </Link>
-  )
 }
 
 function FooterLink({ href, children, external }: { href: string; children: React.ReactNode; external?: boolean }) {

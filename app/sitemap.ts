@@ -65,7 +65,6 @@ const italianOnlyPages = [
   '/privacy-policy',
   '/termini',
   '/cookie-policy',
-  '/prodotto', // Legacy page
 ]
 
 // Pagine da escludere dalla sitemap
@@ -81,7 +80,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Tutte le pagine IT
   const italianPages = [
     '',
-    '/prodotto',
     '/prezzi',
     '/chi-siamo',
     '/prenota-demo',

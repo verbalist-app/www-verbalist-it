@@ -20,7 +20,7 @@ export function HighlightBlock({
 }: HighlightBlockProps) {
   return (
     <section className={cn("border-t py-16 md:py-20", className)}>
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <div className={cn(
           "flex flex-col items-center gap-8 md:gap-12",
           reverse ? "md:flex-row-reverse" : "md:flex-row"
