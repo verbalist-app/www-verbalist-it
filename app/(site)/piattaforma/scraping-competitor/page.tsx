@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "/piattaforma/scraping-competitor",
   },
   openGraph: {
-    title: "Scraping Contenuti Competitor \ Verbalist",
+    title: "Scraping Contenuti Competitor \\ Verbalist",
     description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine meglio posizionate.",
   },
 }

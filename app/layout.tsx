@@ -17,8 +17,8 @@ const siteUrl = "https://verbalist.it"
 
 export const metadata: Metadata = {
   title: {
-    default: "Verbalist \ Content Automation per SEO, AEO, GEO",
-    template: "%s \ Verbalist",
+    default: "Verbalist \\ Content Automation per SEO, AEO, GEO",
+    template: "%s \\ Verbalist",
   },
   description:
     "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti ottimizzati per SEO, AEO e GEO. Da keyword a articolo completo in pochi minuti.",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     url: siteUrl,
     siteName: "Verbalist",
-    title: "Verbalist \ Content Automation per SEO, AEO, GEO",
+    title: "Verbalist \\ Content Automation per SEO, AEO, GEO",
     description:
       "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti ottimizzati per SEO, AEO e GEO. Da keyword a articolo completo in pochi minuti.",
     images: [
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Verbalist \ Content Automation per SEO, AEO, GEO",
+    title: "Verbalist \\ Content Automation per SEO, AEO, GEO",
     description:
       "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti ottimizzati per SEO, AEO e GEO. Da keyword a articolo completo in pochi minuti.",
     images: ["/og-image.png"],

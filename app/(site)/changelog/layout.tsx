@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: "/changelog",
   },
   openGraph: {
-    title: "Changelog \ Verbalist",
+    title: "Changelog \\ Verbalist",
     description: "Tutte le novità e gli aggiornamenti di Verbalist. Nuove funzionalità, miglioramenti e fix per la piattaforma di content automation.",
   },
 }

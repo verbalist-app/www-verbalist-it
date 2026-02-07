@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: "/blog",
   },
   openGraph: {
-    title: "Blog \ Verbalist",
+    title: "Blog \\ Verbalist",
     description: "Articoli su SEO, AI, GEO e content. Cose pratiche che puoi applicare subito.",
   },
 }

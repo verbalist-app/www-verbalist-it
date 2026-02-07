@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "/en/privacy-policy",
   },
   openGraph: {
-    title: "Privacy Policy \ Verbalist",
+    title: "Privacy Policy \\ Verbalist",
     description: "Verbalist's personal data processing policy under GDPR. How we protect your data and your rights.",
   },
 }

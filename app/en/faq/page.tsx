@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: "/en/faq",
   },
   openGraph: {
-    title: "FAQ \ Verbalist",
+    title: "FAQ \\ Verbalist",
     description: "Frequently asked questions about Verbalist. How it works, pricing, AI models, integrations.",
   },
 }

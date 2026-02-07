@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: "/en/login",
   },
   openGraph: {
-    title: "Sign In \ Verbalist",
+    title: "Sign In \\ Verbalist",
     description: "Sign in to your Verbalist account to generate SEO-optimized content with AI.",
   },
 }

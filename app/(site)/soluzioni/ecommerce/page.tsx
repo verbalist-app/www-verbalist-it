@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/soluzioni/ecommerce",
   },
   openGraph: {
-    title: "SEO per eCommerce \ Verbalist",
+    title: "SEO per eCommerce \\ Verbalist",
     description: "Descrizioni prodotto SEO generate con AI. Analisi pattern SERP, contenuti ottimizzati per categorie e schede prodotto.",
   },
 }

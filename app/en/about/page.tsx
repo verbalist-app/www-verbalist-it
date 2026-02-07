@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "/en/about",
   },
   openGraph: {
-    title: "About Us \ Verbalist",
+    title: "About Us \\ Verbalist",
     description: "Verbalist is a product of NUR Digital Marketing. 25 years of SEO, 430+ clients. The team behind the software.",
   },
 }

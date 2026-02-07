@@ -7,7 +7,7 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Verbalist \ Content Automation for SEO, AEO, GEO",
+  title: "Verbalist \\ Content Automation for SEO, AEO, GEO",
   description: "Analyze Google competitors, extract winning patterns and generate content optimized for SEO, AEO and GEO. From keyword to complete article in minutes.",
   alternates: {
     canonical: "/en",

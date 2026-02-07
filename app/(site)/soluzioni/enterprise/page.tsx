@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/soluzioni/enterprise",
   },
   openGraph: {
-    title: "Software SEO Enterprise \ Verbalist",
+    title: "Software SEO Enterprise \\ Verbalist",
     description: "Piattaforma SEO per grandi organizzazioni. Analisi SERP, generazione contenuti AI e workflow ad alto volume. Team dedicato e configurazioni personalizzate.",
   },
 }

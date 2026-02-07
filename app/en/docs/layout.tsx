@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: "/en/docs",
   },
   openGraph: {
-    title: "Documentation \ Verbalist",
+    title: "Documentation \\ Verbalist",
     description: "Tutorials and documentation for using Verbalist. Learn how to analyze SERP, extract patterns and generate SEO-optimized content.",
   },
 }

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "/en/platform/serp-analysis",
   },
   openGraph: {
-    title: "Automated SERP Analysis \ Verbalist",
+    title: "Automated SERP Analysis \\ Verbalist",
     description: "Analyze the top 10 Google results in one click. Extract title, meta, structure and search intent for any keyword.",
   },
 }

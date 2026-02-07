@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     canonical: "/piattaforma",
   },
   openGraph: {
-    title: "Piattaforma \ Verbalist",
+    title: "Piattaforma \\ Verbalist",
     description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti. Cosa fa Verbalist e come lo fa.",
   },
 }
