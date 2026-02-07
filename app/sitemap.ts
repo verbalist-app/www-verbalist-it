@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { createReader } from '@keystatic/core/reader'
 import keystaticConfig from '../keystatic.config'
 
-const baseUrl = 'https://verbalist.it'
+const baseUrl = 'https://www.verbalist.it'
 
 // Mapping IT → EN per pagine con slug diversi
 const itToEnSlugMap: Record<string, string> = {

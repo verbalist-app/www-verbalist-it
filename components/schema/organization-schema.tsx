@@ -3,8 +3,8 @@ export function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Verbalist",
-    url: "https://verbalist.it",
-    logo: "https://verbalist.it/logo.png",
+    url: "https://www.verbalist.it",
+    logo: "https://www.verbalist.it/logo.png",
     description:
       "Verbalist is a content automation platform for SEO, AEO, and GEO. Analyze competitors, extract winning patterns, and generate optimized content.",
     foundingDate: "2024",

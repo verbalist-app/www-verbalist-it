@@ -13,7 +13,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const siteUrl = "https://verbalist.it"
+const siteUrl = "https://www.verbalist.it"
 
 export const metadata: Metadata = {
   title: {

@@ -17,10 +17,10 @@ export function ArticleSchema({
   modifiedAt,
   authorName = "Verbalist Team",
   locale = "it",
-  imageUrl = "https://verbalist.it/og-image.png",
+  imageUrl = "https://www.verbalist.it/og-image.png",
 }: ArticleSchemaProps) {
   const isEnglish = locale === "en"
-  const baseUrl = "https://verbalist.it"
+  const baseUrl = "https://www.verbalist.it"
   const articleUrl = isEnglish
     ? `${baseUrl}/en/blog/${slug}`
     : `${baseUrl}/blog/${slug}`

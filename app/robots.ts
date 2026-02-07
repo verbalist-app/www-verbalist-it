@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://verbalist.it/sitemap.xml',
+    sitemap: 'https://www.verbalist.it/sitemap.xml',
   }
 }

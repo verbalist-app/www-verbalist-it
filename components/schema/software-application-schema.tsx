@@ -14,7 +14,7 @@ export function SoftwareApplicationSchema({
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "SEO Software",
     operatingSystem: "Web Browser",
-    url: isEnglish ? "https://verbalist.it/en" : "https://verbalist.it",
+    url: isEnglish ? "https://www.verbalist.it/en" : "https://www.verbalist.it",
     description: isEnglish
       ? "Content automation platform for SEO, AEO, and GEO. Analyze Google competitors, extract winning patterns, and generate optimized content in minutes."
       : "Piattaforma di content automation per SEO, AEO e GEO. Analizza i competitor Google, estrai i pattern vincenti e genera contenuti ottimizzati in pochi minuti.",
@@ -93,7 +93,7 @@ export function SoftwareApplicationSchema({
           "Ottimizzazione GEO",
           "Supporto Multilingua",
         ],
-    screenshot: "https://verbalist.it/og-image.png",
+    screenshot: "https://www.verbalist.it/og-image.png",
     softwareVersion: "1.0",
     aggregateRating: {
       "@type": "AggregateRating",
@@ -105,7 +105,7 @@ export function SoftwareApplicationSchema({
     provider: {
       "@type": "Organization",
       name: "Verbalist",
-      url: "https://verbalist.it",
+      url: "https://www.verbalist.it",
     },
   }
 

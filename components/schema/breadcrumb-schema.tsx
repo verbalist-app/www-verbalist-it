@@ -8,7 +8,7 @@ interface BreadcrumbSchemaProps {
 }
 
 export function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
-  const baseUrl = "https://verbalist.it"
+  const baseUrl = "https://www.verbalist.it"
 
   const schema = {
     "@context": "https://schema.org",
