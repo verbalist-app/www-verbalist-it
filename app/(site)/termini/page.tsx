@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "/termini",
   },
   openGraph: {
-    title: "Termini di Servizio — Verbalist",
+    title: "Termini di Servizio \ Verbalist",
     description: "Termini e condizioni di utilizzo di Verbalist: registrazione, uso del servizio, proprietà intellettuale e pagamenti.",
   },
 }

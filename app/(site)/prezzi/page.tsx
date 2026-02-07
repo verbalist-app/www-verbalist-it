@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: "/prezzi",
   },
   openGraph: {
-    title: "Prezzi Strumento SEO — Verbalist",
+    title: "Prezzi Strumento SEO \ Verbalist",
     description: "Scegli il piano Verbalist: Starter €49, Professional €149, Enterprise custom. Prova gratuita 14 giorni, nessun vincolo.",
   },
 }

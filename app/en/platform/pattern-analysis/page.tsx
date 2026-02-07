@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "/en/platform/pattern-analysis",
   },
   openGraph: {
-    title: "SEO Pattern Analysis — Verbalist",
+    title: "SEO Pattern Analysis \ Verbalist",
     description: "Discover patterns in ranking content: word count, heading structure, topic coverage and E-E-A-T signals.",
   },
 }

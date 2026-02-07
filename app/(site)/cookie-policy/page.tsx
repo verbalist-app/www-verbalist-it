@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "/cookie-policy",
   },
   openGraph: {
-    title: "Cookie Policy — Verbalist",
+    title: "Cookie Policy \ Verbalist",
     description: "Cookie Policy di Verbalist: cookie tecnici, statistici e di profilazione. Come gestirli e i tuoi diritti.",
   },
 }

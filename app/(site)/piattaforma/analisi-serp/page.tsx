@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "/piattaforma/analisi-serp",
   },
   openGraph: {
-    title: "Analisi SERP Automatica — Verbalist",
+    title: "Analisi SERP Automatica \ Verbalist",
     description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati SERP pronti per l'ottimizzazione.",
   },
 }

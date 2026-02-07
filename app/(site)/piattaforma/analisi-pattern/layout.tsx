@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: "/piattaforma/analisi-pattern",
   },
   openGraph: {
-    title: "Analisi Pattern — Verbalist",
+    title: "Analisi Pattern \ Verbalist",
     description: "Identifica i pattern vincenti dai top performer: struttura heading, topic coverage, segnali E-E-A-T e lunghezza ottimale dei contenuti.",
   },
 }

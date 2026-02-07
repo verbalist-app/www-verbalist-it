@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/en/solutions/enterprise",
   },
   openGraph: {
-    title: "Enterprise SEO Software — Verbalist",
+    title: "Enterprise SEO Software \ Verbalist",
     description: "Custom solutions for large organizations. Dedicated team, custom configurations and priority support.",
   },
 }

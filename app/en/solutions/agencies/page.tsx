@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/en/solutions/agencies",
   },
   openGraph: {
-    title: "SEO Tool for Agencies — Verbalist",
+    title: "SEO Tool for Agencies \ Verbalist",
     description: "SERP analysis, pattern detection and content drafts for every client. Verbalist supports your agency workflow.",
   },
 }

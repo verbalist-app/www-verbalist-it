@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/en/solutions/marketing-teams",
   },
   openGraph: {
-    title: "AI Content Generator — Verbalist",
+    title: "AI Content Generator \ Verbalist",
     description: "Structured drafts for blogs, landing pages and guides. Configurable tone of voice, output ready to refine.",
   },
 }

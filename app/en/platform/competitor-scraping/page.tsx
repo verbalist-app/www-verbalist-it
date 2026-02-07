@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "/en/platform/competitor-scraping",
   },
   openGraph: {
-    title: "Competitor Content Scraping — Verbalist",
+    title: "Competitor Content Scraping \ Verbalist",
     description: "Extract competitor content as clean Markdown. Analyze structure, headings and topics from ranking pages.",
   },
 }

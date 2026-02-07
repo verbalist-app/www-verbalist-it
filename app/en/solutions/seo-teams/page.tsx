@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/en/solutions/seo-teams",
   },
   openGraph: {
-    title: "SEO Tool for Specialists — Verbalist",
+    title: "SEO Tool for Specialists \ Verbalist",
     description: "SEO tools for specialists: automated SERP analysis, pattern detection, content gap analysis and content generation. Data for informed decisions.",
   },
 }

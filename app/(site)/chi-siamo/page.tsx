@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "/chi-siamo",
   },
   openGraph: {
-    title: "Chi Siamo — Verbalist by NUR",
+    title: "Chi Siamo \ Verbalist by NUR",
     description: "Verbalist è un prodotto di NUR Digital Marketing. 25 anni di SEO, 430+ clienti, primi in Italia sulla GEO.",
   },
 }

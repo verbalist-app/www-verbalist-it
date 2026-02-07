@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/soluzioni/team-marketing",
   },
   openGraph: {
-    title: "Generatore Contenuti AI per Content Manager — Verbalist",
+    title: "Generatore Contenuti AI per Content Manager \ Verbalist",
     description: "Scrittura AI per blog, landing page e guide. Tono di voce personalizzabile, struttura ottimizzata e contenuti pronti da pubblicare.",
   },
 }

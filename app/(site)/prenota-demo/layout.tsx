@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: "/prenota-demo",
   },
   openGraph: {
-    title: "Prenota una Demo — Verbalist",
+    title: "Prenota una Demo \ Verbalist",
     description: "Richiedi una demo personalizzata di Verbalist. Scopri come automatizzare la creazione di contenuti SEO per il tuo team.",
   },
 }

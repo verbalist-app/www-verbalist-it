@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "/en/solutions/ai-strategist",
   },
   openGraph: {
-    title: "GEO & AEO Optimization — Verbalist",
+    title: "GEO & AEO Optimization \ Verbalist",
     description: "Content optimized to be cited by ChatGPT, Perplexity and AI Overview. AEO and GEO with SERP data.",
   },
 }

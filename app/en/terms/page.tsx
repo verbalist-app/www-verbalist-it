@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "/en/terms",
   },
   openGraph: {
-    title: "Terms of Service — Verbalist",
+    title: "Terms of Service \ Verbalist",
     description: "Verbalist terms and conditions of use: registration, service use, intellectual property and payments.",
   },
 }

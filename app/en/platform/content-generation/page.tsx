@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "/en/platform/content-generation",
   },
   openGraph: {
-    title: "AI Content Generation — Verbalist",
+    title: "AI Content Generation \ Verbalist",
     description: "Generate SEO content with AI based on SERP patterns. Title, meta, heading structure and optimized text.",
   },
 }
