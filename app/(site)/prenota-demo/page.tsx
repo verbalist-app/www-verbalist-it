@@ -59,7 +59,7 @@ const InfiniteMovingCarousel = ({ images }: { images: string[] }) => {
               key={`company-${index}`}
               src={image}
               alt={`Company ${index + 1}`}
-              className="size-24 shrink-0 object-contain dark:invert"
+              className="h-10 w-auto shrink-0 brightness-0 dark:invert"
             />
           )
         })}
@@ -75,12 +75,12 @@ const benefits = [
 ]
 
 const companies = [
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-1.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-2.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-3.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-4.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-5.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-6.svg",
+  "/logos/jurny.svg",
+  "/logos/pompea.svg",
+  "/logos/rentokil.svg",
+  "/logos/meccanotecnica.svg",
+  "/logos/plastisac.svg",
+  "/logos/sogese.svg",
 ]
 
 export default function PrenotaDemoPage() {

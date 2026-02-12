@@ -1,5 +1,14 @@
 import { cn } from "@/lib/utils"
 
+const logos = [
+  { name: "Jurny", src: "/logos/jurny.svg" },
+  { name: "Pompea", src: "/logos/pompea.svg" },
+  { name: "Rentokil", src: "/logos/rentokil.svg" },
+  { name: "Meccanotecnica", src: "/logos/meccanotecnica.svg" },
+  { name: "Plastisac", src: "/logos/plastisac.svg" },
+  { name: "Sogese", src: "/logos/sogese.svg" },
+]
+
 interface TrustedByProps {
   text?: string
   className?: string
@@ -22,15 +31,15 @@ export function TrustedBy({
             </p>
           )}
           <div className={cn(
-            "flex flex-wrap items-center justify-center gap-6 lg:gap-8",
+            "flex flex-wrap items-center justify-center gap-8 lg:gap-12",
             text && "lg:justify-start lg:flex-1"
           )}>
-            {[...Array(5)].map((_, i) => (
+            {logos.map((logo) => (
               <img
-                key={i}
-                src="/logo 2.svg"
-                alt={`Logo ${i + 1}`}
-                className="h-6 w-auto"
+                key={logo.name}
+                src={logo.src}
+                alt={logo.name}
+                className="h-7 w-auto brightness-0 dark:invert"
               />
             ))}
           </div>
