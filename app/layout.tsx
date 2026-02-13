@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s \\ Verbalist",
   },
   description:
-    "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti strutturati per essere citati da ChatGPT, Perplexity, Gemini e AI Overview. Il software GEO SEO per passare da keyword a contenuto ottimizzato in pochi minuti.",
+    "Il software GEO SEO che analizza i competitor Google, estrae i pattern vincenti e genera contenuti strutturati per ChatGPT, Perplexity e AI Overview.",
   keywords: [
     "generative engine optimization",
     "GEO optimization",

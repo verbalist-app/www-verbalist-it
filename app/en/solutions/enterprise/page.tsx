@@ -6,13 +6,13 @@ import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "GEO for Startups and SMBs",
-  description: "AI search optimization without building a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization for startups and SMBs.",
+  description: "AI search optimization without a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization for startups and SMBs.",
   alternates: {
     canonical: "/en/solutions/enterprise",
   },
   openGraph: {
     title: "GEO for Startups and SMBs \\ Verbalist",
-    description: "AI search optimization without building a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization for startups and SMBs.",
+    description: "AI search optimization without a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization for startups and SMBs.",
   },
 }
 

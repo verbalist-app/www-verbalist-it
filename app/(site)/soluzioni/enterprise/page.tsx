@@ -6,13 +6,13 @@ import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "GEO per Startup e PMI",
-  description: "Contenuti ottimizzati per la ricerca AI, senza dover costruire un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization (GEO SEO).",
+  description: "Contenuti ottimizzati per la ricerca AI senza un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization (GEO SEO).",
   alternates: {
     canonical: "/soluzioni/enterprise",
   },
   openGraph: {
     title: "GEO per Startup e PMI \\ Verbalist",
-    description: "Contenuti ottimizzati per la ricerca AI, senza dover costruire un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization (GEO SEO).",
+    description: "Contenuti ottimizzati per la ricerca AI senza un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization (GEO SEO).",
   },
 }
 

@@ -13,13 +13,13 @@ import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
   title: "Piattaforma",
-  description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization per passare da keyword a contenuto ottimizzato.",
+  description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization da keyword a contenuto.",
   alternates: {
     canonical: "/piattaforma",
   },
   openGraph: {
     title: "Piattaforma \\ Verbalist",
-    description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization per passare da keyword a contenuto ottimizzato.",
+    description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization da keyword a contenuto.",
   },
 }
 

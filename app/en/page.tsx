@@ -8,7 +8,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Verbalist \\ Content Engineering for Generative Engine Optimization",
-  description: "AI search optimization and answer engine optimization in one platform. Analyze Google competitors, extract winning patterns and generate content structured to be cited by ChatGPT, Perplexity, Gemini and AI Overview.",
+  description: "AI search optimization and answer engine optimization in one platform. Analyze competitors, extract patterns and generate content cited by ChatGPT, Perplexity.",
   alternates: {
     canonical: "/en",
     languages: {
