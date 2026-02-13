@@ -59,7 +59,7 @@ const InfiniteMovingCarousel = ({ images }: { images: string[] }) => {
               key={`company-${index}`}
               src={image}
               alt={`Company ${index + 1}`}
-              className="h-10 w-auto shrink-0 brightness-0 dark:invert"
+              className="h-8 w-auto shrink-0 brightness-0 dark:invert"
             />
           )
         })}
