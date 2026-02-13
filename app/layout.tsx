@@ -17,7 +17,7 @@ const siteUrl = "https://www.verbalist.it"
 
 export const metadata: Metadata = {
   title: {
-    default: "Verbalist \\ Content Engineering per la Generative Engine Optimization",
+    default: "Verbalist \\ Piattaforma Generative Engine Optimization",
     template: "%s \\ Verbalist",
   },
   description:
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     url: siteUrl,
     siteName: "Verbalist",
-    title: "Verbalist \\ Content Engineering per la Generative Engine Optimization",
+    title: "Verbalist \\ Piattaforma Generative Engine Optimization",
     description:
       "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti strutturati per essere citati da ChatGPT, Perplexity, Gemini e AI Overview.",
     images: [
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Verbalist \\ Content Engineering per la Generative Engine Optimization",
+    title: "Verbalist \\ Piattaforma Generative Engine Optimization",
     description:
       "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti strutturati per essere citati da ChatGPT, Perplexity, Gemini e AI Overview.",
     images: ["/og-image.png"],
