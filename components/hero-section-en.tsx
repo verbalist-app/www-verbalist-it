@@ -33,8 +33,8 @@ const transitionVariants = {
 export function HeroSectionEn({ className }: HeroSectionEnProps) {
   return (
     <main className={cn("overflow-hidden", className)}>
-      <section className="pb-16 md:pb-20">
-        <div className="relative pt-16 md:pt-20">
+      <section className="pb-24 md:pb-32">
+        <div className="relative pt-20 md:pt-28">
           <div className="mx-auto max-w-5xl px-6">
             <div className="text-center">
               <AnimatedGroup variants={transitionVariants}>
@@ -51,7 +51,7 @@ export function HeroSectionEn({ className }: HeroSectionEnProps) {
                 preset="fade-in-blur"
                 speedSegment={0.3}
                 as="h1"
-                className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8"
+                className="mx-auto mt-8 max-w-3xl text-balance text-4xl font-medium tracking-tighter md:text-5xl lg:mt-10 lg:text-6xl"
               >
                 Content optimized for AI engines.
               </TextEffect>

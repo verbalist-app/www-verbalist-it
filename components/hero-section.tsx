@@ -37,8 +37,8 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
     <>
       {showHeader && <HeroHeader />}
       <main className={cn("overflow-hidden", className)}>
-        <section className="pb-16 md:pb-20">
-          <div className={cn("relative", showHeader ? "pt-32 md:pt-40" : "pt-16 md:pt-20")}>
+        <section className="pb-24 md:pb-32">
+          <div className={cn("relative", showHeader ? "pt-32 md:pt-40" : "pt-20 md:pt-28")}>
             <div className="mx-auto max-w-5xl px-6">
               <div className="text-center">
                 <AnimatedGroup variants={transitionVariants}>
@@ -55,7 +55,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   preset="fade-in-blur"
                   speedSegment={0.3}
                   as="h1"
-                  className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8"
+                  className="mx-auto mt-8 max-w-3xl text-balance text-4xl font-medium tracking-tighter md:text-5xl lg:mt-10 lg:text-6xl"
                 >
                   Contenuti ottimizzati per i motori AI.
                 </TextEffect>
@@ -65,7 +65,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   speedSegment={0.3}
                   delay={0.5}
                   as="p"
-                  className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground"
+                  className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed"
                 >
                   Verbalist analizza i primi 10 risultati Google, estrae i pattern ricorrenti e genera contenuti strutturati per essere indicizzati e citati da ChatGPT, Perplexity, Gemini e AI Overview.
                 </TextEffect>
@@ -82,7 +82,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                     },
                     ...transitionVariants,
                   }}
-                  className="mt-10 flex flex-col items-center justify-center gap-3 md:flex-row"
+                  className="mt-12 flex flex-col items-center justify-center gap-3 md:flex-row"
                 >
                   <Button asChild size="lg" className="rounded-full px-6">
                     <Link href="/prenota-demo">Prenota una demo</Link>
@@ -107,7 +107,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                 ...transitionVariants,
               }}
             >
-              <div className="relative mt-16 overflow-hidden px-6 md:mt-24">
+              <div className="relative mt-20 overflow-hidden px-6 md:mt-28">
                 <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl border border-border bg-card p-2">
                   <Image
                     className="relative rounded-lg"
