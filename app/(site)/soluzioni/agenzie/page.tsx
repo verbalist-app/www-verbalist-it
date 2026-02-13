@@ -6,13 +6,13 @@ import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "Contenuti GEO-ready per agenzie",
-  description: "Produci contenuti ottimizzati per i motori AI per ogni cliente. Analisi SERP, pattern detection e generazione GEO-ready in un unico workflow.",
+  description: "Produci contenuti ottimizzati per la ricerca AI per ogni cliente. Analisi SERP, pattern detection e generazione GEO-ready in un unico workflow.",
   alternates: {
     canonical: "/soluzioni/agenzie",
   },
   openGraph: {
     title: "Contenuti GEO-ready per agenzie \\ Verbalist",
-    description: "Produci contenuti ottimizzati per i motori AI per ogni cliente. Analisi SERP, pattern detection e generazione GEO-ready in un unico workflow.",
+    description: "Produci contenuti ottimizzati per la ricerca AI per ogni cliente. Analisi SERP, pattern detection e generazione GEO-ready in un unico workflow.",
   },
 }
 
@@ -57,7 +57,7 @@ const workflowSteps = [
   {
     step: 3,
     title: "Generazione contenuto GEO-ready",
-    description: "Bozza con struttura semantica ottimizzata per i motori AI. Title, meta, heading e corpo testo. Tono di voce personalizzato per cliente.",
+    description: "Bozza con struttura semantica ottimizzata per la ricerca AI. Title, meta, heading e corpo testo. Tono di voce personalizzato per cliente.",
   },
   {
     step: 4,
@@ -83,7 +83,7 @@ export default function AgenziePage() {
 
       <FeatureChecklist
         title="Gestione multi-cliente con output GEO"
-        description="Organizza progetti, analizza competitor e genera contenuti strutturati per i motori AI. Per ogni account."
+        description="Organizza progetti, analizza competitor e genera contenuti strutturati per la ricerca AI. Per ogni account."
         columns={featureColumns}
       />
 

@@ -53,7 +53,7 @@ export function HeroSectionEn({ className }: HeroSectionEnProps) {
                 as="h1"
                 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8"
               >
-                Content optimized for AI engines.
+                Content optimized for AI search.
               </TextEffect>
               <TextEffect
                 per="line"

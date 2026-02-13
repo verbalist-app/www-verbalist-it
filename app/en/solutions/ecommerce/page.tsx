@@ -6,13 +6,13 @@ import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
   title: "GEO content for eCommerce",
-  description: "Product pages and categories optimized for Google and AI engines. Semantic structure, competitor patterns and content citable by LLMs.",
+  description: "Product pages and categories optimized for Google and AI search. Semantic structure, competitor patterns and content citable by LLMs.",
   alternates: {
     canonical: "/en/solutions/ecommerce",
   },
   openGraph: {
     title: "GEO content for eCommerce \\ Verbalist",
-    description: "Product pages and categories optimized for Google and AI engines. Semantic structure, competitor patterns and content citable by LLMs.",
+    description: "Product pages and categories optimized for Google and AI search. Semantic structure, competitor patterns and content citable by LLMs.",
   },
 }
 
@@ -20,7 +20,7 @@ const features = [
   {
     icon: Package,
     title: "Product pages with semantic structure",
-    description: "Hero, key features, technical specs and use cases. Structured to be indexed by Google and cited by AI engines.",
+    description: "Hero, key features, technical specs and use cases. Structured to be indexed by Google and cited in AI search.",
   },
   {
     icon: Search,
@@ -35,7 +35,7 @@ const features = [
   {
     icon: FileText,
     title: "Descriptions optimized for LLMs",
-    description: "Product descriptions with clear semantic structure. Title tags, meta descriptions and content designed for Google and AI engines.",
+    description: "Product descriptions with clear semantic structure. Title tags, meta descriptions and content designed for Google and AI search.",
   },
   {
     icon: TrendingUp,
@@ -54,7 +54,7 @@ export default function EcommercePage() {
     <>
       <SubPageHeroEn
         label="eCommerce"
-        title="Product pages visible on Google and AI engines"
+        title="Product pages visible on Google and AI search"
         description="Analyze top-ranking product pages and generate descriptions with semantic structure optimized for SERP and to be cited by AI assistants."
       />
 

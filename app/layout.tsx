@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "ottimizzazione contenuti AI",
     "AEO optimization",
     "contenuti per ChatGPT",
-    "visibilità motori AI",
+    "visibilità ricerca AI",
     "software GEO italiano",
   ],
   authors: [{ name: "NUR Digital Marketing", url: "https://www.nur.it" }],

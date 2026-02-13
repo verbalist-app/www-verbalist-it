@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const homeTestimonials = [
   {
-    quote: "Verbalist lets us create structured content for AI engines without building an entire GEO framework in-house.",
+    quote: "Verbalist lets us create structured content for AI search without building an entire GEO framework in-house.",
     metric: "+180%",
     author: "Marco Rossi",
     role: "Marketing Manager",
@@ -54,7 +54,7 @@ export default function HomeEn() {
           { value: "10 results", label: "SERP analyzed per keyword" },
           { value: "< 3 min", label: "From keyword to GEO-ready content" },
           { value: "4 AI models", label: "Available for generation" },
-          { value: "LLM-ready", label: "Content structured for AI engines" },
+          { value: "LLM-ready", label: "Content structured for AI search" },
         ]}
       />
       <Testimonials

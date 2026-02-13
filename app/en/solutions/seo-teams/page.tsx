@@ -6,13 +6,13 @@ import { StatsBar } from "@/components/stats-bar"
 
 export const metadata: Metadata = {
   title: "From SEO to GEO: tools for specialists",
-  description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and content structured for AI engines.",
+  description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and content structured for AI search.",
   alternates: {
     canonical: "/en/solutions/seo-teams",
   },
   openGraph: {
     title: "From SEO to GEO: tools for specialists \\ Verbalist",
-    description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and content structured for AI engines.",
+    description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and content structured for AI search.",
   },
 }
 
@@ -56,7 +56,7 @@ export default function SeoTeamsPage() {
       <SubPageHeroEn
         label="SEO Specialist"
         title="From traditional SEO to Generative Engine Optimization"
-        description="The SERP data you already know, applied to creating content optimized for AI engines. The natural transition from SEO to GEO."
+        description="The SERP data you already know, applied to creating content optimized for AI search. The natural transition from SEO to GEO."
       />
 
       <StatsBar stats={stats} />

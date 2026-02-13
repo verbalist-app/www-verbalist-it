@@ -6,20 +6,20 @@ import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
   title: "GEO content for Content Creators",
-  description: "Structured drafts for blogs, landing pages and guides, optimized for Google and AI engines. Configurable tone of voice, output ready to refine.",
+  description: "Structured drafts for blogs, landing pages and guides, optimized for Google and AI search. Configurable tone of voice, output ready to refine.",
   alternates: {
     canonical: "/en/solutions/marketing-teams",
   },
   openGraph: {
     title: "GEO content for Content Creators \\ Verbalist",
-    description: "Structured drafts for blogs, landing pages and guides, optimized for Google and AI engines. Configurable tone of voice, output ready to refine.",
+    description: "Structured drafts for blogs, landing pages and guides, optimized for Google and AI search. Configurable tone of voice, output ready to refine.",
   },
 }
 
 const features = [
   {
     icon: FileText,
-    title: "Blog posts structured for AI engines",
+    title: "Blog posts structured for AI search",
     description: "Drafts with headings, paragraphs and meta tags based on patterns from content that ranks on Google and gets cited by LLMs.",
   },
   {
@@ -40,7 +40,7 @@ const features = [
   {
     icon: Layers,
     title: "Title tag and meta description",
-    description: "SEO on-page and optimized heading structure. Content designed to rank on Google and be cited by AI engines.",
+    description: "SEO on-page and optimized heading structure. Content designed to rank on Google and be cited in AI search.",
   },
   {
     icon: RefreshCw,
@@ -54,13 +54,13 @@ export default function MarketingTeamsPage() {
     <>
       <SubPageHeroEn
         label="Content Creator"
-        title="Content structured for Google and AI engines"
+        title="Content structured for Google and AI search"
         description="SERP analysis and pattern extraction are automated. You get drafts with semantic structure optimized for visibility on Google, ChatGPT, Perplexity and AI Overview."
       />
 
       <FeatureGrid
         title="Content for every format, optimized for GEO"
-        description="Blog posts, landing pages, guides. Every format with the optimal structure to be indexed and cited by AI engines."
+        description="Blog posts, landing pages, guides. Every format with the optimal structure to be indexed and cited in AI search."
         items={features}
       />
 

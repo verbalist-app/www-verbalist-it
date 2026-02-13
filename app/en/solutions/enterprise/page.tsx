@@ -6,13 +6,13 @@ import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "GEO for Startups and SMBs",
-  description: "Content optimized for AI engines, without building a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization.",
+  description: "Content optimized for AI search, without building a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization.",
   alternates: {
     canonical: "/en/solutions/enterprise",
   },
   openGraph: {
     title: "GEO for Startups and SMBs \\ Verbalist",
-    description: "Content optimized for AI engines, without building a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization.",
+    description: "Content optimized for AI search, without building a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization.",
   },
 }
 
@@ -57,7 +57,7 @@ const workflowSteps = [
   {
     step: 3,
     title: "GEO-ready content generation",
-    description: "Content structured to be indexed and cited by AI engines. Optimized title, meta, headings and body text.",
+    description: "Content structured to be indexed and cited in AI search. Optimized title, meta, headings and body text.",
   },
   {
     step: 4,
@@ -71,13 +71,13 @@ export default function EnterprisePage() {
     <>
       <SubPageHeroEn
         label="Startups & SMBs"
-        title="AI engine visibility, without a dedicated GEO team"
+        title="AI search visibility, without a dedicated GEO team"
         description="Verbalist enables startups and small-medium businesses to produce content optimized for ChatGPT, Perplexity and AI Overview. Without investing in a full GEO project."
       />
 
       <WorkflowSteps
         title="From keyword to GEO-ready content in 4 steps"
-        description="A guided workflow that requires no technical expertise. Enter a keyword, get content structured for AI engines."
+        description="A guided workflow that requires no technical expertise. Enter a keyword, get content structured for AI search."
         steps={workflowSteps}
       />
 

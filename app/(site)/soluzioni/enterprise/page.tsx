@@ -6,13 +6,13 @@ import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "GEO per Startup e PMI",
-  description: "Contenuti ottimizzati per i motori AI, senza dover costruire un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization.",
+  description: "Contenuti ottimizzati per la ricerca AI, senza dover costruire un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization.",
   alternates: {
     canonical: "/soluzioni/enterprise",
   },
   openGraph: {
     title: "GEO per Startup e PMI \\ Verbalist",
-    description: "Contenuti ottimizzati per i motori AI, senza dover costruire un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization.",
+    description: "Contenuti ottimizzati per la ricerca AI, senza dover costruire un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization.",
   },
 }
 
@@ -57,7 +57,7 @@ const workflowSteps = [
   {
     step: 3,
     title: "Generazione contenuto GEO-ready",
-    description: "Un contenuto strutturato per essere indicizzato e citato dai motori AI. Title, meta, heading e corpo testo ottimizzati.",
+    description: "Un contenuto strutturato per essere indicizzato e citato nella ricerca AI. Title, meta, heading e corpo testo ottimizzati.",
   },
   {
     step: 4,
@@ -71,13 +71,13 @@ export default function EnterprisePage() {
     <>
       <SubPageHero
         label="Startup e PMI"
-        title="Visibilità nei motori AI, senza un team GEO dedicato"
+        title="Visibilità nella ricerca AI, senza un team GEO dedicato"
         description="Verbalist permette a startup e piccole-medie imprese di produrre contenuti ottimizzati per ChatGPT, Perplexity e AI Overview. Senza investire in un progetto GEO completo."
       />
 
       <WorkflowSteps
         title="Da keyword a contenuto GEO-ready in 4 step"
-        description="Un workflow guidato che non richiede competenze tecniche. Inserisci la keyword, ottieni un contenuto strutturato per i motori AI."
+        description="Un workflow guidato che non richiede competenze tecniche. Inserisci la keyword, ottieni un contenuto strutturato per la ricerca AI."
         steps={workflowSteps}
       />
 

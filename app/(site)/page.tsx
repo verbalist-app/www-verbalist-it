@@ -7,7 +7,7 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 
 const homeTestimonials = [
   {
-    quote: "Verbalist ci permette di creare contenuti strutturati per i motori AI senza dover costruire un intero framework GEO interno.",
+    quote: "Verbalist ci permette di creare contenuti strutturati per la ricerca AI senza dover costruire un intero framework GEO interno.",
     metric: "+180%",
     author: "Marco Rossi",
     role: "Marketing Manager",
@@ -40,7 +40,7 @@ export default function Home() {
           { value: "10 risultati", label: "SERP analizzati per keyword" },
           { value: "< 3 min", label: "Da keyword a contenuto GEO-ready" },
           { value: "4 modelli AI", label: "Selezionabili per generazione" },
-          { value: "LLM-ready", label: "Contenuti strutturati per motori AI" },
+          { value: "LLM-ready", label: "Contenuti strutturati per la ricerca AI" },
         ]}
       />
       <Testimonials

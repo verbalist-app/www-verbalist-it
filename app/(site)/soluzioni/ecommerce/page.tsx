@@ -6,13 +6,13 @@ import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
   title: "Contenuti GEO per eCommerce",
-  description: "Pagine prodotto e categorie ottimizzate per Google e motori AI. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
+  description: "Pagine prodotto e categorie ottimizzate per Google e la ricerca AI. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
   alternates: {
     canonical: "/soluzioni/ecommerce",
   },
   openGraph: {
     title: "Contenuti GEO per eCommerce \\ Verbalist",
-    description: "Pagine prodotto e categorie ottimizzate per Google e motori AI. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
+    description: "Pagine prodotto e categorie ottimizzate per Google e la ricerca AI. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
   },
 }
 
@@ -20,7 +20,7 @@ const features = [
   {
     icon: Package,
     title: "Pagine prodotto con struttura semantica",
-    description: "Hero, key features, specifiche tecniche e use case. Strutturate per essere indicizzate da Google e citate dai motori AI.",
+    description: "Hero, key features, specifiche tecniche e use case. Strutturate per essere indicizzate da Google e citate nella ricerca AI.",
   },
   {
     icon: Search,
@@ -35,7 +35,7 @@ const features = [
   {
     icon: FileText,
     title: "Descrizioni ottimizzate per LLM",
-    description: "Descrizioni prodotto con struttura semantica chiara. Title tag, meta description e contenuti pensati per Google e motori AI.",
+    description: "Descrizioni prodotto con struttura semantica chiara. Title tag, meta description e contenuti pensati per Google e la ricerca AI.",
   },
   {
     icon: TrendingUp,
@@ -54,7 +54,7 @@ export default function EcommercePage() {
     <>
       <SubPageHero
         label="eCommerce"
-        title="Pagine prodotto visibili su Google e sui motori AI"
+        title="Pagine prodotto visibili su Google e nella ricerca AI"
         description="Analizza le pagine prodotto meglio posizionate e genera descrizioni con struttura semantica ottimizzata per la SERP e per essere citate dagli assistenti AI."
       />
 
