@@ -114,6 +114,8 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                     src="/app-screenshot.png"
                     alt="Verbalist App"
                     width={2880}
+                    loading="eager"
+                    priority
                     height={1842}
                   />
                 </div>
