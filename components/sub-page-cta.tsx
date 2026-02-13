@@ -24,25 +24,19 @@ export function SubPageCTA({
   className,
 }: SubPageCTAProps) {
   return (
-    <section className={cn("relative border-t py-20 md:py-28 overflow-hidden", className)}>
-      {/* Striped background pattern */}
+    <section className={cn("relative border-t py-24 md:py-32 overflow-hidden", className)}>
+      {/* Subtle radial gradient background */}
       <div className="absolute inset-0 -z-10">
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `repeating-linear-gradient(
-              -45deg,
-              currentColor,
-              currentColor 1px,
-              transparent 1px,
-              transparent 16px
-            )`,
+            backgroundImage: `radial-gradient(ellipse at center, oklch(0.15 0 0 / 0.03), transparent 70%)`,
           }}
         />
       </div>
 
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="text-xl font-medium tracking-tight md:text-2xl">
+        <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl">
           {title}
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">

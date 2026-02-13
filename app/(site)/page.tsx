@@ -7,7 +7,7 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 
 const homeTestimonials = [
   {
-    quote: "Verbalist ci permette di creare contenuti strutturati per la ricerca AI senza dover costruire un intero framework GEO interno.",
+    quote: "Con Verbalist creiamo contenuti strutturati per la ricerca AI senza costruire un framework GEO interno.",
     metric: "+180%",
     author: "Marco Rossi",
     role: "Marketing Manager",

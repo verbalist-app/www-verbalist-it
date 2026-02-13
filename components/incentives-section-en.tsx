@@ -34,13 +34,13 @@ const steps = [
 
 export function IncentivesSectionEn({ className }: IncentivesSectionEnProps) {
   return (
-    <section className={cn("py-16 md:py-20", className)}>
+    <section className={cn("py-20 md:py-28", className)}>
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-12 max-w-3xl text-center">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Pipeline
           </p>
-          <h2 className="text-2xl font-medium tracking-tight md:text-3xl">
+          <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl lg:text-4xl">
             How it works
           </h2>
           <p className="mt-4 mx-auto max-w-2xl text-sm text-muted-foreground">
@@ -52,7 +52,7 @@ export function IncentivesSectionEn({ className }: IncentivesSectionEnProps) {
           {steps.map((step) => {
             const Icon = step.icon
             return (
-              <div key={step.number} className="border-t border-border pt-8">
+              <div key={step.number} className="border-t border-border/50 pt-8">
                 <span className="text-sm font-medium text-muted-foreground">{step.number}</span>
                 <div className="mt-5 flex items-center gap-3">
                   <Icon className="size-4 text-foreground" strokeWidth={1.5} />

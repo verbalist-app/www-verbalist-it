@@ -33,7 +33,7 @@ export function SubPageHeroEn({
   className,
 }: SubPageHeroEnProps) {
   return (
-    <section className={cn("pt-20 md:pt-28 pb-12 md:pb-16", className)}>
+    <section className={cn("pt-20 md:pt-28 pb-16 md:pb-20", className)}>
       <div className="mx-auto max-w-3xl px-6 text-center">
         {label ? (
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -44,7 +44,7 @@ export function SubPageHeroEn({
             <Icon className="size-6" strokeWidth={1.5} />
           </div>
         ) : null}
-        <h1 className="text-3xl font-medium tracking-tight md:text-4xl">
+        <h1 className="text-balance text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
           {title}
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">

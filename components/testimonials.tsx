@@ -20,15 +20,15 @@ export function Testimonials({
   className,
 }: TestimonialsProps) {
   return (
-    <section className={cn("border-t py-16 md:py-20", className)}>
+    <section className={cn("border-t py-20 md:py-28", className)}>
       <div className="mx-auto max-w-6xl px-6">
         {title && (
-          <h2 className="text-xl font-medium tracking-tight text-center mb-12">
+          <h2 className="text-balance text-2xl font-medium tracking-tight text-center mb-16 md:text-3xl">
             {title}
           </h2>
         )}
         <div className={cn(
-          "grid gap-6",
+          "grid gap-8 md:gap-12",
           testimonials.length === 1 && "max-w-2xl mx-auto",
           testimonials.length === 2 && "md:grid-cols-2",
           testimonials.length >= 3 && "md:grid-cols-2 lg:grid-cols-3"
@@ -36,17 +36,17 @@ export function Testimonials({
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-xl border border-border bg-card p-6 space-y-4"
+              className="border-t border-border/50 pt-6 space-y-4"
             >
               {testimonial.metric && (
-                <div className="text-2xl font-medium tracking-tight text-foreground">
+                <div className="text-3xl font-medium tracking-tight text-foreground">
                   {testimonial.metric}
                 </div>
               )}
               <p className="text-sm text-muted-foreground leading-relaxed">
                 "{testimonial.quote}"
               </p>
-              <div className="pt-2 border-t border-border">
+              <div className="pt-2">
                 <div className="text-sm font-medium text-foreground">
                   {testimonial.author}
                 </div>

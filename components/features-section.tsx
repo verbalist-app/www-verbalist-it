@@ -173,13 +173,13 @@ const featureBlocks = [
 
 export function FeaturesSection({ className }: FeaturesSectionProps) {
   return (
-    <section className={cn("py-16 md:py-20", className)}>
+    <section className={cn("py-20 md:py-28", className)}>
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-12 max-w-3xl text-center">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             I quattro step
           </p>
-          <h2 className="text-2xl font-medium tracking-tight md:text-3xl">
+          <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl lg:text-4xl">
             Ogni passaggio nel dettaglio
           </h2>
         </div>

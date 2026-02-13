@@ -6,7 +6,6 @@ import React, { useEffect, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
-import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { HubSpotForm, type DomTranslations } from "@/components/hubspot-form"
 
@@ -125,7 +124,7 @@ const InfiniteMovingCarousel = ({ images }: { images: string[] }) => {
               key={`company-${index}`}
               src={image}
               alt={`Company ${index + 1}`}
-              className="size-20 shrink-0 object-contain dark:invert"
+              className="h-7 w-auto shrink-0 object-contain dark:invert"
             />
           )
         })}
@@ -155,7 +154,7 @@ export default function BookDemoPage() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col items-center gap-4 lg:items-start lg:gap-8">
-            <Badge variant="outline">Book a demo</Badge>
+            <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">Book a demo</p>
             <h1 className="mt-2 max-w-md text-center text-3xl font-medium tracking-tight md:text-4xl lg:mt-0 lg:max-w-xl lg:text-left">
               See Verbalist in action on your case
             </h1>

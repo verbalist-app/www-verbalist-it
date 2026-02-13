@@ -20,7 +20,7 @@ export function FeatureGrid({ title, description, items, className }: FeatureGri
       <div className="mx-auto max-w-6xl px-6">
         {(title || description) && (
           <div className="mb-12 text-center">
-            {title && <h2 className="text-xl font-medium tracking-tight md:text-2xl">{title}</h2>}
+            {title && <h2 className="text-balance text-xl font-medium tracking-tight md:text-2xl">{title}</h2>}
             {description && <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto">{description}</p>}
           </div>
         )}

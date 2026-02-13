@@ -31,7 +31,7 @@ export function HighlightBlock({
                 <Icon className="size-5" strokeWidth={1.5} />
               </div>
             )}
-            <h3 className="text-xl font-medium tracking-tight md:text-2xl">
+            <h3 className="text-balance text-xl font-medium tracking-tight md:text-2xl">
               {title}
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">

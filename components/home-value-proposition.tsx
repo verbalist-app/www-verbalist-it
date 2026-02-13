@@ -13,12 +13,12 @@ export function HomeValueProposition({ className }: HomeValuePropositionProps) {
           <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
             <Sparkles className="size-6" strokeWidth={1.5} />
           </div>
-          <h2 className="text-2xl font-medium tracking-tight md:text-3xl max-w-2xl">
+          <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl max-w-2xl">
             Una piattaforma per creare contenuti che si posizionano
           </h2>
           <p className="mt-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
             Verbalist analizza i contenuti che funzionano in SERP e genera articoli ottimizzati per SEO, AEO e GEO.
-            Ogni livello del processo è basato su dati reali, non opinioni.
+            Ogni fase si basa su dati reali, non opinioni.
           </p>
         </div>
       </div>

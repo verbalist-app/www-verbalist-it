@@ -5,7 +5,7 @@ export function ContentSection2() {
     return (
         <section className="py-16 md:py-32 bg-muted/30">
             <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
-                <h2 className="relative z-10 max-w-xl text-4xl font-medium lg:text-5xl ml-auto text-right">Genera contenuti che competono per le prime posizioni.</h2>
+                <h2 className="relative z-10 max-w-xl text-balance text-4xl font-medium lg:text-5xl ml-auto text-right">Genera contenuti che competono per le prime posizioni.</h2>
                 <div className="grid gap-6 sm:grid-cols-2 md:gap-12 lg:gap-24">
                     {/* Visual a sinistra */}
                     <div className="relative order-2 sm:order-1">
@@ -17,7 +17,7 @@ export function ContentSection2() {
                         <p className="text-muted-foreground">
                             Il sistema genera contenuti <span className="text-accent-foreground font-bold">basati sui pattern vincenti</span> identificati nell'analisi — struttura, topic coverage, word count, segnali di autorevolezza.
                         </p>
-                        <p className="text-muted-foreground">Ogni articolo include title tag, meta description, struttura heading ottimale e body content pronto per la pubblicazione.</p>
+                        <p className="text-muted-foreground">Ogni articolo include title tag, meta description, struttura heading ottimale e testo pronto per la pubblicazione.</p>
 
                         <div className="grid grid-cols-2 gap-3 pt-6 sm:gap-4">
                             <div className="space-y-3">

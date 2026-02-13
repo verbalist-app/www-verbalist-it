@@ -38,7 +38,7 @@ export function CTASection({
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex w-full flex-col gap-6 overflow-hidden rounded-xl bg-muted p-8 md:p-12 lg:flex-row lg:items-center lg:gap-16">
           <div className="flex-1">
-            <h2 className="text-xl font-medium tracking-tight mb-4">
+            <h2 className="text-balance text-xl font-medium tracking-tight mb-4">
               {heading}
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">

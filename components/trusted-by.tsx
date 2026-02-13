@@ -19,7 +19,7 @@ export function TrustedBy({
   className,
 }: TrustedByProps) {
   return (
-    <section className={cn("border-t py-12 md:py-16", className)}>
+    <section className={cn("border-t py-16 md:py-20", className)}>
       <div className="mx-auto max-w-6xl px-6">
         <div className={cn(
           "flex flex-col gap-8",
@@ -39,7 +39,7 @@ export function TrustedBy({
                 key={logo.name}
                 src={logo.src}
                 alt={logo.name}
-                className="h-7 w-auto brightness-0 dark:invert"
+                className="h-7 w-auto brightness-0 opacity-60 dark:invert"
               />
             ))}
           </div>

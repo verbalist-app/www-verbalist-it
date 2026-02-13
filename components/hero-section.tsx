@@ -37,7 +37,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
     <>
       {showHeader && <HeroHeader />}
       <main className={cn("overflow-hidden", className)}>
-        <section className="pb-16 md:pb-20">
+        <section className="pb-20 md:pb-28">
           <div className={cn("relative", showHeader ? "pt-32 md:pt-40" : "pt-16 md:pt-20")}>
             <div className="mx-auto max-w-5xl px-6">
               <div className="text-center">
@@ -55,7 +55,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   preset="fade-in-blur"
                   speedSegment={0.3}
                   as="h1"
-                  className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8"
+                  className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8 lg:text-6xl"
                 >
                   Contenuti ottimizzati per la ricerca AI
                 </TextEffect>
@@ -67,7 +67,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   as="p"
                   className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground"
                 >
-                  Verbalist analizza i primi 10 risultati Google, estrae i pattern ricorrenti e genera contenuti strutturati per essere indicizzati e citati da ChatGPT, Perplexity, Gemini e AI Overview.
+                  Verbalist analizza i primi 10 risultati Google, estrae i pattern ricorrenti e genera contenuti strutturati che ChatGPT, Perplexity, Gemini e AI Overview possono indicizzare e citare.
                 </TextEffect>
 
                 <AnimatedGroup
@@ -107,7 +107,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                 ...transitionVariants,
               }}
             >
-              <div className="relative mt-16 overflow-hidden px-6 md:mt-24">
+              <div className="relative mt-20 overflow-hidden px-6 md:mt-28">
                 <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl border border-border bg-card p-2">
                   <Image
                     className="relative rounded-lg"

@@ -21,7 +21,7 @@ export function WorkflowSection({ title, subtitle, steps, className }: WorkflowS
     <section className={cn("border-t py-16 md:py-20", className)}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="text-2xl font-medium tracking-tight md:text-3xl">{title}</h2>
+          <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl">{title}</h2>
           {subtitle && (
             <p className="mt-4 text-base text-muted-foreground">{subtitle}</p>
           )}
