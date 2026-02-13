@@ -13,13 +13,13 @@ import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
   title: "Piattaforma",
-  description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti. Cosa fa Verbalist e come lo fa.",
+  description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization per passare da keyword a contenuto ottimizzato.",
   alternates: {
     canonical: "/piattaforma",
   },
   openGraph: {
     title: "Piattaforma \\ Verbalist",
-    description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti. Cosa fa Verbalist e come lo fa.",
+    description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization per passare da keyword a contenuto ottimizzato.",
   },
 }
 

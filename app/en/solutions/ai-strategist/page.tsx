@@ -6,13 +6,13 @@ import { StatsBar } from "@/components/stats-bar"
 
 export const metadata: Metadata = {
   title: "GEO & AEO Optimization",
-  description: "Content optimized to be cited by ChatGPT, Perplexity and AI Overview. AEO and GEO with SERP data.",
+  description: "Answer engine optimization and generative engine optimization with SERP data. Content structured to be cited by ChatGPT, Perplexity and AI Overview.",
   alternates: {
     canonical: "/en/solutions/ai-strategist",
   },
   openGraph: {
     title: "GEO & AEO Optimization \\ Verbalist",
-    description: "Content optimized to be cited by ChatGPT, Perplexity and AI Overview. AEO and GEO with SERP data.",
+    description: "Answer engine optimization and generative engine optimization with SERP data. Content structured to be cited by ChatGPT, Perplexity and AI Overview.",
   },
 }
 

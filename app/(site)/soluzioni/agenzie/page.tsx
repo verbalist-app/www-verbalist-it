@@ -6,13 +6,13 @@ import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "Contenuti GEO-ready per agenzie",
-  description: "Produci contenuti ottimizzati per la ricerca AI per ogni cliente. Analisi SERP, pattern detection e generazione GEO-ready in un unico workflow.",
+  description: "Produci contenuti GEO SEO per ogni cliente. Analisi SERP, pattern detection e generazione ottimizzata per la ricerca AI in un unico workflow.",
   alternates: {
     canonical: "/soluzioni/agenzie",
   },
   openGraph: {
     title: "Contenuti GEO-ready per agenzie \\ Verbalist",
-    description: "Produci contenuti ottimizzati per la ricerca AI per ogni cliente. Analisi SERP, pattern detection e generazione GEO-ready in un unico workflow.",
+    description: "Produci contenuti GEO SEO per ogni cliente. Analisi SERP, pattern detection e generazione ottimizzata per la ricerca AI in un unico workflow.",
   },
 }
 

@@ -6,13 +6,13 @@ import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
   title: "Contenuti GEO per eCommerce",
-  description: "Pagine prodotto e categorie ottimizzate per Google e la ricerca AI. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
+  description: "Pagine prodotto e categorie ottimizzate per Google e la ricerca AI con approccio GEO SEO. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
   alternates: {
     canonical: "/soluzioni/ecommerce",
   },
   openGraph: {
     title: "Contenuti GEO per eCommerce \\ Verbalist",
-    description: "Pagine prodotto e categorie ottimizzate per Google e la ricerca AI. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
+    description: "Pagine prodotto e categorie ottimizzate per Google e la ricerca AI con approccio GEO SEO. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
   },
 }
 

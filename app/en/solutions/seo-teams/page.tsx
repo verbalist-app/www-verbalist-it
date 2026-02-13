@@ -6,13 +6,13 @@ import { StatsBar } from "@/components/stats-bar"
 
 export const metadata: Metadata = {
   title: "From SEO to GEO: tools for specialists",
-  description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and content structured for AI search.",
+  description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and AI search optimization tools for specialists.",
   alternates: {
     canonical: "/en/solutions/seo-teams",
   },
   openGraph: {
     title: "From SEO to GEO: tools for specialists \\ Verbalist",
-    description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and content structured for AI search.",
+    description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and AI search optimization tools for specialists.",
   },
 }
 

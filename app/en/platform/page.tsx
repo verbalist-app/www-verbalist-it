@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
   title: "Platform",
-  description: "SERP analysis, competitor scraping, pattern detection and content generation. What Verbalist does and how it works.",
+  description: "SERP analysis, competitor scraping, pattern detection and AI search optimization. The generative engine optimization platform for GEO-ready content.",
   alternates: {
     canonical: "/en/platform",
   },

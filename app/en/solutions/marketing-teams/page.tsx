@@ -6,13 +6,13 @@ import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
   title: "GEO content for Content Creators",
-  description: "Structured drafts for blogs, landing pages and guides, optimized for Google and AI search. Configurable tone of voice, output ready to refine.",
+  description: "Structured drafts for blogs, landing pages and guides with AI search optimization built in. Configurable tone of voice, GEO-ready output for content creators.",
   alternates: {
     canonical: "/en/solutions/marketing-teams",
   },
   openGraph: {
     title: "GEO content for Content Creators \\ Verbalist",
-    description: "Structured drafts for blogs, landing pages and guides, optimized for Google and AI search. Configurable tone of voice, output ready to refine.",
+    description: "Structured drafts for blogs, landing pages and guides with AI search optimization built in. Configurable tone of voice, GEO-ready output for content creators.",
   },
 }
 
