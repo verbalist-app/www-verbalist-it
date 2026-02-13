@@ -57,7 +57,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   as="h1"
                   className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8"
                 >
-                  Contenuti ottimizzati per la ricerca AI.
+                  Contenuti ottimizzati per la ricerca AI
                 </TextEffect>
                 <TextEffect
                   per="line"
