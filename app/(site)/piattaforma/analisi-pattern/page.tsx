@@ -133,7 +133,7 @@ export default function AnalisiPatternPage() {
     <>
       <SubPageHero
         label="Analisi Pattern"
-        title="Identifica i pattern dei contenuti meglio posizionati"
+        title="Trova struttura, topic e segnali E-E-A-T comuni ai top 10"
         description="Scopri cosa hanno in comune i primi risultati. Word count, struttura heading, copertura dei topic e segnali E-E-A-T."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />

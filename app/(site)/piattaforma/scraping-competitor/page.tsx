@@ -135,7 +135,7 @@ export default function ScrapingCompetitorPage() {
     <>
       <SubPageHero
         label="Scraping Competitor"
-        title="Estrai e analizza i contenuti di ogni competitor"
+        title="Scarica e confronta i contenuti dei competitor in automatico"
         description="Scarica i contenuti delle pagine competitor e convertili in Markdown. Struttura, argomenti e approccio editoriale, pronti per l'analisi."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
