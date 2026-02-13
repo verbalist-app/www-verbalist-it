@@ -5,46 +5,46 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
-  title: "SEO per eCommerce",
-  description: "Descrizioni prodotto SEO generate con AI. Analisi pattern SERP, contenuti ottimizzati per categorie e schede prodotto.",
+  title: "Contenuti GEO per eCommerce",
+  description: "Pagine prodotto e categorie ottimizzate per Google e motori AI. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
   alternates: {
     canonical: "/soluzioni/ecommerce",
   },
   openGraph: {
-    title: "SEO per eCommerce \\ Verbalist",
-    description: "Descrizioni prodotto SEO generate con AI. Analisi pattern SERP, contenuti ottimizzati per categorie e schede prodotto.",
+    title: "Contenuti GEO per eCommerce \\ Verbalist",
+    description: "Pagine prodotto e categorie ottimizzate per Google e motori AI. Struttura semantica, pattern dai competitor e contenuti citabili dagli LLM.",
   },
 }
 
 const features = [
   {
     icon: Package,
-    title: "Pagine prodotto strutturate",
-    description: "Hero, key features, specifiche tecniche e use case. Basate sui pattern delle pagine meglio posizionate.",
+    title: "Pagine prodotto con struttura semantica",
+    description: "Hero, key features, specifiche tecniche e use case. Strutturate per essere indicizzate da Google e citate dai motori AI.",
   },
   {
     icon: Search,
     title: "Analisi SERP per categoria",
-    description: "Analizza i top 10 risultati per ogni categoria e keyword di prodotto. Capisci cosa funziona.",
+    description: "Analizza i top 10 risultati per ogni categoria e keyword di prodotto. Estrae i pattern che funzionano.",
   },
   {
     icon: BarChart3,
     title: "Pattern dei competitor",
-    description: "Identifica quali sezioni includono, come le strutturano e che lunghezza hanno le pagine in prima posizione.",
+    description: "Identifica quali sezioni includono, come le strutturano e quali segnali E-E-A-T utilizzano le pagine meglio posizionate.",
   },
   {
     icon: FileText,
-    title: "Descrizioni ottimizzate",
-    description: "Descrizioni prodotto con keyword, benefici e specifiche. Title tag e meta description per ogni scheda.",
+    title: "Descrizioni ottimizzate per LLM",
+    description: "Descrizioni prodotto con struttura semantica chiara. Title tag, meta description e contenuti pensati per Google e motori AI.",
   },
   {
     icon: TrendingUp,
-    title: "CTA che convertono",
-    description: "Call-to-action ottimizzate basate sui pattern dei competitor. Struttura coerente con i contenuti meglio posizionati.",
+    title: "Contenuti citabili",
+    description: "Definizioni, specifiche e comparazioni strutturate per essere referenziate da ChatGPT, Perplexity e AI Overview.",
   },
   {
     icon: ShoppingBag,
-    title: "Adatto a cataloghi grandi",
+    title: "Scalabile per cataloghi",
     description: "Dalla singola scheda prodotto al catalogo completo. Workflow ripetibile per centinaia di pagine.",
   },
 ]
@@ -54,13 +54,13 @@ export default function EcommercePage() {
     <>
       <SubPageHero
         label="eCommerce"
-        title="Pagine prodotto ottimizzate, partendo dai dati"
-        description="Analizza le pagine prodotto meglio posizionate e genera descrizioni, caratteristiche e specifiche ottimizzate per la SERP."
+        title="Pagine prodotto visibili su Google e sui motori AI"
+        description="Analizza le pagine prodotto meglio posizionate e genera descrizioni con struttura semantica ottimizzata per la SERP e per essere citate dagli assistenti AI."
       />
 
       <FeatureGrid
-        title="Pagine prodotto basate sui dati"
-        description="Analisi SERP per capire cosa funziona. Bozze strutturate con le sezioni più efficaci."
+        title="Pagine prodotto pensate per la GEO"
+        description="Analisi SERP per capire cosa funziona. Contenuti strutturati per Google, ChatGPT e Perplexity."
         items={features}
       />
 

@@ -5,22 +5,22 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
-  title: "Generatore Contenuti AI",
-  description: "Scrittura AI per blog, landing page e guide. Tono di voce personalizzabile, struttura ottimizzata e contenuti pronti da pubblicare.",
+  title: "Contenuti GEO per Content Creator",
+  description: "Bozze strutturate per blog, landing page e guide, ottimizzate per Google e motori AI. Tono di voce personalizzabile, output pronto da rifinire.",
   alternates: {
     canonical: "/soluzioni/team-marketing",
   },
   openGraph: {
-    title: "Generatore Contenuti AI per Content Manager \\ Verbalist",
-    description: "Scrittura AI per blog, landing page e guide. Tono di voce personalizzabile, struttura ottimizzata e contenuti pronti da pubblicare.",
+    title: "Contenuti GEO per Content Creator \\ Verbalist",
+    description: "Bozze strutturate per blog, landing page e guide, ottimizzate per Google e motori AI. Tono di voce personalizzabile, output pronto da rifinire.",
   },
 }
 
 const features = [
   {
     icon: FileText,
-    title: "Blog post ottimizzati",
-    description: "Bozze strutturate con heading, paragrafi e meta tag basati sui pattern dei contenuti meglio posizionati.",
+    title: "Blog post strutturati per i motori AI",
+    description: "Bozze con heading, paragrafi e meta tag basati sui pattern dei contenuti che funzionano su Google e vengono citati dagli LLM.",
   },
   {
     icon: Palette,
@@ -30,7 +30,7 @@ const features = [
   {
     icon: PenTool,
     title: "Landing page e guide",
-    description: "Struttura, sezioni e CTA adattati al formato. Dal search intent al contenuto finale.",
+    description: "Struttura, sezioni e CTA adattati al formato. Dal search intent al contenuto finale, con struttura semantica per LLM.",
   },
   {
     icon: Target,
@@ -40,7 +40,7 @@ const features = [
   {
     icon: Layers,
     title: "Title tag e meta description",
-    description: "SEO on-page generata automaticamente: title, meta description, slug e struttura heading ottimizzata.",
+    description: "SEO on-page e struttura heading ottimizzata. Contenuti pensati per posizionarsi su Google e per essere citati dai motori AI.",
   },
   {
     icon: RefreshCw,
@@ -53,14 +53,14 @@ export default function TeamMarketingPage() {
   return (
     <>
       <SubPageHero
-        label="Content Manager"
-        title="Bozze SEO strutturate, senza analisi manuale"
-        description="L'analisi SERP e l'estrazione dei pattern sono automatiche. Tu ricevi bozze strutturate nel tuo tono di voce, pronte da rifinire."
+        label="Content Creator"
+        title="Contenuti strutturati per Google e per i motori AI"
+        description="L'analisi SERP e l'estrazione dei pattern sono automatiche. Tu ricevi bozze con struttura semantica ottimizzata per la visibilità su Google, ChatGPT, Perplexity e AI Overview."
       />
 
       <FeatureGrid
-        title="Contenuti per ogni formato"
-        description="Blog post, landing page, guide, pagine prodotto. Ogni formato con la struttura ottimale per la SERP."
+        title="Contenuti per ogni formato, ottimizzati per la GEO"
+        description="Blog post, landing page, guide. Ogni formato con la struttura ottimale per essere indicizzato e citato dai motori AI."
         items={features}
       />
 

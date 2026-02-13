@@ -20,11 +20,11 @@ const footerLinks = {
     title: "Solutions",
     links: [
       { name: "Agencies", href: "/en/solutions/agencies" },
-      { name: "SEO Teams", href: "/en/solutions/seo-teams" },
-      { name: "Marketing Teams", href: "/en/solutions/marketing-teams" },
+      { name: "SEO Specialist", href: "/en/solutions/seo-teams" },
+      { name: "Content Creator", href: "/en/solutions/marketing-teams" },
       { name: "AI Strategist", href: "/en/solutions/ai-strategist" },
       { name: "Ecommerce", href: "/en/solutions/ecommerce" },
-      { name: "Enterprise", href: "/en/solutions/enterprise" },
+      { name: "Startups & SMBs", href: "/en/solutions/enterprise" },
     ],
   },
   resources: {

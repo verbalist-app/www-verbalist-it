@@ -5,40 +5,40 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
-  title: "Enterprise SEO Software",
-  description: "Custom solutions for large organizations. Dedicated team, custom configurations and priority support.",
+  title: "GEO for Startups and SMBs",
+  description: "Content optimized for AI engines, without building a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization.",
   alternates: {
     canonical: "/en/solutions/enterprise",
   },
   openGraph: {
-    title: "Enterprise SEO Software \\ Verbalist",
-    description: "Custom solutions for large organizations. Dedicated team, custom configurations and priority support.",
+    title: "GEO for Startups and SMBs \\ Verbalist",
+    description: "Content optimized for AI engines, without building a GEO team in-house. Verbalist bridges the gap between traditional SEO and Generative Engine Optimization.",
   },
 }
 
 const featureColumns = [
   {
     items: [
-      "Dedicated account manager",
-      "Priority support",
-      "Personalized onboarding",
-      "Team training",
+      "Setup in minutes",
+      "No GEO expertise required",
+      "Guided interface",
+      "Projects organized by keyword",
     ],
   },
   {
     items: [
-      "Custom configurations",
-      "Tailored workflows",
-      "Dedicated integrations",
-      "Guaranteed SLAs",
+      "Automated SERP analysis",
+      "Competitor patterns extracted",
+      "Semantic structure for LLMs",
+      "E-E-A-T signals integrated",
     ],
   },
   {
     items: [
-      "Advanced team management",
-      "Granular permissions",
-      "Audit and compliance",
-      "Centralized billing",
+      "Content ready for ChatGPT and Perplexity",
+      "Export in Markdown and HTML",
+      "Customizable tone of voice",
+      "Document history per project",
     ],
   },
 ]
@@ -46,23 +46,23 @@ const featureColumns = [
 const workflowSteps = [
   {
     step: 1,
-    title: "Personalized onboarding",
-    description: "Dedicated account manager configures the platform to your needs: roles, permissions, workflows and integrations.",
+    title: "Enter the keyword",
+    description: "Verbalist analyzes the top 10 Google results and extracts the content patterns that work.",
   },
   {
     step: 2,
-    title: "Team distribution",
-    description: "Admin, editor, viewer with differentiated access. Each team has its own projects and keywords.",
+    title: "Automated analysis",
+    description: "Heading structure, recurring topics, length, E-E-A-T signals. All extracted from competitors in seconds.",
   },
   {
     step: 3,
-    title: "Production at scale",
-    description: "Automated pipeline from keyword to content. Centralized dashboard to monitor activity and output across all teams.",
+    title: "GEO-ready content generation",
+    description: "Content structured to be indexed and cited by AI engines. Optimized title, meta, headings and body text.",
   },
   {
     step: 4,
-    title: "Review and optimization",
-    description: "Periodic reviews with the account manager to optimize platform usage. Advanced reporting and guaranteed SLAs.",
+    title: "Review and publish",
+    description: "Refine the content with your tone of voice, export in Markdown or HTML and publish.",
   },
 ]
 
@@ -70,26 +70,26 @@ export default function EnterprisePage() {
   return (
     <>
       <SubPageHeroEn
-        label="Enterprise"
-        title="Enterprise-grade SEO content at scale"
-        description="Deploy Verbalist across your organization with dedicated support, custom configurations, granular permissions and guaranteed SLAs."
+        label="Startups & SMBs"
+        title="AI engine visibility, without a dedicated GEO team"
+        description="Verbalist enables startups and small-medium businesses to produce content optimized for ChatGPT, Perplexity and AI Overview. Without investing in a full GEO project."
       />
 
       <WorkflowSteps
-        title="Guided implementation"
-        description="From onboarding to production at scale in 4 steps, with a dedicated account manager."
+        title="From keyword to GEO-ready content in 4 steps"
+        description="A guided workflow that requires no technical expertise. Enter a keyword, get content structured for AI engines."
         steps={workflowSteps}
       />
 
       <FeatureChecklist
-        title="Designed for large organizations"
-        description="Advanced team management, priority support and custom configurations for your needs."
+        title="Built for teams without GEO expertise"
+        description="Simple interface, automated analysis, content structured to be cited by AI assistants."
         columns={featureColumns}
       />
 
       <SubPageCTA
-        title="Let's discuss your needs"
-        description="Contact us for a personalized demo and to discuss the configurations best suited to your organization."
+        title="Want to see it in action?"
+        description="We'll show you how Verbalist creates GEO-ready content from a keyword, applied to your industry."
         primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
         secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
       />

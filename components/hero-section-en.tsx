@@ -53,7 +53,7 @@ export function HeroSectionEn({ className }: HeroSectionEnProps) {
                 as="h1"
                 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8"
               >
-                From SERP to content.
+                Content optimized for AI engines.
               </TextEffect>
               <TextEffect
                 per="line"
@@ -63,7 +63,7 @@ export function HeroSectionEn({ className }: HeroSectionEnProps) {
                 as="p"
                 className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground"
               >
-                From SERP data to final text: top 10 analysis, winning patterns (structure, length, topics, E-E-A-T) and content optimized for Google and AI answers.
+                Verbalist analyzes the top 10 Google results, extracts recurring patterns and generates content structured to be indexed and cited by ChatGPT, Perplexity, Gemini and AI Overview.
               </TextEffect>
 
               <AnimatedGroup

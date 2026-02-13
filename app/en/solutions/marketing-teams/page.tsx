@@ -5,22 +5,22 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
-  title: "AI Content Generator",
-  description: "Structured drafts for blogs, landing pages and guides. Configurable tone of voice, output ready to refine.",
+  title: "GEO content for Content Creators",
+  description: "Structured drafts for blogs, landing pages and guides, optimized for Google and AI engines. Configurable tone of voice, output ready to refine.",
   alternates: {
     canonical: "/en/solutions/marketing-teams",
   },
   openGraph: {
-    title: "AI Content Generator \\ Verbalist",
-    description: "Structured drafts for blogs, landing pages and guides. Configurable tone of voice, output ready to refine.",
+    title: "GEO content for Content Creators \\ Verbalist",
+    description: "Structured drafts for blogs, landing pages and guides, optimized for Google and AI engines. Configurable tone of voice, output ready to refine.",
   },
 }
 
 const features = [
   {
     icon: FileText,
-    title: "Optimized blog posts",
-    description: "Structured drafts with headings, paragraphs and meta tags based on patterns from top-ranking content.",
+    title: "Blog posts structured for AI engines",
+    description: "Drafts with headings, paragraphs and meta tags based on patterns from content that ranks on Google and gets cited by LLMs.",
   },
   {
     icon: Palette,
@@ -30,7 +30,7 @@ const features = [
   {
     icon: PenTool,
     title: "Landing pages and guides",
-    description: "Structure, sections and CTAs adapted to the format. From search intent to final content.",
+    description: "Structure, sections and CTAs adapted to the format. From search intent to final content, with semantic structure for LLMs.",
   },
   {
     icon: Target,
@@ -40,7 +40,7 @@ const features = [
   {
     icon: Layers,
     title: "Title tag and meta description",
-    description: "SEO on-page generated automatically: title, meta description, slug and optimized heading structure.",
+    description: "SEO on-page and optimized heading structure. Content designed to rank on Google and be cited by AI engines.",
   },
   {
     icon: RefreshCw,
@@ -53,14 +53,14 @@ export default function MarketingTeamsPage() {
   return (
     <>
       <SubPageHeroEn
-        label="Content Manager"
-        title="Create SEO-optimized content without the research"
-        description="Skip the manual SERP analysis. Get structured drafts based on proven ranking patterns, in your tone of voice, ready for your editorial touch."
+        label="Content Creator"
+        title="Content structured for Google and AI engines"
+        description="SERP analysis and pattern extraction are automated. You get drafts with semantic structure optimized for visibility on Google, ChatGPT, Perplexity and AI Overview."
       />
 
       <FeatureGrid
-        title="Content for every format"
-        description="Blog posts, landing pages, guides, product pages. Every format with the optimal structure for SERP."
+        title="Content for every format, optimized for GEO"
+        description="Blog posts, landing pages, guides. Every format with the optimal structure to be indexed and cited by AI engines."
         items={features}
       />
 

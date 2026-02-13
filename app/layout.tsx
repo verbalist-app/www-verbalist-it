@@ -17,22 +17,22 @@ const siteUrl = "https://www.verbalist.it"
 
 export const metadata: Metadata = {
   title: {
-    default: "Verbalist \\ Content Automation per SEO, AEO, GEO",
+    default: "Verbalist \\ Content Engineering per la Generative Engine Optimization",
     template: "%s \\ Verbalist",
   },
   description:
-    "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti ottimizzati per SEO, AEO e GEO. Da keyword a articolo completo in pochi minuti.",
+    "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti strutturati per essere citati da ChatGPT, Perplexity, Gemini e AI Overview. Da keyword a contenuto GEO-ready in pochi minuti.",
   keywords: [
-    "software SEO",
-    "generazione contenuti AI",
-    "SEO automation",
-    "analisi SERP",
-    "ottimizzazione contenuti",
+    "generative engine optimization",
     "GEO optimization",
+    "contenuti per LLM",
+    "content engineering",
+    "analisi SERP",
+    "ottimizzazione contenuti AI",
     "AEO optimization",
-    "content marketing AI",
-    "articoli SEO",
-    "tool SEO italiano",
+    "contenuti per ChatGPT",
+    "visibilità motori AI",
+    "software GEO italiano",
   ],
   authors: [{ name: "NUR Digital Marketing", url: "https://www.nur.it" }],
   creator: "Verbalist",
@@ -70,24 +70,24 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     url: siteUrl,
     siteName: "Verbalist",
-    title: "Verbalist \\ Content Automation per SEO, AEO, GEO",
+    title: "Verbalist \\ Content Engineering per la Generative Engine Optimization",
     description:
-      "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti ottimizzati per SEO, AEO e GEO. Da keyword a articolo completo in pochi minuti.",
+      "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti strutturati per essere citati da ChatGPT, Perplexity, Gemini e AI Overview.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Verbalist - Software SEO con AI per generare contenuti ottimizzati",
+        alt: "Verbalist - Content Engineering per la Generative Engine Optimization",
       },
     ],
   },
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Verbalist \\ Content Automation per SEO, AEO, GEO",
+    title: "Verbalist \\ Content Engineering per la Generative Engine Optimization",
     description:
-      "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti ottimizzati per SEO, AEO e GEO. Da keyword a articolo completo in pochi minuti.",
+      "Analizza i competitor Google, estrai i pattern vincenti e genera contenuti strutturati per essere citati da ChatGPT, Perplexity, Gemini e AI Overview.",
     images: ["/og-image.png"],
     creator: "@verbalist_ai",
   },

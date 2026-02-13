@@ -5,14 +5,14 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
-  title: "Strumento SEO per Agenzie",
-  description: "Piattaforma SEO per agenzie: analisi SERP, generazione contenuti AI e gestione multi-cliente. Produci contenuti per tutti i tuoi account.",
+  title: "Contenuti GEO-ready per agenzie",
+  description: "Produci contenuti ottimizzati per i motori AI per ogni cliente. Analisi SERP, pattern detection e generazione GEO-ready in un unico workflow.",
   alternates: {
     canonical: "/soluzioni/agenzie",
   },
   openGraph: {
-    title: "Strumento SEO per Agenzie \\ Verbalist",
-    description: "Piattaforma SEO per agenzie: analisi SERP, generazione contenuti AI e gestione multi-cliente. Produci contenuti per tutti i tuoi account.",
+    title: "Contenuti GEO-ready per agenzie \\ Verbalist",
+    description: "Produci contenuti ottimizzati per i motori AI per ogni cliente. Analisi SERP, pattern detection e generazione GEO-ready in un unico workflow.",
   },
 }
 
@@ -29,8 +29,8 @@ const featureColumns = [
     items: [
       "Analisi SERP per ogni keyword",
       "Pattern detection automatico",
-      "Bozze contenuto da rifinire",
-      "Ottimizzazione contenuti esistenti",
+      "Struttura semantica per LLM",
+      "Segnali E-E-A-T estratti",
     ],
   },
   {
@@ -52,17 +52,17 @@ const workflowSteps = [
   {
     step: 2,
     title: "Analisi SERP automatica",
-    description: "Inserisci la keyword, Verbalist recupera i top 10 risultati e analizza contenuti, struttura e pattern.",
+    description: "Inserisci la keyword, Verbalist analizza i top 10 risultati ed estrae struttura, topic e segnali E-E-A-T.",
   },
   {
     step: 3,
-    title: "Generazione bozza strutturata",
-    description: "Bozza con title, meta, heading e corpo testo basata sui pattern ricorrenti. Tono di voce personalizzato per cliente.",
+    title: "Generazione contenuto GEO-ready",
+    description: "Bozza con struttura semantica ottimizzata per i motori AI. Title, meta, heading e corpo testo. Tono di voce personalizzato per cliente.",
   },
   {
     step: 4,
     title: "Review e pubblicazione",
-    description: "Il tuo team rifinisce la bozza, la adatta e pubblica. Export in Markdown o HTML.",
+    description: "Il tuo team rifinisce la bozza, la adatta al brand del cliente e pubblica. Export in Markdown o HTML.",
   },
 ]
 
@@ -71,19 +71,19 @@ export default function AgenziePage() {
     <>
       <SubPageHero
         label="Agenzie"
-        title="Un workflow per la produzione contenuti su ogni account"
-        description="Analisi SERP e generazione contenuti centralizzati per tutti i tuoi clienti. Meno tempo sulla ricerca, più tempo sulla strategia."
+        title="Contenuti GEO-ready per ogni cliente, da un unico workflow"
+        description="Offri ai tuoi clienti contenuti ottimizzati per ChatGPT, Perplexity e AI Overview. Senza costruire un framework GEO interno per ogni account."
       />
 
       <WorkflowSteps
-        title="Workflow strutturato per ogni cliente"
-        description="Dalla keyword alla bozza in 4 step. Il tuo team si concentra su strategia e rifinitura."
+        title="Dalla keyword al contenuto GEO-ready"
+        description="Un workflow strutturato per ogni cliente. Il tuo team si concentra su strategia e rifinitura."
         steps={workflowSteps}
       />
 
       <FeatureChecklist
-        title="Tutto quello che serve all'agenzia"
-        description="Organizza progetti, analizza competitor e genera bozze. Il tuo team si concentra su strategia e rifinitura."
+        title="Gestione multi-cliente con output GEO"
+        description="Organizza progetti, analizza competitor e genera contenuti strutturati per i motori AI. Per ogni account."
         columns={featureColumns}
       />
 

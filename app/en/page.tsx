@@ -7,8 +7,8 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Verbalist \\ Content Automation for SEO, AEO, GEO",
-  description: "Analyze Google competitors, extract winning patterns and generate content optimized for SEO, AEO and GEO. From keyword to complete article in minutes.",
+  title: "Verbalist \\ Content Engineering for Generative Engine Optimization",
+  description: "Analyze Google competitors, extract winning patterns and generate content optimized to be cited by ChatGPT, Perplexity, Gemini and AI Overview. From keyword to GEO-ready content in minutes.",
   alternates: {
     canonical: "/en",
     languages: {
@@ -21,25 +21,25 @@ export const metadata: Metadata = {
 
 const homeTestimonials = [
   {
-    quote: "Verbalist changed how we create content. Finally a platform that starts from real SERP data.",
+    quote: "Verbalist lets us create structured content for AI engines without building an entire GEO framework in-house.",
     metric: "+180%",
     author: "Marco Rossi",
-    role: "Head of SEO",
-    company: "Digital Agency",
+    role: "Marketing Manager",
+    company: "Manufacturing SMB",
   },
   {
-    quote: "We used to spend hours analyzing competitors manually. Now the process is fully automated.",
+    quote: "We used to spend hours analyzing competitors manually. Now the process is fully automated and the content is LLM-ready.",
     metric: "10x faster",
     author: "Laura Bianchi",
-    role: "Content Manager",
-    company: "E-commerce Brand",
+    role: "Content Creator",
+    company: "Freelance",
   },
   {
-    quote: "Generated content ranks on page one 70% of the time. Incredible ROI for our team.",
-    metric: "70%",
+    quote: "Our clients wanted visibility on ChatGPT and Perplexity. With Verbalist we can deliver GEO-ready content without prohibitive costs.",
+    metric: "12 clients",
     author: "Giuseppe Verdi",
-    role: "SEO Specialist",
-    company: "Tech Startup",
+    role: "Digital Consultant",
+    company: "Web Agency",
   },
 ]
 
@@ -47,14 +47,14 @@ export default function HomeEn() {
   return (
     <>
       <HeroSectionEn />
-      <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
+      <TrustedBy text="Trusted by agencies, freelancers and SMBs in Italy and abroad" />
       <FeaturesSectionEn className="border-t" />
       <StatsBar
         stats={[
           { value: "10 results", label: "SERP analyzed per keyword" },
-          { value: "< 3 min", label: "From keyword to full article" },
+          { value: "< 3 min", label: "From keyword to GEO-ready content" },
           { value: "4 AI models", label: "Available for generation" },
-          { value: "100%", label: "Based on real SERP data" },
+          { value: "LLM-ready", label: "Content structured for AI engines" },
         ]}
       />
       <Testimonials

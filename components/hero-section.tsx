@@ -57,7 +57,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   as="h1"
                   className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8"
                 >
-                  Dalla SERP al contenuto.
+                  Contenuti ottimizzati per i motori AI.
                 </TextEffect>
                 <TextEffect
                   per="line"
@@ -67,7 +67,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   as="p"
                   className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground"
                 >
-                  Analizza i primi 10 risultati Google, estrae i pattern ricorrenti (struttura, lunghezza, topic, E-E-A-T) e genera contenuti ottimizzati per SEO e motori AI.
+                  Verbalist analizza i primi 10 risultati Google, estrae i pattern ricorrenti e genera contenuti strutturati per essere indicizzati e citati da ChatGPT, Perplexity, Gemini e AI Overview.
                 </TextEffect>
 
                 <AnimatedGroup

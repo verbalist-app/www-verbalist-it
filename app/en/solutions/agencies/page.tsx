@@ -5,14 +5,14 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
-  title: "SEO Tool for Agencies",
-  description: "SERP analysis, pattern detection and content drafts for every client. Verbalist supports your agency workflow.",
+  title: "GEO-ready content for agencies",
+  description: "Produce content optimized for AI engines for every client. SERP analysis, pattern detection and GEO-ready generation in a single workflow.",
   alternates: {
     canonical: "/en/solutions/agencies",
   },
   openGraph: {
-    title: "SEO Tool for Agencies \\ Verbalist",
-    description: "SERP analysis, pattern detection and content drafts for every client. Verbalist supports your agency workflow.",
+    title: "GEO-ready content for agencies \\ Verbalist",
+    description: "Produce content optimized for AI engines for every client. SERP analysis, pattern detection and GEO-ready generation in a single workflow.",
   },
 }
 
@@ -29,8 +29,8 @@ const featureColumns = [
     items: [
       "SERP analysis for every keyword",
       "Automatic pattern detection",
-      "Content drafts to refine",
-      "Existing content optimization",
+      "Semantic structure for LLMs",
+      "E-E-A-T signals extracted",
     ],
   },
   {
@@ -52,17 +52,17 @@ const workflowSteps = [
   {
     step: 2,
     title: "Automatic SERP analysis",
-    description: "Enter the keyword, Verbalist retrieves the top 10 results and analyzes content, structure and patterns.",
+    description: "Enter the keyword, Verbalist analyzes the top 10 results and extracts structure, topics and E-E-A-T signals.",
   },
   {
     step: 3,
-    title: "Structured draft generation",
-    description: "Draft with title, meta, headings and body text based on winning patterns. Customized tone of voice per client.",
+    title: "GEO-ready content generation",
+    description: "Draft with semantic structure optimized for AI engines. Title, meta, headings and body text. Customized tone of voice per client.",
   },
   {
     step: 4,
     title: "Review and publish",
-    description: "Your team refines the draft, applies the editorial touch and publishes. Export in Markdown or HTML.",
+    description: "Your team refines the draft, adapts it to the client's brand and publishes. Export in Markdown or HTML.",
   },
 ]
 
@@ -71,19 +71,19 @@ export default function AgenciesPage() {
     <>
       <SubPageHeroEn
         label="Agencies"
-        title="Deliver more content, faster, for every client"
-        description="Streamline SERP analysis and content creation across all your accounts. Spend less time on research, more time on strategy and client results."
+        title="GEO-ready content for every client, from a single workflow"
+        description="Deliver content optimized for ChatGPT, Perplexity and AI Overview to your clients. Without building a GEO framework for each account."
       />
 
       <WorkflowSteps
-        title="Structured workflow for every client"
-        description="From keyword to draft in 4 steps. Your team focuses on strategy and refinement."
+        title="From keyword to GEO-ready content"
+        description="A structured workflow for every client. Your team focuses on strategy and refinement."
         steps={workflowSteps}
       />
 
       <FeatureChecklist
-        title="Everything your agency needs"
-        description="Organize projects, analyze competitors and generate drafts. Your team focuses on strategy and refinement."
+        title="Multi-client management with GEO output"
+        description="Organize projects, analyze competitors and generate content structured for AI engines. For every account."
         columns={featureColumns}
       />
 

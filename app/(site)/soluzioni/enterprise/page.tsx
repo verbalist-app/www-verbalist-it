@@ -5,40 +5,40 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
-  title: "Software SEO Enterprise",
-  description: "Piattaforma SEO per grandi organizzazioni. Analisi SERP, generazione contenuti AI e workflow ad alto volume. Team dedicato e configurazioni personalizzate.",
+  title: "GEO per Startup e PMI",
+  description: "Contenuti ottimizzati per i motori AI, senza dover costruire un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization.",
   alternates: {
     canonical: "/soluzioni/enterprise",
   },
   openGraph: {
-    title: "Software SEO Enterprise \\ Verbalist",
-    description: "Piattaforma SEO per grandi organizzazioni. Analisi SERP, generazione contenuti AI e workflow ad alto volume. Team dedicato e configurazioni personalizzate.",
+    title: "GEO per Startup e PMI \\ Verbalist",
+    description: "Contenuti ottimizzati per i motori AI, senza dover costruire un team GEO interno. Verbalist è il ponte tra SEO tradizionale e Generative Engine Optimization.",
   },
 }
 
 const featureColumns = [
   {
     items: [
-      "Account manager dedicato",
-      "Supporto prioritario",
-      "Onboarding personalizzato",
-      "Training per il team",
+      "Setup in pochi minuti",
+      "Nessuna competenza GEO richiesta",
+      "Interfaccia guidata",
+      "Progetti organizzati per keyword",
     ],
   },
   {
     items: [
-      "Configurazioni custom",
-      "Workflow su misura",
-      "Integrazioni dedicate",
-      "SLA garantiti",
+      "Analisi SERP automatica",
+      "Pattern dei competitor estratti",
+      "Struttura semantica per LLM",
+      "Segnali E-E-A-T integrati",
     ],
   },
   {
     items: [
-      "Gestione team avanzata",
-      "Permessi granulari",
-      "Audit e compliance",
-      "Fatturazione centralizzata",
+      "Contenuti pronti per ChatGPT e Perplexity",
+      "Export in Markdown e HTML",
+      "Tono di voce personalizzabile",
+      "Storico documenti per progetto",
     ],
   },
 ]
@@ -46,23 +46,23 @@ const featureColumns = [
 const workflowSteps = [
   {
     step: 1,
-    title: "Onboarding personalizzato",
-    description: "Account manager dedicato configura la piattaforma sulle vostre esigenze: ruoli, permessi, workflow e integrazioni.",
+    title: "Inserisci la keyword",
+    description: "Verbalist analizza i primi 10 risultati Google ed estrae i pattern di contenuto che funzionano.",
   },
   {
     step: 2,
-    title: "Distribuzione ai team",
-    description: "Admin, editor, viewer con accessi differenziati. Ogni team ha i suoi progetti e le sue keyword.",
+    title: "Analisi automatica",
+    description: "Struttura heading, topic ricorrenti, lunghezza, segnali E-E-A-T. Tutto estratto dai competitor in pochi secondi.",
   },
   {
     step: 3,
-    title: "Produzione ad alto volume",
-    description: "Pipeline automatica dalla keyword al contenuto. Dashboard centralizzata per monitorare attività e output di tutti i team.",
+    title: "Generazione contenuto GEO-ready",
+    description: "Un contenuto strutturato per essere indicizzato e citato dai motori AI. Title, meta, heading e corpo testo ottimizzati.",
   },
   {
     step: 4,
-    title: "Review e ottimizzazione",
-    description: "Review periodiche con l'account manager per ottimizzare l'utilizzo. Reportistica avanzata e SLA garantiti.",
+    title: "Revisione e pubblicazione",
+    description: "Rifinisci il contenuto con il tuo tono di voce, esporta in Markdown o HTML e pubblica.",
   },
 ]
 
@@ -70,26 +70,26 @@ export default function EnterprisePage() {
   return (
     <>
       <SubPageHero
-        label="Enterprise"
-        title="Contenuti SEO per grandi organizzazioni"
-        description="Distribuisci Verbalist in tutta la tua organizzazione con supporto dedicato, configurazioni custom, permessi granulari e SLA garantiti."
+        label="Startup e PMI"
+        title="Visibilità nei motori AI, senza un team GEO dedicato"
+        description="Verbalist permette a startup e piccole-medie imprese di produrre contenuti ottimizzati per ChatGPT, Perplexity e AI Overview. Senza investire in un progetto GEO completo."
       />
 
       <WorkflowSteps
-        title="Implementazione guidata"
-        description="Dall'onboarding alla produzione ad alto volume in 4 step, con un account manager dedicato."
+        title="Da keyword a contenuto GEO-ready in 4 step"
+        description="Un workflow guidato che non richiede competenze tecniche. Inserisci la keyword, ottieni un contenuto strutturato per i motori AI."
         steps={workflowSteps}
       />
 
       <FeatureChecklist
-        title="Progettato per le grandi organizzazioni"
-        description="Gestione team avanzata, supporto prioritario e configurazioni personalizzate per le vostre esigenze."
+        title="Pensato per chi non ha un team GEO interno"
+        description="Interfaccia semplice, analisi automatica, contenuti strutturati per essere citati dagli assistenti AI."
         columns={featureColumns}
       />
 
       <SubPageCTA
-        title="Parliamo delle vostre esigenze"
-        description="Contattateci per una demo personalizzata e per discutere le configurazioni più adatte alla vostra organizzazione."
+        title="Vuoi vederlo in azione?"
+        description="Ti mostriamo come Verbalist crea contenuti GEO-ready a partire da una keyword, applicato al tuo settore."
       />
     </>
   )

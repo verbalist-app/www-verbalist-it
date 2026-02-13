@@ -7,25 +7,25 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 
 const homeTestimonials = [
   {
-    quote: "Verbalist ha cambiato il modo in cui creiamo contenuti. Finalmente una piattaforma che parte dai dati SERP reali.",
+    quote: "Verbalist ci permette di creare contenuti strutturati per i motori AI senza dover costruire un intero framework GEO interno.",
     metric: "+180%",
     author: "Marco Rossi",
-    role: "Head of SEO",
-    company: "Digital Agency",
+    role: "Marketing Manager",
+    company: "PMI Manifatturiera",
   },
   {
-    quote: "Prima passavamo ore ad analizzare i competitor manualmente. Ora il processo è completamente automatizzato.",
+    quote: "Prima passavamo ore ad analizzare i competitor manualmente. Ora il processo è completamente automatizzato e i contenuti sono pronti per gli LLM.",
     metric: "10x più veloce",
     author: "Laura Bianchi",
-    role: "Content Manager",
-    company: "E-commerce Brand",
+    role: "Content Creator",
+    company: "Freelance",
   },
   {
-    quote: "I contenuti generati arrivano in prima pagina nel 70% dei casi. Un ROI incredibile per il nostro team.",
-    metric: "70%",
+    quote: "I nostri clienti ci chiedevano visibilità su ChatGPT e Perplexity. Con Verbalist possiamo offrire contenuti GEO-ready senza costi proibitivi.",
+    metric: "12 clienti",
     author: "Giuseppe Verdi",
-    role: "SEO Specialist",
-    company: "Tech Startup",
+    role: "Digital Consultant",
+    company: "Web Agency",
   },
 ]
 
@@ -33,14 +33,14 @@ export default function Home() {
   return (
     <>
       <HeroSection showHeader={false} />
-      <TrustedBy text="Scelto da team SEO e agenzie in Italia e all'estero" />
+      <TrustedBy text="Scelto da agenzie, freelancer e PMI in Italia e all'estero" />
       <FeaturesSection className="border-t" />
       <StatsBar
         stats={[
           { value: "10 risultati", label: "SERP analizzati per keyword" },
-          { value: "< 3 min", label: "Da keyword ad articolo completo" },
+          { value: "< 3 min", label: "Da keyword a contenuto GEO-ready" },
           { value: "4 modelli AI", label: "Selezionabili per generazione" },
-          { value: "100%", label: "Basato su dati SERP reali" },
+          { value: "LLM-ready", label: "Contenuti strutturati per motori AI" },
         ]}
       />
       <Testimonials

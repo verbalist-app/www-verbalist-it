@@ -5,21 +5,21 @@ import { FeatureChecklist } from "@/components/feature-checklist"
 import { StatsBar } from "@/components/stats-bar"
 
 export const metadata: Metadata = {
-  title: "SEO Tool for Specialists",
-  description: "SEO tools for specialists: automated SERP analysis, pattern detection, content gap analysis and content generation. Data for informed decisions.",
+  title: "From SEO to GEO: tools for specialists",
+  description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and content structured for AI engines.",
   alternates: {
     canonical: "/en/solutions/seo-teams",
   },
   openGraph: {
-    title: "SEO Tool for Specialists \\ Verbalist",
-    description: "SEO tools for specialists: automated SERP analysis, pattern detection, content gap analysis and content generation. Data for informed decisions.",
+    title: "From SEO to GEO: tools for specialists \\ Verbalist",
+    description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and content structured for AI engines.",
   },
 }
 
 const stats = [
   { value: "Top 10", label: "Results analyzed" },
   { value: "4 Steps", label: "Automated pipeline" },
-  { value: "< 2 min", label: "Per keyword" },
+  { value: "LLM-ready", label: "Structured output" },
   { value: "3 AI", label: "Integrated models" },
 ]
 
@@ -28,24 +28,24 @@ const featureColumns = [
     items: [
       "Top 10 organic results",
       "Search intent detection",
-      "Title and meta description",
-      "Word count per result",
-    ],
-  },
-  {
-    items: [
-      "Structural patterns (H1, H2, H3)",
-      "Recurring topics and subtopics",
+      "Recurring heading structure",
       "Average word count and range",
-      "Winning heading structure",
     ],
   },
   {
     items: [
-      "E-E-A-T signals detected",
+      "Recurring topics and subtopics",
       "Content gap identification",
-      "SEO/Readability/Trust score",
-      "Optimization priorities",
+      "E-E-A-T signals detected",
+      "LLM citability patterns",
+    ],
+  },
+  {
+    items: [
+      "Content with semantic structure for AI",
+      "Clear and citable definitions",
+      "FAQ schema-ready",
+      "Fast export and iteration",
     ],
   },
 ]
@@ -55,15 +55,15 @@ export default function SeoTeamsPage() {
     <>
       <SubPageHeroEn
         label="SEO Specialist"
-        title="Get the competitive edge in every SERP"
-        description="Access real-time SERP data, pattern detection and competitor insights. Make data-driven decisions that consistently outperform the competition."
+        title="From traditional SEO to Generative Engine Optimization"
+        description="The SERP data you already know, applied to creating content optimized for AI engines. The natural transition from SEO to GEO."
       />
 
       <StatsBar stats={stats} />
 
       <FeatureChecklist
-        title="The data you need for every keyword"
-        description="Top 10 results, search intent, heading structure, word count, E-E-A-T signals. All automated."
+        title="SERP analysis and patterns, oriented toward GEO"
+        description="The same data you use for SEO — structure, topics, E-E-A-T — applied to producing content citable by ChatGPT, Perplexity and AI Overview."
         columns={featureColumns}
       />
 

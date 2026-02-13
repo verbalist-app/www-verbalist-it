@@ -24,9 +24,9 @@ import {
 
 const solutions = [
     { title: "Agencies", href: "/en/solutions/agencies", icon: Building2 },
-    { title: "SEO Teams", href: "/en/solutions/seo-teams", icon: Users },
-    { title: "Marketing Teams", href: "/en/solutions/marketing-teams", icon: Megaphone },
-    { title: "Enterprise", href: "/en/solutions/enterprise", icon: Landmark },
+    { title: "SEO Specialist", href: "/en/solutions/seo-teams", icon: Users },
+    { title: "Content Creator", href: "/en/solutions/marketing-teams", icon: Megaphone },
+    { title: "Startups & SMBs", href: "/en/solutions/enterprise", icon: Landmark },
     { title: "Ecommerce", href: "/en/solutions/ecommerce", icon: ShoppingCart },
     { title: "AI Strategist", href: "/en/solutions/ai-strategist", icon: Sparkles },
 ]
