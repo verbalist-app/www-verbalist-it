@@ -1,78 +1,30 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import { Check, ArrowRight } from "lucide-react"
 import { PageBreadcrumb } from "@/components/page-breadcrumb"
-import { PricingToggle, type PricingPlan } from "@/components/pricing-toggle"
+import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "Verbalist plans and pricing. Starter, Professional and Enterprise. Free 14-day trial.",
+  description: "Verbalist: 300 credits for €3,000 + VAT. Extra credits at €35 each. Book a demo for custom plans.",
   alternates: {
     canonical: "/en/pricing",
   },
 }
 
-const plans: PricingPlan[] = [
-  {
-    name: "Starter",
-    description: "For freelancers and small projects",
-    monthlyPrice: "49",
-    annualPrice: "39",
-    period: "/month",
-    annualNote: "billed annually",
-    features: [
-      "10 contents per month",
-      "Basic SERP analysis",
-      "1 project",
-      "Email support",
-    ],
-    cta: "Start free",
-    href: "/en/book-demo",
-    highlighted: false,
-  },
-  {
-    name: "Professional",
-    description: "For growing SEO teams and agencies",
-    monthlyPrice: "149",
-    annualPrice: "119",
-    period: "/month",
-    annualNote: "billed annually",
-    features: [
-      "50 contents per month",
-      "Advanced SERP analysis",
-      "5 projects",
-      "Competitor scraping",
-      "Pattern analysis",
-      "Priority support",
-    ],
-    cta: "Start now",
-    href: "/en/book-demo",
-    highlighted: true,
-  },
-  {
-    name: "Enterprise",
-    description: "For large organizations",
-    monthlyPrice: "Custom",
-    annualPrice: "Custom",
-    period: "",
-    annualNote: "",
-    features: [
-      "Unlimited contents",
-      "All features",
-      "Unlimited projects",
-      "API access",
-      "Dedicated account manager",
-      "Guaranteed SLA",
-    ],
-    cta: "Contact us",
-    href: "/en/book-demo",
-    highlighted: false,
-  },
+const features = [
+  "Up to 300 credits",
+  "Advanced SERP analysis",
+  "Competitor scraping",
+  "Pattern analysis",
+  "AI content generation",
+  "Dedicated support",
 ]
 
 export default function PricingPage() {
   return (
     <section className="pt-20 md:pt-28 pb-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6">
         <PageBreadcrumb
           items={[
             { label: "Home", href: "/en" },
@@ -84,24 +36,69 @@ export default function PricingPage() {
             Pricing
           </p>
           <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-            Simple pricing, powerful results
+            One plan, everything included
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Start with a free 14-day trial. Scale up as your content needs grow. No hidden fees, no commitment.
+            Access all Verbalist features with a single, transparent plan.
           </p>
         </div>
 
-        <PricingToggle
-          plans={plans}
-          monthlyLabel="Monthly"
-          annualLabel="Annual"
-          saveBadge="Save 20%"
-          helpText={
-            <p className="text-sm text-muted-foreground">
-              Need help? <Link href="/en/book-demo" className="text-foreground hover:underline font-medium">Contact us</Link>.
+        {/* Single plan card */}
+        <div className="rounded-xl bg-foreground text-background ring-2 ring-foreground p-8 md:p-10 max-w-lg mx-auto">
+          <div className="mb-6">
+            <h3 className="text-lg font-medium mb-2 text-background">
+              Verbalist
+            </h3>
+            <p className="text-sm text-background/70">
+              Full platform access
             </p>
-          }
-        />
+          </div>
+
+          <div className="mb-2">
+            <span className="text-4xl font-medium text-background">
+              €3,000
+            </span>
+            <span className="text-sm text-background/70 ml-1">
+              + VAT
+            </span>
+          </div>
+          <p className="text-sm text-background/50 mb-6">
+            up to 300 credits included
+          </p>
+
+          <ul className="space-y-3 mb-8">
+            {features.map((feature, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <Check className="size-5 shrink-0 text-background" />
+                <span className="text-sm text-background/80">{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <Button asChild size="lg" className="w-full bg-background text-foreground hover:bg-background/90">
+            <Link href="/en/book-demo">Book a demo</Link>
+          </Button>
+
+          <p className="text-xs text-background/50 text-center mt-4">
+            *Each extra credit costs €35 each.
+          </p>
+        </div>
+
+        {/* CTA for custom plans */}
+        <div className="mt-16 text-center">
+          <p className="text-base font-medium mb-2">
+            Need more credits or a custom plan?
+          </p>
+          <p className="text-sm text-muted-foreground mb-6">
+            Get in touch for a tailored quote that fits your team's needs.
+          </p>
+          <Button asChild variant="outline" size="lg">
+            <Link href="/en/book-demo">
+              Let's talk
+              <ArrowRight className="ml-2 size-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
     </section>
   )
