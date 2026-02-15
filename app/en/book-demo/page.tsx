@@ -1,13 +1,11 @@
 "use client"
 
 import { ArrowRight } from "lucide-react"
-import { motion } from "framer-motion"
-import React, { useEffect, useRef, useState } from "react"
-
-import { cn } from "@/lib/utils"
+import React from "react"
 
 import { Card } from "@/components/ui/card"
 import { HubSpotForm, type DomTranslations } from "@/components/hubspot-form"
+import { InfiniteMovingCarousel } from "@/components/infinite-moving-carousel"
 
 const hubspotEnTranslations = {
   en: {
@@ -75,77 +73,21 @@ const domTranslations: DomTranslations = {
   "Inserisci un indirizzo email valido.": "Please enter a valid email address.",
 }
 
-const InfiniteMovingCarousel = ({ images }: { images: string[] }) => {
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const [width, setWidth] = useState(0)
-
-  useEffect(() => {
-    if (!carouselRef.current) return
-
-    setWidth(carouselRef.current.clientWidth)
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setWidth(entry.target.clientWidth)
-        }
-      })
-    })
-    observer.observe(carouselRef.current)
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
-
-  return (
-    <div
-      style={{
-        maskImage:
-          "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
-      }}
-      className={cn("w-full overflow-hidden")}
-    >
-      <motion.div
-        initial={{ x: -width }}
-        animate={{ x: -(width / 2 + 24) }}
-        transition={{
-          duration: 3 * images.length,
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "linear",
-        }}
-        ref={carouselRef}
-        className="flex w-max items-center gap-12"
-      >
-        {[...images, ...images].map((image, index) => {
-          return (
-            <img
-              key={`company-${index}`}
-              src={image}
-              alt={`Company ${index + 1}`}
-              className="h-7 w-auto shrink-0 object-contain dark:invert"
-            />
-          )
-        })}
-      </motion.div>
-    </div>
-  )
-}
-
 const benefits = [
   "Demo on your keyword, not generic examples.",
   "See SERP analysis, pattern detection and content generation.",
   "We answer all your questions.",
 ]
 
+const visibleBenefits = benefits.slice(0, 2)
+
 const companies = [
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-1.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-2.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-3.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-4.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-5.svg",
-  "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-6.svg",
+  "/logos/jurny.svg",
+  "/logos/pompea.svg",
+  "/logos/rentokil.svg",
+  "/logos/meccanotecnica.svg",
+  "/logos/plastisac.svg",
+  "/logos/sogese.svg",
 ]
 
 export default function BookDemoPage() {
@@ -159,22 +101,33 @@ export default function BookDemoPage() {
               See Verbalist in action on your case
             </h1>
             <ul className="flex flex-col">
-              {benefits.map((benefit, index) => {
-                return (
-                  <li
-                    key={`benefit-${index}`}
-                    className="flex max-w-md items-start gap-2 px-4 last:hidden last:border-b-0 lg:border-b lg:py-6 last:lg:flex"
-                  >
-                    <ArrowRight
-                      className="hidden size-5 shrink-0 lg:block"
-                      strokeWidth={1.5}
-                    />
-                    <p className="text-center text-sm text-muted-foreground lg:text-left lg:text-foreground">
-                      {benefit}
-                    </p>
-                  </li>
-                )
-              })}
+              {visibleBenefits.map((benefit, index) => (
+                <li
+                  key={`benefit-${index}`}
+                  className="flex max-w-md items-start gap-2 px-4 lg:border-b lg:py-6"
+                >
+                  <ArrowRight
+                    className="hidden size-5 shrink-0 lg:block"
+                    strokeWidth={1.5}
+                  />
+                  <p className="text-center text-sm text-muted-foreground lg:text-left lg:text-foreground">
+                    {benefit}
+                  </p>
+                </li>
+              ))}
+              {benefits.length > 2 && (
+                <li
+                  className="hidden max-w-md items-start gap-2 px-4 lg:flex lg:py-6"
+                >
+                  <ArrowRight
+                    className="size-5 shrink-0"
+                    strokeWidth={1.5}
+                  />
+                  <p className="text-left text-sm text-foreground">
+                    {benefits[2]}
+                  </p>
+                </li>
+              )}
             </ul>
             <div className="mt-20 hidden w-full overflow-hidden lg:block">
               <InfiniteMovingCarousel images={companies} />

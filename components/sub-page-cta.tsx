@@ -30,7 +30,7 @@ export function SubPageCTA({
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(ellipse at center, oklch(0.15 0 0 / 0.03), transparent 70%)`,
+            backgroundImage: `radial-gradient(ellipse at center, rgba(0, 0, 0, 0.03), transparent 70%)`,
           }}
         />
       </div>
