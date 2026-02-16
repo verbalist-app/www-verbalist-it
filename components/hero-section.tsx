@@ -57,7 +57,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   as="h1"
                   className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8 lg:text-6xl"
                 >
-                  Contenuti ottimizzati per la ricerca AI
+                  Il software che ti rende visibile nella ricerca AI
                 </TextEffect>
                 <TextEffect
                   per="line"
@@ -107,7 +107,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                 ...transitionVariants,
               }}
             >
-              <div className="relative mt-20 overflow-hidden px-6 md:mt-28">
+              <div className="relative mt-14 overflow-hidden px-6 md:mt-20">
                 <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl border border-border bg-card p-2">
                   <Image
                     className="relative rounded-lg"
