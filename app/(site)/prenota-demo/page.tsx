@@ -1,16 +1,18 @@
 "use client"
 
 import { ArrowRight } from "lucide-react"
-import React from "react"
+import Link from "next/link"
+import React, { useState } from "react"
 
 import { Card } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
 import { HubSpotForm } from "@/components/hubspot-form"
 import { InfiniteMovingCarousel } from "@/components/infinite-moving-carousel"
 
 const benefits = [
-  "Demo sulla tua keyword, non su esempi generici.",
-  "Vedi l'analisi SERP, il pattern detection e la generazione contenuto.",
-  "Rispondiamo a tutte le tue domande.",
+  "Ti mostriamo il flusso completo su una keyword del tuo sito.",
+  "Dall'analisi SERP alla generazione del contenuto ottimizzato per l'AI.",
+  "Zero impegno: 20 minuti per capire se Verbalist fa al caso tuo.",
 ]
 
 const visibleBenefits = benefits.slice(0, 2)
@@ -25,6 +27,10 @@ const companies = [
 ]
 
 export default function PrenotaDemoPage() {
+  const [privacyAccepted, setPrivacyAccepted] = useState(false)
+  const [marketingAccepted, setMarketingAccepted] = useState(false)
+  const [profilingAccepted, setProfilingAccepted] = useState(false)
+
   return (
     <section className="pt-20 md:pt-28 pb-24 md:pb-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -32,7 +38,7 @@ export default function PrenotaDemoPage() {
           <div className="flex flex-col items-center gap-4 lg:items-start lg:gap-8">
             <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Prenota una demo</p>
             <h1 className="max-w-md text-center text-3xl font-medium tracking-tight md:text-4xl lg:max-w-xl lg:text-left">
-              Vedi Verbalist in azione sul tuo caso
+              Vedi Verbalist in azione sul tuo sito
             </h1>
             <ul className="flex flex-col">
               {visibleBenefits.map((benefit, index) => (
@@ -73,7 +79,59 @@ export default function PrenotaDemoPage() {
               formId="4267f028-3ada-4953-863f-7fcde9648c1c"
               region="eu1"
               locale="it"
+              submitDisabled={!privacyAccepted}
+              hideConsentCheckboxes
             />
+
+            <div className="-mt-2 space-y-3 border-t border-border pt-4">
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="privacy-consent"
+                  checked={privacyAccepted}
+                  onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
+                  aria-required="true"
+                />
+                <label
+                  htmlFor="privacy-consent"
+                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                >
+                  Ho letto e accetto l&apos;
+                  <Link href="/privacy-policy" target="_blank" className="underline text-foreground/90 hover:text-foreground">
+                    Informativa Privacy
+                  </Link>
+                  {" "}ai sensi del Regolamento UE 2016/679 (GDPR).{" "}
+                  <span className="text-destructive">*</span>
+                </label>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="marketing-consent"
+                  checked={marketingAccepted}
+                  onCheckedChange={(checked) => setMarketingAccepted(checked === true)}
+                />
+                <label
+                  htmlFor="marketing-consent"
+                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                >
+                  Acconsento al trattamento dei miei dati personali per finalità di marketing diretto, incluso l&apos;invio di comunicazioni commerciali, newsletter e materiale pubblicitario, come descritto al punto 3a) dell&apos;Informativa Privacy.
+                </label>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="profiling-consent"
+                  checked={profilingAccepted}
+                  onCheckedChange={(checked) => setProfilingAccepted(checked === true)}
+                />
+                <label
+                  htmlFor="profiling-consent"
+                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                >
+                  Acconsento al trattamento dei miei dati personali per attività di profilazione, al fine di ricevere servizi e comunicazioni personalizzate, come descritto al punto 3b) dell&apos;Informativa Privacy.
+                </label>
+              </div>
+            </div>
           </Card>
           <div className="mt-10 block w-full overflow-hidden lg:hidden">
             <InfiniteMovingCarousel images={companies} />

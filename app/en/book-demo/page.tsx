@@ -1,9 +1,11 @@
 "use client"
 
 import { ArrowRight } from "lucide-react"
-import React from "react"
+import Link from "next/link"
+import React, { useState } from "react"
 
 import { Card } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
 import { HubSpotForm, type DomTranslations } from "@/components/hubspot-form"
 import { InfiniteMovingCarousel } from "@/components/infinite-moving-carousel"
 
@@ -35,19 +37,7 @@ const hubspotEnTranslations = {
   },
 }
 
-/**
- * DOM-level text replacements for anything the HubSpot `translations`
- * API does not cover (custom fields, checkbox labels, select options,
- * consent text, rich text, etc.).
- *
- * Keys = exact Italian text shown in the rendered form.
- * Values = English replacement.
- *
- * TIP: Inspect the live form with DevTools to find the exact Italian
- * strings if any are still untranslated, then add them here.
- */
 const domTranslations: DomTranslations = {
-  // "Interesse" field label + possible select options
   "Interesse": "Interest",
   "Seleziona": "Select",
   "Seleziona...": "Select...",
@@ -61,8 +51,6 @@ const domTranslations: DomTranslations = {
   "Scraping Competitor": "Competitor Scraping",
   "Analisi Pattern": "Pattern Analysis",
   "Altro": "Other",
-
-  // Exact checkbox consent labels from the form
   "Accetto di ricevere altre comunicazioni da Nur Srl.": "I agree to receive further communications from Nur Srl.",
   "Desidero iscrivermi alla newsletter di NUR Srl.": "I would like to subscribe to the NUR Srl newsletter.",
   "Invia": "Submit",
@@ -74,9 +62,9 @@ const domTranslations: DomTranslations = {
 }
 
 const benefits = [
-  "Demo on your keyword, not generic examples.",
-  "See SERP analysis, pattern detection and content generation.",
-  "We answer all your questions.",
+  "We'll walk you through the full workflow on one of your keywords.",
+  "From SERP analysis to AI-optimized content generation.",
+  "No strings attached: 20 minutes to see if Verbalist is right for you.",
 ]
 
 const visibleBenefits = benefits.slice(0, 2)
@@ -91,6 +79,10 @@ const companies = [
 ]
 
 export default function BookDemoPage() {
+  const [privacyAccepted, setPrivacyAccepted] = useState(false)
+  const [marketingAccepted, setMarketingAccepted] = useState(false)
+  const [profilingAccepted, setProfilingAccepted] = useState(false)
+
   return (
     <section className="pt-20 md:pt-28 pb-24 md:pb-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -98,7 +90,7 @@ export default function BookDemoPage() {
           <div className="flex flex-col items-center gap-4 lg:items-start lg:gap-8">
             <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Book a demo</p>
             <h1 className="max-w-md text-center text-3xl font-medium tracking-tight md:text-4xl lg:max-w-xl lg:text-left">
-              See Verbalist in action on your case
+              See Verbalist in action on your site
             </h1>
             <ul className="flex flex-col">
               {visibleBenefits.map((benefit, index) => (
@@ -141,7 +133,59 @@ export default function BookDemoPage() {
               locale="en"
               translations={hubspotEnTranslations}
               domTranslations={domTranslations}
+              submitDisabled={!privacyAccepted}
+              hideConsentCheckboxes
             />
+
+            <div className="-mt-2 space-y-3 border-t border-border pt-4">
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="privacy-consent"
+                  checked={privacyAccepted}
+                  onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
+                  aria-required="true"
+                />
+                <label
+                  htmlFor="privacy-consent"
+                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                >
+                  I have read and accept the{" "}
+                  <Link href="/en/privacy-policy" target="_blank" className="underline text-foreground/90 hover:text-foreground">
+                    Privacy Policy
+                  </Link>
+                  {" "}pursuant to EU Regulation 2016/679 (GDPR).{" "}
+                  <span className="text-destructive">*</span>
+                </label>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="marketing-consent"
+                  checked={marketingAccepted}
+                  onCheckedChange={(checked) => setMarketingAccepted(checked === true)}
+                />
+                <label
+                  htmlFor="marketing-consent"
+                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                >
+                  I consent to the processing of my personal data for direct marketing purposes, including commercial communications, newsletters and advertising material, as described in section 3a) of the Privacy Policy.
+                </label>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="profiling-consent"
+                  checked={profilingAccepted}
+                  onCheckedChange={(checked) => setProfilingAccepted(checked === true)}
+                />
+                <label
+                  htmlFor="profiling-consent"
+                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                >
+                  I consent to the processing of my personal data for profiling activities, in order to receive personalized services and communications, as described in section 3b) of the Privacy Policy.
+                </label>
+              </div>
+            </div>
           </Card>
           <div className="mt-10 block w-full overflow-hidden lg:hidden">
             <InfiniteMovingCarousel images={companies} />

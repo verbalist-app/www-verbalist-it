@@ -52,6 +52,10 @@ interface HubSpotFormProps {
   translations?: Record<string, HubSpotTranslations>
   /** Fallback DOM-level text replacement for anything `translations` misses */
   domTranslations?: DomTranslations
+  /** When true, the HubSpot submit button is disabled via DOM */
+  submitDisabled?: boolean
+  /** When true, hides HubSpot's native consent/checkbox section */
+  hideConsentCheckboxes?: boolean
 }
 
 export function HubSpotForm({
@@ -61,6 +65,8 @@ export function HubSpotForm({
   locale,
   translations,
   domTranslations,
+  submitDisabled,
+  hideConsentCheckboxes,
 }: HubSpotFormProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -155,6 +161,54 @@ export function HubSpotForm({
       script.remove()
     }
   }, [portalId, formId, region, locale, translations, domTranslations, applyDomTranslations])
+
+  useEffect(() => {
+    if (!hideConsentCheckboxes) return
+
+    const style = document.createElement("style")
+    style.textContent = `
+      #hubspot-form-container .legal-consent-container,
+      #hubspot-form-container fieldset:has(.legal-consent-container),
+      #hubspot-form-container fieldset:has(.hs_interesse) {
+        display: none !important;
+      }
+      #hubspot-form-container form {
+        gap: 0 !important;
+      }
+      #hubspot-form-container form > fieldset {
+        margin-bottom: 16px !important;
+      }
+      #hubspot-form-container form > .hs_submit {
+        margin-top: 8px !important;
+      }
+    `
+    document.head.appendChild(style)
+
+    return () => {
+      style.remove()
+    }
+  }, [hideConsentCheckboxes])
+
+  useEffect(() => {
+    if (submitDisabled === undefined || !containerRef.current) return
+
+    const toggle = () => {
+      const btn = containerRef.current?.querySelector<HTMLInputElement>(
+        "input[type='submit']",
+      )
+      if (btn) {
+        btn.disabled = submitDisabled
+        btn.style.opacity = submitDisabled ? "0.5" : ""
+        btn.style.pointerEvents = submitDisabled ? "none" : ""
+      }
+    }
+
+    toggle()
+
+    const observer = new MutationObserver(toggle)
+    observer.observe(containerRef.current, { childList: true, subtree: true })
+    return () => observer.disconnect()
+  }, [submitDisabled])
 
   return <div id="hubspot-form-container" ref={containerRef} />
 }

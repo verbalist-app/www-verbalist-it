@@ -119,7 +119,7 @@ export default function PrivacyPolicyPage() {
               <li>le società che effettuano indagini statistiche e di mercato, qualora sia stato espresso il relativo consenso;</li>
               <li>le società di revisione contabile;</li>
               <li>le società partner del Titolare;</li>
-              <li>HubSpot Inc., in qualità di responsabile del trattamento, per la gestione dei moduli di contatto e la raccolta dei dati ivi inseriti tramite la piattaforma HubSpot CRM.</li>
+              <li>HubSpot Inc., in qualità di responsabile del trattamento, per la gestione dei moduli di contatto e la raccolta dei dati ivi inseriti, eventualmente, tramite la piattaforma HubSpot CRM.</li>
             </ul>
           </section>
 
