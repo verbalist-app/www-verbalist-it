@@ -1,6 +1,6 @@
-import { HeroSectionEn } from "@/components/hero-section-en"
+import { HeroSection } from "@/components/hero-section"
 import { TrustedBy } from "@/components/trusted-by"
-import { FeaturesSectionEn } from "@/components/features-section-en"
+import { FeaturesSection } from "@/components/features-section"
 import { StatsBar } from "@/components/stats-bar"
 import { Testimonials } from "@/components/testimonials"
 import { SubPageCTA } from "@/components/sub-page-cta"
@@ -48,9 +48,9 @@ const homeTestimonials = [
 export default function HomeEn() {
   return (
     <>
-      <HeroSectionEn />
+      <HeroSection showHeader={false} locale="en" />
       <TrustedBy text="Trusted by agencies, freelancers and SMBs in Italy and abroad" />
-      <FeaturesSectionEn className="border-t" />
+      <FeaturesSection className="border-t" locale="en" />
       <StatsBar
         stats={[
           { value: "10 results", label: "SERP analyzed per keyword" },

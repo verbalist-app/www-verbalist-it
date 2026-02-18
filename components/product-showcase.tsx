@@ -34,7 +34,7 @@ export function ProductShowcase() {
   const activeScreenshot = screenshots.find((s) => s.id === activeTab)
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className="text-balance text-xl md:text-2xl font-medium tracking-tight text-neutral-900 mb-3">
@@ -55,7 +55,7 @@ export function ProductShowcase() {
                 className={cn(
                   "px-4 py-2 text-sm font-medium rounded-md transition-all",
                   activeTab === item.id
-                    ? "bg-white text-neutral-900 shadow-sm"
+                    ? "bg-background text-neutral-900 shadow-sm"
                     : "text-neutral-600 hover:text-neutral-900"
                 )}
               >
@@ -74,10 +74,10 @@ export function ProductShowcase() {
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
+                <div className="w-3 h-3 rounded-full bg-emerald-400" />
               </div>
               <div className="flex-1 mx-4">
-                <div className="bg-white rounded-md px-3 py-1.5 text-[12px] text-neutral-500 font-mono max-w-md mx-auto text-center border border-neutral-200">
+                <div className="bg-background rounded-md px-3 py-1.5 text-[12px] text-neutral-500 font-mono max-w-md mx-auto text-center border border-neutral-200">
                   app.verbalist.it
                 </div>
               </div>

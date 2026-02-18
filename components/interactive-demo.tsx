@@ -25,14 +25,14 @@ export function InteractiveDemo() {
   }
 
   return (
-    <div className="w-full h-full bg-white border border-neutral-200 rounded-xl shadow-sm flex flex-col overflow-hidden">
+    <div className="w-full h-full bg-background border border-neutral-200 rounded-xl shadow-sm flex flex-col overflow-hidden">
 
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-100 bg-neutral-50">
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-          <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
         </div>
         <span className="text-[11px] text-neutral-400 font-medium">Verbalist Demo</span>
         <div className="w-16" />

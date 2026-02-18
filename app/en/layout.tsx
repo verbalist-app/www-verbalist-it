@@ -1,5 +1,5 @@
-import { BoxedHeaderEn } from "@/components/boxed-header-en"
-import { FooterEn } from "@/components/footer-en"
+import { BoxedHeader } from "@/components/boxed-header"
+import { Footer } from "@/components/footer"
 import { SoftwareApplicationSchema } from "@/components/schema"
 import { AnalyticsProvider } from "@/components/analytics"
 
@@ -11,11 +11,11 @@ export default function SiteEnLayout({
   return (
     <>
       <SoftwareApplicationSchema locale="en" />
-      <BoxedHeaderEn />
+      <BoxedHeader locale="en" />
       <div className="mx-auto max-w-6xl border-x border-border min-h-screen flex flex-col">
         <main className="flex-1">{children}</main>
       </div>
-      <FooterEn />
+      <Footer locale="en" />
       <AnalyticsProvider
         locale="en"
         gaMeasurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}

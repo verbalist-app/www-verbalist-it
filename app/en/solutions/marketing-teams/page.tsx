@@ -1,6 +1,6 @@
 import { FileText, Palette, PenTool, Target, Layers, RefreshCw } from "lucide-react"
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureGrid } from "@/components/feature-grid"
 
@@ -52,7 +52,7 @@ const features = [
 export default function MarketingTeamsPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="Content Creator"
         title="Content structured for Google and AI search"
         description="SERP analysis and pattern extraction are automated. You get drafts with semantic structure optimized for visibility on Google, ChatGPT, Perplexity and AI Overview."

@@ -1,6 +1,6 @@
 import { HeroSection } from "@/components/hero-section"
 import { TrustedBy } from "@/components/trusted-by"
-import { FeaturesSection } from "@/components/features-section"
+import { FeaturesBento } from "@/components/features-bento"
 import { StatsBar } from "@/components/stats-bar"
 import { Testimonials } from "@/components/testimonials"
 import { SubPageCTA } from "@/components/sub-page-cta"
@@ -34,7 +34,7 @@ export default function Home() {
     <>
       <HeroSection showHeader={false} />
       <TrustedBy text="Scelto da agenzie, freelancer e PMI in Italia e all'estero" />
-      <FeaturesSection className="border-t" />
+      <FeaturesBento className="border-t" />
       <StatsBar
         stats={[
           { value: "10 risultati", label: "SERP analizzati per keyword" },

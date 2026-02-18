@@ -30,7 +30,7 @@ export function ContentOptimizationVisual() {
                 <div className="grid grid-cols-4 gap-2">
                     {scores.map((item) => (
                         <div key={item.label} className="text-center p-2 bg-muted/50 rounded-lg">
-                            <div className={`text-xl font-bold ${item.color}`}>{item.score}</div>
+                            <div className={`text-xl font-semibold ${item.color}`}>{item.score}</div>
                             <div className="text-[10px] text-muted-foreground">{item.label}</div>
                         </div>
                     ))}
@@ -38,7 +38,7 @@ export function ContentOptimizationVisual() {
 
                 {/* Overall score */}
                 <div className="flex items-center justify-center gap-3 py-3 border-y">
-                    <div className="text-3xl font-bold text-amber-500">74</div>
+                    <div className="text-3xl font-semibold text-amber-500">74</div>
                     <div className="text-sm text-muted-foreground">
                         Score<br />complessivo
                     </div>

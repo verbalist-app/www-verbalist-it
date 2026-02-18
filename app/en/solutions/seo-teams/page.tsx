@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { StatsBar } from "@/components/stats-bar"
@@ -53,7 +53,7 @@ const featureColumns = [
 export default function SeoTeamsPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="SEO Specialist"
         title="From traditional SEO to Generative Engine Optimization"
         description="The SERP data you already know, applied to creating content optimized for AI search. The natural transition from SEO to GEO."

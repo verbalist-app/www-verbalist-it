@@ -1,6 +1,6 @@
 import { FileText, PenTool, Sparkles, Palette } from "lucide-react"
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
@@ -70,7 +70,7 @@ function SeoMetadataIllustration() {
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] text-muted-foreground">Title Tag</span>
-            <span className="text-[10px] text-green-600 font-medium">58 chars</span>
+            <span className="text-[10px] text-emerald-600 font-medium">58 chars</span>
           </div>
           <div className="h-3 w-full rounded bg-foreground/80" />
           <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
@@ -80,7 +80,7 @@ function SeoMetadataIllustration() {
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] text-muted-foreground">Meta Description</span>
-            <span className="text-[10px] text-green-600 font-medium">145 chars</span>
+            <span className="text-[10px] text-emerald-600 font-medium">145 chars</span>
           </div>
           <div className="space-y-1">
             <div className="h-2 w-full rounded bg-foreground/60" />
@@ -140,7 +140,7 @@ function ToneIllustration() {
 export default function ContentGenerationPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="Content Generation"
         title="Transform SERP insights into publish-ready content"
         description="Generate optimized articles based on proven ranking patterns. Complete with title, meta, heading structure and body text—ready for your refinement."

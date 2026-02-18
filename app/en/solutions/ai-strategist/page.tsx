@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { StatsBar } from "@/components/stats-bar"
@@ -53,7 +53,7 @@ const featureColumns = [
 export default function AIStrategistPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="AI Strategist"
         title="Get your content cited by AI assistants"
         description="Optimize for ChatGPT, Perplexity and AI Overview. Analyze E-E-A-T signals, citability patterns and structures that LLMs prefer to reference."

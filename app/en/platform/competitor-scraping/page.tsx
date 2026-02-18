@@ -1,6 +1,6 @@
 import { Download, FileCode, Zap, Database } from "lucide-react"
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
@@ -133,7 +133,7 @@ function DynamicContentIllustration() {
 export default function CompetitorScrapingPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="Competitor Scraping"
         title="Access any competitor's content strategy"
         description="Extract and analyze competitor content as clean Markdown. Understand their structure, topics and approach—ready for strategic analysis."

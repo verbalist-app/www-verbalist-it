@@ -151,7 +151,7 @@ export function CookieConsent({
   return (
     <div
       className={cn(
-        "fixed z-[200] bottom-4 left-4 w-full max-w-md duration-500 ease-out",
+        "fixed z-[200] bottom-4 left-1/2 -translate-x-1/2 w-full max-w-2xl duration-300 ease-out",
         !isOpen
           ? "transition-[opacity,transform] translate-y-8 opacity-0"
           : "transition-[opacity,transform] translate-y-0 opacity-100"

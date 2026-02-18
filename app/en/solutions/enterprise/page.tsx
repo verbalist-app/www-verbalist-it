@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
@@ -69,7 +69,7 @@ const workflowSteps = [
 export default function EnterprisePage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="Startups & SMBs"
         title="AI search visibility, without a dedicated GEO team"
         description="Verbalist enables startups and small-medium businesses to produce content optimized for ChatGPT, Perplexity and AI Overview. Without investing in a full GEO project."

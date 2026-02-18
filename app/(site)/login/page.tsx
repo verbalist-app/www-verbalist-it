@@ -98,7 +98,7 @@ export default function LoginPage() {
                     />
                   </div>
                   {error && (
-                    <p className="text-sm text-red-500">{error}</p>
+                    <p className="text-sm text-destructive">{error}</p>
                   )}
                   <Button type="submit" className="w-full h-11">
                     Continua
@@ -152,7 +152,7 @@ export default function LoginPage() {
                     />
                   </div>
                   {error && (
-                    <p className="text-sm text-red-500">{error}</p>
+                    <p className="text-sm text-destructive">{error}</p>
                   )}
                   <Button type="submit" className="w-full h-11" disabled={isLoading}>
                     {isLoading ? "Accesso in corso..." : "Accedi"}

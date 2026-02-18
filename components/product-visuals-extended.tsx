@@ -29,7 +29,7 @@ export function TeamManagementVisual() {
   ]
 
   return (
-    <div className="h-full bg-white p-6 overflow-hidden">
+    <div className="h-full bg-background p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-5">
         <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Team management</div>
         <div className="text-[12px] text-neutral-500">
@@ -107,11 +107,11 @@ export function ToneOfVoiceVisual() {
   const activeTone = tones[0]
 
   return (
-    <div className="h-full bg-white p-6 overflow-hidden">
+    <div className="h-full bg-background p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-5">
         <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Tone of voice</div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-500" />
+          <div className="w-2 h-2 rounded-full bg-emerald-500" />
           <span className="text-[12px] text-neutral-500">Generazione adattata</span>
         </div>
       </div>

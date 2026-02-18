@@ -1,6 +1,6 @@
 import { Package, ShoppingBag, TrendingUp, FileText, Search, BarChart3 } from "lucide-react"
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureGrid } from "@/components/feature-grid"
 
@@ -52,7 +52,7 @@ const features = [
 export default function EcommercePage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="eCommerce"
         title="Product pages visible on Google and AI search"
         description="Analyze top-ranking product pages and generate descriptions with semantic structure optimized for SERP and to be cited by AI assistants."

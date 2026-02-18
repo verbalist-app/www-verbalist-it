@@ -11,7 +11,7 @@ export function SerpAnalysisVisual() {
   ]
 
   return (
-    <div className="h-full bg-white p-6 overflow-hidden">
+    <div className="h-full bg-background p-6 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
@@ -19,7 +19,7 @@ export function SerpAnalysisVisual() {
           <div className="text-sm font-medium text-neutral-900">&quot;come scegliere un materasso&quot;</div>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-500" />
+          <div className="w-2 h-2 rounded-full bg-emerald-500" />
           <span className="text-[12px] text-neutral-500">SERP recuperata</span>
         </div>
       </div>
@@ -75,11 +75,11 @@ export function ScrapingVisual() {
   ]
 
   return (
-    <div className="h-full bg-white p-6 overflow-hidden">
+    <div className="h-full bg-background p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-6">
         <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Scraping competitor</div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-500" />
+          <div className="w-2 h-2 rounded-full bg-emerald-500" />
           <span className="text-[12px] text-neutral-500">Estrazione completata</span>
         </div>
       </div>
@@ -94,7 +94,7 @@ export function ScrapingVisual() {
               <div className="flex gap-0.5">
                 <div className="size-1.5 rounded-full bg-red-400" />
                 <div className="size-1.5 rounded-full bg-yellow-400" />
-                <div className="size-1.5 rounded-full bg-green-400" />
+                <div className="size-1.5 rounded-full bg-emerald-400" />
               </div>
               <span className="text-[11px] text-neutral-500">{page.domain}</span>
               <span className="ml-auto text-[10px] text-neutral-400">{page.words} parole</span>
@@ -150,12 +150,12 @@ export function PatternDetectionVisual() {
   ]
 
   return (
-    <div className="h-full bg-white p-6 overflow-hidden">
+    <div className="h-full bg-background p-6 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Pattern identificati</div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-500" />
+          <div className="w-2 h-2 rounded-full bg-emerald-500" />
           <span className="text-[12px] text-neutral-500">Analisi AI</span>
         </div>
       </div>
@@ -221,11 +221,11 @@ export function ContentGenerationVisual() {
   ]
 
   return (
-    <div className="h-full bg-white p-6 overflow-hidden">
+    <div className="h-full bg-background p-6 overflow-hidden">
       {/* Progress */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-500" />
+          <div className="w-2 h-2 rounded-full bg-emerald-500" />
           <span className="text-[12px] text-neutral-500">Generazione completata</span>
         </div>
         <div className="flex gap-1">

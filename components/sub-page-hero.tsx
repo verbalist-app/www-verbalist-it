@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import type { LucideIcon } from "lucide-react"
 
+type Locale = 'it' | 'en'
+
+const defaults = {
+  it: { text: "Prenota una demo", href: "/prenota-demo" },
+  en: { text: "Book a demo", href: "/en/book-demo" },
+} as const
+
 interface SubPageHeroProps {
   /** Small label at top (feature/page name) */
   label?: string
@@ -21,6 +28,7 @@ interface SubPageHeroProps {
     href: string
   }
   className?: string
+  locale?: Locale
 }
 
 export function SubPageHero({
@@ -28,10 +36,13 @@ export function SubPageHero({
   icon: Icon,
   title,
   description,
-  primaryCta = { text: "Prenota una demo", href: "/prenota-demo" },
+  primaryCta,
   secondaryCta,
   className,
+  locale = 'it',
 }: SubPageHeroProps) {
+  const cta = primaryCta ?? defaults[locale]
+
   return (
     <section className={cn("pt-20 md:pt-28 pb-16 md:pb-20", className)}>
       <div className="mx-auto max-w-3xl px-6 text-center">
@@ -57,7 +68,7 @@ export function SubPageHero({
             </Button>
           )}
           <Button asChild size="lg">
-            <Link href={primaryCta.href}>{primaryCta.text}</Link>
+            <Link href={cta.href}>{cta.text}</Link>
           </Button>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { Search, Target, Eye, Layers } from "lucide-react"
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
@@ -117,7 +117,7 @@ function IntentIllustration() {
 export default function SerpAnalysisPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="SERP Analysis"
         title="Understand exactly what makes content rank"
         description="Analyze the top 10 Google results in seconds. Extract titles, meta descriptions, heading structures and search intent patterns that drive rankings."

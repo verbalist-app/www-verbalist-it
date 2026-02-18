@@ -56,14 +56,14 @@ export function HeroVisual() {
         className="flex-1 overflow-y-auto overflow-x-hidden p-3 md:p-4 pt-2 md:pt-3 min-h-0"
       >
         {/* Step 1: Input */}
-        <div className={`mb-2 md:mb-3 transition-opacity duration-500 ${activeStep >= 0 ? 'opacity-100' : 'opacity-30'}`}>
+        <div className={`mb-2 md:mb-3 transition-opacity duration-300 ${activeStep >= 0 ? 'opacity-100' : 'opacity-30'}`}>
           <span className="text-neutral-400 text-[10px] md:text-xs">keyword</span>
           <span className="text-neutral-600 text-[10px] md:text-xs"> = </span>
           <span className="text-neutral-900 text-[10px] md:text-xs break-words">"come scegliere un materasso"</span>
         </div>
 
         {/* Step 2: SERP Results */}
-        <div className={`mb-2 md:mb-3 transition-opacity duration-500 ${activeStep >= 1 ? 'opacity-100' : 'opacity-30'}`}>
+        <div className={`mb-2 md:mb-3 transition-opacity duration-300 ${activeStep >= 1 ? 'opacity-100' : 'opacity-30'}`}>
           <div className="text-neutral-400 mb-1 text-[10px] md:text-xs">serp_results <span className="text-neutral-300"># top 10</span></div>
           <div className="pl-2 md:pl-3 space-y-0.5">
             {competitors.map((comp) => (
@@ -74,7 +74,7 @@ export function HeroVisual() {
               >
                 <span className="text-neutral-300 w-3 text-[9px] md:text-[10px]">{comp.rank}.</span>
                 <span className="text-neutral-600 text-[9px] md:text-[10px] truncate">{comp.domain}</span>
-                <span className="text-green-600 text-[9px] md:text-[10px] flex-shrink-0">✓ scraped</span>
+                <span className="text-emerald-600 text-[9px] md:text-[10px] flex-shrink-0">✓ scraped</span>
               </div>
             ))}
             <div className="text-neutral-300 text-[9px] md:text-[10px]">... +5 more</div>
@@ -82,13 +82,13 @@ export function HeroVisual() {
         </div>
 
         {/* Step 3: Pattern Analysis */}
-        <div className={`mb-2 md:mb-3 transition-opacity duration-500 ${activeStep >= 2 ? 'opacity-100' : 'opacity-30'}`}>
+        <div className={`mb-2 md:mb-3 transition-opacity duration-300 ${activeStep >= 2 ? 'opacity-100' : 'opacity-30'}`}>
           <div className="text-neutral-400 mb-1 text-[10px] md:text-xs">patterns_extracted</div>
           <div className="pl-2 md:pl-3 grid grid-cols-2 gap-1 md:gap-1.5">
             {patterns.map((pattern, idx) => (
               <div 
                 key={pattern.label}
-                className={`flex items-center justify-between bg-white border border-neutral-200 rounded px-1.5 md:px-2 py-0.5 md:py-1 transition-all duration-300 ${activeStep >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+                className={`flex items-center justify-between bg-background border border-neutral-200 rounded px-1.5 md:px-2 py-0.5 md:py-1 transition-all duration-300 ${activeStep >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
                 <span className="text-neutral-400 text-[8px] md:text-[10px] truncate">{pattern.label}</span>
@@ -99,7 +99,7 @@ export function HeroVisual() {
         </div>
 
         {/* Step 4: Generation */}
-        <div className={`mb-2 md:mb-3 transition-opacity duration-500 ${activeStep >= 3 ? 'opacity-100' : 'opacity-30'}`}>
+        <div className={`mb-2 md:mb-3 transition-opacity duration-300 ${activeStep >= 3 ? 'opacity-100' : 'opacity-30'}`}>
           <div className="text-neutral-400 mb-1 text-[10px] md:text-xs">generating_content<span className="text-neutral-300">...</span></div>
           <div className="pl-2 md:pl-3 space-y-0.5">
             {['title_tag', 'meta_description', 'outline_h1_h3', 'body_content'].map((item, idx) => (
@@ -108,7 +108,7 @@ export function HeroVisual() {
                 className={`flex items-center gap-1.5 md:gap-2 transition-all duration-300 ${activeStep >= 3 ? 'opacity-100' : 'opacity-0'}`}
                 style={{ transitionDelay: `${idx * 150}ms` }}
               >
-                <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 flex-shrink-0 ${activeStep >= 3 ? 'bg-green-500' : 'bg-neutral-300'}`} 
+                <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 flex-shrink-0 ${activeStep >= 3 ? 'bg-emerald-500' : 'bg-neutral-300'}`} 
                   style={{ transitionDelay: `${idx * 150}ms` }}
                 />
                 <span className="text-neutral-600 text-[9px] md:text-[10px] truncate">{item}</span>
@@ -118,7 +118,7 @@ export function HeroVisual() {
         </div>
 
         {/* Step 5: Output */}
-        <div className={`transition-opacity duration-500 ${activeStep >= 4 ? 'opacity-100' : 'opacity-30'}`}>
+        <div className={`transition-opacity duration-300 ${activeStep >= 4 ? 'opacity-100' : 'opacity-30'}`}>
           <div className="bg-neutral-900 text-neutral-100 rounded px-2 md:px-3 py-1.5 md:py-2">
             <span className="text-green-400 text-[9px] md:text-[10px]">→</span>
             <span className="text-neutral-400 ml-1.5 md:ml-2 text-[9px] md:text-[10px]">output:</span>

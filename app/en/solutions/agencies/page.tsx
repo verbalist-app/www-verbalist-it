@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
@@ -69,7 +69,7 @@ const workflowSteps = [
 export default function AgenciesPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="Agencies"
         title="GEO-ready content for every client, from a single workflow"
         description="Deliver content optimized for ChatGPT, Perplexity and AI Overview to your clients. Without building a GEO framework for each account."

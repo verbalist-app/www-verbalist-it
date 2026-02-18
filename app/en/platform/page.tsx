@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import {
   SerpAnalysisVisual,
@@ -53,7 +53,7 @@ const features = [
 export default function PlatformPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="Platform"
         title="From SERP analysis to content generation. Fully automated."
         description="Four steps. From keyword to content optimized for SEO, AEO and GEO."

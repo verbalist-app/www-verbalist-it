@@ -7,10 +7,32 @@ import { AnimatedGroup } from "@/components/motion-primitives/animated-group"
 import { HeroHeader } from "@/components/header"
 import { cn } from "@/lib/utils"
 
+type Locale = 'it' | 'en'
+
 interface HeroSectionProps {
   className?: string
   showHeader?: boolean
+  locale?: Locale
 }
+
+const heroContent = {
+  it: {
+    badge: "Vedi come funziona",
+    badgeHref: "/piattaforma",
+    h1: "Il software che ti rende visibile nella ricerca AI",
+    description: "Verbalist analizza i primi 10 risultati Google, estrae i pattern ricorrenti e genera contenuti strutturati che ChatGPT, Perplexity, Gemini e AI Overview possono indicizzare e citare.",
+    primaryCta: { text: "Prenota una demo", href: "/prenota-demo" },
+    secondaryCta: { text: "Come funziona", href: "/piattaforma" },
+  },
+  en: {
+    badge: "See how it works",
+    badgeHref: "/en/platform",
+    h1: "The software that makes you visible in AI search",
+    description: "Verbalist analyzes the top 10 Google results, extracts recurring patterns and generates content structured to be indexed and cited by ChatGPT, Perplexity, Gemini and AI Overview.",
+    primaryCta: { text: "Book a demo", href: "/en/book-demo" },
+    secondaryCta: { text: "How it works", href: "/en/platform" },
+  },
+} as const
 
 const transitionVariants = {
   item: {
@@ -32,7 +54,9 @@ const transitionVariants = {
   },
 }
 
-export function HeroSection({ className, showHeader = true }: HeroSectionProps) {
+export function HeroSection({ className, showHeader = true, locale = 'it' }: HeroSectionProps) {
+  const t = heroContent[locale]
+
   return (
     <>
       {showHeader && <HeroHeader />}
@@ -43,10 +67,10 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
               <div className="text-center">
                 <AnimatedGroup variants={transitionVariants}>
                   <Link
-                    href="/piattaforma"
+                    href={t.badgeHref}
                     className="group mx-auto flex w-fit items-center gap-3 rounded-full border border-border bg-muted px-4 py-2 transition-colors duration-300 hover:bg-accent"
                   >
-                    <span className="text-foreground text-xs font-medium">Vedi come funziona</span>
+                    <span className="text-foreground text-xs font-medium">{t.badge}</span>
                     <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
                   </Link>
                 </AnimatedGroup>
@@ -57,7 +81,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   as="h1"
                   className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-medium tracking-tight md:text-5xl lg:mt-8 lg:text-6xl"
                 >
-                  Il software che ti rende visibile nella ricerca AI
+                  {t.h1}
                 </TextEffect>
                 <TextEffect
                   per="line"
@@ -67,7 +91,7 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   as="p"
                   className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground"
                 >
-                  Verbalist analizza i primi 10 risultati Google, estrae i pattern ricorrenti e genera contenuti strutturati che ChatGPT, Perplexity, Gemini e AI Overview possono indicizzare e citare.
+                  {t.description}
                 </TextEffect>
 
                 <AnimatedGroup
@@ -85,10 +109,10 @@ export function HeroSection({ className, showHeader = true }: HeroSectionProps) 
                   className="mt-10 flex flex-col items-center justify-center gap-3 md:flex-row"
                 >
                   <Button asChild size="lg" className="rounded-full px-6">
-                    <Link href="/prenota-demo">Prenota una demo</Link>
+                    <Link href={t.primaryCta.href}>{t.primaryCta.text}</Link>
                   </Button>
                   <Button asChild size="lg" variant="ghost" className="rounded-full px-6">
-                    <Link href="/piattaforma">Come funziona</Link>
+                    <Link href={t.secondaryCta.href}>{t.secondaryCta.text}</Link>
                   </Button>
                 </AnimatedGroup>
               </div>

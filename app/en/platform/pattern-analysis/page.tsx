@@ -1,6 +1,6 @@
 import { BarChart3, Layers, TrendingUp, Target } from "lucide-react"
 import type { Metadata } from "next"
-import { SubPageHeroEn } from "@/components/sub-page-hero-en"
+import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
@@ -131,7 +131,7 @@ function StructureIllustration() {
 export default function PatternAnalysisPage() {
   return (
     <>
-      <SubPageHeroEn
+      <SubPageHero locale="en"
         label="Pattern Analysis"
         title="Decode the patterns behind top rankings"
         description="Uncover what first-page content has in common. Word count ranges, heading structures, topic coverage and E-E-A-T signals that correlate with success."
