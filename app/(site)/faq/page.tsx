@@ -57,7 +57,7 @@ export default function FaqPage() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Supporto
           </p>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Domande Frequenti
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">

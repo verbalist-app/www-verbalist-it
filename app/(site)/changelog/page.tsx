@@ -82,7 +82,7 @@ export default function ChangelogPage() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Aggiornamenti
           </p>
-          <h1 className="mb-4 text-3xl font-medium tracking-tight md:text-4xl">
+          <h1 className="mb-4 text-3xl font-medium tracking-tighter md:text-4xl">
             Changelog
           </h1>
           <p className="mb-6 text-base text-muted-foreground leading-relaxed">

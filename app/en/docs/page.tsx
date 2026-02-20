@@ -169,7 +169,7 @@ export default function DocsPage() {
             <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Support
             </p>
-            <h1 className="text-3xl font-medium tracking-tight md:text-4xl">
+            <h1 className="text-3xl font-medium tracking-tighter md:text-4xl">
               Documentation
             </h1>
             <p className="mt-2 text-base text-muted-foreground">

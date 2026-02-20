@@ -75,7 +75,7 @@ export function SubscriptionContent() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-medium tracking-tight">Abbonamento</h1>
+        <h1 className="text-2xl font-medium tracking-tighter">Abbonamento</h1>
         <p className="text-sm text-muted-foreground mt-1">
           Gestisci il tuo piano e la fatturazione
         </p>

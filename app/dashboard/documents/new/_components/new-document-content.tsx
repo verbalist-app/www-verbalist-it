@@ -118,7 +118,7 @@ function NewDocumentInner() {
           <ArrowLeft className="size-4" />
           Documenti
         </Link>
-        <h1 className="text-2xl font-medium tracking-tight">
+        <h1 className="text-2xl font-medium tracking-tighter">
           Nuovo documento
         </h1>
         <p className="text-sm text-muted-foreground mt-1">

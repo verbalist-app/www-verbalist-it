@@ -19,7 +19,7 @@ export default function ParametriPage() {
             Generazione Contenuto
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Parametri avanzati
           </h1>
           <p className="text-muted-foreground mb-8">

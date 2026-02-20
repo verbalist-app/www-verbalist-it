@@ -19,7 +19,7 @@ export default function EeatPage() {
             Analisi Pattern
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Analisi E-E-A-T
           </h1>
           <p className="text-muted-foreground mb-8">

@@ -21,7 +21,7 @@ export default function ChiSiamoPage() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Chi Siamo
           </p>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             25 anni di esperienza SEO, ora in un software
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">

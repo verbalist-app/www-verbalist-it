@@ -19,7 +19,7 @@ export default function ExportPage() {
             Analisi SERP
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Esportare i dati SERP
           </h1>
           <p className="text-muted-foreground mb-8">

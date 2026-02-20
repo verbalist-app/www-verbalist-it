@@ -65,7 +65,7 @@ export default function BrandPageEn() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Brand
           </p>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Brand guidelines
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
