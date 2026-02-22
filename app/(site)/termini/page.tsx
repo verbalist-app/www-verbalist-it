@@ -33,7 +33,7 @@ export default function TerminiPage() {
         <div className="prose prose-neutral max-w-none space-y-8">
           <section>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              I presenti Termini di Servizio (di seguito, "Termini") regolano l'accesso e l'utilizzo della piattaforma Verbalist (di seguito, il "Servizio"), fornita da NUR S.r.l., con sede legale in San Giorgio Bigarello (MN), Via del Commercio 1/N, P.IVA 01902640208 (di seguito, "NUR" o il "Fornitore").
+              I presenti Termini di Servizio (di seguito, "Termini") regolano l'accesso e l'utilizzo della piattaforma Verbalist® (di seguito, il "Servizio"), fornita da NUR S.r.l., con sede legale in San Giorgio Bigarello (MN), Via del Commercio 1/N, P.IVA 01902640208 (di seguito, "NUR" o il "Fornitore").
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Utilizzando il Servizio, l'utente accetta integralmente i presenti Termini. Se non si accettano i Termini, si prega di non utilizzare il Servizio.

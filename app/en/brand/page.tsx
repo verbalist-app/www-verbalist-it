@@ -94,7 +94,7 @@ export default function BrandPageEn() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-white border border-border rounded-lg p-10 flex items-center justify-center">
                     <Image
-                      src="/logo-full.svg"
+                      src="/logo-Verbalist-full.svg"
                       alt="Verbalist logo – dark version"
                       width={280}
                       height={56}
@@ -103,7 +103,7 @@ export default function BrandPageEn() {
                   </div>
                   <div className="bg-foreground border border-border rounded-lg p-10 flex items-center justify-center">
                     <Image
-                      src="/brand/logo-full-light.svg"
+                      src="/brand/logo-Verbalist-full-light.svg"
                       alt="Verbalist logo – light version"
                       width={280}
                       height={56}
@@ -112,9 +112,9 @@ export default function BrandPageEn() {
                   </div>
                 </div>
                 <div className="flex gap-4 mt-3">
-                  <DownloadButton href="/logo-full.svg" label="Dark SVG" />
+                  <DownloadButton href="/logo-Verbalist-full.svg" label="Dark SVG" />
                   <DownloadButton
-                    href="/brand/logo-full-light.svg"
+                    href="/brand/logo-Verbalist-full-light.svg"
                     label="Light SVG"
                   />
                 </div>
@@ -169,7 +169,7 @@ export default function BrandPageEn() {
             <div className="bg-muted border border-border rounded-lg p-10 flex items-center justify-center">
               <div className="border-2 border-dashed border-foreground/20 p-8 rounded-lg">
                 <Image
-                  src="/logo-full.svg"
+                  src="/logo-Verbalist-full.svg"
                   alt="Verbalist logo with clear space"
                   width={220}
                   height={44}

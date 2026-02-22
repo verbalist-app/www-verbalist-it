@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { HeroHeader } from "@/components/header"
 import { ChevronRight, MessageCircle, Plus, Search, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -88,6 +89,9 @@ export function HeroSection({
               <div className="flex items-center justify-between max-md:flex-col">
                 {/* Left: text + CTAs */}
                 <div className="max-w-md max-sm:px-6">
+                  <Badge variant="secondary" className="mb-4">
+                    Verbalist®
+                  </Badge>
                   <h1 className="font-serif text-balance text-4xl font-medium sm:text-5xl">
                     {t.h1}
                   </h1>

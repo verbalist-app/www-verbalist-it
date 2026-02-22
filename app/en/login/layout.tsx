@@ -3,12 +3,9 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Sign In",
   description: "Sign in to your Verbalist account to generate SEO-optimized content with AI.",
-  alternates: {
-    canonical: "/en/login",
-  },
-  openGraph: {
-    title: "Sign In \\ Verbalist",
-    description: "Sign in to your Verbalist account to generate SEO-optimized content with AI.",
+  robots: {
+    index: false,
+    follow: false,
   },
 }
 

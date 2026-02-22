@@ -122,7 +122,7 @@ export default function CookiePolicyPage() {
                   <tr>
                     <td className="p-3 border-b border-border">cookieConsent</td>
                     <td className="p-3 border-b border-border">Tecnico</td>
-                    <td className="p-3 border-b border-border">Verbalist</td>
+                    <td className="p-3 border-b border-border">Verbalist®</td>
                     <td className="p-3 border-b border-border">12 mesi</td>
                     <td className="p-3 border-b border-border">Memorizza le preferenze sui cookie espresse dall'utente</td>
                   </tr>

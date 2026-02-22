@@ -124,7 +124,7 @@ export default function CookiePolicyPage() {
                   <tr>
                     <td className="p-3 border-b border-border">cookieConsent</td>
                     <td className="p-3 border-b border-border">Technical</td>
-                    <td className="p-3 border-b border-border">Verbalist</td>
+                    <td className="p-3 border-b border-border">Verbalist®</td>
                     <td className="p-3 border-b border-border">12 months</td>
                     <td className="p-3 border-b border-border">Stores user&apos;s cookie preferences</td>
                   </tr>

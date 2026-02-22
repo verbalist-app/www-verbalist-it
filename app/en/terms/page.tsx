@@ -35,7 +35,7 @@ export default function TermsPage() {
         <div className="prose prose-neutral max-w-none space-y-8">
           <section>
             <p className="text-sm text-foreground/80 leading-relaxed mb-4">
-              These Terms of Service (hereinafter, "Terms") govern access to and use of the Verbalist platform (hereinafter, the "Service"), provided by NUR S.r.l., with registered office in San Giorgio Bigarello (MN), Via del Commercio 1/N, VAT number 01902640208 (hereinafter, "NUR" or the "Provider").
+              These Terms of Service (hereinafter, "Terms") govern access to and use of the Verbalist® platform (hereinafter, the "Service"), provided by NUR S.r.l., with registered office in San Giorgio Bigarello (MN), Via del Commercio 1/N, VAT number 01902640208 (hereinafter, "NUR" or the "Provider").
             </p>
             <p className="text-sm text-foreground/80 leading-relaxed">
               By using the Service, the user fully accepts these Terms. If you do not accept the Terms, please do not use the Service.

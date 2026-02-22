@@ -10,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
           '/dashboard/',
           '/api/',
           '/keystatic/',
+          '/login/',
         ],
       },
     ],

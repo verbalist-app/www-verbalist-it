@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Logo } from '@/components/logo'
+import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { LanguageSwitcher } from '@/components/language-switcher'
 
@@ -124,7 +124,13 @@ export default function Footer({ locale = 'it' }: FooterProps) {
         <div className="@sm:grid-cols-3 grid grid-cols-2 gap-8">
           <div className="col-span-full">
             <Link href="/" className="flex items-center gap-2">
-              <Logo className="h-5 w-fit" />
+              <Image
+                src="/logo-Verbalist-full.svg"
+                alt="Verbalist"
+                width={153}
+                height={45}
+                className="h-6 w-auto"
+              />
             </Link>
             <p className="text-muted-foreground mt-4 max-w-xs text-sm">{t.description}</p>
           </div>
