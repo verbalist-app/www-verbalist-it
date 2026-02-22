@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Download } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 export const metadata: Metadata = {
   title: "Brand Guidelines",
@@ -22,7 +23,7 @@ function DownloadButton({ href, label }: { href: string; label: string }) {
       download
       className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
     >
-      <Download className="h-3 w-3" />
+      <Download className="size-3" style={{ color: '#473424' }} />
       {label}
     </a>
   )
@@ -31,26 +32,25 @@ function DownloadButton({ href, label }: { href: string; label: string }) {
 function ColorSwatch({
   name,
   variable,
-  hex,
+  value,
   light,
 }: {
   name: string
   variable: string
-  hex: string
+  value: string
   light?: boolean
 }) {
   return (
     <div className="flex items-center gap-4">
       <div
-        className={`h-12 w-12 rounded-lg border border-border flex-shrink-0 ${light ? "ring-1 ring-inset ring-border" : ""}`}
-        style={{ backgroundColor: hex }}
+        className={`size-12 rounded-lg border border-border flex-shrink-0 ${light ? "ring-1 ring-inset ring-border" : ""}`}
+        style={{ backgroundColor: value }}
       />
       <div>
         <p className="text-sm font-medium">{name}</p>
         <p className="text-xs text-muted-foreground font-mono">
           {variable}
         </p>
-        <p className="text-xs text-muted-foreground font-mono">{hex}</p>
       </div>
     </div>
   )
@@ -62,10 +62,10 @@ export default function BrandPageEn() {
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
         <div className="mb-16">
-          <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          <Badge variant="secondary" className="mb-4">
             Brand
-          </p>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          </Badge>
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Brand guidelines
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
@@ -78,7 +78,7 @@ export default function BrandPageEn() {
         <div className="space-y-20">
           {/* ── Logo ── */}
           <section>
-            <h2 className="text-xl font-medium tracking-tight mb-2">Logo</h2>
+            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">Logo</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
               The Verbalist logo consists of a wordmark (the geometric
               &quot;V&quot;) and the logotype. They can be used together or
@@ -158,7 +158,7 @@ export default function BrandPageEn() {
 
           {/* ── Clear space ── */}
           <section>
-            <h2 className="text-xl font-medium tracking-tight mb-2">
+            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">
               Clear space
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-2xl">
@@ -181,10 +181,10 @@ export default function BrandPageEn() {
 
           {/* ── Colors ── */}
           <section>
-            <h2 className="text-xl font-medium tracking-tight mb-2">Colors</h2>
+            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">Colors</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-              The Verbalist design system is entirely monochromatic. No accent
-              colors: only grayscale for a neutral, professional look.
+              The Verbalist design system uses a warm, earthy palette.
+              Brown and beige tones for an organic, professional look.
             </p>
 
             <div className="space-y-8">
@@ -196,12 +196,12 @@ export default function BrandPageEn() {
                   <ColorSwatch
                     name="Foreground"
                     variable="--foreground"
-                    hex="#1A1A1A"
+                    value="oklch(0.3421 0.0379 61.15)"
                   />
                   <ColorSwatch
                     name="Background"
                     variable="--background"
-                    hex="#FFFFFF"
+                    value="oklch(0.9779 0.0042 56.38)"
                     light
                   />
                 </div>
@@ -209,30 +209,29 @@ export default function BrandPageEn() {
 
               <div>
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
-                  Grayscale
+                  System colors
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <ColorSwatch
-                    name="Muted"
-                    variable="--muted"
-                    hex="#F2F2F2"
-                    light
+                    name="Primary"
+                    variable="--primary"
+                    value="oklch(0.5967 0.0558 61.59)"
                   />
                   <ColorSwatch
                     name="Muted Foreground"
                     variable="--muted-foreground"
-                    hex="#737373"
+                    value="oklch(0.4563 0.0061 48.59)"
                   />
                   <ColorSwatch
                     name="Border"
                     variable="--border"
-                    hex="#E5E5E5"
+                    value="oklch(0.3421 0.0379 61.15 / 7.5%)"
                     light
                   />
                   <ColorSwatch
-                    name="Card"
-                    variable="--card"
-                    hex="#FFFFFF"
+                    name="Muted"
+                    variable="--muted"
+                    value="oklch(0.3421 0.0379 61.15 / 5%)"
                     light
                   />
                 </div>
@@ -244,31 +243,21 @@ export default function BrandPageEn() {
                   Full palette
                 </p>
                 <div className="flex rounded-lg overflow-hidden border border-border h-16">
-                  {[
-                    "#1A1A1A",
-                    "#333333",
-                    "#4D4D4D",
-                    "#737373",
-                    "#8B8B8B",
-                    "#A3A3A3",
-                    "#CCCCCC",
-                    "#E5E5E5",
-                    "#F2F2F2",
-                    "#FFFFFF",
-                  ].map((color) => (
-                    <div
-                      key={color}
-                      className="flex-1"
-                      style={{ backgroundColor: color }}
-                    />
-                  ))}
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.3421 0.0379 61.15)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.4563 0.0061 48.59)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.5967 0.0558 61.59)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.7262 0.0037 67.77)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.9068 0.0112 89.73)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.9404 0.0082 61.08)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.9779 0.0042 56.38)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(1 0 0)' }} />
                 </div>
                 <div className="flex justify-between mt-2">
                   <span className="text-[10px] text-muted-foreground font-mono">
-                    #1A1A1A
+                    Foreground
                   </span>
                   <span className="text-[10px] text-muted-foreground font-mono">
-                    #FFFFFF
+                    Background
                   </span>
                 </div>
               </div>
@@ -277,18 +266,31 @@ export default function BrandPageEn() {
 
           {/* ── Typography ── */}
           <section>
-            <h2 className="text-xl font-medium tracking-tight mb-2">
+            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">
               Typography
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-              We use Inter as the primary font for interfaces and body text.
-              For monospace contexts we use SF Mono.
+              We use Geist Sans as the primary font for interfaces and body text.
+              Asar for titles and headings. For monospace contexts we use Geist Mono.
             </p>
 
             <div className="space-y-6">
               <div className="bg-muted border border-border rounded-lg p-8">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
-                  Inter &mdash; Sans-serif
+                  Asar &mdash; Serif (headings)
+                </p>
+                <p className="font-serif text-4xl font-medium tracking-tight mb-4">
+                  Aa Bb Cc Dd Ee Ff Gg
+                </p>
+                <p className="font-serif text-sm text-muted-foreground">
+                  ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
+                  0123456789
+                </p>
+              </div>
+
+              <div className="bg-muted border border-border rounded-lg p-8">
+                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
+                  Geist Sans &mdash; Sans-serif (body)
                 </p>
                 <p className="text-4xl font-light tracking-tight mb-1">
                   Aa Bb Cc Dd Ee Ff Gg
@@ -301,25 +303,12 @@ export default function BrandPageEn() {
                   0123456789
                 </p>
               </div>
-
-              <div className="bg-muted border border-border rounded-lg p-8">
-                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
-                  SF Mono &mdash; Monospace
-                </p>
-                <p className="text-2xl font-mono tracking-tight mb-4">
-                  Aa Bb Cc Dd Ee Ff Gg
-                </p>
-                <p className="text-sm text-muted-foreground font-mono">
-                  ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
-                  0123456789
-                </p>
-              </div>
             </div>
           </section>
 
           {/* ── Usage guidelines ── */}
           <section>
-            <h2 className="text-xl font-medium tracking-tight mb-2">
+            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">
               Usage guidelines
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
@@ -346,7 +335,7 @@ export default function BrandPageEn() {
                     <span className="text-foreground text-sm mt-0.5">
                       &#10003;
                     </span>
-                    <p className="text-sm text-foreground/80">{item}</p>
+                    <p className="text-sm text-muted-foreground">{item}</p>
                   </div>
                 ))}
               </div>
@@ -369,7 +358,7 @@ export default function BrandPageEn() {
                     <span className="text-foreground text-sm mt-0.5">
                       &#10007;
                     </span>
-                    <p className="text-sm text-foreground/80">{item}</p>
+                    <p className="text-sm text-muted-foreground">{item}</p>
                   </div>
                 ))}
               </div>
@@ -378,7 +367,7 @@ export default function BrandPageEn() {
 
           {/* ── Contact ── */}
           <section className="bg-muted rounded-xl p-8 md:p-12 border border-border">
-            <h3 className="text-xl font-medium tracking-tight mb-4">
+            <h3 className="font-serif text-2xl font-medium tracking-tight mb-4">
               Need assets in a different format?
             </h3>
             <p className="text-sm text-muted-foreground mb-6 max-w-2xl">

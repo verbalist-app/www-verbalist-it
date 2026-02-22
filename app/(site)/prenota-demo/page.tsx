@@ -37,7 +37,7 @@ export default function PrenotaDemoPage() {
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col items-center gap-4 lg:items-start lg:gap-8">
             <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Prenota una demo</p>
-            <h1 className="max-w-md text-center text-3xl font-medium tracking-tighter md:text-4xl lg:max-w-xl lg:text-left">
+            <h1 className="max-w-md font-serif text-center text-3xl font-medium tracking-tighter md:text-4xl lg:max-w-xl lg:text-left">
               Vedi Verbalist in azione sul tuo sito
             </h1>
             <ul className="flex flex-col">
@@ -83,7 +83,7 @@ export default function PrenotaDemoPage() {
               hideConsentCheckboxes
             />
 
-            <div className="-mt-2 space-y-3 border-t border-border pt-4">
+            <div className="mt-6 space-y-3 border-t border-border pt-4">
               <div className="flex items-start gap-3">
                 <Checkbox
                   id="privacy-consent"

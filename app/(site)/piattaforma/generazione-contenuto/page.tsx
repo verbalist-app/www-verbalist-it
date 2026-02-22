@@ -5,7 +5,7 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
   title: "Generazione Contenuti AI",
@@ -43,23 +43,6 @@ const featureColumns = [
       "Suggerimenti media",
       "Export multi-formato",
     ],
-  },
-]
-
-const testimonials = [
-  {
-    metric: "Pronto in 10 min",
-    quote: "Dall'analisi SERP all'articolo completo in 10 minuti. Prima ci voleva una giornata.",
-    author: "Valentina S.",
-    role: "Content Writer",
-    company: "Agenzia Content",
-  },
-  {
-    metric: "Qualità costante",
-    quote: "Ogni articolo rispetta gli stessi standard SEO. Non devo più controllare tutto manualmente.",
-    author: "Paolo F.",
-    role: "Content Lead",
-    company: "SaaS Company",
   },
 ]
 
@@ -170,7 +153,7 @@ export default function GenerazioneContenutoPage() {
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
+      <Testimonials className="border-t" />
 
       <SubPageCTA />
     </>

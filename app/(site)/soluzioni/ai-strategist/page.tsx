@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { StatsBar } from "@/components/stats-bar"
 
@@ -66,6 +67,8 @@ export default function AIStrategistPage() {
         description="Non solo Google. Contenuti pensati per essere citati da ChatGPT, Perplexity, Gemini e AI Overview."
         columns={featureColumns}
       />
+
+      <Testimonials className="border-t" />
 
       <SubPageCTA />
     </>

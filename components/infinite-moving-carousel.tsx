@@ -50,13 +50,16 @@ export function InfiniteMovingCarousel({ images }: { images: string[] }) {
         className="flex w-max items-center gap-12"
       >
         {[...images, ...images].map((image, index) => (
-          <Image
+          <div
             key={`company-${index}`}
-            src={image}
-            alt={`Company ${index + 1}`}
-            width={120}
-            height={28}
-            className="h-7 w-auto shrink-0 brightness-0 dark:invert"
+            role="img"
+            aria-label={`Company ${index + 1}`}
+            className="h-7 w-24 shrink-0"
+            style={{
+              backgroundColor: '#473424',
+              mask: `url(${image}) no-repeat center / contain`,
+              WebkitMask: `url(${image}) no-repeat center / contain`,
+            }}
           />
         ))}
       </motion.div>

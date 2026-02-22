@@ -35,7 +35,7 @@ interface PopularTopic {
 
 const categories: GuideCategory[] = [
   {
-    icon: <Search className="size-6" />,
+    icon: <Search className="size-6" style={{ color: '#473424' }} />,
     iconType: "search",
     title: "Analisi SERP",
     description: "Leggere e usare i dati SERP",
@@ -49,7 +49,7 @@ const categories: GuideCategory[] = [
     ],
   },
   {
-    icon: <Download className="size-6" />,
+    icon: <Download className="size-6" style={{ color: '#473424' }} />,
     iconType: "download",
     title: "Scraping Competitor",
     description: "Estrarre contenuti dalle pagine",
@@ -62,7 +62,7 @@ const categories: GuideCategory[] = [
     ],
   },
   {
-    icon: <BarChart3 className="size-6" />,
+    icon: <BarChart3 className="size-6" style={{ color: '#473424' }} />,
     iconType: "barchart",
     title: "Analisi Pattern",
     description: "Trovare cosa funziona in SERP",
@@ -77,7 +77,7 @@ const categories: GuideCategory[] = [
     ],
   },
   {
-    icon: <FileText className="size-6" />,
+    icon: <FileText className="size-6" style={{ color: '#473424' }} />,
     iconType: "filetext",
     title: "Generazione Contenuto",
     description: "Creare contenuti SEO-ready",
@@ -93,7 +93,7 @@ const categories: GuideCategory[] = [
     ],
   },
   {
-    icon: <Settings className="size-6" />,
+    icon: <Settings className="size-6" style={{ color: '#473424' }} />,
     iconType: "settings",
     title: "Configurazione",
     description: "Impostazioni e preferenze",
@@ -105,7 +105,7 @@ const categories: GuideCategory[] = [
     ],
   },
   {
-    icon: <Zap className="size-6" />,
+    icon: <Zap className="size-6" style={{ color: '#473424' }} />,
     iconType: "zap",
     title: "Best Practice",
     description: "Come ottenere risultati migliori",
@@ -169,7 +169,7 @@ export default function GuidePage() {
             <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Supporto
             </p>
-            <h1 className="text-3xl font-medium tracking-tighter md:text-4xl">
+            <h1 className="font-serif text-3xl font-medium tracking-tighter md:text-4xl">
               Guide
             </h1>
             <p className="mt-2 text-base text-muted-foreground">
@@ -249,7 +249,7 @@ export default function GuidePage() {
               {/* Popular Topics */}
               <div className="rounded-lg border bg-muted/30 p-6">
                 <h2 className="mb-4 flex items-center gap-2 text-sm font-medium">
-                  <HelpCircle className="size-5" />
+                  <HelpCircle className="size-5" style={{ color: '#473424' }} />
                   Argomenti popolari
                 </h2>
                 <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">

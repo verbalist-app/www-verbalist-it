@@ -31,9 +31,9 @@ export function TeamManagementVisual() {
   return (
     <div className="h-full bg-background p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-5">
-        <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Team management</div>
-        <div className="text-[12px] text-neutral-500">
-          <span className="text-neutral-900 font-medium">7</span> members
+        <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Team management</div>
+        <div className="text-[12px] text-muted-foreground">
+          <span className="text-foreground font-medium">7</span> members
         </div>
       </div>
 
@@ -41,14 +41,14 @@ export function TeamManagementVisual() {
         {roles.map((group) => (
           <div
             key={group.role}
-            className="rounded-lg border p-3 border-neutral-200 bg-neutral-50"
+            className="rounded-lg border p-3 border-border bg-muted/50"
           >
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <div className="px-2 py-0.5 rounded text-[10px] font-medium uppercase bg-neutral-100 text-neutral-600">
+                <div className="px-2 py-0.5 rounded text-[10px] font-medium uppercase bg-muted text-muted-foreground">
                   {group.role}
                 </div>
-                <span className="text-[11px] text-neutral-400">{group.members.length} members</span>
+                <span className="text-[11px] text-muted-foreground">{group.members.length} members</span>
               </div>
             </div>
 
@@ -56,7 +56,7 @@ export function TeamManagementVisual() {
               {group.members.map((member) => (
                 <div
                   key={member.name}
-                  className="size-7 rounded-full bg-neutral-200 flex items-center justify-center text-[9px] font-medium text-neutral-600"
+                  className="size-7 rounded-full bg-muted flex items-center justify-center text-[9px] font-medium text-muted-foreground"
                   title={member.label}
                 >
                   {member.name}
@@ -64,11 +64,11 @@ export function TeamManagementVisual() {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-1 pt-1 border-t border-neutral-100">
+            <div className="flex flex-wrap gap-1 pt-1 border-t border-border">
               {group.permissions.map((perm) => (
                 <span
                   key={perm}
-                  className="text-[10px] text-neutral-500 bg-neutral-100 rounded px-1.5 py-0.5"
+                  className="text-[10px] text-muted-foreground bg-muted rounded px-1.5 py-0.5"
                 >
                   {perm}
                 </span>
@@ -109,10 +109,10 @@ export function ToneOfVoiceVisual() {
   return (
     <div className="h-full bg-background p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-5">
-        <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Tone of voice</div>
+        <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Tone of voice</div>
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-500" />
-          <span className="text-[12px] text-neutral-500">Generazione adattata</span>
+          <span className="text-[12px] text-muted-foreground">Generazione adattata</span>
         </div>
       </div>
 
@@ -123,8 +123,8 @@ export function ToneOfVoiceVisual() {
             key={tone.name}
             className={
               tone.active
-                ? "flex-1 rounded-lg px-2 py-2 text-[11px] font-medium text-center bg-neutral-900 text-white"
-                : "flex-1 rounded-lg px-2 py-2 text-[11px] font-medium text-center bg-neutral-100 text-neutral-600"
+                ? "flex-1 rounded-lg px-2 py-2 text-[11px] font-medium text-center bg-foreground text-background"
+                : "flex-1 rounded-lg px-2 py-2 text-[11px] font-medium text-center bg-muted text-muted-foreground"
             }
           >
             {tone.name}
@@ -133,9 +133,9 @@ export function ToneOfVoiceVisual() {
       </div>
 
       {/* Preview */}
-      <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 mb-3">
-        <div className="text-[11px] text-neutral-400 uppercase tracking-wider mb-2">Anteprima output</div>
-        <p className="text-[12px] text-neutral-700 leading-relaxed">
+      <div className="rounded-lg border border-border bg-muted/50 p-4 mb-3">
+        <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2">Anteprima output</div>
+        <p className="text-[12px] text-foreground leading-relaxed">
           {activeTone.preview}
         </p>
       </div>
@@ -145,7 +145,7 @@ export function ToneOfVoiceVisual() {
         {activeTone.tags.map((tag) => (
           <span
             key={tag}
-            className="text-[10px] text-neutral-500 bg-neutral-100 rounded-full px-2 py-0.5"
+            className="text-[10px] text-muted-foreground bg-muted rounded-full px-2 py-0.5"
           >
             {tag}
           </span>

@@ -5,7 +5,7 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
   title: "Analisi Pattern SEO",
@@ -43,23 +43,6 @@ const featureColumns = [
       "E-E-A-T signals",
       "Competitive scoring",
     ],
-  },
-]
-
-const testimonials = [
-  {
-    metric: "Pattern chiari",
-    quote: "Prima era tutto a intuito. Ora vedo esattamente cosa hanno in comune i contenuti in prima pagina.",
-    author: "Luca M.",
-    role: "Content Manager",
-    company: "Media Company",
-  },
-  {
-    metric: "+60% ranking",
-    quote: "Seguendo i pattern rilevati abbiamo migliorato il ranking del 60% sui contenuti nuovi.",
-    author: "Sara T.",
-    role: "SEO Lead",
-    company: "Startup Tech",
   },
 ]
 
@@ -161,7 +144,7 @@ export default function AnalisiPatternPage() {
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
+      <Testimonials className="border-t" />
 
       <SubPageCTA />
     </>

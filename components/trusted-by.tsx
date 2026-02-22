@@ -35,11 +35,16 @@ export function TrustedBy({
             text && "lg:justify-start lg:flex-1"
           )}>
             {logos.map((logo) => (
-              <img
+              <div
                 key={logo.name}
-                src={logo.src}
-                alt={logo.name}
-                className="h-7 w-auto brightness-0 opacity-60 dark:invert"
+                role="img"
+                aria-label={logo.name}
+                className="h-7 w-24"
+                style={{
+                  backgroundColor: '#473424',
+                  mask: `url(${logo.src}) no-repeat center / contain`,
+                  WebkitMask: `url(${logo.src}) no-repeat center / contain`,
+                }}
               />
             ))}
           </div>

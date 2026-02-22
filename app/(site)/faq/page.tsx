@@ -57,7 +57,7 @@ export default function FaqPage() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Supporto
           </p>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Domande Frequenti
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">
@@ -68,7 +68,7 @@ export default function FaqPage() {
         <FaqAccordion faqs={faqs} />
 
         <div className="mt-12 bg-muted rounded-xl p-8 border border-border text-center">
-          <h3 className="text-lg font-medium mb-3">
+          <h3 className="font-serif text-lg font-medium mb-3">
             Non trovi quello che cerchi?
           </h3>
           <p className="text-sm text-muted-foreground mb-6">

@@ -15,12 +15,12 @@ interface WorkflowStepsProps {
 
 export function WorkflowSteps({ title, description, steps, className }: WorkflowStepsProps) {
   return (
-    <section className={cn("border-t py-16 md:py-20", className)}>
+    <section className={cn("border-t py-24", className)}>
       <div className="mx-auto max-w-3xl px-6">
         {(title || description) && (
           <div className="mb-12 text-center">
-            {title && <h2 className="text-balance text-xl font-medium tracking-tight md:text-2xl">{title}</h2>}
-            {description && <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto">{description}</p>}
+            {title && <h2 className="font-serif text-balance text-4xl font-medium">{title}</h2>}
+            {description && <p className="text-muted-foreground mt-4 text-balance max-w-2xl mx-auto">{description}</p>}
           </div>
         )}
         <div className="relative">

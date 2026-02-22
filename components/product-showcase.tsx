@@ -37,17 +37,17 @@ export function ProductShowcase() {
     <section className="py-16 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-10">
-          <h2 className="text-balance text-xl md:text-2xl font-medium tracking-tight text-neutral-900 mb-3">
+          <h2 className="text-balance text-xl md:text-2xl font-medium tracking-tight text-foreground mb-3">
             Guarda Verbalist in azione
           </h2>
-          <p className="text-sm text-neutral-600 max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
             Dall'analisi dei competitor alla generazione del contenuto finale, tutto in un'unica piattaforma.
           </p>
         </div>
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-neutral-100 rounded-lg p-1 gap-1">
+          <div className="inline-flex bg-muted rounded-lg p-1 gap-1">
             {screenshots.map((item) => (
               <button
                 key={item.id}
@@ -55,8 +55,8 @@ export function ProductShowcase() {
                 className={cn(
                   "px-4 py-2 text-sm font-medium rounded-md transition-all",
                   activeTab === item.id
-                    ? "bg-background text-neutral-900 shadow-sm"
-                    : "text-neutral-600 hover:text-neutral-900"
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {item.label}
@@ -68,23 +68,23 @@ export function ProductShowcase() {
         {/* Screenshot Display */}
         <div className="relative">
           {/* Browser Frame */}
-          <div className="bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden shadow-lg">
+          <div className="bg-muted rounded-xl border border-border overflow-hidden shadow-lg">
             {/* Browser Header */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-neutral-50 border-b border-neutral-200">
+            <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
                 <div className="w-3 h-3 rounded-full bg-emerald-400" />
               </div>
               <div className="flex-1 mx-4">
-                <div className="bg-background rounded-md px-3 py-1.5 text-[12px] text-neutral-500 font-mono max-w-md mx-auto text-center border border-neutral-200">
+                <div className="bg-background rounded-md px-3 py-1.5 text-[12px] text-muted-foreground font-mono max-w-md mx-auto text-center border border-border">
                   app.verbalist.it
                 </div>
               </div>
             </div>
 
             {/* Visual Content */}
-            <div className="relative aspect-[16/9] bg-neutral-50">
+            <div className="relative aspect-[16/9] bg-muted/50">
               {activeScreenshot && (
                 <activeScreenshot.component />
               )}
@@ -94,7 +94,7 @@ export function ProductShowcase() {
           {/* Caption */}
           {activeScreenshot && (
             <div className="text-center mt-6">
-              <p className="text-sm text-neutral-700">
+              <p className="text-sm text-muted-foreground">
                 {activeScreenshot.description}
               </p>
             </div>

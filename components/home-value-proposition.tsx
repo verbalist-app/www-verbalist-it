@@ -11,7 +11,7 @@ export function HomeValueProposition({ className }: HomeValuePropositionProps) {
       <div className="mx-auto max-w-4xl px-6">
         <div className="flex flex-col items-center text-center">
           <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
-            <Sparkles className="size-6" strokeWidth={1.5} />
+            <Sparkles className="size-6" strokeWidth={1.5} style={{ color: '#473424' }} />
           </div>
           <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl max-w-2xl">
             Una piattaforma per creare contenuti che si posizionano

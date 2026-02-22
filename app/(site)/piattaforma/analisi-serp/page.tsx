@@ -5,7 +5,7 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
   title: "Analisi SERP Automatica",
@@ -43,23 +43,6 @@ const featureColumns = [
       "Topic coverage",
       "E-E-A-T signals",
     ],
-  },
-]
-
-const testimonials = [
-  {
-    metric: "10 min",
-    quote: "L'analisi che prima facevo in 2 ore con spreadsheet ora la faccio in 10 minuti. E con più dati.",
-    author: "Marco P.",
-    role: "SEO Specialist",
-    company: "Agenzia Digital",
-  },
-  {
-    metric: "Dati reali",
-    quote: "Finalmente decisioni basate su dati concreti, non su opinioni. Vedo esattamente cosa funziona in SERP.",
-    author: "Elena R.",
-    role: "Content Strategist",
-    company: "E-commerce",
   },
 ]
 
@@ -147,7 +130,7 @@ export default function AnalisiSerpPage() {
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
+      <Testimonials className="border-t" />
 
       <SubPageCTA />
     </>

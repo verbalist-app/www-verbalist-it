@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface SubPageCTAProps {
@@ -24,33 +25,26 @@ export function SubPageCTA({
   className,
 }: SubPageCTAProps) {
   return (
-    <section className={cn("relative border-t py-24 md:py-32 overflow-hidden", className)}>
-      {/* Subtle radial gradient background */}
-      <div className="absolute inset-0 -z-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(ellipse at center, rgba(0, 0, 0, 0.03), transparent 70%)`,
-          }}
-        />
-      </div>
-
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl">
+    <section className={cn("bg-background @container border-t py-24", className)}>
+      <div className="mx-auto max-w-2xl px-6 text-center">
+        <h2 className="font-serif text-balance text-4xl font-medium">
           {title}
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+        <p className="text-muted-foreground mx-auto mt-4 max-w-md text-balance">
           {description}
         </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <Button asChild className="pr-1.5">
+            <Link href={primaryCta.href}>
+              <span>{primaryCta.text}</span>
+              <ChevronRight className="opacity-50" />
+            </Link>
+          </Button>
           {secondaryCta && (
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="secondary">
               <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
             </Button>
           )}
-          <Button asChild size="lg">
-            <Link href={primaryCta.href}>{primaryCta.text}</Link>
-          </Button>
         </div>
       </div>
     </section>

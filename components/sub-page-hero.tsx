@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
+import { ChevronRight } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 type Locale = 'it' | 'en'
@@ -44,32 +46,39 @@ export function SubPageHero({
   const cta = primaryCta ?? defaults[locale]
 
   return (
-    <section className={cn("pt-20 md:pt-28 pb-16 md:pb-20", className)}>
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        {label ? (
-          <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            {label}
-          </p>
-        ) : Icon ? (
-          <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
-            <Icon className="size-6" strokeWidth={1.5} />
+    <section className={cn("bg-background", className)}>
+      <div className="relative py-32 md:pt-44 md:pb-24">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
+          <div className="mx-auto max-w-xl text-center">
+            {label ? (
+              <Badge variant="secondary" className="mb-4">
+                {label}
+              </Badge>
+            ) : Icon ? (
+              <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
+                <Icon className="size-6" strokeWidth={1.5} style={{ color: '#473424' }} />
+              </div>
+            ) : null}
+            <h1 className="text-balance font-serif text-4xl font-medium tracking-tighter sm:text-5xl">
+              {title}
+            </h1>
+            <p className="text-muted-foreground mt-6 text-balance text-lg">
+              {description}
+            </p>
+            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              {secondaryCta && (
+                <Button asChild variant="ghost" size="sm">
+                  <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
+                </Button>
+              )}
+              <Button asChild className="pr-1.5">
+                <Link href={cta.href}>
+                  <span className="text-nowrap">{cta.text}</span>
+                  <ChevronRight className="opacity-50" />
+                </Link>
+              </Button>
+            </div>
           </div>
-        ) : null}
-        <h1 className="text-balance text-3xl font-medium tracking-tighter md:text-4xl lg:text-[2.75rem] lg:leading-tight">
-          {title}
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          {description}
-        </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          {secondaryCta && (
-            <Button asChild variant="outline" size="lg">
-              <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
-            </Button>
-          )}
-          <Button asChild size="lg">
-            <Link href={cta.href}>{cta.text}</Link>
-          </Button>
         </div>
       </div>
     </section>

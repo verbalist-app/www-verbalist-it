@@ -1,15 +1,16 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
+import { GeistSans } from 'geist/font/sans'
 
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { OrganizationSchema } from "@/components/schema"
 import "./globals.css"
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+const asar = localFont({
+  src: '../public/fonts/Asar-Regular.woff',
+  variable: '--font-serif',
   display: 'swap',
 })
 
@@ -124,7 +125,7 @@ export default function RootLayout({
       <head>
         <OrganizationSchema />
       </head>
-      <body className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
+      <body className={`${GeistSans.variable} ${asar.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
         {children}
         <Analytics />
         <SpeedInsights />

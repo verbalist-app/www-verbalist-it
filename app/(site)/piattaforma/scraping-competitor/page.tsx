@@ -5,7 +5,7 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
   title: "Scraping Contenuti Competitor",
@@ -43,23 +43,6 @@ const featureColumns = [
       "Schema markup parsing",
       "Batch processing",
     ],
-  },
-]
-
-const testimonials = [
-  {
-    metric: "Contenuto pulito",
-    quote: "Finalmente il contenuto competitor senza tutto il rumore. Solo testo pulito, pronto per l'analisi.",
-    author: "Andrea B.",
-    role: "Content Analyst",
-    company: "SEO Agency",
-  },
-  {
-    metric: "100+ pagine",
-    quote: "Analizziamo centinaia di pagine competitor in pochi minuti. Prima era impensabile.",
-    author: "Chiara L.",
-    role: "SEO Manager",
-    company: "E-commerce",
   },
 ]
 
@@ -163,7 +146,7 @@ export default function ScrapingCompetitorPage() {
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
+      <Testimonials className="border-t" />
 
       <SubPageCTA />
     </>

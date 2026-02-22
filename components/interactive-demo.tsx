@@ -25,16 +25,16 @@ export function InteractiveDemo() {
   }
 
   return (
-    <div className="w-full h-full bg-background border border-neutral-200 rounded-xl shadow-sm flex flex-col overflow-hidden">
+    <div className="w-full h-full bg-background border border-border rounded-xl shadow-sm flex flex-col overflow-hidden">
 
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-100 bg-neutral-50">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/50">
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
         </div>
-        <span className="text-[11px] text-neutral-400 font-medium">Verbalist Demo</span>
+        <span className="text-[11px] text-muted-foreground font-medium">Verbalist Demo</span>
         <div className="w-16" />
       </div>
 
@@ -45,7 +45,7 @@ export function InteractiveDemo() {
         {step === 0 && (
           <div className="space-y-4">
             <div>
-              <label className="text-[12px] text-neutral-500 font-medium mb-2 block">
+              <label className="text-[12px] text-muted-foreground font-medium mb-2 block">
                 Inserisci una keyword
               </label>
               <input
@@ -54,18 +54,18 @@ export function InteractiveDemo() {
                 onChange={(e) => setKeyword(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && startAnalysis()}
                 placeholder="es. come scegliere un materasso"
-                className="w-full px-3 py-2 text-[13px] border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent"
+                className="w-full px-3 py-2 text-[13px] border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-foreground focus:border-transparent"
               />
             </div>
 
             <div>
-              <p className="text-[11px] text-neutral-400 mb-2">Oppure prova con:</p>
+              <p className="text-[11px] text-muted-foreground mb-2">Oppure prova con:</p>
               <div className="flex flex-wrap gap-2">
                 {suggestedKeywords.map((kw) => (
                   <button
                     key={kw}
                     onClick={() => setKeyword(kw)}
-                    className="text-[11px] px-2.5 py-1 bg-neutral-100 text-neutral-600 rounded-full hover:bg-neutral-200 transition-colors"
+                    className="text-[11px] px-2.5 py-1 bg-muted text-muted-foreground rounded-full hover:bg-muted transition-colors"
                   >
                     {kw}
                   </button>
@@ -76,7 +76,7 @@ export function InteractiveDemo() {
             <button
               onClick={startAnalysis}
               disabled={!keyword.trim()}
-              className="w-full py-2.5 bg-neutral-900 text-white text-[13px] font-medium rounded-lg hover:bg-neutral-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-full py-2.5 bg-foreground text-background text-[13px] font-medium rounded-lg hover:bg-foreground/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               Analizza competitor
             </button>
@@ -87,16 +87,16 @@ export function InteractiveDemo() {
         {step === 1 && (
           <div className="space-y-4">
             <div>
-              <p className="text-[12px] text-neutral-500 font-medium mb-2">Analisi in corso...</p>
-              <div className="h-2 bg-neutral-100 rounded-full overflow-hidden">
-                <div className="h-full bg-neutral-900 w-2/3 animate-pulse" />
+              <p className="text-[12px] text-muted-foreground font-medium mb-2">Analisi in corso...</p>
+              <div className="h-2 bg-muted rounded-full overflow-hidden">
+                <div className="h-full bg-foreground w-2/3 animate-pulse" />
               </div>
             </div>
-            <p className="text-[11px] text-neutral-400">Analizzando: &quot;{keyword}&quot;</p>
+            <p className="text-[11px] text-muted-foreground">Analizzando: &quot;{keyword}&quot;</p>
             <div className="space-y-2">
-              <div className="p-2 bg-neutral-50 rounded text-[11px] text-neutral-600">1. guidacompleta.it ✓</div>
-              <div className="p-2 bg-neutral-50 rounded text-[11px] text-neutral-600">2. dormirebene.com ✓</div>
-              <div className="p-2 bg-neutral-50 rounded text-[11px] text-neutral-600">3. qualematerasso.it ✓</div>
+              <div className="p-2 bg-muted/50 rounded text-[11px] text-muted-foreground">1. guidacompleta.it ✓</div>
+              <div className="p-2 bg-muted/50 rounded text-[11px] text-muted-foreground">2. dormirebene.com ✓</div>
+              <div className="p-2 bg-muted/50 rounded text-[11px] text-muted-foreground">3. qualematerasso.it ✓</div>
             </div>
           </div>
         )}
@@ -110,25 +110,25 @@ export function InteractiveDemo() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="text-[13px] font-medium text-neutral-900">Contenuto generato!</p>
-              <p className="text-[11px] text-neutral-500 mt-1">2.847 parole • 12 heading</p>
+              <p className="text-[13px] font-medium text-foreground">Contenuto generato!</p>
+              <p className="text-[11px] text-muted-foreground mt-1">2.847 parole • 12 heading</p>
             </div>
 
-            <div className="p-3 bg-neutral-50 rounded-lg">
-              <p className="text-[10px] text-neutral-400 mb-1">Anteprima:</p>
-              <p className="text-[12px] text-neutral-700 leading-relaxed">Un materasso di qualità è fondamentale per il benessere quotidiano...</p>
+            <div className="p-3 bg-muted/50 rounded-lg">
+              <p className="text-[10px] text-muted-foreground mb-1">Anteprima:</p>
+              <p className="text-[12px] text-foreground leading-relaxed">Un materasso di qualità è fondamentale per il benessere quotidiano...</p>
             </div>
 
             <div className="space-y-2">
               <Link
                 href="/prenota-demo"
-                className="block w-full py-2.5 bg-neutral-900 text-white text-[13px] font-medium rounded-lg hover:bg-neutral-800 transition-colors text-center"
+                className="block w-full py-2.5 bg-foreground text-background text-[13px] font-medium rounded-lg hover:bg-foreground/90 transition-colors text-center"
               >
                 Prenota una demo
               </Link>
               <button
                 onClick={resetDemo}
-                className="block w-full py-2.5 text-neutral-600 text-[13px] font-medium hover:text-neutral-900 transition-colors"
+                className="block w-full py-2.5 text-muted-foreground text-[13px] font-medium hover:text-foreground transition-colors"
               >
                 Prova un&apos;altra keyword
               </button>

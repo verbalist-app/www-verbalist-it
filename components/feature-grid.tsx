@@ -16,23 +16,21 @@ interface FeatureGridProps {
 
 export function FeatureGrid({ title, description, items, className }: FeatureGridProps) {
   return (
-    <section className={cn("border-t py-16 md:py-20", className)}>
+    <section className={cn("border-t py-24", className)}>
       <div className="mx-auto max-w-6xl px-6">
         {(title || description) && (
-          <div className="mb-12 text-center">
-            {title && <h2 className="text-balance text-xl font-medium tracking-tight md:text-2xl">{title}</h2>}
-            {description && <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto">{description}</p>}
+          <div className="text-center">
+            {title && <h2 className="font-serif text-balance text-4xl font-medium">{title}</h2>}
+            {description && <p className="text-muted-foreground mt-4 text-balance max-w-2xl mx-auto">{description}</p>}
           </div>
         )}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {items.map((item) => {
             const Icon = item.icon
             return (
-              <div key={item.title} className="rounded-lg border bg-card p-6">
-                <div className="mb-3 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-2.5">
-                  <Icon className="size-5" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-base font-medium">{item.title}</h3>
+              <div key={item.title} className="border-t pt-6">
+                <Icon className="size-4" strokeWidth={1.5} style={{ color: '#473424' }} />
+                <h3 className="mt-3 text-sm font-medium">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             )

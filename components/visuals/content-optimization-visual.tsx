@@ -21,7 +21,7 @@ export function ContentOptimizationVisual() {
         <div className="bg-background rounded-xl border shadow-sm overflow-hidden">
             {/* Header */}
             <div className="flex items-center gap-2 px-4 py-3 border-b bg-muted/30">
-                <TrendingUp className="size-4 text-primary" />
+                <TrendingUp className="size-4" style={{ color: '#473424' }} />
                 <span className="text-sm font-medium">Analisi contenuto</span>
             </div>
 

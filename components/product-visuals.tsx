@@ -15,12 +15,12 @@ export function SerpAnalysisVisual() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <div className="text-[11px] text-neutral-400 uppercase tracking-wider mb-1">Keyword</div>
-          <div className="text-sm font-medium text-neutral-900">&quot;come scegliere un materasso&quot;</div>
+          <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1">Keyword</div>
+          <div className="text-sm font-medium text-foreground">&quot;come scegliere un materasso&quot;</div>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-500" />
-          <span className="text-[12px] text-neutral-500">SERP recuperata</span>
+          <span className="text-[12px] text-muted-foreground">SERP recuperata</span>
         </div>
       </div>
 
@@ -29,16 +29,16 @@ export function SerpAnalysisVisual() {
         {results.map((result) => (
           <div
             key={result.position}
-            className="flex items-center gap-3 p-3 rounded-lg border bg-neutral-50 border-neutral-200"
+            className="flex items-center gap-3 p-3 rounded-lg border bg-muted/50 border-border"
           >
-            <div className="w-6 h-6 rounded bg-neutral-200 flex items-center justify-center text-[12px] font-medium text-neutral-600">
+            <div className="w-6 h-6 rounded bg-muted flex items-center justify-center text-[12px] font-medium text-muted-foreground">
               {result.position}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-[13px] font-medium text-neutral-900 truncate">{result.title}</div>
-              <div className="text-[11px] text-neutral-500">{result.domain}</div>
+              <div className="text-[13px] font-medium text-foreground truncate">{result.title}</div>
+              <div className="text-[11px] text-muted-foreground">{result.domain}</div>
             </div>
-            <div className="text-[11px] text-neutral-500 text-right">
+            <div className="text-[11px] text-muted-foreground text-right">
               <span>{result.wordCount} parole</span>
             </div>
           </div>
@@ -46,9 +46,9 @@ export function SerpAnalysisVisual() {
       </div>
 
       {/* Summary */}
-      <div className="mt-4 pt-4 border-t border-neutral-100 text-[12px] text-neutral-500">
-        <span className="text-neutral-900 font-medium">5 competitor</span> analizzati · Media{" "}
-        <span className="text-neutral-900 font-medium">2.510 parole</span>
+      <div className="mt-4 pt-4 border-t border-border text-[12px] text-muted-foreground">
+        <span className="text-foreground font-medium">5 competitor</span> analizzati · Media{" "}
+        <span className="text-foreground font-medium">2.510 parole</span>
       </div>
     </div>
   )
@@ -77,10 +77,10 @@ export function ScrapingVisual() {
   return (
     <div className="h-full bg-background p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-6">
-        <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Scraping competitor</div>
+        <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Scraping competitor</div>
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-500" />
-          <span className="text-[12px] text-neutral-500">Estrazione completata</span>
+          <span className="text-[12px] text-muted-foreground">Estrazione completata</span>
         </div>
       </div>
 
@@ -88,16 +88,16 @@ export function ScrapingVisual() {
         {pages.map((page) => (
           <div
             key={page.domain}
-            className="rounded-lg border p-3 border-neutral-200 bg-neutral-50"
+            className="rounded-lg border p-3 border-border bg-muted/50"
           >
-            <div className="flex items-center gap-2 mb-2 pb-2 border-b border-neutral-100">
+            <div className="flex items-center gap-2 mb-2 pb-2 border-b border-border">
               <div className="flex gap-0.5">
                 <div className="size-1.5 rounded-full bg-red-400" />
                 <div className="size-1.5 rounded-full bg-yellow-400" />
                 <div className="size-1.5 rounded-full bg-emerald-400" />
               </div>
-              <span className="text-[11px] text-neutral-500">{page.domain}</span>
-              <span className="ml-auto text-[10px] text-neutral-400">{page.words} parole</span>
+              <span className="text-[11px] text-muted-foreground">{page.domain}</span>
+              <span className="ml-auto text-[10px] text-muted-foreground">{page.words} parole</span>
             </div>
             <div className="space-y-0.5">
               {page.headings.map((h, i) => (
@@ -105,7 +105,7 @@ export function ScrapingVisual() {
                   key={i}
                   className={cn(
                     "text-[11px]",
-                    h.startsWith("H1") ? "text-neutral-900 font-medium" : "text-neutral-500 pl-3"
+                    h.startsWith("H1") ? "text-foreground font-medium" : "text-muted-foreground pl-3"
                   )}
                 >
                   {h}
@@ -116,9 +116,9 @@ export function ScrapingVisual() {
         ))}
       </div>
 
-      <div className="mt-4 pt-3 border-t border-neutral-100 text-[12px] text-neutral-500">
-        <span className="text-neutral-900 font-medium">3 pagine</span> estratte · Convertite in{" "}
-        <span className="text-neutral-900 font-medium">Markdown</span>
+      <div className="mt-4 pt-3 border-t border-border text-[12px] text-muted-foreground">
+        <span className="text-foreground font-medium">3 pagine</span> estratte · Convertite in{" "}
+        <span className="text-foreground font-medium">Markdown</span>
       </div>
     </div>
   )
@@ -153,10 +153,10 @@ export function PatternDetectionVisual() {
     <div className="h-full bg-background p-6 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
-        <div className="text-[11px] text-neutral-400 uppercase tracking-wider">Pattern identificati</div>
+        <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Pattern identificati</div>
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-500" />
-          <span className="text-[12px] text-neutral-500">Analisi AI</span>
+          <span className="text-[12px] text-muted-foreground">Analisi AI</span>
         </div>
       </div>
 
@@ -165,15 +165,15 @@ export function PatternDetectionVisual() {
         {metrics.map((metric) => (
           <div
             key={metric.label}
-            className="p-2.5 rounded-lg border bg-neutral-50 border-neutral-200"
+            className="p-2.5 rounded-lg border bg-muted/50 border-border"
           >
-            <div className="text-[10px] uppercase tracking-wider mb-1 text-neutral-500">
+            <div className="text-[10px] uppercase tracking-wider mb-1 text-muted-foreground">
               {metric.label}
             </div>
-            <div className="text-[16px] font-medium text-neutral-900">
+            <div className="text-[16px] font-medium text-foreground">
               {metric.value}
             </div>
-            <div className="text-[10px] text-neutral-500">
+            <div className="text-[10px] text-muted-foreground">
               {metric.detail}
             </div>
           </div>
@@ -184,12 +184,12 @@ export function PatternDetectionVisual() {
       <div className="grid grid-cols-2 gap-4">
         {/* Topic comuni */}
         <div>
-          <div className="text-[11px] text-neutral-400 uppercase tracking-wider mb-2">Topic ricorrenti</div>
+          <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2">Topic ricorrenti</div>
           <div className="space-y-1.5">
             {commonTopics.map((topic) => (
               <div key={topic.name} className="flex items-center justify-between text-[12px]">
-                <span className="text-neutral-700 truncate">{topic.name}</span>
-                <span className="text-neutral-400 ml-2">{topic.frequency}</span>
+                <span className="text-foreground truncate">{topic.name}</span>
+                <span className="text-muted-foreground ml-2">{topic.frequency}</span>
               </div>
             ))}
           </div>
@@ -197,10 +197,10 @@ export function PatternDetectionVisual() {
 
         {/* Struttura tipica */}
         <div>
-          <div className="text-[11px] text-neutral-400 uppercase tracking-wider mb-2">Struttura heading</div>
+          <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-2">Struttura heading</div>
           <div className="space-y-1.5">
             {typicalStructure.map((heading, idx) => (
-              <div key={idx} className="text-[12px] text-neutral-700">
+              <div key={idx} className="text-[12px] text-foreground">
                 {heading}
               </div>
             ))}
@@ -226,13 +226,13 @@ export function ContentGenerationVisual() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-500" />
-          <span className="text-[12px] text-neutral-500">Generazione completata</span>
+          <span className="text-[12px] text-muted-foreground">Generazione completata</span>
         </div>
         <div className="flex gap-1">
           {sections.map((_, idx) => (
             <div
               key={idx}
-              className="w-8 h-1 rounded-full bg-neutral-900"
+              className="w-8 h-1 rounded-full bg-foreground"
             />
           ))}
         </div>

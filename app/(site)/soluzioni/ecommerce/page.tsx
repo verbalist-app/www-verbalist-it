@@ -2,6 +2,7 @@ import { Package, ShoppingBag, TrendingUp, FileText, Search, BarChart3 } from "l
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
@@ -63,6 +64,8 @@ export default function EcommercePage() {
         description="Analisi SERP per capire cosa funziona. Contenuti strutturati per Google, ChatGPT e Perplexity."
         items={features}
       />
+
+      <Testimonials className="border-t" />
 
       <SubPageCTA />
     </>

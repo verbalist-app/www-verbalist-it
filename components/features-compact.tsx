@@ -35,7 +35,7 @@ export function FeaturesCompact() {
                         >
                             <div className="flex items-center gap-3">
                                 <div className="flex size-10 items-center justify-center rounded-lg bg-muted group-hover:bg-primary/10 transition-colors">
-                                    <feature.icon className="size-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                                    <feature.icon className="size-5 transition-colors" style={{ color: '#473424' }} />
                                 </div>
                                 <h3 className="font-medium">{feature.title}</h3>
                             </div>

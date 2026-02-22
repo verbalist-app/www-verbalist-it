@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
 
@@ -86,6 +87,8 @@ export default function EnterprisePage() {
         description="Interfaccia semplice, analisi automatica, contenuti strutturati per essere citati dagli assistenti AI."
         columns={featureColumns}
       />
+
+      <Testimonials className="border-t" />
 
       <SubPageCTA
         title="Vuoi vederlo in azione?"

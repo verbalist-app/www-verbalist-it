@@ -23,32 +23,91 @@ import {
 import { cn } from '@/lib/utils'
 import { LanguageSwitcher } from '@/components/language-switcher'
 
-const soluzioni = [
-    { title: "Agenzie", href: "/soluzioni/agenzie", icon: Building2 },
-    { title: "SEO Specialist", href: "/soluzioni/team-seo", icon: Users },
-    { title: "Content Creator", href: "/soluzioni/team-marketing", icon: Megaphone },
-    { title: "Startup e PMI", href: "/soluzioni/enterprise", icon: Landmark },
-    { title: "Ecommerce", href: "/soluzioni/ecommerce", icon: ShoppingCart },
-    { title: "AI Strategist", href: "/soluzioni/ai-strategist", icon: Sparkles },
-]
+type Locale = 'it' | 'en'
 
-const funzionalita = [
-    { title: "Analisi SERP", href: "/piattaforma/analisi-serp", icon: Search },
-    { title: "Scraping Competitor", href: "/piattaforma/scraping-competitor", icon: Download },
-    { title: "Analisi Pattern", href: "/piattaforma/analisi-pattern", icon: BarChart3 },
-    { title: "Generazione Contenuto", href: "/piattaforma/generazione-contenuto", icon: FileText },
-]
+const content = {
+    it: {
+        solutions: [
+            { title: "Agenzie", href: "/soluzioni/agenzie", icon: Building2 },
+            { title: "SEO Specialist", href: "/soluzioni/team-seo", icon: Users },
+            { title: "Content Creator", href: "/soluzioni/team-marketing", icon: Megaphone },
+            { title: "Startup e PMI", href: "/soluzioni/enterprise", icon: Landmark },
+            { title: "Ecommerce", href: "/soluzioni/ecommerce", icon: ShoppingCart },
+            { title: "AI Strategist", href: "/soluzioni/ai-strategist", icon: Sparkles },
+        ],
+        features: [
+            { title: "Analisi SERP", href: "/piattaforma/analisi-serp", icon: Search },
+            { title: "Scraping Competitor", href: "/piattaforma/scraping-competitor", icon: Download },
+            { title: "Analisi Pattern", href: "/piattaforma/analisi-pattern", icon: BarChart3 },
+            { title: "Generazione Contenuto", href: "/piattaforma/generazione-contenuto", icon: FileText },
+        ],
+        resources: [
+            { title: "Blog", href: "/blog", icon: BookOpen },
+            { title: "Changelog", href: "/changelog", icon: History },
+            { title: "Guide", href: "/guide", icon: GraduationCap },
+            { title: "FAQ", href: "/faq", icon: HelpCircle },
+        ],
+        labels: {
+            platform: "Piattaforma",
+            solutions: "Soluzioni",
+            resources: "Risorse",
+            pricing: "Prezzi",
+            bookDemo: "Prenota una demo",
+            openMenu: "Apri Menu",
+            closeMenu: "Chiudi Menu",
+            signIn: "Accedi",
+            getStarted: "Inizia ora",
+        },
+        basePath: "",
+        pricingHref: "/prezzi",
+        bookDemoHref: "/prenota-demo",
+    },
+    en: {
+        solutions: [
+            { title: "Agencies", href: "/en/solutions/agencies", icon: Building2 },
+            { title: "SEO Specialist", href: "/en/solutions/seo-teams", icon: Users },
+            { title: "Content Creator", href: "/en/solutions/marketing-teams", icon: Megaphone },
+            { title: "Startups & SMBs", href: "/en/solutions/enterprise", icon: Landmark },
+            { title: "Ecommerce", href: "/en/solutions/ecommerce", icon: ShoppingCart },
+            { title: "AI Strategist", href: "/en/solutions/ai-strategist", icon: Sparkles },
+        ],
+        features: [
+            { title: "SERP Analysis", href: "/en/platform/serp-analysis", icon: Search },
+            { title: "Competitor Scraping", href: "/en/platform/competitor-scraping", icon: Download },
+            { title: "Pattern Analysis", href: "/en/platform/pattern-analysis", icon: BarChart3 },
+            { title: "Content Generation", href: "/en/platform/content-generation", icon: FileText },
+        ],
+        resources: [
+            { title: "Blog", href: "/en/blog", icon: BookOpen },
+            { title: "Changelog", href: "/en/changelog", icon: History },
+            { title: "Docs", href: "/en/docs", icon: GraduationCap },
+            { title: "FAQ", href: "/en/faq", icon: HelpCircle },
+        ],
+        labels: {
+            platform: "Platform",
+            solutions: "Solutions",
+            resources: "Resources",
+            pricing: "Pricing",
+            bookDemo: "Book a demo",
+            openMenu: "Open Menu",
+            closeMenu: "Close Menu",
+            signIn: "Sign in",
+            getStarted: "Get started",
+        },
+        basePath: "/en",
+        pricingHref: "/en/pricing",
+        bookDemoHref: "/en/book-demo",
+    },
+} as const
 
-const risorse = [
-    { title: "Blog", href: "/blog", icon: BookOpen },
-    { title: "Changelog", href: "/changelog", icon: History },
-    { title: "Guide", href: "/guide", icon: GraduationCap },
-    { title: "FAQ", href: "/faq", icon: HelpCircle },
-]
+interface HeroHeaderProps {
+    locale?: Locale
+}
 
-export const HeroHeader = () => {
+export const HeroHeader = ({ locale = 'it' }: HeroHeaderProps) => {
     const [menuState, setMenuState] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
+    const t = content[locale]
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -62,12 +121,12 @@ export const HeroHeader = () => {
         <header>
             <nav
                 data-state={menuState && 'active'}
-                className="fixed z-20 w-full px-2">
-                <div className={cn('mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12', isScrolled && 'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5')}>
-                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
-                        <div className="flex w-full justify-between lg:w-auto">
+                className={cn('fixed z-20 w-full transition-all duration-300', isScrolled && 'bg-background/75 border-b border-black/5 backdrop-blur-lg')}>
+                <div className="mx-auto max-w-5xl px-6">
+                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-6 lg:gap-0">
+                        <div className="flex w-full justify-between gap-6 lg:w-auto">
                             <Link
-                                href="/"
+                                href={t.basePath || "/"}
                                 aria-label="home"
                                 className="flex items-center space-x-2">
                                 <Logo />
@@ -75,13 +134,13 @@ export const HeroHeader = () => {
 
                             <div className="flex items-center gap-2 lg:hidden">
                                 <Button asChild size="sm">
-                                    <Link href="/prenota-demo">
-                                        <span>Inizia ora</span>
+                                    <Link href={t.bookDemoHref}>
+                                        <span>{t.labels.getStarted}</span>
                                     </Link>
                                 </Button>
                                 <button
                                     onClick={() => setMenuState(!menuState)}
-                                    aria-label={menuState == true ? 'Chiudi Menu' : 'Apri Menu'}
+                                    aria-label={menuState ? t.labels.closeMenu : t.labels.openMenu}
                                     className="relative z-20 -m-2.5 block cursor-pointer p-2.5">
                                     <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
                                     <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
@@ -93,14 +152,13 @@ export const HeroHeader = () => {
                         <div className="absolute inset-0 m-auto hidden size-fit lg:block">
                             <NavigationMenu viewport={false}>
                                 <NavigationMenuList>
-                                    {/* Piattaforma */}
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger>Piattaforma</NavigationMenuTrigger>
+                                        <NavigationMenuTrigger>{t.labels.platform}</NavigationMenuTrigger>
                                         <NavigationMenuContent>
                                             <div className="w-[250px] p-4">
-                                                <div className="mb-2 px-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">Piattaforma</div>
+                                                <div className="mb-2 px-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.labels.platform}</div>
                                                 <ul>
-                                                    {funzionalita.map((item) => (
+                                                    {t.features.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
                                                                 <Link href={item.href} className="flex-row items-center gap-2">
@@ -115,13 +173,12 @@ export const HeroHeader = () => {
                                         </NavigationMenuContent>
                                     </NavigationMenuItem>
 
-                                    {/* Soluzioni */}
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger>Soluzioni</NavigationMenuTrigger>
+                                        <NavigationMenuTrigger>{t.labels.solutions}</NavigationMenuTrigger>
                                         <NavigationMenuContent>
                                             <div className="w-[220px] p-4">
                                                 <ul>
-                                                    {soluzioni.map((item) => (
+                                                    {t.solutions.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
                                                                 <Link href={item.href} className="flex-row items-center gap-2">
@@ -136,13 +193,12 @@ export const HeroHeader = () => {
                                         </NavigationMenuContent>
                                     </NavigationMenuItem>
 
-                                    {/* Risorse */}
                                     <NavigationMenuItem>
-                                        <NavigationMenuTrigger>Risorse</NavigationMenuTrigger>
+                                        <NavigationMenuTrigger>{t.labels.resources}</NavigationMenuTrigger>
                                         <NavigationMenuContent>
                                             <div className="w-[220px] p-4">
                                                 <ul>
-                                                    {risorse.map((item) => (
+                                                    {t.resources.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
                                                                 <Link href={item.href} className="flex-row items-center gap-2">
@@ -157,36 +213,34 @@ export const HeroHeader = () => {
                                         </NavigationMenuContent>
                                     </NavigationMenuItem>
 
-                                    {/* Prezzi */}
                                     <NavigationMenuItem>
                                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                            <Link href="/prezzi">Prezzi</Link>
+                                            <Link href={t.pricingHref}>{t.labels.pricing}</Link>
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
 
-                                    {/* Prenota una demo */}
                                     <NavigationMenuItem>
                                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                            <Link href="/prenota-demo">Prenota una demo</Link>
+                                            <Link href={t.bookDemoHref}>{t.labels.bookDemo}</Link>
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
                                 </NavigationMenuList>
                             </NavigationMenu>
                         </div>
 
-                        {/* Mobile Menu + CTA Buttons */}
-                        <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-lg shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
+                        {/* Mobile Menu + Desktop CTA */}
+                        <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
                             <div className="lg:hidden w-full">
                                 <Accordion type="single" collapsible className="w-full">
-                                    <AccordionItem value="piattaforma" className="border-b-0">
+                                    <AccordionItem value="platform" className="border-b-0">
                                         <AccordionTrigger className="py-3 text-base font-medium hover:no-underline">
-                                            Piattaforma
+                                            {t.labels.platform}
                                         </AccordionTrigger>
                                         <AccordionContent>
                                             <ul className="space-y-3 pl-2 pb-2">
-                                                {funzionalita.map((item) => (
+                                                {t.features.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block py-1 duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -194,15 +248,15 @@ export const HeroHeader = () => {
                                             </ul>
                                         </AccordionContent>
                                     </AccordionItem>
-                                    <AccordionItem value="soluzioni" className="border-b-0">
+                                    <AccordionItem value="solutions" className="border-b-0">
                                         <AccordionTrigger className="py-3 text-base font-medium hover:no-underline">
-                                            Soluzioni
+                                            {t.labels.solutions}
                                         </AccordionTrigger>
                                         <AccordionContent>
                                             <ul className="space-y-3 pl-2 pb-2">
-                                                {soluzioni.map((item) => (
+                                                {t.solutions.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block py-1 duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -210,15 +264,15 @@ export const HeroHeader = () => {
                                             </ul>
                                         </AccordionContent>
                                     </AccordionItem>
-                                    <AccordionItem value="risorse" className="border-b-0">
+                                    <AccordionItem value="resources" className="border-b-0">
                                         <AccordionTrigger className="py-3 text-base font-medium hover:no-underline">
-                                            Risorse
+                                            {t.labels.resources}
                                         </AccordionTrigger>
                                         <AccordionContent>
                                             <ul className="space-y-3 pl-2 pb-2">
-                                                {risorse.map((item) => (
+                                                {t.resources.map((item) => (
                                                     <li key={item.href}>
-                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                        <Link href={item.href} onClick={() => setMenuState(false)} className="text-muted-foreground hover:text-accent-foreground block py-1 duration-150">
                                                             {item.title}
                                                         </Link>
                                                     </li>
@@ -228,18 +282,18 @@ export const HeroHeader = () => {
                                     </AccordionItem>
                                 </Accordion>
                                 <div className="mt-4 space-y-3">
-                                    <Link href="/prezzi" onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
-                                        Prezzi
+                                    <Link href={t.pricingHref} onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
+                                        {t.labels.pricing}
                                     </Link>
-                                    <Link href="/prenota-demo" onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
-                                        Prenota una demo
+                                    <Link href={t.bookDemoHref} onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
+                                        {t.labels.bookDemo}
                                     </Link>
                                 </div>
                                 <div className="mt-6 pt-4 border-t flex items-center justify-between gap-4">
                                     <LanguageSwitcher variant="header" />
                                     <Button asChild variant="outline" size="sm" className="flex-1">
                                         <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
-                                            <span>Accedi</span>
+                                            <span>{t.labels.signIn}</span>
                                         </a>
                                     </Button>
                                 </div>
@@ -248,27 +302,27 @@ export const HeroHeader = () => {
                                 <LanguageSwitcher variant="header" />
                                 <Button
                                     asChild
-                                    variant="outline"
+                                    variant="ghost"
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
                                     <a href="https://app.verbalist.it" target="_blank" rel="noopener noreferrer">
-                                        <span>Accedi</span>
+                                        <span>{t.labels.signIn}</span>
                                     </a>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/prenota-demo">
-                                        <span>Inizia ora</span>
+                                    <Link href={t.bookDemoHref}>
+                                        <span>{t.labels.getStarted}</span>
                                     </Link>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="/prenota-demo">
-                                        <span>Inizia ora</span>
+                                    <Link href={t.bookDemoHref}>
+                                        <span>{t.labels.getStarted}</span>
                                     </Link>
                                 </Button>
                             </div>

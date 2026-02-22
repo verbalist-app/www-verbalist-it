@@ -25,27 +25,27 @@ export default function TerminiPage() {
       <section className="pt-20 md:pt-28 pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <div className="mb-12">
-            <h1 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground mb-6">
+            <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter text-foreground mb-6">
               Termini di servizio
             </h1>
           </div>
 
         <div className="prose prose-neutral max-w-none space-y-8">
           <section>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               I presenti Termini di Servizio (di seguito, "Termini") regolano l'accesso e l'utilizzo della piattaforma Verbalist (di seguito, il "Servizio"), fornita da NUR S.r.l., con sede legale in San Giorgio Bigarello (MN), Via del Commercio 1/N, P.IVA 01902640208 (di seguito, "NUR" o il "Fornitore").
             </p>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Utilizzando il Servizio, l'utente accetta integralmente i presenti Termini. Se non si accettano i Termini, si prega di non utilizzare il Servizio.
             </p>
           </section>
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">1. Descrizione del Servizio</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Verbalist è una piattaforma di SEO automation che utilizza intelligenza artificiale per:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Analizzare i risultati di ricerca (SERP) per keyword specifiche</li>
               <li>Estrarre e analizzare contenuti dei competitor</li>
               <li>Identificare pattern di successo nei contenuti posizionati</li>
@@ -56,10 +56,10 @@ export default function TerminiPage() {
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">2. Registrazione e Account</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Per utilizzare il Servizio è necessario creare un account fornendo informazioni accurate e complete. L'utente è responsabile di:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Mantenere la riservatezza delle credenziali di accesso</li>
               <li>Tutte le attività che avvengono tramite il proprio account</li>
               <li>Notificare immediatamente qualsiasi uso non autorizzato dell'account</li>
@@ -68,10 +68,10 @@ export default function TerminiPage() {
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">3. Utilizzo del Servizio</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               L'utente si impegna a utilizzare il Servizio in modo lecito e conforme ai presenti Termini. È vietato:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Utilizzare il Servizio per scopi illegali o non autorizzati</li>
               <li>Violare diritti di proprietà intellettuale di terzi</li>
               <li>Generare contenuti diffamatori, offensivi o illeciti</li>
@@ -83,20 +83,20 @@ export default function TerminiPage() {
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">4. Proprietà intellettuale</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Il Servizio, inclusi software, algoritmi, interfaccia, documentazione e marchi, sono di proprietà esclusiva di NUR o dei suoi licenzianti e sono protetti dalle leggi sulla proprietà intellettuale.
             </p>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               I contenuti generati dal Servizio su richiesta dell'utente sono di proprietà dell'utente stesso, che ne assume la piena responsabilità per l'utilizzo e la pubblicazione.
             </p>
           </section>
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">5. Contenuti generati</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               L'utente riconosce e accetta che:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>I contenuti sono generati tramite intelligenza artificiale e potrebbero richiedere revisione</li>
               <li>NUR non garantisce il posizionamento nei motori di ricerca</li>
               <li>L'utente è responsabile della verifica dell'accuratezza dei contenuti prima della pubblicazione</li>
@@ -106,10 +106,10 @@ export default function TerminiPage() {
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">6. Pagamenti e abbonamenti</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               L'accesso al Servizio può essere soggetto al pagamento di un corrispettivo secondo i piani tariffari pubblicati sul sito. I pagamenti sono:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Dovuti anticipatamente secondo la periodicità scelta (mensile o annuale)</li>
               <li>Non rimborsabili, salvo quanto previsto dalla legge</li>
               <li>Soggetti a rinnovo automatico salvo disdetta</li>
@@ -118,10 +118,10 @@ export default function TerminiPage() {
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">7. Limitazione di responsabilità</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Nei limiti consentiti dalla legge applicabile:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Il Servizio è fornito "così com'è" senza garanzie di alcun tipo</li>
               <li>NUR non garantisce risultati specifici di posizionamento SEO</li>
               <li>NUR non è responsabile per danni indiretti, incidentali o consequenziali</li>
@@ -131,10 +131,10 @@ export default function TerminiPage() {
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">8. Sospensione e risoluzione</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               NUR si riserva il diritto di sospendere o terminare l'accesso al Servizio in caso di:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Violazione dei presenti Termini</li>
               <li>Mancato pagamento</li>
               <li>Uso improprio o abusivo del Servizio</li>
@@ -144,21 +144,21 @@ export default function TerminiPage() {
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">9. Modifiche ai Termini</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               NUR si riserva il diritto di modificare i presenti Termini in qualsiasi momento. Le modifiche saranno comunicate tramite il sito web o via email. L'uso continuato del Servizio dopo la comunicazione delle modifiche costituisce accettazione dei nuovi Termini.
             </p>
           </section>
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">10. Legge applicabile e foro competente</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               I presenti Termini sono regolati dalla legge italiana. Per qualsiasi controversia derivante dai presenti Termini o dall'utilizzo del Servizio sarà competente in via esclusiva il Foro di Mantova, salvo i casi in cui la legge preveda un foro inderogabile a favore del consumatore.
             </p>
           </section>
 
           <section>
             <h3 className="text-sm font-medium text-foreground mb-3">11. Contatti</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Per qualsiasi domanda relativa ai presenti Termini, è possibile contattare NUR all'indirizzo email info@nur.it o all'indirizzo Via del Commercio 1/N, San Giorgio Bigarello (MN).
             </p>
           </section>

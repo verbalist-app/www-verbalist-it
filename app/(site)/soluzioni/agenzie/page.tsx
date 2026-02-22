@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
 
@@ -86,6 +87,8 @@ export default function AgenziePage() {
         description="Organizza progetti, analizza competitor e genera contenuti strutturati per la ricerca AI. Per ogni account."
         columns={featureColumns}
       />
+
+      <Testimonials className="border-t" />
 
       <SubPageCTA />
     </>

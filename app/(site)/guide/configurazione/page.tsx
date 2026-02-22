@@ -38,7 +38,7 @@ export default function ConfigurazionePage() {
       />
       <section className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Configurazione
           </h1>
           <p className="text-base text-muted-foreground mb-8">

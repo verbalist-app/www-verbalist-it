@@ -47,7 +47,7 @@ export default async function BlogPage() {
           <Badge variant="secondary" className="mb-4">
             Risorse
           </Badge>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Blog
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">

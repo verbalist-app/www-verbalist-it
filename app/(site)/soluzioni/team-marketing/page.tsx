@@ -2,7 +2,8 @@ import { FileText, Palette, PenTool, Target, Layers, RefreshCw } from "lucide-re
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import { FeatureGrid } from "@/components/feature-grid"
+import Testimonials from "@/components/testimonials-4"
+import { Feature2 } from "@/components/feature-2"
 
 export const metadata: Metadata = {
   title: "Contenuti GEO per Content Creator",
@@ -58,11 +59,14 @@ export default function TeamMarketingPage() {
         description="L'analisi SERP e l'estrazione dei pattern sono automatiche. Tu ricevi bozze con struttura semantica ottimizzata per la visibilità su Google, ChatGPT, Perplexity e AI Overview."
       />
 
-      <FeatureGrid
+      <Feature2
         title="Contenuti per ogni formato, ottimizzati per la GEO"
         description="Blog post, landing page, guide. Ogni formato con la struttura ottimale per essere indicizzato e citato nella ricerca AI."
         items={features}
+        className="border-t"
       />
+
+      <Testimonials className="border-t" />
 
       <SubPageCTA />
     </>
