@@ -93,7 +93,7 @@ export default function PrenotaDemoPage() {
                 />
                 <label
                   htmlFor="privacy-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                  className="text-xs leading-relaxed text-muted-foreground cursor-pointer"
                 >
                   Ho letto e accetto l&apos;
                   <Link href="/privacy-policy" target="_blank" className="underline text-foreground/90 hover:text-foreground">
@@ -112,7 +112,7 @@ export default function PrenotaDemoPage() {
                 />
                 <label
                   htmlFor="marketing-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                  className="text-xs leading-relaxed text-muted-foreground cursor-pointer"
                 >
                   Acconsento al trattamento dei miei dati personali per finalità di marketing diretto, incluso l&apos;invio di comunicazioni commerciali, newsletter e materiale pubblicitario, come descritto al punto 3a) dell&apos;Informativa Privacy.
                 </label>
@@ -126,7 +126,7 @@ export default function PrenotaDemoPage() {
                 />
                 <label
                   htmlFor="profiling-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                  className="text-xs leading-relaxed text-muted-foreground cursor-pointer"
                 >
                   Acconsento al trattamento dei miei dati personali per attività di profilazione, al fine di ricevere servizi e comunicazioni personalizzate, come descritto al punto 3b) dell&apos;Informativa Privacy.
                 </label>

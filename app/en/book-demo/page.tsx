@@ -147,7 +147,7 @@ export default function BookDemoPage() {
                 />
                 <label
                   htmlFor="privacy-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                  className="text-xs leading-relaxed text-muted-foreground cursor-pointer"
                 >
                   I have read and accept the{" "}
                   <Link href="/en/privacy-policy" target="_blank" className="underline text-foreground/90 hover:text-foreground">
@@ -166,7 +166,7 @@ export default function BookDemoPage() {
                 />
                 <label
                   htmlFor="marketing-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                  className="text-xs leading-relaxed text-muted-foreground cursor-pointer"
                 >
                   I consent to the processing of my personal data for direct marketing purposes, including commercial communications, newsletters and advertising material, as described in section 3a) of the Privacy Policy.
                 </label>
@@ -180,7 +180,7 @@ export default function BookDemoPage() {
                 />
                 <label
                   htmlFor="profiling-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                  className="text-xs leading-relaxed text-muted-foreground cursor-pointer"
                 >
                   I consent to the processing of my personal data for profiling activities, in order to receive personalized services and communications, as described in section 3b) of the Privacy Policy.
                 </label>

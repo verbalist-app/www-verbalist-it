@@ -25,7 +25,7 @@ export function WorkflowSteps({ title, description, steps, className }: Workflow
         )}
         <div className="relative">
           {/* Connector line */}
-          <div className="absolute left-5 top-0 bottom-0 w-px bg-border" />
+          <div className="absolute left-5 top-0 bottom-10 w-px bg-border" />
 
           <div className="space-y-8">
             {steps.map((step) => (

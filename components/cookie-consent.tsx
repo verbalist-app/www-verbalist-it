@@ -26,6 +26,7 @@ const translations = {
     title: "Utilizziamo i cookie",
     description: "Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito.",
     managePreferences: "Gestisci preferenze",
+    back: "Torna indietro",
     declineAll: "Rifiuta",
     acceptAll: "Accetta tutti",
     savePreferences: "Salva preferenze",
@@ -42,6 +43,7 @@ const translations = {
     title: "We use cookies",
     description: "We use cookies to improve your experience on our website.",
     managePreferences: "Manage preferences",
+    back: "Go back",
     declineAll: "Decline",
     acceptAll: "Accept all",
     savePreferences: "Save preferences",
@@ -258,9 +260,10 @@ export function CookieConsent({
                   variant="outline"
                   size="sm"
                   onClick={() => setShowPreferences(false)}
+                  aria-label={t.back}
                   className="text-xs h-8"
                 >
-                  ←
+                  <span aria-hidden="true">{'←'}</span>
                 </Button>
                 <Button
                   size="sm"

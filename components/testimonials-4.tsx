@@ -69,7 +69,7 @@ export default function Testimonials({ className, locale = 'it', testimonials }:
       setCurrent((prev) => (prev + 1) % items.length)
     }, 5000)
     return () => clearInterval(interval)
-  }, [items.length])
+  }, [items.length, current])
 
   const t = items[current]
 
@@ -108,6 +108,21 @@ export default function Testimonials({ className, locale = 'it', testimonials }:
                 </div>
               </motion.div>
             </AnimatePresence>
+          </div>
+          {/* Dot indicators */}
+          <div className="mt-6 flex items-center justify-center gap-2">
+            {items.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                aria-label={`Testimonial ${i + 1}`}
+                className={`size-2 rounded-full transition-all duration-300 ${
+                  i === current
+                    ? 'bg-foreground scale-125'
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -161,7 +161,7 @@ export const HeroHeader = ({ locale = 'it' }: HeroHeaderProps) => {
                                                     {t.features.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
-                                                                <Link href={item.href} className="flex-row items-center gap-2">
+                                                                <Link href={item.href} className="flex items-center gap-2">
                                                                     <item.icon className="size-4" />
                                                                     {item.title}
                                                                 </Link>
@@ -181,7 +181,7 @@ export const HeroHeader = ({ locale = 'it' }: HeroHeaderProps) => {
                                                     {t.solutions.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
-                                                                <Link href={item.href} className="flex-row items-center gap-2">
+                                                                <Link href={item.href} className="flex items-center gap-2">
                                                                     <item.icon className="size-4" />
                                                                     {item.title}
                                                                 </Link>
@@ -201,7 +201,7 @@ export const HeroHeader = ({ locale = 'it' }: HeroHeaderProps) => {
                                                     {t.resources.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
-                                                                <Link href={item.href} className="flex-row items-center gap-2">
+                                                                <Link href={item.href} className="flex items-center gap-2">
                                                                     <item.icon className="size-4" />
                                                                     {item.title}
                                                                 </Link>
@@ -281,7 +281,7 @@ export const HeroHeader = ({ locale = 'it' }: HeroHeaderProps) => {
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                                <div className="mt-4 space-y-3">
+                                <div className="mt-4 space-y-3 border-t pt-4">
                                     <Link href={t.pricingHref} onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
                                         {t.labels.pricing}
                                     </Link>

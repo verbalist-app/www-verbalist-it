@@ -152,7 +152,7 @@ export const BoxedHeader = ({ locale = 'it' }: BoxedHeaderProps) => {
                                                     {t.features.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
-                                                                <Link href={item.href} className="flex-row items-center gap-2">
+                                                                <Link href={item.href} className="flex items-center gap-2">
                                                                     <item.icon className="size-4" />
                                                                     {item.title}
                                                                 </Link>
@@ -173,7 +173,7 @@ export const BoxedHeader = ({ locale = 'it' }: BoxedHeaderProps) => {
                                                     {t.solutions.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
-                                                                <Link href={item.href} className="flex-row items-center gap-2">
+                                                                <Link href={item.href} className="flex items-center gap-2">
                                                                     <item.icon className="size-4" />
                                                                     {item.title}
                                                                 </Link>
@@ -194,7 +194,7 @@ export const BoxedHeader = ({ locale = 'it' }: BoxedHeaderProps) => {
                                                     {t.resources.map((item) => (
                                                         <li key={item.href}>
                                                             <NavigationMenuLink asChild>
-                                                                <Link href={item.href} className="flex-row items-center gap-2">
+                                                                <Link href={item.href} className="flex items-center gap-2">
                                                                     <item.icon className="size-4" />
                                                                     {item.title}
                                                                 </Link>
@@ -276,7 +276,7 @@ export const BoxedHeader = ({ locale = 'it' }: BoxedHeaderProps) => {
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                                <div className="mt-4 space-y-3">
+                                <div className="mt-4 space-y-3 border-t pt-4">
                                     <Link href={t.pricingHref} onClick={() => setMenuState(false)} className="text-foreground font-medium block py-2">
                                         {t.labels.pricing}
                                     </Link>

@@ -60,7 +60,7 @@ export default async function BlogPage() {
             {sortedPosts.map((post) => (
               <Card
                 key={post.slug}
-                className="grid grid-rows-[auto_auto_1fr_auto] overflow-hidden pt-0"
+                className="grid grid-rows-[auto_auto_1fr_auto] overflow-hidden pt-0 transition-shadow duration-200 hover:shadow-md"
               >
                 <div className="aspect-[16/9] w-full">
                   <Link

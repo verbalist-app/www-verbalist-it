@@ -190,7 +190,7 @@ export function Footer({ locale = 'it' }: FooterProps) {
       {/* Bottom bar */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-6xl px-6 lg:px-12">
-          <div className="flex flex-col items-center gap-4 py-6 sm:flex-row sm:justify-between">
+          <div className="flex flex-col items-center gap-5 py-6 sm:flex-row sm:justify-between sm:gap-4">
             {/* Manage cookies */}
             <button
               onClick={() => {

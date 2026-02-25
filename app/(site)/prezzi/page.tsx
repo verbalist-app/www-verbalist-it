@@ -90,7 +90,7 @@ export default function PrezziPage() {
           </div>
 
           {/* CTA for custom plans */}
-          <div className="mt-16 text-center">
+          <div className="mt-16 rounded-xl border border-border bg-muted/50 p-8 text-center">
             <p className="text-base font-medium mb-2">
               Servono più crediti o un piano personalizzato?
             </p>

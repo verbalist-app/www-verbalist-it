@@ -18,7 +18,7 @@ export default function LogoCloud({ className }: LogoCloudProps) {
   return (
     <section className={`bg-background @container py-12 ${className ?? ''}`}>
       <div className="mx-auto max-w-4xl px-6">
-        <div className="flex flex-wrap items-center justify-between gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-8 md:justify-between">
           {logos.map((logo) => (
             <div
               key={logo.name}

@@ -25,7 +25,7 @@ export function HighlightBlock({
           "flex flex-col items-center gap-8 md:gap-12",
           reverse ? "md:flex-row-reverse" : "md:flex-row"
         )}>
-          <div className="flex-1 space-y-4">
+          <div className="flex-1 space-y-5">
             {Icon && (
               <Icon className="size-5" strokeWidth={1.5} style={{ color: '#473424' }} />
             )}

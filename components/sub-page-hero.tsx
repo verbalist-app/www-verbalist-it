@@ -66,17 +66,17 @@ export function SubPageHero({
               {description}
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              {secondaryCta && (
-                <Button asChild variant="ghost" size="sm">
-                  <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
-                </Button>
-              )}
               <Button asChild className="pr-1.5">
                 <Link href={cta.href}>
                   <span className="text-nowrap">{cta.text}</span>
                   <ChevronRight className="opacity-50" />
                 </Link>
               </Button>
+              {secondaryCta && (
+                <Button asChild variant="ghost" size="sm">
+                  <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>
