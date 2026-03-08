@@ -2,7 +2,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { HeroHeader } from "@/components/header"
 import { ChevronRight, MessageCircle, Plus, Search, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -10,7 +9,6 @@ type Locale = "it" | "en"
 
 interface HeroSectionProps {
   className?: string
-  showHeader?: boolean
   locale?: Locale
 }
 
@@ -63,16 +61,13 @@ const heroContent = {
 
 export function HeroSection({
   className,
-  showHeader = true,
   locale = "it",
 }: HeroSectionProps) {
   const t = heroContent[locale]
 
   return (
-    <>
-      {showHeader && <HeroHeader />}
       <section className={cn("overflow-hidden bg-background", className)}>
-        <div className="relative py-40">
+        <div className="relative py-20 md:py-40">
             {/* Blurred background image */}
             <div className="mask-radial-from-45% mask-radial-to-75% mask-radial-at-top mask-radial-[75%_100%] absolute inset-0 aspect-2/3 opacity-75 blur-xl md:aspect-square lg:aspect-video dark:opacity-5">
               <Image
@@ -92,10 +87,10 @@ export function HeroSection({
                   <Badge variant="secondary" className="mb-4">
                     Verbalist®
                   </Badge>
-                  <h1 className="font-serif text-balance text-4xl font-medium sm:text-5xl">
+                  <h1 className="font-serif text-balance text-5xl font-medium tracking-tighter sm:text-6xl">
                     {t.h1}
                   </h1>
-                  <p className="text-muted-foreground mt-4 text-balance">
+                  <p className="text-muted-foreground mt-6 text-balance text-lg leading-relaxed">
                     {t.description}
                   </p>
                   <div className="mt-6 flex gap-3">
@@ -120,7 +115,7 @@ export function HeroSection({
                 {/* Right: scrolling query list */}
                 <div
                   aria-hidden
-                  className="mask-y-from-50% relative max-md:mx-auto max-md:*:scale-90"
+                  className="mask-y-from-50% relative max-md:mt-10 max-md:w-full max-md:scale-90 md:block"
                 >
                   {t.queries.map((query, index) => (
                     <div
@@ -155,6 +150,5 @@ export function HeroSection({
             </div>
           </div>
       </section>
-    </>
   )
 }

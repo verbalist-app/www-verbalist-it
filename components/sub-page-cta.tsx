@@ -25,12 +25,12 @@ export function SubPageCTA({
   className,
 }: SubPageCTAProps) {
   return (
-    <section className={cn("bg-background @container border-t py-24", className)}>
+    <section className={cn("bg-background @container border-t py-24 lg:py-32", className)}>
       <div className="mx-auto max-w-2xl px-6 text-center">
-        <h2 className="font-serif text-balance text-4xl font-medium">
+        <h2 className="font-serif text-balance text-3xl font-medium tracking-tight sm:text-4xl">
           {title}
         </h2>
-        <p className="text-muted-foreground mx-auto mt-4 max-w-md text-balance">
+        <p className="text-muted-foreground mx-auto mt-6 max-w-md text-balance text-base leading-relaxed">
           {description}
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">

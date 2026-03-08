@@ -7,7 +7,7 @@ interface StatsBarProps {
 
 export function StatsBar({ stats, className }: StatsBarProps) {
   return (
-    <section className={cn("border-t py-24", className)}>
+    <section className={cn("border-t py-24 lg:py-32", className)}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((stat, idx) => (

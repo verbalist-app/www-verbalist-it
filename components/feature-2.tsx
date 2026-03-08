@@ -16,12 +16,12 @@ interface Feature2Props {
 
 export function Feature2({ title, description, items, className }: Feature2Props) {
   return (
-    <section className={cn('bg-background py-24', className)}>
+    <section className={cn('border-t py-24 lg:py-32', className)}>
       <div className="mx-auto max-w-5xl px-6">
         {(title || description) && (
           <div className="text-center">
-            {title && <h2 className="text-balance font-serif text-4xl font-medium">{title}</h2>}
-            {description && <p className="text-muted-foreground mt-4 text-balance max-w-2xl mx-auto">{description}</p>}
+            {title && <h2 className="text-balance font-serif text-3xl font-medium tracking-tight sm:text-4xl">{title}</h2>}
+            {description && <p className="text-muted-foreground mt-6 text-balance text-base leading-relaxed max-w-2xl mx-auto">{description}</p>}
           </div>
         )}
         <div className={cn(
@@ -30,8 +30,8 @@ export function Feature2({ title, description, items, className }: Feature2Props
         )}>
           {items.map(({ icon: Icon, title: itemTitle, description: itemDesc }) => (
             <div key={itemTitle} className="relative border-t pt-6">
-              <Icon className="size-4" strokeWidth={1.5} style={{ color: '#473424' }} />
-              <h3 className="mt-3 text-sm font-medium">{itemTitle}</h3>
+              <Icon className="size-4 text-foreground" strokeWidth={1.5} />
+              <h3 className="mt-3 text-base font-medium">{itemTitle}</h3>
               <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{itemDesc}</p>
             </div>
           ))}

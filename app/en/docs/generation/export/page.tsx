@@ -19,7 +19,7 @@ export default function ExportPage() {
             Content Generation
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Final Export
           </h1>
           <p className="text-muted-foreground mb-8">
@@ -27,33 +27,33 @@ export default function ExportPage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="text-xl font-medium mt-8 mb-4">Markdown</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Markdown</h2>
+            <p className="text-muted-foreground mb-4">
               Verbalist's native format. Perfect for CMS supporting Markdown (Ghost, Hugo, Jekyll) or for importing into editors like Notion or Obsidian.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">HTML</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">HTML</h2>
+            <p className="text-muted-foreground mb-4">
               Markdown converted to clean HTML. Ready to paste into WordPress, Webflow, or any CMS with HTML editor. Maintains heading structure.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Plain Text</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Plain Text</h2>
+            <p className="text-muted-foreground mb-4">
               Text without formatting. Useful for Google Docs, Word, or when you need to format manually in your CMS.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">WordPress ready</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">WordPress ready</h2>
+            <p className="text-muted-foreground mb-4">
               HTML optimized for WordPress with Gutenberg blocks. Also includes title and meta description ready for Yoast or RankMath.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Copy to clipboard</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Copy to clipboard</h2>
+            <p className="text-muted-foreground mb-4">
               Button to copy directly. Content goes to clipboard in selected format, ready to paste where needed.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Download file</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Download file</h2>
+            <p className="text-muted-foreground mb-4">
               Download content as a file (.md, .html, .txt). Useful for archiving or for workflows starting from local files.
             </p>
           </div>

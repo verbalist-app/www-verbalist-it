@@ -59,11 +59,11 @@ export default function Features({ className, locale = 'it' }: FeaturesProps) {
   const t = featuresContent[locale]
 
   return (
-    <section className={cn('bg-background py-24', className)}>
-      <div className="mx-auto w-full max-w-4xl px-6">
+    <section className={cn('bg-background py-24 lg:py-32', className)}>
+      <div className="mx-auto w-full max-w-5xl px-6">
         <div>
-          <h2 className="font-serif text-balance text-4xl font-medium">{t.title}</h2>
-          <p className="text-muted-foreground mt-4 text-balance">{t.description}</p>
+          <h2 className="font-serif text-balance text-3xl font-medium tracking-tight sm:text-4xl">{t.title}</h2>
+          <p className="text-muted-foreground mt-6 text-balance text-base leading-relaxed">{t.description}</p>
         </div>
         <div className="mt-12 grid gap-12 sm:grid-cols-2">
           {/* Card grande — Analisi SERP */}
@@ -74,7 +74,7 @@ export default function Features({ className, locale = 'it' }: FeaturesProps) {
               </div>
             </Card>
             <div className="max-w-md">
-              <h3 className="text-foreground text-lg font-medium">{t.cards[0].title}</h3>
+              <h3 className="text-foreground text-base font-medium">{t.cards[0].title}</h3>
               <p className="text-muted-foreground mt-3 text-balance">{t.cards[0].description}</p>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function Features({ className, locale = 'it' }: FeaturesProps) {
               <ScrapingIllustration />
             </Card>
             <div>
-              <h3 className="text-foreground text-lg font-medium">{t.cards[1].title}</h3>
+              <h3 className="text-foreground text-base font-medium">{t.cards[1].title}</h3>
               <p className="text-muted-foreground mt-3 text-balance">{t.cards[1].description}</p>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function Features({ className, locale = 'it' }: FeaturesProps) {
               <PatternIllustration />
             </Card>
             <div>
-              <h3 className="text-foreground text-lg font-medium">{t.cards[2].title}</h3>
+              <h3 className="text-foreground text-base font-medium">{t.cards[2].title}</h3>
               <p className="text-muted-foreground mt-3 text-balance">{t.cards[2].description}</p>
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function Features({ className, locale = 'it' }: FeaturesProps) {
               </div>
             </Card>
             <div className="max-w-md">
-              <h3 className="text-foreground text-lg font-medium">{t.cards[3].title}</h3>
+              <h3 className="text-foreground text-base font-medium">{t.cards[3].title}</h3>
               <p className="text-muted-foreground mt-3 text-balance">{t.cards[3].description}</p>
             </div>
           </div>

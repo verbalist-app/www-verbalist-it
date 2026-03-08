@@ -68,7 +68,7 @@ export default function TeamSeoPage() {
         columns={featureColumns}
       />
 
-      <Testimonials className="border-t" />
+      <Testimonials />
 
       <SubPageCTA />
     </>

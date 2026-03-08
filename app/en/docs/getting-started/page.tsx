@@ -19,7 +19,7 @@ export default function GettingStartedPage() {
             Back to documentation
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Getting Started with Verbalist
           </h1>
           <p className="text-base text-muted-foreground mb-8">
@@ -27,33 +27,33 @@ export default function GettingStartedPage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="text-xl font-medium mt-8 mb-4">1. Create a project</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">1. Create a project</h2>
+            <p className="text-muted-foreground mb-4">
               After logging in, click on "New project" from the dashboard. Give your project a name and select the target language.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">2. Enter the keyword</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">2. Enter the keyword</h2>
+            <p className="text-muted-foreground mb-4">
               Enter the main keyword you want to rank for. Verbalist will analyze the top 10 organic results on Google for that keyword.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">3. Analyze the SERP</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">3. Analyze the SERP</h2>
+            <p className="text-muted-foreground mb-4">
               Click on "Analyze SERP". The system will retrieve the top 10 results, extract the content and identify winning patterns: heading structure, word count, topic coverage and E-E-A-T signals.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">4. Review patterns</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">4. Review patterns</h2>
+            <p className="text-muted-foreground mb-4">
               In the "Patterns" tab you'll see a summary of what ranking content has in common: average length, heading structure, topics covered and authority signals.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">5. Generate content</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">5. Generate content</h2>
+            <p className="text-muted-foreground mb-4">
               Configure generation parameters (tone of voice, target length, specific focus) and click "Generate". Verbalist will produce complete content: title, meta description, heading structure and body text.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">6. Export and publish</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">6. Export and publish</h2>
+            <p className="text-muted-foreground mb-4">
               Review the generated content, make any edits and export it to Markdown, HTML or plain text. Ready for publication.
             </p>
           </div>

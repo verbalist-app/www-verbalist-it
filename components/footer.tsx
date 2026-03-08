@@ -122,7 +122,7 @@ function FooterLink({ href, children, external }: { href: string; children: Reac
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 text-sm text-foreground transition-colors hover:text-muted-foreground"
+        className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         {children}
         <ArrowUpRight className="size-3.5" />
@@ -133,7 +133,7 @@ function FooterLink({ href, children, external }: { href: string; children: Reac
   return (
     <Link
       href={href}
-      className="text-sm text-foreground transition-colors hover:text-muted-foreground"
+      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
     >
       {children}
     </Link>
@@ -143,7 +143,7 @@ function FooterLink({ href, children, external }: { href: string; children: Reac
 function FooterSection({ title, links }: { title: string; links: ReadonlyArray<{ name: string; href: string; external?: boolean }> }) {
   return (
     <div>
-      <h3 className="text-sm text-muted-foreground">{title}</h3>
+      <h3 className="text-xs font-medium uppercase tracking-wider text-foreground">{title}</h3>
       <ul className="mt-4 space-y-3">
         {links.map((link) => (
           <li key={link.name}>

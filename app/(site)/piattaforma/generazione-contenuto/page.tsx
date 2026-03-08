@@ -153,7 +153,7 @@ export default function GenerazioneContenutoPage() {
         reverse
       />
 
-      <Testimonials className="border-t" />
+      <Testimonials />
 
       <SubPageCTA />
     </>

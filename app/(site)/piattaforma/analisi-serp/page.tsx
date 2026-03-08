@@ -130,7 +130,7 @@ export default function AnalisiSerpPage() {
         reverse
       />
 
-      <Testimonials className="border-t" />
+      <Testimonials />
 
       <SubPageCTA />
     </>

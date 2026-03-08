@@ -47,7 +47,7 @@ export default async function BlogPage() {
           <Badge variant="secondary" className="mb-4">
             Resources
           </Badge>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Blog
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
@@ -83,7 +83,7 @@ export default async function BlogPage() {
                       {formatDate(post.entry.publishedAt, 'en')}
                     </span>
                   </div>
-                  <h2 className="text-base font-medium hover:underline">
+                  <h2 className="font-serif text-base font-medium hover:underline">
                     <Link href={`/en/blog/${post.slug}`}>
                       {post.entry.title}
                     </Link>

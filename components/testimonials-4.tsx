@@ -1,6 +1,7 @@
 'use client'
-import { useState, useEffect } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
+import { useState, useEffect, useCallback } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { cn } from '@/lib/utils'
 
 type Locale = 'it' | 'en'
 
@@ -63,18 +64,31 @@ const defaultTestimonials = {
 export default function Testimonials({ className, locale = 'it', testimonials }: TestimonialsProps) {
   const items = testimonials ?? defaultTestimonials[locale]
   const [current, setCurrent] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
+
+  const goTo = useCallback((index: number) => {
+    setCurrent(index)
+  }, [])
 
   useEffect(() => {
+    if (paused || shouldReduceMotion) return
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % items.length)
     }, 5000)
     return () => clearInterval(interval)
-  }, [items.length])
+  }, [items.length, paused, shouldReduceMotion])
 
   const t = items[current]
 
   return (
-    <section className={`bg-background @container py-24 ${className ?? ''}`}>
+    <section
+      className={cn('border-t py-24 lg:py-32', className)}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+    >
       <div className="mx-auto max-w-2xl px-6">
         <div className="relative text-center">
           {/* Invisible spacer: renders the longest testimonial to reserve height */}
@@ -94,10 +108,10 @@ export default function Testimonials({ className, locale = 'it', testimonials }:
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
-                initial={{ opacity: 0, y: 8, filter: 'blur(4px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -8, filter: 'blur(4px)' }}
-                transition={{ duration: 0.5 }}
+                initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 8, filter: 'blur(4px)' }}
+                animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+                exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8, filter: 'blur(4px)' }}
+                transition={{ duration: shouldReduceMotion ? 0.15 : 0.5 }}
               >
                 <p className="text-foreground text-balance text-xl">&ldquo;{t.quote}&rdquo;</p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-1">
@@ -110,6 +124,26 @@ export default function Testimonials({ className, locale = 'it', testimonials }:
             </AnimatePresence>
           </div>
         </div>
+        {/* Dot indicators */}
+        {items.length > 1 && (
+          <div className="mt-8 flex items-center justify-center gap-2" role="tablist" aria-label="Testimonials">
+            {items.map((item, i) => (
+              <button
+                key={i}
+                role="tab"
+                aria-selected={i === current}
+                aria-label={`${item.author}, ${item.company}`}
+                onClick={() => goTo(i)}
+                className={cn(
+                  'size-2 rounded-full transition-all duration-200',
+                  i === current
+                    ? 'bg-foreground scale-125'
+                    : 'bg-foreground/20 hover:bg-foreground/40'
+                )}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

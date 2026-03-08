@@ -39,9 +39,8 @@ export function TrustedBy({
                 key={logo.name}
                 role="img"
                 aria-label={logo.name}
-                className="h-7 w-24"
+                className="h-7 w-24 bg-foreground"
                 style={{
-                  backgroundColor: '#473424',
                   mask: `url(${logo.src}) no-repeat center / contain`,
                   WebkitMask: `url(${logo.src}) no-repeat center / contain`,
                 }}

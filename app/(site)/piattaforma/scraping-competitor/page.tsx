@@ -146,7 +146,7 @@ export default function ScrapingCompetitorPage() {
         reverse
       />
 
-      <Testimonials className="border-t" />
+      <Testimonials />
 
       <SubPageCTA />
     </>

@@ -48,7 +48,7 @@ const homeTestimonials = [
 export default function HomeEn() {
   return (
     <>
-      <HeroSection showHeader={false} locale="en" />
+      <HeroSection locale="en" />
       <TrustedBy text="Trusted by agencies, freelancers and SMBs in Italy and abroad" />
       <FeaturesSection className="border-t" locale="en" />
       <StatsBar

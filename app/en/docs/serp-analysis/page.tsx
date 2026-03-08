@@ -47,7 +47,7 @@ export default function SerpAnalysisPage() {
             Back to documentation
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             SERP Analysis
           </h1>
           <p className="text-base text-muted-foreground mb-8">
@@ -62,7 +62,7 @@ export default function SerpAnalysisPage() {
                 className="flex items-center justify-between p-4 rounded-lg border border-border hover:bg-muted transition-colors group"
               >
                 <div>
-                  <h2 className="font-medium text-sm">{article.title}</h2>
+                  <h2 className="font-serif font-medium text-sm">{article.title}</h2>
                   <p className="text-sm text-muted-foreground mt-1">{article.description}</p>
                 </div>
                 <ChevronRight className="size-4 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />

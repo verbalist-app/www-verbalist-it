@@ -19,7 +19,7 @@ export default function HowItWorksPage() {
             Pattern Analysis
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             How Pattern Detection Works
           </h1>
           <p className="text-muted-foreground mb-8">
@@ -27,33 +27,33 @@ export default function HowItWorksPage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="text-xl font-medium mt-8 mb-4">Comparative analysis</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Comparative analysis</h2>
+            <p className="text-muted-foreground mb-4">
               The system compares all extracted content looking for recurring elements. If 8 out of 10 competitors have an FAQ section, that's a pattern.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Quantitative metrics</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Quantitative metrics</h2>
+            <p className="text-muted-foreground mb-4">
               Precise metrics are calculated: average word count, number of headings, text/image ratio, keyword density. These numbers define the benchmark.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Heading structure</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Heading structure</h2>
+            <p className="text-muted-foreground mb-4">
               The analysis maps the H1-H6 structure of each content. It identifies common headings, typical section order, hierarchy depth.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Topic extraction</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Topic extraction</h2>
+            <p className="text-muted-foreground mb-4">
               NLP algorithms identify topics covered in each content. The most frequent topics become requirements for your content.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">E-E-A-T signals</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">E-E-A-T signals</h2>
+            <p className="text-muted-foreground mb-4">
               The system detects Experience, Expertise, Authoritativeness, Trustworthiness signals: citations, credentials, data, direct experiences.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Pattern detection output</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Pattern detection output</h2>
+            <p className="text-muted-foreground mb-4">
               The result is a complete profile: target length, recommended structure, topics to cover, signals to include. This profile guides content generation.
             </p>
           </div>

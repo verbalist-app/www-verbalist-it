@@ -65,7 +65,7 @@ export default function EcommercePage() {
         items={features}
       />
 
-      <Testimonials className="border-t" />
+      <Testimonials />
 
       <SubPageCTA />
     </>

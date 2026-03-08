@@ -23,7 +23,7 @@ function DownloadButton({ href, label }: { href: string; label: string }) {
       download
       className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
     >
-      <Download className="size-3" style={{ color: '#473424' }} />
+      <Download className="size-3 text-foreground" />
       {label}
     </a>
   )

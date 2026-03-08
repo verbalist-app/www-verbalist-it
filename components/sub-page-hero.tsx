@@ -56,27 +56,27 @@ export function SubPageHero({
               </Badge>
             ) : Icon ? (
               <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
-                <Icon className="size-6" strokeWidth={1.5} style={{ color: '#473424' }} />
+                <Icon className="size-6 text-foreground" strokeWidth={1.5} />
               </div>
             ) : null}
             <h1 className="text-balance font-serif text-4xl font-medium tracking-tighter sm:text-5xl">
               {title}
             </h1>
-            <p className="text-muted-foreground mt-6 text-balance text-lg">
+            <p className="text-muted-foreground mt-6 text-balance text-lg leading-relaxed">
               {description}
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              {secondaryCta && (
-                <Button asChild variant="ghost" size="sm">
-                  <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
-                </Button>
-              )}
               <Button asChild className="pr-1.5">
                 <Link href={cta.href}>
                   <span className="text-nowrap">{cta.text}</span>
                   <ChevronRight className="opacity-50" />
                 </Link>
               </Button>
+              {secondaryCta && (
+                <Button asChild variant="ghost" size="sm">
+                  <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>

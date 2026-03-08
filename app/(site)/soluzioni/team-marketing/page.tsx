@@ -63,10 +63,9 @@ export default function TeamMarketingPage() {
         title="Contenuti per ogni formato, ottimizzati per la GEO"
         description="Blog post, landing page, guide. Ogni formato con la struttura ottimale per essere indicizzato e citato nella ricerca AI."
         items={features}
-        className="border-t"
       />
 
-      <Testimonials className="border-t" />
+      <Testimonials />
 
       <SubPageCTA />
     </>

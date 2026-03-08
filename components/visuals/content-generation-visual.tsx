@@ -7,7 +7,7 @@ export function ContentGenerationVisual() {
         <div className="bg-background rounded-xl border shadow-sm overflow-hidden">
             {/* Header */}
             <div className="flex items-center gap-2 px-4 py-3 border-b bg-muted/30">
-                <FileText className="size-4" style={{ color: '#473424' }} />
+                <FileText className="size-4 text-foreground" />
                 <span className="text-sm font-medium">Contenuto generato</span>
                 <span className="ml-auto text-xs text-muted-foreground">2.450 parole</span>
             </div>
@@ -16,7 +16,7 @@ export function ContentGenerationVisual() {
                 {/* Title */}
                 <div className="space-y-1">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <Type className="size-3" style={{ color: '#473424' }} />
+                        <Type className="size-3 text-foreground" />
                         <span>Title tag</span>
                     </div>
                     <div className="bg-muted rounded px-3 py-2">
@@ -27,7 +27,7 @@ export function ContentGenerationVisual() {
                 {/* Meta */}
                 <div className="space-y-1">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <AlignLeft className="size-3" style={{ color: '#473424' }} />
+                        <AlignLeft className="size-3 text-foreground" />
                         <span>Meta description</span>
                     </div>
                     <div className="bg-muted rounded px-3 py-2">
@@ -38,7 +38,7 @@ export function ContentGenerationVisual() {
                 {/* Outline */}
                 <div className="space-y-2">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <Hash className="size-3" style={{ color: '#473424' }} />
+                        <Hash className="size-3 text-foreground" />
                         <span>Struttura</span>
                     </div>
                     <div className="space-y-1 pl-2 border-l-2 border-primary/20">

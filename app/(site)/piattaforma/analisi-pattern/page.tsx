@@ -144,7 +144,7 @@ export default function AnalisiPatternPage() {
         reverse
       />
 
-      <Testimonials className="border-t" />
+      <Testimonials />
 
       <SubPageCTA />
     </>

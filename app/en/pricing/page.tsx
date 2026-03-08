@@ -35,7 +35,7 @@ export default function PricingPage() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Pricing
           </p>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             One plan, everything included
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -46,7 +46,7 @@ export default function PricingPage() {
         {/* Single plan card */}
         <div className="rounded-xl bg-foreground text-background ring-2 ring-foreground p-8 md:p-10 max-w-lg mx-auto">
           <div className="mb-6">
-            <h3 className="text-lg font-medium mb-2 text-background">
+            <h3 className="font-serif text-lg font-medium mb-2 text-background">
               Verbalist
             </h3>
             <p className="text-sm text-background/70">

@@ -40,7 +40,7 @@ export function RotatingLogos() {
             height={40}
             className="h-9 md:h-12 w-auto"
           />
-          <span className="text-4xl md:text-5xl font-medium tracking-tight">{logos[currentIndex].name}</span>
+          <span className="font-serif text-4xl md:text-5xl font-medium tracking-tighter">{logos[currentIndex].name}</span>
         </motion.div>
       </AnimatePresence>
     </div>

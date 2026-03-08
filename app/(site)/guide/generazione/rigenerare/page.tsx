@@ -15,7 +15,7 @@ export default function RigenerarePage() {
             href="/guide/generazione"
             className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 mb-8 transition-colors"
           >
-            <ArrowLeft className="size-4" style={{ color: '#473424' }} />
+            <ArrowLeft className="size-4 text-foreground" />
             Generazione Contenuto
           </Link>
 

@@ -17,16 +17,15 @@ interface LogoCloudProps {
 export default function LogoCloud({ className }: LogoCloudProps) {
   return (
     <section className={`bg-background @container py-12 ${className ?? ''}`}>
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-5xl px-6">
         <div className="flex flex-wrap items-center justify-between gap-8">
           {logos.map((logo) => (
             <div
               key={logo.name}
               role="img"
               aria-label={logo.name}
-              className="h-7 w-24"
+              className="h-7 w-24 bg-foreground"
               style={{
-                backgroundColor: '#473424',
                 mask: `url(${logo.src}) no-repeat center / contain`,
                 WebkitMask: `url(${logo.src}) no-repeat center / contain`,
               }}

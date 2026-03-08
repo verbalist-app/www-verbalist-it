@@ -37,7 +37,7 @@ export function ProductShowcase() {
     <section className="py-16 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-10">
-          <h2 className="text-balance text-xl md:text-2xl font-medium tracking-tight text-foreground mb-3">
+          <h2 className="font-serif text-balance text-xl md:text-2xl font-medium tracking-tight text-foreground mb-3">
             Guarda Verbalist in azione
           </h2>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">

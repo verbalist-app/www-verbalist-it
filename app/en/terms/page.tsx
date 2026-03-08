@@ -27,27 +27,27 @@ export default function TermsPage() {
             </svg>
             Back to home
           </Link>
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter text-foreground mb-6">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter text-foreground mb-6">
             Terms of Service
           </h1>
         </div>
 
         <div className="prose prose-neutral max-w-none space-y-8">
           <section>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               These Terms of Service (hereinafter, "Terms") govern access to and use of the Verbalist® platform (hereinafter, the "Service"), provided by NUR S.r.l., with registered office in San Giorgio Bigarello (MN), Via del Commercio 1/N, VAT number 01902640208 (hereinafter, "NUR" or the "Provider").
             </p>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               By using the Service, the user fully accepts these Terms. If you do not accept the Terms, please do not use the Service.
             </p>
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">1. Description of the Service</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">1. Description of the Service</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Verbalist is an SEO automation platform that uses artificial intelligence to:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Analyze search results (SERP) for specific keywords</li>
               <li>Extract and analyze competitor content</li>
               <li>Identify success patterns in positioned content</li>
@@ -57,11 +57,11 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">2. Registration and Account</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">2. Registration and Account</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               To use the Service, it is necessary to create an account providing accurate and complete information. The user is responsible for:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Maintaining the confidentiality of access credentials</li>
               <li>All activities that occur through their account</li>
               <li>Immediately notifying any unauthorized use of the account</li>
@@ -69,11 +69,11 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">3. Use of the Service</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">3. Use of the Service</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               The user agrees to use the Service lawfully and in accordance with these Terms. It is prohibited to:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Use the Service for illegal or unauthorized purposes</li>
               <li>Violate third-party intellectual property rights</li>
               <li>Generate defamatory, offensive or illegal content</li>
@@ -84,21 +84,21 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">4. Intellectual Property</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">4. Intellectual Property</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               The Service, including software, algorithms, interface, documentation and trademarks, are the exclusive property of NUR or its licensors and are protected by intellectual property laws.
             </p>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Content generated by the Service at the user's request is the property of the user, who assumes full responsibility for its use and publication.
             </p>
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">5. Generated Content</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">5. Generated Content</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               The user acknowledges and accepts that:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Content is generated through artificial intelligence and may require review</li>
               <li>NUR does not guarantee search engine positioning</li>
               <li>The user is responsible for verifying the accuracy of content before publication</li>
@@ -107,11 +107,11 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">6. Payments and Subscriptions</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">6. Payments and Subscriptions</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Access to the Service may be subject to payment according to the pricing plans published on the website. Payments are:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Due in advance according to the chosen periodicity (monthly or annual)</li>
               <li>Non-refundable, except as provided by law</li>
               <li>Subject to automatic renewal unless cancelled</li>
@@ -119,11 +119,11 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">7. Limitation of Liability</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">7. Limitation of Liability</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               To the extent permitted by applicable law:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>The Service is provided "as is" without warranties of any kind</li>
               <li>NUR does not guarantee specific SEO positioning results</li>
               <li>NUR is not liable for indirect, incidental or consequential damages</li>
@@ -132,11 +132,11 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">8. Suspension and Termination</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">8. Suspension and Termination</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               NUR reserves the right to suspend or terminate access to the Service in case of:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-foreground/80">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Violation of these Terms</li>
               <li>Non-payment</li>
               <li>Improper or abusive use of the Service</li>
@@ -145,22 +145,22 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">9. Modifications to the Terms</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">9. Modifications to the Terms</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
               NUR reserves the right to modify these Terms at any time. Changes will be communicated through the website or by email. Continued use of the Service after communication of changes constitutes acceptance of the new Terms.
             </p>
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">10. Applicable Law and Jurisdiction</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">10. Applicable Law and Jurisdiction</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
               These Terms are governed by Italian law. For any dispute arising from these Terms or the use of the Service, the Court of Mantua shall have exclusive jurisdiction, except in cases where the law provides for a mandatory forum in favor of the consumer.
             </p>
           </section>
 
           <section>
-            <h3 className="text-sm font-medium text-foreground mb-3">11. Contact</h3>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <h3 className="font-serif text-sm font-medium text-foreground mb-3">11. Contact</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
               For any questions regarding these Terms, you can contact NUR at info@nur.it or at Via del Commercio 1/N, San Giorgio Bigarello (MN), Italy.
             </p>
           </section>

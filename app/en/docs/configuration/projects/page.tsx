@@ -19,7 +19,7 @@ export default function ProjectsPage() {
             Configuration
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
             Project Management
           </h1>
           <p className="text-muted-foreground mb-8">
@@ -27,33 +27,33 @@ export default function ProjectsPage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="text-xl font-medium mt-8 mb-4">Creating a project</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Creating a project</h2>
+            <p className="text-muted-foreground mb-4">
               Click "New project" in the dashboard. Assign a descriptive name (e.g., "Company blog", "E-commerce site", "Client X"). You can add an optional description.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Organizing analyses</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Organizing analyses</h2>
+            <p className="text-muted-foreground mb-4">
               Each SERP analysis and generated content belongs to a project. This makes it easy to find all work related to a site or client.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Project settings</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Project settings</h2>
+            <p className="text-muted-foreground mb-4">
               Each project can have default settings: country and language for analyses, preferred AI model, associated Tone Profile. New analyses inherit these settings.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Sharing projects</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Sharing projects</h2>
+            <p className="text-muted-foreground mb-4">
               You can invite collaborators to a project. Define permissions: read-only, edit, or admin. Useful for teams or sharing with clients.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Archiving projects</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Archiving projects</h2>
+            <p className="text-muted-foreground mb-4">
               Completed or inactive projects can be archived. They remain accessible but don't appear in the main dashboard. You can restore them at any time.
             </p>
 
-            <h2 className="text-xl font-medium mt-8 mb-4">Deleting projects</h2>
-            <p className="text-foreground/80 mb-4">
+            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Deleting projects</h2>
+            <p className="text-muted-foreground mb-4">
               Deletion is permanent and removes all analyses and content from the project. Consider archiving if you might need it in the future.
             </p>
           </div>

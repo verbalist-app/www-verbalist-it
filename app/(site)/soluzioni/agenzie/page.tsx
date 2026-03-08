@@ -88,7 +88,7 @@ export default function AgenziePage() {
         columns={featureColumns}
       />
 
-      <Testimonials className="border-t" />
+      <Testimonials />
 
       <SubPageCTA />
     </>

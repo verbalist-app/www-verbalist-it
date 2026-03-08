@@ -126,7 +126,8 @@
   --shadow-2xl: 0 24px 48px hsla(0 0% 0% / 0.12), 0 8px 16px hsla(0 0% 0% / 0.08);
   --shadow: 0 1px 3px hsla(0 0% 0% / 0.06), 0 1px 2px hsla(0 0% 0% / 0.04);
 
-  --tracking-tight: -0.01em;
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
   --tracking-wide: 0.04em;
 
   /* Animations */
@@ -215,6 +216,7 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
     scrollbar-gutter: stable;
   }
 }
