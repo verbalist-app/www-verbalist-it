@@ -1,7 +1,7 @@
 import { createReader } from '@keystatic/core/reader'
 import keystaticConfig from '@/keystatic.config'
 
-export const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www-verbalist-it.vercel.app'
+export const baseUrl = 'https://www.verbalist.it'
 
 export const itToEnSlugMap: Record<string, string> = {
   '': '/en',
