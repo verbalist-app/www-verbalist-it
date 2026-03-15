@@ -139,8 +139,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Carica blog posts da Keystatic
-  let postsIt: { slug: string; publishedAt: string | null }[] = []
-  let postsEn: { slug: string; publishedAt: string | null }[] = []
+  let postsIt: { slug: string; publishedAt: string | null; translationOf: string | null }[] = []
+  let postsEn: { slug: string; publishedAt: string | null; translationOf: string | null }[] = []
 
   try {
     const reader = createReader(process.cwd(), keystaticConfig)
@@ -148,8 +148,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       reader.collections.posts.all(),
       reader.collections.postsEn.all(),
     ])
-    postsIt = it.map((p) => ({ slug: p.slug, publishedAt: p.entry.publishedAt }))
-    postsEn = en.map((p) => ({ slug: p.slug, publishedAt: p.entry.publishedAt }))
+    postsIt = it.map((p) => ({ slug: p.slug, publishedAt: p.entry.publishedAt, translationOf: p.entry.translationOf }))
+    postsEn = en.map((p) => ({ slug: p.slug, publishedAt: p.entry.publishedAt, translationOf: p.entry.translationOf }))
   } catch {
     postsIt = []
     postsEn = []
@@ -202,21 +202,45 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Aggiungi blog posts da Keystatic
+  // Aggiungi blog posts da Keystatic con hreflang alternates
   for (const post of postsIt) {
+    const lastModified = post.publishedAt ? new Date(post.publishedAt) : now
+    const itUrl = `${baseUrl}/blog/${post.slug}`
+    const enSlug = post.translationOf
+    const alternates = enSlug ? {
+      languages: {
+        'it': itUrl,
+        'en': `${baseUrl}/en/blog/${enSlug}`,
+        'x-default': itUrl,
+      },
+    } : undefined
+
     sitemapEntries.push({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
+      url: itUrl,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
+      alternates,
     })
   }
   for (const post of postsEn) {
+    const lastModified = post.publishedAt ? new Date(post.publishedAt) : now
+    const enUrl = `${baseUrl}/en/blog/${post.slug}`
+    const itSlug = post.translationOf
+    const alternates = itSlug ? {
+      languages: {
+        'it': `${baseUrl}/blog/${itSlug}`,
+        'en': enUrl,
+        'x-default': `${baseUrl}/blog/${itSlug}`,
+      },
+    } : undefined
+
     sitemapEntries.push({
-      url: `${baseUrl}/en/blog/${post.slug}`,
-      lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
+      url: enUrl,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.65,
+      alternates,
     })
   }
 
