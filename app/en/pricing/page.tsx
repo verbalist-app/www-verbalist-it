@@ -46,7 +46,7 @@ export default function PricingPage() {
         {/* Single plan card */}
         <div className="rounded-xl bg-foreground text-background ring-2 ring-foreground p-8 md:p-10 max-w-lg mx-auto">
           <div className="mb-6">
-            <h3 className="font-serif text-lg font-medium mb-2 text-background">
+            <h3 className="text-lg font-medium mb-2 text-background">
               Verbalist
             </h3>
             <p className="text-sm text-background/70">

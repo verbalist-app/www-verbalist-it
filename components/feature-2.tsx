@@ -20,7 +20,7 @@ export function Feature2({ title, description, items, className }: Feature2Props
       <div className="mx-auto max-w-5xl px-6">
         {(title || description) && (
           <div className="text-center">
-            {title && <h2 className="text-balance font-serif text-3xl font-medium tracking-tight sm:text-4xl">{title}</h2>}
+            {title && <h2 className="text-balance text-3xl font-medium tracking-tight sm:text-4xl">{title}</h2>}
             {description && <p className="text-muted-foreground mt-6 text-balance text-base leading-relaxed max-w-2xl mx-auto">{description}</p>}
           </div>
         )}

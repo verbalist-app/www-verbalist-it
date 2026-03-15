@@ -86,7 +86,7 @@ export default function FAQs({ className, locale = 'it' }: FaqsProps) {
   return (
     <section className={cn('bg-background @container py-24 lg:py-32', className)}>
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-center font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t.title}</h2>
+        <h2 className="text-center text-3xl font-medium tracking-tight sm:text-4xl">{t.title}</h2>
         <Accordion type="single" collapsible className="mt-12">
           {t.items.map((item) => (
             <div className="group" key={item.id}>

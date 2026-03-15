@@ -6,6 +6,7 @@ import { GeistSans } from 'geist/font/sans'
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { OrganizationSchema } from "@/components/schema"
+import { LangSync } from "@/components/lang-sync"
 import "./globals.css"
 
 const asar = localFont({
@@ -126,6 +127,7 @@ export default function RootLayout({
         <OrganizationSchema />
       </head>
       <body className={`${GeistSans.variable} ${asar.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
+        <LangSync />
         {children}
         <Analytics />
         <SpeedInsights />

@@ -35,7 +35,7 @@ export default function Stats({ className, locale = 'it' }: StatsProps) {
     <section className={cn('bg-background @container py-24', className)}>
       <div className="mx-auto max-w-4xl px-6">
         <div className="space-y-4">
-          <h2 className="font-serif text-balance text-4xl font-medium">{t.title}</h2>
+          <h2 className="text-balance text-4xl font-medium">{t.title}</h2>
           <p className="text-muted-foreground text-balance">{t.description}</p>
         </div>
         <div className="@xl:grid-cols-3 mt-12 grid grid-cols-2 gap-6 text-sm">

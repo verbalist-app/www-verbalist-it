@@ -27,32 +27,32 @@ export default function RegeneratePage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Selective regeneration</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Selective regeneration</h2>
             <p className="text-muted-foreground mb-4">
               Select a section in the editor and click "Regenerate". Verbalist rewrites only that part while keeping the rest of the content intact.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">When to regenerate</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">When to regenerate</h2>
             <p className="text-muted-foreground mb-4">
               Regenerate if: a section's tone isn't consistent, important information is missing, content is too generic, you want a different approach to the topic.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Specific instructions</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Specific instructions</h2>
             <p className="text-muted-foreground mb-4">
               Before regenerating you can add instructions: "more detailed", "with practical examples", "in list format". The new version will follow your indications.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Multiple versions</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Multiple versions</h2>
             <p className="text-muted-foreground mb-4">
               You can generate multiple versions of the same section and choose the best. Verbalist keeps track of previous versions for comparison.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Regenerating title and meta</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Regenerating title and meta</h2>
             <p className="text-muted-foreground mb-4">
               Title and meta description are critical for CTR. Generate multiple variants and choose the most compelling. You can test different angles (how-to, list, question).
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Regeneration limits</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Regeneration limits</h2>
             <p className="text-muted-foreground mb-4">
               Each regeneration uses tokens. If you regenerate too many times, consider editing manually or reviewing initial parameters to get better output on the first try.
             </p>

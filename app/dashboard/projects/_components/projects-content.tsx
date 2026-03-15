@@ -54,7 +54,7 @@ export function ProjectsContent() {
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-medium tracking-tighter">Progetti</h1>
+          <h1 className="font-serif text-2xl font-medium tracking-tighter">Progetti</h1>
           <p className="text-sm text-muted-foreground mt-1">
             Organizza i tuoi documenti in progetti
           </p>

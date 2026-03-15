@@ -204,7 +204,7 @@ export default function DocsPage() {
                       className="flex items-center justify-between p-4 rounded-lg border border-border hover:bg-muted transition-colors group"
                     >
                       <div>
-                        <h3 className="font-serif font-medium text-sm">{result.title}</h3>
+                        <h3 className="font-medium text-sm">{result.title}</h3>
                         <p className="text-xs text-muted-foreground mt-1">{result.category}</p>
                       </div>
                       <ChevronRight className="size-4 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
@@ -229,7 +229,7 @@ export default function DocsPage() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center justify-between">
-                              <h3 className="font-serif text-sm font-medium">{category.title}</h3>
+                              <h3 className="text-sm font-medium">{category.title}</h3>
                               <ChevronRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
                             </div>
                             <p className="mt-1 text-sm text-muted-foreground">
@@ -248,7 +248,7 @@ export default function DocsPage() {
 
               {/* Popular Topics */}
               <div className="rounded-lg border bg-muted/30 p-6">
-                <h2 className="font-serif mb-4 flex items-center gap-2 text-sm font-medium">
+                <h2 className="mb-4 flex items-center gap-2 text-sm font-medium">
                   <HelpCircle className="size-5" />
                   Popular topics
                 </h2>

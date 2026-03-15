@@ -62,7 +62,7 @@ export default function Features({ className, locale = 'it' }: FeaturesProps) {
     <section className={cn('bg-background py-24 lg:py-32', className)}>
       <div className="mx-auto w-full max-w-5xl px-6">
         <div>
-          <h2 className="font-serif text-balance text-3xl font-medium tracking-tight sm:text-4xl">{t.title}</h2>
+          <h2 className="text-balance text-3xl font-medium tracking-tight sm:text-4xl">{t.title}</h2>
           <p className="text-muted-foreground mt-6 text-balance text-base leading-relaxed">{t.description}</p>
         </div>
         <div className="mt-12 grid gap-12 sm:grid-cols-2">

@@ -40,21 +40,21 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">1. Identity and contact details of the data controller</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">1. Identity and contact details of the data controller</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               The Data Controller is NUR. As the Data Controller is established in Italian territory, no representative has been appointed.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">2. Contact details of the data protection officer</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">2. Contact details of the data protection officer</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               The Data Controller has appointed a Data Protection Officer (&quot;DPO&quot;). The DPO can be contacted at the Data Controller&apos;s addresses or at gdpr@nur.it.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">3. Purpose and legal basis of processing</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">3. Purpose and legal basis of processing</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Your Personal Data will be processed for the following purposes:
             </p>
@@ -72,14 +72,14 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">4. How to express consent</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">4. How to express consent</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               You can express your consent by signing a digital document through specific checkboxes.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">5. Processing methods and logic</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">5. Processing methods and logic</h3>
             <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>In relation to Personal Data processed for marketing purposes (point a) section 3 of this Privacy Policy), processing will be carried out using commercial information delivery software;</li>
               <li>In relation to Personal Data processed for profiling purposes (point b) section 3), processing will be carried out using CRM software that allows defining tastes and preferences to offer you personalized services and communications. For further details, see the next section of this Privacy Policy.</li>
@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">6. Automated decision-making and profiling</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">6. Automated decision-making and profiling</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               If you consent to the processing of Personal Data to receive personalized services through profiling, Personal Data may be subject to an automated decision-making process, with a specific algorithm that will decide which communications are most suitable for your profile or which may be of most interest to you. The expected consequences of this processing include, by way of example, the sending of highly profiled commercial communications, invitations to events deemed of interest, etc.
             </p>
@@ -104,14 +104,14 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">7. Source of Personal Data</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">7. Source of Personal Data</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Only Personal Data provided in accordance with this Privacy Policy will be processed. NUR will not process Personal Data from publicly accessible sources.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">8. Recipients and categories of recipients of Personal Data</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">8. Recipients and categories of recipients of Personal Data</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Recipients of Personal Data may include:
             </p>
@@ -126,14 +126,14 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">9. Data categories</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">9. Data categories</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Personal Data will be processed. Under no circumstances may special categories of Personal Data defined in Article 9 of the GDPR be processed.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">10. Data transfer</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">10. Data transfer</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               NUR intends to transfer Personal Data to entities established in a third country outside the European Union or to an international organization.
             </p>
@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">11. Data retention period</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">11. Data retention period</h3>
             <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>Personal Data processed for marketing purposes (point a) section 3 of this notice) are processed and stored by NUR until you request cancellation and/or revocation, as a Data Subject;</li>
               <li>Individual Personal Data processed for profiling purposes (point b) section 3), as acquired from time to time, are processed and stored by NUR for a period not exceeding 12 (twelve) months from collection;</li>
@@ -160,7 +160,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">12. Optional nature of consent and consequences of non-consent</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">12. Optional nature of consent and consequences of non-consent</h3>
             <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>In relation to Personal Data processed for marketing purposes (point a) section 3 of this notice), the communication of Personal Data is not a contractual obligation. You are free to provide Personal Data. If you do not provide such data, NUR will not be able to carry out any marketing activities.</li>
               <li>In relation to Personal Data processed for profiling purposes (point b) section 3 of this notice), the communication of Personal Data is not a contractual obligation. You are free to provide Personal Data. If you do not provide such data, NUR will not be able to carry out any profiling activities.</li>
@@ -169,7 +169,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">13. Your rights</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">13. Your rights</h3>
             <h4 className="text-sm font-medium text-foreground mb-2">a) Right to object</h4>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               As a Data Subject, you have the right to object under the following terms:
@@ -196,7 +196,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">14. How to exercise your rights</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">14. How to exercise your rights</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               You can exercise the rights indicated in this Cookie Policy by sending requests directly to NUR at gdpr@nur.it, or by sending the relevant communication by registered letter to Via del Commercio 1/N, San Giorgio Bigarello (MN), Italy.
             </p>
@@ -206,14 +206,14 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">15. Accessibility of the Privacy Policy</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">15. Accessibility of the Privacy Policy</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               The Privacy Policy is available at www.nur.it/privacy-policy or at NUR&apos;s offices. If expressly requested, NUR may provide the information orally, provided that your identity is verified, through a telephone request to 0376 369728.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">16. Modifications</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">16. Modifications</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               NUR may modify this Privacy Policy, including to adapt to changes in national and/or European Union regulations, or to technological innovations. Any new versions of the Privacy Policy will be reported on the website www.nur.it (hereinafter, the &quot;Site&quot;). We invite you to periodically check the Privacy Policy. Any modification will be communicated through a pop-up on the Site or other methods and/or digital tools.
             </p>

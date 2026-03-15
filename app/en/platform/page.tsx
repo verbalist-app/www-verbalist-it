@@ -70,7 +70,7 @@ export default function PlatformPage() {
                   <span className="text-sm font-medium text-muted-foreground">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h2 className="font-serif mt-4 text-2xl font-medium tracking-tight md:text-3xl">
+                  <h2 className="mt-4 text-2xl font-medium tracking-tight md:text-3xl">
                     {feature.title}
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -101,7 +101,7 @@ export default function PlatformPage() {
 
       <section className="border-t py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-serif mb-8 text-2xl font-medium tracking-tight text-foreground">What you get</h2>
+          <h2 className="mb-8 text-2xl font-medium tracking-tight text-foreground">What you get</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
@@ -119,7 +119,7 @@ export default function PlatformPage() {
               },
             ].map((section) => (
               <div key={section.title} className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-serif mb-5 text-lg font-medium text-foreground">{section.title}</h3>
+                <h3 className="mb-5 text-lg font-medium text-foreground">{section.title}</h3>
                 <ul className="space-y-3">
                   {section.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 text-muted-foreground">

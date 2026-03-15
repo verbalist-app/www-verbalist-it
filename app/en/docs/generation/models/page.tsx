@@ -27,32 +27,32 @@ export default function ModelsPage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">GPT-4</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">GPT-4</h2>
             <p className="text-muted-foreground mb-4">
               Great for generic and creative content. Excels at storytelling and persuasive text. Good balance between quality and speed.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Claude</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Claude</h2>
             <p className="text-muted-foreground mb-4">
               Strong on long, structured content. Follows complex instructions precisely. Ideal for technical guides and content requiring accuracy.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Gemini</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Gemini</h2>
             <p className="text-muted-foreground mb-4">
               Good for content requiring recent knowledge. Integrates information from diverse sources well. Useful for rapidly evolving topics.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Which to choose</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Which to choose</h2>
             <p className="text-muted-foreground mb-4">
               For most SEO content, results are comparable. Experiment with different models for the same content and see which you prefer for your style.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Costs</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Costs</h2>
             <p className="text-muted-foreground mb-4">
               Models have different costs per token. Verbalist shows an estimate before generation. For frequent content, consider cumulative cost.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Changing models</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Changing models</h2>
             <p className="text-muted-foreground mb-4">
               You can change models at any time from settings or before each generation. The model doesn't affect extracted patterns, only final generation.
             </p>

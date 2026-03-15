@@ -38,7 +38,7 @@ export default function Stats({ className, locale = 'it' }: StatsProps) {
     <section className={cn('py-24', className)}>
       <div className="mx-auto max-w-4xl px-6">
         <div>
-          <h2 className="font-serif text-2xl font-medium">{t.title}</h2>
+          <h2 className="text-2xl font-medium">{t.title}</h2>
           <p className="text-muted-foreground mt-4 text-balance text-lg">{t.description}</p>
         </div>
         <ul role="list" className="text-muted-foreground mt-8 space-y-2">

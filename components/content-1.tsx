@@ -2,7 +2,7 @@ export default function Content() {
     return (
         <section className="bg-background @container py-24">
             <div className="@2xl:grid-cols-2 mx-auto grid max-w-3xl gap-6 px-6">
-                <h2 className="text-balance font-serif text-4xl font-medium">Create Content with AI Assistance</h2>
+                <h2 className="text-balance text-4xl font-medium">Create Content with AI Assistance</h2>
 
                 <div className="flex flex-col gap-6">
                     <p className="text-muted-foreground">

@@ -136,7 +136,7 @@ export function DashboardContent() {
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-medium tracking-tighter">Dashboard</h1>
+          <h1 className="font-serif text-2xl font-medium tracking-tighter">Dashboard</h1>
           <p className="text-sm text-muted-foreground mt-1">
             Bentornato, Marco. Ecco un riepilogo della tua attivita.
           </p>

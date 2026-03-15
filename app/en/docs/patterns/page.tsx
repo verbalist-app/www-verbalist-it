@@ -67,7 +67,7 @@ export default function PatternsPage() {
                 className="flex items-center justify-between p-4 rounded-lg border border-border hover:bg-muted transition-colors group"
               >
                 <div>
-                  <h2 className="font-serif font-medium text-sm">{article.title}</h2>
+                  <h2 className="font-medium text-sm">{article.title}</h2>
                   <p className="text-sm text-muted-foreground mt-1">{article.description}</p>
                 </div>
                 <ChevronRight className="size-4 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />

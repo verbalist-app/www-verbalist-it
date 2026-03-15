@@ -29,7 +29,7 @@ export function HighlightBlock({
             {Icon && (
               <Icon className="size-5 text-foreground" strokeWidth={1.5} />
             )}
-            <h3 className="font-serif text-balance text-2xl font-medium tracking-tight md:text-3xl">
+            <h3 className="text-balance text-2xl font-medium tracking-tight md:text-3xl">
               {title}
             </h3>
             <p className="text-base text-muted-foreground leading-relaxed max-w-lg">

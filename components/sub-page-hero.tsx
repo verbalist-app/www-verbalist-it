@@ -59,7 +59,7 @@ export function SubPageHero({
                 <Icon className="size-6 text-foreground" strokeWidth={1.5} />
               </div>
             ) : null}
-            <h1 className="text-balance font-serif text-4xl font-medium tracking-tighter sm:text-5xl">
+            <h1 className="font-serif text-balance text-4xl font-medium tracking-tighter sm:text-5xl">
               {title}
             </h1>
             <p className="text-muted-foreground mt-6 text-balance text-lg leading-relaxed">

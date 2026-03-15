@@ -23,7 +23,7 @@ export function Testimonials({
     <section className={cn("border-t py-20 md:py-28", className)}>
       <div className="mx-auto max-w-6xl px-6">
         {title && (
-          <h2 className="font-serif text-balance text-2xl font-medium tracking-tight text-center mb-16 md:text-3xl">
+          <h2 className="text-balance text-2xl font-medium tracking-tight text-center mb-16 md:text-3xl">
             {title}
           </h2>
         )}

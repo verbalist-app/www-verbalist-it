@@ -40,7 +40,7 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">1. Identity and contact details of the data controller</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">1. Identity and contact details of the data controller</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               The Data Controller is NUR. NUR is a company established in Italian territory, therefore no representative has been appointed.
             </p>
@@ -50,7 +50,7 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">2. Processing methods</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">2. Processing methods</h3>
             <h4 className="text-sm font-medium text-foreground mb-2">Cookies</h4>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Cookies are small text strings that the Site you visit sends to your browser, which stores them to retransmit them to the Site when you visit again.
@@ -194,7 +194,7 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">3. Deleting and disabling cookies</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">3. Deleting and disabling cookies</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               You can configure your browser to prevent cookie processing, or delete them immediately after browsing. Below we list the methods for disabling and deleting cookies with the main browsers:
             </p>
@@ -212,14 +212,14 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">4. Data you voluntarily provide</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">4. Data you voluntarily provide</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               You have the faculty and freedom to provide data by sending email to the addresses indicated on the Site, which NUR may acquire for the purposes indicated from time to time. In addition to the email address necessary to respond to you, any other personal data contained in the relevant communication will be processed. The data thus collected will be stored and processed exclusively to maintain correspondence, without using it for other purposes.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">5. Purpose, legal basis of processing, optional nature of consent and consequences of non-consent</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">5. Purpose, legal basis of processing, optional nature of consent and consequences of non-consent</h3>
             <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li><strong>Personal data processed with technical cookies:</strong> The communication of personal data is a contractual obligation, without which the website could not be made available and fully functional in accordance with the terms and conditions of use.</li>
               <li><strong>Personal data processed with profiling cookies:</strong> The communication of personal data is purely optional. If you do not communicate the data, it will be impossible for NUR to provide you with personalized services through profiling. The legal basis of processing is your consent, expressed in compliance with applicable regulations.</li>
@@ -231,7 +231,7 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">6. Automated decision-making and profiling</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">6. Automated decision-making and profiling</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               If you consent to the processing with profiling cookies to receive personalized services, your personal data may be subject to an automated decision-making process, with a specific algorithm that will decide which communications are most suitable for your profile or which may be of interest to you. The expected consequences of this processing are the sending of highly profiled commercial communications, discounts, and invitations to events deemed of interest.
             </p>
@@ -247,14 +247,14 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">7. Source of personal data and data categories</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">7. Source of personal data and data categories</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               NUR will only process personal data provided by you in accordance with the Cookie Policy, collected through the Site or by you sending an email. NUR will not process data from publicly accessible sources. NUR will not process the special categories of personal data referred to in Article 9 of the GDPR.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">8. Recipients and possible categories of recipients of personal data</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">8. Recipients and possible categories of recipients of personal data</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Your personal data may be received by:
             </p>
@@ -265,7 +265,7 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">9. Data transfer</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">9. Data transfer</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               NUR intends to transfer your personal data to entities established in a third country outside the European Union or to an international organization. Such entities may include, by way of example:
             </p>
@@ -287,7 +287,7 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">10. Data retention period</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">10. Data retention period</h3>
             <ul className="list-disc pl-6 space-y-2 text-sm text-muted-foreground">
               <li>NUR will retain your personal data processed with technical cookies to allow you correct use of the Site for a period not exceeding 12 (twelve) months from the date of individual collection, in accordance with section 2.1 of the Cookie Policy;</li>
               <li>NUR will retain your personal data processed to provide personalized services through non-technical cookies and profiling cookies for a period not exceeding 12 (twelve) months from the date of individual collection, in accordance with section 2.2 of the Cookie Policy;</li>
@@ -299,7 +299,7 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">11. Your rights</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">11. Your rights</h3>
             <h4 className="text-sm font-medium text-foreground mb-2">11.1 Right to object</h4>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               As a &quot;data subject&quot;, you have the right to object, at any time, for reasons connected to your particular situation, to the processing of personal data concerning you, pursuant to Article 6, paragraph 1, letters e) or f) of the GDPR, including profiling based on those provisions.
@@ -336,7 +336,7 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">12. How to exercise your rights</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">12. How to exercise your rights</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               You can exercise the rights indicated in this Cookie Policy by sending requests directly to NUR at gdpr@nur.it, or by sending the relevant communication by registered letter to Via del Commercio 1/N, San Giorgio Bigarello (MN), Italy.
             </p>
@@ -346,14 +346,14 @@ export default function CookiePolicyPage() {
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">13. Accessibility</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">13. Accessibility</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               This Cookie Policy is accessible at https://www.nur.it/cookie-policy and at NUR&apos;s offices. If you expressly request it, NUR may provide you with the information orally, provided that your identity is verified, through a telephone request addressed to the Data Controller.
             </p>
           </section>
 
           <section>
-            <h3 className="font-serif text-sm font-medium text-foreground mb-3">14. Modifications</h3>
+            <h3 className="text-sm font-medium text-foreground mb-3">14. Modifications</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               NUR may modify the Cookie Policy, including to adapt to national and/or European Union regulations or to technological innovations. Any new versions of the Cookie Policy will be reported on the Site. We invite you to periodically check the Cookie Policy. Any modification will be communicated through a pop-up on the Site or other methods and/or digital tools. If NUR substantially modifies the Cookie Policy, providing for new processing purposes and/or categories of personal data processed or changing third parties, NUR will inform you, requesting the necessary consents, through a specific banner. If it is impossible for NUR to verify the storage of cookies on your device, for example in the event of deletion of installed cookies, NUR will inform you, requesting the necessary consents, through a specific banner. If at least 6 (six) months have passed since the previous presentation of the banner on the Site, NUR will inform you, requesting the necessary consents, through a specific banner.
             </p>

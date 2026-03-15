@@ -104,7 +104,7 @@ export default function ChangelogPage() {
                 </span>
               </div>
               <div className="flex flex-col">
-                <h2 className="mb-3 font-serif text-lg font-medium leading-tight text-foreground md:text-xl">
+                <h2 className="mb-3 text-lg font-medium leading-tight text-foreground md:text-xl">
                   {entry.title}
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">

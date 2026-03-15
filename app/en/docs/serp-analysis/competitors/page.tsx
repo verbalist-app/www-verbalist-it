@@ -27,32 +27,32 @@ export default function CompetitorsPage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Identifying real competitors</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Identifying real competitors</h2>
             <p className="text-muted-foreground mb-4">
               SERP competitors aren't always who you think. Large portals, Wikipedia, forums can occupy positions. Focus on direct competitors who produce content similar to yours.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Analyzing title tags</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Analyzing title tags</h2>
             <p className="text-muted-foreground mb-4">
               Look at the titles of the top 3. Which keywords do they include? What format do they use? (guide, list, how-to). Titles that rank well indicate what works for that query.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Studying structure</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Studying structure</h2>
             <p className="text-muted-foreground mb-4">
               Verbalist extracts the heading structure of each competitor. Compare structures: which sections are common? Which topics do all cover? These are minimum requirements to rank.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Finding gaps</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Finding gaps</h2>
             <p className="text-muted-foreground mb-4">
               Look for topics that few competitors cover but are relevant to the query. These gaps are opportunities: you can differentiate by covering what others ignore.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Evaluating quality</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Evaluating quality</h2>
             <p className="text-muted-foreground mb-4">
               Not all ranking content is excellent. Read competitor content and evaluate: is it updated? Complete? Well written? If quality is low, you have room to do better.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Length benchmark</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Length benchmark</h2>
             <p className="text-muted-foreground mb-4">
               Average word count tells you how much content to expect. If competitors write 2000 words, 500 words probably won't be enough. Use the benchmark as a reference, not a fixed rule.
             </p>

@@ -104,7 +104,7 @@ export function ProjectDetailContent({
         </Link>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-2xl font-medium tracking-tighter">
+            <h1 className="font-serif text-2xl font-medium tracking-tighter">
               {project.name}
             </h1>
             <p className="text-sm text-muted-foreground mt-1">

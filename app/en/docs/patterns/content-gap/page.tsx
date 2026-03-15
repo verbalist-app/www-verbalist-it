@@ -27,32 +27,32 @@ export default function ContentGapPage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">What is a content gap</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">What is a content gap</h2>
             <p className="text-muted-foreground mb-4">
               A content gap is a topic or aspect relevant to the query that none or few competitors cover adequately. Filling these gaps gives you a competitive advantage.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Depth gaps</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Depth gaps</h2>
             <p className="text-muted-foreground mb-4">
               Competitors cover a topic but superficially. You can differentiate by going deeper: more details, more examples, more use cases.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Freshness gaps</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Freshness gaps</h2>
             <p className="text-muted-foreground mb-4">
               Dated content is an opportunity. If competitors have old information (prices, features, statistics), updated content has an advantage.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Format gaps</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Format gaps</h2>
             <p className="text-muted-foreground mb-4">
               If everyone writes walls of text, you can differentiate with comparison tables, infographics, embedded videos. The right format can improve engagement and ranking.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Experience gaps</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Experience gaps</h2>
             <p className="text-muted-foreground mb-4">
               Missing direct experience in competitor content? Add yours: personal tests, case studies, measured results. This activates E-E-A-T signals.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">How Verbalist identifies gaps</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">How Verbalist identifies gaps</h2>
             <p className="text-muted-foreground mb-4">
               The system compares topics and depth between competitors, flagging areas with weak or absent coverage. Use these suggestions to plan differentiating content.
             </p>

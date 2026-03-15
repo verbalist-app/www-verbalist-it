@@ -90,7 +90,7 @@ export default function FAQs({ className, locale = 'it' }: FaqsProps) {
     <section className={cn('bg-background @container py-24', className)}>
       <div className="mx-auto max-w-4xl px-6">
         <div className="text-center">
-          <h2 className="font-serif text-balance text-4xl font-medium">{t.title}</h2>
+          <h2 className="text-balance text-4xl font-medium">{t.title}</h2>
           <p className="text-muted-foreground mx-auto mt-4 max-w-md text-balance">{t.description}</p>
         </div>
         <Card variant="mixed" className="mt-12 p-2">

@@ -40,7 +40,7 @@ export function SettingsContent() {
     <div className="space-y-8 max-w-2xl">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-medium tracking-tighter">Impostazioni</h1>
+        <h1 className="font-serif text-2xl font-medium tracking-tighter">Impostazioni</h1>
         <p className="text-sm text-muted-foreground mt-1">
           Gestisci il tuo account e le preferenze
         </p>

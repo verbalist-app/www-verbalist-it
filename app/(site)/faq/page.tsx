@@ -68,7 +68,7 @@ export default function FaqPage() {
         <FaqAccordion faqs={faqs} />
 
         <div className="mt-12 bg-muted rounded-xl p-8 border border-border text-center">
-          <h3 className="font-serif text-lg font-medium mb-3">
+          <h3 className="text-lg font-medium mb-3">
             Non trovi quello che cerchi?
           </h3>
           <p className="text-sm text-muted-foreground mb-6">

@@ -27,7 +27,7 @@ export function SubPageCTA({
   return (
     <section className={cn("bg-background @container border-t py-24 lg:py-32", className)}>
       <div className="mx-auto max-w-2xl px-6 text-center">
-        <h2 className="font-serif text-balance text-3xl font-medium tracking-tight sm:text-4xl">
+        <h2 className="text-balance text-3xl font-medium tracking-tight sm:text-4xl">
           {title}
         </h2>
         <p className="text-muted-foreground mx-auto mt-6 max-w-md text-balance text-base leading-relaxed">

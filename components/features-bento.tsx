@@ -211,7 +211,7 @@ export function FeaturesBento({ className, locale = "it" }: FeaturesBentoProps) 
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             {t.sectionLabel}
           </p>
-          <h2 className="font-serif text-balance text-2xl font-medium tracking-tight md:text-3xl lg:text-4xl">
+          <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl lg:text-4xl">
             {t.sectionTitle}
           </h2>
         </div>
@@ -232,7 +232,7 @@ export function FeaturesBento({ className, locale = "it" }: FeaturesBentoProps) 
                 <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {feature.step}
                 </span>
-                <h3 className="mt-2 font-serif text-xl font-medium tracking-tight md:text-2xl">
+                <h3 className="mt-2 text-xl font-medium tracking-tight md:text-2xl">
                   {feature.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">

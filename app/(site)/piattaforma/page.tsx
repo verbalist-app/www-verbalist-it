@@ -74,7 +74,7 @@ export default function PiattaformaPage() {
                   <span className="text-sm font-medium text-muted-foreground">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h2 className="mt-4 font-serif text-2xl font-medium tracking-tight md:text-3xl">
+                  <h2 className="mt-4 text-2xl font-medium tracking-tight md:text-3xl">
                     {funz.title}
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -105,7 +105,7 @@ export default function PiattaformaPage() {
 
       <section className="border-t py-24">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="mb-8 font-serif text-2xl font-medium tracking-tight text-foreground">Cosa ottieni</h2>
+          <h2 className="mb-8 text-2xl font-medium tracking-tight text-foreground">Cosa ottieni</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
@@ -123,7 +123,7 @@ export default function PiattaformaPage() {
               },
             ].map((section) => (
               <div key={section.title} className="rounded-xl border border-border bg-card p-6">
-                <h3 className="mb-5 font-serif text-lg font-medium text-foreground">{section.title}</h3>
+                <h3 className="mb-5 text-lg font-medium text-foreground">{section.title}</h3>
                 <ul className="space-y-3">
                   {section.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 text-muted-foreground">

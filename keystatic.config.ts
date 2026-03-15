@@ -12,7 +12,7 @@ export default config({
     posts: collection({
       label: 'Blog Posts',
       slugField: 'title',
-      path: 'content/posts/*',
+      path: 'content/posts/*/',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Titolo' } }),
@@ -58,6 +58,11 @@ export default config({
             { label: 'English', value: 'en' },
           ],
           defaultValue: 'it',
+        }),
+        summary: fields.text({
+          label: 'TL;DR',
+          description: 'Riassunto AI del post (generato da scripts/generate-summaries.js)',
+          multiline: true,
         }),
         translationOf: fields.text({
           label: 'Slug traduzione',

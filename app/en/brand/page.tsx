@@ -78,7 +78,7 @@ export default function BrandPageEn() {
         <div className="space-y-20">
           {/* ── Logo ── */}
           <section>
-            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">Logo</h2>
+            <h2 className="text-2xl font-medium tracking-tight mb-2">Logo</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
               The Verbalist logo consists of a wordmark (the geometric
               &quot;V&quot;) and the logotype. They can be used together or
@@ -158,7 +158,7 @@ export default function BrandPageEn() {
 
           {/* ── Clear space ── */}
           <section>
-            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">
+            <h2 className="text-2xl font-medium tracking-tight mb-2">
               Clear space
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-2xl">
@@ -181,7 +181,7 @@ export default function BrandPageEn() {
 
           {/* ── Colors ── */}
           <section>
-            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">Colors</h2>
+            <h2 className="text-2xl font-medium tracking-tight mb-2">Colors</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
               The Verbalist design system uses a warm, earthy palette.
               Brown and beige tones for an organic, professional look.
@@ -266,7 +266,7 @@ export default function BrandPageEn() {
 
           {/* ── Typography ── */}
           <section>
-            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">
+            <h2 className="text-2xl font-medium tracking-tight mb-2">
               Typography
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
@@ -279,10 +279,10 @@ export default function BrandPageEn() {
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
                   Asar &mdash; Serif (headings)
                 </p>
-                <p className="font-serif text-4xl font-medium tracking-tight mb-4">
+                <p className="text-4xl font-medium tracking-tight mb-4">
                   Aa Bb Cc Dd Ee Ff Gg
                 </p>
-                <p className="font-serif text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
                   0123456789
                 </p>
@@ -308,7 +308,7 @@ export default function BrandPageEn() {
 
           {/* ── Usage guidelines ── */}
           <section>
-            <h2 className="font-serif text-2xl font-medium tracking-tight mb-2">
+            <h2 className="text-2xl font-medium tracking-tight mb-2">
               Usage guidelines
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
@@ -367,7 +367,7 @@ export default function BrandPageEn() {
 
           {/* ── Contact ── */}
           <section className="bg-muted rounded-xl p-8 md:p-12 border border-border">
-            <h3 className="font-serif text-2xl font-medium tracking-tight mb-4">
+            <h3 className="text-2xl font-medium tracking-tight mb-4">
               Need assets in a different format?
             </h3>
             <p className="text-sm text-muted-foreground mb-6 max-w-2xl">

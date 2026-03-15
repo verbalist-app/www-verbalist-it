@@ -24,7 +24,7 @@ export function FeatureChecklist({
         {(title || description) && (
           <div className="text-center">
             {title && (
-              <h2 className="font-serif text-balance text-3xl font-medium tracking-tight sm:text-4xl">
+              <h2 className="text-balance text-3xl font-medium tracking-tight sm:text-4xl">
                 {title}
               </h2>
             )}

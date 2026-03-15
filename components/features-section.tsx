@@ -180,7 +180,7 @@ export function FeaturesSection({ className, locale = 'it' }: FeaturesSectionPro
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             {t.sectionLabel}
           </p>
-          <h2 className="font-serif text-balance text-2xl font-medium tracking-tight md:text-3xl lg:text-4xl">
+          <h2 className="text-balance text-2xl font-medium tracking-tight md:text-3xl lg:text-4xl">
             {t.sectionTitle}
           </h2>
         </div>

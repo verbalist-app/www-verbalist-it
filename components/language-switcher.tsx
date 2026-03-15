@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { Globe } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 const slugMap: Record<string, string> = {
   '/': '/en',
@@ -34,6 +34,13 @@ const reverseSlugMap: Record<string, string> = Object.fromEntries(
   Object.entries(slugMap).map(([it, en]) => [en, it])
 )
 
+function getHreflangAlternate(targetLang: string): string | null {
+  const link = document.querySelector<HTMLLinkElement>(
+    `link[rel="alternate"][hreflang="${targetLang}"]`
+  )
+  return link?.href ? new URL(link.href).pathname : null
+}
+
 interface LanguageSwitcherProps {
   variant?: 'header' | 'footer'
 }
@@ -41,13 +48,26 @@ interface LanguageSwitcherProps {
 export function LanguageSwitcher({ variant = 'footer' }: LanguageSwitcherProps) {
   const pathname = usePathname()
   const isEnglish = pathname.startsWith('/en')
+  const [alternatePath, setAlternatePath] = useState(() => {
+    if (isEnglish) {
+      return reverseSlugMap[pathname] || '/'
+    }
+    return slugMap[pathname] || '/en'
+  })
 
-  let alternatePath: string
-  if (isEnglish) {
-    alternatePath = reverseSlugMap[pathname] || '/'
-  } else {
-    alternatePath = slugMap[pathname] || '/en'
-  }
+  useEffect(() => {
+    // Check if there's a hreflang alternate for the target language
+    const targetLang = isEnglish ? 'it' : 'en'
+    const hreflang = getHreflangAlternate(targetLang)
+
+    if (hreflang) {
+      setAlternatePath(hreflang)
+    } else if (isEnglish) {
+      setAlternatePath(reverseSlugMap[pathname] || '/')
+    } else {
+      setAlternatePath(slugMap[pathname] || '/en')
+    }
+  }, [pathname, isEnglish])
 
   if (variant === 'header') {
     return (

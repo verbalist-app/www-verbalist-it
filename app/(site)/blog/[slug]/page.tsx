@@ -1,11 +1,22 @@
-import Link from "next/link"
 import { notFound } from "next/navigation"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
 import { reader, formatDate, getTranslation } from "@/lib/keystatic"
 import { ArticleSchema, BreadcrumbSchema } from "@/components/schema"
+import { SubPageCTA } from "@/components/sub-page-cta"
+import { BlogTldr } from "@/components/blog-tldr"
+import { extractHeadings } from "@/lib/extract-headings"
+import { markdocConfig } from "@/lib/markdoc"
 import Markdoc from "@markdoc/markdoc"
 import React from "react"
 import type { Metadata } from "next"
+
+const categoryLabels: Record<string, string> = {
+  seo: "SEO",
+  "content-marketing": "Content Marketing",
+  "ai-automation": "AI & Automation",
+  guide: "Guide",
+  news: "News",
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -24,11 +35,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) return { title: 'Post non trovato' }
 
+  const translation = await getTranslation(slug)
+
   return {
     title: post.title,
     description: post.description,
     alternates: {
       canonical: `/blog/${slug}`,
+      languages: {
+        'it': `/blog/${slug}`,
+        ...(translation ? { 'en': `/en/blog/${translation.slug}` } : {}),
+        'x-default': `/blog/${slug}`,
+      },
     },
   }
 }
@@ -41,9 +59,10 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound()
   }
 
-  const translation = await getTranslation(slug)
-  const content = await post.content()
-  const rendered = Markdoc.renderers.react(content, React)
+  const doc = await post.content()
+  const transformed = Markdoc.transform(doc.node, markdocConfig)
+  const headings = extractHeadings(transformed)
+  const rendered = Markdoc.renderers.react(transformed, React)
 
   return (
     <>
@@ -66,38 +85,17 @@ export default async function BlogPostPage({ params }: PageProps) {
       <article className="pt-20 md:pt-28 pb-24">
         {/* Header */}
         <div className="max-w-4xl mx-auto px-6">
-        {translation && (
-          <div className="mb-8 flex justify-end">
-            <Link
-              href={`/en/blog/${translation.slug}`}
-              className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" strokeWidth={2} />
-                <path strokeWidth={2} d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-              Read in English
-            </Link>
-          </div>
-        )}
-
         <div className="flex flex-col items-center text-center">
+          <Badge variant="secondary" className="rounded-full text-xs font-normal mb-4">
+            {categoryLabels[post.category] || post.category}
+          </Badge>
           <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4 max-w-3xl">
             {post.title}
           </h1>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-6">
+          <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-4">
             {post.description}
           </p>
-          <div className="flex items-center gap-3 text-sm">
-            <Avatar className="h-8 w-8 border">
-              <AvatarImage src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp" />
-              <AvatarFallback>{post.author?.charAt(0) || 'V'}</AvatarFallback>
-            </Avatar>
-            <span>
-              <span className="font-medium">{post.author || 'Team Verbalist'}</span>
-              <span className="text-muted-foreground ml-1">· {formatDate(post.publishedAt, 'it')}</span>
-            </span>
-          </div>
+          <time className="text-sm text-muted-foreground mb-8">{formatDate(post.publishedAt, 'it')}</time>
           {post.featuredImage && (
             <img
               src={post.featuredImage}
@@ -110,29 +108,19 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Content */}
       <div className="max-w-3xl mx-auto px-6">
-        <div className="prose prose-neutral dark:prose-invert max-w-none">
+        <BlogTldr
+          summary={post.summary}
+          description={post.description}
+          headings={headings}
+          locale="it"
+        />
+        <div className="prose-verbalist">
           {rendered}
         </div>
       </div>
 
-        {/* CTA */}
-        <div className="max-w-3xl mx-auto px-6 mt-16">
-          <div className="bg-muted rounded-xl p-8 md:p-12">
-            <h2 className="font-serif text-2xl font-medium tracking-tight mb-4">
-              Vuoi vedere Verbalist in azione?
-            </h2>
-            <p className="text-sm text-muted-foreground mb-6 max-w-2xl">
-              Ti mostriamo come funziona con una demo sul tuo caso.
-            </p>
-            <Link
-              href="/prenota-demo"
-              className="inline-flex items-center gap-2 text-sm bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
-            >
-              Prenota una demo
-            </Link>
-          </div>
-        </div>
       </article>
+      <SubPageCTA />
     </>
   )
 }

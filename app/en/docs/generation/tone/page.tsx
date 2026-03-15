@@ -27,32 +27,32 @@ export default function TonePage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Creating a Tone Profile</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Creating a Tone Profile</h2>
             <p className="text-muted-foreground mb-4">
               Go to Settings → Tone Profile and create a new profile. You can have multiple profiles for different brands or content types.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Reference examples</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Reference examples</h2>
             <p className="text-muted-foreground mb-4">
               The most effective way to define tone of voice is to provide examples. Paste 2-3 paragraphs of existing content that represents your style. Verbalist will analyze and replicate the tone.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Text guidelines</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Text guidelines</h2>
             <p className="text-muted-foreground mb-4">
               You can also describe the tone in words: formal/informal, technical/accessible, direct/narrative. Add specific indications: "avoid jargon", "use practical examples", "keep sentences short".
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Custom vocabulary</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Custom vocabulary</h2>
             <p className="text-muted-foreground mb-4">
               Define preferred and avoided terms. Example: "use 'clients' not 'users'", "don't use 'synergy'". Verbalist will respect these preferences during generation.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Applying the profile</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Applying the profile</h2>
             <p className="text-muted-foreground mb-4">
               During generation, select the Tone Profile from the dropdown. You can also set a default profile for each project.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Iterate and improve</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Iterate and improve</h2>
             <p className="text-muted-foreground mb-4">
               If the result doesn't match the desired tone, add more examples or refine guidelines. The profile can be modified at any time.
             </p>

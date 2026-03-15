@@ -27,32 +27,32 @@ export default function ApiPage() {
           </p>
 
           <div className="prose prose-neutral max-w-none">
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">REST API</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">REST API</h2>
             <p className="text-muted-foreground mb-4">
               Verbalist exposes REST APIs for all main features: start analyses, retrieve patterns, generate content. Complete documentation available in the developer section.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Generating API keys</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Generating API keys</h2>
             <p className="text-muted-foreground mb-4">
               Go to Settings → API and generate a new key. You can create multiple keys with different permissions. Keys don't expire but you can revoke them at any time.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Rate limits</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Rate limits</h2>
             <p className="text-muted-foreground mb-4">
               APIs have limits based on your plan. The system returns headers with remaining limits. Respect limits to avoid temporary blocks.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Webhooks</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Webhooks</h2>
             <p className="text-muted-foreground mb-4">
               Configure webhooks to receive notifications when an analysis completes or content is generated. Useful for automated workflows without polling.
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">Native integrations</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">Native integrations</h2>
             <p className="text-muted-foreground mb-4">
               Ready integrations for: WordPress (direct publishing), Notion (automatic export), Zapier (connection with 5000+ apps), Make (advanced automations).
             </p>
 
-            <h2 className="font-serif text-xl font-medium mt-8 mb-4">API usage</h2>
+            <h2 className="text-xl font-medium mt-8 mb-4">API usage</h2>
             <p className="text-muted-foreground mb-4">
               API calls consume credits like interface usage. Monitor usage from the dashboard to avoid surprises. You can set alerts for consumption thresholds.
             </p>
