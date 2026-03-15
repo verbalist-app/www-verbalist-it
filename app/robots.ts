@@ -14,6 +14,9 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://www.verbalist.it/sitemap.xml',
+    sitemap: [
+      'https://www.verbalist.it/sitemap.xml',
+      'https://www.verbalist.it/en/sitemap.xml',
+    ],
   }
 }
