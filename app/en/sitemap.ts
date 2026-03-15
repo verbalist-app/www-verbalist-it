@@ -10,7 +10,7 @@ import {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date()
-  const { it: postsIt } = await getBlogPosts()
+  const { en: postsEn } = await getBlogPosts()
   const entries: MetadataRoute.Sitemap = []
 
   for (const itRoute of italianPages) {
@@ -18,16 +18,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const isItalianOnly = italianOnlyPages.includes(itRoute)
     const enRoute = itToEnSlugMap[itRoute]
+    if (isItalianOnly || !enRoute) continue
+
     const isGuide = itRoute.includes('/guide')
     const priority = itRoute === '' ? 1 : isGuide ? 0.6 : 0.8
     const changeFrequency: 'weekly' | 'monthly' = itRoute === '' ? 'weekly' : 'monthly'
 
     entries.push({
-      url: `${baseUrl}${itRoute}`,
+      url: `${baseUrl}${enRoute}`,
       lastModified: now,
       changeFrequency,
-      priority,
-      alternates: isItalianOnly || !enRoute ? undefined : {
+      priority: priority * 0.9,
+      alternates: {
         languages: {
           'it': `${baseUrl}${itRoute}`,
           'en': `${baseUrl}${enRoute}`,
@@ -37,21 +39,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   }
 
-  for (const post of postsIt) {
+  for (const post of postsEn) {
     const lastModified = post.publishedAt ? new Date(post.publishedAt) : now
-    const itUrl = `${baseUrl}/blog/${post.slug}`
-    const enSlug = post.translationOf
+    const enUrl = `${baseUrl}/en/blog/${post.slug}`
+    const itSlug = post.translationOf
 
     entries.push({
-      url: itUrl,
+      url: enUrl,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.7,
-      alternates: enSlug ? {
+      priority: 0.65,
+      alternates: itSlug ? {
         languages: {
-          'it': itUrl,
-          'en': `${baseUrl}/en/blog/${enSlug}`,
-          'x-default': itUrl,
+          'it': `${baseUrl}/blog/${itSlug}`,
+          'en': enUrl,
+          'x-default': `${baseUrl}/blog/${itSlug}`,
         },
       } : undefined,
     })
