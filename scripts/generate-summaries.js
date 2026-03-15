@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const POSTS_DIR = path.join(process.cwd(), 'content/posts');
+const POSTS_DIRS = [
+  path.join(process.cwd(), 'content/posts'),
+  path.join(process.cwd(), 'content/posts-en'),
+];
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const FORCE = process.argv.includes('--force');
 
@@ -184,9 +187,13 @@ async function main() {
     process.exit(0);
   }
 
-  const dirs = fs.readdirSync(POSTS_DIR, { withFileTypes: true })
-    .filter(d => d.isDirectory())
-    .map(d => path.join(POSTS_DIR, d.name));
+  const dirs = POSTS_DIRS.flatMap(postsDir =>
+    fs.existsSync(postsDir)
+      ? fs.readdirSync(postsDir, { withFileTypes: true })
+          .filter(d => d.isDirectory())
+          .map(d => path.join(postsDir, d.name))
+      : []
+  );
 
   console.log(`\n📝 Found ${dirs.length} posts\n`);
 

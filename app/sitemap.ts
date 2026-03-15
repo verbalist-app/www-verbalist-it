@@ -139,18 +139,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Carica blog posts da Keystatic
-  let blogPosts: { slug: string; locale: string; publishedAt: string | null }[] = []
+  let postsIt: { slug: string; publishedAt: string | null }[] = []
+  let postsEn: { slug: string; publishedAt: string | null }[] = []
 
   try {
     const reader = createReader(process.cwd(), keystaticConfig)
-    const posts = await reader.collections.posts.all()
-    blogPosts = posts.map((post) => ({
-      slug: post.slug,
-      locale: post.entry.locale || 'it',
-      publishedAt: post.entry.publishedAt,
-    }))
+    const [it, en] = await Promise.all([
+      reader.collections.posts.all(),
+      reader.collections.postsEn.all(),
+    ])
+    postsIt = it.map((p) => ({ slug: p.slug, publishedAt: p.entry.publishedAt }))
+    postsEn = en.map((p) => ({ slug: p.slug, publishedAt: p.entry.publishedAt }))
   } catch {
-    blogPosts = []
+    postsIt = []
+    postsEn = []
   }
 
   const sitemapEntries: MetadataRoute.Sitemap = []
@@ -201,24 +203,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Aggiungi blog posts da Keystatic
-  for (const post of blogPosts) {
-    const lastModified = post.publishedAt ? new Date(post.publishedAt) : now
-
-    if (post.locale === 'it') {
-      sitemapEntries.push({
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified,
-        changeFrequency: 'monthly',
-        priority: 0.7,
-      })
-    } else if (post.locale === 'en') {
-      sitemapEntries.push({
-        url: `${baseUrl}/en/blog/${post.slug}`,
-        lastModified,
-        changeFrequency: 'monthly',
-        priority: 0.65,
-      })
-    }
+  for (const post of postsIt) {
+    sitemapEntries.push({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    })
+  }
+  for (const post of postsEn) {
+    sitemapEntries.push({
+      url: `${baseUrl}/en/blog/${post.slug}`,
+      lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
+      changeFrequency: 'monthly',
+      priority: 0.65,
+    })
   }
 
   return sitemapEntries

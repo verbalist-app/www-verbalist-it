@@ -3,31 +3,27 @@ import keystaticConfig from '@/keystatic.config'
 
 export const reader = createReader(process.cwd(), keystaticConfig)
 
-export async function getAllPosts() {
-  const posts = await reader.collections.posts.all()
-  return posts
-}
-
 export async function getPostsByLocale(locale: 'it' | 'en') {
-  const posts = await reader.collections.posts.all()
-  return posts.filter(post => post.entry.locale === locale)
+  const col = locale === 'it' ? reader.collections.posts : reader.collections.postsEn
+  return col.all()
 }
 
-export async function getPost(slug: string) {
-  const post = await reader.collections.posts.read(slug)
-  return post
+export async function getPost(slug: string, locale: 'it' | 'en') {
+  const col = locale === 'it' ? reader.collections.posts : reader.collections.postsEn
+  return col.read(slug)
 }
 
-export async function getTranslation(slug: string) {
-  const post = await reader.collections.posts.read(slug)
+export async function getTranslation(slug: string, locale: 'it' | 'en') {
+  const post = await getPost(slug, locale)
   if (!post?.translationOf) return null
 
-  const translatedPost = await reader.collections.posts.read(post.translationOf)
+  const targetLocale = locale === 'it' ? 'en' : 'it'
+  const translatedPost = await getPost(post.translationOf, targetLocale)
   if (!translatedPost) return null
 
   return {
     slug: post.translationOf,
-    locale: translatedPost.locale,
+    locale: targetLocale,
   }
 }
 

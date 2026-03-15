@@ -23,19 +23,17 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const posts = await reader.collections.posts.all()
-  return posts
-    .filter(post => post.entry.locale === 'en')
-    .map(post => ({ slug: post.slug }))
+  const posts = await reader.collections.postsEn.all()
+  return posts.map(post => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = await reader.collections.posts.read(slug)
+  const post = await reader.collections.postsEn.read(slug)
 
   if (!post) return { title: 'Post not found' }
 
-  const translation = await getTranslation(slug)
+  const translation = await getTranslation(slug, 'en')
 
   return {
     title: post.title,
@@ -52,9 +50,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params
-  const post = await reader.collections.posts.read(slug)
+  const post = await reader.collections.postsEn.read(slug)
 
-  if (!post || post.locale !== 'en') {
+  if (!post) {
     notFound()
   }
 

@@ -24,9 +24,7 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const posts = await reader.collections.posts.all()
-  return posts
-    .filter(post => post.entry.locale === 'it')
-    .map(post => ({ slug: post.slug }))
+  return posts.map(post => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -35,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) return { title: 'Post non trovato' }
 
-  const translation = await getTranslation(slug)
+  const translation = await getTranslation(slug, 'it')
 
   return {
     title: post.title,
@@ -55,7 +53,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params
   const post = await reader.collections.posts.read(slug)
 
-  if (!post || post.locale !== 'it') {
+  if (!post) {
     notFound()
   }
 
