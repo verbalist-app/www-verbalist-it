@@ -3,6 +3,7 @@ const path = require('path');
 
 const POSTS_DIR = path.join(process.cwd(), 'content/posts');
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
+const FORCE = process.argv.includes('--force');
 
 function parseMarkdoc(fileContent) {
   const match = fileContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -59,14 +60,18 @@ function parseMarkdoc(fileContent) {
 
 async function generateSummary(content, title, locale) {
   const prompt = locale === 'it'
-    ? `Sei un esperto nel creare riassunti concisi e informativi.
+    ? `Crea un riassunto di 2-3 frasi (max 200 caratteri) per l'articolo seguente.
 
-Crea un riassunto di 2-3 frasi (max 250 caratteri) per questo articolo che:
-- Risponde direttamente alla domanda/tema principale dell'articolo
-- Usa un linguaggio chiaro, diretto, senza fronzoli
-- È autosufficiente e utile anche senza leggere l'articolo completo
-- Evita parole vuote, slogan e marketing speak
+Regole:
+- Rispondi direttamente alla domanda o al tema principale
+- Usa un linguaggio semplice e fattuale; preferisci verbi diretti (è, ha, sono) a costruzioni come "si configura come", "si pone come"
+- Non usare: cruciale, panorama (astratto), sottolineare, valorizzare, tessuto, approfondire, consolidare, intricato, meticoloso, fondamentale, testimonianza, in linea con, evidenziando
+- Niente elenchi a tre elementi, niente costruzioni "non solo X ma anche Y"
+- Niente tono promozionale o da guida turistica
+- Evita i trattini lunghi; usa virgole o due punti
+- Ripeti lo stesso termine se è la scelta più chiara; non sostituire sinonimi per evitare ripetizioni
 - Non iniziare con "Questo articolo" o "In questo post"
+- Autosufficiente: utile anche senza leggere l'articolo completo
 
 Titolo: ${title}
 
@@ -74,14 +79,18 @@ Contenuto:
 ${content.slice(0, 4000)}
 
 Restituisci SOLO il testo del riassunto, nient'altro.`
-    : `You are an expert at creating concise, informative summaries.
+    : `Create a 2-3 sentence summary (max 200 characters) for the article below.
 
-Create a 2-3 sentence summary (max 250 characters) for this article that:
-- Directly answers the main question/topic
-- Uses clear, factual language
-- Is self-contained and useful without reading the full article
-- Avoids fluff words and marketing speak
-- Don't start with "This article" or "In this post"
+Rules:
+- Answer the main question or topic directly
+- Use plain, factual language; prefer simple verbs (is, are, has) over "serves as", "stands as", "boasts"
+- Do not use: pivotal, underscore, foster, showcase, vibrant, tapestry, delve, bolstered, garner, intricate, meticulous, enduring, crucial, landscape (abstract), testament, align with, emphasizing, fostering
+- No rule-of-three lists, no "not just X but also Y" constructions
+- No promotional or travel-guide tone, no puffery
+- Avoid em dashes; use commas or colons instead
+- Reuse the same term if it is the clearest choice; do not substitute synonyms to avoid repetition
+- Do not start with "This article" or "In this post"
+- Self-contained: useful without reading the full article
 
 Title: ${title}
 
@@ -98,8 +107,8 @@ Return ONLY the summary text, nothing else.`;
       'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify({
-      model: 'claude-haiku-4-5-20251001',
-      max_tokens: 200,
+      model: 'claude-sonnet-4-6',
+      max_tokens: 150,
       messages: [{ role: 'user', content: prompt }],
     }),
   });
@@ -122,7 +131,7 @@ async function processPost(dirPath) {
 
   const { frontmatter, content } = parsed;
 
-  if (frontmatter.summary) {
+  if (frontmatter.summary && !FORCE) {
     console.log(`⏭️  Skipping (has summary): ${path.basename(dirPath)}`);
     return false;
   }
@@ -135,15 +144,25 @@ async function processPost(dirPath) {
   try {
     const summary = await generateSummary(content, title, locale);
 
-    // Insert summary field before translationOf in frontmatter
-    const lines = fileContent.split('\n');
+    let lines = fileContent.split('\n');
+
+    // Remove existing summary field if regenerating
+    if (frontmatter.summary) {
+      const summaryIdx = lines.findIndex(l => l.startsWith('summary:'));
+      if (summaryIdx > -1) {
+        let end = summaryIdx + 1;
+        while (end < lines.length && /^\s+\S/.test(lines[end])) end++;
+        lines.splice(summaryIdx, end - summaryIdx);
+      }
+    }
+
+    // Insert new summary
     const insertIdx = lines.findIndex(l => l.startsWith('translationOf:'));
     const summaryLine = `summary: >-\n  ${summary}`;
 
     if (insertIdx > 0) {
       lines.splice(insertIdx, 0, summaryLine);
     } else {
-      // Insert before closing ---
       const endIdx = lines.indexOf('---', 1);
       if (endIdx > 0) {
         lines.splice(endIdx, 0, summaryLine);
@@ -161,9 +180,8 @@ async function processPost(dirPath) {
 
 async function main() {
   if (!ANTHROPIC_API_KEY) {
-    console.log('⚠️  ANTHROPIC_API_KEY not set. Run with:');
-    console.log('   ANTHROPIC_API_KEY=sk-... node scripts/generate-summaries.js');
-    process.exit(1);
+    console.log('⚠️  ANTHROPIC_API_KEY not set, skipping summary generation');
+    process.exit(0);
   }
 
   const dirs = fs.readdirSync(POSTS_DIR, { withFileTypes: true })
