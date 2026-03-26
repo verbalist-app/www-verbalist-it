@@ -19,45 +19,6 @@ export function Testimonials({
   testimonials,
   className,
 }: TestimonialsProps) {
-  return (
-    <section className={cn("border-t py-20 md:py-28", className)}>
-      <div className="mx-auto max-w-6xl px-6">
-        {title && (
-          <h2 className="text-balance text-2xl font-medium tracking-tight text-center mb-16 md:text-3xl">
-            {title}
-          </h2>
-        )}
-        <div className={cn(
-          "grid gap-8 md:gap-12",
-          testimonials.length === 1 && "max-w-2xl mx-auto",
-          testimonials.length === 2 && "md:grid-cols-2",
-          testimonials.length >= 3 && "md:grid-cols-2 lg:grid-cols-3"
-        )}>
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="border-t border-border/50 pt-6 space-y-4"
-            >
-              {testimonial.metric && (
-                <div className="text-3xl font-medium tracking-tight text-foreground">
-                  {testimonial.metric}
-                </div>
-              )}
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                "{testimonial.quote}"
-              </p>
-              <div className="pt-2">
-                <div className="text-sm font-medium text-foreground">
-                  {testimonial.author}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {testimonial.role}, {testimonial.company}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+  // Temporaneamente nascosto: in attesa di recensioni reali
+  return null
 }
