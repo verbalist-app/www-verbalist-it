@@ -2,7 +2,8 @@ import { FileText, Palette, PenTool, Target, Layers, RefreshCw } from "lucide-re
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import { FeatureGrid } from "@/components/feature-grid"
+import Testimonials from "@/components/testimonials-4"
+import { Feature2 } from "@/components/feature-2"
 
 export const metadata: Metadata = {
   title: "GEO content for Content Creators",
@@ -55,21 +56,18 @@ export default function MarketingTeamsPage() {
       <SubPageHero locale="en"
         label="Content Creator"
         title="Content structured for Google and AI search"
-        description="SERP analysis and pattern extraction are automated. You get drafts with semantic structure optimized for visibility on Google, ChatGPT, Perplexity and AI Overview."
+        description="Search results analysis and pattern extraction are automated. You get drafts with semantic structure optimized for visibility on Google, ChatGPT, Perplexity and AI Overview."
       />
 
-      <FeatureGrid
+      <Feature2
         title="Content for every format, optimized for GEO"
         description="Blog posts, landing pages, guides. Every format with the optimal structure to be indexed and cited in AI search."
         items={features}
       />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <Testimonials locale="en" />
+
+      <SubPageCTA locale="en" />
     </>
   )
 }

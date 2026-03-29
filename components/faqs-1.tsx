@@ -33,7 +33,7 @@ const faqsContent = {
       {
         id: 'item-3',
         question: 'I contenuti sono unici?',
-        answer: 'Sì. Ogni contenuto viene generato da zero partendo dall\'analisi SERP della tua keyword. Niente template o spinning.',
+        answer: 'Sì. Ogni contenuto viene generato da zero partendo dall\'analisi dei risultati Google della tua keyword. Niente template o spinning.',
       },
       {
         id: 'item-4',
@@ -67,7 +67,7 @@ const faqsContent = {
       {
         id: 'item-3',
         question: 'Is the content unique?',
-        answer: 'Yes. Every piece of content is generated from scratch based on the SERP analysis for your keyword. No templates or spinning.',
+        answer: 'Yes. Every piece of content is generated from scratch based on the search results analysis for your keyword. No templates or spinning.',
       },
       {
         id: 'item-4',

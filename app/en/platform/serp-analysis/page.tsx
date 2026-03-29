@@ -5,16 +5,16 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
-  title: "Automated SERP Analysis",
+  title: "Automated Search Results Analysis",
   description: "Analyze the top 10 Google results in one click. Extract title, meta, structure and search intent for any keyword.",
   alternates: {
     canonical: "/en/platform/serp-analysis",
   },
   openGraph: {
-    title: "Automated SERP Analysis \\ Verbalist",
+    title: "Automated Search Results Analysis \\ Verbalist",
     description: "Analyze the top 10 Google results in one click. Extract title, meta, structure and search intent for any keyword.",
   },
 }
@@ -32,7 +32,7 @@ const featureColumns = [
     items: [
       "Search intent detection",
       "Informational vs commercial",
-      "SERP features present",
+      "Search result features present",
       "Featured snippet analysis",
     ],
   },
@@ -41,25 +41,8 @@ const featureColumns = [
       "Word count per result",
       "Heading structure",
       "Topic coverage",
-      "E-E-A-T signals",
+      "Quality and authority signals",
     ],
-  },
-]
-
-const testimonials = [
-  {
-    metric: "10 min",
-    quote: "The analysis I used to do in 2 hours with spreadsheets now takes 10 minutes. With more data.",
-    author: "Marco P.",
-    role: "SEO Specialist",
-    company: "Digital Agency",
-  },
-  {
-    metric: "Real data",
-    quote: "Finally decisions based on concrete data, not opinions. I see exactly what's working in SERP.",
-    author: "Elena R.",
-    role: "Content Strategist",
-    company: "E-commerce",
   },
 ]
 
@@ -118,16 +101,16 @@ export default function SerpAnalysisPage() {
   return (
     <>
       <SubPageHero locale="en"
-        label="SERP Analysis"
+        label="Search Results Analysis"
         title="Understand exactly what makes content rank"
         description="Analyze the top 10 Google results in seconds. Extract titles, meta descriptions, heading structures and search intent patterns that drive rankings."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
-      <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
+      <TrustedBy />
 
       <FeatureChecklist
-        title="All the SERP data you need"
+        title="All the search results data you need"
         description="Automatic analysis of the top 10 results with complete metrics."
         columns={featureColumns}
       />
@@ -147,14 +130,9 @@ export default function SerpAnalysisPage() {
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
+      <Testimonials locale="en" />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo. See SERP analysis, pattern detection and content generation on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <SubPageCTA locale="en" />
     </>
   )
 }

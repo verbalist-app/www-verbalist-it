@@ -25,19 +25,19 @@ const faqs = [
   },
   {
     question: "Is the content unique?",
-    answer: "Yes. Each piece of content is generated from scratch based on the SERP analysis of your keyword. No templates or spinning.",
+    answer: "Yes. Each piece of content is generated from scratch based on the search results analysis of your keyword. No templates or spinning.",
   },
   {
     question: "Can I use my own tone of voice?",
     answer: "Yes. You configure a profile with examples of your style and guidelines. The system generates following those directions.",
   },
   {
-    question: "How does SERP analysis work?",
-    answer: "It fetches the top 10 organic results, downloads the content from each page, analyzes headings, length, topics and E-E-A-T signals.",
+    question: "How does search results analysis work?",
+    answer: "It fetches the top 10 organic results, downloads the content from each page, analyzes headings, length, topics and quality and authority signals.",
   },
   {
     question: "How much does it cost?",
-    answer: "From €49/month for freelancers to custom enterprise plans. 14-day free trial on all plans.",
+    answer: "One plan at €3,000 + VAT with 300 credits included. Extra credits available at €35 each. Book a demo for a custom quote.",
   },
   {
     question: "Are there integrations?",

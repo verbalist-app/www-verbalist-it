@@ -3,7 +3,25 @@ import { Button } from "@/components/ui/button"
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+type Locale = 'it' | 'en'
+
+const ctaDefaults = {
+  it: {
+    title: "Vuoi vederlo in azione?",
+    description: "Una demo di 20 minuti sul tuo caso: analizziamo una keyword, estraiamo i pattern e generiamo un contenuto davanti a te.",
+    primaryCta: { text: "Prenota una demo gratuita", href: "/prenota-demo" },
+    secondaryCta: { text: "Vedi i prezzi", href: "/prezzi" },
+  },
+  en: {
+    title: "Want to see it in action?",
+    description: "A 20-minute demo on your case: we analyze a keyword, extract the patterns and generate content in front of you.",
+    primaryCta: { text: "Book a free demo", href: "/en/book-demo" },
+    secondaryCta: { text: "See pricing", href: "/en/pricing" },
+  },
+} as const
+
 interface SubPageCTAProps {
+  locale?: Locale
   title?: string
   description?: string
   primaryCta?: {
@@ -18,12 +36,18 @@ interface SubPageCTAProps {
 }
 
 export function SubPageCTA({
-  title = "Vuoi vederlo in azione?",
-  description = "Ti mostriamo come funziona con una demo. Vedi analisi SERP, rilevamento pattern e generazione contenuti applicati al tuo caso.",
-  primaryCta = { text: "Prenota una demo", href: "/prenota-demo" },
-  secondaryCta = { text: "Vedi i prezzi", href: "/prezzi" },
+  locale = 'it',
+  title,
+  description,
+  primaryCta,
+  secondaryCta,
   className,
 }: SubPageCTAProps) {
+  const defaults = ctaDefaults[locale]
+  title = title ?? defaults.title
+  description = description ?? defaults.description
+  primaryCta = primaryCta ?? defaults.primaryCta
+  secondaryCta = secondaryCta ?? defaults.secondaryCta
   return (
     <section className={cn("bg-background @container border-t py-24 lg:py-32", className)}>
       <div className="mx-auto max-w-2xl px-6 text-center">

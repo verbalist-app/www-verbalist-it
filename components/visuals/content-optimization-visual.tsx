@@ -3,10 +3,10 @@
 import { TrendingUp, AlertCircle, CheckCircle2, XCircle } from 'lucide-react'
 
 const scores = [
-    { label: 'SEO', score: 78, color: 'text-amber-500' },
-    { label: 'Leggibilità', score: 85, color: 'text-green-500' },
-    { label: 'Completezza', score: 62, color: 'text-amber-500' },
-    { label: 'E-E-A-T', score: 71, color: 'text-amber-500' },
+    { label: 'SEO', score: 78, color: 'text-status-warning' },
+    { label: 'Leggibilità', score: 85, color: 'text-status-success' },
+    { label: 'Completezza', score: 62, color: 'text-status-warning' },
+    { label: 'Qualità', score: 71, color: 'text-status-warning' },
 ]
 
 const issues = [
@@ -38,7 +38,7 @@ export function ContentOptimizationVisual() {
 
                 {/* Overall score */}
                 <div className="flex items-center justify-center gap-3 py-3 border-y">
-                    <div className="text-3xl font-semibold text-amber-500">74</div>
+                    <div className="text-3xl font-semibold text-status-warning">74</div>
                     <div className="text-sm text-muted-foreground">
                         Score<br />complessivo
                     </div>
@@ -49,9 +49,9 @@ export function ContentOptimizationVisual() {
                     <div className="text-xs font-medium text-muted-foreground mb-2">Problemi identificati</div>
                     {issues.map((issue, i) => (
                         <div key={i} className="flex items-start gap-2 text-sm">
-                            {issue.type === 'error' && <XCircle className="size-4 text-red-500 flex-shrink-0 mt-0.5" />}
-                            {issue.type === 'warning' && <AlertCircle className="size-4 text-amber-500 flex-shrink-0 mt-0.5" />}
-                            {issue.type === 'success' && <CheckCircle2 className="size-4 text-green-500 flex-shrink-0 mt-0.5" />}
+                            {issue.type === 'error' && <XCircle className="size-4 text-status-error flex-shrink-0 mt-0.5" />}
+                            {issue.type === 'warning' && <AlertCircle className="size-4 text-status-warning flex-shrink-0 mt-0.5" />}
+                            {issue.type === 'success' && <CheckCircle2 className="size-4 text-status-success flex-shrink-0 mt-0.5" />}
                             <span className="text-muted-foreground">{issue.text}</span>
                         </div>
                     ))}

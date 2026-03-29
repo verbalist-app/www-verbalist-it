@@ -10,7 +10,7 @@ import { LangSync } from "@/components/lang-sync"
 import "./globals.css"
 
 const asar = localFont({
-  src: '../public/fonts/Asar-Regular.woff',
+  src: '../public/fonts/Asar-Regular.woff2',
   variable: '--font-serif',
   display: 'swap',
 })

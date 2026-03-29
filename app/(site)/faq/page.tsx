@@ -25,19 +25,19 @@ const faqs = [
   },
   {
     question: "I contenuti sono unici?",
-    answer: "Sì. Ogni contenuto viene generato da zero partendo dall'analisi SERP della tua keyword. Niente template o spinning.",
+    answer: "Sì. Ogni contenuto viene generato da zero partendo dall'analisi dei risultati Google per la tua keyword. Niente template o spinning.",
   },
   {
     question: "Posso usare il mio tone of voice?",
     answer: "Sì. Configuri un profilo con esempi del tuo stile e linee guida. Il sistema genera seguendo quelle indicazioni.",
   },
   {
-    question: "Come funziona l'analisi SERP?",
-    answer: "Prende i primi 10 risultati organici, scarica il contenuto di ogni pagina, analizza heading, lunghezza, argomenti e segnali E-E-A-T.",
+    question: "Come funziona l'analisi dei risultati Google?",
+    answer: "Prende i primi 10 risultati organici, scarica il contenuto di ogni pagina, analizza heading, lunghezza, argomenti e segnali di qualità e autorevolezza.",
   },
   {
     question: "Quanto costa?",
-    answer: "Da €49/mese per freelancer a piani enterprise custom. 14 giorni di prova gratis su tutti i piani.",
+    answer: "Un piano unico a 3.000 € + IVA con 300 crediti inclusi. Crediti extra acquistabili a 35 € ciascuno. Prenota una demo per un preventivo personalizzato.",
   },
   {
     question: "Ci sono integrazioni?",

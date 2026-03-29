@@ -30,9 +30,9 @@ export function InteractiveDemo() {
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/50">
         <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-          <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+          <div className="w-2.5 h-2.5 rounded-full bg-status-error" />
+          <div className="w-2.5 h-2.5 rounded-full bg-status-warning" />
+          <div className="w-2.5 h-2.5 rounded-full bg-status-success" />
         </div>
         <span className="text-[11px] text-muted-foreground font-medium">Verbalist Demo</span>
         <div className="w-16" />
@@ -45,10 +45,11 @@ export function InteractiveDemo() {
         {step === 0 && (
           <div className="space-y-4">
             <div>
-              <label className="text-[12px] text-muted-foreground font-medium mb-2 block">
+              <label htmlFor="demo-keyword-input" className="text-[12px] text-muted-foreground font-medium mb-2 block">
                 Inserisci una keyword
               </label>
               <input
+                id="demo-keyword-input"
                 type="text"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
@@ -88,11 +89,19 @@ export function InteractiveDemo() {
           <div className="space-y-4">
             <div>
               <p className="text-[12px] text-muted-foreground font-medium mb-2">Analisi in corso...</p>
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
+              <div
+                className="h-2 bg-muted rounded-full overflow-hidden"
+                role="progressbar"
+                aria-valuenow={2}
+                aria-valuemin={1}
+                aria-valuemax={3}
+                aria-label="Progresso analisi documento"
+              >
                 <div className="h-full bg-foreground w-2/3 animate-pulse" />
               </div>
             </div>
             <p className="text-[11px] text-muted-foreground">Analizzando: &quot;{keyword}&quot;</p>
+            <p className="text-[10px] text-muted-foreground/70">Il processo richiede in media 2-3 minuti</p>
             <div className="space-y-2">
               <div className="p-2 bg-muted/50 rounded text-[11px] text-muted-foreground">1. guidacompleta.it ✓</div>
               <div className="p-2 bg-muted/50 rounded text-[11px] text-muted-foreground">2. dormirebene.com ✓</div>
@@ -105,8 +114,8 @@ export function InteractiveDemo() {
         {step === 2 && (
           <div className="space-y-4">
             <div className="text-center py-2">
-              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-10 h-10 bg-status-success/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-5 h-5 text-status-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>

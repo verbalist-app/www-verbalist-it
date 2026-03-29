@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { BreadcrumbSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
-  title: "Analisi Pattern",
+  title: "Analisi pattern",
   description: "Come Verbalist identifica i pattern vincenti nei contenuti meglio posizionati.",
 }
 
@@ -48,13 +48,13 @@ export default function PatternPage() {
         items={[
           { name: "Home", url: "/" },
           { name: "Guide", url: "/guide" },
-          { name: "Analisi Pattern", url: "/guide/pattern" },
+          { name: "Analisi pattern", url: "/guide/pattern" },
         ]}
       />
       <section className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
           <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
-            Analisi Pattern
+            Analisi pattern
           </h1>
           <p className="text-base text-muted-foreground mb-8">
             Verbalist analizza i contenuti estratti per identificare pattern ricorrenti: word count medio, struttura degli heading, argomenti trattati, segnali E-E-A-T e formattazione.

@@ -51,7 +51,7 @@ const categories: GuideCategory[] = [
   {
     icon: <Download className="size-6 text-foreground" />,
     iconType: "download",
-    title: "Scraping Competitor",
+    title: "Scraping competitor",
     description: "Estrarre contenuti dalle pagine",
     href: "/guide/scraping",
     articles: [
@@ -64,7 +64,7 @@ const categories: GuideCategory[] = [
   {
     icon: <BarChart3 className="size-6 text-foreground" />,
     iconType: "barchart",
-    title: "Analisi Pattern",
+    title: "Analisi pattern",
     description: "Trovare cosa funziona in SERP",
     href: "/guide/pattern",
     articles: [
@@ -79,7 +79,7 @@ const categories: GuideCategory[] = [
   {
     icon: <FileText className="size-6 text-foreground" />,
     iconType: "filetext",
-    title: "Generazione Contenuto",
+    title: "Generazione contenuto",
     description: "Creare contenuti SEO-ready",
     href: "/guide/generazione",
     articles: [

@@ -35,10 +35,10 @@ const content = {
             { title: "AI Strategist", href: "/soluzioni/ai-strategist", icon: Sparkles },
         ],
         features: [
-            { title: "Analisi SERP", href: "/piattaforma/analisi-serp", icon: Search },
-            { title: "Scraping Competitor", href: "/piattaforma/scraping-competitor", icon: Download },
-            { title: "Analisi Pattern", href: "/piattaforma/analisi-pattern", icon: BarChart3 },
-            { title: "Generazione Contenuto", href: "/piattaforma/generazione-contenuto", icon: FileText },
+            { title: "Analisi risultati Google", href: "/piattaforma/analisi-serp", icon: Search },
+            { title: "Analisi competitor", href: "/piattaforma/scraping-competitor", icon: Download },
+            { title: "Analisi pattern", href: "/piattaforma/analisi-pattern", icon: BarChart3 },
+            { title: "Generazione contenuto", href: "/piattaforma/generazione-contenuto", icon: FileText },
         ],
         resources: [
             { title: "Blog", href: "/blog", icon: BookOpen },
@@ -56,7 +56,7 @@ const content = {
             closeMenu: "Chiudi Menu",
             signIn: "Accedi",
         },
-        cta: { text: "Inizia ora", href: "/prenota-demo" },
+        cta: { text: "Prenota una demo", href: "/prenota-demo" },
         basePath: "",
         pricingHref: "/prezzi",
         bookDemoHref: "/prenota-demo",
@@ -71,8 +71,8 @@ const content = {
             { title: "AI Strategist", href: "/en/solutions/ai-strategist", icon: Sparkles },
         ],
         features: [
-            { title: "SERP Analysis", href: "/en/platform/serp-analysis", icon: Search },
-            { title: "Competitor Scraping", href: "/en/platform/competitor-scraping", icon: Download },
+            { title: "Search Results Analysis", href: "/en/platform/serp-analysis", icon: Search },
+            { title: "Competitor Analysis", href: "/en/platform/competitor-scraping", icon: Download },
             { title: "Pattern Analysis", href: "/en/platform/pattern-analysis", icon: BarChart3 },
             { title: "Content Generation", href: "/en/platform/content-generation", icon: FileText },
         ],
@@ -92,7 +92,7 @@ const content = {
             closeMenu: "Close Menu",
             signIn: "Sign in",
         },
-        cta: { text: "Get started", href: "/en/book-demo" },
+        cta: { text: "Book a demo", href: "/en/book-demo" },
         basePath: "/en",
         pricingHref: "/en/pricing",
         bookDemoHref: "/en/book-demo",
@@ -224,7 +224,7 @@ export const BoxedHeader = ({ locale = 'it' }: BoxedHeaderProps) => {
                         </div>
 
                         {/* Mobile Menu + CTA Buttons */}
-                        <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-lg shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
+                        <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-xl border p-6 shadow-lg shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
                             <div className="lg:hidden w-full">
                                 <Accordion type="single" collapsible className="w-full">
                                     <AccordionItem value="platform" className="border-b-0">

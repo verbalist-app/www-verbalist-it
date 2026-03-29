@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
-  title: "Analisi SERP Automatica",
-  description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati SERP pronti per l'ottimizzazione.",
+  title: "Analisi risultati Google automatica",
+  description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati pronti per l'ottimizzazione.",
   alternates: {
     canonical: "/piattaforma/analisi-serp",
   },
   openGraph: {
-    title: "Analisi SERP Automatica \\ Verbalist",
-    description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati SERP pronti per l'ottimizzazione.",
+    title: "Analisi risultati Google automatica \\ Verbalist",
+    description: "Analizza i top 10 risultati Google in un click. Estrai title, meta, struttura e search intent per ogni keyword. Dati pronti per l'ottimizzazione.",
   },
 }
 
@@ -32,7 +32,7 @@ const featureColumns = [
     items: [
       "Search intent detection",
       "Informational vs commercial",
-      "SERP features presenti",
+      "Funzionalità risultati di ricerca",
       "Featured snippet analysis",
     ],
   },
@@ -41,7 +41,7 @@ const featureColumns = [
       "Word count per risultato",
       "Heading structure",
       "Topic coverage",
-      "E-E-A-T signals",
+      "Segnali di qualità e autorevolezza",
     ],
   },
 ]
@@ -101,16 +101,16 @@ export default function AnalisiSerpPage() {
   return (
     <>
       <SubPageHero
-        label="Analisi SERP"
+        label="Analisi risultati Google"
         title="Analizza i primi 10 risultati Google per qualsiasi keyword"
-        description="Analizza i primi 10 risultati Google in pochi secondi. Estrai title, meta, struttura heading e pattern di search intent."
+        description="Analizza i primi 10 risultati Google in pochi secondi. Estrai title, meta, struttura heading e pattern di intento di ricerca."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
       <TrustedBy />
 
       <FeatureChecklist
-        title="Tutti i dati SERP che servono"
+        title="Tutti i dati dei risultati Google che servono"
         description="Analisi automatica dei top 10 risultati con metriche complete."
         columns={featureColumns}
       />

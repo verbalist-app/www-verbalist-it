@@ -19,7 +19,7 @@ export function FeatureChecklist({
   className,
 }: FeatureChecklistProps) {
   return (
-    <section className={cn("border-t py-24 lg:py-32", className)}>
+    <section className={cn("border-t py-20 lg:py-28", className)}>
       <div className="mx-auto max-w-6xl px-6">
         {(title || description) && (
           <div className="text-center">

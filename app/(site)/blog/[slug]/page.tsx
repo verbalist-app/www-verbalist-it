@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation"
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { reader, formatDate, getTranslation } from "@/lib/keystatic"
 import { ArticleSchema, BreadcrumbSchema } from "@/components/schema"
@@ -95,10 +96,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           </p>
           <time className="text-sm text-muted-foreground mb-8">{formatDate(post.publishedAt, 'it')}</time>
           {post.featuredImage && (
-            <img
+            <Image
               src={post.featuredImage}
               alt={post.title}
+              width={896}
+              height={504}
               className="mt-8 mb-12 aspect-[16/9] w-full rounded-lg border object-cover"
+              priority
             />
           )}
         </div>

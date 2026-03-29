@@ -34,7 +34,7 @@ export default function LogoCloud() {
   }, [])
 
   return (
-    <section className="bg-background py-12">
+    <section className="bg-background py-16 md:py-20">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mx-auto grid h-8 max-w-2xl grid-cols-3 items-center gap-8">
           <AnimatePresence initial={false} mode="popLayout">
@@ -42,10 +42,10 @@ export default function LogoCloud() {
               <motion.div
                 key={`${currentGroup}-${i}`}
                 className="flex items-center justify-center"
-                initial={{ opacity: 0, y: 12, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: 12, filter: 'blur(6px)', scale: 0.5 }}
-                transition={{ delay: i * 0.1, duration: 1.5, type: 'spring', bounce: 0.2 }}
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 4 }}
+                transition={{ delay: i * 0.04, duration: 0.35, ease: [0, 0, 0.35, 1] }}
               >
                 <Image
                   src={logo.src}

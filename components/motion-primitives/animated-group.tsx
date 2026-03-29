@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants, useReducedMotion } from 'motion/react'
 import React from 'react'
 
 interface AnimatedGroupProps {
@@ -16,7 +16,7 @@ const defaultContainerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.04,
     },
   },
 }
@@ -27,9 +27,29 @@ const defaultItemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
-      bounce: 0.3,
-      duration: 1.5,
+      type: 'tween',
+      ease: [0, 0, 0.35, 1],
+      duration: 0.35,
+    },
+  },
+}
+
+const reducedMotionContainerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0,
+    },
+  },
+}
+
+const reducedMotionItemVariants: Variants = {
+  hidden: {},
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0,
     },
   },
 }
@@ -39,8 +59,13 @@ export function AnimatedGroup({
   className,
   variants,
 }: AnimatedGroupProps) {
-  const containerVariants = variants?.container || defaultContainerVariants
-  const itemVariants = variants?.item || defaultItemVariants
+  const shouldReduceMotion = useReducedMotion()
+  const containerVariants = shouldReduceMotion
+    ? reducedMotionContainerVariants
+    : (variants?.container || defaultContainerVariants)
+  const itemVariants = shouldReduceMotion
+    ? reducedMotionItemVariants
+    : (variants?.item || defaultItemVariants)
 
   return (
     <motion.div

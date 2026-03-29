@@ -15,6 +15,7 @@ import {
   RefreshCw,
   ExternalLink,
   Home,
+  AlertTriangle,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -35,8 +36,19 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
+import { useDashboardLocale } from "../../../_lib/dashboard-locale"
 
 // Mock data
 const document = {
@@ -128,15 +140,157 @@ const analysisData = {
   ],
 }
 
+function formatInline(text: string): React.ReactNode {
+  const parts = text.split(/\*\*(.*?)\*\*/g)
+  if (parts.length === 1) return text
+  return parts.map((part, idx) =>
+    idx % 2 === 1 ? <strong key={idx}>{part}</strong> : part
+  )
+}
+
+function renderMarkdown(content: string): React.ReactNode[] {
+  const lines = content.split("\n")
+  const elements: React.ReactNode[] = []
+  let i = 0
+  let key = 0
+
+  while (i < lines.length) {
+    const line = lines[i]
+
+    if (line.trim() === "") {
+      i++
+      continue
+    }
+
+    if (line.startsWith("### ")) {
+      elements.push(<h3 key={key++}>{formatInline(line.slice(4))}</h3>)
+      i++
+      continue
+    }
+    if (line.startsWith("## ")) {
+      elements.push(<h2 key={key++}>{formatInline(line.slice(3))}</h2>)
+      i++
+      continue
+    }
+    if (line.startsWith("# ")) {
+      elements.push(<h1 key={key++}>{formatInline(line.slice(2))}</h1>)
+      i++
+      continue
+    }
+
+    if (line.startsWith("- ")) {
+      const items: React.ReactNode[] = []
+      while (i < lines.length && lines[i].startsWith("- ")) {
+        items.push(<li key={key++}>{formatInline(lines[i].slice(2))}</li>)
+        i++
+      }
+      elements.push(<ul key={key++}>{items}</ul>)
+      continue
+    }
+
+    if (/^\d+\.\s/.test(line)) {
+      const items: React.ReactNode[] = []
+      while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
+        items.push(
+          <li key={key++}>
+            {formatInline(lines[i].replace(/^\d+\.\s/, ""))}
+          </li>
+        )
+        i++
+      }
+      elements.push(<ol key={key++}>{items}</ol>)
+      continue
+    }
+
+    elements.push(<p key={key++}>{formatInline(line)}</p>)
+    i++
+  }
+
+  return elements
+}
+
+const translations = {
+  it: {
+    documents: "Documenti",
+    processing: "In elaborazione",
+    completed: "Completato",
+    generating: "Generazione in corso...",
+    generatingDesc: "Stiamo analizzando la SERP e generando il contenuto ottimizzato",
+    generationFailed: "Generazione non riuscita",
+    generationFailedDesc: "Si è verificato un errore durante la generazione del contenuto. I crediti non sono stati addebitati.",
+    retry: "Riprova",
+    copied: "Copiato!",
+    copy: "Copia",
+    export: "Esporta",
+    regenerate: "Rigenera",
+    openInEditor: "Apri in editor",
+    docGenerated: "Documento generato con successo",
+    docGeneratedDesc: "Puoi copiare il contenuto, esportarlo o modificarlo nell'editor",
+    content: "Contenuto",
+    serpAnalysis: "Analisi SERP",
+    competitorsAnalyzed: "Competitor analizzati",
+    avgWordCount: "Word count medio",
+    topicsIdentified: "Topic identificati",
+    yourWordCount: "Il tuo word count",
+    detectedPatterns: "Pattern rilevati",
+    competitor: "competitor",
+    words: "parole",
+    readingTime: "di lettura",
+    deleteTitle: "Eliminare questo documento?",
+    deleteDesc: "\"{title}\" verrà eliminato permanentemente. Questa azione non può essere annullata.",
+    cancel: "Annulla",
+    delete: "Elimina",
+    moreOptions: "Altre opzioni",
+    contentCopied: "Contenuto copiato negli appunti",
+  },
+  en: {
+    documents: "Documents",
+    processing: "Processing",
+    completed: "Completed",
+    generating: "Generating...",
+    generatingDesc: "We're analyzing the SERP and generating optimized content",
+    generationFailed: "Generation failed",
+    generationFailedDesc: "An error occurred during content generation. Credits were not charged.",
+    retry: "Retry",
+    copied: "Copied!",
+    copy: "Copy",
+    export: "Export",
+    regenerate: "Regenerate",
+    openInEditor: "Open in editor",
+    docGenerated: "Document generated successfully",
+    docGeneratedDesc: "You can copy, export, or edit in the editor",
+    content: "Content",
+    serpAnalysis: "SERP Analysis",
+    competitorsAnalyzed: "Competitors analyzed",
+    avgWordCount: "Average word count",
+    topicsIdentified: "Topics identified",
+    yourWordCount: "Your word count",
+    detectedPatterns: "Detected patterns",
+    competitor: "competitor",
+    words: "words",
+    readingTime: "reading time",
+    deleteTitle: "Delete this document?",
+    deleteDesc: "\"{title}\" will be permanently deleted. This action cannot be undone.",
+    cancel: "Cancel",
+    delete: "Delete",
+    moreOptions: "More options",
+    contentCopied: "Content copied to clipboard",
+  },
+}
+
 function DocumentDetailInner({
   params,
 }: {
   params: { id: string }
 }) {
+  const { t } = useDashboardLocale()
+  const labels = t(translations)
   const searchParams = useSearchParams()
   const isNew = searchParams.get("new") === "true"
   const [isProcessing, setIsProcessing] = React.useState(isNew)
   const [copied, setCopied] = React.useState(false)
+  const [showDeleteDialog, setShowDeleteDialog] = React.useState(false)
+  const [showSuccess, setShowSuccess] = React.useState(false)
 
   // Simulate processing completion
   React.useEffect(() => {
@@ -146,11 +300,19 @@ function DocumentDetailInner({
     }
   }, [isNew])
 
+  React.useEffect(() => {
+    if (isNew && !isProcessing) {
+      setShowSuccess(true)
+      const timer = setTimeout(() => setShowSuccess(false), 4000)
+      return () => clearTimeout(timer)
+    }
+  }, [isNew, isProcessing])
+
   const handleCopy = async () => {
     await navigator.clipboard.writeText(document.content)
     setCopied(true)
-    toast.success("Contenuto copiato negli appunti")
-    setTimeout(() => setCopied(false), 2000)
+    toast.success(labels.contentCopied)
+    setTimeout(() => setCopied(false), 3000)
   }
 
   return (
@@ -168,12 +330,16 @@ function DocumentDetailInner({
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/dashboard/documents">Documenti</Link>
+              <Link href="/dashboard/documents">{labels.documents}</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{document.title.substring(0, 30)}...</BreadcrumbPage>
+            <BreadcrumbPage title={document.title}>
+              {document.title.length > 30
+                ? document.title.substring(0, document.title.lastIndexOf(" ", 30)) + "..."
+                : document.title}
+            </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -187,17 +353,17 @@ function DocumentDetailInner({
                 className={cn(
                   "shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium",
                   isProcessing
-                    ? "bg-yellow-500/10 text-yellow-500"
-                    : "bg-green-500/10 text-green-500"
+                    ? "bg-status-warning/10 text-status-warning"
+                    : "bg-status-success/10 text-status-success"
                 )}
               >
-                {isProcessing ? "In elaborazione" : "Completato"}
+                {isProcessing ? labels.processing : labels.completed}
               </span>
               <span className="text-sm text-muted-foreground">
                 {document.createdAt}
               </span>
             </div>
-            <h1 className="font-serif text-xl font-medium tracking-tighter lg:text-2xl">
+            <h1 className="text-xl font-semibold tracking-tighter lg:text-2xl">
               {document.title}
             </h1>
             <div className="flex items-center gap-3 mt-2 text-sm text-muted-foreground">
@@ -214,9 +380,9 @@ function DocumentDetailInner({
               {!isProcessing && (
                 <>
                   <span>·</span>
-                  <span>{document.wordCount.toLocaleString()} parole</span>
+                  <span>{document.wordCount.toLocaleString()} {labels.words}</span>
                   <span>·</span>
-                  <span>{document.readingTime} di lettura</span>
+                  <span>{document.readingTime} {labels.readingTime}</span>
                 </>
               )}
             </div>
@@ -228,30 +394,30 @@ function DocumentDetailInner({
               ) : (
                 <Copy className="mr-2 size-4" />
               )}
-              {copied ? "Copiato!" : "Copia"}
+              {copied ? labels.copied : labels.copy}
             </Button>
             <Button variant="outline" size="sm">
               <Download className="mr-2 size-4" />
-              Esporta
+              {labels.export}
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon" className="size-9">
+                <Button variant="outline" size="icon" className="size-9" aria-label={labels.moreOptions}>
                   <MoreHorizontal className="size-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
                   <RefreshCw className="mr-2 size-4" />
-                  Rigenera
+                  {labels.regenerate}
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <ExternalLink className="mr-2 size-4" />
-                  Apri in editor
+                  {labels.openInEditor}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="text-red-500">
-                  Elimina
+                <DropdownMenuItem className="text-destructive" onClick={() => setShowDeleteDialog(true)}>
+                  {labels.delete}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -264,14 +430,17 @@ function DocumentDetailInner({
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
-              <Loader2 className="size-5 text-muted-foreground animate-spin shrink-0" />
+              <Loader2 className="size-5 text-muted-foreground animate-spin motion-reduce:animate-none shrink-0" />
               <div className="flex-1">
-                <h3 className="font-medium">Generazione in corso...</h3>
+                <h3 className="font-medium">{labels.generating}</h3>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Stiamo analizzando la SERP e generando il contenuto ottimizzato
+                  {labels.generatingDesc}
                 </p>
                 <div className="mt-3 h-1.5 w-full rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-foreground animate-pulse" style={{ width: "60%" }} />
+                  <div
+                    className="h-full w-2/5 rounded-full bg-foreground motion-reduce:animate-none"
+                    style={{ animation: "progress-indeterminate 1.5s ease-in-out infinite" }}
+                  />
                 </div>
               </div>
             </div>
@@ -279,25 +448,63 @@ function DocumentDetailInner({
         </Card>
       )}
 
+      {/* Failed State */}
+      {!isProcessing && document.status === "failed" && (
+        <Card className="border-destructive/20">
+          <CardContent className="p-6">
+            <div className="flex items-start gap-4">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-destructive/10">
+                <AlertTriangle className="size-5 text-destructive" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-medium">{labels.generationFailed}</h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {labels.generationFailedDesc}
+                </p>
+                <Button className="mt-4" size="sm">
+                  <RefreshCw className="mr-2 size-4" />
+                  {labels.retry}
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
       {/* Content */}
-      {!isProcessing && (
+      {!isProcessing && document.status !== "failed" && (
         <Tabs defaultValue="content" className="space-y-6">
+          {showSuccess && (
+            <Card className="bg-status-success/5 border-status-success/20">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="size-5 text-status-success shrink-0" />
+                  <div>
+                    <p className="font-medium text-sm">{labels.docGenerated}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {labels.docGeneratedDesc}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
           <TabsList>
             <TabsTrigger value="content">
               <FileText className="mr-2 size-4" />
-              Contenuto
+              {labels.content}
             </TabsTrigger>
             <TabsTrigger value="analysis">
               <BarChart3 className="mr-2 size-4" />
-              Analisi SERP
+              {labels.serpAnalysis}
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="content" className="space-y-6">
             <Card>
               <CardContent className="p-6 lg:p-8">
-                <article className="prose prose-neutral max-w-none prose-headings:font-medium prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg">
-                  <div dangerouslySetInnerHTML={{ __html: document.content.replace(/\n/g, '<br>').replace(/^# (.*$)/gm, '<h1>$1</h1>').replace(/^## (.*$)/gm, '<h2>$1</h2>').replace(/^### (.*$)/gm, '<h3>$1</h3>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/^- (.*$)/gm, '<li>$1</li>') }} />
+                <article className="prose prose-neutral max-w-none prose-headings:font-medium prose-h1:text-xl prose-h1:lg:text-2xl prose-h2:text-lg prose-h2:lg:text-xl prose-h3:text-base prose-h3:lg:text-lg">
+                  {renderMarkdown(document.content)}
                 </article>
               </CardContent>
             </Card>
@@ -308,26 +515,26 @@ function DocumentDetailInner({
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Card>
                 <CardContent className="p-4">
-                  <p className="text-sm text-muted-foreground">Competitor analizzati</p>
-                  <p className="text-2xl font-medium mt-1">{analysisData.competitorCount}</p>
+                  <p className="text-sm text-muted-foreground">{labels.competitorsAnalyzed}</p>
+                  <p className="text-2xl font-medium tabular-nums mt-1">{analysisData.competitorCount}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-4">
-                  <p className="text-sm text-muted-foreground">Word count medio</p>
-                  <p className="text-2xl font-medium mt-1">{analysisData.avgWordCount.toLocaleString()}</p>
+                  <p className="text-sm text-muted-foreground">{labels.avgWordCount}</p>
+                  <p className="text-2xl font-medium tabular-nums mt-1">{analysisData.avgWordCount.toLocaleString()}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-4">
-                  <p className="text-sm text-muted-foreground">Topic identificati</p>
-                  <p className="text-2xl font-medium mt-1">{analysisData.topicsIdentified}</p>
+                  <p className="text-sm text-muted-foreground">{labels.topicsIdentified}</p>
+                  <p className="text-2xl font-medium tabular-nums mt-1">{analysisData.topicsIdentified}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-4">
-                  <p className="text-sm text-muted-foreground">Il tuo word count</p>
-                  <p className="text-2xl font-medium mt-1">{document.wordCount.toLocaleString()}</p>
+                  <p className="text-sm text-muted-foreground">{labels.yourWordCount}</p>
+                  <p className="text-2xl font-medium tabular-nums mt-1">{document.wordCount.toLocaleString()}</p>
                 </CardContent>
               </Card>
             </div>
@@ -335,7 +542,7 @@ function DocumentDetailInner({
             {/* Patterns */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Pattern rilevati</CardTitle>
+                <CardTitle className="text-base">{labels.detectedPatterns}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {analysisData.patterns.map((pattern) => (
@@ -343,7 +550,7 @@ function DocumentDetailInner({
                     <div className="flex items-center justify-between text-sm mb-2">
                       <span>{pattern.name}</span>
                       <span className="text-muted-foreground">
-                        {pattern.found}/{pattern.total} competitor
+                        {pattern.found}/{pattern.total} {labels.competitor}
                       </span>
                     </div>
                     <div className="h-2 w-full rounded-full bg-muted">
@@ -359,6 +566,23 @@ function DocumentDetailInner({
           </TabsContent>
         </Tabs>
       )}
+
+      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{labels.deleteTitle}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {labels.deleteDesc.replace("{title}", document.title)}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{labels.cancel}</AlertDialogCancel>
+            <AlertDialogAction className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+              {labels.delete}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }

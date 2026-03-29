@@ -7,18 +7,18 @@ import { StatsBar } from "@/components/stats-bar"
 
 export const metadata: Metadata = {
   title: "GEO e AEO Optimization",
-  description: "Ottimizza i contenuti per AI Overview, ChatGPT e Perplexity. Generative Engine Optimization (GEO) e Answer Engine Optimization (AEO) con dati SERP.",
+  description: "Ottimizza i contenuti per AI Overview, ChatGPT e Perplexity. Generative Engine Optimization (GEO) e Answer Engine Optimization (AEO) con dati dei risultati Google.",
   alternates: {
     canonical: "/soluzioni/ai-strategist",
   },
   openGraph: {
     title: "GEO e AEO Optimization \\ Verbalist",
-    description: "Ottimizza i contenuti per AI Overview, ChatGPT e Perplexity. Generative Engine Optimization (GEO) e Answer Engine Optimization (AEO) con dati SERP.",
+    description: "Ottimizza i contenuti per AI Overview, ChatGPT e Perplexity. Generative Engine Optimization (GEO) e Answer Engine Optimization (AEO) con dati dei risultati Google.",
   },
 }
 
 const stats = [
-  { value: "E-E-A-T", label: "Segnali analizzati" },
+  { value: "Qualità", label: "Segnali analizzati" },
   { value: "10/10", label: "Competitor scansionati" },
   { value: "GEO + AEO", label: "Doppia ottimizzazione" },
   { value: "LLM-ready", label: "Output strutturato" },
@@ -27,7 +27,7 @@ const stats = [
 const featureColumns = [
   {
     items: [
-      "Analisi segnali E-E-A-T",
+      "Analisi segnali di qualità e autorevolezza",
       "Pattern di citabilità",
       "Struttura per featured snippet",
       "Definizioni chiare e citabili",
@@ -57,7 +57,7 @@ export default function AIStrategistPage() {
       <SubPageHero
         label="AI Strategist"
         title="Contenuti strutturati per essere citati dagli assistenti AI"
-        description="Ottimizza per ChatGPT, Perplexity e AI Overview. Analizza segnali E-E-A-T, pattern di citabilità e strutture preferite dai modelli linguistici."
+        description="Ottimizza per ChatGPT, Perplexity e AI Overview. Analizza segnali di qualità e autorevolezza, pattern di citabilità e strutture preferite dai modelli linguistici."
       />
 
       <StatsBar stats={stats} />

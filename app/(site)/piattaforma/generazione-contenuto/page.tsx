@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
-  title: "Generazione Contenuti AI",
-  description: "Genera contenuti SEO con AI basandosi sui pattern SERP. Title, meta description, struttura heading e testo ottimizzato. Pronto per pubblicare.",
+  title: "Generazione contenuti AI",
+  description: "Genera contenuti SEO con AI basandosi sui pattern dei risultati Google. Title, meta description, struttura heading e testo ottimizzato. Pronto per pubblicare.",
   alternates: {
     canonical: "/piattaforma/generazione-contenuto",
   },
   openGraph: {
-    title: "Generazione Contenuti AI \\ Verbalist",
-    description: "Genera contenuti SEO con AI basandosi sui pattern SERP. Title, meta description, struttura heading e testo ottimizzato. Pronto per pubblicare.",
+    title: "Generazione contenuti AI \\ Verbalist",
+    description: "Genera contenuti SEO con AI basandosi sui pattern dei risultati Google. Title, meta description, struttura heading e testo ottimizzato. Pronto per pubblicare.",
   },
 }
 
@@ -53,17 +53,17 @@ function SeoMetadataIllustration() {
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] text-muted-foreground">Title Tag</span>
-            <span className="text-[10px] text-emerald-600 font-medium">58 chars</span>
+            <span className="text-[10px] text-status-success font-medium">58 chars</span>
           </div>
           <div className="h-3 w-full rounded bg-foreground/80" />
           <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
-            <div className="h-full w-[58%] rounded-full bg-green-500" />
+            <div className="h-full w-[58%] rounded-full bg-status-success" />
           </div>
         </div>
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] text-muted-foreground">Meta Description</span>
-            <span className="text-[10px] text-emerald-600 font-medium">145 chars</span>
+            <span className="text-[10px] text-status-success font-medium">145 chars</span>
           </div>
           <div className="space-y-1">
             <div className="h-2 w-full rounded bg-foreground/60" />
@@ -124,8 +124,8 @@ export default function GenerazioneContenutoPage() {
   return (
     <>
       <SubPageHero
-        label="Generazione Contenuto"
-        title="Genera articoli completi basati sui pattern SERP"
+        label="Generazione contenuto"
+        title="Genera articoli completi basati sui pattern dei risultati Google"
         description="Genera articoli ottimizzati basati sui pattern dei primi risultati. Title, meta, struttura heading e testo completo, pronti per la tua revisione."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
@@ -141,7 +141,7 @@ export default function GenerazioneContenutoPage() {
       <HighlightBlock
         icon={Sparkles}
         title="SEO metadata perfetti"
-        description="Genera title tag, meta description e URL slug ottimizzati. Basati sui pattern che funzionano in SERP. Lunghezza corretta, keyword incluse."
+        description="Genera title tag, meta description e URL slug ottimizzati. Basati sui pattern che funzionano nei risultati di ricerca. Lunghezza corretta, keyword incluse."
         visual={<SeoMetadataIllustration />}
       />
 

@@ -19,8 +19,8 @@ export function SerpAnalysisVisual() {
           <div className="text-sm font-medium text-foreground">&quot;come scegliere un materasso&quot;</div>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500" />
-          <span className="text-[12px] text-muted-foreground">SERP recuperata</span>
+          <div className="w-2 h-2 rounded-full bg-status-success" />
+          <span className="text-[12px] text-muted-foreground">Risultati recuperati</span>
         </div>
       </div>
 
@@ -77,9 +77,9 @@ export function ScrapingVisual() {
   return (
     <div className="h-full bg-background p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-6">
-        <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Scraping competitor</div>
+        <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Analisi competitor</div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500" />
+          <div className="w-2 h-2 rounded-full bg-status-success" />
           <span className="text-[12px] text-muted-foreground">Estrazione completata</span>
         </div>
       </div>
@@ -92,9 +92,9 @@ export function ScrapingVisual() {
           >
             <div className="flex items-center gap-2 mb-2 pb-2 border-b border-border">
               <div className="flex gap-0.5">
-                <div className="size-1.5 rounded-full bg-red-400" />
-                <div className="size-1.5 rounded-full bg-yellow-400" />
-                <div className="size-1.5 rounded-full bg-emerald-400" />
+                <div className="size-1.5 rounded-full bg-status-error" />
+                <div className="size-1.5 rounded-full bg-status-warning" />
+                <div className="size-1.5 rounded-full bg-status-success" />
               </div>
               <span className="text-[11px] text-muted-foreground">{page.domain}</span>
               <span className="ml-auto text-[10px] text-muted-foreground">{page.words} parole</span>
@@ -130,7 +130,7 @@ export function PatternDetectionVisual() {
     { label: "Word Count", value: "2.510", detail: "media" },
     { label: "Heading H2", value: "7", detail: "media" },
     { label: "Search Intent", value: "Informational", detail: "dominante" },
-    { label: "E-E-A-T", value: "Alto", detail: "segnali" },
+    { label: "Qualità", value: "Alto", detail: "segnali" },
   ]
 
   const commonTopics = [
@@ -155,7 +155,7 @@ export function PatternDetectionVisual() {
       <div className="flex items-center justify-between mb-4">
         <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Pattern identificati</div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500" />
+          <div className="w-2 h-2 rounded-full bg-status-success" />
           <span className="text-[12px] text-muted-foreground">Analisi AI</span>
         </div>
       </div>
@@ -225,7 +225,7 @@ export function ContentGenerationVisual() {
       {/* Progress */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500" />
+          <div className="w-2 h-2 rounded-full bg-status-success" />
           <span className="text-[12px] text-muted-foreground">Generazione completata</span>
         </div>
         <div className="flex gap-1">
@@ -241,13 +241,13 @@ export function ContentGenerationVisual() {
       {/* All Sections Completed */}
       <div className="space-y-2">
         {sections.map((section, idx) => (
-          <div key={idx} className="flex items-start gap-2 p-2 rounded bg-green-50 border border-green-200">
-            <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div key={idx} className="flex items-start gap-2 p-2 rounded bg-status-success/10 border border-status-success/20">
+            <svg className="w-4 h-4 text-status-success mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             <div>
-              <div className="text-[10px] text-green-700 font-medium uppercase">{section.label}</div>
-              <div className="text-[12px] text-green-900 truncate max-w-xs">{section.content}</div>
+              <div className="text-[10px] text-status-success font-medium uppercase">{section.label}</div>
+              <div className="text-[12px] text-foreground truncate max-w-xs">{section.content}</div>
             </div>
           </div>
         ))}

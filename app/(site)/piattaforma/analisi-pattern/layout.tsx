@@ -1,14 +1,14 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Analisi Pattern",
-  description: "Identifica i pattern vincenti dai top performer: struttura heading, topic coverage, segnali E-E-A-T e lunghezza ottimale dei contenuti.",
+  title: "Analisi pattern",
+  description: "Identifica i pattern vincenti dai top performer: struttura heading, topic coverage, segnali di qualità e autorevolezza e lunghezza ottimale dei contenuti.",
   alternates: {
     canonical: "/piattaforma/analisi-pattern",
   },
   openGraph: {
-    title: "Analisi Pattern \\ Verbalist",
-    description: "Identifica i pattern vincenti dai top performer: struttura heading, topic coverage, segnali E-E-A-T e lunghezza ottimale dei contenuti.",
+    title: "Analisi pattern \\ Verbalist",
+    description: "Identifica i pattern vincenti dai top performer: struttura heading, topic coverage, segnali di qualità e autorevolezza e lunghezza ottimale dei contenuti.",
   },
 }
 

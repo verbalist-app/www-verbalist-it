@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Easing, motion } from "framer-motion"
+import { Easing, motion } from "motion/react"
 import { Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -48,9 +48,9 @@ function ScrapingIllustration() {
         <div className="rounded border bg-background p-2 shadow-sm">
           <div className="mb-2 flex items-center gap-1">
             <div className="flex gap-0.5">
-              <div className="size-1.5 rounded-full bg-red-400" />
-              <div className="size-1.5 rounded-full bg-yellow-400" />
-              <div className="size-1.5 rounded-full bg-green-400" />
+              <div className="size-1.5 rounded-full bg-status-error" />
+              <div className="size-1.5 rounded-full bg-status-warning" />
+              <div className="size-1.5 rounded-full bg-status-success" />
             </div>
           </div>
           <div className="space-y-1">
@@ -82,7 +82,7 @@ function PatternIllustration() {
         {[
           { label: "Structure", value: 92 },
           { label: "Topics", value: 78 },
-          { label: "E-E-A-T", value: 85 },
+          { label: "Quality", value: 85 },
           { label: "Length", value: 71 },
         ].map((item) => (
           <div key={item.label} className="space-y-0.5">
@@ -147,19 +147,19 @@ const featureContent = {
     sectionLabel: "I quattro step",
     sectionTitle: "Ogni passaggio nel dettaglio",
     blocks: [
-      { id: "feature-1", step: "Step 1", title: "Analisi SERP", description: "Prende i primi 10 risultati Google per la tua keyword. Guarda posizione, snippet, title e meta description. Così capisci cosa sta funzionando.", href: "/piattaforma/analisi-serp" },
-      { id: "feature-2", step: "Step 2", title: "Scraping Competitor", description: "Scarica il contenuto di ogni pagina competitor. Heading, paragrafi, lunghezza. Tutto convertito in Markdown pulito.", href: "/piattaforma/scraping-competitor" },
-      { id: "feature-3", step: "Step 3", title: "Analisi Pattern", description: "Trova cosa hanno in comune i contenuti meglio posizionati. Struttura, argomenti, segnali E-E-A-T, lunghezza media.", href: "/piattaforma/analisi-pattern" },
-      { id: "feature-4", step: "Step 4", title: "Generazione Contenuto", description: "Scrive l'articolo basandosi su quello che funziona. Title, meta, heading e testo. Pronto per pubblicare.", href: "/piattaforma/generazione-contenuto" },
+      { id: "feature-1", step: "Step 1", title: "Analisi risultati Google", description: "Prende i primi 10 risultati Google per la tua keyword. Guarda posizione, snippet, title e meta description. Così capisci cosa sta funzionando.", href: "/piattaforma/analisi-serp" },
+      { id: "feature-2", step: "Step 2", title: "Analisi competitor", description: "Scarica il contenuto di ogni pagina competitor. Heading, paragrafi, lunghezza. Tutto convertito in Markdown pulito.", href: "/piattaforma/scraping-competitor" },
+      { id: "feature-3", step: "Step 3", title: "Analisi pattern", description: "Trova cosa hanno in comune i contenuti meglio posizionati. Struttura, argomenti, segnali di qualità e autorevolezza, lunghezza media.", href: "/piattaforma/analisi-pattern" },
+      { id: "feature-4", step: "Step 4", title: "Generazione contenuto", description: "Scrive l'articolo basandosi su quello che funziona. Title, meta, heading e testo. Pronto per pubblicare.", href: "/piattaforma/generazione-contenuto" },
     ],
   },
   en: {
     sectionLabel: "The four steps",
     sectionTitle: "Each step in detail",
     blocks: [
-      { id: "feature-1", step: "Step 1", title: "SERP Analysis", description: "Fetches the top 10 Google results for your keyword. Checks position, snippet, title and meta description. So you understand what's working.", href: "/en/platform/serp-analysis" },
-      { id: "feature-2", step: "Step 2", title: "Competitor Scraping", description: "Downloads content from each competitor page. Headings, paragraphs, length. All converted to clean Markdown.", href: "/en/platform/competitor-scraping" },
-      { id: "feature-3", step: "Step 3", title: "Pattern Analysis", description: "Finds what ranking content has in common. Structure, topics, E-E-A-T signals, average length.", href: "/en/platform/pattern-analysis" },
+      { id: "feature-1", step: "Step 1", title: "Search Results Analysis", description: "Fetches the top 10 Google results for your keyword. Checks position, snippet, title and meta description. So you understand what's working.", href: "/en/platform/serp-analysis" },
+      { id: "feature-2", step: "Step 2", title: "Competitor Analysis", description: "Downloads content from each competitor page. Headings, paragraphs, length. All converted to clean Markdown.", href: "/en/platform/competitor-scraping" },
+      { id: "feature-3", step: "Step 3", title: "Pattern Analysis", description: "Finds what ranking content has in common. Structure, topics, quality and authority signals, average length.", href: "/en/platform/pattern-analysis" },
       { id: "feature-4", step: "Step 4", title: "Content Generation", description: "Writes the article based on what works. Title, meta, headings and text. Ready to publish.", href: "/en/platform/content-generation" },
     ],
   },
@@ -210,7 +210,7 @@ export function FeaturesSection({ className, locale = 'it' }: FeaturesSectionPro
         </div>
 
         {/* Desktop: hover animation */}
-        <div className="hidden md:grid grid-cols-2 gap-1 xl:grid-cols-4">
+        <div className="hidden md:grid grid-cols-2 gap-4 xl:grid-cols-4">
           {featureBlocks.map((feature) => (
             <Link href={feature.href} key={feature.id}>
               <motion.div

@@ -215,10 +215,11 @@ export function CookieConsent({
                 {/* Necessary */}
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium">{t.necessary}</p>
+                    <label htmlFor="cookie-necessary" className="text-sm font-medium block">{t.necessary}</label>
                     <p className="text-xs text-muted-foreground">{t.necessaryDesc}</p>
                   </div>
                   <Switch
+                    id="cookie-necessary"
                     checked={true}
                     disabled
                     className="opacity-50 cursor-not-allowed"
@@ -228,10 +229,11 @@ export function CookieConsent({
                 {/* Analytics */}
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium">{t.analytics}</p>
+                    <label htmlFor="cookie-analytics" className="text-sm font-medium block">{t.analytics}</label>
                     <p className="text-xs text-muted-foreground">{t.analyticsDesc}</p>
                   </div>
                   <Switch
+                    id="cookie-analytics"
                     checked={preferences.analytics}
                     onCheckedChange={(checked) =>
                       setPreferences((prev) => ({ ...prev, analytics: checked }))
@@ -242,10 +244,11 @@ export function CookieConsent({
                 {/* Marketing */}
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium">{t.marketing}</p>
+                    <label htmlFor="cookie-marketing" className="text-sm font-medium block">{t.marketing}</label>
                     <p className="text-xs text-muted-foreground">{t.marketingDesc}</p>
                   </div>
                   <Switch
+                    id="cookie-marketing"
                     checked={preferences.marketing}
                     onCheckedChange={(checked) =>
                       setPreferences((prev) => ({ ...prev, marketing: checked }))

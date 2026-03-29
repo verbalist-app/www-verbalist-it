@@ -5,17 +5,17 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
   title: "AI Content Generation",
-  description: "Generate SEO content with AI based on SERP patterns. Title, meta, heading structure and optimized text.",
+  description: "Generate SEO content with AI based on search results patterns. Title, meta, heading structure and optimized text.",
   alternates: {
     canonical: "/en/platform/content-generation",
   },
   openGraph: {
     title: "AI Content Generation \\ Verbalist",
-    description: "Generate SEO content with AI based on SERP patterns. Title, meta, heading structure and optimized text.",
+    description: "Generate SEO content with AI based on search results patterns. Title, meta, heading structure and optimized text.",
   },
 }
 
@@ -46,23 +46,6 @@ const featureColumns = [
   },
 ]
 
-const testimonials = [
-  {
-    metric: "Ready in 10 min",
-    quote: "From SERP analysis to complete article in 10 minutes. Before it took a full day.",
-    author: "Valentina S.",
-    role: "Content Writer",
-    company: "Content Agency",
-  },
-  {
-    metric: "Consistent quality",
-    quote: "Every article meets the same SEO standards. No more manual checking everything.",
-    author: "Paolo F.",
-    role: "Content Lead",
-    company: "SaaS Company",
-  },
-]
-
 function SeoMetadataIllustration() {
   return (
     <div className="flex h-full w-full items-center justify-center p-6">
@@ -70,17 +53,17 @@ function SeoMetadataIllustration() {
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] text-muted-foreground">Title Tag</span>
-            <span className="text-[10px] text-emerald-600 font-medium">58 chars</span>
+            <span className="text-[10px] text-status-success font-medium">58 chars</span>
           </div>
           <div className="h-3 w-full rounded bg-foreground/80" />
           <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
-            <div className="h-full w-[58%] rounded-full bg-green-500" />
+            <div className="h-full w-[58%] rounded-full bg-status-success" />
           </div>
         </div>
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] text-muted-foreground">Meta Description</span>
-            <span className="text-[10px] text-emerald-600 font-medium">145 chars</span>
+            <span className="text-[10px] text-status-success font-medium">145 chars</span>
           </div>
           <div className="space-y-1">
             <div className="h-2 w-full rounded bg-foreground/60" />
@@ -142,12 +125,12 @@ export default function ContentGenerationPage() {
     <>
       <SubPageHero locale="en"
         label="Content Generation"
-        title="Transform SERP insights into publish-ready content"
+        title="Transform search insights into publish-ready content"
         description="Generate optimized articles based on proven ranking patterns. Complete with title, meta, heading structure and body text—ready for your refinement."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
-      <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
+      <TrustedBy />
 
       <FeatureChecklist
         title="Content optimized to rank"
@@ -158,7 +141,7 @@ export default function ContentGenerationPage() {
       <HighlightBlock
         icon={Sparkles}
         title="Perfect SEO metadata"
-        description="Generates title tag, meta description and optimized URL slug. Based on patterns that work in SERP. Correct length, keywords included."
+        description="Generates title tag, meta description and optimized URL slug. Based on patterns that work in search results. Correct length, keywords included."
         visual={<SeoMetadataIllustration />}
       />
 
@@ -170,14 +153,9 @@ export default function ContentGenerationPage() {
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
+      <Testimonials locale="en" />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo. See SERP analysis, pattern detection and content generation on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <SubPageCTA locale="en" />
     </>
   )
 }

@@ -7,13 +7,13 @@ import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "Contenuti GEO-ready per agenzie",
-  description: "Produci contenuti GEO SEO per ogni cliente. Analisi SERP, pattern detection e generazione ottimizzata per la ricerca AI in un unico workflow.",
+  description: "Produci contenuti GEO SEO per ogni cliente. Analisi dei risultati Google, pattern detection e generazione ottimizzata per la ricerca AI in un unico workflow.",
   alternates: {
     canonical: "/soluzioni/agenzie",
   },
   openGraph: {
     title: "Contenuti GEO-ready per agenzie \\ Verbalist",
-    description: "Produci contenuti GEO SEO per ogni cliente. Analisi SERP, pattern detection e generazione ottimizzata per la ricerca AI in un unico workflow.",
+    description: "Produci contenuti GEO SEO per ogni cliente. Analisi dei risultati Google, pattern detection e generazione ottimizzata per la ricerca AI in un unico workflow.",
   },
 }
 
@@ -28,10 +28,10 @@ const featureColumns = [
   },
   {
     items: [
-      "Analisi SERP per ogni keyword",
+      "Analisi risultati Google per ogni keyword",
       "Pattern detection automatico",
       "Struttura semantica per LLM",
-      "Segnali E-E-A-T estratti",
+      "Segnali di qualità e autorevolezza estratti",
     ],
   },
   {
@@ -52,8 +52,8 @@ const workflowSteps = [
   },
   {
     step: 2,
-    title: "Analisi SERP automatica",
-    description: "Inserisci la keyword, Verbalist analizza i top 10 risultati ed estrae struttura, topic e segnali E-E-A-T.",
+    title: "Analisi risultati Google automatica",
+    description: "Inserisci la keyword, Verbalist analizza i top 10 risultati ed estrae struttura, topic e segnali di qualità e autorevolezza.",
   },
   {
     step: 3,

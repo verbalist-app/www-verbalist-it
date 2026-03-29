@@ -13,41 +13,41 @@ import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
   title: "Piattaforma",
-  description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization da keyword a contenuto.",
+  description: "Analisi dei risultati Google, analisi dei contenuti competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization da keyword a contenuto.",
   alternates: {
     canonical: "/piattaforma",
   },
   openGraph: {
     title: "Piattaforma \\ Verbalist",
-    description: "Analisi SERP, scraping competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization da keyword a contenuto.",
+    description: "Analisi dei risultati Google, analisi dei contenuti competitor, pattern detection e generazione contenuti GEO-ready. La piattaforma di Generative Engine Optimization da keyword a contenuto.",
   },
 }
 
 const funzionalita = [
   {
     slug: "analisi-serp",
-    title: "Analisi SERP",
+    title: "Analisi risultati Google",
     description: "Vedi chi si posiziona per la tua keyword. Capisci perché sono nei primi risultati.",
     detail: "Prende i primi 10 risultati organici, filtra aggregatori e social, estrae tutti i metadata.",
     visual: SerpAnalysisVisual,
   },
   {
     slug: "scraping-competitor",
-    title: "Scraping Competitor",
+    title: "Analisi competitor",
     description: "Scarica i contenuti dei competitor. Vedi struttura, argomenti e come sono organizzati.",
     detail: "Estrae il contenuto di ogni pagina e lo converte in Markdown. Mantiene la gerarchia heading.",
     visual: ScrapingVisual,
   },
   {
     slug: "analisi-pattern",
-    title: "Analisi Pattern",
-    description: "Trova cosa hanno in comune i contenuti meglio posizionati. Intent, struttura, segnali E-E-A-T.",
+    title: "Analisi pattern",
+    description: "Trova cosa hanno in comune i contenuti meglio posizionati. Intent, struttura, segnali di qualità e autorevolezza.",
     detail: "Analizza tutti i competitor per capire search intent, topic ricorrenti, struttura heading, word count medio.",
     visual: PatternDetectionVisual,
   },
   {
     slug: "generazione-contenuto",
-    title: "Generazione Contenuto",
+    title: "Generazione contenuto",
     description: "Scrive l'articolo basandosi sui pattern. Ottimizzato per SEO, AEO e GEO.",
     detail: "Genera title, meta description, slug, outline strutturato, body e suggerimenti media.",
     visual: ContentGenerationVisual,
@@ -59,7 +59,7 @@ export default function PiattaformaPage() {
     <>
       <SubPageHero
         label="Piattaforma"
-        title="Dall'analisi SERP alla generazione del contenuto. Quattro passaggi."
+        title="Dall'analisi dei risultati Google alla generazione del contenuto. Quattro passaggi."
         description="Dalla keyword al contenuto ottimizzato per SEO, AEO e GEO. Ogni fase è automatizzata."
       />
 

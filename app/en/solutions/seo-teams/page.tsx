@@ -1,18 +1,19 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { StatsBar } from "@/components/stats-bar"
 
 export const metadata: Metadata = {
   title: "From SEO to GEO: tools for specialists",
-  description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and AI search optimization tools for specialists.",
+  description: "Transition from traditional SEO to Generative Engine Optimization. Search results analysis, pattern detection and AI search optimization tools for specialists.",
   alternates: {
     canonical: "/en/solutions/seo-teams",
   },
   openGraph: {
     title: "From SEO to GEO: tools for specialists \\ Verbalist",
-    description: "Transition from traditional SEO to Generative Engine Optimization. SERP analysis, pattern detection and AI search optimization tools for specialists.",
+    description: "Transition from traditional SEO to Generative Engine Optimization. Search results analysis, pattern detection and AI search optimization tools for specialists.",
   },
 }
 
@@ -36,7 +37,7 @@ const featureColumns = [
     items: [
       "Recurring topics and subtopics",
       "Content gap identification",
-      "E-E-A-T signals detected",
+      "Quality and authority signals detected",
       "LLM citability patterns",
     ],
   },
@@ -56,23 +57,20 @@ export default function SeoTeamsPage() {
       <SubPageHero locale="en"
         label="SEO Specialist"
         title="From traditional SEO to Generative Engine Optimization"
-        description="The SERP data you already know, applied to creating content optimized for AI search. The natural transition from SEO to GEO."
+        description="The search results data you already know, applied to creating content optimized for AI search. The natural transition from SEO to GEO."
       />
 
       <StatsBar stats={stats} />
 
       <FeatureChecklist
-        title="SERP analysis and patterns, oriented toward GEO"
-        description="The same data you use for SEO — structure, topics, E-E-A-T — applied to producing content citable by ChatGPT, Perplexity and AI Overview."
+        title="Search results analysis and patterns, oriented toward GEO"
+        description="The same data you use for SEO — structure, topics, quality and authority — applied to producing content citable by ChatGPT, Perplexity and AI Overview."
         columns={featureColumns}
       />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <Testimonials locale="en" />
+
+      <SubPageCTA locale="en" />
     </>
   )
 }

@@ -42,9 +42,9 @@ function ScrapingIllustration() {
         <div className="rounded-md border bg-background p-3 shadow-sm">
           <div className="mb-2 flex items-center gap-1">
             <div className="flex gap-0.5">
-              <div className="size-1.5 rounded-full bg-red-400" />
-              <div className="size-1.5 rounded-full bg-yellow-400" />
-              <div className="size-1.5 rounded-full bg-emerald-400" />
+              <div className="size-1.5 rounded-full bg-status-error" />
+              <div className="size-1.5 rounded-full bg-status-warning" />
+              <div className="size-1.5 rounded-full bg-status-success" />
             </div>
           </div>
           <div className="space-y-1.5">
@@ -76,7 +76,7 @@ function PatternIllustration() {
         {[
           { label: "Structure", value: 92 },
           { label: "Topics", value: 78 },
-          { label: "E-E-A-T", value: 85 },
+          { label: "Quality", value: 85 },
           { label: "Length", value: 71 },
         ].map((item) => (
           <div key={item.label} className="space-y-1">
@@ -142,25 +142,25 @@ const bentoContent = {
     blocks: [
       {
         step: "Step 1",
-        title: "Analisi SERP",
+        title: "Analisi risultati Google",
         description: "Prende i primi 10 risultati Google per la tua keyword. Guarda posizione, snippet, title e meta description. Così capisci cosa sta funzionando.",
         href: "/piattaforma/analisi-serp",
       },
       {
         step: "Step 2",
-        title: "Scraping Competitor",
+        title: "Analisi competitor",
         description: "Scarica il contenuto di ogni pagina competitor. Heading, paragrafi, lunghezza. Tutto convertito in Markdown pulito, pronto per l'analisi.",
         href: "/piattaforma/scraping-competitor",
       },
       {
         step: "Step 3",
-        title: "Analisi Pattern",
-        description: "Trova cosa hanno in comune i contenuti meglio posizionati. Struttura, argomenti, segnali E-E-A-T, lunghezza media.",
+        title: "Analisi pattern",
+        description: "Trova cosa hanno in comune i contenuti meglio posizionati. Struttura, argomenti, segnali di qualità e autorevolezza, lunghezza media.",
         href: "/piattaforma/analisi-pattern",
       },
       {
         step: "Step 4",
-        title: "Generazione Contenuto",
+        title: "Generazione contenuto",
         description: "Scrive l'articolo basandosi su quello che funziona. Title, meta, heading e testo. Pronto per pubblicare.",
         href: "/piattaforma/generazione-contenuto",
       },
@@ -173,20 +173,20 @@ const bentoContent = {
     blocks: [
       {
         step: "Step 1",
-        title: "SERP Analysis",
+        title: "Search Results Analysis",
         description: "Fetches the top 10 Google results for your keyword. Checks position, snippet, title and meta description. So you understand what's working.",
         href: "/en/platform/serp-analysis",
       },
       {
         step: "Step 2",
-        title: "Competitor Scraping",
+        title: "Competitor Analysis",
         description: "Downloads content from each competitor page. Headings, paragraphs, length. All converted to clean Markdown, ready for analysis.",
         href: "/en/platform/competitor-scraping",
       },
       {
         step: "Step 3",
         title: "Pattern Analysis",
-        description: "Finds what ranking content has in common. Structure, topics, E-E-A-T signals, average length.",
+        description: "Finds what ranking content has in common. Structure, topics, quality and authority signals, average length.",
         href: "/en/platform/pattern-analysis",
       },
       {

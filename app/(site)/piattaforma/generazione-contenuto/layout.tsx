@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Generazione Contenuto",
+  title: "Generazione contenuto",
   description: "Genera articoli SEO completi con AI: title tag, meta description, struttura heading e body ottimizzato basato sui pattern dei top performer.",
   alternates: {
     canonical: "/piattaforma/generazione-contenuto",
   },
   openGraph: {
-    title: "Generazione Contenuto \\ Verbalist",
+    title: "Generazione contenuto \\ Verbalist",
     description: "Genera articoli SEO completi con AI: title tag, meta description, struttura heading e body ottimizzato basato sui pattern dei top performer.",
   },
 }

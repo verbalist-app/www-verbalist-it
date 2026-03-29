@@ -111,7 +111,7 @@ export function ToneOfVoiceVisual() {
       <div className="flex items-center justify-between mb-5">
         <div className="text-[11px] text-muted-foreground uppercase tracking-wider">Tone of voice</div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500" />
+          <div className="w-2 h-2 rounded-full bg-status-success" />
           <span className="text-[12px] text-muted-foreground">Generazione adattata</span>
         </div>
       </div>

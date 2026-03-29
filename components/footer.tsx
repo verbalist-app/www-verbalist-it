@@ -12,10 +12,10 @@ const footerContent = {
       {
         title: "Piattaforma",
         links: [
-          { name: "Analisi SERP", href: "/piattaforma/analisi-serp" },
-          { name: "Scraping Competitor", href: "/piattaforma/scraping-competitor" },
-          { name: "Analisi Pattern", href: "/piattaforma/analisi-pattern" },
-          { name: "Generazione Contenuto", href: "/piattaforma/generazione-contenuto" },
+          { name: "Analisi risultati Google", href: "/piattaforma/analisi-serp" },
+          { name: "Analisi competitor", href: "/piattaforma/scraping-competitor" },
+          { name: "Analisi pattern", href: "/piattaforma/analisi-pattern" },
+          { name: "Generazione contenuto", href: "/piattaforma/generazione-contenuto" },
           { name: "Prezzi", href: "/prezzi" },
           { name: "Accedi", href: "https://app.verbalist.it", external: true },
         ],
@@ -65,8 +65,8 @@ const footerContent = {
       {
         title: "Platform",
         links: [
-          { name: "SERP Analysis", href: "/en/platform/serp-analysis" },
-          { name: "Competitor Scraping", href: "/en/platform/competitor-scraping" },
+          { name: "Search Results Analysis", href: "/en/platform/serp-analysis" },
+          { name: "Competitor Analysis", href: "/en/platform/competitor-scraping" },
           { name: "Pattern Analysis", href: "/en/platform/pattern-analysis" },
           { name: "Content Generation", href: "/en/platform/content-generation" },
           { name: "Pricing", href: "/en/pricing" },

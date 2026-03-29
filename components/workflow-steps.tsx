@@ -15,7 +15,7 @@ interface WorkflowStepsProps {
 
 export function WorkflowSteps({ title, description, steps, className }: WorkflowStepsProps) {
   return (
-    <section className={cn("border-t py-24 lg:py-32", className)}>
+    <section className={cn("border-t py-20 lg:py-28", className)}>
       <div className="mx-auto max-w-3xl px-6">
         {(title || description) && (
           <div className="mb-12 text-center">

@@ -5,16 +5,16 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
-  title: "Competitor Content Scraping",
+  title: "Competitor Content Analysis",
   description: "Extract competitor content as clean Markdown. Analyze structure, headings and topics from ranking pages.",
   alternates: {
     canonical: "/en/platform/competitor-scraping",
   },
   openGraph: {
-    title: "Competitor Content Scraping \\ Verbalist",
+    title: "Competitor Content Analysis \\ Verbalist",
     description: "Extract competitor content as clean Markdown. Analyze structure, headings and topics from ranking pages.",
   },
 }
@@ -46,23 +46,6 @@ const featureColumns = [
   },
 ]
 
-const testimonials = [
-  {
-    metric: "Clean content",
-    quote: "Finally competitor content without all the noise. Just clean text, ready for analysis.",
-    author: "Andrea B.",
-    role: "Content Analyst",
-    company: "SEO Agency",
-  },
-  {
-    metric: "100+ pages",
-    quote: "We analyze hundreds of competitor pages in minutes. Before, it was unthinkable.",
-    author: "Chiara L.",
-    role: "SEO Manager",
-    company: "E-commerce",
-  },
-]
-
 function HtmlToMarkdownIllustration() {
   return (
     <div className="flex h-full w-full items-center justify-center p-6">
@@ -70,9 +53,9 @@ function HtmlToMarkdownIllustration() {
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="flex items-center gap-2 mb-2">
             <div className="flex gap-1">
-              <div className="size-2 rounded-full bg-red-400" />
-              <div className="size-2 rounded-full bg-yellow-400" />
-              <div className="size-2 rounded-full bg-green-400" />
+              <div className="size-2 rounded-full bg-status-error" />
+              <div className="size-2 rounded-full bg-status-warning" />
+              <div className="size-2 rounded-full bg-status-success" />
             </div>
             <span className="text-[10px] text-muted-foreground">HTML</span>
           </div>
@@ -112,7 +95,7 @@ function DynamicContentIllustration() {
           </div>
           <div className="mt-4 border-t pt-4">
             <div className="flex items-center gap-2 mb-2">
-              <div className="size-4 rounded-full bg-green-500 flex items-center justify-center">
+              <div className="size-4 rounded-full bg-status-success flex items-center justify-center">
                 <svg className="size-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                 </svg>
@@ -134,13 +117,13 @@ export default function CompetitorScrapingPage() {
   return (
     <>
       <SubPageHero locale="en"
-        label="Competitor Scraping"
+        label="Competitor Analysis"
         title="Access any competitor's content strategy"
         description="Extract and analyze competitor content as clean Markdown. Understand their structure, topics and approach—ready for strategic analysis."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
-      <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
+      <TrustedBy />
 
       <FeatureChecklist
         title="Smart content extraction"
@@ -163,14 +146,9 @@ export default function CompetitorScrapingPage() {
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
+      <Testimonials locale="en" />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo. See SERP analysis, pattern detection and content generation on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <SubPageCTA locale="en" />
     </>
   )
 }

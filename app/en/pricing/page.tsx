@@ -3,6 +3,12 @@ import type { Metadata } from "next"
 import { Check, ArrowRight } from "lucide-react"
 import { PageBreadcrumb } from "@/components/page-breadcrumb"
 import { Button } from "@/components/ui/button"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -13,12 +19,10 @@ export const metadata: Metadata = {
 }
 
 const features = [
-  "Up to 300 credits",
-  "Advanced SERP analysis",
-  "Competitor scraping",
-  "Pattern analysis",
-  "AI content generation",
-  "Dedicated support",
+  "All platform features included",
+  "All AI models (Claude, GPT-4, Gemini)",
+  "Extra credits available anytime",
+  "Dedicated email support",
 ]
 
 export default function PricingPage() {
@@ -84,20 +88,88 @@ export default function PricingPage() {
           </p>
         </div>
 
+        {/* How credits work */}
+        <div className="mt-16 max-w-2xl mx-auto">
+          <h2 className="text-xl font-medium tracking-tight text-center mb-3">
+            How credits work
+          </h2>
+          <p className="text-sm text-muted-foreground text-center mb-8">
+            One credit = one keyword analyzed. Each analysis includes: Google results, competitor analysis, patterns and content generation.
+          </p>
+
+          <div className="rounded-xl border bg-muted/40 p-6 md:p-8">
+            <div className="grid grid-cols-3 gap-4 md:gap-6">
+              {[
+                { type: "Blog post", credits: "~20", output: "~15 per month" },
+                { type: "Product page", credits: "~15", output: "~20 per month" },
+                { type: "Complete guide", credits: "~30", output: "~10 per month" },
+              ].map((item) => (
+                <div key={item.type} className="text-center rounded-lg bg-background border p-4">
+                  <p className="text-2xl font-medium tracking-tight">{item.credits}</p>
+                  <p className="text-[11px] text-muted-foreground">credits</p>
+                  <p className="text-sm font-medium mt-3">{item.type}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{item.output}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-6 pt-4 border-t">
+              With 300 credits you can generate about 15 blog posts or 20 product pages per month.
+            </p>
+          </div>
+        </div>
+
         {/* CTA for custom plans */}
-        <div className="mt-16 text-center">
-          <p className="text-base font-medium mb-2">
+        <div className="mt-16 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <p className="text-sm text-muted-foreground">
             Need more credits or a custom plan?
           </p>
-          <p className="text-sm text-muted-foreground mb-6">
-            Get in touch for a tailored quote that fits your team's needs.
-          </p>
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="outline" size="sm">
             <Link href="/en/book-demo">
-              Let's talk
+              Request a quote
               <ArrowRight className="ml-2 size-4" />
             </Link>
           </Button>
+        </div>
+
+        {/* FAQ */}
+        <div className="mt-20 max-w-2xl mx-auto">
+          <h2 className="text-xl font-medium tracking-tight text-center mb-8">
+            Frequently asked questions
+          </h2>
+          <Accordion type="single" collapsible>
+            <AccordionItem value="credits-exhausted">
+              <AccordionTrigger className="text-sm font-medium">
+                What happens if I run out of credits?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                You can purchase extra credits at €35 each at any time, without changing your plan.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="cancel">
+              <AccordionTrigger className="text-sm font-medium">
+                Can I cancel at any time?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                Yes, you can cancel whenever you want. Your access stays active until the end of the billing period.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="generation-time">
+              <AccordionTrigger className="text-sm font-medium">
+                How long does it take to generate content?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                About 2-3 minutes on average. Verbalist analyzes the search results, extracts patterns and generates the content automatically.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="unique-content">
+              <AccordionTrigger className="text-sm font-medium">
+                Is the generated content unique?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                Yes. Each piece of content is generated from scratch based on patterns extracted from the search results in real time. It's not rewriting or spinning.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </section>

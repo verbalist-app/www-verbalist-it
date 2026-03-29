@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { useMotionValue, animate, motion } from 'framer-motion'
+import { useMotionValue, animate, motion, useReducedMotion } from 'motion/react'
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 interface InfiniteSliderProps {
@@ -23,6 +23,7 @@ export function InfiniteSlider({
     reverse = false,
     className,
 }: InfiniteSliderProps) {
+    const shouldReduceMotion = useReducedMotion()
     const [currentSpeed, setCurrentSpeed] = useState(speed)
     const containerRef = useRef<HTMLDivElement>(null)
     const innerRef = useRef<HTMLDivElement>(null)
@@ -46,6 +47,8 @@ export function InfiniteSlider({
             animationRef.current.stop()
         }
 
+        if (shouldReduceMotion) return
+
         const size = isHorizontal ? innerWidth : innerHeight
         if (size === 0) return
 
@@ -66,7 +69,7 @@ export function InfiniteSlider({
                 translation.set(reverse ? -size : 0)
             },
         })
-    }, [currentSpeed, innerWidth, innerHeight, isHorizontal, reverse, translation])
+    }, [currentSpeed, innerWidth, innerHeight, isHorizontal, reverse, translation, shouldReduceMotion])
 
     useEffect(() => {
         startAnimation()

@@ -20,7 +20,7 @@ interface CTASectionProps {
 
 export function CTASection({
   heading = "Vuoi vederlo in azione?",
-  description = "Ti mostriamo come funziona con una demo. Vedi analisi SERP, rilevamento pattern e generazione contenuti applicati al tuo caso.",
+  description = "Ti mostriamo come funziona con una demo. Vedi analisi risultati Google, rilevamento pattern e generazione contenuti applicati al tuo caso.",
   buttons = {
     primary: {
       text: "Prenota una demo",

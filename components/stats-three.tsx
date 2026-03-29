@@ -13,7 +13,7 @@ const statsContent = {
     title: 'Numeri che contano',
     description: 'Dalla keyword al contenuto ottimizzato per la ricerca AI, in pochi minuti.',
     stats: [
-      { value: '10 risultati', label: 'SERP analizzati per keyword' },
+      { value: '10 risultati', label: 'Google analizzati per keyword' },
       { value: '< 3 min', label: 'da keyword a contenuto GEO-ready' },
       { value: '4 modelli AI', label: 'selezionabili per generazione' },
       { value: 'LLM-ready', label: 'contenuti strutturati per la ricerca AI' },
@@ -23,7 +23,7 @@ const statsContent = {
     title: 'Numbers that matter',
     description: 'From keyword to AI search-optimized content, in just a few minutes.',
     stats: [
-      { value: '10 results', label: 'SERP analyzed per keyword' },
+      { value: '10 results', label: 'Google results analyzed per keyword' },
       { value: '< 3 min', label: 'from keyword to GEO-ready content' },
       { value: '4 AI models', label: 'selectable for generation' },
       { value: 'LLM-ready', label: 'structured content for AI search' },

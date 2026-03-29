@@ -1,23 +1,24 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { StatsBar } from "@/components/stats-bar"
 
 export const metadata: Metadata = {
   title: "GEO & AEO Optimization",
-  description: "Answer engine optimization and generative engine optimization with SERP data. Content structured to be cited by ChatGPT, Perplexity and AI Overview.",
+  description: "Answer engine optimization and generative engine optimization with search results data. Content structured to be cited by ChatGPT, Perplexity and AI Overview.",
   alternates: {
     canonical: "/en/solutions/ai-strategist",
   },
   openGraph: {
     title: "GEO & AEO Optimization \\ Verbalist",
-    description: "Answer engine optimization and generative engine optimization with SERP data. Content structured to be cited by ChatGPT, Perplexity and AI Overview.",
+    description: "Answer engine optimization and generative engine optimization with search results data. Content structured to be cited by ChatGPT, Perplexity and AI Overview.",
   },
 }
 
 const stats = [
-  { value: "E-E-A-T", label: "Signals analyzed" },
+  { value: "Quality", label: "Signals analyzed" },
   { value: "10/10", label: "Competitors scanned" },
   { value: "GEO + AEO", label: "Dual optimization" },
   { value: "LLM-ready", label: "Structured output" },
@@ -26,7 +27,7 @@ const stats = [
 const featureColumns = [
   {
     items: [
-      "E-E-A-T signals analysis",
+      "Quality and authority signals analysis",
       "Citability patterns",
       "Featured snippet structure",
       "Clear and citable definitions",
@@ -56,7 +57,7 @@ export default function AIStrategistPage() {
       <SubPageHero locale="en"
         label="AI Strategist"
         title="Get your content cited by AI assistants"
-        description="Optimize for ChatGPT, Perplexity and AI Overview. Analyze E-E-A-T signals, citability patterns and structures that LLMs prefer to reference."
+        description="Optimize for ChatGPT, Perplexity and AI Overview. Analyze quality and authority signals, citability patterns and structures that LLMs prefer to reference."
       />
 
       <StatsBar stats={stats} />
@@ -67,12 +68,9 @@ export default function AIStrategistPage() {
         columns={featureColumns}
       />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <Testimonials locale="en" />
+
+      <SubPageCTA locale="en" />
     </>
   )
 }

@@ -10,14 +10,14 @@ interface StatsProps {
 const statsContent = {
   it: {
     stats: [
-      { value: '10', label: 'Risultati SERP analizzati' },
+      { value: '10', label: 'Risultati Google analizzati' },
       { value: '< 3 min', label: 'Da keyword a contenuto' },
     ],
     description: 'Dalla keyword al contenuto GEO-ready in pochi minuti, con 4 modelli AI selezionabili per la generazione.',
   },
   en: {
     stats: [
-      { value: '10', label: 'SERP results analyzed' },
+      { value: '10', label: 'Google results analyzed' },
       { value: '< 3 min', label: 'From keyword to content' },
     ],
     description: 'From keyword to GEO-ready content in minutes, with 4 selectable AI models for generation.',

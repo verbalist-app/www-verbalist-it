@@ -28,10 +28,10 @@ const featureColumns = [
   },
   {
     items: [
-      "Analisi SERP automatica",
+      "Analisi risultati Google automatica",
       "Pattern dei competitor estratti",
       "Struttura semantica per LLM",
-      "Segnali E-E-A-T integrati",
+      "Segnali di qualità e autorevolezza integrati",
     ],
   },
   {
@@ -53,7 +53,7 @@ const workflowSteps = [
   {
     step: 2,
     title: "Analisi automatica",
-    description: "Struttura heading, topic ricorrenti, lunghezza, segnali E-E-A-T. Tutto estratto dai competitor in pochi secondi.",
+    description: "Struttura heading, topic ricorrenti, lunghezza, segnali di qualità e autorevolezza. Tutto estratto dai competitor in pochi secondi.",
   },
   {
     step: 3,

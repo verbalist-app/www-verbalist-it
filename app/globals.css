@@ -40,6 +40,9 @@
   --sidebar-accent-foreground: oklch(0.3467 0.0231 86.12);
   --sidebar-border: oklch(0.3421 0.0379 61.15 / 7.5%);
   --sidebar-ring: oklch(0.5967 0.0558 61.59);
+  --status-success: oklch(0.723 0.219 149.579);
+  --status-warning: oklch(0.795 0.184 86.047);
+  --status-error: oklch(0.577 0.245 27.325);
 }
 
 .dark {
@@ -47,7 +50,7 @@
   --foreground: oklch(0.9027 0.0137 60.56);
   --card: oklch(0.1924 0.0016 17.3);
   --card-foreground: oklch(0.9027 0.0137 60.56);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.1924 0.0016 17.3);
   --popover-foreground: oklch(0.9027 0.0137 60.56);
   --primary: oklch(0.5967 0.0558 61.59);
   --primary-foreground: oklch(1 0 0);
@@ -75,6 +78,14 @@
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.9027 0.0137 60.56 / 15%);
   --sidebar-ring: oklch(0.5967 0.0558 61.59);
+  --status-success: oklch(0.723 0.219 149.579);
+  --status-warning: oklch(0.795 0.184 86.047);
+  --status-error: oklch(0.637 0.237 25.331);
+}
+
+@keyframes progress-indeterminate {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
 }
 
 @theme inline {
@@ -117,6 +128,9 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
   --shadow-2xs: 0 1px 2px hsla(0 0% 0% / 0.03);
   --shadow-xs: 0 1px 2px hsla(0 0% 0% / 0.04);
   --shadow-sm: 0 1px 3px hsla(0 0% 0% / 0.06), 0 1px 2px hsla(0 0% 0% / 0.04);
@@ -221,208 +235,210 @@
   }
 }
 
-/* ── HubSpot form: shadcn/ui style override ── */
-#hubspot-form-container .hs-form {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 2rem !important;
-  font-family: var(--font-sans) !important;
+/* ── HubSpot form: shadcn/ui style override ──
+   Doubled ID selector (#id#id) gives (2,x,y) specificity,
+   which beats HubSpot's injected stylesheet without !important. */
+#hubspot-form-container#hubspot-form-container .hs-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: var(--font-sans);
 }
 
-#hubspot-form-container .hs-form fieldset {
-  max-width: 100% !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+#hubspot-form-container#hubspot-form-container .hs-form fieldset {
+  max-width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
-#hubspot-form-container .hs-form-field {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.5rem !important;
+#hubspot-form-container#hubspot-form-container .hs-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-#hubspot-form-container .hs-form-field label:not(.hs-error-msg) {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  font-size: 0.875rem !important;
-  line-height: 1 !important;
-  font-weight: 500 !important;
-  user-select: none !important;
-  color: var(--foreground) !important;
-  margin: 0 !important;
-  padding: 0 !important;
+#hubspot-form-container#hubspot-form-container .hs-form-field label:not(.hs-error-msg) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: 500;
+  user-select: none;
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
 }
 
-#hubspot-form-container .hs-form-field label .hs-form-required {
-  color: var(--muted-foreground) !important;
+#hubspot-form-container#hubspot-form-container .hs-form-field label .hs-form-required {
+  color: var(--muted-foreground);
 }
 
-#hubspot-form-container .hs-input,
-#hubspot-form-container input[type="text"],
-#hubspot-form-container input[type="email"],
-#hubspot-form-container input[type="tel"],
-#hubspot-form-container input[type="number"],
-#hubspot-form-container input[type="url"] {
-  height: 2.25rem !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  border-radius: calc(var(--radius) - 2px) !important;
-  border: 1px solid var(--input) !important;
-  background-color: var(--background) !important;
-  padding: 0.25rem 0.75rem !important;
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
-  color: var(--foreground) !important;
-  outline: none !important;
-  transition: color 0.15s, box-shadow 0.15s !important;
-  font-family: var(--font-sans) !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  box-sizing: border-box !important;
+#hubspot-form-container#hubspot-form-container .hs-input,
+#hubspot-form-container#hubspot-form-container input[type="text"],
+#hubspot-form-container#hubspot-form-container input[type="email"],
+#hubspot-form-container#hubspot-form-container input[type="tel"],
+#hubspot-form-container#hubspot-form-container input[type="number"],
+#hubspot-form-container#hubspot-form-container input[type="url"] {
+  height: 2.25rem;
+  width: 100%;
+  min-width: 0;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--input);
+  background-color: var(--background);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--foreground);
+  outline: none;
+  transition: color 0.15s, box-shadow 0.15s;
+  font-family: var(--font-sans);
+  box-shadow: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-#hubspot-form-container .hs-input:focus,
-#hubspot-form-container input:focus {
-  border-color: var(--ring) !important;
-  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 0.5) !important;
+#hubspot-form-container#hubspot-form-container .hs-input:focus,
+#hubspot-form-container#hubspot-form-container input:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 0.5);
 }
 
-#hubspot-form-container .hs-input::placeholder,
-#hubspot-form-container input::placeholder {
-  color: var(--muted-foreground) !important;
+#hubspot-form-container#hubspot-form-container .hs-input::placeholder,
+#hubspot-form-container#hubspot-form-container input::placeholder {
+  color: var(--muted-foreground);
 }
 
-#hubspot-form-container textarea.hs-input {
-  height: auto !important;
-  min-height: 6rem !important;
-  padding: 0.5rem 0.75rem !important;
-  resize: vertical !important;
+#hubspot-form-container#hubspot-form-container textarea.hs-input {
+  height: auto;
+  min-height: 6rem;
+  padding: 0.5rem 0.75rem;
+  resize: vertical;
 }
 
-#hubspot-form-container select.hs-input {
-  height: 2.25rem !important;
-  width: 100% !important;
-  border-radius: calc(var(--radius) - 2px) !important;
-  border: 1px solid var(--input) !important;
-  background-color: var(--background) !important;
-  padding: 0.5rem 0.75rem !important;
-  font-size: 0.875rem !important;
-  color: var(--foreground) !important;
-  outline: none !important;
-  appearance: none !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 0.75rem center !important;
-  padding-right: 2.5rem !important;
-  font-family: var(--font-sans) !important;
-  box-shadow: none !important;
-  margin: 0 !important;
+#hubspot-form-container#hubspot-form-container select.hs-input {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--input);
+  background-color: var(--background);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+  font-family: var(--font-sans);
+  box-shadow: none;
+  margin: 0;
 }
 
-#hubspot-form-container select.hs-input:focus {
-  border-color: var(--ring) !important;
-  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 0.5) !important;
+#hubspot-form-container#hubspot-form-container select.hs-input:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 0.5);
 }
 
-#hubspot-form-container .hs-submit {
-  display: flex !important;
-  justify-content: flex-end !important;
+#hubspot-form-container#hubspot-form-container .hs-submit {
+  display: flex;
+  justify-content: flex-end;
 }
 
-#hubspot-form-container .hs-button {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  white-space: nowrap !important;
-  border-radius: calc(var(--radius) - 2px) !important;
-  font-size: 0.875rem !important;
-  font-weight: 500 !important;
-  height: 2.25rem !important;
-  padding: 0.5rem 1rem !important;
-  background-color: var(--primary) !important;
-  color: var(--primary-foreground) !important;
-  border: none !important;
-  cursor: pointer !important;
-  transition: background-color 0.15s !important;
-  font-family: var(--font-sans) !important;
-  box-shadow: none !important;
+#hubspot-form-container#hubspot-form-container .hs-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  height: 2.25rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  font-family: var(--font-sans);
+  box-shadow: none;
 }
 
-#hubspot-form-container .hs-button:hover {
-  background-color: oklch(from var(--primary) l c h / 0.9) !important;
+#hubspot-form-container#hubspot-form-container .hs-button:hover {
+  background-color: oklch(from var(--primary) l c h / 0.9);
 }
 
-#hubspot-form-container .hs_submit {
-  margin-bottom: 1rem !important;
+#hubspot-form-container#hubspot-form-container .hs_submit {
+  margin-bottom: 1rem;
 }
 
-#hubspot-form-container .hs-error-msgs {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0.25rem 0 0 !important;
+#hubspot-form-container#hubspot-form-container .hs-error-msgs {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0;
 }
 
-#hubspot-form-container .hs-error-msg {
-  font-size: 0.75rem !important;
-  color: oklch(0.55 0.2 27) !important;
+#hubspot-form-container#hubspot-form-container .hs-error-msg {
+  font-size: 0.75rem;
+  color: oklch(0.55 0.2 27);
 }
 
-#hubspot-form-container .hs-richtext {
-  font-size: 0.875rem !important;
-  color: var(--muted-foreground) !important;
-  line-height: 1.5 !important;
+#hubspot-form-container#hubspot-form-container .hs-richtext {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
 }
 
-#hubspot-form-container .hs-richtext a {
-  color: var(--foreground) !important;
-  text-decoration: underline !important;
-  text-underline-offset: 4px !important;
+#hubspot-form-container#hubspot-form-container .hs-richtext a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-#hubspot-form-container .hs-richtext a:hover {
-  color: var(--muted-foreground) !important;
+#hubspot-form-container#hubspot-form-container .hs-richtext a:hover {
+  color: var(--muted-foreground);
 }
 
-#hubspot-form-container .legal-consent-container {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.75rem !important;
+#hubspot-form-container#hubspot-form-container .legal-consent-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-#hubspot-form-container .legal-consent-container .hs-form-booleancheckbox-display {
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 0.5rem !important;
-  font-size: 0.875rem !important;
-  color: var(--muted-foreground) !important;
+#hubspot-form-container#hubspot-form-container .legal-consent-container .hs-form-booleancheckbox-display {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
 }
 
-#hubspot-form-container .legal-consent-container input[type="checkbox"] {
-  width: 1rem !important;
-  height: 1rem !important;
-  margin-top: 0.125rem !important;
-  accent-color: var(--primary) !important;
-  flex-shrink: 0 !important;
+#hubspot-form-container#hubspot-form-container .legal-consent-container input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+  accent-color: var(--primary);
+  flex-shrink: 0;
 }
 
-#hubspot-form-container .submitted-message {
-  font-size: 0.875rem !important;
-  color: var(--foreground) !important;
-  text-align: center !important;
-  padding: 2rem 0 !important;
+#hubspot-form-container#hubspot-form-container .submitted-message {
+  font-size: 0.875rem;
+  color: var(--foreground);
+  text-align: center;
+  padding: 2rem 0;
 }
 
 /* Two-column layout for name fields (fieldset with multiple fields) */
-#hubspot-form-container .hs-form fieldset.form-columns-2 {
-  display: flex !important;
-  gap: 1rem !important;
+#hubspot-form-container#hubspot-form-container .hs-form fieldset.form-columns-2 {
+  display: flex;
+  gap: 1rem;
 }
 
-#hubspot-form-container .hs-form fieldset.form-columns-2 .hs-form-field {
-  flex: 1 !important;
+#hubspot-form-container#hubspot-form-container .hs-form fieldset.form-columns-2 .hs-form-field {
+  flex: 1;
 }
 
 /* ── Blog prose: custom class to bypass typography plugin specificity ── */
@@ -560,6 +576,9 @@
   margin: 1.5rem 0;
 }
 
+/* Radix remove-scroll sets inline styles on body[data-scroll-locked].
+   Inline styles can only be overridden with !important — no specificity
+   trick avoids this. Justified exception to the no-!important rule. */
 html body[data-scroll-locked] {
   overflow-y: scroll !important;
   --removed-body-scroll-bar-size: 0 !important;

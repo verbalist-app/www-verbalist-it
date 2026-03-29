@@ -14,19 +14,19 @@ const featuresContent = {
     description: 'Dalla keyword al contenuto pubblicabile: quattro step automatizzati per posizionarti nella ricerca AI.',
     cards: [
       {
-        title: 'Analisi SERP',
+        title: 'Analisi risultati Google',
         description: 'Prende i primi 10 risultati Google per la tua keyword. Posizione, snippet, title e meta description.',
       },
       {
-        title: 'Scraping Competitor',
+        title: 'Analisi competitor',
         description: 'Scarica il contenuto di ogni pagina competitor. Heading, paragrafi, lunghezza. Tutto in Markdown pulito.',
       },
       {
-        title: 'Analisi Pattern',
-        description: 'Trova cosa hanno in comune i contenuti meglio posizionati. Struttura, argomenti, segnali E-E-A-T.',
+        title: 'Analisi pattern',
+        description: 'Trova cosa hanno in comune i contenuti meglio posizionati. Struttura, argomenti, segnali di qualità e autorevolezza.',
       },
       {
-        title: 'Generazione Contenuto',
+        title: 'Generazione contenuto',
         description: 'Scrive l\'articolo basandosi su quello che funziona. Title, meta, heading e testo.',
       },
     ],
@@ -36,16 +36,16 @@ const featuresContent = {
     description: 'From keyword to publishable content: four automated steps to position yourself in AI search.',
     cards: [
       {
-        title: 'SERP Analysis',
+        title: 'Search Results Analysis',
         description: 'Fetches the top 10 Google results for your keyword. Position, snippet, title and meta description.',
       },
       {
-        title: 'Competitor Scraping',
+        title: 'Competitor Analysis',
         description: 'Downloads content from each competitor page. Headings, paragraphs, length. All in clean Markdown.',
       },
       {
         title: 'Pattern Analysis',
-        description: 'Finds what ranking content has in common. Structure, topics, E-E-A-T signals.',
+        description: 'Finds what ranking content has in common. Structure, topics, quality and authority signals.',
       },
       {
         title: 'Content Generation',

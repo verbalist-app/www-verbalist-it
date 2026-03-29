@@ -25,13 +25,13 @@ const features = [
   },
   {
     icon: Search,
-    title: "Analisi SERP per categoria",
+    title: "Analisi risultati Google per categoria",
     description: "Analizza i top 10 risultati per ogni categoria e keyword di prodotto. Estrae i pattern che funzionano.",
   },
   {
     icon: BarChart3,
     title: "Pattern dei competitor",
-    description: "Identifica quali sezioni includono, come le strutturano e quali segnali E-E-A-T utilizzano le pagine meglio posizionate.",
+    description: "Identifica quali sezioni includono, come le strutturano e quali segnali di qualità e autorevolezza utilizzano le pagine meglio posizionate.",
   },
   {
     icon: FileText,
@@ -56,12 +56,12 @@ export default function EcommercePage() {
       <SubPageHero
         label="eCommerce"
         title="Pagine prodotto visibili su Google e nella ricerca AI"
-        description="Analizza le pagine prodotto meglio posizionate e genera descrizioni con struttura semantica ottimizzata per la SERP e per essere citate dagli assistenti AI."
+        description="Analizza le pagine prodotto meglio posizionate e genera descrizioni con struttura semantica ottimizzata per i risultati di ricerca e per essere citate dagli assistenti AI."
       />
 
       <FeatureGrid
         title="Pagine prodotto pensate per la GEO"
-        description="Analisi SERP per capire cosa funziona. Contenuti strutturati per Google, ChatGPT e Perplexity."
+        description="Analisi dei risultati Google per capire cosa funziona. Contenuti strutturati per Google, ChatGPT e Perplexity."
         items={features}
       />
 

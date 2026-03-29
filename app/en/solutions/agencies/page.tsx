@@ -1,18 +1,19 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
 
 export const metadata: Metadata = {
   title: "GEO-ready content for agencies",
-  description: "AI search optimization for every client. SERP analysis, pattern detection and GEO-ready content generation in a single workflow.",
+  description: "AI search optimization for every client. Search results analysis, pattern detection and GEO-ready content generation in a single workflow.",
   alternates: {
     canonical: "/en/solutions/agencies",
   },
   openGraph: {
     title: "GEO-ready content for agencies \\ Verbalist",
-    description: "AI search optimization for every client. SERP analysis, pattern detection and GEO-ready content generation in a single workflow.",
+    description: "AI search optimization for every client. Search results analysis, pattern detection and GEO-ready content generation in a single workflow.",
   },
 }
 
@@ -27,10 +28,10 @@ const featureColumns = [
   },
   {
     items: [
-      "SERP analysis for every keyword",
+      "Search results analysis for every keyword",
       "Automatic pattern detection",
       "Semantic structure for LLMs",
-      "E-E-A-T signals extracted",
+      "Quality and authority signals extracted",
     ],
   },
   {
@@ -51,8 +52,8 @@ const workflowSteps = [
   },
   {
     step: 2,
-    title: "Automatic SERP analysis",
-    description: "Enter the keyword, Verbalist analyzes the top 10 results and extracts structure, topics and E-E-A-T signals.",
+    title: "Automatic search results analysis",
+    description: "Enter the keyword, Verbalist analyzes the top 10 results and extracts structure, topics and quality and authority signals.",
   },
   {
     step: 3,
@@ -87,12 +88,9 @@ export default function AgenciesPage() {
         columns={featureColumns}
       />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <Testimonials locale="en" />
+
+      <SubPageCTA locale="en" />
     </>
   )
 }

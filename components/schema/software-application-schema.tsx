@@ -74,8 +74,8 @@ export function SoftwareApplicationSchema({
     },
     featureList: isEnglish
       ? [
-          "SERP Analysis",
-          "Competitor Scraping",
+          "Search Results Analysis",
+          "Competitor Analysis",
           "Pattern Extraction",
           "AI Content Generation",
           "SEO Optimization",
@@ -84,14 +84,14 @@ export function SoftwareApplicationSchema({
           "Multi-language Support",
         ]
       : [
-          "Analisi SERP",
-          "Scraping Competitor",
-          "Estrazione Pattern",
-          "Generazione Contenuti AI",
+          "Analisi risultati Google",
+          "Analisi competitor",
+          "Estrazione pattern",
+          "Generazione contenuti AI",
           "Ottimizzazione SEO",
           "Ottimizzazione AEO",
           "Ottimizzazione GEO",
-          "Supporto Multilingua",
+          "Supporto multilingua",
         ],
     screenshot: "https://www.verbalist.it/og-image.png",
     softwareVersion: "1.0",

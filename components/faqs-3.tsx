@@ -31,17 +31,17 @@ const faqsContent = {
       {
         id: 'item-3',
         question: 'I contenuti sono unici?',
-        answer: 'Sì. Ogni contenuto viene generato da zero partendo dall\'analisi SERP della tua keyword. Niente template o spinning.',
+        answer: 'Sì. Generiamo ogni contenuto da zero analizzando i risultati Google della tua keyword in tempo reale. Nessun template, nessuno spinning.',
       },
       {
         id: 'item-4',
         question: 'Posso usare il mio tone of voice?',
-        answer: 'Sì. Configuri un profilo con esempi del tuo stile e linee guida. Il sistema genera seguendo quelle indicazioni.',
+        answer: 'Sì. Crei un profilo con esempi del tuo stile e le linee guida del brand. Verbalist genera seguendo quelle indicazioni.',
       },
       {
         id: 'item-5',
         question: 'Funziona anche per GEO?',
-        answer: 'Sì. I contenuti sono strutturati per essere citati anche da ChatGPT, Perplexity e Google SGE.',
+        answer: 'Sì. Strutturiamo i contenuti perché ChatGPT, Perplexity e Google AI Overview possano citarli nelle risposte.',
       },
     ],
   },
@@ -64,17 +64,17 @@ const faqsContent = {
       {
         id: 'item-3',
         question: 'Is the content unique?',
-        answer: 'Yes. Every piece of content is generated from scratch based on the SERP analysis for your keyword. No templates or spinning.',
+        answer: 'Yes. We generate every piece from scratch by analyzing the live search results for your keyword. No templates, no spinning.',
       },
       {
         id: 'item-4',
         question: 'Can I use my own tone of voice?',
-        answer: 'Yes. You set up a profile with examples of your style and guidelines. The system generates following those instructions.',
+        answer: 'Yes. You create a profile with examples of your style and brand guidelines. Verbalist generates following those instructions.',
       },
       {
         id: 'item-5',
         question: 'Does it work for GEO?',
-        answer: 'Yes. Content is structured to be cited by ChatGPT, Perplexity and Google SGE.',
+        answer: 'Yes. We structure content so ChatGPT, Perplexity and Google AI Overview can cite it in their answers.',
       },
     ],
   },

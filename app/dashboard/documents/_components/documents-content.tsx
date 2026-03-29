@@ -45,16 +45,28 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 import { toast } from "sonner"
+import { getStatusConfig, type Status } from "@/lib/status"
+import { useDashboardLocale } from "../../_lib/dashboard-locale"
 
 // Mock data
 const allDocuments = [
   {
     id: "1",
-    title: "Guida completa al SEO nel 2025",
+    title: { it: "Guida completa al SEO nel 2025", en: "Complete SEO Guide for 2025" },
     keyword: "seo 2025",
     type: "blog_post",
-    project: "Blog Aziendale",
+    project: { it: "Blog Aziendale", en: "Company Blog" },
     projectId: "1",
     status: "completed",
     wordCount: 2450,
@@ -62,10 +74,10 @@ const allDocuments = [
   },
   {
     id: "2",
-    title: "Come scegliere il miglior CRM",
+    title: { it: "Come scegliere il miglior CRM", en: "How to Choose the Best CRM" },
     keyword: "miglior crm",
     type: "guide",
-    project: "Landing Pages",
+    project: { it: "Landing Pages", en: "Landing Pages" },
     projectId: "2",
     status: "processing",
     wordCount: 0,
@@ -73,10 +85,10 @@ const allDocuments = [
   },
   {
     id: "3",
-    title: "10 strategie di marketing B2B",
+    title: { it: "10 strategie di marketing B2B", en: "10 B2B Marketing Strategies" },
     keyword: "marketing b2b",
     type: "blog_post",
-    project: "Blog Aziendale",
+    project: { it: "Blog Aziendale", en: "Company Blog" },
     projectId: "1",
     status: "completed",
     wordCount: 1890,
@@ -84,10 +96,10 @@ const allDocuments = [
   },
   {
     id: "4",
-    title: "Ottimizzazione pagina prodotto",
+    title: { it: "Ottimizzazione pagina prodotto", en: "Product Page Optimization" },
     keyword: "pagina prodotto ecommerce",
     type: "product_page",
-    project: "E-commerce",
+    project: { it: "E-commerce", en: "E-commerce" },
     projectId: "3",
     status: "completed",
     wordCount: 980,
@@ -95,10 +107,10 @@ const allDocuments = [
   },
   {
     id: "5",
-    title: "Come aumentare le conversioni",
+    title: { it: "Come aumentare le conversioni", en: "How to Increase Conversions" },
     keyword: "aumentare conversioni",
     type: "landing_page",
-    project: "Landing Pages",
+    project: { it: "Landing Pages", en: "Landing Pages" },
     projectId: "2",
     status: "completed",
     wordCount: 1250,
@@ -106,10 +118,10 @@ const allDocuments = [
   },
   {
     id: "6",
-    title: "Guida all'email marketing",
+    title: { it: "Guida all'email marketing", en: "Email Marketing Guide" },
     keyword: "email marketing",
     type: "guide",
-    project: "Guide Tecniche",
+    project: { it: "Guide Tecniche", en: "Technical Guides" },
     projectId: "4",
     status: "failed",
     wordCount: 0,
@@ -117,10 +129,10 @@ const allDocuments = [
   },
   {
     id: "7",
-    title: "Strategie di link building",
+    title: { it: "Strategie di link building", en: "Link Building Strategies" },
     keyword: "link building",
     type: "blog_post",
-    project: "Blog Aziendale",
+    project: { it: "Blog Aziendale", en: "Company Blog" },
     projectId: "1",
     status: "completed",
     wordCount: 2100,
@@ -128,10 +140,10 @@ const allDocuments = [
   },
   {
     id: "8",
-    title: "Analisi competitor",
+    title: { it: "Analisi competitor", en: "Competitor Analysis" },
     keyword: "analisi competitor seo",
     type: "guide",
-    project: "Guide Tecniche",
+    project: { it: "Guide Tecniche", en: "Technical Guides" },
     projectId: "4",
     status: "completed",
     wordCount: 3200,
@@ -139,40 +151,113 @@ const allDocuments = [
   },
 ]
 
-const statusOptions = [
-  { value: "all", label: "Tutti gli stati" },
-  { value: "completed", label: "Completato" },
-  { value: "processing", label: "In elaborazione" },
-  { value: "failed", label: "Errore" },
-]
-
-const typeOptions = [
-  { value: "all", label: "Tutti i tipi" },
-  { value: "blog_post", label: "Blog Post" },
-  { value: "product_page", label: "Pagina Prodotto" },
-  { value: "guide", label: "Guida/Tutorial" },
-  { value: "landing_page", label: "Landing Page" },
-]
-
-const projectOptions = [
-  { value: "all", label: "Tutti i progetti" },
-  { value: "1", label: "Blog Aziendale" },
-  { value: "2", label: "Landing Pages" },
-  { value: "3", label: "E-commerce" },
-  { value: "4", label: "Guide Tecniche" },
-]
-
-const statusLabels: Record<string, { label: string; variant: "default" | "secondary" | "destructive" | "outline" }> = {
-  completed: { label: "Completato", variant: "default" },
-  processing: { label: "In elaborazione", variant: "secondary" },
-  failed: { label: "Errore", variant: "destructive" },
-}
-
-const typeLabels: Record<string, string> = {
-  blog_post: "Blog Post",
-  product_page: "Pagina Prodotto",
-  guide: "Guida",
-  landing_page: "Landing Page",
+const content = {
+  it: {
+    title: "Documenti",
+    subtitle: "Gestisci tutti i tuoi contenuti generati",
+    newDocument: "Nuovo documento",
+    searchPlaceholder: "Cerca per titolo o keyword...",
+    searchAriaLabel: "Cerca per titolo o keyword",
+    allStatuses: "Tutti gli stati",
+    completed: "Completato",
+    processing: "In elaborazione",
+    failed: "Errore",
+    allTypes: "Tutti i tipi",
+    blogPost: "Blog Post",
+    productPage: "Pagina Prodotto",
+    guideTutorial: "Guida/Tutorial",
+    landingPage: "Landing Page",
+    allProjects: "Tutti i progetti",
+    blogAziendale: "Blog Aziendale",
+    landingPages: "Landing Pages",
+    ecommerce: "E-commerce",
+    guideTecniche: "Guide Tecniche",
+    clearFilters: "Rimuovi filtri",
+    documentsSelected: "documenti selezionati",
+    move: "Sposta",
+    delete: "Elimina",
+    selectAll: "Seleziona tutti i documenti",
+    document: "Documento",
+    project: "Progetto",
+    type: "Tipo",
+    status: "Status",
+    words: "Parole",
+    date: "Data",
+    noDocuments: "Nessun documento trovato",
+    view: "Visualizza",
+    export: "Esporta",
+    moveToProject: "Sposta in progetto",
+    moreOptions: "Altre opzioni",
+    page: "Pagina",
+    of: "di",
+    showing: "Mostrando",
+    documents: "documenti",
+    deleteDialogTitle: "Eliminare questo documento?",
+    deleteDialogDescription: "Il documento verrà eliminato permanentemente. Questa azione non può essere annullata.",
+    cancel: "Annulla",
+    documentDeleted: "Documento eliminato",
+    deletionCancelled: "Eliminazione annullata",
+    documentsDeleted: "documenti eliminati",
+    documentsMoved: "documenti spostati",
+    guide: "Guida",
+    typeBlogPost: "Blog Post",
+    typeProductPage: "Pagina Prodotto",
+    typeGuide: "Guida",
+    typeLandingPage: "Landing Page",
+  },
+  en: {
+    title: "Documents",
+    subtitle: "Manage all your generated content",
+    newDocument: "New document",
+    searchPlaceholder: "Search by title or keyword...",
+    searchAriaLabel: "Search by title or keyword",
+    allStatuses: "All statuses",
+    completed: "Completed",
+    processing: "Processing",
+    failed: "Failed",
+    allTypes: "All types",
+    blogPost: "Blog Post",
+    productPage: "Product Page",
+    guideTutorial: "Guide/Tutorial",
+    landingPage: "Landing Page",
+    allProjects: "All projects",
+    blogAziendale: "Company Blog",
+    landingPages: "Landing Pages",
+    ecommerce: "E-commerce",
+    guideTecniche: "Technical Guides",
+    clearFilters: "Clear filters",
+    documentsSelected: "documents selected",
+    move: "Move",
+    delete: "Delete",
+    selectAll: "Select all documents",
+    document: "Document",
+    project: "Project",
+    type: "Type",
+    status: "Status",
+    words: "Words",
+    date: "Date",
+    noDocuments: "No documents found",
+    view: "View",
+    export: "Export",
+    moveToProject: "Move to project",
+    moreOptions: "More options",
+    page: "Page",
+    of: "of",
+    showing: "Showing",
+    documents: "documents",
+    deleteDialogTitle: "Delete this document?",
+    deleteDialogDescription: "This document will be permanently deleted. This action cannot be undone.",
+    cancel: "Cancel",
+    documentDeleted: "Document deleted",
+    deletionCancelled: "Deletion cancelled",
+    documentsDeleted: "documents deleted",
+    documentsMoved: "documents moved",
+    guide: "Guide",
+    typeBlogPost: "Blog Post",
+    typeProductPage: "Product Page",
+    typeGuide: "Guide",
+    typeLandingPage: "Landing Page",
+  },
 }
 
 type SortField = "title" | "createdAt" | "wordCount"
@@ -181,6 +266,40 @@ type SortDirection = "asc" | "desc"
 const ITEMS_PER_PAGE = 5
 
 export function DocumentsContent() {
+  const { t, locale } = useDashboardLocale()
+  const statusCfg = getStatusConfig(locale)
+  const c = t(content)
+
+  const statusOptions = [
+    { value: "all", label: c.allStatuses },
+    { value: "completed", label: c.completed },
+    { value: "processing", label: c.processing },
+    { value: "failed", label: c.failed },
+  ]
+
+  const typeOptions = [
+    { value: "all", label: c.allTypes },
+    { value: "blog_post", label: c.blogPost },
+    { value: "product_page", label: c.productPage },
+    { value: "guide", label: c.guideTutorial },
+    { value: "landing_page", label: c.landingPage },
+  ]
+
+  const projectOptions = [
+    { value: "all", label: c.allProjects },
+    { value: "1", label: c.blogAziendale },
+    { value: "2", label: c.landingPages },
+    { value: "3", label: c.ecommerce },
+    { value: "4", label: c.guideTecniche },
+  ]
+
+  const typeLabels: Record<string, string> = {
+    blog_post: c.typeBlogPost,
+    product_page: c.typeProductPage,
+    guide: c.typeGuide,
+    landing_page: c.typeLandingPage,
+  }
+
   const [search, setSearch] = React.useState("")
   const [statusFilter, setStatusFilter] = React.useState("all")
   const [typeFilter, setTypeFilter] = React.useState("all")
@@ -189,12 +308,15 @@ export function DocumentsContent() {
   const [sortField, setSortField] = React.useState<SortField>("createdAt")
   const [sortDirection, setSortDirection] = React.useState<SortDirection>("desc")
   const [currentPage, setCurrentPage] = React.useState(1)
+  const [deleteTarget, setDeleteTarget] = React.useState<string | null>(null)
+  const [showBulkDeleteDialog, setShowBulkDeleteDialog] = React.useState(false)
 
   // Filter and sort documents
   const filteredDocuments = React.useMemo(() => {
     let result = allDocuments.filter((doc) => {
+      const docTitle = t(doc.title)
       const matchesSearch = search === "" ||
-        doc.title.toLowerCase().includes(search.toLowerCase()) ||
+        docTitle.toLowerCase().includes(search.toLowerCase()) ||
         doc.keyword.toLowerCase().includes(search.toLowerCase())
       const matchesStatus = statusFilter === "all" || doc.status === statusFilter
       const matchesType = typeFilter === "all" || doc.type === typeFilter
@@ -206,7 +328,7 @@ export function DocumentsContent() {
     result.sort((a, b) => {
       let comparison = 0
       if (sortField === "title") {
-        comparison = a.title.localeCompare(b.title)
+        comparison = t(a.title).localeCompare(t(b.title))
       } else if (sortField === "createdAt") {
         comparison = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       } else if (sortField === "wordCount") {
@@ -216,7 +338,7 @@ export function DocumentsContent() {
     })
 
     return result
-  }, [search, statusFilter, typeFilter, projectFilter, sortField, sortDirection])
+  }, [search, statusFilter, typeFilter, projectFilter, sortField, sortDirection, t])
 
   // Pagination
   const totalPages = Math.ceil(filteredDocuments.length / ITEMS_PER_PAGE)
@@ -254,12 +376,20 @@ export function DocumentsContent() {
   }
 
   const handleBulkDelete = () => {
-    toast.success(`${selectedIds.length} documenti eliminati`)
+    const count = selectedIds.length
     setSelectedIds([])
+    setShowBulkDeleteDialog(false)
+    toast.success(`${count} ${c.documentsDeleted}`, {
+      action: {
+        label: c.cancel,
+        onClick: () => toast.info(c.deletionCancelled),
+      },
+      duration: 5000,
+    })
   }
 
   const handleBulkMove = () => {
-    toast.success(`${selectedIds.length} documenti spostati`)
+    toast.success(`${selectedIds.length} ${c.documentsMoved}`)
     setSelectedIds([])
   }
 
@@ -282,15 +412,15 @@ export function DocumentsContent() {
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="font-serif text-2xl font-medium tracking-tighter">Documenti</h1>
+          <h1 className="text-xl font-semibold tracking-tighter lg:text-2xl">{c.title}</h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Gestisci tutti i tuoi contenuti generati
+            {c.subtitle}
           </p>
         </div>
         <Button asChild>
           <Link href="/dashboard/documents/new">
             <Plus className="mr-2 size-4" />
-            Nuovo documento
+            {c.newDocument}
           </Link>
         </Button>
       </div>
@@ -303,17 +433,18 @@ export function DocumentsContent() {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
               <Input
-                placeholder="Cerca per titolo o keyword..."
+                placeholder={c.searchPlaceholder}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="pl-9"
+                aria-label={c.searchAriaLabel}
               />
             </div>
 
             {/* Filters */}
             <div className="flex flex-wrap gap-2">
               <Select value={statusFilter} onValueChange={setStatusFilter}>
-                <SelectTrigger className="w-[160px]">
+                <SelectTrigger className="w-full sm:w-[160px]">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -326,7 +457,7 @@ export function DocumentsContent() {
               </Select>
 
               <Select value={typeFilter} onValueChange={setTypeFilter}>
-                <SelectTrigger className="w-[160px]">
+                <SelectTrigger className="w-full sm:w-[160px]">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -339,7 +470,7 @@ export function DocumentsContent() {
               </Select>
 
               <Select value={projectFilter} onValueChange={setProjectFilter}>
-                <SelectTrigger className="w-[160px]">
+                <SelectTrigger className="w-full sm:w-[160px]">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -354,7 +485,7 @@ export function DocumentsContent() {
               {hasActiveFilters && (
                 <Button variant="ghost" size="sm" onClick={clearFilters}>
                   <X className="mr-2 size-4" />
-                  Rimuovi filtri
+                  {c.clearFilters}
                 </Button>
               )}
             </div>
@@ -368,16 +499,16 @@ export function DocumentsContent() {
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium">
-                {selectedIds.length} documenti selezionati
+                {selectedIds.length} {c.documentsSelected}
               </span>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" onClick={handleBulkMove}>
                   <FolderInput className="mr-2 size-4" />
-                  Sposta
+                  {c.move}
                 </Button>
-                <Button variant="destructive" size="sm" onClick={handleBulkDelete}>
+                <Button variant="destructive" size="sm" onClick={() => setShowBulkDeleteDialog(true)}>
                   <Trash2 className="mr-2 size-4" />
-                  Elimina
+                  {c.delete}
                 </Button>
               </div>
             </div>
@@ -394,6 +525,7 @@ export function DocumentsContent() {
                 <Checkbox
                   checked={selectedIds.length === paginatedDocuments.length && paginatedDocuments.length > 0}
                   onCheckedChange={toggleSelectAll}
+                  aria-label={c.selectAll}
                 />
               </TableHead>
               <TableHead>
@@ -403,13 +535,13 @@ export function DocumentsContent() {
                   className="-ml-3 h-8"
                   onClick={() => toggleSort("title")}
                 >
-                  Documento
+                  {c.document}
                   <SortIcon field="title" />
                 </Button>
               </TableHead>
-              <TableHead className="hidden md:table-cell">Progetto</TableHead>
-              <TableHead className="hidden lg:table-cell">Tipo</TableHead>
-              <TableHead>Status</TableHead>
+              <TableHead className="hidden md:table-cell">{c.project}</TableHead>
+              <TableHead className="hidden lg:table-cell">{c.type}</TableHead>
+              <TableHead>{c.status}</TableHead>
               <TableHead className="hidden sm:table-cell">
                 <Button
                   variant="ghost"
@@ -417,7 +549,7 @@ export function DocumentsContent() {
                   className="-ml-3 h-8"
                   onClick={() => toggleSort("wordCount")}
                 >
-                  Parole
+                  {c.words}
                   <SortIcon field="wordCount" />
                 </Button>
               </TableHead>
@@ -428,7 +560,7 @@ export function DocumentsContent() {
                   className="-ml-3 h-8"
                   onClick={() => toggleSort("createdAt")}
                 >
-                  Data
+                  {c.date}
                   <SortIcon field="createdAt" />
                 </Button>
               </TableHead>
@@ -441,10 +573,10 @@ export function DocumentsContent() {
                 <TableCell colSpan={8} className="h-32 text-center">
                   <div className="flex flex-col items-center gap-2">
                     <FileText className="size-8 text-muted-foreground" />
-                    <p className="text-muted-foreground">Nessun documento trovato</p>
+                    <p className="text-muted-foreground">{c.noDocuments}</p>
                     {hasActiveFilters && (
                       <Button variant="link" size="sm" onClick={clearFilters}>
-                        Rimuovi filtri
+                        {c.clearFilters}
                       </Button>
                     )}
                   </div>
@@ -465,7 +597,7 @@ export function DocumentsContent() {
                         href={`/dashboard/documents/${doc.id}`}
                         className="font-medium hover:underline"
                       >
-                        {doc.title}
+                        {t(doc.title)}
                       </Link>
                       <p className="text-xs text-muted-foreground mt-0.5">
                         <code className="bg-muted px-1 py-0.5 rounded">{doc.keyword}</code>
@@ -477,7 +609,7 @@ export function DocumentsContent() {
                       href={`/dashboard/projects/${doc.projectId}`}
                       className="text-sm hover:underline"
                     >
-                      {doc.project}
+                      {t(doc.project)}
                     </Link>
                   </TableCell>
                   <TableCell className="hidden lg:table-cell">
@@ -486,8 +618,8 @@ export function DocumentsContent() {
                     </span>
                   </TableCell>
                   <TableCell>
-                    <Badge variant={statusLabels[doc.status].variant}>
-                      {statusLabels[doc.status].label}
+                    <Badge variant={statusCfg[doc.status as Status].badgeVariant}>
+                      {statusCfg[doc.status as Status].label}
                     </Badge>
                   </TableCell>
                   <TableCell className="hidden sm:table-cell">
@@ -497,13 +629,13 @@ export function DocumentsContent() {
                   </TableCell>
                   <TableCell className="hidden sm:table-cell">
                     <span className="text-sm text-muted-foreground">
-                      {new Date(doc.createdAt).toLocaleDateString("it-IT")}
+                      {new Date(doc.createdAt).toLocaleDateString(locale === "it" ? "it-IT" : "en-US")}
                     </span>
                   </TableCell>
                   <TableCell>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="size-8">
+                        <Button variant="ghost" size="icon" className="size-8" aria-label={c.moreOptions}>
                           <MoreHorizontal className="size-4" />
                         </Button>
                       </DropdownMenuTrigger>
@@ -511,21 +643,21 @@ export function DocumentsContent() {
                         <DropdownMenuItem asChild>
                           <Link href={`/dashboard/documents/${doc.id}`}>
                             <Eye className="mr-2 size-4" />
-                            Visualizza
+                            {c.view}
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
                           <Download className="mr-2 size-4" />
-                          Esporta
+                          {c.export}
                         </DropdownMenuItem>
                         <DropdownMenuItem>
                           <FolderInput className="mr-2 size-4" />
-                          Sposta in progetto
+                          {c.moveToProject}
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem className="text-destructive">
+                        <DropdownMenuItem className="text-destructive" onClick={() => setDeleteTarget(doc.id)}>
                           <Trash2 className="mr-2 size-4" />
-                          Elimina
+                          {c.delete}
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
@@ -540,7 +672,7 @@ export function DocumentsContent() {
         {totalPages > 1 && (
           <div className="flex items-center justify-between px-4 py-4 border-t">
             <p className="text-sm text-muted-foreground">
-              Mostrando {((currentPage - 1) * ITEMS_PER_PAGE) + 1}-{Math.min(currentPage * ITEMS_PER_PAGE, filteredDocuments.length)} di {filteredDocuments.length} documenti
+              {c.showing} {((currentPage - 1) * ITEMS_PER_PAGE) + 1}-{Math.min(currentPage * ITEMS_PER_PAGE, filteredDocuments.length)} {c.of} {filteredDocuments.length} {c.documents}
             </p>
             <div className="flex items-center gap-2">
               <Button
@@ -552,7 +684,7 @@ export function DocumentsContent() {
                 <ChevronLeft className="size-4" />
               </Button>
               <span className="text-sm">
-                Pagina {currentPage} di {totalPages}
+                {c.page} {currentPage} {c.of} {totalPages}
               </span>
               <Button
                 variant="outline"
@@ -566,6 +698,56 @@ export function DocumentsContent() {
           </div>
         )}
       </Card>
+      {/* Delete single document dialog */}
+      <AlertDialog open={!!deleteTarget} onOpenChange={(open) => !open && setDeleteTarget(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{c.deleteDialogTitle}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {c.deleteDialogDescription}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{c.cancel}</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              onClick={() => {
+                toast.success(c.documentDeleted, {
+                  action: {
+                    label: c.cancel,
+                    onClick: () => toast.info(c.deletionCancelled),
+                  },
+                  duration: 5000,
+                })
+                setDeleteTarget(null)
+              }}
+            >
+              {c.delete}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Bulk delete dialog */}
+      <AlertDialog open={showBulkDeleteDialog} onOpenChange={setShowBulkDeleteDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{c.delete} {selectedIds.length} {c.documents}?</AlertDialogTitle>
+            <AlertDialogDescription>
+              {t({ it: "I documenti selezionati verranno eliminati permanentemente. Questa azione non può essere annullata.", en: "The selected documents will be permanently deleted. This action cannot be undone." })}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{c.cancel}</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              onClick={handleBulkDelete}
+            >
+              {c.delete} {selectedIds.length} {c.documents}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }

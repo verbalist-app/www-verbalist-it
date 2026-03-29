@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, Variants, HTMLMotionProps } from 'framer-motion'
+import { motion, Variants, HTMLMotionProps, useReducedMotion } from 'motion/react'
 import React from 'react'
 
 type PresetType = 'fade-in-blur' | 'fade-in' | 'slide-up' | 'slide-down'
@@ -17,8 +17,8 @@ interface TextEffectProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
 
 const presets: Record<PresetType, { hidden: Variants['hidden']; visible: Variants['visible'] }> = {
   'fade-in-blur': {
-    hidden: { opacity: 0, filter: 'blur(12px)', y: 20 },
-    visible: { opacity: 1, filter: 'blur(0px)', y: 0 },
+    hidden: { opacity: 0, y: 4 },
+    visible: { opacity: 1, y: 0 },
   },
   'fade-in': {
     hidden: { opacity: 0 },
@@ -44,6 +44,7 @@ export function TextEffect({
   className,
   ...props
 }: TextEffectProps) {
+  const shouldReduceMotion = useReducedMotion()
   const MotionComponent = motion.create(Component as keyof JSX.IntrinsicElements)
   const selectedPreset = presets[preset]
 
@@ -61,20 +62,20 @@ export function TextEffect({
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: speedSegment / segments.length,
-        delayChildren: delay,
+        staggerChildren: shouldReduceMotion ? 0 : speedSegment / segments.length,
+        delayChildren: shouldReduceMotion ? 0 : delay,
       },
     },
   }
 
   const itemVariants: Variants = {
-    hidden: selectedPreset.hidden,
+    hidden: shouldReduceMotion ? {} : selectedPreset.hidden,
     visible: {
-      ...selectedPreset.visible,
+      ...(shouldReduceMotion ? { opacity: 1, y: 0, filter: 'blur(0px)' } : selectedPreset.visible),
       transition: {
-        type: 'spring',
-        bounce: 0.3,
-        duration: 1.5,
+        duration: shouldReduceMotion ? 0 : 0.35,
+        type: 'tween',
+        ease: [0, 0, 0.35, 1],
       },
     },
   }

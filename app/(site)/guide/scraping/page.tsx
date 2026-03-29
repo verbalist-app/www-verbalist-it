@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { BreadcrumbSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
-  title: "Scraping Competitor",
+  title: "Scraping competitor",
   description: "Come Verbalist estrae e converte i contenuti dei competitor per l'analisi.",
 }
 
@@ -38,13 +38,13 @@ export default function ScrapingPage() {
         items={[
           { name: "Home", url: "/" },
           { name: "Guide", url: "/guide" },
-          { name: "Scraping Competitor", url: "/guide/scraping" },
+          { name: "Scraping competitor", url: "/guide/scraping" },
         ]}
       />
       <section className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
           <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
-            Scraping Competitor
+            Scraping competitor
           </h1>
           <p className="text-base text-muted-foreground mb-8">
             Verbalist scarica il contenuto completo di ogni pagina nei top 10, lo pulisce da elementi non rilevanti (navigazione, footer, ads) e lo converte in Markdown strutturato.

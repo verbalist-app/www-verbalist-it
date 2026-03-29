@@ -56,7 +56,7 @@ export default function TeamMarketingPage() {
       <SubPageHero
         label="Content Creator"
         title="Contenuti strutturati per Google e la ricerca AI"
-        description="L'analisi SERP e l'estrazione dei pattern sono automatiche. Tu ricevi bozze con struttura semantica ottimizzata per la visibilità su Google, ChatGPT, Perplexity e AI Overview."
+        description="L'analisi dei risultati Google e l'estrazione dei pattern sono automatiche. Tu ricevi bozze con struttura semantica ottimizzata per la visibilità su Google, ChatGPT, Perplexity e AI Overview."
       />
 
       <Feature2

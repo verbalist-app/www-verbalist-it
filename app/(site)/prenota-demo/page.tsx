@@ -11,7 +11,7 @@ import { InfiniteMovingCarousel } from "@/components/infinite-moving-carousel"
 
 const benefits = [
   "Ti mostriamo il flusso completo su una keyword del tuo sito.",
-  "Dall'analisi SERP alla generazione del contenuto ottimizzato per l'AI.",
+  "Dall'analisi dei risultati Google alla generazione del contenuto ottimizzato per l'AI.",
   "Zero impegno: 20 minuti per capire se Verbalist fa al caso tuo.",
 ]
 
@@ -69,7 +69,24 @@ export default function PrenotaDemoPage() {
                 </li>
               )}
             </ul>
-            <div className="mt-20 hidden w-full overflow-hidden lg:block">
+            <div className="mt-8 hidden rounded-lg border border-border bg-muted/30 p-4 lg:block">
+              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">Cosa succede dopo</p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="text-foreground/50 shrink-0">1.</span>
+                  Ti ricontattiamo entro 24 ore lavorative.
+                </li>
+                <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="text-foreground/50 shrink-0">2.</span>
+                  Demo personalizzata di 20 min su una keyword del tuo sito.
+                </li>
+                <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="text-foreground/50 shrink-0">3.</span>
+                  Nessun impegno: decidi tu se procedere.
+                </li>
+              </ul>
+            </div>
+            <div className="mt-8 hidden w-full overflow-hidden lg:block">
               <InfiniteMovingCarousel images={companies} />
             </div>
           </div>

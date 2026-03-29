@@ -2,6 +2,7 @@ import { Package, ShoppingBag, TrendingUp, FileText, Search, BarChart3 } from "l
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureGrid } from "@/components/feature-grid"
 
 export const metadata: Metadata = {
@@ -24,13 +25,13 @@ const features = [
   },
   {
     icon: Search,
-    title: "SERP analysis per category",
+    title: "Search results analysis per category",
     description: "Analyze the top 10 results for each category and product keyword. Extract the patterns that work.",
   },
   {
     icon: BarChart3,
     title: "Competitor patterns",
-    description: "Identify which sections they include, how they structure them and which E-E-A-T signals top-ranking pages use.",
+    description: "Identify which sections they include, how they structure them and which quality and authority signals top-ranking pages use.",
   },
   {
     icon: FileText,
@@ -55,21 +56,18 @@ export default function EcommercePage() {
       <SubPageHero locale="en"
         label="eCommerce"
         title="Product pages visible on Google and AI search"
-        description="Analyze top-ranking product pages and generate descriptions with semantic structure optimized for SERP and to be cited by AI assistants."
+        description="Analyze top-ranking product pages and generate descriptions with semantic structure optimized for Google results and to be cited by AI assistants."
       />
 
       <FeatureGrid
         title="Product pages designed for GEO"
-        description="SERP analysis to understand what works. Content structured for Google, ChatGPT and Perplexity."
+        description="Search results analysis to understand what works. Content structured for Google, ChatGPT and Perplexity."
         items={features}
       />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <Testimonials locale="en" />
+
+      <SubPageCTA locale="en" />
     </>
   )
 }

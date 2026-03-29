@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
+import Testimonials from "@/components/testimonials-4"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { WorkflowSteps } from "@/components/workflow-steps"
 
@@ -27,10 +28,10 @@ const featureColumns = [
   },
   {
     items: [
-      "Automated SERP analysis",
+      "Automated search results analysis",
       "Competitor patterns extracted",
       "Semantic structure for LLMs",
-      "E-E-A-T signals integrated",
+      "Quality and authority signals integrated",
     ],
   },
   {
@@ -52,7 +53,7 @@ const workflowSteps = [
   {
     step: 2,
     title: "Automated analysis",
-    description: "Heading structure, recurring topics, length, E-E-A-T signals. All extracted from competitors in seconds.",
+    description: "Heading structure, recurring topics, length, quality and authority signals. All extracted from competitors in seconds.",
   },
   {
     step: 3,
@@ -87,11 +88,11 @@ export default function EnterprisePage() {
         columns={featureColumns}
       />
 
+      <Testimonials locale="en" />
+
       <SubPageCTA
-        title="Want to see it in action?"
+        locale="en"
         description="We'll show you how Verbalist creates GEO-ready content from a keyword, applied to your industry."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
       />
     </>
   )

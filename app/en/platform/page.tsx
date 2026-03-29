@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
   title: "Platform",
-  description: "SERP analysis, competitor scraping, pattern detection and AI search optimization. The generative engine optimization platform for GEO-ready content.",
+  description: "Search results analysis, competitor analysis, pattern detection and AI search optimization. The generative engine optimization platform for GEO-ready content.",
   alternates: {
     canonical: "/en/platform",
   },
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
 const features = [
   {
     slug: "serp-analysis",
-    title: "SERP Analysis",
+    title: "Search Results Analysis",
     description: "See who's ranking for your keyword. Understand why they're on page one.",
     detail: "Fetches the top 10 organic results, filters aggregators and socials, extracts all metadata.",
     visual: SerpAnalysisVisual,
   },
   {
     slug: "competitor-scraping",
-    title: "Competitor Scraping",
+    title: "Competitor Analysis",
     description: "Download competitor content. See structure, topics and how they're organized.",
     detail: "Extracts content from each page and converts it to Markdown. Keeps the heading hierarchy.",
     visual: ScrapingVisual,
@@ -37,7 +37,7 @@ const features = [
   {
     slug: "pattern-analysis",
     title: "Pattern Analysis",
-    description: "Find what ranking content has in common. Intent, structure, E-E-A-T signals.",
+    description: "Find what ranking content has in common. Intent, structure, quality and authority signals.",
     detail: "Analyzes all competitors to understand search intent, recurring topics, heading structure, average word count.",
     visual: PatternDetectionVisual,
   },
@@ -55,7 +55,7 @@ export default function PlatformPage() {
     <>
       <SubPageHero locale="en"
         label="Platform"
-        title="From SERP analysis to content generation. Fully automated."
+        title="From search results analysis to content generation. Fully automated."
         description="Four steps. From keyword to content optimized for SEO, AEO and GEO."
       />
 
@@ -136,7 +136,7 @@ export default function PlatformPage() {
 
       <SubPageCTA
         title="Want to see it in action?"
-        description="We'll show you how it works with a demo. See SERP analysis, pattern detection and content generation on your case."
+        description="We'll show you how it works with a demo. See search results analysis, pattern detection and content generation on your case."
         primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
         secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
       />

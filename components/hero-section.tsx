@@ -18,17 +18,17 @@ const heroContent = {
     description:
       "Verbalist analizza i primi 10 risultati Google, estrae i pattern ricorrenti e genera contenuti strutturati che ChatGPT, Perplexity, Gemini e AI Overview possono indicizzare e citare.",
     primaryCta: { text: "Prenota una demo", href: "/prenota-demo" },
-    secondaryCta: { text: "Inizia ora", href: "https://app.verbalist.it" },
+    secondaryCta: { text: "Accedi alla piattaforma", href: "https://app.verbalist.it" },
     queries: [
       "Come posizionarsi su ChatGPT per keyword competitive?",
-      "Analizza i pattern SERP per 'software gestionale'",
+      "Analizza i pattern dei risultati Google per 'software gestionale'",
       "Genera contenuto GEO-ready per landing page B2B",
       "Quali strutture usano i top 10 risultati Google?",
       "Ottimizza il contenuto per AI Overview e SGE",
       "Estrai heading e word count dai competitor",
       "Come farsi citare da Perplexity AI?",
-      "Crea contenuto E-E-A-T per il settore finance",
-      "Confronta i pattern dei primi 3 risultati SERP",
+      "Crea contenuto di qualità e autorevolezza per il settore finance",
+      "Confronta i pattern dei primi 3 risultati di ricerca",
       "Genera meta description ottimizzata per LLM",
       "Quali topic mancano rispetto ai competitor?",
       "Struttura contenuto per featured snippet e AI",
@@ -40,17 +40,17 @@ const heroContent = {
     description:
       "Verbalist analyzes the top 10 Google results, extracts recurring patterns and generates content structured to be indexed and cited by ChatGPT, Perplexity, Gemini and AI Overview.",
     primaryCta: { text: "Book a demo", href: "/en/book-demo" },
-    secondaryCta: { text: "Get started", href: "https://app.verbalist.it" },
+    secondaryCta: { text: "Go to platform", href: "https://app.verbalist.it" },
     queries: [
       "How to rank on ChatGPT for competitive keywords?",
-      "Analyze SERP patterns for 'project management software'",
+      "Analyze search results patterns for 'project management software'",
       "Generate GEO-ready content for B2B landing pages",
       "What structures do top 10 Google results use?",
       "Optimize content for AI Overview and SGE",
       "Extract headings and word count from competitors",
       "How to get cited by Perplexity AI?",
-      "Create E-E-A-T content for the finance sector",
-      "Compare patterns from top 3 SERP results",
+      "Create quality and authority content for the finance sector",
+      "Compare patterns from top 3 search results",
       "Generate LLM-optimized meta descriptions",
       "Which topics are missing vs competitors?",
       "Structure content for featured snippets and AI",
@@ -129,20 +129,20 @@ export function HeroSection({
                   {/* Search input overlay */}
                   <div className="bg-card ring-border shadow-foreground/[0.065] absolute inset-0 m-auto mt-auto flex h-fit min-w-[20rem] justify-between gap-3 rounded-full p-2 shadow-xl ring-1 sm:inset-2 dark:shadow-black/[0.065]">
                     <div className="flex items-center gap-2">
-                      <div className="hover:bg-muted flex size-9 cursor-pointer rounded-full *:m-auto *:size-4">
+                      <button type="button" className="hover:bg-muted flex size-9 cursor-pointer rounded-full *:m-auto *:size-4" aria-label="Add keyword" tabIndex={-1}>
                         <Plus />
-                      </div>
+                      </button>
                       <div className="text-muted-foreground text-sm">
                         {t.searchPlaceholder}
                       </div>
                     </div>
                     <div className="flex items-center gap-0.5">
-                      <div className="hover:bg-muted flex size-9 cursor-pointer rounded-full *:m-auto *:size-4">
+                      <button type="button" className="hover:bg-muted flex size-9 cursor-pointer rounded-full *:m-auto *:size-4" aria-label="AI suggestions" tabIndex={-1}>
                         <Sparkles />
-                      </div>
-                      <div className="bg-foreground text-background flex size-9 cursor-pointer rounded-full *:m-auto *:size-4 hover:brightness-110">
+                      </button>
+                      <button type="button" className="bg-foreground text-background flex size-9 cursor-pointer rounded-full *:m-auto *:size-4 hover:brightness-110" aria-label="Search" tabIndex={-1}>
                         <Search />
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>

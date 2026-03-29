@@ -19,11 +19,11 @@ const changelogEntries: ChangelogEntry[] = [
   {
     version: "v1.3.0",
     date: "January 15, 2026",
-    title: "Advanced E-E-A-T Analysis",
+    title: "Advanced Quality & Authority Analysis",
     description:
-      "Now you can analyze E-E-A-T signals from competitors. See what your content is missing compared to top rankers.",
+      "Now you can analyze quality and authority signals from competitors. See what your content is missing compared to top rankers.",
     items: [
-      "Automatic E-E-A-T signal scoring",
+      "Automatic quality and authority signal scoring",
       "Find missing trust elements",
       "Practical suggestions for improvement",
       "Direct comparison with top performers",
@@ -47,7 +47,7 @@ const changelogEntries: ChangelogEntry[] = [
     date: "November 20, 2025",
     title: "Improved Pattern Analysis",
     description:
-      "New metrics and visualizations in pattern analysis. Easier to understand what works in SERP.",
+      "New metrics and visualizations in pattern analysis. Easier to understand what works in search results.",
     items: [
       "Word count distribution with optimal range",
       "More detailed heading analysis",
@@ -60,10 +60,10 @@ const changelogEntries: ChangelogEntry[] = [
     date: "October 1, 2025",
     title: "Verbalist Launch",
     description:
-      "First release. From keyword to SEO content in 4 steps. SERP Analysis, Scraping, Pattern Detection, Generation.",
+      "First release. From keyword to SEO content in 4 steps. Search Results Analysis, Competitor Analysis, Pattern Detection, Generation.",
     items: [
-      "Top 10 Google SERP analysis",
-      "Automatic competitor content scraping",
+      "Top 10 Google search results analysis",
+      "Automatic competitor content analysis",
       "HTML to Markdown conversion",
       "SEO-ready content generation",
     ],

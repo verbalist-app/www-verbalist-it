@@ -19,11 +19,11 @@ const changelogEntries: ChangelogEntry[] = [
   {
     version: "v1.3.0",
     date: "15 Gennaio 2026",
-    title: "Analisi E-E-A-T Avanzata",
+    title: "Analisi qualità e autorevolezza avanzata",
     description:
-      "Ora puoi analizzare i segnali E-E-A-T dei competitor. Vedi cosa manca ai tuoi contenuti rispetto a chi ranka.",
+      "Ora puoi analizzare i segnali di qualità e autorevolezza dei competitor. Vedi cosa manca ai tuoi contenuti rispetto a chi ranka.",
     items: [
-      "Scoring automatico dei segnali E-E-A-T",
+      "Scoring automatico dei segnali di qualità e autorevolezza",
       "Trova gli elementi di trust che ti mancano",
       "Suggerimenti pratici per migliorare",
       "Confronto diretto con i top performer",
@@ -45,9 +45,9 @@ const changelogEntries: ChangelogEntry[] = [
   {
     version: "v1.1.0",
     date: "20 Novembre 2025",
-    title: "Analisi Pattern Migliorata",
+    title: "Analisi pattern migliorata",
     description:
-      "Nuove metriche e visualizzazioni nell'analisi pattern. Più facile capire cosa funziona in SERP.",
+      "Nuove metriche e visualizzazioni nell'analisi pattern. Più facile capire cosa funziona nei risultati di ricerca.",
     items: [
       "Word count distribution con range ottimale",
       "Analisi heading più dettagliata",
@@ -60,10 +60,10 @@ const changelogEntries: ChangelogEntry[] = [
     date: "1 Ottobre 2025",
     title: "Lancio Verbalist",
     description:
-      "Prima release. Da keyword a contenuto SEO in 4 step. Analisi SERP, Scraping, Pattern Detection, Generazione.",
+      "Prima release. Da keyword a contenuto SEO in 4 step. Analisi risultati Google, analisi competitor, Pattern Detection, Generazione.",
     items: [
-      "Analisi SERP top 10 risultati Google",
-      "Scraping automatico contenuti competitor",
+      "Analisi top 10 risultati Google",
+      "Analisi automatica contenuti competitor",
       "Conversione HTML to Markdown",
       "Generazione contenuti SEO-ready",
     ],

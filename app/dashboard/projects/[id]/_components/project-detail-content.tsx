@@ -1,3 +1,6 @@
+"use client"
+
+import * as React from "react"
 import Link from "next/link"
 import {
   ArrowLeft,
@@ -17,80 +20,114 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
+import { toast } from "sonner"
+import { getStatusConfig, type Status } from "@/lib/status"
+import { useDashboardLocale } from "../../../_lib/dashboard-locale"
 
-// Mock data
-const project = {
-  id: "1",
-  name: "Blog Aziendale",
-  description: "Contenuti per il blog corporate",
+const translations = {
+  it: {
+    projects: "Progetti",
+    newDocument: "Nuovo documento",
+    searchPlaceholder: "Cerca documenti...",
+    searchAriaLabel: "Cerca documenti",
+    filters: "Filtri",
+    open: "Apri",
+    duplicate: "Duplica",
+    export: "Esporta",
+    delete: "Elimina",
+    deleteTitle: "Eliminare questo documento?",
+    deleteDesc: "Il documento verrà eliminato permanentemente. Questa azione non può essere annullata.",
+    cancel: "Annulla",
+    documentDeleted: "Documento eliminato",
+    moreOptions: "Altre opzioni",
+    words: "parole",
+    project: {
+      name: "Blog Aziendale",
+      description: "Contenuti per il blog corporate",
+    },
+    documents: [
+      { title: "Guida completa al SEO nel 2025", createdAt: "19 Gen 2025" },
+      { title: "Come scegliere il miglior CRM per la tua azienda", createdAt: "18 Gen 2025" },
+      { title: "10 strategie di marketing B2B che funzionano", createdAt: "17 Gen 2025" },
+      { title: "Email marketing: guida definitiva", createdAt: "15 Gen 2025" },
+    ],
+    typeLabels: {
+      blog_post: "Blog Post",
+      product_page: "Pagina Prodotto",
+      guide: "Guida",
+      landing_page: "Landing Page",
+    } as Record<string, string>,
+  },
+  en: {
+    projects: "Projects",
+    newDocument: "New document",
+    searchPlaceholder: "Search documents...",
+    searchAriaLabel: "Search documents",
+    filters: "Filters",
+    open: "Open",
+    duplicate: "Duplicate",
+    export: "Export",
+    delete: "Delete",
+    deleteTitle: "Delete this document?",
+    deleteDesc: "The document will be permanently deleted. This action cannot be undone.",
+    cancel: "Cancel",
+    documentDeleted: "Document deleted",
+    moreOptions: "More options",
+    words: "words",
+    project: {
+      name: "Corporate Blog",
+      description: "Content for corporate blog",
+    },
+    documents: [
+      { title: "Complete guide to SEO in 2025", createdAt: "Jan 19, 2025" },
+      { title: "How to choose the best CRM for your business", createdAt: "Jan 18, 2025" },
+      { title: "10 B2B marketing strategies that work", createdAt: "Jan 17, 2025" },
+      { title: "Email marketing: the ultimate guide", createdAt: "Jan 15, 2025" },
+    ],
+    typeLabels: {
+      blog_post: "Blog Post",
+      product_page: "Product Page",
+      guide: "Guide",
+      landing_page: "Landing Page",
+    } as Record<string, string>,
+  },
 }
 
-const documents = [
-  {
-    id: "1",
-    title: "Guida completa al SEO nel 2025",
-    keyword: "seo 2025",
-    type: "blog_post",
-    status: "completed",
-    createdAt: "19 Gen 2025",
-    wordCount: 2450,
-  },
-  {
-    id: "2",
-    title: "Come scegliere il miglior CRM per la tua azienda",
-    keyword: "miglior crm",
-    type: "blog_post",
-    status: "completed",
-    createdAt: "18 Gen 2025",
-    wordCount: 1890,
-  },
-  {
-    id: "3",
-    title: "10 strategie di marketing B2B che funzionano",
-    keyword: "marketing b2b strategie",
-    type: "blog_post",
-    status: "processing",
-    createdAt: "17 Gen 2025",
-    wordCount: null,
-  },
-  {
-    id: "4",
-    title: "Email marketing: guida definitiva",
-    keyword: "email marketing guida",
-    type: "guide",
-    status: "completed",
-    createdAt: "15 Gen 2025",
-    wordCount: 3200,
-  },
+// Mock data (base structure)
+const documentsBase = [
+  { id: "1", keyword: "seo 2025", type: "blog_post", status: "completed", wordCount: 2450 as number | null },
+  { id: "2", keyword: "miglior crm", type: "blog_post", status: "completed", wordCount: 1890 as number | null },
+  { id: "3", keyword: "marketing b2b strategie", type: "blog_post", status: "processing", wordCount: null as number | null },
+  { id: "4", keyword: "email marketing guida", type: "guide", status: "completed", wordCount: 3200 as number | null },
 ]
-
-const statusLabels: Record<string, { label: string; className: string }> = {
-  completed: {
-    label: "Completato",
-    className: "bg-green-500/10 text-green-500",
-  },
-  processing: {
-    label: "In elaborazione",
-    className: "bg-yellow-500/10 text-yellow-500",
-  },
-  failed: {
-    label: "Errore",
-    className: "bg-red-500/10 text-red-500",
-  },
-}
-
-const typeLabels: Record<string, string> = {
-  blog_post: "Blog Post",
-  product_page: "Pagina Prodotto",
-  guide: "Guida",
-  landing_page: "Landing Page",
-}
 
 export function ProjectDetailContent({
   params,
 }: {
   params: { id: string }
 }) {
+  const { locale, t } = useDashboardLocale()
+  const statusCfg = getStatusConfig(locale)
+  const labels = t(translations)
+  const project = { id: "1", ...labels.project }
+  const documents = documentsBase.map((d, i) => ({
+    ...d,
+    title: labels.documents[i].title,
+    createdAt: labels.documents[i].createdAt,
+  }))
+  const typeLabels = labels.typeLabels
+  const [deleteTarget, setDeleteTarget] = React.useState<string | null>(null)
+
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -100,11 +137,11 @@ export function ProjectDetailContent({
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4"
         >
           <ArrowLeft className="size-4" />
-          Progetti
+          {labels.projects}
         </Link>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="font-serif text-2xl font-medium tracking-tighter">
+            <h1 className="text-xl font-semibold tracking-tighter lg:text-2xl">
               {project.name}
             </h1>
             <p className="text-sm text-muted-foreground mt-1">
@@ -114,7 +151,7 @@ export function ProjectDetailContent({
           <Button asChild>
             <Link href={`/dashboard/documents/new?project=${params.id}`}>
               <Plus className="mr-2 size-4" />
-              Nuovo documento
+              {labels.newDocument}
             </Link>
           </Button>
         </div>
@@ -124,11 +161,11 @@ export function ProjectDetailContent({
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
         <div className="relative flex-1 max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-          <Input placeholder="Cerca documenti..." className="pl-9" />
+          <Input placeholder={labels.searchPlaceholder} className="pl-9" aria-label={labels.searchAriaLabel} />
         </div>
         <Button variant="outline" size="sm">
           <Filter className="mr-2 size-4" />
-          Filtri
+          {labels.filters}
         </Button>
       </div>
 
@@ -162,7 +199,7 @@ export function ProjectDetailContent({
                         <>
                           <span className="text-xs text-muted-foreground">·</span>
                           <span className="text-xs text-muted-foreground">
-                            {doc.wordCount.toLocaleString()} parole
+                            {doc.wordCount.toLocaleString()} {labels.words}
                           </span>
                         </>
                       )}
@@ -175,28 +212,29 @@ export function ProjectDetailContent({
                   </span>
                   <span
                     className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                      statusLabels[doc.status].className
+                      statusCfg[doc.status as Status].className
                     }`}
                   >
-                    {statusLabels[doc.status].label}
+                    {statusCfg[doc.status as Status].label}
                   </span>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="size-8 opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="size-8 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity"
+                        aria-label={labels.moreOptions}
                       >
                         <MoreHorizontal className="size-4" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem>Apri</DropdownMenuItem>
-                      <DropdownMenuItem>Duplica</DropdownMenuItem>
-                      <DropdownMenuItem>Esporta</DropdownMenuItem>
+                      <DropdownMenuItem>{labels.open}</DropdownMenuItem>
+                      <DropdownMenuItem>{labels.duplicate}</DropdownMenuItem>
+                      <DropdownMenuItem>{labels.export}</DropdownMenuItem>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem className="text-red-500">
-                        Elimina
+                      <DropdownMenuItem className="text-destructive" onClick={() => setDeleteTarget(doc.id)}>
+                        {labels.delete}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -206,6 +244,30 @@ export function ProjectDetailContent({
           </div>
         </CardContent>
       </Card>
+
+      {/* Delete document dialog */}
+      <AlertDialog open={!!deleteTarget} onOpenChange={(open) => !open && setDeleteTarget(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{labels.deleteTitle}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {labels.deleteDesc}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{labels.cancel}</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              onClick={() => {
+                toast.success(labels.documentDeleted)
+                setDeleteTarget(null)
+              }}
+            >
+              {labels.delete}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }

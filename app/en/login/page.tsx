@@ -76,7 +76,7 @@ export default function LoginPage() {
             {step === "email" ? (
               <>
                 <div className="space-y-2 text-center">
-                  <h1 className="font-serif text-2xl font-medium tracking-tighter">
+                  <h1 className="text-2xl font-medium tracking-tighter">
                     What's your email?
                   </h1>
                   <p className="text-sm text-muted-foreground">
@@ -129,7 +129,7 @@ export default function LoginPage() {
             ) : (
               <>
                 <div className="space-y-2 text-center">
-                  <h1 className="font-serif text-2xl font-medium tracking-tighter">
+                  <h1 className="text-2xl font-medium tracking-tighter">
                     Welcome back
                   </h1>
                   <p className="text-sm text-muted-foreground">

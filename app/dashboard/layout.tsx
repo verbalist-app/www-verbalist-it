@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import {
@@ -51,17 +52,64 @@ import {
   CommandSeparator,
 } from "@/components/ui/command"
 import { Toaster } from "@/components/ui/sonner"
+import { DashboardLocaleProvider, useDashboardLocale } from "./_lib/dashboard-locale"
 
-const navigation = [
-  { name: "Overview", href: "/dashboard", icon: LayoutDashboard },
-  { name: "Progetti", href: "/dashboard/projects", icon: FolderKanban },
-  { name: "Documenti", href: "/dashboard/documents", icon: FileText },
-]
-
-const secondaryNavigation = [
-  { name: "Impostazioni", href: "/dashboard/settings", icon: Settings },
-  { name: "Abbonamento", href: "/dashboard/subscription", icon: CreditCard },
-]
+const layoutContent = {
+  it: {
+    nav: {
+      overview: "Panoramica",
+      projects: "Progetti",
+      documents: "Documenti",
+    },
+    secondary: {
+      settings: "Impostazioni",
+      subscription: "Abbonamento",
+    },
+    newDoc: "Nuovo documento",
+    menu: "Menu",
+    account: "Account",
+    logout: "Esci",
+    search: "Cerca...",
+    site: "Sito",
+    command: {
+      placeholder: "Cerca documenti, progetti, azioni...",
+      empty: "Nessun risultato trovato.",
+      quickActions: "Azioni rapide",
+      newDoc: "Nuovo documento",
+      goProjects: "Vai ai progetti",
+      goDocs: "Vai ai documenti",
+      recentDocs: "Documenti recenti",
+      settings: "Impostazioni",
+    },
+  },
+  en: {
+    nav: {
+      overview: "Overview",
+      projects: "Projects",
+      documents: "Documents",
+    },
+    secondary: {
+      settings: "Settings",
+      subscription: "Subscription",
+    },
+    newDoc: "New document",
+    menu: "Menu",
+    account: "Account",
+    logout: "Log out",
+    search: "Search...",
+    site: "Website",
+    command: {
+      placeholder: "Search documents, projects, actions...",
+      empty: "No results found.",
+      quickActions: "Quick actions",
+      newDoc: "New document",
+      goProjects: "Go to projects",
+      goDocs: "Go to documents",
+      recentDocs: "Recent documents",
+      settings: "Settings",
+    },
+  },
+}
 
 // Mock user data
 const user = {
@@ -72,20 +120,55 @@ const user = {
 }
 
 // Mock recent documents for command menu
-const recentDocuments = [
-  { id: "1", title: "Guida completa al SEO nel 2025" },
-  { id: "2", title: "Come scegliere il miglior CRM" },
-  { id: "3", title: "10 strategie di marketing B2B" },
-]
+const recentDocuments = {
+  it: [
+    { id: "1", title: "Guida completa al SEO nel 2025" },
+    { id: "2", title: "Come scegliere il miglior CRM" },
+    { id: "3", title: "10 strategie di marketing B2B" },
+  ],
+  en: [
+    { id: "1", title: "Complete SEO Guide for 2025" },
+    { id: "2", title: "How to Choose the Best CRM" },
+    { id: "3", title: "10 B2B Marketing Strategies" },
+  ],
+}
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  return (
+    <DashboardLocaleProvider>
+      <DashboardShell>{children}</DashboardShell>
+    </DashboardLocaleProvider>
+  )
+}
+
+function DashboardShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const router = useRouter()
+  const { locale, setLocale, t } = useDashboardLocale()
   const [commandOpen, setCommandOpen] = React.useState(false)
+  const [isMac, setIsMac] = React.useState(true)
+
+  const txt = t(layoutContent)
+  const docs = t(recentDocuments)
+
+  const navigation = [
+    { name: txt.nav.overview, href: "/dashboard", icon: LayoutDashboard },
+    { name: txt.nav.projects, href: "/dashboard/projects", icon: FolderKanban },
+    { name: txt.nav.documents, href: "/dashboard/documents", icon: FileText },
+  ]
+
+  const secondaryNavigation = [
+    { name: txt.secondary.settings, href: "/dashboard/settings", icon: Settings },
+    { name: txt.secondary.subscription, href: "/dashboard/subscription", icon: CreditCard },
+  ]
+
+  React.useEffect(() => {
+    setIsMac(/(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent))
+  }, [])
 
   // Command menu keyboard shortcut
   React.useEffect(() => {
@@ -109,7 +192,7 @@ export default function DashboardLayout({
       <Sidebar collapsible="icon">
         <SidebarHeader className="h-14 border-b border-border flex items-center justify-center">
           <Link href="/dashboard">
-            <img src="/logo.svg" alt="Verbalist" className="size-6" />
+            <Image src="/logo.svg" alt="Verbalist" className="size-6" width={24} height={24} />
           </Link>
         </SidebarHeader>
 
@@ -119,10 +202,10 @@ export default function DashboardLayout({
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild tooltip="Nuovo documento">
+                  <SidebarMenuButton asChild tooltip={txt.newDoc}>
                     <Link href="/dashboard/documents/new">
                       <Plus className="size-4" />
-                      <span>Nuovo documento</span>
+                      <span>{txt.newDoc}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -132,14 +215,14 @@ export default function DashboardLayout({
 
           {/* Main Navigation */}
           <SidebarGroup>
-            <SidebarGroupLabel>Menu</SidebarGroupLabel>
+            <SidebarGroupLabel>{txt.menu}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {navigation.map((item) => {
                   const isActive = pathname === item.href ||
                     (item.href !== "/dashboard" && pathname.startsWith(item.href))
                   return (
-                    <SidebarMenuItem key={item.name}>
+                    <SidebarMenuItem key={item.href}>
                       <SidebarMenuButton asChild isActive={isActive} tooltip={item.name}>
                         <Link href={item.href}>
                           <item.icon className="size-4" />
@@ -155,13 +238,13 @@ export default function DashboardLayout({
 
           {/* Secondary Navigation */}
           <SidebarGroup>
-            <SidebarGroupLabel>Account</SidebarGroupLabel>
+            <SidebarGroupLabel>{txt.account}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {secondaryNavigation.map((item) => {
                   const isActive = pathname === item.href
                   return (
-                    <SidebarMenuItem key={item.name}>
+                    <SidebarMenuItem key={item.href}>
                       <SidebarMenuButton asChild isActive={isActive} tooltip={item.name}>
                         <Link href={item.href}>
                           <item.icon className="size-4" />
@@ -199,20 +282,20 @@ export default function DashboardLayout({
                   <DropdownMenuItem asChild>
                     <Link href="/dashboard/settings" className="cursor-pointer">
                       <Settings className="mr-2 size-4" />
-                      Impostazioni
+                      {txt.secondary.settings}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/dashboard/subscription" className="cursor-pointer">
                       <CreditCard className="mr-2 size-4" />
-                      Abbonamento
+                      {txt.secondary.subscription}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link href="/login" className="cursor-pointer text-red-500">
+                    <Link href="/login" className="cursor-pointer text-destructive">
                       <LogOut className="mr-2 size-4" />
-                      Esci
+                      {txt.logout}
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -234,25 +317,28 @@ export default function DashboardLayout({
             onClick={() => setCommandOpen(true)}
           >
             <Search className="mr-2 size-4" />
-            <span>Cerca...</span>
-            <kbd className="pointer-events-none absolute right-2 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-              <span className="text-xs">⌘</span>K
+            <span>{txt.search}</span>
+            <kbd className="pointer-events-none absolute right-2 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[11px] font-medium opacity-100 sm:flex">
+              <span className="text-xs">{isMac ? "⌘" : "Ctrl"}</span>K
             </kbd>
           </Button>
 
           <div className="flex-1" />
 
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/en" title="Switch to English">
-              <Globe className="mr-2 size-4" />
-              EN
-            </Link>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setLocale(locale === "it" ? "en" : "it")}
+            title={locale === "it" ? "Switch to English" : "Passa all'italiano"}
+          >
+            <Globe className="mr-2 size-4" />
+            {locale === "it" ? "EN" : "IT"}
           </Button>
 
           <Button asChild variant="ghost" size="sm">
             <Link href="/" target="_blank">
               <ExternalLink className="mr-2 size-4" />
-              Sito
+              {txt.site}
             </Link>
           </Button>
         </header>
@@ -263,26 +349,26 @@ export default function DashboardLayout({
 
       {/* Command Menu */}
       <CommandDialog open={commandOpen} onOpenChange={setCommandOpen}>
-        <CommandInput placeholder="Cerca documenti, progetti, azioni..." />
+        <CommandInput placeholder={txt.command.placeholder} />
         <CommandList>
-          <CommandEmpty>Nessun risultato trovato.</CommandEmpty>
-          <CommandGroup heading="Azioni rapide">
+          <CommandEmpty>{txt.command.empty}</CommandEmpty>
+          <CommandGroup heading={txt.command.quickActions}>
             <CommandItem onSelect={() => runCommand(() => router.push("/dashboard/documents/new"))}>
               <Plus className="mr-2 size-4" />
-              Nuovo documento
+              {txt.command.newDoc}
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => router.push("/dashboard/projects"))}>
               <FolderKanban className="mr-2 size-4" />
-              Vai ai progetti
+              {txt.command.goProjects}
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => router.push("/dashboard/documents"))}>
               <FileText className="mr-2 size-4" />
-              Vai ai documenti
+              {txt.command.goDocs}
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading="Documenti recenti">
-            {recentDocuments.map((doc) => (
+          <CommandGroup heading={txt.command.recentDocs}>
+            {docs.map((doc) => (
               <CommandItem
                 key={doc.id}
                 onSelect={() => runCommand(() => router.push(`/dashboard/documents/${doc.id}`))}
@@ -293,14 +379,14 @@ export default function DashboardLayout({
             ))}
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading="Impostazioni">
+          <CommandGroup heading={txt.command.settings}>
             <CommandItem onSelect={() => runCommand(() => router.push("/dashboard/settings"))}>
               <Settings className="mr-2 size-4" />
-              Impostazioni
+              {txt.secondary.settings}
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => router.push("/dashboard/subscription"))}>
               <CreditCard className="mr-2 size-4" />
-              Abbonamento
+              {txt.secondary.subscription}
             </CommandItem>
           </CommandGroup>
         </CommandList>

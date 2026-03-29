@@ -5,17 +5,17 @@ import { SubPageCTA } from "@/components/sub-page-cta"
 import { TrustedBy } from "@/components/trusted-by"
 import { FeatureChecklist } from "@/components/feature-checklist"
 import { HighlightBlock } from "@/components/highlight-block"
-import { Testimonials } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
   title: "SEO Pattern Analysis",
-  description: "Discover patterns in ranking content: word count, heading structure, topic coverage and E-E-A-T signals.",
+  description: "Discover patterns in ranking content: word count, heading structure, topic coverage and quality and authority signals.",
   alternates: {
     canonical: "/en/platform/pattern-analysis",
   },
   openGraph: {
     title: "SEO Pattern Analysis \\ Verbalist",
-    description: "Discover patterns in ranking content: word count, heading structure, topic coverage and E-E-A-T signals.",
+    description: "Discover patterns in ranking content: word count, heading structure, topic coverage and quality and authority signals.",
   },
 }
 
@@ -40,26 +40,9 @@ const featureColumns = [
     items: [
       "Topic coverage analysis",
       "Content gap detection",
-      "E-E-A-T signals",
+      "Quality and authority signals",
       "Competitive scoring",
     ],
-  },
-]
-
-const testimonials = [
-  {
-    metric: "Clear patterns",
-    quote: "Before it was all intuition. Now I see exactly what ranking content has in common.",
-    author: "Luca M.",
-    role: "Content Manager",
-    company: "Media Company",
-  },
-  {
-    metric: "+60% ranking",
-    quote: "Following the detected patterns, we improved ranking by 60% on new content.",
-    author: "Sara T.",
-    role: "SEO Lead",
-    company: "Tech Startup",
   },
 ]
 
@@ -134,11 +117,11 @@ export default function PatternAnalysisPage() {
       <SubPageHero locale="en"
         label="Pattern Analysis"
         title="Decode the patterns behind top rankings"
-        description="Uncover what first-page content has in common. Word count ranges, heading structures, topic coverage and E-E-A-T signals that correlate with success."
+        description="Uncover what first-page content has in common. Word count ranges, heading structures, topic coverage and quality and authority signals that correlate with success."
         backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
-      <TrustedBy text="Trusted by SEO teams and agencies in Italy and abroad" />
+      <TrustedBy />
 
       <FeatureChecklist
         title="Discover winning patterns"
@@ -156,19 +139,14 @@ export default function PatternAnalysisPage() {
       <HighlightBlock
         icon={Layers}
         title="Structure that converts"
-        description="Finds common structural patterns. Which H2s, in what order, how many H3s. Replicate the structure that works in SERP."
+        description="Finds common structural patterns. Which H2s, in what order, how many H3s. Replicate the structure that works in search results."
         visual={<StructureIllustration />}
         reverse
       />
 
-      <Testimonials testimonials={testimonials} />
+      <Testimonials locale="en" />
 
-      <SubPageCTA
-        title="Want to see it in action?"
-        description="We'll show you how it works with a demo. See SERP analysis, pattern detection and content generation on your case."
-        primaryCta={{ text: "Book a demo", href: "/en/book-demo" }}
-        secondaryCta={{ text: "See pricing", href: "/en/pricing" }}
-      />
+      <SubPageCTA locale="en" />
     </>
   )
 }

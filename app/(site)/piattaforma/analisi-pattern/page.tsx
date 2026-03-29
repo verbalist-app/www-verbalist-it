@@ -8,14 +8,14 @@ import { HighlightBlock } from "@/components/highlight-block"
 import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
-  title: "Analisi Pattern SEO",
-  description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali E-E-A-T. Dati per il SEO copywriting.",
+  title: "Analisi pattern SEO",
+  description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali di qualità e autorevolezza. Dati per il SEO copywriting.",
   alternates: {
     canonical: "/piattaforma/analisi-pattern",
   },
   openGraph: {
-    title: "Analisi Pattern SEO \\ Verbalist",
-    description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali E-E-A-T. Dati per il SEO copywriting.",
+    title: "Analisi pattern SEO \\ Verbalist",
+    description: "Scopri i pattern dei contenuti in prima pagina: word count, struttura heading, topic coverage e segnali di qualità e autorevolezza. Dati per il SEO copywriting.",
   },
 }
 
@@ -40,7 +40,7 @@ const featureColumns = [
     items: [
       "Topic coverage analysis",
       "Content gap detection",
-      "E-E-A-T signals",
+      "Segnali di qualità e autorevolezza",
       "Competitive scoring",
     ],
   },
@@ -115,9 +115,9 @@ export default function AnalisiPatternPage() {
   return (
     <>
       <SubPageHero
-        label="Analisi Pattern"
-        title="Trova struttura, topic e segnali E-E-A-T comuni ai top 10"
-        description="Scopri cosa hanno in comune i primi risultati. Word count, struttura heading, copertura dei topic e segnali E-E-A-T."
+        label="Analisi pattern"
+        title="Trova struttura, topic e segnali di qualità comuni ai top 10"
+        description="Scopri cosa hanno in comune i primi risultati. Word count, struttura heading, copertura dei topic e segnali di qualità e autorevolezza."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 

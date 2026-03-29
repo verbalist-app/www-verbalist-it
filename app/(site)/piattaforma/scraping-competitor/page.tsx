@@ -8,13 +8,13 @@ import { HighlightBlock } from "@/components/highlight-block"
 import Testimonials from "@/components/testimonials-4"
 
 export const metadata: Metadata = {
-  title: "Scraping Contenuti Competitor",
+  title: "Analisi contenuti competitor",
   description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine meglio posizionate.",
   alternates: {
     canonical: "/piattaforma/scraping-competitor",
   },
   openGraph: {
-    title: "Scraping Contenuti Competitor \\ Verbalist",
+    title: "Analisi contenuti competitor \\ Verbalist",
     description: "Estrai i contenuti dei competitor in Markdown. Analizza struttura, heading e argomenti delle pagine meglio posizionate.",
   },
 }
@@ -53,9 +53,9 @@ function HtmlToMarkdownIllustration() {
         <div className="rounded-lg border bg-background p-3 shadow-sm">
           <div className="flex items-center gap-2 mb-2">
             <div className="flex gap-1">
-              <div className="size-2 rounded-full bg-red-400" />
-              <div className="size-2 rounded-full bg-yellow-400" />
-              <div className="size-2 rounded-full bg-green-400" />
+              <div className="size-2 rounded-full bg-status-error" />
+              <div className="size-2 rounded-full bg-status-warning" />
+              <div className="size-2 rounded-full bg-status-success" />
             </div>
             <span className="text-[10px] text-muted-foreground">HTML</span>
           </div>
@@ -95,7 +95,7 @@ function DynamicContentIllustration() {
           </div>
           <div className="mt-4 border-t pt-4">
             <div className="flex items-center gap-2 mb-2">
-              <div className="size-4 rounded-full bg-green-500 flex items-center justify-center">
+              <div className="size-4 rounded-full bg-status-success flex items-center justify-center">
                 <svg className="size-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                 </svg>
@@ -117,7 +117,7 @@ export default function ScrapingCompetitorPage() {
   return (
     <>
       <SubPageHero
-        label="Scraping Competitor"
+        label="Analisi competitor"
         title="Scarica e confronta i contenuti dei competitor in automatico"
         description="Scarica i contenuti delle pagine competitor e convertili in Markdown. Struttura, argomenti e approccio editoriale, pronti per l'analisi."
         backLink={{ label: "Piattaforma", href: "/piattaforma" }}

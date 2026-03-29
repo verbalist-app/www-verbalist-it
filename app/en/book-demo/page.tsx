@@ -47,8 +47,8 @@ const domTranslations: DomTranslations = {
   "Content Marketing": "Content Marketing",
   "Analisi Competitor": "Competitor Analysis",
   "Generazione Contenuti": "Content Generation",
-  "Analisi SERP": "SERP Analysis",
-  "Scraping Competitor": "Competitor Scraping",
+  "Analisi SERP": "Search Results Analysis",
+  "Scraping Competitor": "Competitor Analysis",
   "Analisi Pattern": "Pattern Analysis",
   "Altro": "Other",
   "Accetto di ricevere altre comunicazioni da Nur Srl.": "I agree to receive further communications from Nur Srl.",
@@ -63,7 +63,7 @@ const domTranslations: DomTranslations = {
 
 const benefits = [
   "We'll walk you through the full workflow on one of your keywords.",
-  "From SERP analysis to AI-optimized content generation.",
+  "From search results analysis to AI-optimized content generation.",
   "No strings attached: 20 minutes to see if Verbalist is right for you.",
 ]
 
@@ -121,7 +121,24 @@ export default function BookDemoPage() {
                 </li>
               )}
             </ul>
-            <div className="mt-20 hidden w-full overflow-hidden lg:block">
+            <div className="mt-8 hidden rounded-lg border border-border bg-muted/30 p-4 lg:block">
+              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">What happens next</p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="text-foreground/50 shrink-0">1.</span>
+                  We get back to you within 24 business hours.
+                </li>
+                <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="text-foreground/50 shrink-0">2.</span>
+                  Personalized 20-min demo on one of your site's keywords.
+                </li>
+                <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="text-foreground/50 shrink-0">3.</span>
+                  No commitment: you decide if you want to move forward.
+                </li>
+              </ul>
+            </div>
+            <div className="mt-8 hidden w-full overflow-hidden lg:block">
               <InfiniteMovingCarousel images={companies} />
             </div>
           </div>

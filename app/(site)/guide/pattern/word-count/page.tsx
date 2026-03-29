@@ -16,7 +16,7 @@ export default function WordCountPage() {
             className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 mb-8 transition-colors"
           >
             <ArrowLeft className="size-4 text-foreground" />
-            Analisi Pattern
+            Analisi pattern
           </Link>
 
           <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">

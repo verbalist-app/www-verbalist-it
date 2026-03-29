@@ -7,13 +7,13 @@ import { StatsBar } from "@/components/stats-bar"
 
 export const metadata: Metadata = {
   title: "Da SEO a GEO: strumenti per specialist",
-  description: "Passa dalla SEO tradizionale alla Generative Engine Optimization. Analisi SERP, pattern detection e contenuti strutturati per la ricerca AI. Da SEO a GEO SEO.",
+  description: "Passa dalla SEO tradizionale alla Generative Engine Optimization. Analisi dei risultati Google, pattern detection e contenuti strutturati per la ricerca AI. Da SEO a GEO SEO.",
   alternates: {
     canonical: "/soluzioni/team-seo",
   },
   openGraph: {
     title: "Da SEO a GEO: strumenti per specialist \\ Verbalist",
-    description: "Passa dalla SEO tradizionale alla Generative Engine Optimization. Analisi SERP, pattern detection e contenuti strutturati per la ricerca AI. Da SEO a GEO SEO.",
+    description: "Passa dalla SEO tradizionale alla Generative Engine Optimization. Analisi dei risultati Google, pattern detection e contenuti strutturati per la ricerca AI. Da SEO a GEO SEO.",
   },
 }
 
@@ -37,7 +37,7 @@ const featureColumns = [
     items: [
       "Topic e subtopic ricorrenti",
       "Content gap identification",
-      "Segnali E-E-A-T rilevati",
+      "Segnali di qualità e autorevolezza rilevati",
       "Pattern di citabilità per LLM",
     ],
   },
@@ -57,14 +57,14 @@ export default function TeamSeoPage() {
       <SubPageHero
         label="SEO Specialist"
         title="Dalla SEO tradizionale alla Generative Engine Optimization"
-        description="I dati SERP che già conosci, applicati alla creazione di contenuti ottimizzati per la ricerca AI. Il passaggio naturale da SEO a GEO."
+        description="I dati dei risultati Google che già conosci, applicati alla creazione di contenuti ottimizzati per la ricerca AI. Il passaggio naturale da SEO a GEO."
       />
 
       <StatsBar stats={stats} />
 
       <FeatureChecklist
-        title="Analisi SERP e pattern, orientati alla GEO"
-        description="Gli stessi dati che usi per la SEO — struttura, topic, E-E-A-T — applicati alla produzione di contenuti citabili da ChatGPT, Perplexity e AI Overview."
+        title="Analisi risultati Google e pattern, orientati alla GEO"
+        description="Gli stessi dati che usi per la SEO — struttura, topic, qualità e autorevolezza — applicati alla produzione di contenuti citabili da ChatGPT, Perplexity e AI Overview."
         columns={featureColumns}
       />
 

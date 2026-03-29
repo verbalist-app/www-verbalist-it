@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { BreadcrumbSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
-  title: "Generazione Contenuto",
+  title: "Generazione contenuto",
   description: "Come usare Verbalist per generare contenuti SEO ottimizzati.",
 }
 
@@ -53,13 +53,13 @@ export default function GenerazionePage() {
         items={[
           { name: "Home", url: "/" },
           { name: "Guide", url: "/guide" },
-          { name: "Generazione Contenuto", url: "/guide/generazione" },
+          { name: "Generazione contenuto", url: "/guide/generazione" },
         ]}
       />
       <section className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
           <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
-            Generazione Contenuto
+            Generazione contenuto
           </h1>
           <p className="text-base text-muted-foreground mb-8">
             Verbalist genera contenuti completi basandosi sui pattern estratti: titolo, meta description, struttura heading e corpo del testo. Tutto ottimizzato per SEO e risposte AI.

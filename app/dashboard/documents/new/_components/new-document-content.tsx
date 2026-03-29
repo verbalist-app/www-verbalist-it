@@ -30,55 +30,180 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
+import { useDashboardLocale } from "../../../_lib/dashboard-locale"
 
-const outputTypes = [
-  {
-    id: "blog_post",
-    name: "Blog Post",
-    description: "Articolo ottimizzato per SEO",
-    icon: FileText,
-  },
-  {
-    id: "product_page",
-    name: "Pagina Prodotto",
-    description: "Descrizione prodotto per e-commerce",
-    icon: ShoppingBag,
-  },
-  {
-    id: "guide",
-    name: "Guida/Tutorial",
-    description: "Contenuto educativo approfondito",
-    icon: BookOpen,
-  },
-  {
-    id: "landing_page",
-    name: "Landing Page",
-    description: "Pagina di conversione",
-    icon: Layout,
-  },
-]
-
-const contentModes = [
-  {
-    id: "create",
-    name: "Crea nuovo contenuto",
-    description: "Genera un contenuto da zero basandoti sulla keyword",
-  },
-  {
-    id: "optimize",
-    name: "Ottimizza contenuto esistente",
-    description: "Migliora un contenuto già esistente",
-  },
-]
-
-const projects = [
-  { id: "1", name: "Blog Aziendale" },
-  { id: "2", name: "Landing Pages" },
-  { id: "3", name: "E-commerce" },
-  { id: "4", name: "Guide Tecniche" },
-]
+const outputTypeIcons = {
+  blog_post: FileText,
+  product_page: ShoppingBag,
+  guide: BookOpen,
+  landing_page: Layout,
+} as const
 
 function NewDocumentInner() {
+  const { t } = useDashboardLocale()
+
+  const content = {
+    documents: { it: "Documenti", en: "Documents" },
+    newDocument: { it: "Nuovo documento", en: "New document" },
+    newDocumentDescription: {
+      it: "Crea un nuovo contenuto ottimizzato per SEO",
+      en: "Create new SEO-optimized content",
+    },
+    progressLabel: {
+      it: "Progressi creazione documento",
+      en: "Document creation progress",
+    },
+    step: { it: "Passaggio", en: "Step" },
+    completed: { it: "completato", en: "completed" },
+    current: { it: "corrente", en: "current" },
+    contentType: { it: "Tipo di contenuto", en: "Content type" },
+    contentTypeDescription: {
+      it: "Seleziona il tipo di contenuto che vuoi generare",
+      en: "Select the type of content you want to generate",
+    },
+    continue: { it: "Continua", en: "Continue" },
+    mode: { it: "Modalità", en: "Mode" },
+    existingContent: { it: "Contenuto esistente", en: "Existing content" },
+    url: { it: "URL", en: "URL" },
+    text: { it: "Testo", en: "Text" },
+    urlPlaceholder: {
+      it: "https://www.esempio.com/pagina",
+      en: "https://www.example.com/page",
+    },
+    textPlaceholder: {
+      it: "Incolla qui il contenuto da ottimizzare...",
+      en: "Paste content to optimize here...",
+    },
+    mainKeyword: { it: "Keyword principale", en: "Main keyword" },
+    mainKeywordDescription: {
+      it: "La keyword per cui vuoi ottimizzare il contenuto",
+      en: "The keyword you want to optimize content for",
+    },
+    keywordPlaceholder: {
+      it: "es. miglior software gestionale",
+      en: "e.g., best management software",
+    },
+    projectOptional: { it: "Progetto (opzionale)", en: "Project (optional)" },
+    selectProject: { it: "Seleziona un progetto", en: "Select a project" },
+    back: { it: "Indietro", en: "Back" },
+    summary: { it: "Riepilogo", en: "Summary" },
+    summaryDescription: {
+      it: "Controlla i dettagli e avvia la generazione",
+      en: "Check details and start generation",
+    },
+    contentTypeSummary: { it: "Tipo contenuto", en: "Content type" },
+    modeSummary: { it: "Modalità", en: "Mode" },
+    newContent: { it: "Nuovo contenuto", en: "New content" },
+    optimization: { it: "Ottimizzazione", en: "Optimization" },
+    keyword: { it: "Keyword", en: "Keyword" },
+    contentToOptimize: {
+      it: "Contenuto da ottimizzare",
+      en: "Content to optimize",
+    },
+    project: { it: "Progetto", en: "Project" },
+    whatWillHappen: { it: "Cosa succederà", en: "What will happen" },
+    serpAnalysis: {
+      it: "Analisi SERP per la keyword",
+      en: "SERP analysis for keyword",
+    },
+    scraping: {
+      it: "Scraping dei top 10 risultati Google",
+      en: "Scraping top 10 Google results",
+    },
+    patterns: {
+      it: "Identificazione pattern vincenti",
+      en: "Identifying winning patterns",
+    },
+    generation: {
+      it: "Generazione contenuto ottimizzato",
+      en: "Generating optimized content",
+    },
+    estimatedTime: {
+      it: "Tempo stimato: 2-3 minuti · ~20 crediti",
+      en: "Estimated time: 2-3 minutes · ~20 credits",
+    },
+    generateContent: { it: "Genera contenuto", en: "Generate content" },
+    generating: { it: "Generazione in corso...", en: "Generating..." },
+    // Output types
+    blogPost: { it: "Blog Post", en: "Blog Post" },
+    blogPostDesc: {
+      it: "Articolo ottimizzato per SEO",
+      en: "SEO-optimized article",
+    },
+    productPage: { it: "Pagina Prodotto", en: "Product Page" },
+    productPageDesc: {
+      it: "Descrizione prodotto per e-commerce",
+      en: "E-commerce product description",
+    },
+    guide: { it: "Guida/Tutorial", en: "Guide/Tutorial" },
+    guideDesc: {
+      it: "Contenuto educativo approfondito",
+      en: "In-depth educational content",
+    },
+    landingPage: { it: "Landing Page", en: "Landing Page" },
+    landingPageDesc: { it: "Pagina di conversione", en: "Conversion page" },
+    // Content modes
+    createMode: { it: "Crea nuovo contenuto", en: "Create new content" },
+    createModeDesc: {
+      it: "Genera un contenuto da zero basandoti sulla keyword",
+      en: "Generate content from scratch based on the keyword",
+    },
+    optimizeMode: {
+      it: "Ottimizza contenuto esistente",
+      en: "Optimize existing content",
+    },
+    optimizeModeDesc: {
+      it: "Migliora un contenuto già esistente",
+      en: "Improve existing content",
+    },
+  }
+
+  const outputTypes = [
+    {
+      id: "blog_post",
+      name: t(content.blogPost),
+      description: t(content.blogPostDesc),
+      icon: outputTypeIcons.blog_post,
+    },
+    {
+      id: "product_page",
+      name: t(content.productPage),
+      description: t(content.productPageDesc),
+      icon: outputTypeIcons.product_page,
+    },
+    {
+      id: "guide",
+      name: t(content.guide),
+      description: t(content.guideDesc),
+      icon: outputTypeIcons.guide,
+    },
+    {
+      id: "landing_page",
+      name: t(content.landingPage),
+      description: t(content.landingPageDesc),
+      icon: outputTypeIcons.landing_page,
+    },
+  ]
+
+  const contentModes = [
+    {
+      id: "create",
+      name: t(content.createMode),
+      description: t(content.createModeDesc),
+    },
+    {
+      id: "optimize",
+      name: t(content.optimizeMode),
+      description: t(content.optimizeModeDesc),
+    },
+  ]
+
+  const projects = [
+    { id: "1", name: t({ it: "Blog Aziendale", en: "Company Blog" }) },
+    { id: "2", name: t({ it: "Landing Pages", en: "Landing Pages" }) },
+    { id: "3", name: t({ it: "E-commerce", en: "E-commerce" }) },
+    { id: "4", name: t({ it: "Guide Tecniche", en: "Technical Guides" }) },
+  ]
   const router = useRouter()
   const searchParams = useSearchParams()
   const preselectedType = searchParams.get("type")
@@ -116,18 +241,18 @@ function NewDocumentInner() {
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4"
         >
           <ArrowLeft className="size-4" />
-          Documenti
+          {t(content.documents)}
         </Link>
-        <h1 className="font-serif text-2xl font-medium tracking-tighter">
-          Nuovo documento
+        <h1 className="text-xl font-semibold tracking-tighter lg:text-2xl">
+          {t(content.newDocument)}
         </h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Crea un nuovo contenuto ottimizzato per SEO
+          {t(content.newDocumentDescription)}
         </p>
       </div>
 
       {/* Progress Steps */}
-      <div className="flex items-center gap-2 mb-8">
+      <nav aria-label={t(content.progressLabel)} className="flex items-center gap-2 mb-8">
         {[1, 2, 3].map((s) => (
           <React.Fragment key={s}>
             <div
@@ -137,6 +262,8 @@ function NewDocumentInner() {
                   ? "bg-foreground text-background"
                   : "bg-muted text-muted-foreground"
               )}
+              aria-current={step === s ? "step" : undefined}
+              aria-label={`${t(content.step)} ${s}${step > s ? `, ${t(content.completed)}` : step === s ? `, ${t(content.current)}` : ""}`}
             >
               {step > s ? <Check className="size-4" /> : s}
             </div>
@@ -146,19 +273,20 @@ function NewDocumentInner() {
                   "h-0.5 flex-1 transition-colors",
                   step > s ? "bg-foreground" : "bg-muted"
                 )}
+                aria-hidden="true"
               />
             )}
           </React.Fragment>
         ))}
-      </div>
+      </nav>
 
       {/* Step 1: Output Type */}
       {step === 1 && (
         <div className="space-y-6">
           <div>
-            <Label className="text-base">Tipo di contenuto</Label>
+            <Label className="text-base">{t(content.contentType)}</Label>
             <p className="text-sm text-muted-foreground mt-1">
-              Seleziona il tipo di contenuto che vuoi generare
+              {t(content.contentTypeDescription)}
             </p>
           </div>
 
@@ -191,7 +319,7 @@ function NewDocumentInner() {
 
           <div className="flex justify-end pt-4">
             <Button onClick={() => setStep(2)} disabled={!canProceedStep1}>
-              Continua
+              {t(content.continue)}
               <ArrowRight className="ml-2 size-4" />
             </Button>
           </div>
@@ -203,7 +331,7 @@ function NewDocumentInner() {
         <div className="space-y-6">
           {/* Content Mode */}
           <div className="space-y-3">
-            <Label className="text-base">Modalità</Label>
+            <Label className="text-base">{t(content.mode)}</Label>
             <div className="grid gap-3 sm:grid-cols-2">
               {contentModes.map((mode) => (
                 <Card
@@ -228,7 +356,7 @@ function NewDocumentInner() {
           {/* Existing Content (if optimize mode) */}
           {contentMode === "optimize" && (
             <div className="space-y-3">
-              <Label className="text-base">Contenuto esistente</Label>
+              <Label className="text-base">{t(content.existingContent)}</Label>
               <div className="flex gap-2 mb-3">
                 <Button
                   variant={inputMode === "url" ? "default" : "outline"}
@@ -236,7 +364,7 @@ function NewDocumentInner() {
                   onClick={() => setInputMode("url")}
                 >
                   <LinkIcon className="mr-2 size-4" />
-                  URL
+                  {t(content.url)}
                 </Button>
                 <Button
                   variant={inputMode === "text" ? "default" : "outline"}
@@ -244,18 +372,18 @@ function NewDocumentInner() {
                   onClick={() => setInputMode("text")}
                 >
                   <Type className="mr-2 size-4" />
-                  Testo
+                  {t(content.text)}
                 </Button>
               </div>
               {inputMode === "url" ? (
                 <Input
-                  placeholder="https://www.esempio.com/pagina"
+                  placeholder={t(content.urlPlaceholder)}
                   value={contentUrl}
                   onChange={(e) => setContentUrl(e.target.value)}
                 />
               ) : (
                 <Textarea
-                  placeholder="Incolla qui il contenuto da ottimizzare..."
+                  placeholder={t(content.textPlaceholder)}
                   rows={5}
                   value={contentText}
                   onChange={(e) => setContentText(e.target.value)}
@@ -267,14 +395,14 @@ function NewDocumentInner() {
           {/* Keyword */}
           <div className="space-y-3">
             <Label htmlFor="keyword" className="text-base">
-              Keyword principale
+              {t(content.mainKeyword)}
             </Label>
             <p className="text-sm text-muted-foreground">
-              La keyword per cui vuoi ottimizzare il contenuto
+              {t(content.mainKeywordDescription)}
             </p>
             <Input
               id="keyword"
-              placeholder="es. miglior software gestionale"
+              placeholder={t(content.keywordPlaceholder)}
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
             />
@@ -282,10 +410,10 @@ function NewDocumentInner() {
 
           {/* Project */}
           <div className="space-y-3">
-            <Label className="text-base">Progetto (opzionale)</Label>
+            <Label className="text-base">{t(content.projectOptional)}</Label>
             <Select value={project} onValueChange={setProject}>
               <SelectTrigger>
-                <SelectValue placeholder="Seleziona un progetto" />
+                <SelectValue placeholder={t(content.selectProject)} />
               </SelectTrigger>
               <SelectContent>
                 {projects.map((p) => (
@@ -300,10 +428,10 @@ function NewDocumentInner() {
           <div className="flex justify-between pt-4">
             <Button variant="outline" onClick={() => setStep(1)}>
               <ArrowLeft className="mr-2 size-4" />
-              Indietro
+              {t(content.back)}
             </Button>
             <Button onClick={() => setStep(3)} disabled={!canProceedStep2}>
-              Continua
+              {t(content.continue)}
               <ArrowRight className="ml-2 size-4" />
             </Button>
           </div>
@@ -314,9 +442,9 @@ function NewDocumentInner() {
       {step === 3 && (
         <div className="space-y-6">
           <div>
-            <Label className="text-base">Riepilogo</Label>
+            <Label className="text-base">{t(content.summary)}</Label>
             <p className="text-sm text-muted-foreground mt-1">
-              Controlla i dettagli e avvia la generazione
+              {t(content.summaryDescription)}
             </p>
           </div>
 
@@ -325,25 +453,25 @@ function NewDocumentInner() {
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                    Tipo contenuto
+                    {t(content.contentTypeSummary)}
                   </p>
                   <p className="font-medium mt-1">
-                    {outputTypes.find((t) => t.id === outputType)?.name}
+                    {outputTypes.find((ot) => ot.id === outputType)?.name}
                   </p>
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                    Modalità
+                    {t(content.modeSummary)}
                   </p>
                   <p className="font-medium mt-1">
-                    {contentMode === "create" ? "Nuovo contenuto" : "Ottimizzazione"}
+                    {contentMode === "create" ? t(content.newContent) : t(content.optimization)}
                   </p>
                 </div>
               </div>
 
               <div className="border-t pt-4">
                 <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                  Keyword
+                  {t(content.keyword)}
                 </p>
                 <code className="mt-1 inline-block bg-muted px-2 py-1 rounded text-sm">
                   {keyword}
@@ -353,7 +481,7 @@ function NewDocumentInner() {
               {contentMode === "optimize" && (contentUrl || contentText) && (
                 <div className="border-t pt-4">
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                    Contenuto da ottimizzare
+                    {t(content.contentToOptimize)}
                   </p>
                   <p className="text-sm mt-1 truncate">
                     {contentUrl || contentText.substring(0, 100) + "..."}
@@ -364,7 +492,7 @@ function NewDocumentInner() {
               {project && (
                 <div className="border-t pt-4">
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                    Progetto
+                    {t(content.project)}
                   </p>
                   <p className="font-medium mt-1">
                     {projects.find((p) => p.id === project)?.name}
@@ -381,15 +509,15 @@ function NewDocumentInner() {
                   <Sparkles className="size-5" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Cosa succederà</h3>
+                  <h3 className="font-medium">{t(content.whatWillHappen)}</h3>
                   <ol className="mt-2 space-y-1 text-sm text-muted-foreground list-decimal list-inside">
-                    <li>Analisi SERP per la keyword "{keyword}"</li>
-                    <li>Scraping dei top 10 risultati Google</li>
-                    <li>Identificazione pattern vincenti</li>
-                    <li>Generazione contenuto ottimizzato</li>
+                    <li>{t(content.serpAnalysis)} &ldquo;{keyword}&rdquo;</li>
+                    <li>{t(content.scraping)}</li>
+                    <li>{t(content.patterns)}</li>
+                    <li>{t(content.generation)}</li>
                   </ol>
                   <p className="mt-3 text-xs text-muted-foreground">
-                    Tempo stimato: 2-3 minuti
+                    {t(content.estimatedTime)}
                   </p>
                 </div>
               </div>
@@ -399,18 +527,18 @@ function NewDocumentInner() {
           <div className="flex justify-between pt-4">
             <Button variant="outline" onClick={() => setStep(2)}>
               <ArrowLeft className="mr-2 size-4" />
-              Indietro
+              {t(content.back)}
             </Button>
             <Button onClick={handleGenerate} disabled={isGenerating}>
               {isGenerating ? (
                 <>
-                  <Loader2 className="mr-2 size-4 animate-spin" />
-                  Generazione in corso...
+                  <Loader2 className="mr-2 size-4 animate-spin motion-reduce:animate-none" />
+                  {t(content.generating)}
                 </>
               ) : (
                 <>
                   <Sparkles className="mr-2 size-4" />
-                  Genera contenuto
+                  {t(content.generateContent)}
                 </>
               )}
             </Button>
@@ -423,7 +551,7 @@ function NewDocumentInner() {
 
 export function NewDocumentContent() {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center p-8"><Loader2 className="size-6 animate-spin" /></div>}>
+    <Suspense fallback={<div className="flex items-center justify-center p-8"><Loader2 className="size-6 animate-spin motion-reduce:animate-none" /></div>}>
       <NewDocumentInner />
     </Suspense>
   )

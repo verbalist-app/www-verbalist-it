@@ -11,14 +11,14 @@ import {
 const screenshots = [
   {
     id: "analisi",
-    label: "Analisi SERP",
+    label: "Analisi risultati Google",
     description: "Recupera i top 10 risultati Google filtrando Wikipedia, social e aggregatori",
     component: SerpAnalysisVisual,
   },
   {
     id: "pattern",
     label: "Pattern Detection",
-    description: "L'AI analizza i contenuti per estrarre intent, topic, struttura e segnali E-E-A-T",
+    description: "L'AI analizza i contenuti per estrarre intent, topic, struttura e segnali di qualità e autorevolezza",
     component: PatternDetectionVisual,
   },
   {
@@ -72,9 +72,9 @@ export function ProductShowcase() {
             {/* Browser Header */}
             <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border">
               <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-emerald-400" />
+                <div className="w-3 h-3 rounded-full bg-status-error" />
+                <div className="w-3 h-3 rounded-full bg-status-warning" />
+                <div className="w-3 h-3 rounded-full bg-status-success" />
               </div>
               <div className="flex-1 mx-4">
                 <div className="bg-background rounded-md px-3 py-1.5 text-[12px] text-muted-foreground font-mono max-w-md mx-auto text-center border border-border">
