@@ -120,7 +120,6 @@ export default function CompetitorScrapingPage() {
         label="Competitor Analysis"
         title="Access any competitor's content strategy"
         description="Extract and analyze competitor content as clean Markdown. Understand their structure, topics and approach—ready for strategic analysis."
-        backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
       <TrustedBy />

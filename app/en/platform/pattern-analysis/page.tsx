@@ -118,7 +118,6 @@ export default function PatternAnalysisPage() {
         label="Pattern Analysis"
         title="Decode the patterns behind top rankings"
         description="Uncover what first-page content has in common. Word count ranges, heading structures, topic coverage and quality and authority signals that correlate with success."
-        backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
       <TrustedBy />

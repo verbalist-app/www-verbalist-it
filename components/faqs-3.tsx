@@ -93,7 +93,7 @@ export default function FAQs({ className, locale = 'it' }: FaqsProps) {
               <AccordionItem
                 value={item.id}
                 className="data-[state=open]:bg-muted/50 peer rounded-xl border-none px-5 py-1 transition-colors">
-                <AccordionTrigger className="cursor-pointer py-4 text-sm font-medium hover:no-underline">{item.question}</AccordionTrigger>
+                <AccordionTrigger className="cursor-pointer py-4 text-sm font-medium hover:no-underline" data-gtm="faq-accordion">{item.question}</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-muted-foreground pb-2 text-sm">{item.answer}</p>
                 </AccordionContent>

@@ -104,7 +104,6 @@ export default function AnalisiSerpPage() {
         label="Analisi risultati Google"
         title="Analizza i primi 10 risultati Google per qualsiasi keyword"
         description="Analizza i primi 10 risultati Google in pochi secondi. Estrai title, meta, struttura heading e pattern di intento di ricerca."
-        backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
       <TrustedBy />

@@ -1,4 +1,4 @@
 export { GoogleAnalytics } from "./google-analytics"
-export { Hotjar } from "./hotjar"
 export { Contentsquare } from "./contentsquare"
+export { GTM, updateGTMConsent } from "./gtm"
 export { AnalyticsProvider } from "./analytics-provider"

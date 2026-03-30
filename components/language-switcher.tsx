@@ -73,6 +73,8 @@ export function LanguageSwitcher({ variant = 'footer' }: LanguageSwitcherProps) 
     return (
       <Link
         href={alternatePath}
+        data-gtm="language-switch"
+        data-gtm-value={isEnglish ? 'it' : 'en'}
         className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
         title={isEnglish ? 'Passa all\'italiano' : 'Switch to English'}
       >
@@ -85,6 +87,8 @@ export function LanguageSwitcher({ variant = 'footer' }: LanguageSwitcherProps) 
   return (
     <Link
       href={alternatePath}
+      data-gtm="language-switch"
+      data-gtm-value={isEnglish ? 'it' : 'en'}
       className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-sm transition-colors hover:bg-muted"
       title={isEnglish ? 'Passa all\'italiano' : 'Switch to English'}
     >

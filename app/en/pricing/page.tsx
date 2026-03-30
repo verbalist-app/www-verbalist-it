@@ -138,7 +138,7 @@ export default function PricingPage() {
           </h2>
           <Accordion type="single" collapsible>
             <AccordionItem value="credits-exhausted">
-              <AccordionTrigger className="text-sm font-medium">
+              <AccordionTrigger className="text-sm font-medium" data-gtm="faq-accordion">
                 What happens if I run out of credits?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
@@ -146,7 +146,7 @@ export default function PricingPage() {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="cancel">
-              <AccordionTrigger className="text-sm font-medium">
+              <AccordionTrigger className="text-sm font-medium" data-gtm="faq-accordion">
                 Can I cancel at any time?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
@@ -154,7 +154,7 @@ export default function PricingPage() {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="generation-time">
-              <AccordionTrigger className="text-sm font-medium">
+              <AccordionTrigger className="text-sm font-medium" data-gtm="faq-accordion">
                 How long does it take to generate content?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
@@ -162,7 +162,7 @@ export default function PricingPage() {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="unique-content">
-              <AccordionTrigger className="text-sm font-medium">
+              <AccordionTrigger className="text-sm font-medium" data-gtm="faq-accordion">
                 Is the generated content unique?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">

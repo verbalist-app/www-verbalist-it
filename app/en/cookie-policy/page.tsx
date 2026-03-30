@@ -188,6 +188,9 @@ export default function CookiePolicyPage() {
               </table>
             </div>
 
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              <strong>Note:</strong> The analytics and marketing services listed above are managed through Google Tag Manager (GTM), a tag management platform that does not install its own cookies but enables the controlled loading of third-party scripts in accordance with the preferences expressed by the user through the cookie banner (Consent Mode v2).
+            </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               <strong>Note:</strong> Vercel Analytics and Speed Insights are privacy-friendly services that do not use cookies and do not require consent as they do not track personally identifiable data.
             </p>

@@ -43,6 +43,8 @@ export function PricingToggle({
         <div className="inline-flex rounded-full border border-border bg-muted p-1">
           <button
             onClick={() => setIsAnnual(false)}
+            data-gtm="pricing-toggle"
+            data-gtm-value="monthly"
             className={cn(
               "rounded-full px-4 py-2 text-sm font-medium transition-colors",
               !isAnnual
@@ -54,6 +56,8 @@ export function PricingToggle({
           </button>
           <button
             onClick={() => setIsAnnual(true)}
+            data-gtm="pricing-toggle"
+            data-gtm-value="annual"
             className={cn(
               "rounded-full px-4 py-2 text-sm font-medium transition-colors",
               isAnnual

@@ -34,7 +34,7 @@ const translations = {
     necessary: "Necessari",
     necessaryDesc: "Essenziali per il funzionamento del sito.",
     analytics: "Analitici",
-    analyticsDesc: "Ci aiutano a capire come utilizzi il sito (Google Analytics, Hotjar).",
+    analyticsDesc: "Ci aiutano a capire come utilizzi il sito (Google Analytics, Contentsquare).",
     marketing: "Marketing",
     marketingDesc: "Utilizzati per mostrarti pubblicità pertinenti.",
   },
@@ -50,13 +50,13 @@ const translations = {
     necessary: "Necessary",
     necessaryDesc: "Essential for the website to function.",
     analytics: "Analytics",
-    analyticsDesc: "Help us understand how you use the site (Google Analytics, Hotjar).",
+    analyticsDesc: "Help us understand how you use the site (Google Analytics, Contentsquare).",
     marketing: "Marketing",
     marketingDesc: "Used to show you relevant advertising.",
   },
 }
 
-function getStoredPreferences(): CookiePreferences | null {
+export function getStoredPreferences(): CookiePreferences | null {
   if (typeof document === "undefined") return null
 
   const consent = document.cookie
@@ -103,6 +103,12 @@ export function CookieConsent({
 
   const t = translations[locale]
 
+  const broadcastConsent = React.useCallback((prefs: CookiePreferences) => {
+    window.dispatchEvent(
+      new CustomEvent("cookieConsentChange", { detail: prefs })
+    )
+  }, [])
+
   const handleAcceptAll = React.useCallback(() => {
     const allAccepted: CookiePreferences = {
       necessary: true,
@@ -112,8 +118,9 @@ export function CookieConsent({
     setStoredPreferences(allAccepted)
     setIsOpen(false)
     setTimeout(() => setHide(true), 500)
+    broadcastConsent(allAccepted)
     onAcceptCallback(allAccepted)
-  }, [onAcceptCallback])
+  }, [onAcceptCallback, broadcastConsent])
 
   const handleDeclineAll = React.useCallback(() => {
     const allDeclined: CookiePreferences = {
@@ -124,16 +131,19 @@ export function CookieConsent({
     setStoredPreferences(allDeclined, 6)
     setIsOpen(false)
     setTimeout(() => setHide(true), 500)
+    broadcastConsent(allDeclined)
     onDeclineCallback()
-  }, [onDeclineCallback])
+  }, [onDeclineCallback, broadcastConsent])
 
   const handleSavePreferences = React.useCallback(() => {
     setStoredPreferences(preferences)
     setIsOpen(false)
     setTimeout(() => setHide(true), 500)
+    broadcastConsent(preferences)
     onAcceptCallback(preferences)
-  }, [preferences, onAcceptCallback])
+  }, [preferences, onAcceptCallback, broadcastConsent])
 
+  // Read stored preferences on mount
   React.useEffect(() => {
     const stored = getStoredPreferences()
     if (stored) {
@@ -145,6 +155,16 @@ export function CookieConsent({
       setTimeout(() => setIsOpen(true), 1000)
     }
   }, [onAcceptCallback])
+
+  // Allow other components to re-open the banner
+  React.useEffect(() => {
+    const handler = () => {
+      setHide(false)
+      setTimeout(() => setIsOpen(true), 50)
+    }
+    window.addEventListener("showCookieConsent", handler)
+    return () => window.removeEventListener("showCookieConsent", handler)
+  }, [])
 
   if (hide) return null
 

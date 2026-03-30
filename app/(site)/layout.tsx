@@ -18,8 +18,7 @@ export default function SiteLayout({
       <Footer />
       <AnalyticsProvider
         locale="it"
-        gaMeasurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
-        contentsquareTagId={process.env.NEXT_PUBLIC_CONTENTSQUARE_TAG_ID}
+        gtmId={process.env.NEXT_PUBLIC_GTM_ID}
       />
     </>
   )

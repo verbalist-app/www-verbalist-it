@@ -100,7 +100,7 @@ export default function FAQs({ className, locale = 'it' }: FaqsProps) {
                 key={item.id}
                 value={item.id}
                 className="border-b-0 px-4">
-                <AccordionTrigger className="cursor-pointer py-4 text-sm font-medium hover:no-underline">{item.question}</AccordionTrigger>
+                <AccordionTrigger className="cursor-pointer py-4 text-sm font-medium hover:no-underline" data-gtm="faq-accordion">{item.question}</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-muted-foreground pb-2 text-sm">{item.answer}</p>
                 </AccordionContent>

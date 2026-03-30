@@ -85,6 +85,8 @@ export function BlogArchive({ posts, locale }: BlogArchiveProps) {
             <TabsTrigger
               key={cat}
               value={cat}
+              data-gtm="blog-filter"
+              data-gtm-value={cat}
               className="cursor-pointer rounded-full px-4 py-1.5 text-sm text-muted-foreground data-[state=active]:bg-muted data-[state=active]:text-foreground data-[state=active]:shadow-none group-data-[orientation=horizontal]/tabs:after:h-0"
             >
               {labels[cat] || cat}

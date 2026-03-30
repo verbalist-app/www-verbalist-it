@@ -127,7 +127,6 @@ export default function ContentGenerationPage() {
         label="Content Generation"
         title="Transform search insights into publish-ready content"
         description="Generate optimized articles based on proven ranking patterns. Complete with title, meta, heading structure and body text—ready for your refinement."
-        backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
       <TrustedBy />

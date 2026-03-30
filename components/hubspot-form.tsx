@@ -30,9 +30,11 @@ declare global {
           locale?: string
           translations?: Record<string, HubSpotTranslations>
           onFormReady?: ($form: unknown) => void
+          onFormSubmitted?: () => void
         }) => void
       }
     }
+    dataLayer?: Record<string, unknown>[]
   }
 }
 
@@ -142,15 +144,20 @@ export function HubSpotForm({
           cssRequired: "",
           ...(locale ? { locale } : {}),
           ...(translations ? { translations } : {}),
-          ...(domTranslations
-            ? {
-                onFormReady: () => {
-                  if (containerRef.current) {
-                    applyDomTranslations(containerRef.current)
-                  }
-                },
+          onFormReady: domTranslations
+            ? () => {
+                if (containerRef.current) {
+                  applyDomTranslations(containerRef.current)
+                }
               }
-            : {}),
+            : undefined,
+          onFormSubmitted: () => {
+            window.dataLayer = window.dataLayer || []
+            window.dataLayer.push({
+              event: "hsFormCallback",
+              "hs-form-id": formId,
+            })
+          },
         })
       }
     }

@@ -104,7 +104,6 @@ export default function SerpAnalysisPage() {
         label="Search Results Analysis"
         title="Understand exactly what makes content rank"
         description="Analyze the top 10 Google results in seconds. Extract titles, meta descriptions, heading structures and search intent patterns that drive rankings."
-        backLink={{ label: "Platform", href: "/en/platform" }}
       />
 
       <TrustedBy />

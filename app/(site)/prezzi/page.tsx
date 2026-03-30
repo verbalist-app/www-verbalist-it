@@ -143,7 +143,7 @@ export default function PrezziPage() {
             </h2>
             <Accordion type="single" collapsible>
               <AccordionItem value="credits-exhausted">
-                <AccordionTrigger className="text-sm font-medium">
+                <AccordionTrigger className="text-sm font-medium" data-gtm="faq-accordion">
                   Cosa succede se esaurisco i crediti?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground">
@@ -151,7 +151,7 @@ export default function PrezziPage() {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="cancel">
-                <AccordionTrigger className="text-sm font-medium">
+                <AccordionTrigger className="text-sm font-medium" data-gtm="faq-accordion">
                   Posso disdire in qualsiasi momento?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground">
@@ -159,7 +159,7 @@ export default function PrezziPage() {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="generation-time">
-                <AccordionTrigger className="text-sm font-medium">
+                <AccordionTrigger className="text-sm font-medium" data-gtm="faq-accordion">
                   Quanto tempo serve per generare un contenuto?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground">
@@ -167,7 +167,7 @@ export default function PrezziPage() {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="unique-content">
-                <AccordionTrigger className="text-sm font-medium">
+                <AccordionTrigger className="text-sm font-medium" data-gtm="faq-accordion">
                   I contenuti generati sono unici?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground">

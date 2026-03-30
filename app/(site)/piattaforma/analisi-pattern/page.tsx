@@ -118,7 +118,6 @@ export default function AnalisiPatternPage() {
         label="Analisi pattern"
         title="Trova struttura, topic e segnali di qualità comuni ai top 10"
         description="Scopri cosa hanno in comune i primi risultati. Word count, struttura heading, copertura dei topic e segnali di qualità e autorevolezza."
-        backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
       <TrustedBy />

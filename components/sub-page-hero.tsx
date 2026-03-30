@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
-import { ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 type Locale = 'it' | 'en'
@@ -21,6 +21,11 @@ interface SubPageHeroProps {
   title: string
   /** Subtitle/description */
   description: string
+  /** Back link to parent page */
+  backLink?: {
+    label: string
+    href: string
+  }
   primaryCta?: {
     text: string
     href: string
@@ -38,6 +43,7 @@ export function SubPageHero({
   icon: Icon,
   title,
   description,
+  backLink,
   primaryCta,
   secondaryCta,
   className,
@@ -50,6 +56,17 @@ export function SubPageHero({
       <div className="relative py-32 md:pt-44 md:pb-24">
         <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
           <div className="mx-auto max-w-xl text-center">
+            {backLink && (
+              <div className="mb-6">
+                <Link
+                  href={backLink.href}
+                  className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <ChevronLeft className="size-3.5" />
+                  {backLink.label}
+                </Link>
+              </div>
+            )}
             {label ? (
               <Badge variant="secondary" className="mb-4">
                 {label}

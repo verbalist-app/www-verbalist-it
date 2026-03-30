@@ -127,7 +127,6 @@ export default function GenerazioneContenutoPage() {
         label="Generazione contenuto"
         title="Genera articoli completi basati sui pattern dei risultati Google"
         description="Genera articoli ottimizzati basati sui pattern dei primi risultati. Title, meta, struttura heading e testo completo, pronti per la tua revisione."
-        backLink={{ label: "Piattaforma", href: "/piattaforma" }}
       />
 
       <TrustedBy />

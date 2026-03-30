@@ -1,13 +1,15 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Cookie } from "lucide-react"
 import Link from "next/link"
 import React, { useState } from "react"
 
+import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { HubSpotForm, type DomTranslations } from "@/components/hubspot-form"
 import { InfiniteMovingCarousel } from "@/components/infinite-moving-carousel"
+import { useCookieConsent, showCookieConsentBanner } from "@/hooks/use-cookie-consent"
 
 const hubspotEnTranslations = {
   en: {
@@ -79,6 +81,9 @@ const companies = [
 ]
 
 export default function BookDemoPage() {
+  const cookieConsent = useCookieConsent()
+  const marketingCookiesAllowed = cookieConsent?.marketing === true
+
   const [privacyAccepted, setPrivacyAccepted] = useState(false)
   const [marketingAccepted, setMarketingAccepted] = useState(false)
   const [profilingAccepted, setProfilingAccepted] = useState(false)
@@ -143,66 +148,97 @@ export default function BookDemoPage() {
             </div>
           </div>
           <Card className="w-full max-w-xl place-self-center bg-muted/50 px-6 py-10 lg:max-w-none lg:place-self-start">
-            <HubSpotForm
-              portalId="26552285"
-              formId="4267f028-3ada-4953-863f-7fcde9648c1c"
-              region="eu1"
-              locale="en"
-              translations={hubspotEnTranslations}
-              domTranslations={domTranslations}
-              submitDisabled={!privacyAccepted}
-              hideConsentCheckboxes
-            />
-
-            <div className="-mt-2 space-y-3 border-t border-border pt-4">
-              <div className="flex items-start gap-3">
-                <Checkbox
-                  id="privacy-consent"
-                  checked={privacyAccepted}
-                  onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
-                  aria-required="true"
+            {marketingCookiesAllowed ? (
+              <>
+                <HubSpotForm
+                  portalId="26552285"
+                  formId="4267f028-3ada-4953-863f-7fcde9648c1c"
+                  region="eu1"
+                  locale="en"
+                  translations={hubspotEnTranslations}
+                  domTranslations={domTranslations}
+                  submitDisabled={!privacyAccepted}
+                  hideConsentCheckboxes
                 />
-                <label
-                  htmlFor="privacy-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
-                >
-                  I have read and accept the{" "}
-                  <Link href="/en/privacy-policy" target="_blank" className="underline text-foreground/90 hover:text-foreground">
-                    Privacy Policy
-                  </Link>
-                  {" "}pursuant to EU Regulation 2016/679 (GDPR).{" "}
-                  <span className="text-destructive">*</span>
-                </label>
-              </div>
 
-              <div className="flex items-start gap-3">
-                <Checkbox
-                  id="marketing-consent"
-                  checked={marketingAccepted}
-                  onCheckedChange={(checked) => setMarketingAccepted(checked === true)}
-                />
-                <label
-                  htmlFor="marketing-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
-                >
-                  I consent to the processing of my personal data for direct marketing purposes, including commercial communications, newsletters and advertising material, as described in section 3a) of the Privacy Policy.
-                </label>
-              </div>
+                <div className="-mt-2 space-y-3 border-t border-border pt-4">
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="privacy-consent"
+                      checked={privacyAccepted}
+                      onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
+                      aria-required="true"
+                    />
+                    <label
+                      htmlFor="privacy-consent"
+                      className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                    >
+                      I have read and accept the{" "}
+                      <Link href="/en/privacy-policy" target="_blank" className="underline text-foreground/90 hover:text-foreground">
+                        Privacy Policy
+                      </Link>
+                      {" "}pursuant to EU Regulation 2016/679 (GDPR).{" "}
+                      <span className="text-destructive">*</span>
+                    </label>
+                  </div>
 
-              <div className="flex items-start gap-3">
-                <Checkbox
-                  id="profiling-consent"
-                  checked={profilingAccepted}
-                  onCheckedChange={(checked) => setProfilingAccepted(checked === true)}
-                />
-                <label
-                  htmlFor="profiling-consent"
-                  className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="marketing-consent"
+                      checked={marketingAccepted}
+                      onCheckedChange={(checked) => setMarketingAccepted(checked === true)}
+                    />
+                    <label
+                      htmlFor="marketing-consent"
+                      className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                    >
+                      I consent to the processing of my personal data for direct marketing purposes, including commercial communications, newsletters and advertising material, as described in section 3a) of the Privacy Policy.
+                    </label>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="profiling-consent"
+                      checked={profilingAccepted}
+                      onCheckedChange={(checked) => setProfilingAccepted(checked === true)}
+                    />
+                    <label
+                      htmlFor="profiling-consent"
+                      className="text-xs leading-relaxed text-foreground/70 cursor-pointer"
+                    >
+                      I consent to the processing of my personal data for profiling activities, in order to receive personalized services and communications, as described in section 3b) of the Privacy Policy.
+                    </label>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-12 space-y-4 text-center">
+                <Cookie className="size-8 text-muted-foreground/60" strokeWidth={1.5} />
+                <div className="space-y-1.5">
+                  <p className="text-sm font-medium text-foreground">
+                    Cookies required for this form
+                  </p>
+                  <p className="text-xs text-muted-foreground leading-relaxed max-w-sm">
+                    To use this form, you need to accept marketing cookies.
+                    Collected data is used exclusively to process your request.
+                  </p>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="text-xs h-8"
+                  onClick={showCookieConsentBanner}
                 >
-                  I consent to the processing of my personal data for profiling activities, in order to receive personalized services and communications, as described in section 3b) of the Privacy Policy.
-                </label>
+                  Manage cookie preferences
+                </Button>
+                <p className="text-xs text-muted-foreground">
+                  Alternatively, email us at{" "}
+                  <a href="mailto:info@nur.it" className="underline hover:text-foreground transition-colors">
+                    info@nur.it
+                  </a>
+                </p>
               </div>
-            </div>
+            )}
           </Card>
           <div className="mt-10 block w-full overflow-hidden lg:hidden">
             <InfiniteMovingCarousel images={companies} />

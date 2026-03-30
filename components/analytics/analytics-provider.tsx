@@ -1,45 +1,39 @@
 "use client"
 
 import * as React from "react"
-import { GoogleAnalytics } from "./google-analytics"
-import { Contentsquare } from "./contentsquare"
+import { GTM, updateGTMConsent } from "./gtm"
 import { CookieConsent, type CookiePreferences } from "@/components/cookie-consent"
 
 type Locale = "it" | "en"
 
 interface AnalyticsProviderProps {
   locale?: Locale
-  gaMeasurementId?: string
-  contentsquareTagId?: string
+  gtmId?: string
   children?: React.ReactNode
 }
 
+/**
+ * Loads Google Tag Manager and bridges cookie consent to Consent Mode v2.
+ *
+ * All tracking tags (GA4, Contentsquare) are configured as tags inside the
+ * GTM container and fire only when the relevant consent signals are granted.
+ */
 export function AnalyticsProvider({
   locale = "it",
-  gaMeasurementId,
-  contentsquareTagId,
+  gtmId,
   children,
 }: AnalyticsProviderProps) {
-  const [preferences, setPreferences] = React.useState<CookiePreferences | null>(null)
-
   const handleAccept = React.useCallback((prefs: CookiePreferences) => {
-    setPreferences(prefs)
+    updateGTMConsent(prefs)
   }, [])
 
   const handleDecline = React.useCallback(() => {
-    setPreferences({ necessary: true, analytics: false, marketing: false })
+    updateGTMConsent({ necessary: true, analytics: false, marketing: false })
   }, [])
-
-  const analyticsEnabled = preferences?.analytics === true
 
   return (
     <>
-      {analyticsEnabled && gaMeasurementId && (
-        <GoogleAnalytics measurementId={gaMeasurementId} />
-      )}
-      {analyticsEnabled && contentsquareTagId && (
-        <Contentsquare tagId={contentsquareTagId} />
-      )}
+      {gtmId && <GTM containerId={gtmId} />}
       <CookieConsent
         locale={locale}
         onAcceptCallback={handleAccept}
