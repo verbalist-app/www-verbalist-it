@@ -69,4 +69,11 @@ export function updateGTMConsent(preferences: CookiePreferences) {
     ad_user_data: preferences.marketing ? "granted" : "denied",
     ad_personalization: preferences.marketing ? "granted" : "denied",
   })
+
+  // Push a custom event so GTM triggers (All Pages) that fired before
+  // consent was granted can re-fire tags (GA4, Contentsquare, etc.)
+  if (preferences.analytics || preferences.marketing) {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: "consent_granted" })
+  }
 }
