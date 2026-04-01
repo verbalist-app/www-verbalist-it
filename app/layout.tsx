@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import localFont from 'next/font/local'
 import { GeistSans } from 'geist/font/sans'
-
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { OrganizationSchema } from "@/components/schema"
@@ -68,7 +67,6 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-  // Open Graph
   openGraph: {
     type: "website",
     locale: "it_IT",
@@ -87,7 +85,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  // Twitter Card
   twitter: {
     card: "summary_large_image",
     title: "Verbalist \\ Piattaforma Generative Engine Optimization",
@@ -96,7 +93,6 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     creator: "@verbalist_ai",
   },
-  // Robots
   robots: {
     index: true,
     follow: true,
@@ -108,10 +104,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.app'
+  verification: {
+    google: "YkeQp-qqag3oyxoFNcR6XxbW4eoi0x3xqp-Y1w6YJZw",
+  },
+  generator: 'v0.app'
 }
 
-// <CHANGE> Added viewport configuration for dark theme
 export const viewport: Viewport = {
   themeColor: "#000000",
 }
