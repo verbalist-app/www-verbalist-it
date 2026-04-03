@@ -1,11 +1,8 @@
-import { FileText, PenTool, Sparkles, Palette } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import { TrustedBy } from "@/components/trusted-by"
-import { FeatureChecklist } from "@/components/feature-checklist"
-import { HighlightBlock } from "@/components/highlight-block"
-import Testimonials from "@/components/testimonials-4"
+import { BentoGrid } from "@/components/bento-grid"
+
 
 export const metadata: Metadata = {
   title: "Generazione contenuti AI",
@@ -19,63 +16,18 @@ export const metadata: Metadata = {
   },
 }
 
-const featureColumns = [
-  {
-    items: [
-      "Title tag ottimizzato",
-      "Meta description efficace",
-      "URL slug SEO-friendly",
-      "Schema markup suggerito",
-    ],
-  },
-  {
-    items: [
-      "Outline basato su pattern",
-      "Struttura H1, H2, H3",
-      "Topic mapping completo",
-      "Sezioni suggerite",
-    ],
-  },
-  {
-    items: [
-      "Tono di voce personalizzabile",
-      "Linee guida del brand integrate",
-      "Suggerimenti media",
-      "Export multi-formato",
-    ],
-  },
-]
-
 function SeoMetadataIllustration() {
   return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-3">
-        <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] text-muted-foreground">Title Tag</span>
-            <span className="text-[10px] text-status-success font-medium">58 chars</span>
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="space-y-2">
+        {[60, 90, 45].map((w, i) => (
+          <div key={i} className="rounded-lg bg-background p-3">
+            <div className="h-1.5 rounded bg-foreground/15" style={{ width: `${w}%` }} />
+            <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-foreground/6">
+              <div className="h-full rounded-full bg-foreground/20" style={{ width: `${w}%` }} />
+            </div>
           </div>
-          <div className="h-3 w-full rounded bg-foreground/80" />
-          <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
-            <div className="h-full w-[58%] rounded-full bg-status-success" />
-          </div>
-        </div>
-        <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] text-muted-foreground">Meta Description</span>
-            <span className="text-[10px] text-status-success font-medium">145 chars</span>
-          </div>
-          <div className="space-y-1">
-            <div className="h-2 w-full rounded bg-foreground/60" />
-            <div className="h-2 w-4/5 rounded bg-foreground/60" />
-          </div>
-        </div>
-        <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] text-muted-foreground">URL Slug</span>
-          </div>
-          <div className="h-2.5 w-2/3 rounded bg-foreground/70" />
-        </div>
+        ))}
       </div>
     </div>
   )
@@ -83,36 +35,73 @@ function SeoMetadataIllustration() {
 
 function ToneIllustration() {
   return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-3">
-        <div className="rounded-lg border bg-background p-3 shadow-sm">
-          <div className="text-xs font-medium text-muted-foreground mb-3">Tono di voce</div>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              { tone: "Professionale", active: true },
-              { tone: "Informale", active: false },
-              { tone: "Tecnico", active: false },
-              { tone: "Divulgativo", active: false },
-            ].map((item) => (
-              <div
-                key={item.tone}
-                className={`rounded p-2 text-center text-xs ${
-                  item.active ? "bg-foreground text-background font-medium" : "bg-muted"
-                }`}
-              >
-                {item.tone}
-              </div>
-            ))}
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="grid grid-cols-2 gap-2">
+          {[true, false, false, false].map((active, i) => (
+            <div key={i} className={`h-8 rounded-md ${active ? "bg-foreground" : "bg-foreground/6"}`} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function FourFormatsIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="grid grid-cols-2 gap-2">
+          <div className="h-10 rounded-md bg-foreground/20" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function OptimizeExistingIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-2">
+          <div className="rounded-md bg-foreground/8 p-2.5">
+            <div className="space-y-1.5">
+              <div className="h-1.5 w-3/4 rounded bg-foreground/10" />
+              <div className="h-1.5 w-full rounded bg-foreground/6" />
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <div className="h-4 w-0.5 rounded bg-foreground/15" />
+          </div>
+          <div className="rounded-md bg-foreground/12 p-2.5">
+            <div className="space-y-1.5">
+              <div className="h-1.5 w-3/4 rounded bg-foreground/25" />
+              <div className="h-1.5 w-full rounded bg-foreground/15" />
+            </div>
           </div>
         </div>
-        <div className="rounded-lg border bg-background p-3 shadow-sm">
+      </div>
+    </div>
+  )
+}
+
+function ExportReadyIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="rounded-md bg-foreground/6 p-3">
           <div className="space-y-2">
-            <div className="h-2 w-full rounded bg-foreground/60" />
-            <div className="h-2 w-4/5 rounded bg-foreground/40" />
-            <div className="h-2 w-3/4 rounded bg-foreground/40" />
+            <div className="h-2 w-1/2 rounded bg-foreground/20" />
+            <div className="h-1.5 w-full rounded bg-foreground/10" />
+            <div className="h-1.5 w-4/5 rounded bg-foreground/10" />
+            <div className="h-1.5 w-full rounded bg-foreground/10" />
+            <div className="h-1.5 w-2/3 rounded bg-foreground/10" />
           </div>
-          <div className="mt-3 text-[10px] text-muted-foreground text-center">
-            Contenuto generato con il tuo stile
+          <div className="mt-3 flex justify-center">
+            <div className="h-1.5 w-6 rounded bg-foreground/20" />
           </div>
         </div>
       </div>
@@ -124,35 +113,40 @@ export default function GenerazioneContenutoPage() {
   return (
     <>
       <SubPageHero
-        label="Generazione contenuto"
-        title="Genera articoli completi basati sui pattern dei risultati Google"
-        description="Genera articoli ottimizzati basati sui pattern dei primi risultati. Title, meta, struttura heading e testo completo, pronti per la tua revisione."
+        label="Generazione"
+        title="Scrivi un articolo basato su cosa funziona"
+        description="Genera title, meta, heading e testo partendo dai pattern dei risultati Google."
       />
 
-      <TrustedBy />
-
-      <FeatureChecklist
-        title="Contenuti ottimizzati per posizionarsi"
-        description="SEO metadata, struttura basata sui pattern e tono di voce personalizzabile."
-        columns={featureColumns}
+      <BentoGrid
+        items={[
+          {
+            title: "SEO metadata perfetti",
+            description: "Genera title tag, meta description e URL slug ottimizzati. Basati sui pattern che funzionano nei risultati di ricerca.",
+            visual: <SeoMetadataIllustration />,
+          },
+          {
+            title: "Il tuo tono di voce",
+            description: "Scegli lo stile: professionale, informale, tecnico, divulgativo. Ogni contenuto rispetta le linee guida del tuo brand.",
+            visual: <ToneIllustration />,
+          },
+          {
+            title: "Quattro formati",
+            description: "Blog post, pagina prodotto, guida e landing page. Struttura specifica ottimizzata per ogni formato.",
+            visual: <FourFormatsIllustration />,
+          },
+          {
+            title: "Ottimizza contenuti esistenti",
+            description: "Carica un URL, un testo o un PDF. Verbalist lo confronta con i competitor e genera la versione migliorata.",
+            visual: <OptimizeExistingIllustration />,
+          },
+          {
+            title: "Export pronto",
+            description: "Markdown e HTML con heading, paragrafi e meta tag già formattati. Copia o scarica, pronto da pubblicare.",
+            visual: <ExportReadyIllustration />,
+          },
+        ]}
       />
-
-      <HighlightBlock
-        icon={Sparkles}
-        title="SEO metadata perfetti"
-        description="Genera title tag, meta description e URL slug ottimizzati. Basati sui pattern che funzionano nei risultati di ricerca. Lunghezza corretta, keyword incluse."
-        visual={<SeoMetadataIllustration />}
-      />
-
-      <HighlightBlock
-        icon={Palette}
-        title="Il tuo tono di voce"
-        description="Scegli lo stile: professionale, informale, tecnico, divulgativo. Ogni contenuto rispetta le linee guida del tuo brand. Risultato coerente, sempre."
-        visual={<ToneIllustration />}
-        reverse
-      />
-
-      <Testimonials />
 
       <SubPageCTA />
     </>

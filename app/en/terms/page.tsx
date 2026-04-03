@@ -27,7 +27,7 @@ export default function TermsPage() {
             </svg>
             Back to home
           </Link>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter text-foreground mb-6">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight text-foreground mb-6">
             Terms of Service
           </h1>
         </div>

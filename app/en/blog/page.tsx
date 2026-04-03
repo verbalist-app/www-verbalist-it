@@ -36,7 +36,7 @@ export default async function BlogPage() {
     <section className="pt-20 md:pt-28 pb-24">
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-12">
-          <h1 className="font-serif text-2xl font-medium tracking-tighter mb-3 md:text-3xl">
+          <h1 className="text-2xl font-serif font-normal tracking-tight mb-3 md:text-3xl">
             Blog
           </h1>
           <p className="text-sm text-muted-foreground">

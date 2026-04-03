@@ -363,7 +363,7 @@ function DocumentDetailInner({
                 {document.createdAt}
               </span>
             </div>
-            <h1 className="text-xl font-semibold tracking-tighter lg:text-2xl">
+            <h1 className="text-xl font-semibold tracking-tight lg:text-2xl">
               {document.title}
             </h1>
             <div className="flex items-center gap-3 mt-2 text-sm text-muted-foreground">

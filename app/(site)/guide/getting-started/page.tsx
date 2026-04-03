@@ -18,14 +18,14 @@ export default function GettingStartedPage() {
       />
       <article className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Come iniziare con Verbalist
           </h1>
           <p className="text-base text-muted-foreground mb-8">
             Guida passo-passo per creare il tuo primo contenuto ottimizzato.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">1. Crea un progetto</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Dopo aver effettuato l'accesso, clicca su "Nuovo progetto" dalla dashboard. Dai un nome al progetto e seleziona la lingua target.

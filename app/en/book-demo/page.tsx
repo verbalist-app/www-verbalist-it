@@ -94,7 +94,7 @@ export default function BookDemoPage() {
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col items-center gap-4 lg:items-start lg:gap-8">
             <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Book a demo</p>
-            <h1 className="font-serif max-w-md text-center text-3xl font-medium tracking-tighter md:text-4xl lg:max-w-xl lg:text-left">
+            <h1 className="max-w-md text-center text-3xl font-serif font-normal tracking-tight sm:text-4xl lg:max-w-xl lg:text-left">
               See Verbalist in action on your site
             </h1>
             <ul className="flex flex-col">

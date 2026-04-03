@@ -65,7 +65,7 @@ export default function BrandPageEn() {
           <Badge variant="secondary" className="mb-4">
             Brand
           </Badge>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Brand guidelines
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
@@ -196,12 +196,12 @@ export default function BrandPageEn() {
                   <ColorSwatch
                     name="Foreground"
                     variable="--foreground"
-                    value="oklch(0.3421 0.0379 61.15)"
+                    value="oklch(0.22 0.02 85)"
                   />
                   <ColorSwatch
                     name="Background"
                     variable="--background"
-                    value="oklch(0.9779 0.0042 56.38)"
+                    value="oklch(0.958 0.005 85)"
                     light
                   />
                 </div>
@@ -215,23 +215,23 @@ export default function BrandPageEn() {
                   <ColorSwatch
                     name="Primary"
                     variable="--primary"
-                    value="oklch(0.5967 0.0558 61.59)"
+                    value="oklch(0.62 0.22 40)"
                   />
                   <ColorSwatch
                     name="Muted Foreground"
                     variable="--muted-foreground"
-                    value="oklch(0.4563 0.0061 48.59)"
+                    value="oklch(0.22 0.02 85 / 55%)"
                   />
                   <ColorSwatch
                     name="Border"
                     variable="--border"
-                    value="oklch(0.3421 0.0379 61.15 / 7.5%)"
+                    value="oklch(0.22 0.02 85 / 10%)"
                     light
                   />
                   <ColorSwatch
                     name="Muted"
                     variable="--muted"
-                    value="oklch(0.3421 0.0379 61.15 / 5%)"
+                    value="oklch(0.94 0.005 85)"
                     light
                   />
                 </div>
@@ -243,13 +243,13 @@ export default function BrandPageEn() {
                   Full palette
                 </p>
                 <div className="flex rounded-lg overflow-hidden border border-border h-16">
-                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.3421 0.0379 61.15)' }} />
-                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.4563 0.0061 48.59)' }} />
-                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.5967 0.0558 61.59)' }} />
-                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.7262 0.0037 67.77)' }} />
-                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.9068 0.0112 89.73)' }} />
-                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.9404 0.0082 61.08)' }} />
-                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.9779 0.0042 56.38)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.22 0.02 85)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.62 0.22 40)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.68 0.1 75)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.72 0.08 85)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.925 0.005 85)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.94 0.005 85)' }} />
+                  <div className="flex-1" style={{ backgroundColor: 'oklch(0.958 0.005 85)' }} />
                   <div className="flex-1" style={{ backgroundColor: 'oklch(1 0 0)' }} />
                 </div>
                 <div className="flex justify-between mt-2">
@@ -270,16 +270,16 @@ export default function BrandPageEn() {
               Typography
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-              We use Geist Sans as the primary font for interfaces and body text.
-              Asar for titles and headings. For monospace contexts we use Geist Mono.
+              We use Instrument Sans as the primary font for interfaces and body text.
+              Instrument Serif for titles and headings. For monospace contexts we use Berkeley Mono.
             </p>
 
             <div className="space-y-6">
               <div className="bg-muted border border-border rounded-lg p-8">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
-                  Asar &mdash; Serif (headings)
+                  Instrument Serif &mdash; Serif (headings)
                 </p>
-                <p className="text-4xl font-medium tracking-tight mb-4">
+                <p className="text-4xl font-serif font-normal tracking-tight mb-4">
                   Aa Bb Cc Dd Ee Ff Gg
                 </p>
                 <p className="text-sm text-muted-foreground">
@@ -290,7 +290,7 @@ export default function BrandPageEn() {
 
               <div className="bg-muted border border-border rounded-lg p-8">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
-                  Geist Sans &mdash; Sans-serif (body)
+                  Instrument Sans &mdash; Sans-serif (body)
                 </p>
                 <p className="text-4xl font-light tracking-tight mb-1">
                   Aa Bb Cc Dd Ee Ff Gg

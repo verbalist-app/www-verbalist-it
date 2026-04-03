@@ -57,7 +57,7 @@ export default function GenerationPage() {
             Back to documentation
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Content Generation
           </h1>
           <p className="text-base text-muted-foreground mb-8">

@@ -19,14 +19,14 @@ export default function ApiPage() {
             Configurazione
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             API e integrazioni
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Automatizza workflow e integra Verbalist con i tuoi strumenti.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">API REST</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Verbalist espone API REST per tutte le funzionalità principali: avviare analisi, recuperare pattern, generare contenuti. Documentazione completa disponibile nella sezione developer.

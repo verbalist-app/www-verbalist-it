@@ -19,14 +19,14 @@ export default function ContenutiProtettiPage() {
             Scraping competitor
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Gestire contenuti protetti
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Alcune pagine bloccano l'accesso automatico. Ecco come gestire questi casi.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Perché alcune pagine non sono accessibili</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Alcuni siti usano protezioni anti-bot, paywall, login obbligatorio o blocchi geografici. Verbalist non può accedere a questi contenuti automaticamente.

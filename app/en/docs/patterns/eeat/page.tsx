@@ -19,7 +19,7 @@ export default function EeatPage() {
             Pattern Analysis
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             E-E-A-T Analysis
           </h1>
           <p className="text-muted-foreground mb-8">

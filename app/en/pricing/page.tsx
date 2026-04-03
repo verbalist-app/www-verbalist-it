@@ -39,7 +39,7 @@ export default function PricingPage() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Pricing
           </p>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl sm:text-4xl font-serif font-normal tracking-tight mb-4">
             One plan, everything included
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -98,7 +98,7 @@ export default function PricingPage() {
           </p>
 
           <div className="rounded-xl border bg-muted/40 p-6 md:p-8">
-            <div className="grid grid-cols-3 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
               {[
                 { type: "Blog post", credits: "~20", output: "~15 per month" },
                 { type: "Product page", credits: "~15", output: "~20 per month" },
@@ -133,7 +133,7 @@ export default function PricingPage() {
 
         {/* FAQ */}
         <div className="mt-20 max-w-2xl mx-auto">
-          <h2 className="text-xl font-medium tracking-tight text-center mb-8">
+          <h2 className="text-xl font-normal tracking-tight text-center mb-8">
             Frequently asked questions
           </h2>
           <Accordion type="single" collapsible>

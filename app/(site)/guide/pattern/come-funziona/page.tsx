@@ -19,14 +19,14 @@ export default function ComeFunzionaPage() {
             Analisi pattern
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Come funziona il pattern detection
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Verbalist analizza i contenuti estratti per identificare cosa hanno in comune i top performer.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Analisi comparativa</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Il sistema confronta tutti i contenuti estratti cercando elementi ricorrenti. Se 8 su 10 competitor hanno una sezione FAQ, quella è un pattern.

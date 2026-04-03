@@ -19,14 +19,14 @@ export default function TonePage() {
             Generazione contenuto
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Personalizzare il tone of voice
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Configura Verbalist per generare contenuti con il tuo stile.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Creare un Tone Profile</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Vai in Impostazioni → Tone Profile e crea un nuovo profilo. Puoi avere più profili per diversi brand o tipi di contenuto.

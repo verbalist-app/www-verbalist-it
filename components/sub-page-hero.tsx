@@ -1,9 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 
 type Locale = 'it' | 'en'
 
@@ -12,92 +10,96 @@ const defaults = {
   en: { text: "Book a demo", href: "/en/book-demo" },
 } as const
 
+const logos = [
+  { name: "Jurny", src: "/logos/jurny.svg" },
+  { name: "Pompea", src: "/logos/pompea.svg" },
+  { name: "Rentokil", src: "/logos/rentokil.svg" },
+  { name: "Meccanotecnica", src: "/logos/meccanotecnica.svg" },
+  { name: "Plastisac", src: "/logos/plastisac.svg" },
+  { name: "Sogese", src: "/logos/sogese.svg" },
+]
+
 interface SubPageHeroProps {
-  /** Small label at top (feature/page name) */
+  /** Small label at top (feature category) */
   label?: string
-  /** @deprecated Use label instead */
-  icon?: LucideIcon
-  /** H1 - descriptive value proposition */
+  /** H1 - short, outcome-focused */
   title: string
-  /** Subtitle/description */
+  /** Subtitle - explains the how, same size, muted color */
   description: string
-  /** Back link to parent page */
-  backLink?: {
-    label: string
-    href: string
-  }
   primaryCta?: {
-    text: string
-    href: string
-  }
-  secondaryCta?: {
     text: string
     href: string
   }
   className?: string
   locale?: Locale
+  /** Optional override content below the text. When omitted, client logos are shown. */
+  children?: React.ReactNode
 }
 
 export function SubPageHero({
   label,
-  icon: Icon,
   title,
   description,
-  backLink,
   primaryCta,
-  secondaryCta,
   className,
   locale = 'it',
+  children,
 }: SubPageHeroProps) {
   const cta = primaryCta ?? defaults[locale]
 
   return (
     <section className={cn("bg-background", className)}>
-      <div className="relative py-32 md:pt-44 md:pb-24">
+      <div className="relative pt-32 md:pt-44 pb-16">
         <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
-          <div className="mx-auto max-w-xl text-center">
-            {backLink && (
-              <div className="mb-6">
-                <Link
-                  href={backLink.href}
-                  className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <ChevronLeft className="size-3.5" />
-                  {backLink.label}
-                </Link>
-              </div>
+          <div className="max-w-2xl">
+            {label && (
+              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
             )}
-            {label ? (
-              <Badge variant="secondary" className="mb-4">
-                {label}
-              </Badge>
-            ) : Icon ? (
-              <div className="mb-6 inline-flex items-center justify-center rounded-lg border border-border bg-muted p-3">
-                <Icon className="size-6 text-foreground" strokeWidth={1.5} />
-              </div>
-            ) : null}
-            <h1 className="font-serif text-balance text-4xl font-medium tracking-tighter sm:text-5xl">
+            <h1 className="mt-3 text-balance text-4xl font-serif font-normal tracking-tight sm:text-5xl">
               {title}
             </h1>
-            <p className="text-muted-foreground mt-6 text-balance text-lg leading-relaxed">
+            <p className="mt-6 text-balance text-lg leading-relaxed text-muted-foreground">
               {description}
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button asChild className="pr-1.5">
+            <div className="mt-8">
+              <Button asChild variant="neutral" className="pr-1.5">
                 <Link href={cta.href}>
                   <span className="text-nowrap">{cta.text}</span>
-                  <ChevronRight className="opacity-50" />
+                  <ChevronRight className="size-4 opacity-50" />
                 </Link>
               </Button>
-              {secondaryCta && (
-                <Button asChild variant="ghost" size="sm">
-                  <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
-                </Button>
-              )}
             </div>
           </div>
         </div>
       </div>
+      {children ? (
+        <div className="mx-auto w-full max-w-5xl px-6 pb-16">
+          {children}
+        </div>
+      ) : (
+        <>
+          <div className="mx-auto w-full max-w-5xl px-6 pb-12 pt-10">
+            <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+              {logos.map((logo) => (
+                <div
+                  key={logo.name}
+                  className="flex h-16 items-center justify-center rounded-md bg-accent sm:h-20 md:h-24"
+                >
+                  <div
+                    role="img"
+                    aria-label={logo.name}
+                    className="h-5 w-16 bg-foreground sm:h-6 sm:w-20"
+                    style={{
+                      mask: `url(${logo.src}) no-repeat center / contain`,
+                      WebkitMask: `url(${logo.src}) no-repeat center / contain`,
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </section>
   )
 }

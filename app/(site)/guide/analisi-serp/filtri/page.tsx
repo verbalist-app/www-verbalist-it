@@ -19,14 +19,14 @@ export default function FiltriPage() {
             Analisi SERP
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Filtri e opzioni avanzate
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Configura l'analisi per ottenere risultati rilevanti per il tuo mercato.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Paese</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Seleziona il paese target. Google mostra risultati diversi in base alla geolocalizzazione. Se targetti il mercato italiano, seleziona Italia. Per mercati esteri, scegli il paese corrispondente.

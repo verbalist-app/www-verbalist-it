@@ -19,14 +19,14 @@ export default function ProgettiPage() {
             Configurazione
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Gestione progetti
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Organizza il tuo lavoro in progetti per tenere tutto ordinato.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Creare un progetto</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Clicca "Nuovo progetto" nella dashboard. Assegna un nome descrittivo (es. "Blog aziendale", "Sito e-commerce", "Cliente X"). Puoi aggiungere una descrizione opzionale.

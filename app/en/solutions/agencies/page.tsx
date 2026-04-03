@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import Testimonials from "@/components/testimonials-4"
-import { FeatureChecklist } from "@/components/feature-checklist"
-import { WorkflowSteps } from "@/components/workflow-steps"
+import { BentoGrid } from "@/components/bento-grid"
+
 
 export const metadata: Metadata = {
   title: "GEO-ready content for agencies",
@@ -17,78 +16,139 @@ export const metadata: Metadata = {
   },
 }
 
-const featureColumns = [
-  {
-    items: [
-      "Separate projects per client",
-      "Multi-project dashboard",
-      "Team and permission management",
-      "Organized workspaces",
-    ],
-  },
-  {
-    items: [
-      "Search results analysis for every keyword",
-      "Automatic pattern detection",
-      "Semantic structure for LLMs",
-      "Quality and authority signals extracted",
-    ],
-  },
-  {
-    items: [
-      "Export in Markdown and HTML",
-      "Tone of voice per client",
-      "Multi-language support",
-      "Document history",
-    ],
-  },
-]
+function MultiClientIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="space-y-2">
+        {[75, 50, 25].map((progress, i) => (
+          <div key={i} className="flex items-center gap-3 rounded-lg bg-background p-3">
+            <div className={`flex size-6 shrink-0 items-center justify-center rounded-md text-[9px] font-semibold ${i === 0 ? "bg-foreground text-background" : "bg-foreground/8 text-foreground/40"}`}>
+              {String.fromCharCode(65 + i)}
+            </div>
+            <div className="flex-1">
+              <div className="h-1.5 w-full overflow-hidden rounded-full bg-foreground/8">
+                <div className="h-full rounded-full bg-foreground/20" style={{ width: `${progress}%` }} />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
-const workflowSteps = [
-  {
-    step: 1,
-    title: "Create the project for the client",
-    description: "Dedicated workspace with separate keywords, documents and history for each account.",
-  },
-  {
-    step: 2,
-    title: "Automatic search results analysis",
-    description: "Enter the keyword, Verbalist analyzes the top 10 results and extracts structure, topics and quality and authority signals.",
-  },
-  {
-    step: 3,
-    title: "GEO-ready content generation",
-    description: "Draft with semantic structure optimized for AI search. Title, meta, headings and body text. Customized tone of voice per client.",
-  },
-  {
-    step: 4,
-    title: "Review and publish",
-    description: "Your team refines the draft, adapts it to the client's brand and publishes. Export in Markdown or HTML.",
-  },
-]
+function AnalysisIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-2">
+          {[90, 80, 70, 55].map((pct, i) => (
+            <div key={i} className="flex items-center gap-2.5">
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-foreground/8">
+                <div className="h-full rounded-full bg-foreground/20" style={{ width: `${pct}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ExportIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-3">
+          <div className="h-2 w-3/5 rounded bg-foreground/20" />
+          <div className="space-y-1.5">
+            <div className="h-1.5 w-full rounded bg-foreground/8" />
+            <div className="h-1.5 w-5/6 rounded bg-foreground/8" />
+            <div className="h-1.5 w-3/4 rounded bg-foreground/8" />
+          </div>
+          <div className="h-2 w-2/5 rounded bg-foreground/15" />
+          <div className="space-y-1.5">
+            <div className="h-1.5 w-full rounded bg-foreground/8" />
+            <div className="h-1.5 w-4/5 rounded bg-foreground/8" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ScalableWorkflowIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="flex items-center gap-3">
+          {[25, 20, 15, 10].map((opacity, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <div
+                className="size-4 shrink-0 rounded-full"
+                style={{ backgroundColor: `hsl(0 0% 0% / ${opacity}%)` }}
+              />
+              {i < 3 && <div className="h-1.5 w-6 rounded bg-foreground/8" />}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function SharedCreditsIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-2.5">
+          {[85, 60, 45, 30].map((pct, i) => (
+            <div key={i} className="h-2 rounded bg-foreground/12" style={{ width: `${pct}%` }} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function AgenciesPage() {
   return (
     <>
       <SubPageHero locale="en"
         label="Agencies"
-        title="GEO-ready content for every client, from a single workflow"
-        description="Deliver content optimized for ChatGPT, Perplexity and AI Overview to your clients. Without building a GEO framework for each account."
+        title="AI search content for every client"
+        description="One workflow to analyze, generate and deliver. Without starting from scratch each time."
       />
 
-      <WorkflowSteps
-        title="From keyword to GEO-ready content"
-        description="A structured workflow for every client. Your team focuses on strategy and refinement."
-        steps={workflowSteps}
+      <BentoGrid
+        items={[
+          {
+            title: "Multi-client management",
+            description: "Separate projects per account. Dashboard, keywords and document history organized per client.",
+            visual: <MultiClientIllustration />,
+          },
+          {
+            title: "Analysis and patterns",
+            description: "Search results analysis for every keyword. Pattern detection, semantic structure and quality signals extracted.",
+            visual: <AnalysisIllustration />,
+          },
+          {
+            title: "Export and delivery",
+            description: "Export in Markdown and HTML. Customized tone of voice per client, multi-language support.",
+            visual: <ExportIllustration />,
+          },
+          {
+            title: "Scalable workflow",
+            description: "From keyword to content in 4 automated steps. Same process, consistent quality across every client.",
+            visual: <ScalableWorkflowIllustration />,
+          },
+          {
+            title: "Shared credits",
+            description: "One plan, credits distributed across clients. Dashboard to monitor usage per account.",
+            visual: <SharedCreditsIllustration />,
+          },
+        ]}
       />
-
-      <FeatureChecklist
-        title="Multi-client management with GEO output"
-        description="Organize projects, analyze competitors and generate content structured for AI search. For every account."
-        columns={featureColumns}
-      />
-
-      <Testimonials locale="en" />
 
       <SubPageCTA locale="en" />
     </>

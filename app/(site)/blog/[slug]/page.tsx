@@ -88,7 +88,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <Badge variant="secondary" className="rounded-full text-xs font-normal mb-4">
             {categoryLabels[post.category] || post.category}
           </Badge>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4 max-w-3xl">
+          <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4 max-w-3xl">
             {post.title}
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-4">

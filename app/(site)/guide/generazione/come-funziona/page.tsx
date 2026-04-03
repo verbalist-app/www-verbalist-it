@@ -19,14 +19,14 @@ export default function ComeFunzionaPage() {
             Generazione contenuto
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Come funziona la generazione
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Verbalist usa i pattern estratti per generare contenuto ottimizzato.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Input: i pattern</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               La generazione parte dai pattern estratti: word count target, struttura heading, topic da coprire, segnali E-E-A-T. Questi dati definiscono le specifiche del contenuto.

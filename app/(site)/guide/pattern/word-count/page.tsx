@@ -19,14 +19,14 @@ export default function WordCountPage() {
             Analisi pattern
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Ottimizzare il word count
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Trova la lunghezza ideale analizzando i contenuti che già performano.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Perché il word count conta</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Non esiste una lunghezza "giusta" universale. La lunghezza ideale dipende dalla query, dall'intento di ricerca e da cosa Google sta già premiando per quella keyword specifica.

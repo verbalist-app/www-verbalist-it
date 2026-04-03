@@ -19,14 +19,14 @@ export default function AccountPage() {
             Configurazione
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Impostazioni account
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Gestisci le informazioni del tuo account e le preferenze personali.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Profilo</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Modifica nome, email e avatar. L'email è usata per login e notifiche. Puoi cambiarla in qualsiasi momento verificando la nuova email.

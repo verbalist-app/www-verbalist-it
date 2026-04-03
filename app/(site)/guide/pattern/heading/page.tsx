@@ -19,14 +19,14 @@ export default function HeadingPage() {
             Analisi pattern
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Struttura heading
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Gli heading definiscono la struttura del contenuto. Verbalist analizza come i competitor organizzano le informazioni.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">H1: il titolo principale</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Verbalist analizza i pattern degli H1: lunghezza media, presenza keyword, formato (domanda, how-to, lista). Il tuo H1 dovrebbe seguire il pattern vincente.

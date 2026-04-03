@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
       <section className="pt-20 md:pt-28 pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <div className="mb-12">
-            <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight text-foreground mb-6">
               Privacy Policy
             </h1>
           </div>

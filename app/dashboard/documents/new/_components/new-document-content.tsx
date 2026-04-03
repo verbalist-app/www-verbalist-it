@@ -243,7 +243,7 @@ function NewDocumentInner() {
           <ArrowLeft className="size-4" />
           {t(content.documents)}
         </Link>
-        <h1 className="text-xl font-semibold tracking-tighter lg:text-2xl">
+        <h1 className="text-xl font-semibold tracking-tight lg:text-2xl">
           {t(content.newDocument)}
         </h1>
         <p className="text-sm text-muted-foreground mt-1">

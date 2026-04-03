@@ -19,14 +19,14 @@ export default function ExportPage() {
             Generazione contenuto
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Esportazione finale
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Esporta il contenuto nel formato che preferisci per pubblicarlo.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Markdown</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Il formato nativo di Verbalist. Perfetto per CMS che supportano Markdown (Ghost, Hugo, Jekyll) o per importare in editor come Notion o Obsidian.

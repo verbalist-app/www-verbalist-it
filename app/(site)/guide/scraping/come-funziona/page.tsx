@@ -19,14 +19,14 @@ export default function ComeFunzionaPage() {
             Scraping competitor
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Come funziona lo scraping
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Il processo che Verbalist usa per estrarre i contenuti dalle pagine competitor.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Visita automatica</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Verbalist visita automaticamente ogni URL nei top 10. Il sistema simula un browser reale per accedere ai contenuti come li vedrebbe un utente.

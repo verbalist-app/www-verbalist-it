@@ -249,7 +249,7 @@ export function DashboardContent() {
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-xl font-semibold tracking-tighter lg:text-2xl">{txt.heading}</h1>
+          <h1 className="text-xl font-semibold tracking-tight lg:text-2xl">{txt.heading}</h1>
           <p className="text-sm text-muted-foreground mt-1">
             {txt.subtitle}
           </p>
@@ -441,7 +441,7 @@ export function DashboardContent() {
             <div className="flex size-12 items-center justify-center rounded-full bg-foreground/10 mx-auto mb-4">
               <Sparkles className="size-6 text-foreground" />
             </div>
-            <h2 className="text-xl font-semibold tracking-tighter">{txt.empty.title}</h2>
+            <h2 className="text-xl font-semibold tracking-tight">{txt.empty.title}</h2>
             <p className="text-sm text-muted-foreground mt-2 max-w-md mx-auto">
               {txt.empty.description}
             </p>

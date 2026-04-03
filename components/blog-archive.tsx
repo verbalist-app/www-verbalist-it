@@ -56,7 +56,7 @@ function PostList({ posts, locale }: { posts: BlogPost[]; locale: "it" | "en" })
       {posts.map((post) => (
         <article key={post.slug} className="py-8 first:pt-0">
           <time className="text-sm text-muted-foreground mb-3 block">{post.date}</time>
-          <h2 className="text-lg font-medium tracking-tight mb-2">
+          <h2 className="text-lg font-normal tracking-tight mb-2">
             <Link
               href={`${basePath}/${post.slug}`}
               className="hover:underline underline-offset-4 decoration-border hover:decoration-foreground transition-colors"

@@ -169,7 +169,7 @@ export default function GuidePage() {
             <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Supporto
             </p>
-            <h1 className="font-serif text-3xl font-medium tracking-tighter md:text-4xl">
+            <h1 className="text-3xl font-serif font-normal tracking-tight md:text-4xl">
               Guide
             </h1>
             <p className="mt-2 text-base text-muted-foreground">

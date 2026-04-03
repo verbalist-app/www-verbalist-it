@@ -43,7 +43,7 @@ export function WorkflowSection({ title, subtitle, steps, className }: WorkflowS
                   <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Step {step.step}
                   </span>
-                  <h3 className="mt-2 text-xl font-medium tracking-tight md:text-2xl">
+                  <h3 className="mt-2 text-xl font-normal tracking-tight md:text-2xl">
                     {step.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground max-w-lg">

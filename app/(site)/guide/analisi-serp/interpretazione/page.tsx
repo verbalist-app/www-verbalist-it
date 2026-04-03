@@ -19,14 +19,14 @@ export default function InterpretazionePage() {
             Analisi SERP
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Interpretare i dati SERP
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Guida alla lettura dei dati estratti dall'analisi SERP.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Posizione e visibilità</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Ogni risultato mostra la posizione in SERP (1-10). Le prime 3 posizioni catturano circa il 60% dei click. Analizza cosa hanno in comune i contenuti nelle top 3.

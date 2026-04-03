@@ -19,14 +19,14 @@ export default function EditingPage() {
             Generazione contenuto
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Editing e revisione
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Il contenuto generato è un punto di partenza. L'editing lo trasforma in contenuto eccellente.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Editor integrato</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Verbalist include un editor Markdown con preview in tempo reale. Puoi modificare il contenuto direttamente nell'interfaccia senza esportare.

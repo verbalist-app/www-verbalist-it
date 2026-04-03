@@ -412,7 +412,7 @@ export function DocumentsContent() {
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-xl font-semibold tracking-tighter lg:text-2xl">{c.title}</h1>
+          <h1 className="text-xl font-semibold tracking-tight lg:text-2xl">{c.title}</h1>
           <p className="text-sm text-muted-foreground mt-1">
             {c.subtitle}
           </p>

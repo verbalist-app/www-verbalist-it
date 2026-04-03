@@ -1,16 +1,22 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import localFont from 'next/font/local'
-import { GeistSans } from 'geist/font/sans'
+import { Instrument_Sans, Instrument_Serif } from 'next/font/google'
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { OrganizationSchema } from "@/components/schema"
 import { LangSync } from "@/components/lang-sync"
 import "./globals.css"
 
-const asar = localFont({
-  src: '../public/fonts/Asar-Regular.woff2',
-  variable: '--font-serif',
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans-var',
+  display: 'swap',
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-serif-var',
   display: 'swap',
 })
 
@@ -110,7 +116,7 @@ export default function RootLayout({
       <head>
         <OrganizationSchema />
       </head>
-      <body className={`${GeistSans.variable} ${asar.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
+      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <noscript>
             <iframe

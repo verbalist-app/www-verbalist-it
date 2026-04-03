@@ -19,14 +19,14 @@ export default function ParametriPage() {
             Generazione contenuto
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Parametri avanzati
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Personalizza la generazione per ottenere esattamente il contenuto che vuoi.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Temperatura</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Controlla la creatività del modello. Bassa (0.3-0.5): output più prevedibile e aderente ai pattern. Alta (0.7-0.9): più creatività e variazione. Per SEO, valori medi (0.5-0.7) funzionano bene.

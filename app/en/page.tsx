@@ -2,7 +2,6 @@ import { HeroSection } from "@/components/hero-section"
 import LogoCloud from "@/components/logo-cloud-1"
 import Features from "@/components/features-ten"
 import FAQs from "@/components/faqs-3"
-import Testimonials from "@/components/testimonials-4"
 import { SubPageCTA } from "@/components/sub-page-cta"
 import type { Metadata } from "next"
 
@@ -27,7 +26,6 @@ export default function HomeEn() {
       <HeroSection locale="en" />
       <LogoCloud className="border-t" />
       <Features className="border-t" locale="en" />
-      <Testimonials locale="en" />
       <FAQs className="border-t" locale="en" />
       <SubPageCTA
         className="border-t"

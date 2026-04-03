@@ -19,14 +19,14 @@ export default function EeatPage() {
             Analisi pattern
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Analisi E-E-A-T
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Experience, Expertise, Authoritativeness, Trustworthiness. I segnali che Google usa per valutare la qualità.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Cosa rileva Verbalist</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Il sistema analizza i contenuti dei top performer per identificare segnali E-E-A-T: bio autore, credenziali, citazioni di fonti, dati e statistiche, date di aggiornamento, riferimenti a esperienze dirette.

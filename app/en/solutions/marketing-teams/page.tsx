@@ -1,9 +1,8 @@
-import { FileText, Palette, PenTool, Target, Layers, RefreshCw } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import Testimonials from "@/components/testimonials-4"
-import { Feature2 } from "@/components/feature-2"
+import { BentoGrid } from "@/components/bento-grid"
+
 
 export const metadata: Metadata = {
   title: "GEO content for Content Creators",
@@ -17,55 +16,130 @@ export const metadata: Metadata = {
   },
 }
 
-const features = [
-  {
-    icon: FileText,
-    title: "Blog posts structured for AI search",
-    description: "Drafts with headings, paragraphs and meta tags based on patterns from content that ranks on Google and gets cited by LLMs.",
-  },
-  {
-    icon: Palette,
-    title: "Configurable tone of voice",
-    description: "Professional, conversational or technical. Every draft follows your style and brand guidelines.",
-  },
-  {
-    icon: PenTool,
-    title: "Landing pages and guides",
-    description: "Structure, sections and CTAs adapted to the format. From search intent to final content, with semantic structure for LLMs.",
-  },
-  {
-    icon: Target,
-    title: "Customizable target audience",
-    description: "Define your target audience and Verbalist adapts language, depth and tone accordingly.",
-  },
-  {
-    icon: Layers,
-    title: "Title tag and meta description",
-    description: "SEO on-page and optimized heading structure. Content designed to rank on Google and be cited in AI search.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Export and iteration",
-    description: "Export in Markdown and HTML. Refine, iterate and publish. Document history for every project.",
-  },
-]
+function DraftIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-3">
+          <div className="h-2 w-3/5 rounded bg-foreground/20" />
+          <div className="space-y-1.5">
+            <div className="h-1.5 w-full rounded bg-foreground/8" />
+            <div className="h-1.5 w-11/12 rounded bg-foreground/8" />
+            <div className="h-1.5 w-4/5 rounded bg-foreground/8" />
+          </div>
+          <div className="h-2 w-2/5 rounded bg-foreground/15" />
+          <div className="space-y-1.5">
+            <div className="h-1.5 w-full rounded bg-foreground/8" />
+            <div className="h-1.5 w-3/4 rounded bg-foreground/8" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ToneVoiceIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="grid grid-cols-2 gap-2">
+          {[true, false, false, false].map((active, i) => (
+            <div key={i} className={`h-8 rounded-md ${active ? "bg-foreground" : "bg-foreground/6"}`} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ExportIterateIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-2">
+          {[true, false, false].map((active, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <div className={`size-2 shrink-0 rounded-full ${active ? "bg-foreground" : "bg-foreground/15"}`} />
+              <div className={`h-1.5 flex-1 rounded ${active ? "bg-foreground/15" : "bg-foreground/6"}`} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function RealDataIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="flex items-end gap-2">
+          {[40, 70, 55, 85, 65, 45].map((h, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded bg-foreground/12"
+              style={{ height: `${h}%`, minHeight: `${h * 0.5}px` }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function FourFormatsIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="grid grid-cols-2 gap-2">
+          <div className="h-10 rounded-md bg-foreground/20" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function MarketingTeamsPage() {
   return (
     <>
       <SubPageHero locale="en"
         label="Content Creator"
-        title="Content structured for Google and AI search"
-        description="Search results analysis and pattern extraction are automated. You get drafts with semantic structure optimized for visibility on Google, ChatGPT, Perplexity and AI Overview."
+        title="Get a structured draft, ready to go"
+        description="Verbalist handles the analysis and structure. You add the voice and publish."
       />
 
-      <Feature2
-        title="Content for every format, optimized for GEO"
-        description="Blog posts, landing pages, guides. Every format with the optimal structure to be indexed and cited in AI search."
-        items={features}
+      <BentoGrid
+        items={[
+          {
+            title: "Structured drafts",
+            description: "Headings, paragraphs and meta tags based on patterns that work. Blog posts, landing pages and guides.",
+            visual: <DraftIllustration />,
+          },
+          {
+            title: "Tone of voice",
+            description: "Professional, friendly, technical or educational. Every draft follows your style and brand guidelines.",
+            visual: <ToneVoiceIllustration />,
+          },
+          {
+            title: "Export and iteration",
+            description: "Export in Markdown and HTML. Document history for every project. Refine, iterate and publish.",
+            visual: <ExportIterateIllustration />,
+          },
+          {
+            title: "Based on real data",
+            description: "No guesswork: it analyzes what works in Google results and builds content on those patterns.",
+            visual: <RealDataIllustration />,
+          },
+          {
+            title: "Four formats",
+            description: "Blog post, product page, guide and landing page. Choose the format, generate the structured draft.",
+            visual: <FourFormatsIllustration />,
+          },
+        ]}
       />
-
-      <Testimonials locale="en" />
 
       <SubPageCTA locale="en" />
     </>

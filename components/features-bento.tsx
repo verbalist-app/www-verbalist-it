@@ -232,7 +232,7 @@ export function FeaturesBento({ className, locale = "it" }: FeaturesBentoProps) 
                 <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {feature.step}
                 </span>
-                <h3 className="mt-2 text-xl font-medium tracking-tight md:text-2xl">
+                <h3 className="mt-2 text-xl font-normal tracking-tight md:text-2xl">
                   {feature.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">

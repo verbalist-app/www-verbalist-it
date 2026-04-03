@@ -44,7 +44,7 @@ export default function PrezziPage() {
             <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Prezzi
             </p>
-            <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+            <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
               Un piano, tutto incluso
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -95,7 +95,7 @@ export default function PrezziPage() {
 
           {/* How credits work */}
           <div className="mt-16 max-w-2xl mx-auto">
-            <h2 className="text-xl font-medium tracking-tight text-center mb-3">
+            <h2 className="text-xl font-normal tracking-tight text-center mb-3">
               Come funzionano i crediti
             </h2>
             <p className="text-sm text-muted-foreground text-center mb-8">
@@ -103,7 +103,7 @@ export default function PrezziPage() {
             </p>
 
             <div className="rounded-xl border bg-muted/40 p-6 md:p-8">
-              <div className="grid grid-cols-3 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
                 {[
                   { type: "Blog post", credits: "~20", output: "~15 al mese" },
                   { type: "Pagina prodotto", credits: "~15", output: "~20 al mese" },
@@ -138,7 +138,7 @@ export default function PrezziPage() {
 
           {/* FAQ */}
           <div className="mt-20 max-w-2xl mx-auto">
-            <h2 className="text-xl font-medium tracking-tight text-center mb-8">
+            <h2 className="text-xl font-normal tracking-tight text-center mb-8">
               Domande frequenti
             </h2>
             <Accordion type="single" collapsible>

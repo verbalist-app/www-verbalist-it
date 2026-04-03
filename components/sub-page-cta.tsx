@@ -58,7 +58,7 @@ export function SubPageCTA({
           {description}
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <Button asChild className="pr-1.5">
+          <Button asChild variant="neutral" className="pr-1.5">
             <Link href={primaryCta.href}>
               <span>{primaryCta.text}</span>
               <ChevronRight className="opacity-50" />

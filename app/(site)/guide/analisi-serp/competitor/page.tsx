@@ -19,14 +19,14 @@ export default function CompetitorPage() {
             Analisi SERP
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Analisi competitor
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Come usare i dati SERP per capire cosa fanno i competitor e dove puoi fare meglio.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Identificare i competitor reali</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               I competitor nella SERP non sono sempre quelli che pensi. Grandi portali, Wikipedia, forum possono occupare posizioni. Concentrati sui competitor diretti che producono contenuto simile al tuo.

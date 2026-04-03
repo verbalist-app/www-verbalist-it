@@ -18,14 +18,14 @@ export default function BestPracticePage() {
       />
       <article className="pt-20 md:pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-6">
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Best Practice
           </h1>
           <p className="text-base text-muted-foreground mb-8">
             Strategie testate per ottenere i migliori risultati da Verbalist.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">1. Scegli keyword specifiche</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Keyword troppo generiche producono analisi meno utili. "scarpe running" è meglio di "scarpe". "scarpe running per pronatori principianti" è ancora meglio. Più specifica la keyword, più precisi i pattern.

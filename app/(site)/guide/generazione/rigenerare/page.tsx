@@ -19,14 +19,14 @@ export default function RigenerarePage() {
             Generazione contenuto
           </Link>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight mb-4">
             Rigenerare sezioni
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             Non devi rigenerare tutto il contenuto se una sezione non ti convince.
           </p>
 
-          <div className="prose prose-neutral max-w-none">
+          <div className="prose-verbalist max-w-none">
             <h2 className="text-sm font-medium text-foreground mb-2">Rigenerazione selettiva</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Seleziona una sezione nell'editor e clicca "Rigenera". Verbalist riscrive solo quella parte mantenendo il resto del contenuto intatto.

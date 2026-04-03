@@ -108,7 +108,7 @@ export const BoxedHeader = ({ locale = 'it' }: BoxedHeaderProps) => {
     const t = content[locale]
 
     return (
-        <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
+        <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
             <nav
                 data-state={menuState && 'active'}
                 className="w-full">
@@ -213,12 +213,6 @@ export const BoxedHeader = ({ locale = 'it' }: BoxedHeaderProps) => {
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
 
-                                    {/* Book a demo */}
-                                    <NavigationMenuItem>
-                                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                            <Link href={t.bookDemoHref}>{t.labels.bookDemo}</Link>
-                                        </NavigationMenuLink>
-                                    </NavigationMenuItem>
                                 </NavigationMenuList>
                             </NavigationMenu>
                         </div>

@@ -87,14 +87,14 @@ export function HeroSection({
                   <Badge variant="secondary" className="mb-4">
                     Verbalist®
                   </Badge>
-                  <h1 className="font-serif text-balance text-5xl font-medium tracking-tighter sm:text-6xl">
+                  <h1 className="text-balance text-5xl font-serif font-normal tracking-tight sm:text-6xl">
                     {t.h1}
                   </h1>
                   <p className="text-muted-foreground mt-6 text-balance text-lg leading-relaxed">
                     {t.description}
                   </p>
                   <div className="mt-6 flex gap-3">
-                    <Button asChild className="pr-1.5">
+                    <Button asChild variant="neutral" className="pr-1.5">
                       <Link href={t.primaryCta.href}>
                         <span className="text-nowrap">
                           {t.primaryCta.text}
@@ -127,7 +127,7 @@ export function HeroSection({
                     </div>
                   ))}
                   {/* Search input overlay */}
-                  <div className="bg-card ring-border shadow-foreground/[0.065] absolute inset-0 m-auto mt-auto flex h-fit min-w-[20rem] justify-between gap-3 rounded-full p-2 shadow-xl ring-1 sm:inset-2 dark:shadow-black/[0.065]">
+                  <div className="bg-card ring-border absolute inset-0 m-auto mt-auto flex h-fit min-w-[20rem] justify-between gap-3 rounded-full p-2 shadow-sm ring-1 sm:inset-2">
                     <div className="flex items-center gap-2">
                       <button type="button" className="hover:bg-muted flex size-9 cursor-pointer rounded-full *:m-auto *:size-4" aria-label="Add keyword" tabIndex={-1}>
                         <Plus />

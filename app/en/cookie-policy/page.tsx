@@ -27,7 +27,7 @@ export default function CookiePolicyPage() {
             </svg>
             Back to home
           </Link>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter text-foreground mb-6">
+          <h1 className="text-3xl md:text-4xl font-serif font-normal tracking-tight text-foreground mb-6">
             Cookie Policy
           </h1>
         </div>

@@ -1,11 +1,7 @@
-import { BarChart3, Layers, TrendingUp, Target } from "lucide-react"
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import { TrustedBy } from "@/components/trusted-by"
-import { FeatureChecklist } from "@/components/feature-checklist"
-import { HighlightBlock } from "@/components/highlight-block"
-import Testimonials from "@/components/testimonials-4"
+import { BentoGrid } from "@/components/bento-grid"
 
 export const metadata: Metadata = {
   title: "SEO Pattern Analysis",
@@ -19,64 +15,18 @@ export const metadata: Metadata = {
   },
 }
 
-const featureColumns = [
-  {
-    items: [
-      "Average word count and range",
-      "Length distribution",
-      "Paragraphs and sentences",
-      "Estimated reading time",
-    ],
-  },
-  {
-    items: [
-      "Common heading structure",
-      "H2 and H3 patterns",
-      "Recurring sections",
-      "Topic order",
-    ],
-  },
-  {
-    items: [
-      "Topic coverage analysis",
-      "Content gap detection",
-      "Quality and authority signals",
-      "Competitive scoring",
-    ],
-  },
-]
-
 function WordCountIllustration() {
   return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-4">
-        <div className="rounded-lg border bg-background p-4 shadow-sm">
-          <div className="text-xs font-medium text-muted-foreground mb-3">Word Count Distribution</div>
-          <div className="flex items-end gap-1 h-20">
-            {[35, 55, 85, 100, 90, 70, 45, 25].map((height, i) => (
-              <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                <div
-                  className={`w-full rounded-t ${i === 3 ? "bg-foreground" : "bg-foreground/40"}`}
-                  style={{ height: `${height}%` }}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-between mt-2 text-[10px] text-muted-foreground">
-            <span>800</span>
-            <span>1500</span>
-            <span>2200</span>
-          </div>
-        </div>
-        <div className="flex gap-2">
-          <div className="flex-1 rounded-lg border bg-background p-3 shadow-sm text-center">
-            <div className="text-lg font-medium">1,450</div>
-            <div className="text-[10px] text-muted-foreground">Avg words</div>
-          </div>
-          <div className="flex-1 rounded-lg border bg-background p-3 shadow-sm text-center">
-            <div className="text-lg font-medium">1.2-1.8k</div>
-            <div className="text-[10px] text-muted-foreground">Range</div>
-          </div>
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="flex h-20 items-end gap-1.5">
+          {[35, 55, 85, 100, 90, 70, 45, 25].map((height, i) => (
+            <div
+              key={i}
+              className={`flex-1 rounded-sm ${i === 3 ? "bg-foreground/25" : "bg-foreground/10"}`}
+              style={{ height: `${height}%` }}
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -85,26 +35,73 @@ function WordCountIllustration() {
 
 function StructureIllustration() {
   return (
-    <div className="flex h-full w-full items-center justify-center p-6">
-      <div className="w-full max-w-xs space-y-3">
-        <div className="rounded-lg border bg-background p-4 shadow-sm">
-          <div className="text-xs font-medium text-muted-foreground mb-3">Common Structure</div>
-          <div className="space-y-2">
-            {[
-              { pattern: "H1 + Intro", frequency: 100 },
-              { pattern: "H2: Definition", frequency: 90 },
-              { pattern: "H2: How it works", frequency: 85 },
-              { pattern: "H2: Benefits", frequency: 80 },
-              { pattern: "H2: FAQ", frequency: 60 },
-            ].map((item) => (
-              <div key={item.pattern} className="flex items-center gap-2">
-                <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full rounded-full bg-foreground" style={{ width: `${item.frequency}%` }} />
-                </div>
-                <span className="text-[10px] text-muted-foreground w-24 text-right">{item.pattern}</span>
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-2.5">
+          {[100, 90, 85, 80, 60].map((pct, i) => (
+            <div key={i} className="flex items-center gap-2.5">
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-foreground/8">
+                <div className="h-full rounded-full bg-foreground/20" style={{ width: `${pct}%` }} />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function TopicCoverageIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="flex flex-wrap gap-1.5">
+          {[20, 12, 25, 15, 10, 8, 6, 20, 12, 15, 10, 8].map((opacity, i) => (
+            <div
+              key={i}
+              className="h-2 rounded bg-foreground"
+              style={{ width: `${20 + (i % 4) * 10}%`, opacity: opacity / 100 }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ContentGapIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-2.5">
+          {[
+            { left: "35%", gap: "15%", right: "30%" },
+            { left: "45%", gap: "10%", right: "25%" },
+            { left: "25%", gap: "20%", right: "35%" },
+            { left: "40%", gap: "12%", right: "28%" },
+          ].map((bar, i) => (
+            <div key={i} className="flex items-center gap-0">
+              <div className="h-2 rounded-l bg-foreground/15" style={{ width: bar.left }} />
+              <div className="h-2 border-b border-dashed border-foreground/15" style={{ width: bar.gap }} />
+              <div className="h-2 rounded-r bg-foreground/15" style={{ width: bar.right }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function EeatSignalsIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-2.5">
+          {[85, 60, 45, 70].map((pct, i) => (
+            <div key={i} className="h-2 overflow-hidden rounded-full bg-foreground/8">
+              <div className="h-full rounded-full bg-foreground/20" style={{ width: `${pct}%` }} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -114,36 +111,42 @@ function StructureIllustration() {
 export default function PatternAnalysisPage() {
   return (
     <>
-      <SubPageHero locale="en"
-        label="Pattern Analysis"
-        title="Decode the patterns behind top rankings"
-        description="Uncover what first-page content has in common. Word count ranges, heading structures, topic coverage and quality and authority signals that correlate with success."
+      <SubPageHero
+        locale="en"
+        label="Patterns"
+        title="Find what top results have in common"
+        description="Length, structure, topics covered. The recurring patterns behind page-one content."
       />
 
-      <TrustedBy />
-
-      <FeatureChecklist
-        title="Discover winning patterns"
-        description="Automatically analyzes structure, length and topics of top performers."
-        columns={featureColumns}
+      <BentoGrid
+        items={[
+          {
+            title: "Word count that works",
+            description: "Calculates the average word count of ranking content. See the distribution, optimal range and how much you need to write.",
+            visual: <WordCountIllustration />,
+          },
+          {
+            title: "Structure that converts",
+            description: "Finds common structural patterns. Which H2s, in what order, how many H3s. Replicate the structure that works.",
+            visual: <StructureIllustration />,
+          },
+          {
+            title: "Topic coverage",
+            description: "Topics and subtopics covered by top results. Identifies the areas your content needs to address.",
+            visual: <TopicCoverageIllustration />,
+          },
+          {
+            title: "Content gap",
+            description: "Finds topics competitors miss or cover poorly. Opportunities to differentiate your content.",
+            visual: <ContentGapIllustration />,
+          },
+          {
+            title: "E-E-A-T signals",
+            description: "Citations, sources, author credentials and freshness. The quality and authority signals used by ranking pages.",
+            visual: <EeatSignalsIllustration />,
+          },
+        ]}
       />
-
-      <HighlightBlock
-        icon={TrendingUp}
-        title="Word count that works"
-        description="Calculates the average word count of ranking content. See the distribution, optimal range and how much you need to write to compete."
-        visual={<WordCountIllustration />}
-      />
-
-      <HighlightBlock
-        icon={Layers}
-        title="Structure that converts"
-        description="Finds common structural patterns. Which H2s, in what order, how many H3s. Replicate the structure that works in search results."
-        visual={<StructureIllustration />}
-        reverse
-      />
-
-      <Testimonials locale="en" />
 
       <SubPageCTA locale="en" />
     </>

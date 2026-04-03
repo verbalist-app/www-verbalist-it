@@ -12,16 +12,17 @@ interface Feature2Props {
   description?: string
   items: FeatureItem[]
   className?: string
+  align?: "left" | "center"
 }
 
-export function Feature2({ title, description, items, className }: Feature2Props) {
+export function Feature2({ title, description, items, className, align = "center" }: Feature2Props) {
   return (
     <section className={cn('border-t py-24 lg:py-32', className)}>
       <div className="mx-auto max-w-5xl px-6">
         {(title || description) && (
-          <div className="text-center">
+          <div className={cn(align === "center" && "text-center")}>
             {title && <h2 className="text-balance text-3xl font-medium tracking-tight sm:text-4xl">{title}</h2>}
-            {description && <p className="text-muted-foreground mt-6 text-balance text-base leading-relaxed max-w-2xl mx-auto">{description}</p>}
+            {description && <p className={cn("text-muted-foreground mt-6 text-balance text-base leading-relaxed max-w-2xl", align === "center" && "mx-auto")}>{description}</p>}
           </div>
         )}
         <div className={cn(

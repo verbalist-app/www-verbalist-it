@@ -21,7 +21,7 @@ export default function AboutPage() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             About Us
           </p>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl sm:text-4xl font-serif font-normal tracking-tight mb-4">
             Built on 25 years of SEO expertise
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">
@@ -31,7 +31,7 @@ export default function AboutPage() {
 
         <div className="space-y-12">
           <section>
-            <h3 className="text-xl font-medium tracking-tight mb-4">Our story</h3>
+            <h2 className="text-xl font-normal tracking-tight mb-4">Our story</h2>
             <div className="prose prose-neutral max-w-none">
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 <a href="https://www.nur.it/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline font-medium">NUR Digital Marketing</a> has been around since 1999. In 25 years we've worked with over 430 companies in Italy and worldwide. SEO, GEO, content optimization.
@@ -49,7 +49,7 @@ export default function AboutPage() {
           </section>
 
           <section>
-            <h3 className="text-xl font-medium tracking-tight mb-4">The numbers</h3>
+            <h2 className="text-xl font-normal tracking-tight mb-4">The numbers</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-muted rounded-lg p-6 border border-border">
                 <h4 className="text-base font-medium mb-2">25+ years</h4>
@@ -79,9 +79,9 @@ export default function AboutPage() {
           </section>
 
           <section className="bg-muted rounded-xl p-8 md:p-12 border border-border">
-            <h3 className="text-xl font-medium tracking-tight mb-4">
+            <h2 className="text-xl font-normal tracking-tight mb-4">
               Want to see it in action?
-            </h3>
+            </h2>
             <p className="text-sm text-muted-foreground mb-6 max-w-2xl">
               We'll show you how it works with a demo on your case.
             </p>

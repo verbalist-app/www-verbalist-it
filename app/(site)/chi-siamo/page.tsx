@@ -21,7 +21,7 @@ export default function ChiSiamoPage() {
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Chi Siamo
           </p>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium tracking-tighter mb-4">
+          <h1 className="text-3xl sm:text-4xl font-serif font-normal tracking-tight mb-4">
             25 anni di esperienza SEO, ora in un software
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">
@@ -31,7 +31,7 @@ export default function ChiSiamoPage() {
 
         <div className="space-y-12">
           <section>
-            <h3 className="text-xl font-medium tracking-tight mb-4">La storia</h3>
+            <h2 className="text-xl font-normal tracking-tight mb-4">La storia</h2>
             <div className="prose prose-neutral max-w-none">
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 <a href="https://www.nur.it/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline font-medium">NUR Digital Marketing</a> esiste dal 1999. In 25 anni abbiamo lavorato con oltre 430 aziende in Italia e nel mondo. SEO, GEO, content optimization.
@@ -49,7 +49,7 @@ export default function ChiSiamoPage() {
           </section>
 
           <section>
-            <h3 className="text-xl font-medium tracking-tight mb-4">I numeri</h3>
+            <h2 className="text-xl font-normal tracking-tight mb-4">I numeri</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-muted rounded-lg p-6 border border-border">
                 <h4 className="text-base font-medium mb-2">25+ anni</h4>
@@ -79,9 +79,9 @@ export default function ChiSiamoPage() {
           </section>
 
           <section className="bg-muted rounded-xl p-8 md:p-12 border border-border">
-            <h3 className="text-xl font-medium tracking-tight mb-4">
+            <h2 className="text-xl font-normal tracking-tight mb-4">
               Vuoi vederlo in azione?
-            </h3>
+            </h2>
             <p className="text-sm text-muted-foreground mb-6 max-w-2xl">
               Ti mostriamo come funziona con una demo sul tuo caso.
             </p>

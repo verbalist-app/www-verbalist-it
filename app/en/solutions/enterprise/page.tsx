@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 import { SubPageHero } from "@/components/sub-page-hero"
 import { SubPageCTA } from "@/components/sub-page-cta"
-import Testimonials from "@/components/testimonials-4"
-import { FeatureChecklist } from "@/components/feature-checklist"
-import { WorkflowSteps } from "@/components/workflow-steps"
+import { BentoGrid } from "@/components/bento-grid"
+
 
 export const metadata: Metadata = {
   title: "GEO for Startups and SMBs",
@@ -17,78 +16,145 @@ export const metadata: Metadata = {
   },
 }
 
-const featureColumns = [
-  {
-    items: [
-      "Setup in minutes",
-      "No GEO expertise required",
-      "Guided interface",
-      "Projects organized by keyword",
-    ],
-  },
-  {
-    items: [
-      "Automated search results analysis",
-      "Competitor patterns extracted",
-      "Semantic structure for LLMs",
-      "Quality and authority signals integrated",
-    ],
-  },
-  {
-    items: [
-      "Content ready for ChatGPT and Perplexity",
-      "Export in Markdown and HTML",
-      "Customizable tone of voice",
-      "Document history per project",
-    ],
-  },
-]
+function SetupIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-3">
+          {[
+            { label: "Keyword", done: true },
+            { label: "Analysis", done: true },
+            { label: "Content", done: false },
+          ].map((s) => (
+            <div key={s.label} className="flex items-center gap-3">
+              <div className={`flex size-5 shrink-0 items-center justify-center rounded-full ${s.done ? "bg-foreground" : "bg-foreground/10"}`}>
+                {s.done && (
+                  <svg className="size-2.5 text-background" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </div>
+              <div className="h-1.5 flex-1 rounded bg-foreground/10" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
-const workflowSteps = [
-  {
-    step: 1,
-    title: "Enter the keyword",
-    description: "Verbalist analyzes the top 10 Google results and extracts the content patterns that work.",
-  },
-  {
-    step: 2,
-    title: "Automated analysis",
-    description: "Heading structure, recurring topics, length, quality and authority signals. All extracted from competitors in seconds.",
-  },
-  {
-    step: 3,
-    title: "GEO-ready content generation",
-    description: "Content structured to be indexed and cited in AI search. Optimized title, meta, headings and body text.",
-  },
-  {
-    step: 4,
-    title: "Review and publish",
-    description: "Refine the content with your tone of voice, export in Markdown or HTML and publish.",
-  },
-]
+function AutoAnalysisIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-2">
+          {[88, 76, 64, 52, 40].map((w, i) => (
+            <div key={i} className="flex items-center gap-2.5">
+              <span className="w-3 shrink-0 text-center text-[9px] font-medium text-foreground/40">{i + 1}</span>
+              <div className="h-1.5 rounded bg-foreground/12" style={{ width: `${w}%` }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function OutputIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-3">
+          <div className="h-2 w-3/5 rounded bg-foreground/20" />
+          <div className="space-y-1.5">
+            <div className="h-1.5 w-full rounded bg-foreground/8" />
+            <div className="h-1.5 w-5/6 rounded bg-foreground/8" />
+            <div className="h-1.5 w-3/4 rounded bg-foreground/8" />
+          </div>
+          <div className="h-2 w-2/5 rounded bg-foreground/15" />
+          <div className="space-y-1.5">
+            <div className="h-1.5 w-full rounded bg-foreground/8" />
+            <div className="h-1.5 w-4/5 rounded bg-foreground/8" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function NoTechSkillsIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="space-y-3">
+          {[20, 15, 10].map((opacity, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <div
+                className="flex size-5 shrink-0 items-center justify-center rounded-full"
+                style={{ backgroundColor: `hsl(0 0% 0% / ${opacity}%)` }}
+              />
+              <div className="h-1.5 flex-1 rounded bg-foreground/8" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function FourContentTypesIllustration() {
+  return (
+    <div className="flex h-full flex-col justify-end p-5">
+      <div className="rounded-lg bg-background p-4">
+        <div className="grid grid-cols-2 gap-2">
+          <div className="h-10 rounded-md bg-foreground/20" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+          <div className="h-10 rounded-md bg-foreground/8" />
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function EnterprisePage() {
   return (
     <>
       <SubPageHero locale="en"
         label="Startups & SMBs"
-        title="AI search visibility, without a dedicated GEO team"
-        description="Verbalist enables startups and small-medium businesses to produce content optimized for ChatGPT, Perplexity and AI Overview. Without investing in a full GEO project."
+        title="Visible in AI search, without a dedicated team"
+        description="Enter a keyword, get ready-to-publish content. No technical expertise required."
       />
 
-      <WorkflowSteps
-        title="From keyword to GEO-ready content in 4 steps"
-        description="A guided workflow that requires no technical expertise. Enter a keyword, get content structured for AI search."
-        steps={workflowSteps}
+      <BentoGrid
+        items={[
+          {
+            title: "Setup in minutes",
+            description: "Guided interface, no GEO expertise required. Projects organized by keyword.",
+            visual: <SetupIllustration />,
+          },
+          {
+            title: "Automated analysis",
+            description: "Search results analysis, competitor patterns extracted, semantic structure and quality signals integrated.",
+            visual: <AutoAnalysisIllustration />,
+          },
+          {
+            title: "AI-ready output",
+            description: "Content ready for ChatGPT and Perplexity. Export in Markdown and HTML, customizable tone of voice.",
+            visual: <OutputIllustration />,
+          },
+          {
+            title: "No technical skills needed",
+            description: "The marketing team generates GEO content without depending on the tech department. Guided interface, immediate results.",
+            visual: <NoTechSkillsIllustration />,
+          },
+          {
+            title: "Four content types",
+            description: "Blog post, product page, guide and landing page. Structure optimized for each format.",
+            visual: <FourContentTypesIllustration />,
+          },
+        ]}
       />
-
-      <FeatureChecklist
-        title="Built for teams without GEO expertise"
-        description="Simple interface, automated analysis, content structured to be cited by AI assistants."
-        columns={featureColumns}
-      />
-
-      <Testimonials locale="en" />
 
       <SubPageCTA
         locale="en"
