@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "Quali modelli AI usate?",
-    answer: "Claude di Anthropic, GPT-4 di OpenAI e Gemini di Google. Puoi scegliere quale usare per ogni progetto.",
+    answer: "Utilizziamo gli ultimi modelli disponibili di Anthropic, OpenAI e Google, aggiornati costantemente alla versione più performante.",
   },
   {
     question: "I contenuti sono unici?",

@@ -77,28 +77,24 @@ export function SubPageHero({
           {children}
         </div>
       ) : (
-        <>
-          <div className="mx-auto w-full max-w-5xl px-6 pb-12 pt-10">
-            <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+        <div className="border-t border-border">
+          <div className="mx-auto w-full max-w-5xl px-6 py-10">
+            <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-6">
               {logos.map((logo) => (
                 <div
                   key={logo.name}
-                  className="flex h-16 items-center justify-center rounded-md bg-accent sm:h-20 md:h-24"
-                >
-                  <div
-                    role="img"
-                    aria-label={logo.name}
-                    className="h-5 w-16 bg-foreground sm:h-6 sm:w-20"
-                    style={{
-                      mask: `url(${logo.src}) no-repeat center / contain`,
-                      WebkitMask: `url(${logo.src}) no-repeat center / contain`,
-                    }}
-                  />
-                </div>
+                  role="img"
+                  aria-label={logo.name}
+                  className="h-6 w-20 bg-foreground/40 sm:h-7 sm:w-24"
+                  style={{
+                    mask: `url(${logo.src}) no-repeat center / contain`,
+                    WebkitMask: `url(${logo.src}) no-repeat center / contain`,
+                  }}
+                />
               ))}
             </div>
           </div>
-        </>
+        </div>
       )}
     </section>
   )
