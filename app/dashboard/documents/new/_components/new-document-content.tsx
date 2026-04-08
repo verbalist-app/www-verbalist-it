@@ -16,6 +16,9 @@ import {
   Sparkles,
   Check,
   Loader2,
+  ChevronsUpDown,
+  Languages,
+  MapPin,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -29,8 +32,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
 import { useDashboardLocale } from "../../../_lib/dashboard-locale"
+import { googleLanguages, getLanguageByCode } from "../../../_lib/google-languages"
+import { googleLocations, getLocationByCode } from "../../../_lib/google-locations"
 
 const outputTypeIcons = {
   blog_post: FileText,
@@ -83,6 +101,20 @@ function NewDocumentInner() {
       it: "es. miglior software gestionale",
       en: "e.g., best management software",
     },
+    serpSettings: {
+      it: "Localizzazione ricerca",
+      en: "Search localization",
+    },
+    serpSettingsDescription: {
+      it: "L'analisi SERP e la ricerca keyword verranno eseguite per questa lingua e localita",
+      en: "SERP analysis and keyword research will be performed for this language and location",
+    },
+    location: { it: "Localita", en: "Location" },
+    locationPlaceholder: { it: "Cerca paese...", en: "Search country..." },
+    locationEmpty: { it: "Nessun paese trovato.", en: "No country found." },
+    language: { it: "Lingua", en: "Language" },
+    languagePlaceholder: { it: "Cerca lingua...", en: "Search language..." },
+    languageEmpty: { it: "Nessuna lingua trovata.", en: "No language found." },
     projectOptional: { it: "Progetto (opzionale)", en: "Project (optional)" },
     selectProject: { it: "Seleziona un progetto", en: "Select a project" },
     back: { it: "Indietro", en: "Back" },
@@ -102,6 +134,8 @@ function NewDocumentInner() {
     },
     project: { it: "Progetto", en: "Project" },
     whatWillHappen: { it: "Cosa succederà", en: "What will happen" },
+    locationSummary: { it: "Localita", en: "Location" },
+    languageSummary: { it: "Lingua", en: "Language" },
     serpAnalysis: {
       it: "Analisi SERP per la keyword",
       en: "SERP analysis for keyword",
@@ -220,6 +254,10 @@ function NewDocumentInner() {
   const [contentText, setContentText] = React.useState("")
   const [project, setProject] = React.useState(preselectedProject || "")
   const [inputMode, setInputMode] = React.useState<"url" | "text">("url")
+  const [locationCode, setLocationCode] = React.useState("IT")
+  const [languageCode, setLanguageCode] = React.useState("it")
+  const [locationOpen, setLocationOpen] = React.useState(false)
+  const [languageOpen, setLanguageOpen] = React.useState(false)
 
   const canProceedStep1 = outputType !== ""
   const canProceedStep2 = keyword.trim() !== "" && (contentMode === "create" || contentUrl || contentText)
@@ -408,6 +446,134 @@ function NewDocumentInner() {
             />
           </div>
 
+          {/* SERP Location & Language */}
+          <div className="space-y-3">
+            <div>
+              <Label className="text-base">{t(content.serpSettings)}</Label>
+              <p className="text-sm text-muted-foreground mt-1">
+                {t(content.serpSettingsDescription)}
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {/* Location */}
+              <div className="space-y-1.5">
+                <Label className="text-xs text-muted-foreground uppercase tracking-wider">
+                  {t(content.location)}
+                </Label>
+                <Popover open={locationOpen} onOpenChange={setLocationOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={locationOpen}
+                      className="w-full justify-between font-normal"
+                    >
+                      <span className="flex items-center gap-2 truncate">
+                        <MapPin className="size-4 shrink-0 text-muted-foreground" />
+                        {getLocationByCode(locationCode)?.nativeName ?? locationCode}
+                      </span>
+                      <ChevronsUpDown className="size-3.5 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-64 p-0" align="start">
+                    <Command>
+                      <CommandInput placeholder={t(content.locationPlaceholder)} />
+                      <CommandList>
+                        <CommandEmpty>{t(content.locationEmpty)}</CommandEmpty>
+                        <CommandGroup>
+                          {googleLocations.map((loc) => (
+                            <CommandItem
+                              key={loc.countryCode}
+                              value={`${loc.locationName} ${loc.nativeName} ${loc.countryCode}`}
+                              onSelect={() => {
+                                setLocationCode(loc.countryCode)
+                                setLanguageCode(loc.defaultLanguageCode)
+                                setLocationOpen(false)
+                              }}
+                            >
+                              <span className="flex-1 truncate">
+                                <span className="font-medium">{loc.nativeName}</span>
+                                {loc.nativeName !== loc.locationName && (
+                                  <span className="text-muted-foreground ml-1.5 text-xs">
+                                    {loc.locationName}
+                                  </span>
+                                )}
+                              </span>
+                              <Check
+                                className={cn(
+                                  "size-4 shrink-0",
+                                  locationCode === loc.countryCode ? "opacity-100" : "opacity-0"
+                                )}
+                              />
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+              </div>
+
+              {/* Language */}
+              <div className="space-y-1.5">
+                <Label className="text-xs text-muted-foreground uppercase tracking-wider">
+                  {t(content.language)}
+                </Label>
+                <Popover open={languageOpen} onOpenChange={setLanguageOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={languageOpen}
+                      className="w-full justify-between font-normal"
+                    >
+                      <span className="flex items-center gap-2 truncate">
+                        <Languages className="size-4 shrink-0 text-muted-foreground" />
+                        {getLanguageByCode(languageCode)?.nativeName ?? languageCode}
+                      </span>
+                      <ChevronsUpDown className="size-3.5 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-64 p-0" align="start">
+                    <Command>
+                      <CommandInput placeholder={t(content.languagePlaceholder)} />
+                      <CommandList>
+                        <CommandEmpty>{t(content.languageEmpty)}</CommandEmpty>
+                        <CommandGroup>
+                          {googleLanguages.map((lang) => (
+                            <CommandItem
+                              key={lang.code}
+                              value={`${lang.name} ${lang.nativeName} ${lang.code}`}
+                              onSelect={() => {
+                                setLanguageCode(lang.code)
+                                setLanguageOpen(false)
+                              }}
+                            >
+                              <span className="flex-1 truncate">
+                                <span className="font-medium">{lang.nativeName}</span>
+                                {lang.nativeName !== lang.name && (
+                                  <span className="text-muted-foreground ml-1.5 text-xs">
+                                    {lang.name}
+                                  </span>
+                                )}
+                              </span>
+                              <Check
+                                className={cn(
+                                  "size-4 shrink-0",
+                                  languageCode === lang.code ? "opacity-100" : "opacity-0"
+                                )}
+                              />
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+              </div>
+            </div>
+          </div>
+
           {/* Project */}
           <div className="space-y-3">
             <Label className="text-base">{t(content.projectOptional)}</Label>
@@ -478,6 +644,25 @@ function NewDocumentInner() {
                 </code>
               </div>
 
+              <div className="border-t pt-4 flex gap-8">
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                    {t(content.locationSummary)}
+                  </p>
+                  <p className="font-medium mt-1">
+                    {getLocationByCode(locationCode)?.locationName ?? locationCode}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                    {t(content.languageSummary)}
+                  </p>
+                  <p className="font-medium mt-1">
+                    {getLanguageByCode(languageCode)?.nativeName ?? languageCode}
+                  </p>
+                </div>
+              </div>
+
               {contentMode === "optimize" && (contentUrl || contentText) && (
                 <div className="border-t pt-4">
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">
@@ -511,7 +696,7 @@ function NewDocumentInner() {
                 <div>
                   <h3 className="font-medium">{t(content.whatWillHappen)}</h3>
                   <ol className="mt-2 space-y-1 text-sm text-muted-foreground list-decimal list-inside">
-                    <li>{t(content.serpAnalysis)} &ldquo;{keyword}&rdquo;</li>
+                    <li>{t(content.serpAnalysis)} &ldquo;{keyword}&rdquo; ({getLocationByCode(locationCode)?.locationName}, {getLanguageByCode(languageCode)?.nativeName})</li>
                     <li>{t(content.scraping)}</li>
                     <li>{t(content.patterns)}</li>
                     <li>{t(content.generation)}</li>
