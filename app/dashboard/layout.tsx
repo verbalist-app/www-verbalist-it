@@ -53,6 +53,8 @@ import {
 } from "@/components/ui/command"
 import { Toaster } from "@/components/ui/sonner"
 import { DashboardLocaleProvider, useDashboardLocale } from "./_lib/dashboard-locale"
+import { TargetLanguageProvider } from "./_lib/target-language"
+import { LanguageSelector } from "./_components/language-selector"
 
 const layoutContent = {
   it: {
@@ -140,7 +142,9 @@ export default function DashboardLayout({
 }) {
   return (
     <DashboardLocaleProvider>
-      <DashboardShell>{children}</DashboardShell>
+      <TargetLanguageProvider>
+        <DashboardShell>{children}</DashboardShell>
+      </TargetLanguageProvider>
     </DashboardLocaleProvider>
   )
 }
@@ -324,6 +328,8 @@ function DashboardShell({ children }: { children: React.ReactNode }) {
           </Button>
 
           <div className="flex-1" />
+
+          <LanguageSelector />
 
           <Button
             variant="ghost"
