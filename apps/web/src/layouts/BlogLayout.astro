@@ -149,7 +149,7 @@ const breadcrumbLd = {
         class="object-cover object-center mt-8 size-full max-h-120 lg:col-span-2 rounded-xl"
       />
     </Wrapper>
-    <Wrapper variant="standard" class="pt-12 pb-4 border-t border-base-200 border-dashed">
+    <Wrapper variant="standard" class="pt-12 pb-4 border-t border-base-200">
       <div class="max-w-xl mx-auto">
         {
           frontmatter.tldr && frontmatter.tldr.length > 0 && (
@@ -182,7 +182,7 @@ const breadcrumbLd = {
         <Wrapper variant="prose">
           <slot />
         </Wrapper>
-        <div class="w-full pt-8 mt-8 border-t border-base-200 border-dashed">
+        <div class="w-full pt-8 mt-8 border-t border-base-200">
           {
             team && (
               <div class="flex items-center gap-3 hover:opacity-80 transition ">
@@ -254,7 +254,7 @@ const breadcrumbLd = {
   />
   {
     relatedPosts.length > 0 && (
-      <section class="border-t border-base-200 border-dashed">
+      <section class="border-t border-base-200">
         <Wrapper variant="standard" class="py-12">
           <Text
             tag="h2"
