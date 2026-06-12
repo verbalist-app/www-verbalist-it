@@ -1,0 +1,252 @@
+---
+// Pagina brand: nome, simbolo, logotipo e colori, con asset scaricabili.
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Logo from "@/components/assets/Logo.astro";
+import LogoFooter from "@/components/assets/LogoFooter.astro";
+
+const colors = [
+  { name: "Nero Verbalist", hex: "#161B1D", swatch: "bg-accent-500", light: false },
+  { name: "Bianco", hex: "#FFFFFF", swatch: "bg-white outline outline-base-200", light: true },
+  { name: "Mist", hex: "#F1F3F3", swatch: "bg-mist-100", light: true },
+  { name: "Grigio testo", hex: "#67787C", swatch: "bg-base-500", light: false },
+];
+---
+
+<BaseLayout
+  seo={{
+    title: "Brand: logo, simbolo e colori di Verbalist",
+    description:
+      "Le linee guida del brand Verbalist: come scrivere il nome, quando usare simbolo e logotipo, i colori ufficiali e gli asset da scaricare.",
+  }}
+>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div class="max-w-xl mx-auto text-balance">
+        <div class="bg-mist-100 p-1.5 rounded-full px-6 w-fit">
+          <span class="text-xs font-medium text-base-800">Brand</span>
+        </div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-serif font-medium tracking-tight text-black"
+        >
+          Linee guida del brand
+        </Text>
+        <Text tag="p" variant="textBase" class="mt-4 text-base-600">
+          Queste linee guida servono a rappresentare Verbalist in modo corretto
+          e coerente, senza bisogno di accordi caso per caso. Se scrivi di noi,
+          parti da qui.
+        </Text>
+        <div class="mt-8">
+          <Button
+            isLink
+            size="sm"
+            variant="accent"
+            class="w-fit"
+            href="/brand/verbalist-brand.zip"
+            download
+          >
+            Scarica gli asset (.zip)
+          </Button>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t">
+      <div class="max-w-xl mx-auto">
+        <Text
+          tag="h2"
+          variant="displaySM"
+          class="font-serif font-medium tracking-tight text-base-900"
+        >
+          Nome
+        </Text>
+        <Text tag="p" variant="textSM" class="mt-4 text-base-600">
+          Verbalist si scrive come una sola parola, con la V maiuscola: mai
+          "VerbaList", "verbalist" o "Verba List". I nomi delle funzionalità
+          sono nomi propri e mantengono la maiuscola solo sulla prima parola:
+          gli agenti di Verbalist, l'Editor, il Brief.
+        </Text>
+        <Text tag="p" variant="textSM" class="mt-4 text-base-500">
+          Verbalist è un marchio registrato di NUR HOLDING S.r.l. (UIBM, reg.
+          n. 2024000179085, classe 35).
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t">
+      <div class="max-w-xl mx-auto">
+        <Text
+          tag="h2"
+          variant="displaySM"
+          class="font-serif font-medium tracking-tight text-base-900"
+        >
+          Simbolo
+        </Text>
+        <Text tag="p" variant="textSM" class="mt-4 text-base-600">
+          La V è l'elemento distintivo dell'identità di Verbalist. Usala nelle
+          proporzioni originali, senza ruotarla, distorcerla o cambiarne il
+          colore: nero su fondi chiari, bianco su fondi scuri.
+        </Text>
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <div
+            class="flex items-center justify-center p-10 bg-mist-100 rounded-xl"
+          >
+            <Logo class="h-12 text-accent-500" />
+          </div>
+          <div
+            class="flex items-center justify-center p-10 bg-accent-500 rounded-xl"
+          >
+            <Logo class="h-12 text-white" />
+          </div>
+        </div>
+        <div class="flex flex-wrap mt-4 gap-2">
+          <Button
+            isLink
+            size="xs"
+            variant="muted"
+            href="/brand/verbalist-simbolo.svg"
+            download
+          >
+            Simbolo nero (.svg)
+          </Button>
+          <Button
+            isLink
+            size="xs"
+            variant="muted"
+            href="/brand/verbalist-simbolo-bianco.svg"
+            download
+          >
+            Simbolo bianco (.svg)
+          </Button>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t">
+      <div class="max-w-xl mx-auto">
+        <Text
+          tag="h2"
+          variant="displaySM"
+          class="font-serif font-medium tracking-tight text-base-900"
+        >
+          Logotipo
+        </Text>
+        <Text tag="p" variant="textSM" class="mt-4 text-base-600">
+          Quando lo spazio lo consente, il logotipo è la scelta predefinita.
+          Anche qui valgono proporzioni originali e niente effetti: il logo non
+          si ombreggia, non si inclina, non si colora.
+        </Text>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div
+            class="flex items-center justify-center p-10 bg-mist-100 rounded-xl"
+          >
+            <LogoFooter class="h-8 text-accent-500" />
+          </div>
+          <div
+            class="flex items-center justify-center p-10 bg-accent-500 rounded-xl"
+          >
+            <LogoFooter class="h-8 text-white" />
+          </div>
+        </div>
+        <div class="flex flex-wrap mt-4 gap-2">
+          <Button
+            isLink
+            size="xs"
+            variant="muted"
+            href="/brand/verbalist-logo.svg"
+            download
+          >
+            Logotipo nero (.svg)
+          </Button>
+          <Button
+            isLink
+            size="xs"
+            variant="muted"
+            href="/brand/verbalist-logo-bianco.svg"
+            download
+          >
+            Logotipo bianco (.svg)
+          </Button>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t">
+      <div class="max-w-xl mx-auto">
+        <Text
+          tag="h2"
+          variant="displaySM"
+          class="font-serif font-medium tracking-tight text-base-900"
+        >
+          Colori
+        </Text>
+        <Text tag="p" variant="textSM" class="mt-4 text-base-600">
+          L'identità visiva di Verbalist è in bianco e nero, con una scala di
+          grigi freddi. Niente colori accesi: la sobrietà è parte del brand.
+        </Text>
+        <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {
+            colors.map((c) => (
+              <div class="flex flex-col">
+                <div class={`h-20 rounded-xl ${c.swatch}`} />
+                <Text
+                  tag="p"
+                  variant="textSM"
+                  class="mt-3 font-medium text-base-800"
+                >
+                  {c.name}
+                </Text>
+                <button
+                  type="button"
+                  data-hex={c.hex}
+                  class="flex items-center w-fit mt-1 text-sm font-mono text-base-500 hover:text-accent-500 cursor-pointer copy-hex"
+                  title={`Copia ${c.hex}`}
+                >
+                  {c.hex}
+                </button>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t">
+      <div class="max-w-xl mx-auto">
+        <Text tag="p" variant="textSM" class="text-base-500">
+          Domande sull'uso del brand o serve un formato che non trovi qui?
+          <a href="/contatti" class="font-medium text-base-800 hover:text-accent-500">
+            Scrivici.
+          </a>
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>
+
+<script type="module">
+  document.querySelectorAll(".copy-hex").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.hex);
+        const prev = btn.textContent;
+        btn.textContent = "Copiato!";
+        setTimeout(() => (btn.textContent = prev), 1200);
+      } catch {}
+    });
+  });
+</script>

@@ -1,0 +1,30 @@
+---
+// Finestra app con browser chrome (stessa grammatica della demo in home):
+// puntini, barra URL, schermo mist. Il contenuto dello schermo arriva via slot.
+const { url = "app.verbalist.it" } = Astro.props;
+---
+
+<div
+  aria-hidden="true"
+  class="relative z-10 w-full max-w-3xl mx-auto overflow-hidden bg-white rounded-xl shadow-[0_22px_48px_-30px_rgba(15,15,20,0.4)] outline outline-mist-500/10"
+>
+  <div class="flex items-center gap-3 px-4 py-3 border-b border-mist-500/10 bg-mist-50">
+    <div class="flex gap-1.5">
+      <span class="size-2.5 rounded-full bg-mist-300"></span>
+      <span class="size-2.5 rounded-full bg-mist-300"></span>
+      <span class="size-2.5 rounded-full bg-mist-300"></span>
+    </div>
+    <div class="flex items-center justify-center flex-1 min-w-0 gap-2">
+      <div
+        class="flex w-full max-w-sm min-w-0 items-center gap-1.5 rounded-md bg-white px-2.5 py-1 text-[11px] text-base-500 ring-1 ring-mist-500/10"
+      >
+        <span class="size-1.5 shrink-0 rounded-full bg-emerald-500"></span>
+        <span class="font-mono truncate">{url}</span>
+      </div>
+    </div>
+    <div class="flex w-12"></div>
+  </div>
+  <div class="p-6 bg-mist-50 sm:p-10">
+    <slot />
+  </div>
+</div>

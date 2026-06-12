@@ -1,0 +1,82 @@
+---
+import { AstroSeo } from "@lexingtonthemes/seo";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: {
+    url: string;
+    alt?: string;
+  };
+  type?: "website" | "article";
+  publishedTime?: string;
+  noindex?: boolean;
+}
+
+const {
+  title: pageTitle,
+  description: pageDescription,
+  image: pageImage,
+  type = "website",
+  publishedTime,
+  noindex = false,
+} = Astro.props;
+
+const siteName = "Verbalist";
+const title = pageTitle
+  ? pageTitle.includes(siteName)
+    ? pageTitle
+    : `${pageTitle} | ${siteName}`
+  : siteName;
+const description =
+  pageDescription ||
+  "Verbalist legge i primi risultati di Google per la tua keyword e scrive contenuti ottimizzati per SEO e GEO.";
+const siteUrl = Astro.site?.toString() || "https://www.verbalist.it";
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+
+// Immagine: quella di pagina, altrimenti la OG di default
+const rawOgImage = pageImage?.url || "/img/og-default.jpg";
+const ogImageUrl = rawOgImage.startsWith("http")
+  ? rawOgImage
+  : new URL(rawOgImage, siteUrl).toString();
+const ogImageAlt = pageImage?.alt || title;
+
+const twitterHandle = "";
+---
+
+<AstroSeo
+  title={title}
+  description={description}
+  canonical={canonical}
+  noindex={noindex}
+  openGraph={{
+    url: canonical,
+    title: title,
+    description: description,
+    images: ogImageUrl
+      ? [
+          {
+            url: ogImageUrl,
+            width: 1200,
+            height: 630,
+            alt: ogImageAlt,
+            type: "image/jpeg",
+          },
+        ]
+      : [],
+    site_name: siteName,
+    type: type,
+    locale: "en_US",
+    ...(type === "article" &&
+      publishedTime && {
+        article: {
+          publishedTime: publishedTime,
+        },
+      }),
+  }}
+  twitter={{
+    handle: twitterHandle,
+    site: twitterHandle,
+    cardType: ogImageUrl ? "summary_large_image" : "summary",
+  }}
+/>

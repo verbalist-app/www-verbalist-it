@@ -1,0 +1,68 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Sections
+import Hero1 from "@/components/heros/Hero1.astro";
+import LogoCloud1 from "@/components/testimonials/LogoCloud1.astro";
+import Feature1 from "@/components/features/Feature1.astro";
+import Feature2 from "@/components/features/Feature2.astro";
+import Feature3 from "@/components/features/Feature3.astro";
+import Cta2 from "@/components/ctas/Cta2.astro";
+import Pricing1 from "@/components/pricing/Pricing1.astro";
+import Testimonial1 from "@/components/testimonials/Testimonial1.astro";
+
+const appLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Verbalist",
+  url: "https://www.verbalist.it",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  inLanguage: "it",
+  description:
+    "Verbalist legge i primi risultati di Google per una keyword e scrive contenuti ottimizzati SEO e GEO, pronti per il CMS: analisi competitor, scrittura nella lingua del mercato, export con metadati.",
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Starter",
+      price: "270",
+      priceCurrency: "EUR",
+      description: "30 contenuti, crediti validi 12 mesi",
+    },
+    {
+      "@type": "Offer",
+      name: "Pro",
+      price: "500",
+      priceCurrency: "EUR",
+      description: "70 contenuti, crediti validi 12 mesi",
+    },
+  ],
+  publisher: { "@id": "https://www.verbalist.it/#organization" },
+};
+---
+
+<BaseLayout
+  seo={{
+    title: "Fatti trovare su Google e nelle risposte delle AI",
+    description:
+      "Genera contenuti ottimizzati SEO e GEO partendo dai dati reali della SERP: analisi dei competitor, scrittura nella lingua del mercato, export pronto per il CMS.",
+  }}
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(appLd)}
+  />
+  <Hero1 />
+  <LogoCloud1 />
+  <Feature1 />
+  <Feature2 />
+  <Feature3 />
+  <Cta2
+    title="Provalo sui tuoi contenuti."
+    text="Accedi a tutte le funzionalità per 30 giorni, con 15 documenti inclusi e senza carta di credito."
+  />
+  <Pricing1 />
+  <Testimonial1 />
+
+</BaseLayout>

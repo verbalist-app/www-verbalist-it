@@ -1,0 +1,104 @@
+---
+// Fundations
+import BaseLayout from "./BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+const { frontmatter } = Astro.props;
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: frontmatter.page, href: "#" }, // Current page (unstyled)
+];
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbs.map((b, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: b.label,
+    ...(b.href && b.href !== "#"
+      ? { item: new URL(b.href, "https://www.verbalist.it").toString() }
+      : {}),
+  })),
+};
+---
+
+<BaseLayout
+  seo={{
+    title: frontmatter.page,
+    description: `${frontmatter.page} di Verbalist: il documento completo e aggiornato.`,
+  }}
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(breadcrumbLd)}
+  />
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div class="max-w-xl mx-auto">
+        <nav
+          aria-label="Breadcrumb"
+          class="bg-mist-100 p-1.5 rounded-full px-6 w-fit"
+        >
+          <ol class="flex items-center text-sm gap-x-2 text-base-600">
+            {
+              breadcrumbs.map((item, index) => (
+                <>
+                  <li>
+                    {index < breadcrumbs.length - 1 ? (
+                      <a
+                        href={item.href}
+                        class="text-xs font-medium hover:text-accent-500 text-base-800"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span class="block truncate max-w-[10rem] sm:max-w-xs md:max-w-sm text-xs font-medium text-accent-500">
+                        {item.label}
+                      </span>
+                    )}
+                  </li>
+                  {index < breadcrumbs.length - 1 && (
+                    <li class="text-base-400">
+                      <ChevronRight size="sm" />
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ol>
+        </nav>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-serif font-medium tracking-tight text-black"
+        >
+          {frontmatter.page}
+        </Text>
+        <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+          Ultimo aggiornamento:{" "}
+          <time datetime={new Date(frontmatter.pubDate).toISOString()}>
+            {
+              new Date(frontmatter.pubDate).toLocaleDateString("it-IT", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })
+            }
+          </time>
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t border-dashed">
+      <Wrapper variant="prose" class="max-w-xl mx-auto">
+        <slot />
+      </Wrapper>
+    </Wrapper>
+  </section>
+</BaseLayout>

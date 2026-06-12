@@ -1,0 +1,57 @@
+---
+import Seo from "@/components/fundations/head/Seo.astro";
+import Meta from "@/components/fundations/head/Meta.astro";
+import Fonts from "@/components/fundations/head/Fonts.astro";
+import Favicons from "@/components/fundations/head/Favicons.astro";
+// Scripts
+import FuseJS from "@/components/fundations/scripts/FuseJS.astro";
+import Tracking from "@/components/fundations/scripts/Tracking.astro";
+interface Props {
+  seo?: {
+    title?: string;
+    description?: string;
+    image?: { url: string; alt?: string };
+    type?: "website" | "article";
+    publishedTime?: string;
+    noindex?: boolean;  
+  };
+}
+const { seo } = Astro.props;
+---
+
+<Seo {...seo} />
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.verbalist.it/#organization",
+        name: "Verbalist",
+        url: "https://www.verbalist.it",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://www.verbalist.it/android-chrome-512x512.png",
+        },
+        description:
+          "Verbalist legge i primi risultati di Google per una keyword e scrive contenuti ottimizzati per SEO e GEO.",
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.verbalist.it/#website",
+        name: "Verbalist",
+        url: "https://www.verbalist.it",
+        inLanguage: "it",
+        publisher: { "@id": "https://www.verbalist.it/#organization" },
+      },
+    ],
+  })}
+/>
+<Meta />
+<Fonts />
+<Favicons />
+<!-- Scripts -->
+<Tracking />
+<FuseJS />

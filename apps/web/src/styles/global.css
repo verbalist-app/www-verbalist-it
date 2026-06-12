@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "tailwind-scrollbar-hide";
+@theme {
+  /* Typography */
+  --font-sans: Geist, sans-serif;
+  --font-mono: Geist Mono, monospace;
+  --font-serif: "Familjen Grotesk", sans-serif;
+  /* Colors */
+  /* Reskin MIST (monocromo Verbalist) — accent/sand/base mappati sulla palette mist.
+     Accent arancione e sand beige rimossi → tutto sul grigio-freddo mist. */
+  /* Accent = brand monocromo SCURO (CTA/link/icone neri, come Verbalist). Rampa
+     che diventa near-black già a 500, così bg-accent-500 dei bottoni = nero. */
+  --color-accent-50: oklch(96.3% 0.002 197.1);
+  --color-accent-100: oklch(92.5% 0.005 214.3);
+  --color-accent-200: oklch(87.2% 0.007 219.6);
+  --color-accent-300: oklch(72.3% 0.014 214.4);
+  --color-accent-400: oklch(45% 0.017 213.2);
+  --color-accent-500: oklch(21.8% 0.008 223.9);
+  --color-accent-600: oklch(14.8% 0.004 228.8);
+  --color-accent-700: oklch(14.8% 0.004 228.8);
+  --color-accent-800: oklch(14.8% 0.004 228.8);
+  --color-accent-900: oklch(14.8% 0.004 228.8);
+  --color-accent-950: oklch(14.8% 0.004 228.8);
+  --color-base-50: oklch(98.7% 0.002 197.1);
+  --color-base-100: oklch(96.3% 0.002 197.1);
+  --color-base-200: oklch(87.2% 0.007 219.6);
+  --color-base-300: oklch(87.2% 0.007 219.6);
+  --color-base-400: oklch(72.3% 0.014 214.4);
+  --color-base-500: oklch(56% 0.021 213.5);
+  --color-base-600: oklch(45% 0.017 213.2);
+  --color-base-700: oklch(37.8% 0.015 216);
+  --color-base-800: oklch(27.5% 0.011 216.9);
+  --color-base-900: oklch(21.8% 0.008 223.9);
+  --color-base-950: oklch(14.8% 0.004 228.8);
+
+  /* Token Verbalist per il componente hero animato (HeroMockup/HeroDemo) */
+  --color-mist-50: oklch(98.7% 0.002 197.1);
+  --color-mist-100: oklch(96.3% 0.002 197.1);
+  --color-mist-200: oklch(92.5% 0.005 214.3);
+  --color-mist-300: oklch(87.2% 0.007 219.6);
+  --color-mist-400: oklch(72.3% 0.014 214.4);
+  --color-mist-500: oklch(56% 0.021 213.5);
+  --color-mist-600: oklch(45% 0.017 213.2);
+  --color-mist-700: oklch(37.8% 0.015 216);
+  --color-mist-800: oklch(27.5% 0.011 216.9);
+  --color-mist-900: oklch(21.8% 0.008 223.9);
+  --color-mist-950: oklch(14.8% 0.004 228.8);
+  --color-background: oklch(1 0 0);
+  --color-card: oklch(1 0 0);
+  --color-popover: oklch(1 0 0);
+  --color-border: oklch(92.5% 0.005 214.3);
+  --color-foreground: oklch(14.8% 0.004 228.8);
+/* Keyframes */
+  --animate-marquee: marquee 12s linear infinite;
+  --animate-rightMarquee: rightMarquee 300s linear infinite;
+  --animate-slowMarquee: marquee 300s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes rightMarquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+:root {
+  --astro-code-color-text: var(--color-base-500);
+  --astro-code-foreground: var(--color-base-500);
+  --astro-code-token-link: var(--color-accent-500);
+  --astro-code-token-comment: var(--color-base-400);
+  --astro-code-token-string: var(--color-cyan-600);
+  --astro-code-token-constant: var(--color-accent-500);
+  --astro-code-background: var(--color-mist-100);
+  --astro-code-token-keyword: var(--color-yellow-600);
+  --astro-code-token-function: var(--color-cyan-600);
+  --astro-code-token-parameter: var(--color-accent-500);
+  --astro-code-token-punctuation: var(--color-accent-500);
+  --astro-code-token-string-expression: var(--color-accent-400);
+  --astro-code-token-bold: inherit;
+  --astro-code-token-italic: italic;
+  --astro-code-token-underline: underline;
+}
+code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: #999999;
+}
+
+/* Rispetta la preferenza di riduzione del movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

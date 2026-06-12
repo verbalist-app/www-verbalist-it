@@ -1,0 +1,33 @@
+# Verbalist
+
+> Verbalist è un software italiano che genera contenuti ottimizzati per SEO e GEO: legge i primi risultati organici di Google per una keyword (o fino a 5 URL di competitor scelti dall'utente), ne estrae argomenti, struttura e lacune, e scrive il contenuto nella lingua del mercato target, pronto da incollare nel CMS con title tag, meta description, slug e immagini.
+
+## Prodotto
+
+- [Home](https://www.verbalist.it/): cosa fa Verbalist e come funziona la catena di agenti
+- [Agente keyword e contesto](https://www.verbalist.it/agenti/keyword-e-contesto): brief con keyword, mercato, lingua e contesto del brand (testo + fino a 3 PDF)
+- [Agente analisi competitor](https://www.verbalist.it/agenti/analisi-competitor): legge i primi 5 risultati di Google o fino a 5 URL a scelta
+- [Agente generazione contenuto](https://www.verbalist.it/agenti/generazione-articolo): scrive ex novo nella lingua del mercato, struttura per featured snippet e People Also Ask
+- [Agente esportazione](https://www.verbalist.it/agenti/esportazione-contenuto): HTML pronto per il CMS, metadati compilati, immagini con alt text
+
+## Guide e approfondimenti
+
+- [Blog](https://www.verbalist.it/blog): guide su SEO, GEO e ricerca AI
+- [Cos'è la GEO](https://www.verbalist.it/blog/cos-e-la-geo): guida alla Generative Engine Optimization
+- [GEO vs SEO](https://www.verbalist.it/blog/geo-vs-seo): cosa cambia tra ottimizzazione classica e generativa
+- [Come farsi citare dai motori AI](https://www.verbalist.it/blog/come-farsi-citare-motori-ai): guida pratica per ChatGPT, Perplexity e AI Overviews
+- [Help center](https://www.verbalist.it/help): guide all'uso della piattaforma
+
+## Azienda
+
+- [Brand](https://www.verbalist.it/brand): linee guida del brand, logo e colori ufficiali, asset scaricabili. Verbalist è un marchio registrato di NUR HOLDING S.r.l. (UIBM n. 2024000179085).
+
+## Fatti chiave
+
+- I contenuti nascono dall'analisi dei primi 5 risultati organici di Google per la keyword, nel mercato e nella lingua impostati.
+- Tipi di contenuto: Blog/Articolo, Pagina Prodotto, Guida/Tutorial, Landing Page.
+- Il contesto del brand (testo libero + fino a 3 PDF) entra nei prompt di analisi e scrittura.
+- I testi sono scritti ex novo nella lingua del mercato target, non tradotti.
+- Il prezzo è per contenuto generato, non per token.
+- La prova gratuita dura 30 giorni e include 15 documenti, da usare entro la prova: alla scadenza, i documenti non utilizzati scadono.
+- L'azienda è italiana; l'app è su app.verbalist.it.

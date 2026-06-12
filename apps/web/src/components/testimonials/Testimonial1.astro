@@ -1,0 +1,41 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Quote reale dal -DEF (siteConfig.quoteSection): Jurny.
+---
+
+<section class="border-t border-base-200 border-dashed">
+  <Wrapper variant="standard" class="py-12 lg:py-24">
+    <article class="relative text-center group">
+      <a
+        href="/clienti/jurny"
+        title="Leggi il case study di Jurny"
+        aria-label="Leggi il case study di Jurny"
+        class="absolute inset-0 z-10"></a>
+
+      <figure class="max-w-xl mx-auto text-balance">
+        <blockquote>
+          <Text
+            tag="p"
+            variant="displayMD"
+            class="font-serif font-medium tracking-tight text-black"
+          >
+            "Per ogni keyword Verbalist analizza i competitor su Google. Il team
+            usa quei dati per scrivere e i contenuti escono già nel tono del
+            brand."
+          </Text>
+        </blockquote>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="flex items-center justify-center mt-8 text-base-500 gap-2"
+          >Leggi il case study di Jurny <ChevronRight
+            class="inline-block size-4"
+          /></Text
+        >
+      </figure>
+    </article>
+  </Wrapper>
+</section>

@@ -1,0 +1,30 @@
+---
+import BlogLayout from "@/layouts/BlogLayout.astro";
+import {
+  getAllPosts,
+  renderPostContent,
+} from "@/lib/data";
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+// Get rendered content
+let Content: any = null;
+
+// For Content Collections, render the markdown
+const rendered = await renderPostContent(post.slug);
+if (rendered) {
+  Content = rendered.Content;
+}
+---
+
+<BlogLayout frontmatter={post.data}>
+  {Content && <Content />}
+</BlogLayout>

@@ -1,0 +1,70 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Component
+import BlogCard from "@/components/blog/BlogCard.astro";
+import BlogSearch from "@/components/blog/BlogSearch.astro";
+// Sections
+// Data
+import { getAllPosts, getAllPostTags, slugifyTag } from "@/lib/data";
+const allPosts = await getAllPosts();
+const tags = await getAllPostTags();
+---
+
+<BaseLayout
+  seo={{
+    title: "Blog: novità e strategie su SEO, GEO e AI search",
+    description:
+      "Resta aggiornato su come cambiano Google e i motori AI: guide, analisi e strategie per farti trovare su Google e citare da ChatGPT e Perplexity.",
+  }}
+>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div class="max-w-xl text-balance">
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="font-serif font-medium tracking-tight text-black"
+        >
+          Guide e approfondimenti
+        </Text>
+        <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+          Strategie pratiche su SEO e GEO, per contenuti che si fanno trovare su
+          Google e nelle risposte delle AI.
+        </Text>
+      </div>
+      <div class="flex items-center mt-8 gap-2">
+        <BlogSearch />
+        <div
+          class="relative flex h-full overflow-x-scroll gap-2 scrollable-content snap-x snap-proximity scrollbar-hide"
+        >
+          {
+            tags.map((tag) => (
+              <Button
+                isLink
+                size="xs"
+                variant="muted"
+                title={tag}
+                aria-label={tag}
+                href={`/categorie/${slugifyTag(tag)}`}
+                data-gtm="blog-filter"
+                class="capitalize text-base-500"
+              >
+                {tag}
+              </Button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div
+        class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 gap-y-24"
+      >
+        {allPosts.map((post) => <BlogCard post={post} headingTag="h2" />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

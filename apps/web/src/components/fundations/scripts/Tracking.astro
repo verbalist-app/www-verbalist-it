@@ -1,0 +1,48 @@
+---
+// Hub di tracciamento, conforme Garante/GDPR:
+// - Consent Mode v2 con default NEGATO: nessun cookie di analisi parte
+//   prima della scelta dell'utente (il banner aggiorna il consenso).
+// - GTM è l'unico contenitore: GA4 e Hotjar si configurano lì dentro,
+//   con i consent check attivi. Qui non c'è nessun tag diretto.
+// - Vercel Analytics è cookieless (niente identificatori persistenti):
+//   può girare senza consenso.
+// Gli ID arrivano dalle env PUBLIC_GTM_ID e PUBLIC_VERCEL_ANALYTICS:
+// senza env (es. in locale) non viene iniettato nulla.
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID || "";
+const VERCEL_ANALYTICS = import.meta.env.PUBLIC_VERCEL_ANALYTICS === "true";
+---
+
+{
+  GTM_ID && (
+    <script is:inline define:vars={{ GTM_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 500,
+      });
+      try {
+        var saved = JSON.parse(localStorage.getItem("verbalist-consent"));
+        if (saved && saved.analytics === "granted") {
+          gtag("consent", "update", { analytics_storage: "granted" });
+        }
+      } catch (e) {}
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", GTM_ID);
+    </script>
+  )
+}
+{VERCEL_ANALYTICS && <script defer src="/_vercel/insights/script.js" />}

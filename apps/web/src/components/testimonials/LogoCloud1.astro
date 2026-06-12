@@ -1,0 +1,39 @@
+---
+// Fundations
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// Loghi clienti Verbalist (SVG statici in /public/img/logos, resi neri = monocromo)
+const logos = [
+  { src: "/img/logos/rentokil.svg", alt: "Rentokil" },
+  { src: "/img/logos/pompea.svg", alt: "Pompea" },
+  { src: "/img/logos/meccanotecnica.svg", alt: "Meccanotecnica" },
+  { src: "/img/logos/plastisac.svg", alt: "Plastisac" },
+  { src: "/img/logos/sogese.svg", alt: "Sogese" },
+  { src: "/img/logos/jurny.svg", alt: "Jurny" },
+  { src: "/img/logos/turboden.svg", alt: "Turboden" },
+  { src: "/img/logos/astori-ferramenta.svg", alt: "Astori Ferramenta" },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="relative overflow-hidden border-t">
+    <div
+      class="relative flex items-center py-8 animate-marquee gap-12 lg:gap-24 whitespace-nowrap"
+    >
+      {
+        [...logos, ...logos].map((logo) => (
+          <img
+            class="h-6 w-auto shrink-0 brightness-0"
+            src={logo.src}
+            alt={logo.alt}
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+    <div
+      class="absolute inset-0 w-full bg-linear-45 from-white via-transparent to-white"
+    >
+    </div>
+  </Wrapper>
+</section>

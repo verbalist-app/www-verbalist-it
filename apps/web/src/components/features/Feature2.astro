@@ -1,0 +1,118 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// Icons
+import Search from "@/components/fundations/icons/Search.astro";
+import Analytics from "@/components/fundations/icons/Analytics.astro";
+import Brain from "@/components/fundations/icons/Brain.astro";
+import List from "@/components/fundations/icons/List.astro";
+import Settings from "@/components/fundations/icons/Settings.astro";
+import Persist from "@/components/fundations/icons/Persist.astro";
+import Filters from "@/components/fundations/icons/Filters.astro";
+import Stacked from "@/components/fundations/icons/Stacked.astro";
+
+const features = [
+  {
+    id: "serp",
+    title: "Analisi della SERP reale",
+    description:
+      "Legge le pagine già prime su Google per la tua keyword ed estrae argomenti, struttura e lacune da colmare.",
+    icon: Search,
+  },
+  {
+    id: "dati",
+    title: "Dati reali, non un prompt",
+    description:
+      "Ogni contenuto parte da quei dati, non da un'idea generica buttata in un prompt a vuoto.",
+    icon: Analytics,
+  },
+  {
+    id: "geo",
+    title: "Google e AI insieme",
+    description:
+      "Scritto per posizionarsi su Google e, insieme, per farsi citare dagli assistenti AI.",
+    icon: Brain,
+  },
+  {
+    id: "lingue",
+    title: "30+ lingue native",
+    description:
+      "Scrive nella lingua del tuo mercato analizzando i competitor locali del Paese, non traducendo un testo italiano.",
+    icon: List,
+  },
+  {
+    id: "brand",
+    title: "La tua voce di brand",
+    description:
+      "Keyword, mercato, tono e brand guidelines: li imposti una volta e tornano in ogni contenuto che produci.",
+    icon: Settings,
+  },
+  {
+    id: "multi-modello",
+    title: "Multi-modello con fallback",
+    description:
+      "Orchestra i modelli di OpenAI, Anthropic e Google e usa il più adatto a ogni fase. Se uno non risponde, passa a un'alternativa.",
+    icon: Persist,
+  },
+  {
+    id: "esistente",
+    title: "Anche i contenuti che hai già",
+    description:
+      "Incolli un testo, un URL o un file e Verbalist lo rivede a confronto con i competitor, senza ripartire da zero.",
+    icon: Filters,
+  },
+  {
+    id: "cms",
+    title: "Pronto per il CMS",
+    description:
+      "Testo formattato, copertina e metadati, pronti da incollare nella tua piattaforma in pochi minuti.",
+    icon: Stacked,
+  },
+];
+---
+
+<section id="funzionalita" class="scroll-mt-20">
+  <Wrapper variant="standard" class="pt-12 pb-4 border-t">
+    <div class="max-w-xl text-balance">
+      <Text
+        tag="h2"
+        variant="displaySM"
+        class="font-serif font-medium tracking-tight text-black"
+      >
+        Le funzionalità SEO e GEO che lo costruiscono
+      </Text>
+      <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+        Dall'analisi della SERP all'articolo pronto per il CMS, ogni passaggio
+        parte dai dati reali del tuo mercato.
+      </Text>
+    </div>
+    <div
+      class="items-center mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2"
+    >
+      {
+        features.map((feature) => {
+          const Icon = feature.icon;
+          return (
+            <div class="flex flex-col h-full p-4 bg-mist-100 rounded-xl group hover:bg-white hover:shadow-2xl duration-300 outline-transparent hover:outline hover:outline-mist-100 ">
+              <div class="inline-flex p-4 bg-white rounded-lg group-hover:bg-mist-100 duration-300 group-hover:-rotate-12 group-hover:-translate-y-2 w-fit">
+                <Icon size="base" class=" text-accent-500" />
+              </div>
+              <Text
+                tag="h3"
+                variant="textSM"
+                class="mt-12 font-medium text-base-900"
+              >
+                {feature.title}
+              </Text>
+              <Text tag="p" variant="textSM" class="mt-2 text-base-500">
+                {feature.description}
+              </Text>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Wrapper>
+</section>

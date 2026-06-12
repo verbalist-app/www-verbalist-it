@@ -1,0 +1,191 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+import Check from "@/components/fundations/icons/Check.astro";
+// Mockup degli agenti (variante "card": solo la scheda, senza pannello)
+import MockupBrief from "@/components/features/agents/MockupBrief.astro";
+import MockupSerp from "@/components/features/agents/MockupSerp.astro";
+import MockupArticle from "@/components/features/agents/MockupArticle.astro";
+import MockupExport from "@/components/features/agents/MockupExport.astro";
+import MockupWindow from "@/components/features/agents/MockupWindow.astro";
+import Cta2 from "@/components/ctas/Cta2.astro";
+
+// prev/next: agente precedente e successivo ({ id, n, name } | null).
+const { frontmatter, prev = null, next = null } = Astro.props;
+
+// Pannello dipinto + finestra app, come in home (chiave = frontmatter.mockup)
+const mockups: Record<string, any> = {
+  brief: MockupBrief,
+  serp: MockupSerp,
+  article: MockupArticle,
+  "export": MockupExport,
+};
+const Mockup = mockups[frontmatter.mockup] ?? MockupBrief;
+
+const heroImages: Record<string, string> = {
+  brief: "/img/agent-brief.webp",
+  serp: "/img/agent-serp.webp",
+  article: "/img/agent-article.webp",
+  "export": "/img/agent-export.webp",
+};
+const heroImage = heroImages[frontmatter.mockup] ?? heroImages.brief;
+
+const appUrls: Record<string, string> = {
+  brief: "app.verbalist.it/nuovo",
+  serp: "app.verbalist.it/analisi",
+  article: "app.verbalist.it/editor",
+  "export": "app.verbalist.it/esporta",
+};
+const appUrl = appUrls[frontmatter.mockup] ?? appUrls.brief;
+---
+
+<BaseLayout
+  seo={{
+    title: frontmatter.seoTitle,
+    description: frontmatter.seoDescription ?? frontmatter.lede,
+  }}
+>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div class="max-w-xl mx-auto text-balance">
+        <div class="bg-mist-100 p-1.5 rounded-full px-6 w-fit">
+          <span class="text-xs font-medium text-base-800">Agenti</span>
+        </div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-serif font-medium tracking-tight text-black"
+        >
+          {frontmatter.headline}
+        </Text>
+        <Text tag="p" variant="textBase" class="mt-4 text-base-600">
+          {frontmatter.lede}
+        </Text>
+      </div>
+      <div
+        class="relative p-5 mt-8 overflow-hidden rounded-xl bg-mist-100 bg-cover bg-center sm:p-10 md:p-14"
+        style={`background-image: url('${heroImage}')`}
+      >
+        <div class="absolute inset-0 bg-mist-100/25" aria-hidden="true"></div>
+        <MockupWindow url={appUrl}>
+          <Mockup variant="card" />
+        </MockupWindow>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t">
+      <div class="max-w-2xl mx-auto">
+        {
+          frontmatter.intro && (
+            <Text tag="p" variant="textSM" class="mb-8 text-base-600">
+              {frontmatter.intro}
+            </Text>
+          )
+        }
+        <dl class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div class="flex flex-col gap-3">
+            <dt>
+              <Text tag="h2" variant="textSM" class="font-medium text-base-800">
+                Cosa riceve
+              </Text>
+            </dt>
+            {
+              frontmatter.input.map((item: string) => (
+                <dd class="flex items-start gap-2">
+                  <Check size="sm" class="mt-0.5 text-accent-500 shrink-0" />
+                  <Text tag="p" variant="textSM" class="text-base-600">
+                    {item}
+                  </Text>
+                </dd>
+              ))
+            }
+          </div>
+          <div class="flex flex-col gap-3">
+            <dt>
+              <Text tag="h2" variant="textSM" class="font-medium text-base-800">
+                Cosa consegna
+              </Text>
+            </dt>
+            {
+              frontmatter.output.map((item: string) => (
+                <dd class="flex items-start gap-2">
+                  <Check size="sm" class="mt-0.5 text-accent-500 shrink-0" />
+                  <Text tag="p" variant="textSM" class="text-base-600">
+                    {item}
+                  </Text>
+                </dd>
+              ))
+            }
+          </div>
+        </dl>
+
+        {
+          frontmatter.note && (
+            <div class="pl-4 mt-10 border-l-2 border-base-200">
+              <Text tag="h3" variant="textSM" class="font-medium text-accent-600">
+                {frontmatter.note.label}
+              </Text>
+              <Text tag="p" variant="textSM" class="mt-2 text-base-500">
+                {frontmatter.note.text}
+              </Text>
+            </div>
+          )
+        }
+
+        <nav
+          aria-label="Agente precedente e successivo"
+          class="flex items-center justify-between pt-6 mt-12 gap-3 border-t border-base-200"
+        >
+          <a
+            href={prev ? "/agenti/" + prev.id : "/#agenti"}
+            rel="prev"
+            class="flex items-center text-sm font-medium gap-1 text-base-800 hover:text-accent-500 group"
+          >
+            <ChevronRight
+              size="sm"
+              class="rotate-180 duration-300 group-hover:-translate-x-1"
+            />
+            {prev ? prev.n + " · " + prev.name : "Tutti gli agenti"}
+          </a>
+          {
+            next ? (
+              <a
+                href={"/agenti/" + next.id}
+                rel="next"
+                class="flex items-center text-sm font-medium gap-1 text-base-800 hover:text-accent-500 group"
+              >
+                {next.n + " · " + next.name}
+                <ChevronRight
+                  size="sm"
+                  class="duration-300 group-hover:translate-x-1"
+                />
+              </a>
+            ) : (
+              <a
+                href="/#agenti"
+                class="flex items-center text-sm font-medium gap-1 text-base-800 hover:text-accent-500 group"
+              >
+                Tutti gli agenti
+                <ChevronRight
+                  size="sm"
+                  class="duration-300 group-hover:translate-x-1"
+                />
+              </a>
+            )
+          }
+        </nav>
+
+      </div>
+    </Wrapper>
+  </section>
+  <Cta2
+    title="Prova l'intera catena di agenti"
+    text="Parti da una keyword: brief, analisi della SERP, articolo ed esportazione in un'unica corsa. Gratis per 30 giorni."
+  />
+</BaseLayout>

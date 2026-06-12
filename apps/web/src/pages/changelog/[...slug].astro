@@ -1,0 +1,29 @@
+---
+import ChangelogLayout from "@/layouts/ChangelogLayout.astro";
+import {
+  getAllChangelog,
+  renderChangelogContent,
+} from "@/lib/data";
+
+export async function getStaticPaths() {
+  const entries = await getAllChangelog();
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+// Get rendered content
+let Content: any = null;
+
+const rendered = await renderChangelogContent(entry.slug);
+if (rendered) {
+  Content = rendered.Content;
+}
+---
+
+<ChangelogLayout frontmatter={entry.data}>
+  {Content && <Content />}
+</ChangelogLayout>

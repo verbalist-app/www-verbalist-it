@@ -1,0 +1,81 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const faqs = [
+  {
+    question: "Come nasce un contenuto su Verbalist?",
+    answer:
+      "In quattro passaggi: imposti keyword, mercato e contesto del brand, Verbalist legge le pagine che si posizionano per quella ricerca, scrive il contenuto nella lingua del mercato e lo consegna in HTML con i metadati compilati.",
+  },
+  {
+    question: "Posso fargli rivedere un contenuto che ho già?",
+    answer:
+      "Sì. Incolli un testo, un URL o un PDF e Verbalist lo confronta con i competitor che oggi si posizionano in SERP, suggerendo cosa aggiungere o sistemare.",
+  },
+  {
+    question: "Posso scegliere io i competitor da analizzare?",
+    answer:
+      "Sì, fino a cinque URL. Se non li indichi, Verbalist parte dai primi risultati organici di Google per la tua keyword nel tuo mercato.",
+  },
+  {
+    question: "Come funzionano i crediti?",
+    answer:
+      "Ogni contenuto generato usa crediti del tuo piano. Se una generazione fallisce per un errore, i crediti non vengono scalati.",
+  },
+  {
+    question: "Le immagini sono incluse?",
+    answer:
+      "Le generi su richiesta a partire dal contenuto: copertina e figure interne arrivano con alt text e posizione suggerita nel testo, pronte da scaricare.",
+  },
+  {
+    question: "Serve la carta di credito per provare?",
+    answer:
+      "No. Provi Verbalist gratis per 30 giorni, con 15 documenti inclusi e senza carta di credito.",
+  },
+];
+---
+
+<section class="border-t border-base-200 border-dashed">
+  <Wrapper variant="standard" class="pt-12 pb-4">
+    <div class="max-w-xl mx-auto text-center text-balance">
+      <Text
+        tag="h2"
+        variant="displaySM"
+        class="font-serif font-medium text-black"
+      >
+        Domande frequenti
+      </Text>
+
+      <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+        Le risposte rapide su generazione, crediti e immagini.
+      </Text>
+
+      <div class="relative w-full mx-auto mt-12 space-y-4">
+        {
+          faqs.map((faq) => (
+            <details class="text-left cursor-pointer group">
+              <summary data-gtm="faq-accordion" class="flex items-center justify-between w-full pb-1 text-left select-none  text-base-600 hover:text-accent-500">
+                {faq.question}
+                <svg
+                  class="w-5 h-5 duration-300 ease-out text-accent-500 transform group-open:-rotate-45"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6v12m6-6H6"
+                  />
+                </svg>
+              </summary>
+              <div class="py-4 pt-2 text-base-500">{faq.answer}</div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>

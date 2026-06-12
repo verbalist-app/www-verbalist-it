@@ -1,0 +1,136 @@
+---
+// Anatomia di un contenuto GEO-ready: un articolo vero con i punti
+// che lo rendono citabile dai motori generativi, numerati e spiegati
+// a fianco. È il differenziatore (GEO) reso visibile a chi non è del
+// mestiere. Pattern di brand: pannello mist + finestra bianca.
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const traits = [
+  {
+    n: "1",
+    title: "La risposta sta in apertura",
+    text: "I motori generativi pescano dalle prime righe. Il pezzo apre con la risposta secca, il contesto arriva dopo.",
+  },
+  {
+    n: "2",
+    title: "I titoli sono domande reali",
+    text: "Gli H2 ricalcano le People Also Ask di Google. Ogni sezione risponde a una domanda che la gente fa davvero.",
+  },
+  {
+    n: "3",
+    title: "Dati e confronti citabili",
+    text: "Numeri espliciti e paragoni netti: il formato che ChatGPT, Perplexity e AI Overviews riprendono parola per parola.",
+  },
+  {
+    n: "4",
+    title: "Le entità del settore",
+    text: "Schiume supercritiche, pronazione: i termini che i modelli collegano al topic. Se mancano, il contenuto resta fuori dalle risposte.",
+  },
+];
+---
+
+<section class="overflow-hidden">
+  <Wrapper variant="standard" class="pt-12 pb-4 border-t">
+    <div class="text-center text-balance">
+      <Text
+        tag="h2"
+        variant="displaySM"
+        class="font-serif font-medium tracking-tight text-black"
+      >
+        Cosa rende un contenuto pronto per le AI
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="max-w-xl mx-auto mt-4 text-base-500"
+      >
+        I motori generativi non leggono le pagine: ne estraggono risposte. Per
+        questo ogni contenuto di Verbalist nasce già con i pezzi che le AI
+        cercano.
+      </Text>
+    </div>
+
+    <div class="p-8 mt-12 bg-mist-100 rounded-xl sm:p-10">
+      <div class="grid items-center grid-cols-1 gap-10 lg:grid-cols-2">
+        <!-- Articolo annotato -->
+        <div
+          class="w-full max-w-md p-6 mx-auto bg-white rounded-xl shadow-sm outline outline-mist-500/10"
+        >
+          <p class="font-serif text-lg font-medium tracking-tight text-base-900">
+            Scarpe running 2026: come scegliere
+          </p>
+
+          <p class="relative mt-4 text-sm leading-relaxed text-base-700">
+            <span class="px-1 -mx-1 rounded bg-mist-100"
+              >Le scarpe da running si scelgono in base ad appoggio,
+              chilometraggio e drop: l'ammortizzazione massima non è sempre la
+              più protettiva.</span
+            >
+            <span
+              class="inline-flex items-center justify-center ml-1.5 align-middle size-4 text-[10px] font-medium text-white rounded-full bg-accent-500"
+              >1</span
+            >
+          </p>
+
+          <p class="mt-5 text-sm font-medium text-base-900">
+            <span class="px-1 -mx-1 rounded bg-mist-100"
+              >Quanto conta il drop nella scelta?</span
+            >
+            <span
+              class="inline-flex items-center justify-center ml-1.5 align-middle size-4 text-[10px] font-medium text-white rounded-full bg-accent-500"
+              >2</span
+            >
+          </p>
+
+          <p class="mt-2 text-sm leading-relaxed text-base-700">
+            <span class="px-1 -mx-1 rounded bg-mist-100"
+              >Un drop di 4 mm carica di più il polpaccio; un 10 mm protegge il
+              tendine nelle uscite lunghe.</span
+            >
+            <span
+              class="inline-flex items-center justify-center ml-1.5 align-middle size-4 text-[10px] font-medium text-white rounded-full bg-accent-500"
+              >3</span
+            >
+          </p>
+
+          <p class="mt-2 text-sm leading-relaxed text-base-700">
+            Le <span class="px-1 rounded bg-mist-100">schiume supercritiche</span>
+            hanno cambiato il rapporto tra peso e ritorno di energia, e la
+            <span class="px-1 rounded bg-mist-100">pronazione</span> resta il
+            primo criterio per chi supera i 40 km a settimana.
+            <span
+              class="inline-flex items-center justify-center ml-1.5 align-middle size-4 text-[10px] font-medium text-white rounded-full bg-accent-500"
+              >4</span
+            >
+          </p>
+        </div>
+
+        <!-- Legenda -->
+        <div class="flex flex-col gap-6">
+          {
+            traits.map((t) => (
+              <div class="flex items-start gap-3">
+                <span class="flex items-center justify-center mt-0.5 size-5 shrink-0 text-[10px] font-medium text-white rounded-full bg-accent-500">
+                  {t.n}
+                </span>
+                <div>
+                  <Text
+                    tag="h3"
+                    variant="textSM"
+                    class="font-medium text-base-900"
+                  >
+                    {t.title}
+                  </Text>
+                  <Text tag="p" variant="textSM" class="mt-1 text-base-600">
+                    {t.text}
+                  </Text>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

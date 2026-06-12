@@ -1,0 +1,85 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Content
+const { customer, logo, url, ctaTitle, testimonial } = {
+  url: "/clienti/" + Astro.props.post.slug,
+  logo: Astro.props.post.data.logo.url,
+  customer: Astro.props.post.data.customer,
+  ctaTitle: Astro.props.post.data.ctaTitle,
+  testimonial: Astro.props.post.data.testimonial,
+};
+
+// Sfondo floreale a rotazione (stessa famiglia di hero e agenti)
+const florals = [
+  "/img/hero-floral.webp",
+  "/img/agent-brief.webp",
+  "/img/agent-serp.webp",
+  "/img/agent-article.webp",
+  "/img/agent-export.webp",
+];
+const index = Astro.props.index ?? 0;
+const floral = florals[index % florals.length];
+---
+
+<div class="relative p-8 overflow-hidden bg-mist-100 rounded-xl group">
+  <a
+    href={url}
+    title={customer}
+    aria-label={customer}
+    class="absolute inset-0 z-10"></a>
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
+    <div class="max-w-md mx-auto text-center text-balance">
+      <Text
+        tag="span"
+        variant="textXS"
+        class="font-medium text-base-600"
+      >
+        {customer}
+      </Text>
+      <Text
+        tag="p"
+        variant="textXL"
+        class="mt-8 font-serif font-medium tracking-tight text-base-900 text-balance"
+      >
+        "{testimonial}"
+      </Text>
+      <Text tag="p" variant="textBase" class="mt-4 text-base text-base-500">
+        {ctaTitle}
+      </Text>
+      <Text
+        tag="p"
+        variant="textSM"
+        class="flex items-center justify-center mt-12 font-medium gap-2 text-base-800"
+      >
+        Leggi il case study di {customer}
+        <ChevronRight
+          size="sm"
+          class="duration-300 ease-out group-hover:translate-x-2"
+        />
+      </Text>
+    </div>
+
+    <div
+      class="relative flex items-center justify-center overflow-hidden aspect-square rounded-xl bg-mist-100 bg-cover bg-center"
+      style={`background-image: url('${floral}')`}
+    >
+      <div class="absolute inset-0 bg-mist-100/25" aria-hidden="true"></div>
+      <div
+        class="relative z-10 flex items-center justify-center p-6 bg-white rounded-xl shadow-sm outline outline-mist-500/10 size-36"
+      >
+        <Image
+          src={logo}
+          alt={customer}
+          width={200}
+          height={200}
+          class="w-full h-auto brightness-0"
+        />
+      </div>
+    </div>
+  </div>
+</div>

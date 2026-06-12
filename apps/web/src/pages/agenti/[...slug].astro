@@ -1,0 +1,27 @@
+---
+import AgentsLayout from "@/layouts/AgentsLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const agents = (await getCollection("agents")).sort((a, b) =>
+    a.data.n.localeCompare(b.data.n)
+  );
+  const links = agents.map((agent) => ({
+    id: agent.id,
+    n: agent.data.n,
+    name: agent.data.name,
+  }));
+  return agents.map((agent, i) => ({
+    params: { slug: agent.id },
+    props: {
+      agent,
+      prev: i > 0 ? links[i - 1] : null,
+      next: i < links.length - 1 ? links[i + 1] : null,
+    },
+  }));
+}
+
+const { agent, prev, next } = Astro.props;
+---
+
+<AgentsLayout frontmatter={agent.data} prev={prev} next={next} />

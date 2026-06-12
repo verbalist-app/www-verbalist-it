@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /system/
+Allow: /
+
+# Preferenze d'uso dei contenuti per sistemi AI (contentsignals.org)
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+Sitemap: https://www.verbalist.it/sitemap.xml

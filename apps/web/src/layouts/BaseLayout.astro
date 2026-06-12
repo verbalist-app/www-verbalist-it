@@ -1,0 +1,73 @@
+---
+// Fundations
+import "@/styles/global.css";
+import BaseHead from "@/components/fundations/head/BaseHead.astro";
+// Components
+import Footer from "@/components/global/Footer.astro";
+import Navigation from "@/components/global/Navigation.astro";
+import CookieBanner from "@/components/global/CookieBanner.astro";
+
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID || "";
+
+interface Props {
+  seo?: {
+    title?: string;
+    description?: string;
+    image?: { url: string; alt?: string };
+    type?: "website" | "article";
+    publishedTime?: string;
+    noindex?: boolean;
+  };
+  hideNavigation?: boolean;
+  hideFooter?: boolean;
+}
+
+// Hides the navigation, or footer on selected screens by passing props:
+// <BaseLayout hideNavigation={true} hideFooter={true}>
+const { seo, hideNavigation = false, hideFooter = false } = Astro.props;
+---
+
+<html
+  lang="it"
+  class="scroll-smooth selection:bg-mist-100 selection:text-accent-500"
+>
+  <head>
+    <BaseHead seo={seo} />
+  </head>
+  <body class="relative flex flex-col bg-white min-h-svh">
+    {
+      GTM_ID && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+            title="Google Tag Manager"
+          />
+        </noscript>
+      )
+    }
+    <a
+      href="#contenuto"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-base-800 focus:outline-2 focus:outline-accent-500"
+    >
+      Salta al contenuto
+    </a>
+    {!hideNavigation && <Navigation />}
+    <main id="contenuto" class="flex flex-col grow"><slot /></main>
+    {!hideFooter && <Footer />}
+    <CookieBanner />
+    <script is:inline>
+      // Riallinea l'ancora dopo il load: la demo in hero si monta in ritardo
+      // e sposterebbe la sezione di destinazione più in basso.
+      window.addEventListener("load", () => {
+        if (!location.hash) return;
+        const go = () =>
+          document.getElementById(location.hash.slice(1))?.scrollIntoView();
+        go();
+        setTimeout(go, 350);
+      });
+    </script>
+  </body>
+</html>

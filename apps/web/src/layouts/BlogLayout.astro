@@ -1,0 +1,275 @@
+---
+// Assets
+import { Image } from "astro:assets";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import ShareButtons from "@/components/fundations/elements/ShareButtons.astro";
+import BlogCard from "@/components/blog/BlogCard.astro";
+import Cta2 from "@/components/ctas/Cta2.astro";
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+const { frontmatter } = Astro.props;
+// Data utilities
+import {
+  getRelatedPosts,
+  getTeamMemberBySlug,
+  slugifyTag,
+} from "@/lib/data";
+
+// Get the current slug from the URL
+const currentSlug = Astro.url.pathname.split("/").filter(Boolean).pop() || "";
+
+// Fetch related posts using the data utility
+const relatedPosts = await getRelatedPosts(currentSlug, frontmatter.tags || []);
+
+// Fetch team member if the post has a team reference
+let team = null;
+if (frontmatter.team) {
+  team = await getTeamMemberBySlug(frontmatter.team);
+}
+
+// SEO data from frontmatter
+const seo = {
+  title: frontmatter.title,
+  description: frontmatter.description,
+  image: frontmatter.image,
+  type: "article" as const,
+  publishedTime: frontmatter.pubDate?.toISOString(),
+};
+
+const siteUrl = "https://www.verbalist.it";
+const articleLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  image: new URL(frontmatter.image.url, siteUrl).toString(),
+  datePublished: new Date(frontmatter.pubDate).toISOString(),
+  inLanguage: "it",
+  author: team
+    ? { "@type": "Person", name: team.data.name, jobTitle: team.data.role }
+    : { "@type": "Organization", name: "Verbalist" },
+  publisher: { "@type": "Organization", name: "Verbalist", url: siteUrl },
+  mainEntityOfPage: new URL(Astro.url.pathname, siteUrl).toString(),
+};
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "/blog" },
+  { label: frontmatter.title, href: "#" },
+];
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbs.map((b, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: b.label,
+    ...(b.href && b.href !== "#"
+      ? { item: new URL(b.href, siteUrl).toString() }
+      : {}),
+  })),
+};
+---
+
+<BaseLayout seo={seo}>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(articleLd)}
+  />
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(breadcrumbLd)}
+  />
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div
+        class="flex flex-col justify-between max-w-xl mx-auto text-center text-balance"
+      >
+        <div>
+          <nav
+            aria-label="Breadcrumb"
+            class="bg-mist-100 p-1.5 rounded-full px-6 w-fit mx-auto"
+          >
+            <ol class="flex items-center text-xs gap-2 text-base-500">
+              {
+                breadcrumbs.map((item, index) => (
+                  <>
+                    <li>
+                      {index < breadcrumbs.length - 1 ? (
+                        <a
+                          href={item.href}
+                          class="text-xs font-medium hover:text-accent-500 text-base-800"
+                        >
+                          {item.label}
+                        </a>
+                      ) : (
+                        <span class="block truncate max-w-[10rem] sm:max-w-xs md:max-w-sm text-xs font-medium text-accent-500">
+                          {item.label}
+                        </span>
+                      )}
+                    </li>
+                    {index < breadcrumbs.length - 1 && (
+                      <li class="text-base-400">
+                        <ChevronRight size="sm" />
+                      </li>
+                    )}
+                  </>
+                ))
+              }
+            </ol>
+          </nav>
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="mt-12 font-serif font-medium tracking-tight text-base-900"
+          >
+            {frontmatter.title}
+          </Text>
+          <Text
+            tag="p"
+            variant="textBase"
+            class="max-w-xl mx-auto mt-4 text-base-500"
+          >
+            {frontmatter.description}
+          </Text>
+        </div>
+      </div>
+
+      <Image
+        width={1000}
+        height={800}
+        alt={frontmatter.image.alt}
+        src={frontmatter.image.url}
+        loading="eager"
+        class="object-cover object-center mt-8 size-full max-h-120 lg:col-span-2 rounded-xl"
+      />
+    </Wrapper>
+    <Wrapper variant="standard" class="py-4 border-t">
+      <div class="max-w-xl mx-auto">
+        {
+          frontmatter.tldr && frontmatter.tldr.length > 0 && (
+            <details class="mb-10 group bg-mist-100 rounded-xl">
+              <summary class="flex items-center justify-between px-5 py-3.5 text-sm font-medium select-none cursor-pointer list-none text-base-700 [&::-webkit-details-marker]:hidden">
+                In breve
+                <svg
+                  class="size-4 text-base-400 duration-300 transition-transform group-open:rotate-180"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </summary>
+              <ul class="flex flex-col px-5 pb-4 gap-2">
+                {frontmatter.tldr.map((point: string) => (
+                  <li class="flex items-start gap-2 text-sm leading-relaxed text-base-700">
+                    <span class="shrink-0 text-base-400">—</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )
+        }
+        <Wrapper variant="prose">
+          <slot />
+        </Wrapper>
+        <div class="w-full pt-8 mt-8 border-t border-base-200 border-dashed">
+          {
+            team && (
+              <div class="flex items-center gap-3 hover:opacity-80 transition ">
+                <a href={`/team/${team.slug}`}>
+                  {team?.data?.image?.url && (
+                    <Image
+                      width={100}
+                      height={100}
+                      src={team.data.image.url}
+                      alt={team.data.image.alt}
+                      class="inline-block object-cover object-center rounded-lg size-10 bg-mist-100"
+                    />
+                  )}
+                </a>
+                <Text tag="p" variant="textXS" class="text-base-500 ">
+                  <span class="">
+                    Pubblicato il
+                    <span class="font-medium  text-base-500">
+                      <time
+                        datetime={new Date(frontmatter.pubDate).toISOString()}
+                      >
+                        {new Date(frontmatter.pubDate).toLocaleDateString(
+                          "it-IT",
+                          {
+                            year: "numeric",
+                            month: "long",
+                            day: "2-digit",
+                          }
+                        )}
+                      </time>
+                    </span>
+                  </span>
+                  <span class="">
+                    da
+                    <span class="font-medium text-base-500 ">
+                      {team.data.name}
+                    </span>
+                  </span>
+                  <span class="block">
+                    {team.data.role}
+                    ·
+                    {frontmatter.tags.map((tag) => (
+                      <>
+                        <a href={`/categorie/${slugifyTag(tag)}`} class="capitalize ">
+                          {tag}
+                        </a>
+                      </>
+                    ))}
+                  </span>
+                </Text>
+              </div>
+            )
+          }
+        </div>
+
+        <div class="flex flex-col mt-12 gap-2">
+          <Text tag="p" variant="textXS" class="text-base-500">
+            Condividi l'articolo:
+          </Text>
+          <ShareButtons description={frontmatter.description} />
+        </div>
+
+      </div>
+    </Wrapper>
+  </section>
+  <Cta2
+    title="Provalo sul tuo prossimo articolo"
+    text="Verbalist legge la SERP della tua keyword e consegna un contenuto ottimizzato per SEO e GEO, pronto per il CMS."
+  />
+  {
+    relatedPosts.length > 0 && (
+      <section class="border-t border-base-200 border-dashed">
+        <Wrapper variant="standard" class="py-12">
+          <Text
+            tag="h2"
+            variant="displayMD"
+            class="font-serif font-medium tracking-tight text-base-900"
+          >
+            Articoli correlati
+          </Text>
+          <div class="mt-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {relatedPosts.slice(0, 3).map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        </Wrapper>
+      </section>
+    )
+  }
+</BaseLayout>

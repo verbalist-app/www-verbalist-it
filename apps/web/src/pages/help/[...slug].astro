@@ -1,0 +1,29 @@
+---
+import HelpcenterLayout from "@/layouts/HelpCenterLayout.astro";
+import {
+  getAllHelpcenter,
+  renderHelpcenterContent,
+} from "@/lib/data";
+
+export async function getStaticPaths() {
+  const articles = await getAllHelpcenter();
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+
+// Get rendered content
+let Content: any = null;
+
+const rendered = await renderHelpcenterContent(article.slug);
+if (rendered) {
+  Content = rendered.Content;
+}
+---
+
+<HelpcenterLayout frontmatter={article.data}>
+  {Content && <Content />}
+</HelpcenterLayout>

@@ -1,0 +1,173 @@
+---
+export const description = "Pricing section with three plans";
+
+// Components
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Check from "@/components/fundations/icons/Check.astro";
+
+// Piani reali dal -DEF (siteConfig.pricing): pacchetti una tantum, crediti 12 mesi.
+const pricingOptions = [
+  {
+    title: "Starter",
+    price: "€270",
+    period: "una tantum",
+    description:
+      "Per iniziare a produrre contenuti SEO con un volume sostenibile.",
+    button: {
+      text: "Prova gratis 30 giorni",
+      variant: "muted",
+      href: "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26",
+    },
+    isPopular: false,
+    features: [
+      "30 contenuti",
+      "Crediti validi 12 mesi",
+      "Analisi dei risultati di Google, estrazione competitor e ottimizzazione",
+      "Multi-lingua e multi-mercato",
+    ],
+  },
+  {
+    title: "Pro",
+    price: "€500",
+    period: "una tantum",
+    description: "Per team marketing che producono contenuti su scala.",
+    button: {
+      text: "Prova gratis 30 giorni",
+      variant: "accent",
+      href: "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26",
+    },
+    isPopular: true,
+    features: [
+      "70 contenuti",
+      "Crediti validi 12 mesi",
+      "Tutto il piano Starter",
+    ],
+  },
+  {
+    title: "Custom",
+    price: "Su richiesta",
+    period: "",
+    description:
+      "Per aziende con volumi alti o esigenze custom su brand e workflow.",
+    button: { text: "Contattaci", variant: "muted", href: "/contatti" },
+    isPopular: false,
+    features: [
+      "Volume di contenuti personalizzato sul caso d'uso",
+      "Tutto il piano Pro",
+      "Utenti del team illimitati",
+      "Account manager dedicato",
+      "Onboarding white-glove",
+    ],
+  },
+];
+---
+
+<section
+  id="prezzi"
+  class="border-t border-base-200 border-dashed scroll-mt-24"
+>
+  <Wrapper variant="standard" class="pt-12 pb-4">
+    <div class="text-center text-balance">
+      <Text
+        tag="h2"
+        variant="displaySM"
+        class="font-serif font-medium tracking-tight text-black"
+      >
+        Prezzi basati su quanto produci
+      </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="max-w-xl mx-auto mt-4 text-base-500"
+      >
+        Nessun abbonamento: con Verbalist scegli il volume di contenuti e lo usi
+        nei 12 mesi.
+      </Text>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {
+        pricingOptions.map((tier) => (
+          <div
+            class={`flex flex-col h-full justify-between p-4 rounded-xl ${tier.isPopular ? "bg-mist-100" : "bg-mist-50"}`}
+          >
+            <div class="flex flex-col">
+              <div class="flex items-center justify-between gap-2">
+                <Text
+                  tag="h3"
+                  variant="textBase"
+                  class="font-medium text-base-900"
+                >
+                  {tier.title}
+                </Text>
+                {tier.isPopular && (
+                  <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-accent-500 text-white">
+                    Consigliato
+                  </span>
+                )}
+              </div>
+              <Text
+                variant="displaySM"
+                class="flex items-baseline mt-2 font-serif font-medium tracking-tighter text-base-900"
+              >
+                {tier.price.startsWith("€") ? (
+                  <span class="flex items-start">
+                    <span class="mr-0.5 mt-[0.3em] text-[0.5em] font-medium tracking-normal">
+                      €
+                    </span>
+                    <span>{tier.price.slice(1)}</span>
+                  </span>
+                ) : (
+                  <span>{tier.price}</span>
+                )}
+                {tier.period && (
+                  <span class="ml-1.5 text-sm font-normal tracking-normal text-base-500">
+                    {tier.period}
+                  </span>
+                )}
+              </Text>
+              <Text tag="p" variant="textSM" class="mt-2 text-base-500">
+                {tier.description}
+              </Text>
+
+              <div class="pt-4 mt-4 border-t border-base-200">
+                <Text
+                  tag="p"
+                  variant="textXS"
+                  class="font-medium tracking-wide uppercase text-base-500"
+                >
+                  Incluso nel piano:
+                </Text>
+                <ul
+                  class="flex flex-col mt-4 text-sm gap-y-3 text-base-900"
+                  role="list"
+                >
+                  {tier.features.map((feature) => (
+                    <li class="flex items-start gap-2">
+                      <Check size="sm" class="shrink-0 text-base-500" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div class="w-full mt-8">
+              <Button
+                isLink
+                href={tier.button.href}
+                class="w-full"
+                variant={tier.button.variant}
+                size="sm"
+              >
+                {tier.button.text}
+              </Button>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

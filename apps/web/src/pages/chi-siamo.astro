@@ -1,0 +1,75 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Logo from "@/components/assets/Logo.astro";
+---
+
+<BaseLayout
+  seo={{
+    title: "Chi c'è dietro Verbalist",
+    description:
+      "25 anni di SEO, il primo libro italiano sulla GEO e un team di prodotto: scopri il metodo che abbiamo trasformato in software.",
+  }}
+>
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-12">
+      <div class="max-w-xl mx-auto text-balance">
+        <div class="p-4 bg-mist-100 w-fit rounded-xl">
+          <Logo class="h-8 text-base-900" />
+        </div>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-serif font-medium tracking-tight text-black"
+        >
+          25 anni di esperienza SEO, ora in un software
+        </Text>
+        <div class="flex flex-col mt-4 gap-4">
+          <Text tag="p" variant="textBase" class="text-base-500">
+            NUR Digital Marketing nasce nel 1999. Da allora abbiamo lavorato a
+            SEO, GEO e contenuti per oltre 430 aziende, in Italia e all'estero.
+          </Text>
+          <Text tag="p" variant="textBase" class="text-base-500">
+            Siamo Google Premier Partner (nel 3% delle agenzie in Italia) e HubSpot Partner Platinum. Tra i clienti enterprise: EY,
+            Mercedes-Benz, LVMH e SDA Bocconi.
+          </Text>
+          <Text tag="p" variant="textBase" class="text-base-500">
+            Da anni investiamo in software, automazioni e sistemi basati
+            sull'intelligenza artificiale, collaborando con università ed enti
+            di ricerca italiani come la Fondazione Bruno Kessler. Siamo stati
+            tra le prime realtà in Italia a strutturare un framework dedicato
+            alla Generative Engine Optimization e a pubblicare
+            <a
+              href="https://amzn.eu/d/00Ki6HeV"
+              target="_blank"
+              rel="noopener"
+              class="text-base-900 underline underline-offset-2 transition hover:text-accent-500"
+              >il primo libro italiano sul tema</a
+            >, oggi citato come fonte su Wikipedia.
+          </Text>
+          <Text tag="p" variant="textBase" class="text-base-500">
+            Verbalist nasce da qui: lo stesso processo che facevamo a mano coi
+            clienti, ora dentro un software.
+          </Text>
+        </div>
+      </div>
+    </Wrapper>
+
+    <Wrapper variant="standard" class="pt-4 pb-16">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <img
+          src="/img/about/nur-stand.webp"
+          alt="Lo stand NUR al Global Summit Marketing & Digital"
+          class="object-cover w-full aspect-[4/3] rounded-xl"
+        />
+        <img
+          src="/img/about/nur-keynote.webp"
+          alt="Rinaldo Zambello, CEO di NUR, sul palco del Global Summit Marketing & Digital"
+          class="object-cover w-full aspect-[4/3] rounded-xl"
+        />
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

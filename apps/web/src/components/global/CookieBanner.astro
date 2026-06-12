@@ -1,0 +1,215 @@
+---
+// Banner consenso cookie (Garante/GDPR):
+// - compare solo se c'è un GTM configurato e l'utente non ha ancora scelto;
+// - Accetta e Rifiuta hanno pari evidenza; la X chiude senza accettare
+//   (equivale al rifiuto, come previsto dalle linee guida del Garante);
+// - "Personalizza" apre le preferenze per categoria: tecnici sempre attivi,
+//   analitici opzionali;
+// - la scelta vale 12 mesi, è riapribile da "Preferenze cookie" nel footer
+//   e si sincronizza tra le tab aperte;
+// - al rifiuto/revoca azzera i cookie di Google Analytics e Contentsquare.
+import Button from "@/components/fundations/elements/Button.astro";
+import X from "@/components/fundations/icons/X.astro";
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID || "";
+---
+
+<div
+  id="cookie-banner"
+  role="dialog"
+  aria-modal="false"
+  aria-label="Preferenze cookie"
+  data-gtm={GTM_ID ? "1" : ""}
+  class="fixed bottom-4 inset-x-4 z-[70] hidden max-w-sm p-5 ml-auto bg-white rounded-xl shadow-2xl outline outline-mist-500/10 sm:right-6 sm:bottom-6"
+>
+  <button
+    type="button"
+    id="cookie-close"
+    aria-label="Chiudi senza accettare"
+    title="Chiudi senza accettare"
+    class="absolute flex items-center justify-center top-3 right-3 size-8 rounded-full text-base-400 hover:text-base-800 hover:bg-mist-100 cursor-pointer"
+  >
+    <X size="sm" />
+  </button>
+
+  <p class="pr-8 text-sm font-medium text-base-900">Cookie e misurazione</p>
+  <p class="mt-2 text-sm text-base-600">
+    Usiamo cookie di analisi (Google Analytics, Contentsquare) per capire come
+    viene usato il sito. Restano spenti finché non scegli.
+    <a
+      href="/legale/cookie-policy"
+      class="font-medium text-base-800 underline decoration-base-300 hover:text-accent-500"
+    >
+      Cookie policy
+    </a>
+  </p>
+
+  <!-- Pannello preferenze per categoria -->
+  <div id="cookie-prefs" class="hidden pt-4 mt-4 border-t border-base-200">
+    <div class="flex items-center justify-between gap-3">
+      <div>
+        <p class="text-sm font-medium text-base-900">Tecnici</p>
+        <p class="text-xs text-base-500">Necessari al funzionamento del sito</p>
+      </div>
+      <span class="text-xs font-medium shrink-0 text-base-500">
+        Sempre attivi
+      </span>
+    </div>
+    <div class="flex items-center justify-between mt-3 gap-3">
+      <div>
+        <label for="cookie-analytics" class="text-sm font-medium text-base-900">
+          Analitici
+        </label>
+        <p class="text-xs text-base-500">Google Analytics, Contentsquare</p>
+      </div>
+      <input
+        type="checkbox"
+        id="cookie-analytics"
+        class="size-4 shrink-0 accent-accent-500 cursor-pointer"
+      />
+    </div>
+  </div>
+
+  <div id="cookie-actions" class="flex items-center mt-4 gap-2">
+    <Button type="button" size="xs" variant="accent" id="cookie-accept" class="grow">
+      Accetta
+    </Button>
+    <Button type="button" size="xs" variant="muted" id="cookie-reject" class="grow">
+      Rifiuta
+    </Button>
+  </div>
+  <button
+    type="button"
+    id="cookie-customize"
+    class="block mx-auto mt-3 text-xs underline text-base-500 decoration-base-300 hover:text-base-800 cursor-pointer"
+  >
+    Personalizza
+  </button>
+  <div id="cookie-save-row" class="hidden mt-4">
+    <Button type="button" size="xs" variant="accent" id="cookie-save" class="w-full">
+      Salva preferenze
+    </Button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = "verbalist-consent";
+    var MAX_AGE_DAYS = 365;
+    var banner = document.getElementById("cookie-banner");
+    if (!banner) return;
+    var hasGtm = banner.dataset.gtm === "1";
+    var prefs = document.getElementById("cookie-prefs");
+    var actions = document.getElementById("cookie-actions");
+    var customize = document.getElementById("cookie-customize");
+    var saveRow = document.getElementById("cookie-save-row");
+    var analyticsBox = document.getElementById("cookie-analytics");
+    window.dataLayer = window.dataLayer || [];
+
+    function readChoice() {
+      try {
+        var c = JSON.parse(localStorage.getItem(KEY));
+        if (!c || !c.ts) return null;
+        var ageDays = (Date.now() - c.ts) / 86400000;
+        return ageDays > MAX_AGE_DAYS ? null : c;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function wipeAnalyticsCookies() {
+      document.cookie.split(";").forEach(function (raw) {
+        var name = raw.split("=")[0].trim();
+        if (/^(_ga|_gid|_gat|_hj|_cs)/.test(name)) {
+          var kill = name + "=; Max-Age=0; path=/";
+          document.cookie = kill;
+          document.cookie = kill + "; domain=." + location.hostname;
+        }
+      });
+    }
+
+    function setMode(mode) {
+      var custom = mode === "prefs";
+      prefs.classList.toggle("hidden", !custom);
+      saveRow.classList.toggle("hidden", !custom);
+      actions.classList.toggle("hidden", custom);
+      customize.classList.toggle("hidden", custom);
+    }
+
+    function show() {
+      var c = readChoice();
+      analyticsBox.checked = !!(c && c.analytics === "granted");
+      setMode("default");
+      banner.classList.remove("hidden");
+    }
+
+    function apply(choice) {
+      localStorage.setItem(
+        KEY,
+        JSON.stringify({ analytics: choice, ts: Date.now() })
+      );
+      if (typeof gtag === "function") {
+        gtag("consent", "update", {
+          analytics_storage: choice === "granted" ? "granted" : "denied",
+        });
+      }
+      window.dataLayer.push({ event: "consent_update", consent_analytics: choice });
+      if (choice !== "granted") wipeAnalyticsCookies();
+      banner.classList.add("hidden");
+    }
+
+    document.getElementById("cookie-accept").addEventListener("click", function () {
+      apply("granted");
+    });
+    document.getElementById("cookie-reject").addEventListener("click", function () {
+      apply("denied");
+    });
+    // X = chiudi senza accettare (rifiuto, linee guida Garante)
+    document.getElementById("cookie-close").addEventListener("click", function () {
+      apply("denied");
+    });
+    customize.addEventListener("click", function () {
+      setMode("prefs");
+    });
+    document.getElementById("cookie-save").addEventListener("click", function () {
+      apply(analyticsBox.checked ? "granted" : "denied");
+    });
+
+    if (hasGtm && !readChoice()) show();
+
+    // Riapertura dal footer: "Preferenze cookie" (apre direttamente il pannello)
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a");
+      if (a && a.getAttribute("href") === "#preferenze-cookie") {
+        e.preventDefault();
+        show();
+        setMode("prefs");
+      }
+    });
+
+    // Sincronizzazione tra tab (GDPR: la scelta vale ovunque, subito).
+    // L'evento storage scatta solo nelle ALTRE tab: qui applichiamo la
+    // stessa decisione, senza ri-mostrare il banner.
+    window.addEventListener("storage", function (e) {
+      if (e.key !== KEY || !e.newValue) return;
+      var c = null;
+      try {
+        c = JSON.parse(e.newValue);
+      } catch (err) {
+        return;
+      }
+      if (!c || !c.analytics) return;
+      if (typeof gtag === "function") {
+        gtag("consent", "update", {
+          analytics_storage: c.analytics === "granted" ? "granted" : "denied",
+        });
+      }
+      window.dataLayer.push({
+        event: "consent_update",
+        consent_analytics: c.analytics,
+        consent_source: "other_tab",
+      });
+      if (c.analytics !== "granted") wipeAnalyticsCookies();
+      banner.classList.add("hidden");
+    });
+  })();
+</script>

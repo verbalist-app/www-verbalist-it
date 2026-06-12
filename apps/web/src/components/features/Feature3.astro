@@ -1,0 +1,106 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Search from "@/components/fundations/icons/Search.astro";
+import Analytics from "@/components/fundations/icons/Analytics.astro";
+import Brain from "@/components/fundations/icons/Brain.astro";
+import Stacked from "@/components/fundations/icons/Stacked.astro";
+// Illustrazioni agenti (stile bento del -DEF, ricreate in Astro)
+import MockupBrief from "@/components/features/agents/MockupBrief.astro";
+import MockupSerp from "@/components/features/agents/MockupSerp.astro";
+import MockupArticle from "@/components/features/agents/MockupArticle.astro";
+import MockupExport from "@/components/features/agents/MockupExport.astro";
+
+// I 4 agenti = gli executors reali, raggruppati. Testi tracciati sul codice:
+// brief (tone/brand/language) · analyze_serp (top-5) · generate_serp (SEO) · export (metadata+media)
+const agents = [
+  {
+    slug: "keyword-e-contesto",
+    title: "Keyword e contesto",
+    description:
+      "Tipo di contenuto, keyword, mercato e brand guidelines: il brief che guida ogni fase della catena.",
+    Icon: Search,
+    Mockup: MockupBrief,
+  },
+  {
+    slug: "analisi-competitor",
+    title: "Analisi competitor",
+    description:
+      "Legge i primi cinque risultati di Google per la tua keyword ed estrae argomenti, struttura e lacune da colmare.",
+    Icon: Analytics,
+    Mockup: MockupSerp,
+  },
+  {
+    slug: "generazione-articolo",
+    title: "Generazione articolo",
+    description:
+      "Scrive l'articolo completo nella lingua del mercato e nel tono del brand, costruito per superare i risultati già primi.",
+    Icon: Brain,
+    Mockup: MockupArticle,
+  },
+  {
+    slug: "esportazione-contenuto",
+    title: "Esportazione",
+    description:
+      "Testo formattato, metadati SEO e immagini, pronti da incollare nel tuo CMS in pochi minuti.",
+    Icon: Stacked,
+    Mockup: MockupExport,
+  },
+];
+---
+
+<section id="agenti" class="scroll-mt-20">
+  <Wrapper
+    variant="standard"
+    class="flex flex-col py-12 border-t gap-16 md:gap-24"
+  >
+    <div class="max-w-xl text-balance">
+      <Text
+        tag="h2"
+        variant="displaySM"
+        class="font-serif font-medium tracking-tight text-black"
+      >
+        Non un prompt. Una catena di agenti AI.
+      </Text>
+      <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+        Verbalist non si limita a scrivere. Quattro agenti specializzati si
+        passano il lavoro, dalla keyword all'articolo pronto per il CMS.
+      </Text>
+    </div>
+
+    {
+      agents.map(({ slug, title, description, Icon, Mockup }, i) => (
+        <div class="items-start grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div
+            class={`flex flex-col justify-between h-full text-balance gap-4 ${i % 2 === 1 ? "lg:order-last" : ""}`}
+          >
+            <div class="inline-flex p-4 rounded-lg bg-mist-100 w-fit">
+              <Icon size="base" class="text-accent-600" />
+            </div>
+            <div>
+              <Text
+                tag="h3"
+                variant="displaySM"
+                class="font-serif font-medium tracking-tight text-black"
+              >
+                {title}
+              </Text>
+              <Text tag="p" variant="textBase" class="max-w-xl mt-4 text-base-500">
+                {description}
+              </Text>
+              <div class="flex mt-4">
+                <Button isLink size="sm" variant="accent" href={`/agenti/${slug}`}>
+                  Scopri di più
+                </Button>
+              </div>
+            </div>
+          </div>
+          <Mockup side={i % 2 === 0 ? "right" : "left"} />
+        </div>
+      ))
+    }
+  </Wrapper>
+</section>

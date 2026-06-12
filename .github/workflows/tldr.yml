@@ -1,0 +1,49 @@
+# Genera i TL;DR ("In breve") per i nuovi articoli del blog.
+# Scatta sui push che toccano i post; lo script è idempotente (salta i
+# post che hanno già il tldr), quindi il commit del bot non crea loop.
+# Richiede il secret ANTHROPIC_API_KEY nelle impostazioni del repo.
+name: TL;DR articoli
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/web/src/content/posts/**"
+
+permissions:
+  contents: write
+
+jobs:
+  tldr:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Genera i TL;DR mancanti
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node apps/web/scripts/generate-tldr.mjs
+
+      - name: Commit dei TL;DR
+        run: |
+          if git diff --quiet; then
+            echo "Nessun nuovo TL;DR da committare"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add apps/web/src/content/posts
+          git commit -m "TL;DR automatici per i nuovi articoli"
+          git push

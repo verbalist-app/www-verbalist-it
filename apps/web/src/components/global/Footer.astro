@@ -1,0 +1,104 @@
+---
+// Assets
+import LogoFooter from "@/components/assets/LogoFooter.astro";
+// Fundatons
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  {
+    heading: "Prodotto",
+    links: [
+      { label: "Gli agenti", href: "/#agenti" },
+      { label: "Funzionalità", href: "/#funzionalita" },
+      { label: "Prezzi", href: "/#prezzi" },
+      { label: "Changelog", href: "/changelog" },
+    ],
+  },
+  {
+    heading: "Risorse",
+    links: [
+      { label: "Blog", href: "/blog" },
+      { label: "Help center", href: "/help" },
+      { label: "Contatti", href: "/contatti" },
+    ],
+  },
+  {
+    heading: "Azienda",
+    links: [
+      { label: "Chi siamo", href: "/chi-siamo" },
+      { label: "Team", href: "/team" },
+      { label: "Clienti", href: "/clienti" },
+      { label: "Brand", href: "/brand" },
+    ],
+  },
+  {
+    heading: "Legale",
+    links: [
+      { label: "Privacy policy", href: "/legale/privacy-policy" },
+      { label: "Cookie policy", href: "/legale/cookie-policy" },
+      { label: "Termini e condizioni", href: "/legale/termini-e-condizioni" },
+    ],
+  },
+];
+---
+
+<footer class="border-t border-base-200 border-dashed">
+  <Wrapper variant="standard" class="py-12">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="text-black">
+        <a
+          href="/"
+          class="flex items-center font-serif text-lg gap-2 text-accent-900"
+        >
+          <span class="sr-only">Vai alla home</span>
+          <LogoFooter class="h-6 text-base-900" />
+        </a>
+        <p class="mt-1 text-sm font-normal text-base-500 text-balance">
+          Verbalist legge i primi risultati di Google per la tua keyword e scrive contenuti ottimizzati per SEO e GEO.
+        </p>
+      </div>
+      <div class="md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-8 xl:col-span-2">
+        {
+          footerLinks.map((section) => (
+            <div class="mt-12 md:mt-0">
+              <p class="text-black font-display">{section.heading}</p>
+              <ul role="list" class="mt-4 text-sm space-y-2 text-base-500">
+                {section.links.map((link) => (
+                  <li>
+                    <a href={link.href} class="hover:text-black">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div
+      class="flex flex-col pt-6 mt-12 gap-2 border-t border-base-200 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p class="text-xs text-base-500">
+        © {year}
+        <a
+          href="https://www.nur.it"
+          target="_blank"
+          rel="noopener"
+          class="hover:text-base-800"
+        >
+          NUR S.r.l.
+        </a>
+        | P.IVA 01902640208
+      </p>
+      <a
+        href="#preferenze-cookie"
+        class="text-xs underline text-base-500 decoration-base-300 underline-offset-2 hover:text-base-800 hover:decoration-base-500 w-fit"
+      >
+        Preferenze cookie
+      </a>
+    </div>
+  </Wrapper>
+</footer>

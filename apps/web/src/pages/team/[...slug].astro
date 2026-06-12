@@ -1,0 +1,29 @@
+---
+import TeamLayout from "@/layouts/TeamLayout.astro";
+import {
+  getAllTeamMembers,
+  renderTeamMemberContent,
+} from "@/lib/data";
+
+export async function getStaticPaths() {
+  const team = await getAllTeamMembers();
+  return team.map((member) => ({
+    params: { slug: member.slug },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+
+// Get rendered content
+let Content: any = null;
+
+const rendered = await renderTeamMemberContent(member.slug);
+if (rendered) {
+  Content = rendered.Content;
+}
+---
+
+<TeamLayout frontmatter={member.data}>
+  {Content && <Content />}
+</TeamLayout>

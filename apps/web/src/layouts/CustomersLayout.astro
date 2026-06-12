@@ -1,0 +1,189 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Cta2 from "@/components/ctas/Cta2.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+import Check from "@/components/fundations/icons/Check.astro";
+
+const { frontmatter } = Astro.props;
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Clienti", href: "/clienti" },
+  { label: frontmatter.customer, href: "#" },
+];
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbs.map((b, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: b.label,
+    ...(b.href && b.href !== "#"
+      ? { item: new URL(b.href, "https://www.verbalist.it").toString() }
+      : {}),
+  })),
+};
+---
+
+<BaseLayout
+  seo={{
+    title:
+      frontmatter.seoTitle ??
+      `${frontmatter.customer}: contenuti più rapidi e coerenti con Verbalist`,
+    description: frontmatter.testimonial ?? frontmatter.about?.slice(0, 157),
+  }}
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(breadcrumbLd)}
+  />
+  <section>
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div class="max-w-xl mx-auto">
+        <nav
+          aria-label="Breadcrumb"
+          class="bg-mist-100 p-1.5 rounded-full px-6 w-fit"
+        >
+          <ol class="flex items-center text-xs gap-2 text-base-500">
+            {
+              breadcrumbs.map((item, index) => (
+                <>
+                  <li>
+                    {index < breadcrumbs.length - 1 ? (
+                      <a
+                        href={item.href}
+                        class="text-xs font-medium hover:text-accent-500 text-base-800"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span class="block truncate max-w-[10rem] sm:max-w-xs md:max-w-sm text-xs font-medium text-accent-500">
+                        {item.label}
+                      </span>
+                    )}
+                  </li>
+                  {index < breadcrumbs.length - 1 && (
+                    <li class="text-base-400">
+                      <ChevronRight size="sm" />
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ol>
+        </nav>
+
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-serif font-medium tracking-tight text-black"
+        >
+          {frontmatter.customer}
+        </Text>
+        <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+          {frontmatter.about}
+        </Text>
+        <dl class="flex flex-col mt-8 divide-y divide-base-200">
+          {
+            Object.entries(frontmatter.details).map(([key, value]) => (
+              <div class="flex items-center justify-between py-2 gap-2">
+                <dt>
+                  <Text
+                    tag="p"
+                    variant="textSM"
+                    class="font-medium text-base-800"
+                  >
+                    {key}
+                  </Text>
+                </dt>
+                <dd>
+                  <Text
+                    tag="p"
+                    variant="textSM"
+                    class="text-base-500 lg:text-balance"
+                  >
+                    {value}
+                  </Text>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+        <div class="flex flex-col p-4 mt-8 gap-4 bg-mist-100 rounded-xl">
+          {
+            frontmatter.results.map((result) => (
+              <div class="flex items-center gap-2">
+                <Check size="sm" class="text-accent-500" />
+                <Text tag="p" variant="textSM" class=" text-base-600">
+                  {result}
+                </Text>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-4 border-t">
+      <figure
+        class="p-8 py-24 text-center text-balance rounded-xl bg-accent-500"
+      >
+        <blockquote>
+          <Text
+            tag="p"
+            variant="displayMD"
+            class="max-w-2xl mx-auto font-serif font-medium tracking-tight text-white"
+          >
+            "{frontmatter.testimonial}"
+          </Text>
+        </blockquote>
+      </figure>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-4 border-t">
+      <div class="max-w-xl mx-auto">
+        <dl class="items-center grid grid-cols-1 md:grid-cols-2 gap-2">
+          {
+            frontmatter.challengesAndSolutions.map((item) => (
+              <div class="relative flex flex-col h-full p-4  bg-mist-100 rounded-xl group hover:bg-white hover:shadow-2xl duration-300 outline-transparent hover:outline hover:outline-mist-100">
+                <dt>
+                  <Text
+                    tag="p"
+                    variant="textBase"
+                    class="font-medium font-base-900"
+                  >
+                    {item.title}
+                  </Text>
+                </dt>
+                <dd>
+                  <Text
+                    tag="p"
+                    variant="textSM"
+                    class="mt-2 text-base-500"
+                  >
+                    {item.content}
+                  </Text>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+        <Wrapper variant="prose" class="mt-12"><slot /></Wrapper>
+      </div>
+    </Wrapper>
+  </section>
+  <Cta2
+    title="Metti Verbalist al lavoro sui tuoi contenuti"
+    text="Parti da una keyword: analisi della SERP, brief, articolo pronto per il CMS. Gratis per 30 giorni."
+    secondaryText="Altri casi di successo"
+    secondaryHref="/clienti"
+  />
+</BaseLayout>

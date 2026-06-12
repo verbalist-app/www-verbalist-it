@@ -1,0 +1,29 @@
+---
+import CustomersLayout from "@/layouts/CustomersLayout.astro";
+import {
+  getAllCustomers,
+  renderCustomerContent,
+} from "@/lib/data";
+
+export async function getStaticPaths() {
+  const customers = await getAllCustomers();
+  return customers.map((customer) => ({
+    params: { slug: customer.slug },
+    props: { customer },
+  }));
+}
+
+const { customer } = Astro.props;
+
+// Get rendered content
+let Content: any = null;
+
+const rendered = await renderCustomerContent(customer.slug);
+if (rendered) {
+  Content = rendered.Content;
+}
+---
+
+<CustomersLayout frontmatter={customer.data}>
+  {Content && <Content />}
+</CustomersLayout>

@@ -1,0 +1,72 @@
+---
+// 02 · Analisi competitor — top risultati Google + entità estratte.
+// Grande, esce dal bordo in basso (stile Feature4). side = lato illustrazione.
+const { side = "right", variant = "panel" } = Astro.props;
+const isCard = variant === "card";
+const pad = side === "right" ? "pr-0" : "pl-0";
+const bleed = side === "right" ? "-mr-1 rounded-tl-xl" : "-ml-1 rounded-tr-xl";
+const panelClass = isCard
+  ? "contents"
+  : `relative p-8 pb-0 ${pad} h-full overflow-hidden bg-mist-100 bg-[url(/img/agent-serp.webp)] bg-cover bg-center rounded-xl group`;
+const cardClass = isCard
+  ? "w-full max-w-md p-5 mx-auto bg-white rounded-xl shadow-sm outline outline-mist-500/10"
+  : `relative z-10 max-w-md p-5 mx-auto -mb-1 ${bleed} bg-white shadow-sm outline outline-mist-500/10`;
+
+const results = [
+  { rank: "1", domain: "sport.it", title: "Migliori scarpe running 2026" },
+  { rank: "2", domain: "runningmag.it", title: "Guida alle scarpe da corsa" },
+  { rank: "3", domain: "trail.it", title: "Scarpe running: come scegliere" },
+];
+const tags = ["ammortizzazione", "drop", "Nike"];
+---
+
+<div aria-hidden="true" class={panelClass}>
+  {!isCard && <div class="absolute inset-0 bg-mist-100/25"></div>}
+  <div class={cardClass}>
+    <div class="flex items-center justify-between pb-3 border-b border-mist-500/10">
+      <p class="text-sm font-medium text-base-900">Top risultati</p>
+      <span class="text-xs text-base-500">Google · IT</span>
+    </div>
+
+    <div class="divide-y divide-mist-500/10">
+      {
+        results.map((r) => (
+          <div class="flex items-center gap-3 py-3">
+            <span class="inline-flex items-center justify-center text-xs font-semibold rounded size-6 shrink-0 bg-base-900 text-white">
+              {r.rank}
+            </span>
+            <div class="min-w-0">
+              <p class="text-xs truncate text-base-500">{r.domain}</p>
+              <p class="text-sm font-medium truncate text-base-900">{r.title}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="pt-3 mt-1 border-t border-mist-500/10">
+      <p class="text-xs text-base-500">Entità estratte</p>
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        {
+          tags.map((tag) => (
+            <span class="inline-flex items-center gap-1 px-2 py-1 text-xs border rounded-md border-mist-500/15 bg-mist-50 text-base-700">
+              <svg
+                class="size-3 shrink-0 text-base-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

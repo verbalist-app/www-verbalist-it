@@ -1,0 +1,73 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\"; title=\"Verbalist for agents and LLMs\", </help>; rel=\"help\""
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/prezzi",
+      "destination": "/#prezzi",
+      "statusCode": 301
+    },
+    {
+      "source": "/prenota-demo",
+      "destination": "/contatti",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq",
+      "destination": "/help",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/legale/privacy-policy",
+      "statusCode": 301
+    },
+    {
+      "source": "/cookie-policy",
+      "destination": "/legale/cookie-policy",
+      "statusCode": 301
+    },
+    {
+      "source": "/termini",
+      "destination": "/legale/termini-e-condizioni",
+      "statusCode": 301
+    },
+    {
+      "source": "/piattaforma",
+      "destination": "/#funzionalita",
+      "statusCode": 301
+    },
+    {
+      "source": "/piattaforma/analisi-serp",
+      "destination": "/agenti/analisi-competitor",
+      "statusCode": 301
+    },
+    {
+      "source": "/piattaforma/scraping-competitor",
+      "destination": "/agenti/analisi-competitor",
+      "statusCode": 301
+    },
+    {
+      "source": "/piattaforma/analisi-pattern",
+      "destination": "/agenti/analisi-competitor",
+      "statusCode": 301
+    },
+    {
+      "source": "/piattaforma/generazione-contenuto",
+      "destination": "/agenti/generazione-articolo",
+      "statusCode": 301
+    }
+  ]
+}

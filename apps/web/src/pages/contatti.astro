@@ -1,0 +1,110 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import Avatar from "@/images/assets/contact.jpeg";
+import Logo from "@/components/assets/Logo.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+---
+
+<BaseLayout
+  hideNavigation={true}
+  hideFooter={true}
+  seo={{
+    title: "Demo e contatti",
+    description:
+      "Demo, domande o supporto: scrivici e parli direttamente con chi costruisce il prodotto.",
+  }}
+>
+  <div class="flex">
+    <div
+      class="flex items-center justify-center w-full p-8 bg-mist-100 lg:w-2/3 min-h-screen"
+    >
+      <div class="w-full max-w-md py-12 lg:py-16">
+        <div class="text-center">
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="font-serif font-medium tracking-tight text-black"
+          >
+            Parliamo.
+          </Text>
+          <Text
+            tag="p"
+            variant="textBase"
+            class="max-w-xl mx-auto mt-4 text-base-500 text-balance"
+          >
+            Domande, richieste o una demo di Verbalist? Scrivici qui sotto, ti
+            rispondiamo davvero.
+          </Text>
+        </div>
+
+        <!-- HubSpot form (form in iframe cross-origin → stile iniettato via opzione css) -->
+        <div id="hubspot-form" class="mt-10"></div>
+        <script
+          charset="utf-8"
+          type="text/javascript"
+          src="//js-eu1.hsforms.net/forms/embed/v2.js"
+          is:inline></script>
+        <script is:inline>
+          hbspt.forms.create({
+            portalId: "26552285",
+            formId: "4267f028-3ada-4953-863f-7fcde9648c1c",
+            region: "eu1",
+            target: "#hubspot-form",
+            css: `
+              @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap');
+              form, .hs-form, .hs-form-field, label, input, textarea, select, .hs-button, span, p, a { font-family: 'Geist', ui-sans-serif, system-ui, sans-serif !important; }
+              .hs-form-field { margin-bottom: 16px; }
+              .hs-form-field > label { font-size: 14px !important; font-weight: 500 !important; color: #67787c !important; display: block; margin-bottom: 4px; }
+              .hs-form-required { color: #9ca8ab !important; }
+              input[type=text].hs-input, input[type=email].hs-input, input[type=tel].hs-input, input[type=number].hs-input, input[type=password].hs-input, textarea.hs-input, select.hs-input { width: 100% !important; box-sizing: border-box !important; padding: 8px 16px !important; font-size: 13px !important; color: #67787c !important; background: #fff !important; border: 1px solid transparent !important; border-radius: 6px !important; box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 0 0 1px #d0d6d8 !important; }
+              input[type=text].hs-input, input[type=email].hs-input, input[type=tel].hs-input, input[type=number].hs-input { height: 38px !important; }
+              textarea.hs-input { min-height: 96px !important; }
+              .hs-input::placeholder { color: #9ca8ab !important; }
+              input[type=text].hs-input:focus, input[type=email].hs-input:focus, input[type=tel].hs-input:focus, textarea.hs-input:focus, select.hs-input:focus { outline: none !important; border-color: #1b2224 !important; box-shadow: 0 0 0 2px #e3e7e8 !important; }
+              .hs-form input[type=checkbox], .legal-consent-container input[type=checkbox], input[type=radio] { -webkit-appearance: checkbox !important; appearance: checkbox !important; width: 15px !important; min-width: 15px !important; max-width: 15px !important; height: 15px !important; min-height: 15px !important; max-height: 15px !important; box-shadow: none !important; border: 0 !important; border-radius: 0 !important; margin: 1px 8px 0 0 !important; padding: 0 !important; flex: 0 0 15px !important; }
+              .hs-form-booleancheckbox label, .legal-consent-container label, ul.inputs-list li label { display: flex !important; align-items: flex-start !important; font-size: 12px !important; font-weight: 400 !important; color: #67787c !important; line-height: 1.45 !important; margin: 0 0 8px 0 !important; }
+              .hs-form-booleancheckbox label span, .legal-consent-container label span { flex: 1 1 auto !important; }
+              ul.inputs-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+              .hs-button, .actions input[type=submit], input.hs-button, button.hs-button { width: 100% !important; margin-top: 8px !important; padding: 10px 16px !important; font-size: 14px !important; font-weight: 500 !important; color: #fff !important; background: #1b2224 !important; border: none !important; border-radius: 9999px !important; box-shadow: none !important; cursor: pointer !important; }
+              .hs-button:hover { opacity: .9 !important; }
+              .hs-error-msgs { list-style: none !important; padding: 0 !important; margin: 4px 0 0 !important; }
+              .hs-error-msg, label.hs-error-msg { color: #dc2626 !important; font-size: 12px !important; }
+            `,
+          });
+        </script>
+      </div>
+    </div>
+    <div
+      class="relative hidden overflow-hidden lg:block lg:w-1/3 lg:order-first"
+    >
+      <Image
+        src={Avatar}
+        alt="Background"
+        aria-hidden="true"
+        width="1200"
+        height="1200"
+        loading="lazy"
+        decoding="async"
+        class="object-cover object-center w-full h-full bg-base-50"
+      />
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 pointer-events-none bg-mist-800/50"
+      >
+      </div>
+      <div
+        class="absolute inset-0 flex flex-col items-center justify-between p-8 text-center"
+      >
+        <div>
+          <a href="/">
+            <span class="sr-only">Torna alla home</span>
+            <Logo class="h-8 mx-auto text-white" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
