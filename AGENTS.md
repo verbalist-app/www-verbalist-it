@@ -38,3 +38,5 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 - `src/lib/data.ts` — accesso unico alle collections
 - `src/components/fundations/` — primitivi (Text, Button, Wrapper, head/Seo)
 - `public/llms.txt` — fatti chiave per i motori AI: tienilo aggiornato
+- `src/pages/blog/[slug].md.ts` — versione Markdown dei post per agenti/LLM
+  (linkata con rel="alternate" dal BlogLayout, noindex via vercel.json)

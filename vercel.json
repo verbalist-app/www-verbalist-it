@@ -12,6 +12,15 @@
           "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\"; title=\"Verbalist for agents and LLMs\", </help>; rel=\"help\""
         }
       ]
+    },
+    {
+      "source": "/(.*)\\.md",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ],
   "redirects": [

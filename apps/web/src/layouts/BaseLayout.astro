@@ -33,6 +33,7 @@ const { seo, hideNavigation = false, hideFooter = false } = Astro.props;
 >
   <head>
     <BaseHead seo={seo} />
+    <slot name="head" />
   </head>
   <body class="relative flex flex-col bg-white min-h-svh">
     {

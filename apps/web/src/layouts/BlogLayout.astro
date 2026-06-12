@@ -75,6 +75,13 @@ const breadcrumbLd = {
 ---
 
 <BaseLayout seo={seo}>
+  <link
+    slot="head"
+    rel="alternate"
+    type="text/markdown"
+    href={`${siteUrl}/blog/${currentSlug}.md`}
+    title="Versione Markdown per agenti e LLM"
+  />
   <script
     type="application/ld+json"
     is:inline

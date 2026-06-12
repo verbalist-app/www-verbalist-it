@@ -12,6 +12,8 @@
 
 ## Guide e approfondimenti
 
+Ogni articolo del blog è disponibile anche in Markdown puro aggiungendo `.md` all'URL (es. https://www.verbalist.it/blog/cos-e-la-geo.md).
+
 - [Blog](https://www.verbalist.it/blog): guide su SEO, GEO e ricerca AI
 - [Cos'è la GEO](https://www.verbalist.it/blog/cos-e-la-geo): guida alla Generative Engine Optimization
 - [GEO vs SEO](https://www.verbalist.it/blog/geo-vs-seo): cosa cambia tra ottimizzazione classica e generativa
