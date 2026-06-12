@@ -1,7 +1,31 @@
+# Policy: i contenuti possono essere letti e citati dai sistemi AI
+# (search, RAG, risposte con fonte), ma non usati per il training.
+# Stessa preferenza dichiarata via Content-Signal (contentsignals.org).
+
+# Bot AI di ricerca e fetch su richiesta dell'utente: benvenuti
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+Disallow: /system/
+
+# Crawler che raccolgono dati per il training dei modelli: esclusi
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: CCBot
+User-agent: Bytespider
+Disallow: /
+
+# Tutti gli altri (motori di ricerca classici inclusi)
 User-agent: *
 Disallow: /system/
 Allow: /
-
 # Preferenze d'uso dei contenuti per sistemi AI (contentsignals.org)
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 
