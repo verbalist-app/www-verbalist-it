@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --parallel -r dev",
-    "dev:web": "pnpm --filter @lexington/web dev",
+    "dev:web": "pnpm --filter @verbalist/web dev",
     "build": "pnpm --parallel -r build",
-    "build:web": "pnpm --filter @lexington/web build",
+    "build:web": "pnpm --filter @verbalist/web build",
     "clean": "bash scripts/clean.sh"
   },
   "packageManager": "pnpm@9.15.0",

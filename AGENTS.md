@@ -17,7 +17,7 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   pushati dal banner in `src/components/global/CookieBanner.astro`
   (cta_prova_gratis, cta_accedi, outbound_click, hubspot_form_submit,
   consent_update). Non aggiungere script di terze parti fuori da GTM.
-- **Build**: `pnpm --filter @lexington/web build`; il postbuild appiattisce la
+- **Build**: `pnpm --filter @verbalist/web build`; il postbuild appiattisce la
   sitemap in `/sitemap.xml`. Verifica sempre con una build prima di chiudere.
 
 ## Scala tipografica (regole vincolanti)

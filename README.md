@@ -17,8 +17,8 @@ che genera contenuti ottimizzati per SEO e GEO. L'app vive su
 
 ```bash
 pnpm install
-pnpm --filter @lexington/web dev    # localhost:4321
-pnpm --filter @lexington/web build  # output in apps/web/dist
+pnpm --filter @verbalist/web dev    # localhost:4321
+pnpm --filter @verbalist/web build  # output in apps/web/dist
 ```
 
 ## Variabili d'ambiente (apps/web)
