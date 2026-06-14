@@ -62,7 +62,7 @@ const dateOf = (d: Date) =>
                 <div class="md:w-40 shrink-0">
                   <div class="flex items-baseline gap-3 md:sticky md:top-24 md:block">
                     <a
-                      href={`/changelog/${release.id}`}
+                      href={`/changelog/${release.id}/`}
                       class="inline-block px-3 py-1 font-mono text-xs font-medium text-white rounded-full bg-accent-500 hover:bg-accent-600"
                     >
                       v{versionOf(release.id)}
@@ -82,7 +82,7 @@ const dateOf = (d: Date) =>
                     class="font-serif font-medium tracking-tight text-base-900"
                   >
                     <a
-                      href={`/changelog/${release.id}`}
+                      href={`/changelog/${release.id}/`}
                       class="duration-300 transition-colors hover:text-base-500"
                     >
                       {release.data.page}

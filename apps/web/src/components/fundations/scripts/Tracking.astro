@@ -8,7 +8,7 @@
 //   può girare senza consenso.
 // Gli ID arrivano dalle env PUBLIC_GTM_ID e PUBLIC_VERCEL_ANALYTICS:
 // senza env (es. in locale) non viene iniettato nulla.
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID || "";
+const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
 const VERCEL_ANALYTICS = import.meta.env.PUBLIC_VERCEL_ANALYTICS === "true";
 ---
 

@@ -4,14 +4,14 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 // Loghi clienti Verbalist (SVG statici in /public/img/logos, resi neri = monocromo)
 const logos = [
-  { src: "/img/logos/rentokil.svg", alt: "Rentokil" },
-  { src: "/img/logos/pompea.svg", alt: "Pompea" },
-  { src: "/img/logos/meccanotecnica.svg", alt: "Meccanotecnica" },
-  { src: "/img/logos/plastisac.svg", alt: "Plastisac" },
-  { src: "/img/logos/sogese.svg", alt: "Sogese" },
-  { src: "/img/logos/jurny.svg", alt: "Jurny" },
-  { src: "/img/logos/turboden.svg", alt: "Turboden" },
-  { src: "/img/logos/astori-ferramenta.svg", alt: "Astori Ferramenta" },
+  { src: "/img/logos/rentokil.svg", alt: "Rentokil", width: 293, height: 150 },
+  { src: "/img/logos/pompea.svg", alt: "Pompea", width: 300, height: 87 },
+  { src: "/img/logos/meccanotecnica.svg", alt: "Meccanotecnica", width: 300, height: 94 },
+  { src: "/img/logos/plastisac.svg", alt: "Plastisac", width: 300, height: 71 },
+  { src: "/img/logos/sogese.svg", alt: "Sogese", width: 278, height: 150 },
+  { src: "/img/logos/jurny.svg", alt: "Jurny", width: 300, height: 126 },
+  { src: "/img/logos/turboden.svg", alt: "Turboden", width: 236, height: 73 },
+  { src: "/img/logos/astori-ferramenta.svg", alt: "Astori Ferramenta", width: 300, height: 42 },
 ];
 ---
 
@@ -26,6 +26,8 @@ const logos = [
             class="h-6 w-auto shrink-0 brightness-0"
             src={logo.src}
             alt={logo.alt}
+            width={logo.width}
+            height={logo.height}
             loading="lazy"
           />
         ))

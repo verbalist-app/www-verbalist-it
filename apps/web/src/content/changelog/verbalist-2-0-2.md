@@ -1,6 +1,6 @@
 ---
 page: "Contesto del brand e URL Competitor nel brief"
-description: "Brand guidelines in testo libero più fino a 3 PDF, fino a 5 URL Competitor al posto della ricerca su Google, avvisi sui crediti più chiari e motore aggiornato a Opus 4.7."
+description: "Brand guidelines e fino a 3 PDF nel brief, fino a 5 URL Competitor al posto della ricerca Google, avvisi crediti più chiari e motore Opus 4.7."
 pubDate: 2026-04-23
 image:
   url: "/img/changelog/verbalist-2-0-2.webp"

@@ -19,7 +19,9 @@ export interface Post {
   slug: string;
   data: {
     title: string;
+    seoTitle?: string;
     description: string;
+    seoDescription?: string;
     pubDate: Date;
     tags: string[];
     team?: string;
@@ -38,6 +40,7 @@ export interface TeamMember {
     name: string;
     role?: string;
     bio?: string;
+    seoDescription?: string;
     image: {
       url: UniversalImage;
       alt: string;
@@ -56,6 +59,8 @@ export interface Customer {
   slug: string;
   data: {
     customer: string;
+    seoTitle?: string;
+    seoDescription?: string;
     bgColor?: string;
     ctaTitle?: string;
     testimonial?: string;
@@ -100,6 +105,7 @@ export interface Changelog {
   slug: string;
   data: {
     page: string;
+    seoTitle?: string;
     description: string;
     pubDate: Date;
     image: {
@@ -142,7 +148,9 @@ function contentCollectionToPost(entry: CollectionEntry<"posts">): Post {
     slug: entry.id,
     data: {
       title: entry.data.title,
+      seoTitle: entry.data.seoTitle,
       description: entry.data.description,
+      seoDescription: entry.data.seoDescription,
       pubDate: entry.data.pubDate,
       tags: entry.data.tags || [],
       team: entry.data.team,
@@ -168,6 +176,7 @@ function contentCollectionToTeamMember(
       name: entry.data.name,
       role: entry.data.role,
       bio: entry.data.bio,
+      seoDescription: entry.data.seoDescription,
       image: {
         url: entry.data.image.url,
         alt: entry.data.image.alt,
@@ -188,6 +197,8 @@ function contentCollectionToCustomer(
     slug: entry.id,
     data: {
       customer: entry.data.customer,
+      seoTitle: entry.data.seoTitle,
+      seoDescription: entry.data.seoDescription,
       bgColor: entry.data.bgColor,
       ctaTitle: entry.data.ctaTitle,
       testimonial: entry.data.testimonial,
@@ -240,6 +251,7 @@ function contentCollectionToChangelog(
     slug: entry.id,
     data: {
       page: entry.data.page,
+      seoTitle: entry.data.seoTitle,
       description: entry.data.description,
       pubDate: entry.data.pubDate,
       image: {

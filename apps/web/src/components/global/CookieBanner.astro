@@ -10,7 +10,7 @@
 // - al rifiuto/revoca azzera i cookie di Google Analytics e Contentsquare.
 import Button from "@/components/fundations/elements/Button.astro";
 import X from "@/components/fundations/icons/X.astro";
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID || "";
+const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
 ---
 
 <div
@@ -36,7 +36,7 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || "";
     Usiamo cookie di analisi (Google Analytics, Contentsquare) per capire come
     viene usato il sito. Restano spenti finché non scegli.
     <a
-      href="/legale/cookie-policy"
+      href="/legale/cookie-policy/"
       class="font-medium text-base-800 underline decoration-base-300 hover:text-accent-500"
     >
       Cookie policy

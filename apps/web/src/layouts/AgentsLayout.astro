@@ -143,7 +143,7 @@ const appUrl = appUrls[frontmatter.mockup] ?? appUrls.brief;
           class="flex items-center justify-between pt-6 mt-12 gap-3 border-t border-base-200"
         >
           <a
-            href={prev ? "/agenti/" + prev.id : "/#agenti"}
+            href={prev ? "/agenti/" + prev.id + "/" : "/#agenti"}
             rel="prev"
             class="flex items-center text-sm font-medium gap-1 text-base-800 hover:text-accent-500 group"
           >
@@ -156,7 +156,7 @@ const appUrl = appUrls[frontmatter.mockup] ?? appUrls.brief;
           {
             next ? (
               <a
-                href={"/agenti/" + next.id}
+                href={"/agenti/" + next.id + "/"}
                 rel="next"
                 class="flex items-center text-sm font-medium gap-1 text-base-800 hover:text-accent-500 group"
               >

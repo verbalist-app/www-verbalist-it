@@ -1,5 +1,6 @@
 ---
 title: Come ottimizzare i contenuti per la ricerca generativa
+seoTitle: "Ottimizzare i contenuti per la ricerca AI"
 description: "Come ottimizzare i contenuti per essere citati dai motori di ricerca generativi come ChatGPT e Perplexity."
 pubDate: 2026-01-10
 team: "filippo-danesi"
@@ -15,7 +16,7 @@ tldr:
 ---
 ## Cos'è la Generative Engine Optimization?
 
-La [GEO (Generative Engine Optimization)](/blog/cos-e-la-geo) rappresenta l'evoluzione naturale della SEO tradizionale. Con l'avvento di motori di ricerca generativi come ChatGPT, Perplexity e Google SGE, ottimizzare i contenuti significa anche assicurarsi di essere citati nelle risposte AI.
+La [GEO (Generative Engine Optimization)](/blog/cos-e-la-geo/) rappresenta l'evoluzione naturale della SEO tradizionale. Con l'avvento di motori di ricerca generativi come ChatGPT, Perplexity e Google SGE, ottimizzare i contenuti significa anche assicurarsi di essere citati nelle risposte AI.
 
 ## Perché la GEO è importante nel 2026
 
@@ -26,15 +27,15 @@ I dati mostrano che sempre più utenti utilizzano assistenti AI per le loro rice
 - Posizionamento come fonte autorevole
 - Vantaggio competitivo sui concorrenti
 
-Per capire in che modo la GEO si differenzia dall'ottimizzazione classica, vale la pena approfondire il confronto tra [GEO e SEO](/blog/geo-vs-seo).
+Per capire in che modo la GEO si differenzia dall'ottimizzazione classica, vale la pena approfondire il confronto tra [GEO e SEO](/blog/geo-vs-seo/).
 
 ## Come ottimizzare per i motori generativi
 
-La chiave sta nel creare contenuti che siano facilmente "citabili" dagli LLM. Questo significa strutturare le informazioni in modo chiaro, con definizioni precise e dati verificabili. In questo contesto, il ruolo dell'[E-E-A-T per i motori generativi](/blog/eeat-motori-generativi) diventa ancora più rilevante.
+La chiave sta nel creare contenuti che siano facilmente "citabili" dagli LLM. Questo significa strutturare le informazioni in modo chiaro, con definizioni precise e dati verificabili. In questo contesto, il ruolo dell'[E-E-A-T per i motori generativi](/blog/eeat-motori-generativi/) diventa ancora più rilevante.
 
 > "I contenuti ottimizzati per GEO non sono diversi da quelli ottimizzati per gli utenti: chiari, strutturati e ricchi di valore."
 
-Anche l'[Answer Engine Optimization](/blog/answer-engine-optimization) segue principi simili, puntando a fornire risposte dirette e ben organizzate.
+Anche l'[Answer Engine Optimization](/blog/answer-engine-optimization/) segue principi simili, puntando a fornire risposte dirette e ben organizzate.
 
 ## Best practice per la GEO
 
@@ -45,7 +46,7 @@ Ecco alcune strategie concrete da implementare:
 - **Citazioni e fonti:** Includi riferimenti a studi e dati verificabili
 - **FAQ section:** Rispondi alle domande frequenti in modo diretto
 
-Se vuoi che le AI ti citino come fonte, è utile studiare [come farsi citare dai motori AI](/blog/come-farsi-citare-motori-ai). Per approfondire come analizzare i gap rispetto ai competitor, puoi consultare la guida sul content gap.
+Se vuoi che le AI ti citino come fonte, è utile studiare [come farsi citare dai motori AI](/blog/come-farsi-citare-motori-ai/). Per approfondire come analizzare i gap rispetto ai competitor, puoi consultare la guida sul content gap.
 
 ## Conclusioni
 

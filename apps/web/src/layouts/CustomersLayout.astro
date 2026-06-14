@@ -12,7 +12,7 @@ const { frontmatter } = Astro.props;
 // Breadcrumbs Data
 const breadcrumbs = [
   { label: "Home", href: "/" },
-  { label: "Clienti", href: "/clienti" },
+  { label: "Clienti", href: "/clienti/" },
   { label: frontmatter.customer, href: "#" },
 ];
 
@@ -35,7 +35,10 @@ const breadcrumbLd = {
     title:
       frontmatter.seoTitle ??
       `${frontmatter.customer}: contenuti più rapidi e coerenti con Verbalist`,
-    description: frontmatter.testimonial ?? frontmatter.about?.slice(0, 157),
+    description:
+      frontmatter.seoDescription ??
+      frontmatter.testimonial ??
+      frontmatter.about?.slice(0, 157),
   }}
 >
   <script
@@ -184,6 +187,6 @@ const breadcrumbLd = {
     title="Metti Verbalist al lavoro sui tuoi contenuti"
     text="Parti da una keyword: analisi della SERP, brief, articolo pronto per il CMS. Gratis per 30 giorni."
     secondaryText="Altri casi di successo"
-    secondaryHref="/clienti"
+    secondaryHref="/clienti/"
   />
 </BaseLayout>

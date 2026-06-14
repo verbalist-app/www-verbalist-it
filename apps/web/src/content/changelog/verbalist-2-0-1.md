@@ -1,5 +1,6 @@
 ---
 page: "Riprese automatiche e crediti non scalati in caso di errore"
+seoTitle: "Riprese automatiche e crediti non scalati"
 description: "Se un passaggio fallisce, la generazione riprende da lì e i crediti non vengono scalati. Motore aggiornato e contenuti in italiano e inglese."
 pubDate: 2026-04-14
 image:

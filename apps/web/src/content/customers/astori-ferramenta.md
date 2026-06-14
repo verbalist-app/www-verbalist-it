@@ -1,6 +1,8 @@
 ---
 bgColor: bg-mist-100
 customer: Astori Ferramenta
+seoTitle: "Astori Ferramenta: contenuti con Verbalist"
+seoDescription: "Come Astori Ferramenta ha ordinato schede prodotto e pagine categoria mantenendo il linguaggio tecnico, con Verbalist."
 testimonial: "Con Verbalist abbiamo potuto strutturare le schede prodotto e le pagine di categoria in modo più ordinato, mantenendo il linguaggio tecnico che i nostri clienti si aspettano."
 ctaTitle: "Come Astori Ferramenta ha strutturato i contenuti e-commerce con Verbalist."
 partnership: "Verbalist supporta Astori Ferramenta nella produzione di contenuti SEO e GEO-ready per il catalogo online, con un processo ripetibile e aderente al registro tecnico del settore."

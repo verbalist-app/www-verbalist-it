@@ -1,5 +1,6 @@
 ---
 title: Come farsi citare da ChatGPT, Perplexity e Google AI Overview
+seoTitle: "Come farsi citare dai motori di ricerca AI"
 description: "Guida pratica per rendere i tuoi contenuti citabili dai motori di ricerca generativi. Pattern, struttura, dati: cosa serve per apparire nelle risposte AI."
 pubDate: 2026-03-15
 team: "filippo-danesi"
@@ -20,7 +21,7 @@ Hai un sito web. Hai contenuti. Ranka bene su Google. Ma quando qualcuno chiede 
 
 Questo problema riguarda la maggior parte dei siti web italiani nel 2026. I motori di ricerca generativi leggono contenuti dal web e li sintetizzano in risposte. Ma non citano tutto: selezionano le fonti più adatte. Se il tuo contenuto non ha le caratteristiche giuste, viene ignorato anche se è ben posizionato su Google.
 
-Se non hai chiaro cosa sia la GEO, leggi prima [Cos'è la GEO: guida alla Generative Engine Optimization](/blog/cos-e-la-geo "Introduzione alla Generative Engine Optimization"). Questa guida spiega cosa fare in pratica per farsi citare.
+Se non hai chiaro cosa sia la GEO, leggi prima [Cos'è la GEO: guida alla Generative Engine Optimization](/blog/cos-e-la-geo/ "Introduzione alla Generative Engine Optimization"). Questa guida spiega cosa fare in pratica per farsi citare.
 
 ## Come funziona la selezione delle fonti
 
@@ -28,11 +29,11 @@ ChatGPT, Perplexity e Google AI Overview usano approcci diversi, ma la logica di
 
 **ChatGPT** (con browsing attivo) esegue ricerche web in tempo reale, legge le pagine risultanti e sintetizza una risposta. Cita le fonti in fondo alla risposta o inline. Tende a preferire contenuti con dati specifici e definizioni chiare.
 
-**Perplexity** è costruito come un [answer engine](/blog/answer-engine-optimization "Guida alla Answer Engine Optimization"): per ogni risposta cita le fonti in modo esplicito, con link numerati. Usa un mix di ricerca web e indice proprio. Favorisce contenuti strutturati, aggiornati, con autore identificato.
+**Perplexity** è costruito come un [answer engine](/blog/answer-engine-optimization/ "Guida alla Answer Engine Optimization"): per ogni risposta cita le fonti in modo esplicito, con link numerati. Usa un mix di ricerca web e indice proprio. Favorisce contenuti strutturati, aggiornati, con autore identificato.
 
 **Google AI Overview** appare nella SERP come riquadro generativo sopra i risultati organici. Attinge principalmente dai contenuti che già rankano nelle prime posizioni. I segnali di ranking Google (E-E-A-T, backlink, struttura) influenzano direttamente la selezione.
 
-Il denominatore comune è che tutti e tre favoriscono contenuti che rispondono in modo diretto, strutturato e verificabile. Per capire meglio le differenze tra ottimizzazione classica e generativa, può essere utile leggere il confronto tra [GEO e SEO tradizionale](/blog/geo-vs-seo "Differenze tra GEO e SEO").
+Il denominatore comune è che tutti e tre favoriscono contenuti che rispondono in modo diretto, strutturato e verificabile. Per capire meglio le differenze tra ottimizzazione classica e generativa, può essere utile leggere il confronto tra [GEO e SEO tradizionale](/blog/geo-vs-seo/ "Differenze tra GEO e SEO").
 
 ## Pattern 1: rispondi alla domanda nei primi 200 caratteri
 
@@ -109,7 +110,7 @@ Questo non significa che tutto il contenuto debba essere in tabelle e liste. Sig
 
 ## Pattern 5: segnali E-E-A-T
 
-[E-E-A-T](/blog/eeat-motori-generativi "E-E-A-T e motori di ricerca generativi") sta per Experience, Expertise, Authoritativeness, Trustworthiness. Google usa questi segnali per il ranking da anni, ma i motori generativi li usano anche per selezionare le fonti.
+[E-E-A-T](/blog/eeat-motori-generativi/ "E-E-A-T e motori di ricerca generativi") sta per Experience, Expertise, Authoritativeness, Trustworthiness. Google usa questi segnali per il ranking da anni, ma i motori generativi li usano anche per selezionare le fonti.
 
 I segnali E-E-A-T più rilevanti per la GEO:
 
@@ -163,6 +164,6 @@ Non esiste ancora uno strumento unico che misuri le citazioni AI come Google Sea
 - Monitora il traffico referral da chat.openai.com e perplexity.ai in Google Analytics
 - Confronta il tuo contenuto con le fonti che vengono effettivamente citate: cosa hanno che il tuo non ha?
 
-La [geo-ottimizzazione](/blog/geo-ottimizzazione-ai "Strategie di geo-ottimizzazione per l'AI") è una disciplina nuova. Gli strumenti di misurazione si stanno sviluppando. Ma i pattern che funzionano sono già chiari, e applicarli ora ti dà un vantaggio su chi aspetta.
+La [geo-ottimizzazione](/blog/geo-ottimizzazione-ai/ "Strategie di geo-ottimizzazione per l'AI") è una disciplina nuova. Gli strumenti di misurazione si stanno sviluppando. Ma i pattern che funzionano sono già chiari, e applicarli ora ti dà un vantaggio su chi aspetta.
 
 Se vuoi partire dai dati anziché dall'intuizione, Verbalist analizza la SERP per la tua keyword, estrae i pattern dei contenuti che vengono citati, e genera un contenuto strutturato su quei pattern. Puoi provarlo su un caso reale.

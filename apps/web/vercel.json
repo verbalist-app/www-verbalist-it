@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
+  "trailingSlash": true,
   "outputDirectory": "dist",
   "headers": [
     {
@@ -9,6 +10,22 @@
         {
           "key": "Link",
           "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\"; title=\"Verbalist for agents and LLMs\", </help>; rel=\"help\""
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; upgrade-insecure-requests"
         }
       ]
     },
@@ -24,58 +41,58 @@
   ],
   "redirects": [
     {
-      "source": "/prezzi",
+      "source": "/prezzi/",
       "destination": "/#prezzi",
       "statusCode": 301
     },
     {
-      "source": "/prenota-demo",
-      "destination": "/contatti",
+      "source": "/prenota-demo/",
+      "destination": "/contatti/",
       "statusCode": 301
     },
     {
-      "source": "/faq",
-      "destination": "/help",
+      "source": "/faq/",
+      "destination": "/help/",
       "statusCode": 301
     },
     {
-      "source": "/privacy-policy",
-      "destination": "/legale/privacy-policy",
+      "source": "/privacy-policy/",
+      "destination": "/legale/privacy-policy/",
       "statusCode": 301
     },
     {
-      "source": "/cookie-policy",
-      "destination": "/legale/cookie-policy",
+      "source": "/cookie-policy/",
+      "destination": "/legale/cookie-policy/",
       "statusCode": 301
     },
     {
-      "source": "/termini",
-      "destination": "/legale/termini-e-condizioni",
+      "source": "/termini/",
+      "destination": "/legale/termini-e-condizioni/",
       "statusCode": 301
     },
     {
-      "source": "/piattaforma",
+      "source": "/piattaforma/",
       "destination": "/#funzionalita",
       "statusCode": 301
     },
     {
-      "source": "/piattaforma/analisi-serp",
-      "destination": "/agenti/analisi-competitor",
+      "source": "/piattaforma/analisi-serp/",
+      "destination": "/agenti/analisi-competitor/",
       "statusCode": 301
     },
     {
-      "source": "/piattaforma/scraping-competitor",
-      "destination": "/agenti/analisi-competitor",
+      "source": "/piattaforma/scraping-competitor/",
+      "destination": "/agenti/analisi-competitor/",
       "statusCode": 301
     },
     {
-      "source": "/piattaforma/analisi-pattern",
-      "destination": "/agenti/analisi-competitor",
+      "source": "/piattaforma/analisi-pattern/",
+      "destination": "/agenti/analisi-competitor/",
       "statusCode": 301
     },
     {
-      "source": "/piattaforma/generazione-contenuto",
-      "destination": "/agenti/generazione-articolo",
+      "source": "/piattaforma/generazione-contenuto/",
+      "destination": "/agenti/generazione-articolo/",
       "statusCode": 301
     }
   ]

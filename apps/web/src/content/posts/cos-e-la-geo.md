@@ -1,6 +1,8 @@
 ---
 title: "Cos'è la GEO: guida alla Generative Engine Optimization"
+seoTitle: "Cos'è la GEO (Generative Engine Optimization)"
 description: "La GEO (Generative Engine Optimization) è la disciplina che rende i contenuti web citabili dai motori di ricerca AI. Cos'è, come funziona, perché conta nel 2026."
+seoDescription: "La GEO (Generative Engine Optimization) rende i contenuti citabili dai motori AI. Cos'è, come funziona e perché conta nel 2026."
 pubDate: 2026-03-15
 team: "filippo-danesi"
 image:
@@ -20,13 +22,13 @@ GEO sta per Generative Engine Optimization. È la pratica di ottimizzare i conte
 
 Il concetto è semplice. Quando un utente fa una domanda a ChatGPT o a Perplexity, il sistema legge decine di pagine web, le sintetizza, e restituisce una risposta. Se il tuo contenuto viene letto e citato in quella risposta, hai traffico. Se non viene letto, non esisti.
 
-La SEO tradizionale si occupa di posizionamento nelle SERP. La GEO si occupa di citabilità nelle risposte AI. Le due discipline si sovrappongono, ma non sono la stessa cosa (ne parliamo in dettaglio in [GEO vs SEO: cosa cambia davvero nel 2026](/blog/geo-vs-seo)).
+La SEO tradizionale si occupa di posizionamento nelle SERP. La GEO si occupa di citabilità nelle risposte AI. Le due discipline si sovrappongono, ma non sono la stessa cosa (ne parliamo in dettaglio in [GEO vs SEO: cosa cambia davvero nel 2026](/blog/geo-vs-seo/)).
 
 ## Perché la GEO è diventata necessaria
 
 Nel 2024 Google ha introdotto AI Overview: una risposta generativa che appare sopra i risultati organici. Perplexity ha superato i 100 milioni di query mensili. ChatGPT ha integrato la navigazione web nelle sue risposte.
 
-Il risultato è che una fetta crescente di ricerche non passa più dalla lista dei 10 link blu. L'utente riceve una risposta direttamente, con (a volte) le fonti citate in basso. Chi non è tra quelle fonti perde visibilità. Per questo è importante capire [come farsi citare dai motori AI](/blog/come-farsi-citare-motori-ai "Strategie per essere citati dai motori AI") con tecniche mirate.
+Il risultato è che una fetta crescente di ricerche non passa più dalla lista dei 10 link blu. L'utente riceve una risposta direttamente, con (a volte) le fonti citate in basso. Chi non è tra quelle fonti perde visibilità. Per questo è importante capire [come farsi citare dai motori AI](/blog/come-farsi-citare-motori-ai/ "Strategie per essere citati dai motori AI") con tecniche mirate.
 
 Secondo Gartner, il volume di ricerca tradizionale calerà del 25% entro la fine del 2026. Non significa che Google sparisce. Significa che il modo in cui le persone trovano informazioni sta cambiando, e i contenuti devono adattarsi.
 
@@ -52,13 +54,13 @@ I motori generativi selezionano fonti in base a criteri specifici:
 
 - Struttura. Heading gerarchici (H2, H3), liste ordinate, tabelle. I crawler dei motori generativi parsano queste strutture per estrarre informazioni in modo programmatico. L'analisi degli heading dei competitor aiuta a capire quali strutture funzionano meglio.
 
-- Segnali [E-E-A-T](/blog/eeat-motori-generativi "E-E-A-T e motori generativi") (Experience, Expertise, Authoritativeness, Trustworthiness). L'autore è identificato? Ci sono credenziali? La pagina è su un dominio autorevole? I motori generativi ereditano questi segnali da Google, che li usa da anni per il ranking.
+- Segnali [E-E-A-T](/blog/eeat-motori-generativi/ "E-E-A-T e motori generativi") (Experience, Expertise, Authoritativeness, Trustworthiness). L'autore è identificato? Ci sono credenziali? La pagina è su un dominio autorevole? I motori generativi ereditano questi segnali da Google, che li usa da anni per il ranking.
 
 - Freschezza. Contenuti aggiornati e con date esplicite vengono preferiti a contenuti senza data o datati.
 
 ## La differenza tra SEO e GEO in pratica
 
-La SEO lavora per far apparire una pagina nella lista dei risultati. La GEO lavora per far apparire un'informazione contenuta in quella pagina nella risposta AI. Per approfondire questa distinzione, vale la pena leggere anche la guida sull'[ottimizzazione AI dei contenuti](/blog/geo-ottimizzazione-ai "Guida all'ottimizzazione GEO con l'AI").
+La SEO lavora per far apparire una pagina nella lista dei risultati. La GEO lavora per far apparire un'informazione contenuta in quella pagina nella risposta AI. Per approfondire questa distinzione, vale la pena leggere anche la guida sull'[ottimizzazione AI dei contenuti](/blog/geo-ottimizzazione-ai/ "Guida all'ottimizzazione GEO con l'AI").
 
 In SEO, ottimizzi per il click. In GEO, ottimizzi per la citazione.
 

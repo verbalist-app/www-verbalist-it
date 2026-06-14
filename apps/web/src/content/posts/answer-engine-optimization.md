@@ -1,6 +1,8 @@
 ---
 title: 'Answer Engine Optimization: cos''è l''AEO e come funziona'
+seoTitle: "Answer Engine Optimization: cos'è l'AEO"
 description: "L'Answer Engine Optimization (AEO) ottimizza i contenuti per i motori che danno risposte dirette. Cos'è, in cosa differisce dalla SEO tradizionale, come applicarla."
+seoDescription: "L'Answer Engine Optimization (AEO) ottimizza i contenuti per i motori che danno risposte dirette. Cos'è e come applicarla."
 pubDate: 2026-03-15
 team: "filippo-danesi"
 image:
@@ -28,9 +30,9 @@ AEO e GEO (Generative Engine Optimization) sono discipline vicine, ma non identi
 
 L'AEO è il concetto più ampio. Copre qualsiasi motore che dà risposte dirette: featured snippet, knowledge panel, voice search, answer box, motori generativi.
 
-La [GEO](/blog/cos-e-la-geo "Cos'è la Generative Engine Optimization") è un sottoinsieme dell'AEO. Si concentra specificamente sui motori generativi, quelli basati su LLM (Large Language Model): ChatGPT, Perplexity, Google AI Overview, Gemini.
+La [GEO](/blog/cos-e-la-geo/ "Cos'è la Generative Engine Optimization") è un sottoinsieme dell'AEO. Si concentra specificamente sui motori generativi, quelli basati su LLM (Large Language Model): ChatGPT, Perplexity, Google AI Overview, Gemini.
 
-In pratica, le tecniche si sovrappongono quasi completamente. La differenza è nel perimetro: l'AEO include anche i formati di risposta diretta "classici" di Google (featured snippet, People Also Ask), mentre la GEO si focalizza sulle risposte generate da modelli AI. Per approfondire i confini tra le due discipline, leggi il confronto tra [GEO e SEO tradizionale](/blog/geo-vs-seo "Differenze tra GEO e SEO").
+In pratica, le tecniche si sovrappongono quasi completamente. La differenza è nel perimetro: l'AEO include anche i formati di risposta diretta "classici" di Google (featured snippet, People Also Ask), mentre la GEO si focalizza sulle risposte generate da modelli AI. Per approfondire i confini tra le due discipline, leggi il confronto tra [GEO e SEO tradizionale](/blog/geo-vs-seo/ "Differenze tra GEO e SEO").
 
 | | AEO | GEO |
 |---|---|---|
@@ -55,7 +57,7 @@ Per i **featured snippet** di Google: il sistema seleziona un frammento di testo
 
 Per **Google AI Overview**: il sistema genera una risposta sintetica usando contenuti dalle prime posizioni della SERP. Le fonti sono citate in basso. Il ranking Google è il fattore principale per essere inclusi.
 
-Per **Perplexity e ChatGPT**: il sistema cerca pagine web in tempo reale (o nel suo indice), le legge, e genera una risposta citando le fonti. Qui il ranking Google conta meno: anche una pagina non in top 10 può essere citata se il suo contenuto risponde meglio alla domanda. Se vuoi capire come aumentare le probabilità di essere citato, c'è una guida specifica su [come farsi citare dai motori AI](/blog/come-farsi-citare-motori-ai "Strategie per ottenere citazioni dai motori AI").
+Per **Perplexity e ChatGPT**: il sistema cerca pagine web in tempo reale (o nel suo indice), le legge, e genera una risposta citando le fonti. Qui il ranking Google conta meno: anche una pagina non in top 10 può essere citata se il suo contenuto risponde meglio alla domanda. Se vuoi capire come aumentare le probabilità di essere citato, c'è una guida specifica su [come farsi citare dai motori AI](/blog/come-farsi-citare-motori-ai/ "Strategie per ottenere citazioni dai motori AI").
 
 Per gli **assistenti vocali** (Siri, Alexa, Google Assistant): il sistema estrae una risposta breve, spesso dal featured snippet o dal knowledge graph. La risposta deve essere una frase completa e autosufficiente.
 
@@ -118,10 +120,10 @@ Se non hai mai fatto AEO, il punto di partenza è questo:
 
 4. Struttura il contenuto con heading che contengono la domanda, non topic generici.
 
-5. Aggiungi dati verificabili e fonti esplicite. I segnali di autorevolezza e fiducia, come quelli legati all'[E-E-A-T per i motori generativi](/blog/eeat-motori-generativi "E-E-A-T e motori generativi"), pesano sia nei featured snippet sia nelle risposte AI.
+5. Aggiungi dati verificabili e fonti esplicite. I segnali di autorevolezza e fiducia, come quelli legati all'[E-E-A-T per i motori generativi](/blog/eeat-motori-generativi/ "E-E-A-T e motori generativi"), pesano sia nei featured snippet sia nelle risposte AI.
 
 6. Verifica il risultato: dopo qualche settimana, cerca di nuovo la stessa query. Il tuo contenuto appare nel featured snippet o nella risposta AI?
 
-L'AEO non richiede strumenti costosi o competenze radicalmente nuove. Richiede un cambiamento nel modo di pensare il contenuto: non scrivi per la pagina, scrivi per la risposta. Per una panoramica completa sulle tecniche di [ottimizzazione per l'AI](/blog/geo-ottimizzazione-ai "Guida all'ottimizzazione per i motori AI"), abbiamo pubblicato una guida dedicata.
+L'AEO non richiede strumenti costosi o competenze radicalmente nuove. Richiede un cambiamento nel modo di pensare il contenuto: non scrivi per la pagina, scrivi per la risposta. Per una panoramica completa sulle tecniche di [ottimizzazione per l'AI](/blog/geo-ottimizzazione-ai/ "Guida all'ottimizzazione per i motori AI"), abbiamo pubblicato una guida dedicata.
 
 Se vuoi vedere come si applica al tuo settore, Verbalist automatizza i passaggi 1-3: analizza la SERP, estrae i pattern dei contenuti che ottengono risposte dirette, e genera un contenuto strutturato per essere selezionato dagli answer engine. Puoi prenotare una demo su una keyword reale.

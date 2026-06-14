@@ -31,7 +31,7 @@ const breadcrumbLd = {
 
 <BaseLayout
   seo={{
-    title: frontmatter.page,
+    title: frontmatter.seoTitle ?? frontmatter.page,
     description: frontmatter.description,
     image: frontmatter.image,
     type: "article",

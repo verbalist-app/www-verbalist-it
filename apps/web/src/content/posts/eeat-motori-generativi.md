@@ -1,6 +1,8 @@
 ---
 title: "E-E-A-T nell'era dell'AI: come i motori generativi valutano i tuoi contenuti"
+seoTitle: "E-E-A-T nei motori generativi: come funziona"
 description: "I segnali E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) sono usati anche dai motori generativi per selezionare le fonti. Come funzionano e come rafforzarli."
+seoDescription: "I segnali E-E-A-T guidano anche i motori generativi nella scelta delle fonti da citare. Come funzionano e come rafforzarli."
 pubDate: 2026-03-15
 team: "filippo-danesi"
 image:
@@ -20,7 +22,7 @@ E-E-A-T sta per Experience, Expertise, Authoritativeness, Trustworthiness. In it
 
 Google usa questi criteri dal 2014 per valutare la qualità dei contenuti web (inizialmente come E-A-T, la seconda "E" di Experience è stata aggiunta nel dicembre 2022). I quality rater di Google, le persone che valutano manualmente i risultati di ricerca per addestrare gli algoritmi, usano l'E-E-A-T come framework di valutazione.
 
-Nel contesto dei motori generativi (ChatGPT, Perplexity, Google AI Overview), l'E-E-A-T ha un ruolo diverso ma altrettanto concreto: influenza la selezione delle fonti che il motore cita nella risposta. Chi si occupa di [ottimizzazione per i motori AI](/blog/geo-ottimizzazione-ai "Guida alla GEO per motori AI") deve tenerne conto.
+Nel contesto dei motori generativi (ChatGPT, Perplexity, Google AI Overview), l'E-E-A-T ha un ruolo diverso ma altrettanto concreto: influenza la selezione delle fonti che il motore cita nella risposta. Chi si occupa di [ottimizzazione per i motori AI](/blog/geo-ottimizzazione-ai/ "Guida alla GEO per motori AI") deve tenerne conto.
 
 ## Perché l'E-E-A-T conta per i motori generativi
 
@@ -30,7 +32,7 @@ Questi segnali sono, in larga parte, gli stessi dell'E-E-A-T.
 
 Un motore generativo che deve rispondere a una domanda medica preferirà citare una pagina scritta da un medico identificato, su un sito di un'istituzione sanitaria, con fonti esterne a studi clinici. Non perché il modello "capisca" la medicina, ma perché i segnali di autorevolezza di quella pagina riducono la probabilità che l'informazione citata sia sbagliata.
 
-La logica è pragmatica. Il modello non valuta la verità del contenuto: valuta la probabilità che il contenuto sia affidabile, in base ai segnali che trova. Se vuoi approfondire come [farsi citare dai motori AI](/blog/come-farsi-citare-motori-ai "Strategie per essere citati dai motori generativi"), i segnali E-E-A-T sono il punto di partenza.
+La logica è pragmatica. Il modello non valuta la verità del contenuto: valuta la probabilità che il contenuto sia affidabile, in base ai segnali che trova. Se vuoi approfondire come [farsi citare dai motori AI](/blog/come-farsi-citare-motori-ai/ "Strategie per essere citati dai motori generativi"), i segnali E-E-A-T sono il punto di partenza.
 
 ## Le quattro componenti
 
@@ -70,7 +72,7 @@ I segnali di autorevolezza:
 - Citazioni in altri contenuti sullo stesso topic
 - Presenza su Google Knowledge Graph
 
-Per i motori generativi, l'autorevolezza funziona come un filtro: tra due contenuti equivalenti per qualità, il motore tende a citare quello sul dominio più autorevole. Ma un contenuto superiore su un dominio meno autorevole può comunque essere citato se risponde meglio alla domanda. Le differenze tra [GEO e SEO tradizionale](/blog/geo-vs-seo "Confronto tra GEO e SEO") si vedono proprio qui, nel peso relativo che i due sistemi danno all'autorevolezza di dominio.
+Per i motori generativi, l'autorevolezza funziona come un filtro: tra due contenuti equivalenti per qualità, il motore tende a citare quello sul dominio più autorevole. Ma un contenuto superiore su un dominio meno autorevole può comunque essere citato se risponde meglio alla domanda. Le differenze tra [GEO e SEO tradizionale](/blog/geo-vs-seo/ "Confronto tra GEO e SEO") si vedono proprio qui, nel peso relativo che i due sistemi danno all'autorevolezza di dominio.
 
 ### Trustworthiness (Affidabilità)
 
@@ -143,7 +145,7 @@ Per ogni contenuto chiave del tuo sito, chiediti:
 - Il contenuto è aggiornato con dati del 2025-2026?
 - Il dominio è riconosciuto come autorevole nel settore (backlink, menzioni, clienti)?
 
-Se la risposta a più di due di queste domande è no, quel contenuto ha un deficit E-E-A-T che i motori generativi potrebbero penalizzare nella selezione delle fonti. L'[answer engine optimization](/blog/answer-engine-optimization "Guida all'answer engine optimization") dipende in buona parte dalla qualità di questi segnali.
+Se la risposta a più di due di queste domande è no, quel contenuto ha un deficit E-E-A-T che i motori generativi potrebbero penalizzare nella selezione delle fonti. L'[answer engine optimization](/blog/answer-engine-optimization/ "Guida all'answer engine optimization") dipende in buona parte dalla qualità di questi segnali.
 
 La buona notizia è che migliorare l'E-E-A-T non richiede una riscrittura completa. Spesso basta aggiungere l'autore, aggiornare i dati, e sostituire le affermazioni generiche con dati specifici e fonti verificabili.
 

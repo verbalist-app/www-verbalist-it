@@ -1,6 +1,7 @@
 ---
 bgColor: bg-mist-100
 customer: Turboden
+seoDescription: "Come Turboden struttura contenuti tecnici B2B complessi in modo coerente per i canali digitali, con Verbalist."
 testimonial: "Con Verbalist abbiamo potuto strutturare contenuti tecnici complessi in modo coerente e adatto ai canali digitali attuali, senza rinunciare alla precisione che il nostro settore richiede."
 ctaTitle: "Come Turboden ha strutturato i contenuti tecnici B2B con Verbalist."
 partnership: "Verbalist supporta Turboden nella produzione di contenuti SEO e GEO-ready per mercati internazionali ad alta specializzazione tecnica."

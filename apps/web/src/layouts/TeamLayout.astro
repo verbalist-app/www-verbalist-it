@@ -46,7 +46,7 @@ const profileLd = {
     title: frontmatter.role
       ? `${frontmatter.name}, ${frontmatter.role}`
       : `${frontmatter.name} — team Verbalist`,
-    description: frontmatter.bio?.slice(0, 157),
+    description: frontmatter.seoDescription ?? frontmatter.bio?.slice(0, 157),
   }}
 >
   <script

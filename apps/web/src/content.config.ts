@@ -11,6 +11,7 @@ const customers = defineCollection({
   schema: z.object({
     customer: z.string(),
     seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
     bgColor: z.string().optional(),
     ctaTitle: z.string().optional(),
     testimonial: z.string().optional(),
@@ -59,6 +60,7 @@ const changelog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/changelog", generateId: slugId }),
   schema: z.object({
     page: z.string(),
+    seoTitle: z.string().optional(),
     description: z.string(),
     pubDate: z.coerce.date(),
     image: z.object({
@@ -82,6 +84,7 @@ const team = defineCollection({
     name: z.string(),
     role: z.string().optional(),
     bio: z.string().optional(),
+    seoDescription: z.string().optional(),
     image: z.object({
       url: z.string(),
       alt: z.string(),
@@ -101,8 +104,10 @@ const postsCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/posts", generateId: slugId }),
   schema: z.object({
     title: z.string(),
+    seoTitle: z.string().optional(),
     pubDate: z.coerce.date(),
     description: z.string(),
+    seoDescription: z.string().optional(),
     team: z.string(),
     image: z.object({
       url: z.string(),
