@@ -37,6 +37,11 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 - `src/content/` — markdown dei contenuti
 - `src/lib/data.ts` — accesso unico alle collections
 - `src/components/fundations/` — primitivi (Text, Button, Wrapper, head/Seo)
-- `public/llms.txt` — fatti chiave per i motori AI: tienilo aggiornato
+- `public/llms.txt` — fatti chiave per i motori AI: tienilo aggiornato. Le
+  stime token sulle voci le aggiunge in build `scripts/annotate-llms.mjs`
+  (postbuild): non scriverle a mano nel sorgente.
 - `src/pages/blog/[slug].md.ts` — versione Markdown dei post per agenti/LLM
   (linkata con rel="alternate" dal BlogLayout, noindex via vercel.json)
+- I redirect (slug EN→IT, URL semplificate) sono 301 al edge in `vercel.json`,
+  non più in astro.config.mjs: niente stub meta-refresh in build. Valgono solo
+  su Vercel, non in `astro dev`/`preview`.

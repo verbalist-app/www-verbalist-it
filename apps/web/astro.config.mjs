@@ -19,26 +19,8 @@ export default defineConfig({
     drafts: true,
   },
   site: "https://www.verbalist.it",
-  redirects: {
-    // Slug inglesi del template → slug italiani
-    "/about": "/chi-siamo",
-    "/contact": "/contatti",
-    "/customers": "/clienti",
-    "/customers/[...slug]": "/clienti/[...slug]",
-    "/helpcenter": "/help",
-    "/helpcenter/[...slug]": "/help/[...slug]",
-    "/assistenza": "/help",
-    "/assistenza/[...slug]": "/help/[...slug]",
-    "/legal/[...slug]": "/legale/[...slug]",
-    // URL semplificate
-    "/blog/tags": "/categorie",
-    "/blog/tags/[tag]": "/categorie/[tag]",
-    "/blog/posts/[...slug]": "/blog/[...slug]",
-    // Sezioni rimosse o spostate
-    "/agenti": "/#agenti",
-    "/sign-in": "https://app.verbalist.it/login",
-    "/sign-up": "https://app.verbalist.it/login?registration",
-  },
+  // I redirect (slug EN→IT, URL semplificate, sezioni spostate) sono 301 al
+  // edge in vercel.json: niente più stub HTML meta-refresh nella build.
   integrations: [
     sitemap({
       filter: (page) => !page.includes("/system/"),

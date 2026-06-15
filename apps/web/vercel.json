@@ -41,6 +41,81 @@
   ],
   "redirects": [
     {
+      "source": "/about/",
+      "destination": "/chi-siamo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contatti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/customers/",
+      "destination": "/clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/customers/:slug*/",
+      "destination": "/clienti/:slug*/",
+      "statusCode": 301
+    },
+    {
+      "source": "/helpcenter/",
+      "destination": "/help/",
+      "statusCode": 301
+    },
+    {
+      "source": "/helpcenter/:slug*/",
+      "destination": "/help/:slug*/",
+      "statusCode": 301
+    },
+    {
+      "source": "/assistenza/",
+      "destination": "/help/",
+      "statusCode": 301
+    },
+    {
+      "source": "/assistenza/:slug*/",
+      "destination": "/help/:slug*/",
+      "statusCode": 301
+    },
+    {
+      "source": "/legal/:slug*/",
+      "destination": "/legale/:slug*/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tags/",
+      "destination": "/categorie/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tags/:tag/",
+      "destination": "/categorie/:tag/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/posts/:slug*/",
+      "destination": "/blog/:slug*/",
+      "statusCode": 301
+    },
+    {
+      "source": "/agenti/",
+      "destination": "/#agenti",
+      "statusCode": 301
+    },
+    {
+      "source": "/sign-in/",
+      "destination": "https://app.verbalist.it/login",
+      "statusCode": 301
+    },
+    {
+      "source": "/sign-up/",
+      "destination": "https://app.verbalist.it/login?registration",
+      "statusCode": 301
+    },
+    {
       "source": "/prezzi/",
       "destination": "/#prezzi",
       "statusCode": 301
