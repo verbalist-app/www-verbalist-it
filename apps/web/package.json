@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "postbuild": "node scripts/flatten-sitemap.mjs"
+    "postbuild": "node scripts/flatten-sitemap.mjs && node scripts/annotate-llms.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
