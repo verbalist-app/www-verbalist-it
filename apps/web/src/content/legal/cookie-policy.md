@@ -46,9 +46,9 @@ I cookie installati sul sito sono gestiti tramite Google Tag Manager (GTM) in co
 
 L'utente può modificare o revocare il consenso in qualsiasi momento dal link "Preferenze cookie" nel footer del sito, che riapre il banner con le preferenze per categoria. La chiusura del banner tramite la X equivale al rifiuto dei cookie non necessari. Alla revoca, i cookie di Google Analytics e Contentsquare già installati vengono rimossi. È inoltre possibile disattivare i cookie direttamente dal browser:
 
-- [Firefox](http://support.mozilla.com/it/kb/Eliminare%20i%20cookie)
+- [Firefox](https://support.mozilla.com/it/kb/Eliminare%20i%20cookie)
 - [Microsoft Edge](https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09)
-- [Google Chrome](http://support.google.com/chrome/bin/answer.py?hl=it&answer=95647)
+- [Google Chrome](https://support.google.com/chrome/answer/95647?hl=it)
 
 ## 6. Trasferimento dati verso paesi terzi
 
