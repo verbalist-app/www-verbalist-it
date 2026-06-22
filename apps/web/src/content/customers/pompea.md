@@ -2,7 +2,6 @@
 bgColor: bg-mist-100
 customer: Pompea
 seoDescription: "Come Pompea struttura i contenuti delle schede prodotto in modo coerente e scalabile, con Verbalist."
-testimonial: "Con Verbalist abbiamo potuto strutturare i contenuti delle schede prodotto in modo più coerente e scalabile, senza perdere il tono che i nostri clienti riconoscono."
 ctaTitle: "Come Pompea ha scalato i contenuti e-commerce con Verbalist."
 partnership: "Verbalist supporta Pompea nella produzione di contenuti SEO e GEO-ready per il catalogo online, con un processo ripetibile e aderente al tono del brand."
 about: "Pompea è un'azienda italiana fondata nel 1996 a Medole, in provincia di Mantova, specializzata nella produzione di intimo, calze e abbigliamento tecnico. Dal 2019 fa parte del gruppo Fulgar, leader nella fibra sintetica, e conta alcune centinaia di dipendenti tra Italia ed estero."

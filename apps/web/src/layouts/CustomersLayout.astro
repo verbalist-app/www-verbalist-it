@@ -37,7 +37,7 @@ const breadcrumbLd = {
       `${frontmatter.customer}: contenuti più rapidi e coerenti con Verbalist`,
     description:
       frontmatter.seoDescription ??
-      frontmatter.testimonial ??
+      frontmatter.partnership ??
       frontmatter.about?.slice(0, 157),
   }}
 >
@@ -133,23 +133,23 @@ const breadcrumbLd = {
       </div>
     </Wrapper>
   </section>
-  <section>
-    <Wrapper variant="standard" class="py-4 border-t">
-      <figure
-        class="p-8 py-24 text-center text-balance rounded-xl bg-accent-500"
-      >
-        <blockquote>
-          <Text
-            tag="p"
-            variant="displayMD"
-            class="max-w-2xl mx-auto font-serif font-medium tracking-tight text-white"
-          >
-            "{frontmatter.testimonial}"
-          </Text>
-        </blockquote>
-      </figure>
-    </Wrapper>
-  </section>
+  {
+    frontmatter.ctaTitle && (
+      <section>
+        <Wrapper variant="standard" class="py-4 border-t">
+          <div class="p-8 py-24 text-center text-balance rounded-xl bg-accent-500">
+            <Text
+              tag="p"
+              variant="displayMD"
+              class="max-w-2xl mx-auto font-serif font-medium tracking-tight text-white"
+            >
+              {frontmatter.ctaTitle}
+            </Text>
+          </div>
+        </Wrapper>
+      </section>
+    )
+  }
   <section>
     <Wrapper variant="standard" class="py-4 border-t">
       <div class="max-w-xl mx-auto">

@@ -2,7 +2,6 @@
 bgColor: bg-mist-100
 customer: Jurny
 seoDescription: "Come Jurny costruisce contenuti strutturati per essere trovata su Google e dai modelli AI, con Verbalist."
-testimonial: "Con Verbalist abbiamo potuto costruire contenuti strutturati in modo da essere trovati non solo su Google, ma anche dai modelli AI che i nostri potenziali clienti usano ogni giorno."
 ctaTitle: "Come Jurny ha strutturato i contenuti GEO-ready con Verbalist."
 partnership: "Verbalist supporta Jurny nella produzione di contenuti SEO e GEO-ready per il mercato anglofono, con un processo basato sull'analisi delle SERP e sull'estrazione dei pattern E-E-A-T."
 about: "Jurny è un'azienda tech fondata nel 2017 a Los Angeles, California. Sviluppa jOS, un sistema operativo AI-native per la gestione di proprietà nel settore della hospitality a breve termine: hotel boutique, affitti brevi e portfolio enterprise."

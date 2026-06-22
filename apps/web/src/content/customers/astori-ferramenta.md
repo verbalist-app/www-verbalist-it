@@ -3,7 +3,6 @@ bgColor: bg-mist-100
 customer: Astori Ferramenta
 seoTitle: "Astori Ferramenta: contenuti con Verbalist"
 seoDescription: "Come Astori Ferramenta ha ordinato schede prodotto e pagine categoria mantenendo il linguaggio tecnico, con Verbalist."
-testimonial: "Con Verbalist abbiamo potuto strutturare le schede prodotto e le pagine di categoria in modo più ordinato, mantenendo il linguaggio tecnico che i nostri clienti si aspettano."
 ctaTitle: "Come Astori Ferramenta ha strutturato i contenuti e-commerce con Verbalist."
 partnership: "Verbalist supporta Astori Ferramenta nella produzione di contenuti SEO e GEO-ready per il catalogo online, con un processo ripetibile e aderente al registro tecnico del settore."
 about: "Astori è un'azienda italiana fondata nel 1907 a Carpenedolo, in provincia di Brescia, specializzata nel commercio di ferramenta all'ingrosso e al dettaglio. Con sede a Montichiari (BS) su un'area di oltre 77.000 mq, distribuisce più di 70.000 articoli tra utensileria, idraulica, falegnameria, fissaggi e prodotti siderurgici, sia attraverso l'e-commerce sia tramite canali B2B."

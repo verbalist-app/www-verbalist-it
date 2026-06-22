@@ -2,7 +2,6 @@
 bgColor: bg-mist-100
 customer: Plastisac
 seoDescription: "Come Plastisac affronta i contenuti tecnici in modo strutturato, riducendo i tempi, con Verbalist."
-testimonial: "Con Verbalist abbiamo potuto affrontare i contenuti tecnici con un metodo più strutturato, riducendo i tempi e mantenendo il linguaggio che i nostri clienti B2B si aspettano."
 ctaTitle: "Come Plastisac ha strutturato i contenuti tecnici con Verbalist."
 partnership: "Verbalist supporta Plastisac nella produzione di contenuti SEO e GEO-ready per le pagine prodotto e le schede tecniche, con un processo ripetibile e aderente al tono del brand."
 about: "Plastisac è un'azienda italiana fondata nel 1961 a Mantova, oggi con sede a Gambarara, specializzata nella produzione di film plastici e imballaggi in polietilene per i settori industriale, alimentare e biomedicale. Conta circa 35-40 dipendenti ed è riconosciuta come riferimento nel mercato italiano degli imballaggi flessibili su misura."

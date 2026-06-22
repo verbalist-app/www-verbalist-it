@@ -1,7 +1,6 @@
 ---
 bgColor: bg-mist-100
 customer: Sogese
-testimonial: "Con Verbalist abbiamo potuto presidiare keyword di settore che prima lasciavamo scoperte, con testi coerenti al nostro modo di comunicare."
 ctaTitle: "Come Sogese ha esteso la copertura editoriale nel settore dei container con Verbalist."
 partnership: "Verbalist supporta Sogese nella strategia di contenuto SEO e GEO, dall'analisi delle keyword prioritarie alla pubblicazione dei testi sul sito."
 about: "Sogese (SO.GE.SE. S.r.l.) è un'azienda italiana con sede a Livorno, attiva dal 1980 nella vendita, noleggio e manutenzione di container marittimi, celle frigorifere e strutture prefabbricate modulari. Opera su scala nazionale con depositi propri e serve armatori, aziende logistiche e operatori industriali."

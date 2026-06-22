@@ -3,7 +3,6 @@ bgColor: bg-mist-100
 customer: Meccanotecnica Umbra
 seoTitle: "Meccanotecnica Umbra: contenuti con Verbalist"
 seoDescription: "Come Meccanotecnica Umbra affronta topic tecnici di nicchia in modo sistematico, nella lingua dei suoi mercati, con Verbalist."
-testimonial: "Con Verbalist abbiamo potuto affrontare topic tecnici di nicchia in modo più sistematico, producendo contenuti che parlano la lingua dei nostri mercati senza perdere la precisione che il settore richiede."
 ctaTitle: "Come Meccanotecnica Umbra ha strutturato i contenuti tecnici industriali con Verbalist."
 partnership: "Verbalist supporta Meccanotecnica Umbra nella produzione di contenuti SEO e GEO-ready per un mercato B2B globale ad alta specializzazione tecnica."
 about: "Meccanotecnica Umbra, con sede a Campello sul Clitunno in provincia di Perugia, è un'azienda italiana fondata nel 1966 e oggi leader mondiale nella progettazione e produzione di tenute meccaniche per i settori automotive, industriale, elettrodomestici e aerospace, con stabilimenti produttivi in Europa, Asia e Americhe."
