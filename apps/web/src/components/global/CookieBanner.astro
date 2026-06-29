@@ -211,5 +211,23 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
       if (c.analytics !== "granted") wipeAnalyticsCookies();
       banner.classList.add("hidden");
     });
+
+    // Eventi CTA → dataLayer per GTM (il Consent Mode gestisce il gating lato tag).
+    // Delega sul document: intercetta i click su qualunque link, anche futuri.
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a) return;
+      var href = a.getAttribute("href") || "";
+      var text = (a.textContent || "").trim().replace(/\s+/g, " ");
+      if (href.indexOf("app.verbalist.it/login") !== -1) {
+        if (href.indexOf("registration") !== -1) {
+          window.dataLayer.push({ event: "cta_prova_gratis", link_text: text, link_url: href });
+        } else {
+          window.dataLayer.push({ event: "cta_accedi", link_text: text, link_url: href });
+        }
+      } else if (/^https?:\/\//.test(href) && a.hostname && a.hostname !== location.hostname) {
+        window.dataLayer.push({ event: "outbound_click", link_url: href, link_text: text });
+      }
+    });
   })();
 </script>
