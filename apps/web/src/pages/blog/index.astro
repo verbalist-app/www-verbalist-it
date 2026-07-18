@@ -63,7 +63,7 @@ const tags = await getAllPostTags();
       <div
         class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 gap-y-24"
       >
-        {allPosts.map((post) => <BlogCard post={post} headingTag="h2" />)}
+        {allPosts.map((post, i) => <BlogCard post={post} headingTag="h2" eager={i < 3} />)}
       </div>
     </Wrapper>
   </section>

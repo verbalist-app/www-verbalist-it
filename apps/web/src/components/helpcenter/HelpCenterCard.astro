@@ -8,6 +8,12 @@ import Shield from "@/components/fundations/icons/Shield.astro";
 import Settings from "@/components/fundations/icons/Settings.astro";
 import InfoCircle from "@/components/fundations/icons/InfoCircle.astro";
 import CreditCard from "@/components/fundations/icons/CreditCard.astro";
+import Search from "@/components/fundations/icons/Search.astro";
+import Filters from "@/components/fundations/icons/Filters.astro";
+import Stacked from "@/components/fundations/icons/Stacked.astro";
+import Persist from "@/components/fundations/icons/Persist.astro";
+import Plus from "@/components/fundations/icons/Plus.astro";
+import List from "@/components/fundations/icons/List.astro";
 
 // Content
 const { page, description, url, iconId } = {
@@ -17,12 +23,19 @@ const { page, description, url, iconId } = {
   iconId: Astro.props.post.data.iconId || "info-circle", // Default icon if not provided
 };
 
-// Map iconId values to actual icon components
+// Map iconId values to actual icon components (una icona diversa per guida:
+// vedi il frontmatter iconId dei singoli articoli in content/helpcenter)
 const iconMap = {
   user: User,
   settings: Settings,
   shield: Shield,
   creditCard: CreditCard,
+  search: Search,
+  filters: Filters,
+  stacked: Stacked,
+  persist: Persist,
+  plus: Plus,
+  list: List,
 };
 
 // Select the correct icon component
@@ -33,10 +46,9 @@ const IconComponent = iconMap[iconId] || InfoCircle; // Default to InfoCircle if
   class="relative flex flex-col h-full p-4 bg-mist-100 rounded-xl group hover:bg-white hover:shadow-2xl duration-300 outline-transparent hover:outline hover:outline-mist-100"
 >
   <a
-    title={`Read help article: ${page}`}
-    aria-label={`Read help article: ${page}`}
+    title={`Leggi la guida: ${page}`}
+    aria-label={`Leggi la guida: ${page}`}
     class="absolute inset-0 z-10"
-    title={page}
     href={url}></a>
   <div class="relative flex flex-col justify-between h-full gap-8">
     <div>

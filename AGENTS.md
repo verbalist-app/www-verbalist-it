@@ -7,9 +7,9 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 
 - **Verità di prodotto**: ogni claim sulle funzionalità va verificato contro la
   piattaforma reale (app.verbalist.it). Non inventare feature, limiti o numeri.
-- **Brand**: palette mist/base/accent (accent-500 è quasi nero), serif Noto
-  Serif per i display, Geist per il testo, Geist Mono solo per artefatti
-  tecnici (versioni, hex, codice). Pannelli `rounded-xl`, bordi `base-200`.
+- **Brand**: palette mist/base/accent (accent-500 è quasi nero), Familjen
+  Grotesk per i display (mappato sull'utility `font-serif` nel tema), Geist
+  per il testo, Geist Mono solo per artefatti tecnici (versioni, hex, codice). Pannelli `rounded-xl`, bordi `base-200`.
   Le linee tratteggiate sono SOLO della cornice globale del template.
 - **Copy**: italiano, pratico, niente sensazionalismo né AI-isms (vedi le
   release notes del changelog come riferimento di tono).

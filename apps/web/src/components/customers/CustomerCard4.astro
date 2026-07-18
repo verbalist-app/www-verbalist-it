@@ -73,6 +73,7 @@ const floral = florals[index % florals.length];
           alt={customer}
           width={200}
           height={200}
+          loading={index < 2 ? "eager" : "lazy"}
           class="w-full h-auto brightness-0"
         />
       </div>

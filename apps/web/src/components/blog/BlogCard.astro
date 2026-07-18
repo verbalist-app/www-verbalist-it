@@ -5,6 +5,9 @@ import { Image } from "astro:assets";
 import Text from "@/components/fundations/elements/Text.astro";
 // Content
 const headingTag = Astro.props.headingTag ?? "h3";
+// Le card above-the-fold caricano la cover subito (niente griglia vuota
+// al primo paint); le altre restano lazy col fondo mist come placeholder.
+const eager = Astro.props.eager ?? false;
 const { url, title, description, pubDate, image } = {
   url: "/blog/" + Astro.props.post.slug + "/",
   title: Astro.props.post.data.title,
@@ -29,7 +32,9 @@ const { url, title, description, pubDate, image } = {
     alt={title}
     width={600}
     height={600}
-    class="object-cover w-full aspect-12/8 rounded-xl"
+    loading={eager ? "eager" : "lazy"}
+    fetchpriority={eager ? "high" : "auto"}
+    class="object-cover w-full aspect-12/8 rounded-xl bg-mist-100"
   />
   <div class="flex flex-col mt-4">
     <Text tag="p" variant="textXS" class="tracking-wide uppercase text-base-500">

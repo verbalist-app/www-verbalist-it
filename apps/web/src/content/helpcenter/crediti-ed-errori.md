@@ -1,5 +1,5 @@
 ---
-iconId: "creditCard"
+iconId: "persist"
 page: Crediti ed errori
 description: Come si consumano i crediti, cosa vedi quando finiscono e come riprendere un documento in pausa.
 category: Account

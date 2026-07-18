@@ -1,5 +1,5 @@
 ---
-iconId: "settings"
+iconId: "plus"
 page: Creazione di un documento
 description: Da "Nuovo documento" al testo pronto, il percorso completo passo per passo.
 category: Per iniziare

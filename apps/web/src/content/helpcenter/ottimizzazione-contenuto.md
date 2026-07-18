@@ -1,5 +1,5 @@
 ---
-iconId: "settings"
+iconId: "filters"
 page: Ottimizzazione di un contenuto esistente
 description: Scegli "Ottimizza contenuto esistente" e Verbalist rivede il tuo testo contro la SERP.
 category: Generazione

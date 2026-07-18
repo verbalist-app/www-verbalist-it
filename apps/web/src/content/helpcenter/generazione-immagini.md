@@ -1,4 +1,5 @@
 ---
+iconId: "stacked"
 page: Generazione immagini
 description: Il pulsante "Genera immagini" nel documento, l'avviso di scadenza e come scaricarle.
 category: Generazione

@@ -1,5 +1,5 @@
 ---
-iconId: "settings"
+iconId: "search"
 page: URL Competitor
 description: Di default Verbalist analizza i primi risultati di Google. Se preferisci, gli indichi tu fino a 5 URL.
 category: Generazione
