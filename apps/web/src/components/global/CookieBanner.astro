@@ -38,8 +38,8 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
 
   <p class="pr-8 text-sm font-medium text-base-900">Cookie e misurazione</p>
   <p class="mt-2 text-sm text-base-600">
-    Usiamo cookie di analisi (Google Analytics) per capire come viene usato
-    il sito. Restano spenti finché non scegli.
+    Usiamo cookie di analisi (Google Analytics, Microsoft Clarity) per
+    capire come viene usato il sito. Restano spenti finché non scegli.
     <a
       href="/legale/cookie-policy/"
       class="font-medium text-base-800 underline decoration-base-300 hover:text-accent-500"
@@ -64,7 +64,7 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
         <label for="cookie-analytics" class="text-sm font-medium text-base-900">
           Analitici
         </label>
-        <p class="text-xs text-base-500">Google Analytics</p>
+        <p class="text-xs text-base-500">Google Analytics, Microsoft Clarity</p>
       </div>
       <input
         type="checkbox"
@@ -121,8 +121,8 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
       }
     }
 
-    // Cookie degli strumenti di analisi attivi (Google Analytics).
-    var ANALYTICS_COOKIES = /^(_ga|_gid|_gat)/;
+    // Cookie degli strumenti di analisi attivi (GA e Clarity).
+    var ANALYTICS_COOKIES = /^(_ga|_gid|_gat|_clck|_clsk)/;
     // Cookie orfani di strumenti di analisi dismessi dal sito:
     // non hanno più alcuna finalità, quindi vengono cancellati sempre.
     var LEGACY_COOKIES = /^(_hj|_cs)/;
@@ -140,6 +140,18 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
 
     function wipeAnalyticsCookies() {
       wipeCookies(ANALYTICS_COOKIES);
+    }
+
+    // Comunica lo stato del consenso a Clarity (Consent Mode v2 di Clarity):
+    // alla revoca cancella i suoi cookie e passa in no-consent mode.
+    // ad_Storage resta sempre negato: il sito non fa advertising.
+    function signalClarity(state) {
+      if (typeof clarity === "function") {
+        clarity("consentv2", {
+          ad_Storage: "denied",
+          analytics_Storage: state === "granted" ? "granted" : "denied",
+        });
+      }
     }
 
     wipeCookies(LEGACY_COOKIES);
@@ -169,6 +181,7 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
           analytics_storage: choice === "granted" ? "granted" : "denied",
         });
       }
+      signalClarity(choice);
       window.dataLayer.push({ event: "consent_update", consent_analytics: choice });
       if (choice !== "granted") wipeAnalyticsCookies();
       banner.classList.add("hidden");
@@ -220,6 +233,7 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
           analytics_storage: c.analytics === "granted" ? "granted" : "denied",
         });
       }
+      signalClarity(c.analytics);
       window.dataLayer.push({
         event: "consent_update",
         consent_analytics: c.analytics,
