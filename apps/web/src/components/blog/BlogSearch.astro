@@ -129,6 +129,25 @@ const posts = await Promise.all(
         )
         .join(""); // Convert array of HTML into a single string
     }
+    // Evento GA4 `search` → dataLayer (consumato da GTM, consenso gestito
+    // dal Consent Mode). Debounce: pusha solo quando l'utente smette di
+    // digitare, con termine normalizzato e numero di risultati — serve a
+    // capire cosa viene cercato e cosa non viene trovato (search_results=0).
+    let searchTrackTimer;
+    let lastTrackedTerm = "";
+    function trackSearch(term, resultsCount) {
+      clearTimeout(searchTrackTimer);
+      if (term.length < 3 || term === lastTrackedTerm) return;
+      searchTrackTimer = setTimeout(() => {
+        lastTrackedTerm = term;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "search",
+          search_term: term,
+          search_results: resultsCount,
+        });
+      }, 900);
+    }
     // Attach event listeners for opening the search modal (both click and touch)
     searchButton.addEventListener("click", openSearch);
     searchButton.addEventListener("touchend", openSearch);
@@ -143,6 +162,7 @@ const posts = await Promise.all(
       const value = e.target.value; // Get the input value
       const results = value.trim() ? fuse.search(value) : []; // Perform search if input isn't empty
       renderResults(results); // Update the displayed results
+      trackSearch(value.trim().toLowerCase(), results.length);
     });
     // Close the search modal when pressing the "Escape" key
     document.addEventListener("keydown", (e) => {
