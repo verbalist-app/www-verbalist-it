@@ -73,6 +73,7 @@ Alcuni dati possono essere trasferiti verso gli **Stati Uniti d'America**, dove 
 
 - **Marketing:** fino a revoca del consenso o richiesta di cancellazione da parte dell'interessato.
 - **Profilazione:** massimo 12 mesi dalla raccolta.
+- **Statistica:** massimo 14 mesi dalla raccolta (dati di misurazione di Google Analytics 4 e Microsoft Clarity).
 - **Obblighi legali:** massimo 10 anni dalla cessazione degli effetti del contratto, o per il diverso termine previsto dalla normativa applicabile.
 
 ## 10. Facoltatività del consenso

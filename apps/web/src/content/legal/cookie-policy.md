@@ -27,7 +27,7 @@ Consentono l'erogazione di servizi personalizzati e supportano processi decision
 
 ## 4. Elenco dei cookie
 
-I cookie installati sul sito sono gestiti tramite Google Tag Manager (GTM) in conformità al Consent Mode v2: i tag di Google Analytics 4 e Microsoft Clarity restano disattivati finché l'utente non presta il consenso dal banner. Vercel Analytics e Speed Insights non utilizzano cookie.
+I cookie installati sul sito sono gestiti tramite Google Tag Manager (GTM) in conformità al Consent Mode v2: i tag di Google Analytics 4 e Microsoft Clarity restano disattivati finché l'utente non presta il consenso dal banner. Vercel Analytics e Speed Insights non utilizzano cookie. Verso l'applicazione app.verbalist.it è attiva la misurazione interdominio di Google Analytics: ai link diretti all'app viene aggiunto il parametro tecnico `_gl`, che collega la sessione tra i due domini senza installare cookie aggiuntivi.
 
 | Nome | Tipo | Provider | Durata | Descrizione |
 |---|---|---|---|---|
@@ -36,6 +36,7 @@ I cookie installati sul sito sono gestiti tramite Google Tag Manager (GTM) in co
 | _ga_* | Analitico | Google Analytics | 2 anni | Mantiene lo stato della sessione. |
 | _clck | Analitico | Microsoft Clarity | 12 mesi | Distingue l'utente tra le sessioni per l'analisi di utilizzo. |
 | _clsk | Analitico | Microsoft Clarity | 1 giorno | Collega le pagine viste nella sessione corrente. |
+| CLID, ANONCHK, MR, MUID, SM | Analitico | Microsoft Clarity (dominio clarity.ms) | fino a 13 mesi | Cookie di terza parte di Clarity per il riconoscimento del visitatore e il filtraggio dei bot. |
 | __hstc | Profilazione | HubSpot | 13 mesi | Identifica visitatore, fonte di traffico e sessione. |
 | __hssc | Profilazione | HubSpot | 30 minuti | Traccia la sessione corrente del visitatore. |
 | __hssrc | Tecnico | HubSpot | Sessione | Verifica il riavvio del browser. |
@@ -56,7 +57,7 @@ I dati raccolti tramite cookie possono essere trasferiti verso gli **Stati Uniti
 
 ## 7. Conservazione dei dati
 
-Tutti i dati raccolti tramite cookie sono conservati per un massimo di **12 mesi** dalla raccolta. NUR si riserva di richiedere periodicamente il rinnovo del consenso.
+I dati di misurazione raccolti tramite cookie sono conservati per un massimo di **14 mesi** dalla raccolta, secondo il periodo di conservazione impostato in Google Analytics 4; i singoli cookie hanno le durate massime indicate nella tabella dell'articolo 4. NUR si riserva di richiedere periodicamente il rinnovo del consenso.
 
 ## 8. Diritti dell'utente
 
