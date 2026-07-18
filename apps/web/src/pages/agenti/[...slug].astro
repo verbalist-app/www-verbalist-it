@@ -1,6 +1,6 @@
 ---
 import AgentsLayout from "@/layouts/AgentsLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const agents = (await getCollection("agents")).sort((a, b) =>
@@ -22,6 +22,9 @@ export async function getStaticPaths() {
 }
 
 const { agent, prev, next } = Astro.props;
+const { Content } = await render(agent);
 ---
 
-<AgentsLayout frontmatter={agent.data} prev={prev} next={next} />
+<AgentsLayout frontmatter={agent.data} prev={prev} next={next}>
+  <Content />
+</AgentsLayout>

@@ -1,0 +1,185 @@
+---
+// L'output di ogni agente, nello stile card dei mockup dell'app: è la
+// "cosa che ti porti a casa" alla fine della fase, mostrata nelle pagine
+// di dettaglio accanto alla prosa. variant = frontmatter.mockup
+// (brief | serp | article | export). Dati d'esempio coerenti con la demo
+// "scarpe running" usata in tutti gli altri mockup del sito.
+const { variant = "brief" } = Astro.props;
+
+// Coverage argomenti per la variante serp: n = risultati (su 5) che
+// coprono il tema. Il gap è la riga sotto, evidenziata a parte.
+const serpTopics = [
+  { label: "ammortizzazione", n: 5 },
+  { label: "drop", n: 4 },
+  { label: "pronazione", n: 3 },
+];
+
+const briefRows = [
+  { n: "02", phase: "Analisi", uses: "Mercato: Italia · IT" },
+  { n: "03", phase: "Scrittura", uses: "Tono: professionale · guidelines.pdf" },
+  { n: "04", phase: "Export", uses: "Tipo: Blog/Articolo" },
+];
+
+const articleOutline = [
+  { level: "H1", text: "Migliori scarpe running 2026", badge: "risposta in apertura" },
+  { level: "H2", text: "Quanto conta il drop nella scelta?", badge: null },
+  { level: "H2", text: "Ammortizzazione: quando serve davvero", badge: null },
+  { level: "H2", text: "Schiume supercritiche: cosa cambia", badge: "dal content gap" },
+];
+---
+
+<div
+  aria-hidden="true"
+  class="w-full max-w-md p-5 mx-auto bg-white rounded-xl shadow-sm outline outline-mist-500/10"
+>
+  {
+    variant === "brief" && (
+      <>
+        <div class="flex items-center justify-between pb-3 border-b border-mist-500/10">
+          <p class="text-sm font-medium text-base-900">Il brief guida la catena</p>
+          <span class="inline-flex items-center gap-1.5 text-xs text-base-500">
+            <span class="rounded-full size-1.5 bg-emerald-500" />
+            salvato nel progetto
+          </span>
+        </div>
+        <div class="divide-y divide-mist-500/10">
+          {briefRows.map((row) => (
+            <div class="flex items-center gap-3 py-3">
+              <span class="inline-flex items-center justify-center text-xs font-semibold rounded size-6 shrink-0 bg-base-900 text-white">
+                {row.n}
+              </span>
+              <div class="min-w-0">
+                <p class="text-xs truncate text-base-500">{row.phase}</p>
+                <p class="text-sm font-medium truncate text-base-900">
+                  {row.uses}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p class="pt-3 text-xs border-t border-mist-500/10 text-base-500">
+          Compilato una volta, riusato da ogni documento del progetto.
+        </p>
+      </>
+    )
+  }
+
+  {
+    variant === "serp" && (
+      <>
+        <div class="flex items-center justify-between pb-3 border-b border-mist-500/10">
+          <p class="text-sm font-medium text-base-900">Mappa degli argomenti</p>
+          <span class="text-xs text-base-500">5 risultati letti</span>
+        </div>
+        <div class="divide-y divide-mist-500/10">
+          {serpTopics.map((topic) => (
+            <div class="flex items-center justify-between py-3 gap-3">
+              <p class="text-sm font-medium text-base-900">{topic.label}</p>
+              <div class="flex items-center gap-2">
+                <span class="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <span
+                      class={`h-3 w-1.5 rounded-sm ${i <= topic.n ? "bg-base-800" : "bg-mist-100"}`}
+                    />
+                  ))}
+                </span>
+                <span class="text-xs tabular-nums text-base-500">
+                  {topic.n}/5
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="p-3 mt-3 border rounded-lg border-mist-500/15 bg-mist-50">
+          <p class="text-xs font-medium tracking-wide uppercase text-accent-600">
+            Content gap
+          </p>
+          <p class="mt-1 text-sm font-medium text-base-900">
+            Schiume supercritiche — ne parla solo 1 su 5
+          </p>
+          <p class="mt-1 text-xs text-base-500">
+            Il sottotema da coprire per staccare i primi risultati.
+          </p>
+        </div>
+      </>
+    )
+  }
+
+  {
+    variant === "article" && (
+      <>
+        <div class="flex items-center justify-between pb-3 border-b border-mist-500/10">
+          <p class="text-sm font-medium text-base-900">Struttura dell'articolo</p>
+          <span class="text-xs text-base-500">IT · Blog</span>
+        </div>
+        <div class="divide-y divide-mist-500/10">
+          {articleOutline.map((row) => (
+            <div class="flex items-center py-3 gap-3">
+              <span class="font-mono text-[11px] text-base-400 shrink-0 w-6">
+                {row.level}
+              </span>
+              <p
+                class={`min-w-0 truncate text-sm text-base-900 ${row.level === "H1" ? "font-medium" : ""}`}
+              >
+                {row.text}
+              </p>
+              {row.badge && (
+                <span class="ml-auto shrink-0 rounded-md border border-mist-500/15 bg-mist-50 px-2 py-0.5 text-[11px] text-base-600">
+                  {row.badge}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+        <p class="pt-3 text-xs border-t border-mist-500/10 text-base-500">
+          Schema FAQ e HowTo · 2 punti segnalati per i tuoi link interni
+        </p>
+      </>
+    )
+  }
+
+  {
+    variant === "export" && (
+      <>
+        <div class="flex items-center justify-between pb-3 border-b border-mist-500/10">
+          <p class="text-sm font-medium text-base-900">Pronto per il CMS</p>
+          <span class="rounded-md border border-mist-500/15 bg-mist-50 px-2 py-0.5 font-mono text-[11px] text-base-600">
+            HTML
+          </span>
+        </div>
+        <div class="divide-y divide-mist-500/10">
+          <div class="py-3">
+            <div class="flex items-center justify-between gap-2">
+              <p class="text-xs text-base-500">Title tag</p>
+              <span class="text-xs tabular-nums text-base-500">52/65 ✓</span>
+            </div>
+            <p class="mt-1 text-sm font-medium truncate text-base-900">
+              Migliori scarpe running 2026: guida alla scelta
+            </p>
+          </div>
+          <div class="py-3">
+            <div class="flex items-center justify-between gap-2">
+              <p class="text-xs text-base-500">Meta description</p>
+              <span class="text-xs tabular-nums text-base-500">148/160 ✓</span>
+            </div>
+            <p class="mt-1 text-sm truncate text-base-700">
+              Drop, ammortizzazione e appoggio: come scegliere le scarpe…
+            </p>
+          </div>
+          <div class="py-3">
+            <p class="text-xs text-base-500">Slug</p>
+            <p class="mt-1 font-mono text-xs text-base-700">
+              /migliori-scarpe-running-2026/
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-3 border-t border-mist-500/10 gap-2">
+          <p class="text-xs text-base-500">3 immagini con alt text, al loro posto</p>
+          <span class="rounded-full bg-base-900 px-3 py-1.5 text-xs font-medium text-white">
+            Copia HTML
+          </span>
+        </div>
+      </>
+    )
+  }
+</div>

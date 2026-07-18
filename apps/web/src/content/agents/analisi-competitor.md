@@ -22,3 +22,11 @@ note:
   label: "Hai già un articolo?"
   text: "Funziona anche al contrario: incolli un testo, un URL o un PDF e Verbalist lo rivede a confronto con le pagine che oggi ti stanno davanti."
 ---
+
+## Come funziona
+
+Per la tua keyword, Verbalist scarica i primi cinque risultati organici di Google nel mercato del brief e li legge per intero, non solo i titoli. Dall'analisi escono l'intento di ricerca dominante, gli argomenti che tutti coprono e la struttura tipo — H1, H2, H3 — delle pagine che si posizionano.
+
+La parte che vale di più sono i content gap: i sottotemi che distinguono i primi tre da chi sta sotto. È lì che un contenuto nuovo può superare quelli esistenti, ed è il motivo per cui la [scrittura](/agenti/generazione-articolo/) parte da questa mappa e non da una pagina bianca.
+
+Se i competitor li conosci già — o vuoi confrontarti con siti fuori dalla SERP — indichi fino a cinque URL e l'analisi usa quelli al posto dei risultati di Google: il funzionamento è nella [guida agli URL competitor](/help/url-competitor/).

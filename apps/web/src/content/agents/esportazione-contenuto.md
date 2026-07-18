@@ -21,3 +21,11 @@ note:
   label: "Anche le immagini"
   text: "Le immagini si generano su richiesta, a partire dal contenuto. Ogni figura arriva con alt text e una posizione precisa: apertura, dopo l'introduzione o dentro i passaggi."
 ---
+
+## Come funziona
+
+L'ultimo agente impagina: HTML pulito pronto da incollare nel CMS, title tag entro i 65 caratteri, meta description entro i 160, slug nella lingua giusta. L'ultima rilettura è tua — pubblichi senza rimontare nulla.
+
+Le immagini si generano su richiesta a partire dal contenuto: copertina e figure arrivano con l'alt text e una posizione precisa nel testo — apertura, dopo l'introduzione o dentro i passaggi. Tempi, avvisi di scadenza e download sono nella [guida alla generazione immagini](/help/generazione-immagini/).
+
+Il documento resta nel progetto: lo riapri e lo riesporti quando serve. E quando il pezzo è online da un po', lo rimetti nel giro dall'altra parte della catena: [l'analisi rivede l'esistente](/help/ottimizzazione-contenuto/) a confronto con le pagine che ti stanno davanti.

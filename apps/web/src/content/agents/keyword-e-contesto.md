@@ -21,3 +21,11 @@ note:
   label: "Dove finiscono i PDF"
   text: "Testo e PDF entrano nei prompt di analisi e di scrittura. Se le guidelines dicono di evitare una parola, l'agente che scrive lo sa."
 ---
+
+## Come funziona
+
+Qui si decide quello che gli agenti successivi daranno per scontato: cosa produci — articolo, guida, landing page o pagina prodotto — per quale keyword, in quale Paese e lingua. L'[analisi dei competitor](/agenti/analisi-competitor/) userà quel mercato per interrogare il Google giusto; la scrittura, il tono e la terminologia che fissi qui.
+
+Il contesto del brand entra come testo libero più fino a tre PDF: guidelines, schede prodotto, glossari. Non finisce in un archivio — entra nei prompt di analisi e di scrittura, e se le guidelines dicono di evitare una parola, l'agente che scrive lo sa. Dove va a finire ogni file lo spieghiamo nella [guida al contesto e ai PDF](/help/contesto-e-pdf/).
+
+Brief e materiali restano salvati nel progetto: il documento successivo parte già impostato, senza ricompilare nulla. Il percorso completo, da "Nuovo documento" al testo pronto, è nella [guida passo per passo](/help/creazione-documento/).
