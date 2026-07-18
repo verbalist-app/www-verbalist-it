@@ -1,9 +1,13 @@
 ---
 // Hub di tracciamento, conforme Garante/GDPR:
-// - Consent Mode v2 con default NEGATO: nessun cookie di analisi parte
-//   prima della scelta dell'utente (il banner aggiorna il consenso).
-// - GTM è l'unico contenitore: GA4 e Hotjar si configurano lì dentro,
-//   con i consent check attivi. Qui non c'è nessun tag diretto.
+// - Consent Mode v2 con default NEGATO su tutte le categorie: nessun cookie
+//   di analisi parte prima della scelta dell'utente (il banner aggiorna il
+//   consenso). Il consenso salvato scade dopo 12 mesi, come nel banner.
+// - GTM è l'unico contenitore: GA4 e gli altri strumenti di analisi si
+//   configurano lì dentro, con i consent check attivi su ogni tag.
+//   Qui non c'è nessun tag diretto.
+// - Gli eventi dataLayer del sito (CTA, outbound, lead HubSpot) sono pushati
+//   da CookieBanner.astro, presente su ogni pagina via BaseLayout.
 // - Vercel Analytics è cookieless (niente identificatori persistenti):
 //   può girare senza consenso.
 // Gli ID arrivano dalle env PUBLIC_GTM_ID e PUBLIC_VERCEL_ANALYTICS:
@@ -24,11 +28,16 @@ const VERCEL_ANALYTICS = import.meta.env.PUBLIC_VERCEL_ANALYTICS === "true";
         ad_user_data: "denied",
         ad_personalization: "denied",
         analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
         wait_for_update: 500,
       });
       try {
         var saved = JSON.parse(localStorage.getItem("verbalist-consent"));
-        if (saved && saved.analytics === "granted") {
+        var fresh =
+          saved && saved.ts && (Date.now() - saved.ts) / 86400000 <= 365;
+        if (fresh && saved.analytics === "granted") {
           gtag("consent", "update", { analytics_storage: "granted" });
         }
       } catch (e) {}

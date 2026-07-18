@@ -15,8 +15,9 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   release notes del changelog come riferimento di tono).
 - **Tracking**: GTM è l'hub unico (Consent Mode v2). Gli eventi del sito sono
   pushati dal banner in `src/components/global/CookieBanner.astro`
-  (cta_prova_gratis, cta_accedi, outbound_click, hubspot_form_submit,
-  consent_update). Non aggiungere script di terze parti fuori da GTM.
+  (cta_prova_gratis, cta_accedi, cta_contatti, outbound_click,
+  hubspot_form_submit, consent_update). Non aggiungere script di terze parti
+  fuori da GTM.
 - **Build**: `pnpm --filter @verbalist/web build`; il postbuild appiattisce la
   sitemap in `/sitemap.xml`. Verifica sempre con una build prima di chiudere.
 

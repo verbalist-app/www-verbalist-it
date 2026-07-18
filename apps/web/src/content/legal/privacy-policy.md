@@ -1,6 +1,6 @@
 ---
 page: Privacy Policy
-pubDate: 2026-05-01
+pubDate: 2026-07-18
 ---
 
 ## 1. Titolare del trattamento
@@ -23,7 +23,7 @@ Determinazione di abitudini e preferenze per fornire servizi personalizzati. Bas
 
 ### c) Statistica e miglioramento del sito
 
-Misurazione aggregata dell'uso del sito (pagine visitate, interazioni, provenienza) tramite Google Analytics 4 e Contentsquare, attivi solo previo consenso espresso dal banner cookie, e tramite Vercel Analytics, che non utilizza cookie né identificatori persistenti. Base giuridica: consenso dell'interessato; per le statistiche senza cookie, legittimo interesse del Titolare.
+Misurazione aggregata dell'uso del sito (pagine visitate, interazioni, provenienza) tramite Google Analytics 4, attivo solo previo consenso espresso dal banner cookie, e tramite Vercel Analytics, che non utilizza cookie né identificatori persistenti. Base giuridica: consenso dell'interessato; per le statistiche senza cookie, legittimo interesse del Titolare.
 
 ### d) Adempimento obblighi legali
 
@@ -58,7 +58,7 @@ I dati possono essere comunicati alle seguenti categorie di soggetti:
 - società di revisione contabile;
 - partner commerciali del Titolare;
 - **HubSpot Inc.** in qualità di responsabile del trattamento per moduli di contatto e CRM;
-- **Google Ireland Ltd.** (Google Analytics 4, Google Tag Manager) e **Contentsquare SAS** (analisi di utilizzo), in qualità di responsabili del trattamento, previo consenso;
+- **Google Ireland Ltd.** (Google Analytics 4, Google Tag Manager), in qualità di responsabile del trattamento, previo consenso;
 - **Vercel Inc.** per l'hosting e le statistiche aggregate senza cookie.
 
 ## 7. Categorie di dati trattati

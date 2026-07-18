@@ -7,7 +7,12 @@
 //   analitici opzionali;
 // - la scelta vale 12 mesi, è riapribile da "Preferenze cookie" nel footer
 //   e si sincronizza tra le tab aperte;
-// - al rifiuto/revoca azzera i cookie di Google Analytics e Contentsquare.
+// - al rifiuto/revoca azzera i cookie degli strumenti di analisi; i cookie
+//   orfani di strumenti dismessi (Hotjar, Contentsquare) vengono rimossi
+//   sempre, a prescindere dal consenso.
+// Qui vivono anche gli eventi dataLayer del sito consumati da GTM:
+// cta_prova_gratis, cta_accedi, cta_contatti, outbound_click,
+// hubspot_form_submit, consent_update.
 import Button from "@/components/fundations/elements/Button.astro";
 import X from "@/components/fundations/icons/X.astro";
 const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
@@ -33,8 +38,8 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
 
   <p class="pr-8 text-sm font-medium text-base-900">Cookie e misurazione</p>
   <p class="mt-2 text-sm text-base-600">
-    Usiamo cookie di analisi (Google Analytics, Contentsquare) per capire come
-    viene usato il sito. Restano spenti finché non scegli.
+    Usiamo cookie di analisi (Google Analytics) per capire come viene usato
+    il sito. Restano spenti finché non scegli.
     <a
       href="/legale/cookie-policy/"
       class="font-medium text-base-800 underline decoration-base-300 hover:text-accent-500"
@@ -59,7 +64,7 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
         <label for="cookie-analytics" class="text-sm font-medium text-base-900">
           Analitici
         </label>
-        <p class="text-xs text-base-500">Google Analytics, Contentsquare</p>
+        <p class="text-xs text-base-500">Google Analytics</p>
       </div>
       <input
         type="checkbox"
@@ -116,16 +121,28 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
       }
     }
 
-    function wipeAnalyticsCookies() {
+    // Cookie degli strumenti di analisi attivi (Google Analytics).
+    var ANALYTICS_COOKIES = /^(_ga|_gid|_gat)/;
+    // Cookie orfani di strumenti di analisi dismessi dal sito:
+    // non hanno più alcuna finalità, quindi vengono cancellati sempre.
+    var LEGACY_COOKIES = /^(_hj|_cs)/;
+
+    function wipeCookies(pattern) {
       document.cookie.split(";").forEach(function (raw) {
         var name = raw.split("=")[0].trim();
-        if (/^(_ga|_gid|_gat|_hj|_cs)/.test(name)) {
+        if (pattern.test(name)) {
           var kill = name + "=; Max-Age=0; path=/";
           document.cookie = kill;
           document.cookie = kill + "; domain=." + location.hostname;
         }
       });
     }
+
+    function wipeAnalyticsCookies() {
+      wipeCookies(ANALYTICS_COOKIES);
+    }
+
+    wipeCookies(LEGACY_COOKIES);
 
     function setMode(mode) {
       var custom = mode === "prefs";
@@ -225,8 +242,25 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
         } else {
           window.dataLayer.push({ event: "cta_accedi", link_text: text, link_url: href });
         }
+      } else if (
+        href.indexOf("/contatti") !== -1 &&
+        (!/^https?:\/\//.test(href) || a.hostname === location.hostname)
+      ) {
+        // Intento demo/contatto: qualunque link interno verso /contatti.
+        window.dataLayer.push({ event: "cta_contatti", link_text: text, link_url: href });
       } else if (/^https?:\/\//.test(href) && a.hostname && a.hostname !== location.hostname) {
         window.dataLayer.push({ event: "outbound_click", link_url: href, link_text: text });
+      }
+    });
+
+    // Lead: il form HubSpot su /contatti vive in un iframe cross-origin e
+    // notifica il submit al parent via postMessage (hsFormCallback). Qui lo
+    // convertiamo nell'evento dataLayer usato da GTM per generate_lead:
+    // senza questo ponte il lead non arriverebbe mai a GA4.
+    window.addEventListener("message", function (e) {
+      var d = e && e.data;
+      if (d && d.type === "hsFormCallback" && d.eventName === "onFormSubmitted") {
+        window.dataLayer.push({ event: "hubspot_form_submit", form_id: d.id || "" });
       }
     });
   })();

@@ -1,6 +1,6 @@
 ---
 page: Cookie Policy
-pubDate: 2026-05-01
+pubDate: 2026-07-18
 ---
 
 ## 1. Cosa sono i cookie
@@ -27,15 +27,13 @@ Consentono l'erogazione di servizi personalizzati e supportano processi decision
 
 ## 4. Elenco dei cookie
 
-I cookie installati sul sito sono gestiti tramite Google Tag Manager (GTM) in conformità al Consent Mode v2: i tag di Google Analytics 4 e Contentsquare restano disattivati finché l'utente non presta il consenso dal banner. Vercel Analytics e Speed Insights non utilizzano cookie.
+I cookie installati sul sito sono gestiti tramite Google Tag Manager (GTM) in conformità al Consent Mode v2: i tag di Google Analytics 4 restano disattivati finché l'utente non presta il consenso dal banner. Vercel Analytics e Speed Insights non utilizzano cookie.
 
 | Nome | Tipo | Provider | Durata | Descrizione |
 |---|---|---|---|---|
 | verbalist-consent | Tecnico (localStorage) | Verbalist | 12 mesi | Memorizza la scelta espressa nel banner cookie. |
 | _ga | Analitico | Google Analytics | 2 anni | Distingue gli utenti. |
 | _ga_* | Analitico | Google Analytics | 2 anni | Mantiene lo stato della sessione. |
-| _cs_id | Analitico | Contentsquare | 13 mesi | Distingue l'utente tra le sessioni per l'analisi di utilizzo. |
-| _cs_s | Analitico | Contentsquare | 30 minuti | Mantiene i dati della sessione corrente. |
 | __hstc | Profilazione | HubSpot | 13 mesi | Identifica visitatore, fonte di traffico e sessione. |
 | __hssc | Profilazione | HubSpot | 30 minuti | Traccia la sessione corrente del visitatore. |
 | __hssrc | Tecnico | HubSpot | Sessione | Verifica il riavvio del browser. |
@@ -44,7 +42,7 @@ I cookie installati sul sito sono gestiti tramite Google Tag Manager (GTM) in co
 
 ## 5. Gestione e disattivazione dei cookie
 
-L'utente può modificare o revocare il consenso in qualsiasi momento dal link "Preferenze cookie" nel footer del sito, che riapre il banner con le preferenze per categoria. La chiusura del banner tramite la X equivale al rifiuto dei cookie non necessari. Alla revoca, i cookie di Google Analytics e Contentsquare già installati vengono rimossi. È inoltre possibile disattivare i cookie direttamente dal browser:
+L'utente può modificare o revocare il consenso in qualsiasi momento dal link "Preferenze cookie" nel footer del sito, che riapre il banner con le preferenze per categoria. La chiusura del banner tramite la X equivale al rifiuto dei cookie non necessari. Alla revoca, i cookie di Google Analytics già installati vengono rimossi. È inoltre possibile disattivare i cookie direttamente dal browser:
 
 - [Firefox](https://support.mozilla.com/it/kb/Eliminare%20i%20cookie)
 - [Microsoft Edge](https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09)
