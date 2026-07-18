@@ -69,6 +69,19 @@ const { seo, hideNavigation = false, hideFooter = false } = Astro.props;
         go();
         setTimeout(go, 350);
       });
+
+      // ⌘K / Ctrl+K ovunque: apre la ricerca se è in pagina (blog),
+      // altrimenti porta al blog con #cerca, che la apre al load.
+      document.addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+          e.preventDefault();
+          if (document.getElementById("searchModal")) {
+            document.dispatchEvent(new CustomEvent("verbalist:open-search"));
+          } else {
+            window.location.href = "/blog/#cerca";
+          }
+        }
+      });
     </script>
   </body>
 </html>

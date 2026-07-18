@@ -115,3 +115,18 @@ code .line::before {
     scroll-behavior: auto !important;
   }
 }
+
+/* Tap target esteso sui dispositivi touch: i bottoni xs/sm (32-36px)
+   arrivano a ~40-44px di area cliccabile senza cambiare il disegno.
+   L'estensione è solo verticale: niente sovrapposizioni tra bottoni
+   affiancati (gap-2 orizzontale invariato). */
+@media (pointer: coarse) {
+  .tap-target::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+  }
+}

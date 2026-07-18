@@ -71,6 +71,11 @@ const sizeClass = iconOnly
   ? iconSizes[sizeValue] || sizes[sizeValue] || []
   : sizes[sizeValue] || [];
 const gapClass = !iconOnly && gap ? gapMap[gap] || [] : [];
+// Su touch i bottoni piccoli estendono l'area cliccabile a ~44px
+// (utility .tap-target in global.css, attiva solo con pointer: coarse).
+const touchClass = ["xs", "sm"].includes(sizeValue)
+  ? ["relative", "tap-target"]
+  : [];
 
 const baseClass = [
   "flex",
@@ -86,6 +91,7 @@ const baseClass = [
   ...(variantClass[variant] || []),
   ...sizeClass,
   ...gapClass,
+  ...touchClass,
   ...additionalClasses,
 ];
 ---

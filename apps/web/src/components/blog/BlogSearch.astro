@@ -17,10 +17,15 @@ const posts = await Promise.all(
   <button
     type="button"
     id="searchButton"
-    aria-label="Cerca negli articoli"
-    class="flex items-center justify-center p-2 rounded-full bg-mist-100 hover:bg-accent-500 hover:text-white duration-300"
+    aria-label="Cerca negli articoli (⌘K)"
+    class="flex items-center justify-center p-2 rounded-full bg-mist-100 hover:bg-accent-500 hover:text-white duration-300 group md:px-3 md:gap-2"
   >
     <Search size="base" />
+    <kbd
+      aria-hidden="true"
+      class="hidden font-mono text-[11px] leading-none text-base-400 transition-colors duration-300 group-hover:text-white/80 md:inline"
+      >⌘K</kbd
+    >
   </button>
   <div
     id="searchModal"
@@ -81,10 +86,13 @@ const posts = await Promise.all(
       threshold: 0.3, // Determines search sensitivity (lower = stricter match)
       includeMatches: true, // Includes matched text segments in results
     });
-    // Function to open the search modal
+    // Function to open the search modal (chiamabile anche senza evento:
+    // la usano il ⌘K globale di BaseLayout e l'arrivo con #cerca)
     function openSearch(e) {
-      e.preventDefault();
-      e.stopPropagation();
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       searchModal.classList.remove("hidden"); // Show the modal
       document.body.style.overflow = "hidden"; // Prevent scrolling in the background
       setTimeout(() => searchInput.focus(), 100); // Delay focus to ensure input is ready
@@ -107,11 +115,25 @@ const posts = await Promise.all(
         searchResults.innerHTML = "";
         return;
       }
-      // If no results are found, display a message
+      // If no results are found, display a message with escape routes
+      // (categorie e help center) invece di un vicolo cieco.
       if (results.length === 0) {
+        const safeTerm = searchInput.value
+          .trim()
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
         searchResults.innerHTML = `
-                <div class="px-4 py-3 text-sm text-base-500">
-                    Nessun risultato trovato
+                <div class="px-4 py-4 text-sm">
+                    <p class="text-base-600">Nessun risultato per &ldquo;${safeTerm}&rdquo;.</p>
+                    <p class="mt-3 text-xs tracking-wide uppercase text-base-400">Prova da qui</p>
+                    <div class="flex flex-wrap mt-2 gap-2">
+                      <a href="/categorie/guide/" class="px-3 py-1.5 text-xs rounded-full bg-mist-100 text-base-600 hover:text-accent-500">Guide</a>
+                      <a href="/categorie/seo/" class="px-3 py-1.5 text-xs rounded-full bg-mist-100 text-base-600 hover:text-accent-500">SEO</a>
+                      <a href="/categorie/ai-automation/" class="px-3 py-1.5 text-xs rounded-full bg-mist-100 text-base-600 hover:text-accent-500">AI &amp; Automation</a>
+                      <a href="/help/" class="px-3 py-1.5 text-xs rounded-full bg-mist-100 text-base-600 hover:text-accent-500">Help center</a>
+                    </div>
                 </div>
             `;
         return;
@@ -170,5 +192,11 @@ const posts = await Promise.all(
         closeSearchModal();
       }
     });
+    // Apertura dall'esterno: ⌘K globale (BaseLayout) o arrivo con #cerca
+    document.addEventListener("verbalist:open-search", () => openSearch());
+    if (location.hash === "#cerca") {
+      openSearch();
+      history.replaceState(null, "", location.pathname);
+    }
   });
 </script>

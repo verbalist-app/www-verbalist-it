@@ -7,24 +7,36 @@ const navigationLinks = [
   {
     title: "Funzionalità",
     href: "/#funzionalita",
+    activePaths: [],
   },
   {
     title: "Agenti",
     href: "/#agenti",
+    activePaths: ["/agenti"],
   },
   {
     title: "Prezzi",
     href: "/#prezzi",
+    activePaths: [],
   },
   {
     title: "Clienti",
     href: "/clienti/",
+    activePaths: ["/clienti"],
   },
   {
     title: "Blog",
     href: "/blog/",
+    activePaths: ["/blog", "/categorie"],
   },
 ];
+
+// Stato attivo: la voce si accende sulle sezioni reali (Blog copre anche le
+// categorie, Agenti le pagine di dettaglio). Le ancore della home restano
+// neutre. La pillola desktop riposa sulla voce attiva (vedi script sotto).
+const path = Astro.url.pathname;
+const isActive = (link) =>
+  link.activePaths.some((base) => path === base || path.startsWith(base + "/"));
 ---
 
 <div
@@ -86,7 +98,13 @@ const navigationLinks = [
           navigationLinks.map((link) => (
             <a
               href={link.href}
-              class="relative flex items-center h-8 px-3 text-sm font-normal text-base-500 duration-300 transition-colors hover:text-base-800"
+              data-active={isActive(link) ? "1" : undefined}
+              aria-current={isActive(link) ? "page" : undefined}
+              class={`relative flex items-center h-8 px-3 text-sm duration-300 transition-colors hover:text-base-800 ${
+                isActive(link)
+                  ? "font-medium text-base-950"
+                  : "font-normal text-base-500"
+              }`}
             >
               {link.title}
             </a>
@@ -107,7 +125,12 @@ const navigationLinks = [
               navigationLinks.map((link) => (
                 <a
                   href={link.href}
-                  class="py-2.5 text-lg md:py-0 md:text-sm text-base-800 hover:text-base-500 md:text-base-500 md:hover:text-base-600"
+                  aria-current={isActive(link) ? "page" : undefined}
+                  class={`py-2.5 text-lg md:py-0 md:text-sm hover:text-base-500 md:hover:text-base-600 ${
+                    isActive(link)
+                      ? "font-medium text-base-950 md:text-base-950"
+                      : "text-base-800 md:text-base-500"
+                  }`}
                 >
                   {link.title}
                 </a>
@@ -226,35 +249,41 @@ const navigationLinks = [
       { passive: true }
     );
 
-    // Pillola che scivola dietro le voci desktop
+    // Pillola che scivola dietro le voci desktop. Se una voce è attiva
+    // (data-active), la pillola riposa lì e ci torna a fine hover: fa da
+    // indicatore di sezione corrente oltre che da feedback di hover.
     const linksWrap = document.getElementById("nav-desktop-links");
     const pill = document.getElementById("nav-pill");
     if (linksWrap && pill) {
-      const moveTo = (el) => {
+      const activeLink = linksWrap.querySelector('a[data-active="1"]');
+      const moveTo = (el, instant = false) => {
         const wasHidden = pill.dataset.on !== "1";
-        if (wasHidden) pill.style.transitionProperty = "opacity";
+        if (wasHidden || instant) pill.style.transitionProperty = "opacity";
         pill.style.left = el.offsetLeft + "px";
         pill.style.width = el.offsetWidth + "px";
-        if (wasHidden) {
+        if (wasHidden || instant) {
           void pill.offsetWidth;
           pill.style.transitionProperty = "";
         }
         pill.style.opacity = "1";
         pill.dataset.on = "1";
       };
+      const rest = () => {
+        if (activeLink) {
+          moveTo(activeLink);
+        } else {
+          pill.style.opacity = "0";
+          pill.dataset.on = "";
+        }
+      };
+      if (activeLink) moveTo(activeLink, true);
       linksWrap.querySelectorAll("a").forEach((a) => {
         a.addEventListener("mouseenter", () => moveTo(a));
         a.addEventListener("focus", () => moveTo(a));
       });
-      linksWrap.addEventListener("mouseleave", () => {
-        pill.style.opacity = "0";
-        pill.dataset.on = "";
-      });
+      linksWrap.addEventListener("mouseleave", rest);
       linksWrap.addEventListener("focusout", (e) => {
-        if (!linksWrap.contains(e.relatedTarget)) {
-          pill.style.opacity = "0";
-          pill.dataset.on = "";
-        }
+        if (!linksWrap.contains(e.relatedTarget)) rest();
       });
     }
   });
