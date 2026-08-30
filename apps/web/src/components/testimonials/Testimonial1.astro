@@ -4,6 +4,9 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
 // Quote reale dal -DEF (siteConfig.quoteSection): Jurny.
+// L'attribuzione è aziendale (logo + risultato dal caso studio), non a una
+// persona: nei sorgenti non esiste un nome dietro la quote — se arriva,
+// sostituire il fatto numerico con nome e ruolo.
 ---
 
 <section class="border-t border-base-200 border-dashed">
@@ -27,11 +30,23 @@ import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
             brand.”
           </Text>
         </blockquote>
+        <figcaption class="flex flex-col items-center mt-10 gap-3">
+          <img
+            src="/img/logos/jurny.svg"
+            alt=""
+            class="w-auto h-5"
+            loading="lazy"
+          />
+          <Text tag="p" variant="textSM" class="text-base-600">
+            Jurny, hospitality software · 14 contenuti in inglese nei primi due
+            mesi
+          </Text>
+        </figcaption>
         <Text
           tag="p"
-          variant="textBase"
-          class="flex items-center justify-center mt-8 text-base-500 gap-2"
-          >Leggi il case study di Jurny <ChevronRight
+          variant="textSM"
+          class="flex items-center justify-center mt-6 text-base-500 gap-1"
+          >Leggi il case study <ChevronRight
             class="inline-block size-4"
           /></Text
         >

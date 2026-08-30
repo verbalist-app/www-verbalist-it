@@ -8,7 +8,7 @@ seoTitle: "Agente di export: HTML e metadati per il CMS"
 seoDescription: "Esporta HTML pronto da incollare nel CMS, con title tag, meta description, slug e immagini con alt text già posizionate nel testo."
 headline: "Il contenuto pronto da pubblicare"
 lede: "L'ultimo agente impacchetta tutto per il CMS: HTML pronto da incollare, metadati compilati, immagini al posto giusto."
-intro: "Alla fine della catena il contenuto arriva impaginato: HTML pulito da incollare, title tag, meta description e slug già scritti nella lingua giusta. L'ultima rilettura è tua: pubblichi dal CMS senza rimontare nulla."
+intro: "Riceve il contenuto e i suggerimenti media, consegna quello che il CMS si aspetta: markup, metadati e immagini, già nell'ordine in cui li userai."
 summary: "HTML pronto per il CMS, title tag, meta description, slug e immagini con alt text."
 input:
   - "Il contenuto generato dall'agente 03"

@@ -8,7 +8,7 @@ seoTitle: "Agente di brief: keyword, mercato e brand"
 seoDescription: "Imposta keyword, mercato e voce del brand una volta sola: testo libero e fino a 3 PDF guidano l'analisi e la scrittura di ogni contenuto."
 headline: "Tutto parte da una keyword"
 lede: "Scegli cosa produrre, il mercato e la lingua. Poi carichi il contesto del tuo brand, e ogni agente che viene dopo ci lavora sopra."
-intro: "Qui non scrivi un prompt: compili un brief. Verbalist salva keyword, mercato e materiali nel progetto e li passa agli agenti successivi, così l'analisi e la scrittura partono già con le tue regole."
+intro: "Qui non scrivi un prompt: compili un brief. Ed è l'unico punto della catena dove serve il tuo lavoro — da qui in poi gli agenti si passano tutto da soli."
 summary: "Tipo di contenuto, keyword, mercato e brand guidelines: il brief da cui parte la catena."
 input:
   - "Il tipo di contenuto: articolo, guida, landing page o pagina prodotto"

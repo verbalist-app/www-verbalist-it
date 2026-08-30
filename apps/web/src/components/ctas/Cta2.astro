@@ -1,7 +1,8 @@
 ---
 // CTA editoriale di chiusura (dal Cta2 del template, rebrand):
 // aria sopra, titolo serif a sinistra, azione in basso a destra.
-// Niente pannello: il peso lo fa lo spazio bianco.
+// Niente pannello e niente fondo: l'aria funziona solo sul bianco della
+// pagina — su un riempimento leggerebbe come contenitore vuoto.
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -20,7 +21,7 @@ const {
 ---
 
 <section class="border-t border-base-200 border-dashed">
-  <Wrapper variant="standard" class="pt-12 pb-4 bg-mist-100">
+  <Wrapper variant="standard" class="pt-12 pb-4">
     <div
       class={`grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-end ${compact ? "lg:pt-8" : "lg:pt-36"}`}
     >
