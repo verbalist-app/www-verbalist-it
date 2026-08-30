@@ -1,63 +1,62 @@
 ---
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
-import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-// Icons
-import Search from "@/components/fundations/icons/Search.astro";
-import Analytics from "@/components/fundations/icons/Analytics.astro";
-import Brain from "@/components/fundations/icons/Brain.astro";
-import Stacked from "@/components/fundations/icons/Stacked.astro";
 // Illustrazioni agenti (stile bento del -DEF, ricreate in Astro)
 import MockupBrief from "@/components/features/agents/MockupBrief.astro";
 import MockupSerp from "@/components/features/agents/MockupSerp.astro";
 import MockupArticle from "@/components/features/agents/MockupArticle.astro";
 import MockupExport from "@/components/features/agents/MockupExport.astro";
 
-// I 4 agenti = gli executors reali, raggruppati. Testi tracciati sul codice:
+// Griglia strutturale: ogni agente è una cella della cornice. Rail sinistro
+// fisso (numero mono, nome, descrizione, link), prodotto a destra, divisore
+// verticale tratteggiato che prosegue la cornice globale.
+// I 4 agenti = gli executors reali. Testi tracciati sul codice:
 // brief (tone/brand/language) · analyze_serp (top-5) · generate_serp (SEO) · export (metadata+media)
 const agents = [
   {
+    n: "01",
     slug: "keyword-e-contesto",
     title: "Keyword e contesto",
     description:
       "Tipo di contenuto, keyword, mercato e brand guidelines: il brief che guida ogni fase della catena.",
-    Icon: Search,
     Mockup: MockupBrief,
   },
   {
+    n: "02",
     slug: "analisi-competitor",
     title: "Analisi competitor",
     description:
       "Legge i primi cinque risultati di Google per la tua keyword ed estrae argomenti, struttura e lacune da colmare.",
-    Icon: Analytics,
     Mockup: MockupSerp,
   },
   {
+    n: "03",
     slug: "generazione-articolo",
     title: "Generazione articolo",
     description:
-      "Scrive l'articolo completo nella lingua del mercato e nel tono del brand, costruito per superare i risultati già primi.",
-    Icon: Brain,
+      "Scrive l'articolo completo nella lingua del mercato e nel tono del brand, in due versioni da confrontare.",
     Mockup: MockupArticle,
   },
   {
+    n: "04",
     slug: "esportazione-contenuto",
     title: "Esportazione",
     description:
       "Testo formattato, metadati SEO e immagini, pronti da incollare nel tuo CMS in pochi minuti.",
-    Icon: Stacked,
     Mockup: MockupExport,
   },
 ];
 ---
 
-<section id="agenti" class="scroll-mt-20">
-  <Wrapper
-    variant="standard"
-    class="flex flex-col py-12 border-t gap-12 md:gap-16"
-  >
-    <div class="max-w-xl text-balance">
+<section id="agenti" class="scroll-mt-20 border-t border-dashed border-base-200">
+  <Wrapper variant="standard" class="py-12">
+    <p
+      class="font-mono text-xs font-medium tracking-wider uppercase text-base-500"
+    >
+      La catena
+    </p>
+    <div class="max-w-xl mt-4 text-balance">
       <Text
         tag="h2"
         variant="displaySM"
@@ -70,37 +69,42 @@ const agents = [
         passano il lavoro, dalla keyword all'articolo pronto per il CMS.
       </Text>
     </div>
+  </Wrapper>
 
-    {
-      agents.map(({ slug, title, description, Icon, Mockup }, i) => (
-        <div class="items-center grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div
-            class={`flex flex-col text-balance gap-6 ${i % 2 === 1 ? "lg:order-last" : ""}`}
-          >
-            <div class="inline-flex p-4 rounded-lg bg-mist-100 w-fit">
-              <Icon size="base" class="text-accent-600" />
-            </div>
-            <div>
-              <Text
-                tag="h3"
-                variant="displaySM"
-                class="font-serif font-medium tracking-tight text-base-950"
-              >
-                {title}
-              </Text>
-              <Text tag="p" variant="textBase" class="max-w-xl mt-4 text-base-500">
-                {description}
-              </Text>
-              <div class="flex mt-4">
-                <Button isLink size="sm" variant="accent" href={`/agenti/${slug}/`}>
-                  Scopri di più
-                </Button>
+  {
+    agents.map(({ n, slug, title, description, Mockup }) => (
+      <div class="border-t border-dashed border-base-200">
+        <Wrapper variant="standard" class="py-0">
+          <div class="grid grid-cols-1 md:grid-cols-[minmax(0,20rem)_1fr]">
+            <div class="flex flex-col py-10 pr-8 gap-4 md:border-r md:border-dashed md:border-base-200">
+              <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
+                Agente {n}
+              </p>
+              <div>
+                <Text
+                  tag="h3"
+                  variant="textXL"
+                  class="font-serif font-medium tracking-tight text-base-950"
+                >
+                  {title}
+                </Text>
+                <Text tag="p" variant="textSM" class="mt-2 text-base-500">
+                  {description}
+                </Text>
               </div>
+              <a
+                href={`/agenti/${slug}/`}
+                class="mt-auto text-sm font-medium w-fit text-base-800 border-b border-base-400 border-dashed hover:text-accent-500 hover:border-solid transition-colors duration-200"
+              >
+                Scopri l'agente {n}
+              </a>
+            </div>
+            <div class="py-10 md:pl-10">
+              <Mockup side="right" />
             </div>
           </div>
-          <Mockup side={i % 2 === 0 ? "right" : "left"} />
-        </div>
-      ))
-    }
-  </Wrapper>
+        </Wrapper>
+      </div>
+    ))
+  }
 </section>

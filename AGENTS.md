@@ -12,7 +12,9 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   per il testo, Geist Mono solo per artefatti tecnici (versioni, hex, codice).
   Contesto di design completo (utenti, personalità, riferimenti, principi)
   in `.impeccable.md`: leggilo prima di ogni lavoro di UI. Pannelli `rounded-xl`, bordi `base-200`.
-  Le linee tratteggiate sono SOLO della cornice globale del template.
+  Le linee tratteggiate sono il sistema strutturale del sito: cornice globale,
+  righe di sezione e divisori delle celle (griglia alla Profound). Etichette ed
+  eyebrow sempre in Geist Mono uppercase (text-xs, tracking-wider, base-500).
 - **Copy**: italiano, pratico, niente sensazionalismo né AI-isms (vedi le
   release notes del changelog come riferimento di tono).
 - **Tracking**: GTM è l'hub unico (Consent Mode v2). Gli eventi del sito sono
