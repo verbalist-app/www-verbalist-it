@@ -9,6 +9,7 @@
 - [Agente analisi competitor](https://www.verbalist.it/agenti/analisi-competitor): legge i primi 5 risultati di Google o fino a 5 URL a scelta
 - [Agente generazione contenuto](https://www.verbalist.it/agenti/generazione-articolo): scrive ex novo nella lingua del mercato, struttura per featured snippet e People Also Ask
 - [Agente esportazione](https://www.verbalist.it/agenti/esportazione-contenuto): HTML pronto per il CMS, metadati compilati, immagini con alt text
+- [Changelog](https://www.verbalist.it/changelog): novità e rilasci della piattaforma, release per release
 
 ## Guide e approfondimenti
 
@@ -18,6 +19,10 @@ Ogni articolo del blog è disponibile anche in Markdown puro aggiungendo `.md` a
 - [Cos'è la GEO](https://www.verbalist.it/blog/cos-e-la-geo): guida alla Generative Engine Optimization
 - [GEO vs SEO](https://www.verbalist.it/blog/geo-vs-seo): cosa cambia tra ottimizzazione classica e generativa
 - [Come farsi citare dai motori AI](https://www.verbalist.it/blog/come-farsi-citare-motori-ai): guida pratica per ChatGPT, Perplexity e AI Overviews
+- [Google AI Mode](https://www.verbalist.it/blog/google-ai-mode): la ricerca conversazionale di Google e il query fan-out
+- [AI Overview di Google](https://www.verbalist.it/blog/ai-overview-google): quando compaiono e come entrare tra le fonti
+- [llms.txt](https://www.verbalist.it/blog/llms-txt): cos'è lo standard, chi lo usa davvero e come scriverlo
+- [Agenti AI per la SEO](https://www.verbalist.it/blog/agenti-ai-seo): cosa fanno davvero gli agenti e dove serve il giudizio umano
 - [Help center](https://www.verbalist.it/help): guide all'uso della piattaforma
 
 ## Azienda
@@ -29,6 +34,7 @@ Ogni articolo del blog è disponibile anche in Markdown puro aggiungendo `.md` a
 - I contenuti nascono dall'analisi dei primi 5 risultati organici di Google per la keyword, nel mercato e nella lingua impostati.
 - Tipi di contenuto: Blog/Articolo, Pagina Prodotto, Guida/Tutorial, Landing Page.
 - Il contesto del brand (testo libero + fino a 3 PDF) entra nei prompt di analisi e scrittura.
+- Ogni generazione produce due versioni complete del testo (A e B), scritte da due modelli diversi: l'utente le confronta e sceglie quella da tenere.
 - I testi sono scritti ex novo nella lingua del mercato target, non tradotti.
 - Il prezzo è per contenuto generato, non per token.
 - La prova gratuita dura 30 giorni e include 15 documenti, da usare entro la prova: alla scadenza, i documenti non utilizzati scadono.
