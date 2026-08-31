@@ -97,8 +97,7 @@ const appUrl = appUrls[frontmatter.mockup] ?? appUrls.brief;
                   <span class="inline-flex items-center justify-center mx-1.5 size-5 align-[0.05em] font-mono text-[10px] rounded-full border border-base-300 text-base-600">
                     {i + 1}
                   </span>
-                  {step}
-                  {i < frontmatter.steps.length - 1 ? "," : "."}
+                  {step + (i < frontmatter.steps.length - 1 ? "," : ".")}
                 </span>
               ))}
             </p>
