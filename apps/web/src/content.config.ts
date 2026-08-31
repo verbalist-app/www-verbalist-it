@@ -132,6 +132,7 @@ const agents = defineCollection({
     lede: z.string(),
     intro: z.string().optional(),
     summary: z.string(),
+    steps: z.array(z.string()).optional(),
     input: z.array(z.string()),
     output: z.array(z.string()),
     note: z

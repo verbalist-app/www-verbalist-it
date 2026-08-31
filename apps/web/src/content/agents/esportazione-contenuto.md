@@ -10,6 +10,10 @@ headline: "Il contenuto pronto da pubblicare"
 lede: "L'ultimo agente impacchetta tutto per il CMS: HTML pronto da incollare, metadati compilati, immagini al posto giusto."
 intro: "Riceve il contenuto e i suggerimenti media, consegna quello che il CMS si aspetta: markup, metadati e immagini, già nell'ordine in cui li userai."
 summary: "HTML pronto per il CMS, title tag, meta description, slug e immagini con alt text."
+steps:
+  - "impagina l'HTML"
+  - "compila i metadati"
+  - "posiziona immagini e alt text"
 input:
   - "Il contenuto generato dall'agente 03"
   - "I suggerimenti media con la posizione nel testo"

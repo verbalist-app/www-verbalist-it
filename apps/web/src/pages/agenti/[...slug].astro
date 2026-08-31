@@ -10,21 +10,23 @@ export async function getStaticPaths() {
     id: agent.id,
     n: agent.data.n,
     name: agent.data.name,
+    summary: agent.data.summary,
   }));
   return agents.map((agent, i) => ({
     params: { slug: agent.id },
     props: {
       agent,
+      all: links,
       prev: i > 0 ? links[i - 1] : null,
       next: i < links.length - 1 ? links[i + 1] : null,
     },
   }));
 }
 
-const { agent, prev, next } = Astro.props;
+const { agent, all, prev, next } = Astro.props;
 const { Content } = await render(agent);
 ---
 
-<AgentsLayout frontmatter={agent.data} prev={prev} next={next}>
+<AgentsLayout frontmatter={agent.data} all={all} prev={prev} next={next}>
   <Content />
 </AgentsLayout>

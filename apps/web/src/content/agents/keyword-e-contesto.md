@@ -10,6 +10,10 @@ headline: "Tutto parte da una keyword"
 lede: "Scegli cosa produrre, il mercato e la lingua. Poi carichi il contesto del tuo brand, e ogni agente che viene dopo ci lavora sopra."
 intro: "Qui non scrivi un prompt: compili un brief. Ed è l'unico punto della catena dove serve il tuo lavoro — da qui in poi gli agenti si passano tutto da soli."
 summary: "Tipo di contenuto, keyword, mercato e brand guidelines: il brief da cui parte la catena."
+steps:
+  - "scegli tipo di contenuto e keyword"
+  - "imposti mercato e lingua"
+  - "alleghi il contesto del brand"
 input:
   - "Il tipo di contenuto: articolo, guida, landing page o pagina prodotto"
   - "Keyword, Paese e lingua di destinazione"
