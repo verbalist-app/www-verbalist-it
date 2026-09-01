@@ -1,18 +1,19 @@
-# Policy: i contenuti possono essere letti e citati dai sistemi AI
-# (search, RAG, risposte con fonte), ma non usati per il training.
-# Stessa preferenza dichiarata via Content-Signal (contentsignals.org).
+# Policy: content may be read and cited by AI systems
+# (search, RAG, answers with attribution), but not used for model training.
+# The same preference is declared via Content-Signal (contentsignals.org).
 
-# Bot AI di ricerca e fetch su richiesta dell'utente: benvenuti
+# AI search bots and user-triggered fetchers: welcome
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
 User-agent: Claude-SearchBot
 User-agent: Claude-User
 User-agent: PerplexityBot
 User-agent: Perplexity-User
+User-agent: Meta-ExternalFetcher
 Allow: /
 Disallow: /system/
 
-# Crawler che raccolgono dati per il training dei modelli: esclusi
+# Crawlers collecting data for model training: blocked
 User-agent: GPTBot
 User-agent: ClaudeBot
 User-agent: Google-Extended
@@ -20,13 +21,21 @@ User-agent: Applebot-Extended
 User-agent: meta-externalagent
 User-agent: CCBot
 User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: AI2Bot
+User-agent: Diffbot
+User-agent: omgilibot
 Disallow: /
 
-# Tutti gli altri (motori di ricerca classici inclusi)
+# Note: robots.txt is advisory only and some crawlers (e.g. Bytespider)
+# are known to ignore it. Actual enforcement of the training block is
+# handled at the CDN level (Cloudflare AI crawler blocking).
+
+# Everyone else (classic search engines included)
 User-agent: *
 Disallow: /system/
 Allow: /
-# Preferenze d'uso dei contenuti per sistemi AI (contentsignals.org)
+# Content usage preferences for AI systems (contentsignals.org)
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 Sitemap: https://www.verbalist.it/sitemap.xml
