@@ -16,9 +16,14 @@ const logos = [
 ---
 
 <section>
-  <Wrapper variant="standard" class="relative overflow-hidden border-t">
+  <Wrapper variant="standard" class="relative overflow-hidden border-t border-dashed border-base-200">
+    <p
+      class="pt-8 font-mono text-xs font-medium tracking-wider text-center uppercase text-base-500"
+    >
+      Scelto da
+    </p>
     <div
-      class="relative flex items-center py-8 animate-marquee gap-12 lg:gap-24 whitespace-nowrap"
+      class="relative flex items-center pt-6 pb-8 animate-marquee gap-12 lg:gap-24 whitespace-nowrap"
     >
       {
         [...logos, ...logos].map((logo) => (

@@ -3,85 +3,72 @@
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
-// Icons
-import Search from "@/components/fundations/icons/Search.astro";
-import Analytics from "@/components/fundations/icons/Analytics.astro";
-import Brain from "@/components/fundations/icons/Brain.astro";
-import List from "@/components/fundations/icons/List.astro";
-import Settings from "@/components/fundations/icons/Settings.astro";
-import Persist from "@/components/fundations/icons/Persist.astro";
-import Filters from "@/components/fundations/icons/Filters.astro";
-import Stacked from "@/components/fundations/icons/Stacked.astro";
-
-// Bento con gerarchia: le due funzionalità che differenziano davvero
-// (SERP reale e multi-lingua nativa) sono in evidenza, le sei di supporto
-// compatte. Icone accanto al titolo, non nel tile sopra (meno template).
-const featured = [
+// Griglia strutturale al posto del bento: otto capacità come celle rigate
+// (righe tratteggiate, nessun pannello, nessuna icona). La gerarchia la fa
+// l'ordine, non la dimensione delle card.
+const features = [
   {
     id: "serp",
     title: "Analisi della SERP reale",
     description:
-      "Legge le pagine già prime su Google per la tua keyword ed estrae argomenti, struttura e lacune da colmare. Ogni contenuto parte da quei dati, non da un prompt a vuoto.",
-    icon: Search,
+      "Legge le pagine già prime su Google per la tua keyword: ogni contenuto parte da quei dati, non da un prompt a vuoto.",
   },
   {
     id: "lingue",
     title: "30+ lingue native",
     description:
-      "Scrive nella lingua del tuo mercato analizzando i competitor locali del Paese, non traducendo un testo italiano. Multi-mercato dallo stesso brief.",
-    icon: List,
+      "Scrive nella lingua del mercato analizzando i competitor locali, non traducendo un testo italiano.",
   },
-];
-
-const features = [
   {
     id: "geo",
     title: "Google e AI insieme",
     description:
       "Scritto per posizionarsi su Google e, insieme, per farsi citare dagli assistenti AI.",
-    icon: Brain,
   },
   {
     id: "dati",
     title: "Dati, non opinioni",
     description:
       "Argomenti, struttura e lunghezze arrivano dall'analisi dei competitor, non da un template.",
-    icon: Analytics,
   },
   {
     id: "brand",
     title: "La tua voce di brand",
     description:
       "Keyword, mercato, tono e brand guidelines: li imposti una volta e tornano in ogni contenuto.",
-    icon: Settings,
   },
   {
     id: "due-versioni",
     title: "Due versioni, due modelli",
     description:
       "Ogni generazione produce due versioni del testo, scritte da due modelli diversi: scegli la migliore.",
-    icon: Persist,
   },
   {
     id: "esistente",
     title: "Anche i contenuti che hai già",
     description:
       "Incolli un testo, un URL o un file e Verbalist lo rivede a confronto con i competitor.",
-    icon: Filters,
   },
   {
     id: "cms",
     title: "Pronto per il CMS",
     description:
       "Testo formattato, copertina e metadati, pronti da incollare nella tua piattaforma.",
-    icon: Stacked,
   },
 ];
 ---
 
-<section id="funzionalita" class="scroll-mt-20">
-  <Wrapper variant="standard" class="pt-12 pb-4 border-t">
-    <div class="max-w-xl text-balance">
+<section
+  id="funzionalita"
+  class="scroll-mt-20 border-t border-dashed border-base-200"
+>
+  <Wrapper variant="standard" class="pt-12 pb-0">
+    <p
+      class="font-mono text-xs font-medium tracking-wider uppercase text-base-500"
+    >
+      Capacità
+    </p>
+    <div class="max-w-xl mt-4 text-balance">
       <Text
         tag="h2"
         variant="displaySM"
@@ -94,50 +81,19 @@ const features = [
         parte dai dati reali del tuo mercato.
       </Text>
     </div>
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2">
+
+    <div class="grid grid-cols-1 mt-10 md:grid-cols-2 lg:grid-cols-4">
       {
-        featured.map((feature) => {
-          const Icon = feature.icon;
-          return (
-            <div class="flex flex-col justify-between p-6 bg-mist-100 rounded-xl group hover:bg-white hover:shadow-2xl duration-300 outline-transparent hover:outline hover:outline-mist-100 gap-10 lg:col-span-3">
-              <Icon size="base" class="text-accent-500" />
-              <div>
-                <Text
-                  tag="h3"
-                  variant="textXL"
-                  class="font-serif font-medium tracking-tight text-base-950"
-                >
-                  {feature.title}
-                </Text>
-                <Text
-                  tag="p"
-                  variant="textBase"
-                  class="max-w-md mt-2 text-base-500"
-                >
-                  {feature.description}
-                </Text>
-              </div>
-            </div>
-          );
-        })
-      }
-      {
-        features.map((feature) => {
-          const Icon = feature.icon;
-          return (
-            <div class="flex flex-col h-full p-4 bg-mist-100 rounded-xl group hover:bg-white hover:shadow-2xl duration-300 outline-transparent hover:outline hover:outline-mist-100 md:col-span-1 lg:col-span-2">
-              <div class="flex items-center gap-2">
-                <Icon size="sm" class="shrink-0 text-accent-500" />
-                <Text tag="h3" variant="textSM" class="font-medium text-base-900">
-                  {feature.title}
-                </Text>
-              </div>
-              <Text tag="p" variant="textSM" class="mt-2 text-base-500">
-                {feature.description}
-              </Text>
-            </div>
-          );
-        })
+        features.map((feature) => (
+          <div class="py-6 pr-6 border-t border-dashed border-base-200 lg:border-r lg:border-dashed lg:[&:nth-child(4n)]:border-r-0 lg:[&:nth-child(4n+1)]:pl-0 lg:[&:not(:nth-child(4n+1))]:pl-6">
+            <Text tag="h3" variant="textSM" class="font-medium text-base-900">
+              {feature.title}
+            </Text>
+            <Text tag="p" variant="textSM" class="mt-2 text-base-500">
+              {feature.description}
+            </Text>
+          </div>
+        ))
       }
     </div>
   </Wrapper>

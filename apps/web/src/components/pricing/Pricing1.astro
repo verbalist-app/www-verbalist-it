@@ -69,7 +69,12 @@ const pricingOptions = [
   class="border-t border-base-200 border-dashed scroll-mt-24"
 >
   <Wrapper variant="standard" class="pt-12 pb-4">
-    <div class="text-center text-balance">
+    <p
+      class="font-mono text-xs font-medium tracking-wider uppercase text-base-500"
+    >
+      Prezzi
+    </p>
+    <div class="max-w-xl mt-4 text-balance">
       <Text
         tag="h2"
         variant="displaySM"
@@ -80,7 +85,7 @@ const pricingOptions = [
       <Text
         tag="p"
         variant="textBase"
-        class="max-w-xl mx-auto mt-4 text-base-500"
+        class="mt-4 text-base-500"
       >
         Nessun abbonamento: paghi una volta, scegli il volume di contenuti e
         li usi entro 12 mesi.
@@ -88,11 +93,11 @@ const pricingOptions = [
     </div>
 
     <!-- Pricing Cards -->
-    <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 pt-10 mt-10 border-t border-dashed border-base-200 lg:grid-cols-3 lg:divide-x lg:divide-dashed lg:divide-base-200 max-lg:gap-10">
       {
         pricingOptions.map((tier) => (
           <div
-            class={`flex flex-col h-full justify-between p-4 rounded-xl ${tier.isPopular ? "bg-mist-100" : "bg-mist-50"}`}
+            class="flex flex-col justify-between h-full lg:px-8 lg:first:pl-0 lg:last:pr-0"
           >
             <div class="flex flex-col">
               <div class="flex items-center justify-between gap-2">
@@ -104,7 +109,7 @@ const pricingOptions = [
                   {tier.title}
                 </Text>
                 {tier.isPopular && (
-                  <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-accent-500 text-white">
+                  <span class="px-2.5 py-0.5 font-mono text-[11px] font-medium tracking-wide uppercase rounded-full bg-accent-500 text-white">
                     Consigliato
                   </span>
                 )}
@@ -133,13 +138,13 @@ const pricingOptions = [
                 {tier.description}
               </Text>
 
-              <div class="pt-4 mt-4 border-t border-base-200">
+              <div class="pt-4 mt-4 border-t border-dashed border-base-200">
                 <Text
                   tag="p"
                   variant="textXS"
-                  class="font-medium tracking-wide uppercase text-base-500"
+                  class="font-mono font-medium tracking-wider uppercase text-base-500"
                 >
-                  Incluso nel piano:
+                  Incluso nel piano
                 </Text>
                 <ul
                   class="flex flex-col mt-4 text-sm gap-y-3 text-base-900"

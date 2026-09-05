@@ -3,53 +3,68 @@
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Case study block sul pattern Profound: immagine cliente in una cella,
+// quote + attribuzione + risultato nell'altra, divise dalla griglia.
 // Quote reale dal -DEF (siteConfig.quoteSection): Jurny.
 // L'attribuzione è aziendale (logo + risultato dal caso studio), non a una
 // persona: nei sorgenti non esiste un nome dietro la quote — se arriva,
 // sostituire il fatto numerico con nome e ruolo.
 ---
 
-<section class="border-t border-base-200 border-dashed">
-  <Wrapper variant="standard" class="py-12 lg:py-24">
-    <article class="relative text-center group">
+<section class="border-t border-dashed border-base-200">
+  <Wrapper variant="standard" class="py-0">
+    <article
+      class="relative grid grid-cols-1 group md:grid-cols-[minmax(0,26rem)_1fr]"
+    >
       <a
         href="/clienti/jurny/"
         title="Leggi il case study di Jurny"
         aria-label="Leggi il case study di Jurny"
         class="absolute inset-0 z-10"></a>
 
-      <figure class="max-w-xl mx-auto text-balance">
+      <div
+        class="py-10 pr-8 md:border-r md:border-dashed md:border-base-200"
+      >
+        <img
+          src="/img/customers/jurny-case.webp"
+          alt=""
+          class="object-cover w-full h-full max-h-80 rounded-xl"
+          loading="lazy"
+        />
+      </div>
+
+      <figure class="flex flex-col justify-between py-10 md:pl-10 gap-8">
         <blockquote>
           <Text
             tag="p"
-            variant="displayMD"
-            class="font-serif font-medium tracking-tight text-base-950"
+            variant="textXL"
+            class="max-w-lg font-serif font-medium tracking-tight lg:!text-[1.75rem] lg:!leading-[1.35] text-base-950"
           >
-            “Per ogni keyword Verbalist analizza i competitor su Google. Il team
-            usa quei dati per scrivere e i contenuti escono già nel tono del
-            brand.”
+            “Per ogni keyword Verbalist analizza i competitor su Google. Il
+            team usa quei dati per scrivere e i contenuti escono già nel tono
+            del brand.”
           </Text>
         </blockquote>
-        <figcaption class="flex flex-col items-center mt-10 gap-3">
+        <figcaption class="flex flex-col gap-3">
           <img
             src="/img/logos/jurny.svg"
             alt=""
-            class="w-auto h-5"
+            class="w-auto h-5 self-start"
             loading="lazy"
           />
           <Text tag="p" variant="textSM" class="text-base-600">
-            Jurny, hospitality software · 14 contenuti in inglese nei primi due
-            mesi
+            Jurny, hospitality software · 14 contenuti in inglese nei primi
+            due mesi
           </Text>
+          <Text
+            tag="p"
+            variant="textSM"
+            class="flex items-center text-base-500 gap-1 group-hover:text-accent-500 transition-colors duration-200"
+            >Leggi il case study <ChevronRight
+              class="inline-block size-4"
+            /></Text
+          >
         </figcaption>
-        <Text
-          tag="p"
-          variant="textSM"
-          class="flex items-center justify-center mt-6 text-base-500 gap-1"
-          >Leggi il case study <ChevronRight
-            class="inline-block size-4"
-          /></Text
-        >
       </figure>
     </article>
   </Wrapper>
