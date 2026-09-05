@@ -11,7 +11,8 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   Grotesk per i display (mappato sull'utility `font-serif` nel tema), Geist
   per il testo, Geist Mono solo per artefatti tecnici (versioni, hex, codice).
   Contesto di design completo (utenti, personalità, riferimenti, principi)
-  in `.impeccable.md`: leggilo prima di ogni lavoro di UI. Pannelli `rounded-xl`, bordi `base-200`.
+  in `.impeccable.md` (incluse le regole di componente: bordi, raggi,
+  ombre, etichette mono, motion): leggilo prima di ogni lavoro di UI. Pannelli `rounded-xl`, bordi `base-200`.
   Le linee tratteggiate sono il sistema strutturale del sito: cornice globale,
   righe di sezione e divisori delle celle (griglia alla Profound). Etichette ed
   eyebrow sempre in Geist Mono uppercase (text-xs, tracking-wider, base-500).
