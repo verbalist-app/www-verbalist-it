@@ -10,10 +10,6 @@ headline: "Partiamo dai primi risultati di Google"
 lede: "Verbalist legge le cinque pagine che si posizionano per la tua keyword nel tuo mercato. Se i competitor li conosci già, gli passi fino a cinque URL e analizza quelli."
 intro: "Riceve il brief, consegna una mappa: non un elenco di link, ma gli argomenti da coprire, la struttura che funziona e i punti scoperti dove superare chi è già in pagina."
 summary: "I primi 5 risultati di Google o i competitor che indichi tu: intento, struttura e lacune."
-steps:
-  - "legge i primi cinque risultati"
-  - "estrae argomenti e struttura"
-  - "trova i punti scoperti"
 input:
   - "Keyword, Paese e lingua dal brief"
   - "I primi 5 risultati organici di Google per quel mercato"

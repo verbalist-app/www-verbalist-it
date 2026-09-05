@@ -16,7 +16,7 @@ import MockupOutcome from "@/components/features/agents/MockupOutcome.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 
 // prev/next: agente precedente e successivo ({ id, n, name } | null).
-const { frontmatter, all = [], prev = null, next = null } = Astro.props;
+const { frontmatter, prev = null, next = null } = Astro.props;
 
 // Pannello dipinto + finestra app, come in home (chiave = frontmatter.mockup)
 const mockups: Record<string, any> = {
@@ -51,58 +51,28 @@ const appUrl = appUrls[frontmatter.mockup] ?? appUrls.brief;
   }}
 >
   <section>
-    <Wrapper variant="standard" class="pt-24 pb-0">
-      <nav
-        aria-label="Gli agenti della catena"
-        class="flex items-center pb-4 overflow-x-auto font-mono text-xs font-medium tracking-wider uppercase gap-6 border-b border-dashed border-base-200"
-      >
-        {
-          all.map((a: { id: string; n: string; name: string }) => (
-            <a
-              href={`/agenti/${a.id}/`}
-              aria-current={a.n === frontmatter.n ? "page" : undefined}
-              class={`whitespace-nowrap py-1 transition-colors duration-200 ${
-                a.n === frontmatter.n
-                  ? "text-accent-500 border-b border-accent-500"
-                  : "text-base-500 hover:text-base-800"
-              }`}
-            >
-              {a.n} · {a.name}
-            </a>
-          ))
-        }
-      </nav>
-    </Wrapper>
-    <Wrapper variant="standard" class="pt-12 pb-4">
-      <div class="max-w-2xl mx-auto text-center text-balance">
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div class="max-w-xl mx-auto text-balance">
+        <a
+          href="/#agenti"
+          class="bg-mist-100 p-1.5 rounded-full px-6 w-fit inline-flex group"
+        >
+          <span
+            class="font-mono text-xs font-medium tracking-wider uppercase text-base-800 transition-colors duration-300 group-hover:text-accent-500"
+          >
+            Agenti · {frontmatter.n} di 04
+          </span>
+        </a>
         <Text
           tag="h1"
           variant="displayMD"
-          class="font-serif font-medium tracking-tight text-base-950"
+          class="mt-12 font-serif font-medium tracking-tight text-base-950"
         >
           {frontmatter.headline}
         </Text>
-        <Text
-          tag="p"
-          variant="textXL"
-          class="mt-6 font-serif tracking-tight text-base-600 lg:!text-[1.45rem] lg:!leading-[1.5]"
-        >
+        <Text tag="p" variant="textBase" class="mt-4 text-base-600">
           {frontmatter.lede}
         </Text>
-        {
-          frontmatter.steps && (
-            <p class="mt-6 text-base leading-loose text-base-600">
-              {frontmatter.steps.map((step: string, i: number) => (
-                <span class="whitespace-nowrap">
-                  <span class="inline-flex items-center justify-center mx-1.5 size-5 align-[0.05em] font-mono text-[10px] rounded-full border border-base-300 text-base-600">
-                    {i + 1}
-                  </span>
-                  {step + (i < frontmatter.steps.length - 1 ? "," : ".")}
-                </span>
-              ))}
-            </p>
-          )
-        }
       </div>
       <div
         class="relative p-5 mt-8 overflow-hidden rounded-xl bg-mist-100 bg-cover bg-center sm:p-10 md:p-14"
@@ -212,53 +182,42 @@ const appUrl = appUrls[frontmatter.mockup] ?? appUrls.brief;
 
         <nav
           aria-label="Agente precedente e successivo"
-          class="pt-8 mt-12 border-t border-dashed border-base-200"
+          class="flex items-center justify-between pt-6 mt-12 font-mono text-xs tracking-wide uppercase gap-3 border-t border-dashed border-base-200"
         >
+          <a
+            href={prev ? "/agenti/" + prev.id + "/" : "/#agenti"}
+            rel="prev"
+            class="flex items-center font-medium gap-1 text-base-800 hover:text-accent-500 group"
+          >
+            <ChevronRight
+              size="sm"
+              class="rotate-180 duration-300 group-hover:-translate-x-1"
+            />
+            {prev ? prev.n + " · " + prev.name : "Tutti gli agenti"}
+          </a>
           {
             next ? (
               <a
                 href={"/agenti/" + next.id + "/"}
                 rel="next"
-                class="flex flex-col p-6 -mx-6 rounded-xl gap-2 group hover:bg-mist-100 transition-colors duration-300"
+                class="flex items-center font-medium gap-1 text-base-800 hover:text-accent-500 group"
               >
-                <span class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
-                  Prossimo · Agente {next.n}
-                </span>
-                <span class="font-serif text-xl font-medium tracking-tight text-base-950 group-hover:text-accent-500 transition-colors duration-300">
-                  {next.name}
-                </span>
-                <span class="text-sm text-base-500">{next.summary}</span>
+                {next.n + " · " + next.name}
+                <ChevronRight
+                  size="sm"
+                  class="duration-300 group-hover:translate-x-1"
+                />
               </a>
             ) : (
               <a
                 href="/#agenti"
-                class="flex flex-col p-6 -mx-6 rounded-xl gap-2 group hover:bg-mist-100 transition-colors duration-300"
+                class="flex items-center font-medium gap-1 text-base-800 hover:text-accent-500 group"
               >
-                <span class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
-                  Fine della catena
-                </span>
-                <span class="font-serif text-xl font-medium tracking-tight text-base-950 group-hover:text-accent-500 transition-colors duration-300">
-                  Rivedi i quattro agenti
-                </span>
-                <span class="text-sm text-base-500">
-                  Dalla keyword all'articolo pronto per il CMS, in un'unica
-                  corsa.
-                </span>
-              </a>
-            )
-          }
-          {
-            prev && (
-              <a
-                href={"/agenti/" + prev.id + "/"}
-                rel="prev"
-                class="inline-flex items-center mt-6 font-mono text-xs font-medium tracking-wider uppercase gap-1 text-base-500 hover:text-accent-500 group"
-              >
+                Tutti gli agenti
                 <ChevronRight
                   size="sm"
-                  class="rotate-180 duration-300 group-hover:-translate-x-1"
+                  class="duration-300 group-hover:translate-x-1"
                 />
-                {prev.n} · {prev.name}
               </a>
             )
           }
