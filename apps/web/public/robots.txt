@@ -1,6 +1,6 @@
 # Policy: content may be read and cited by AI systems
-# (search, RAG, answers with attribution), but not used for model training.
-# The same preference is declared via Content-Signal (contentsignals.org).
+# (search, RAG, answers with attribution), but not used for model training
+# The same preference is declared via Content-Signal (contentsignals.org)
 
 # AI search bots and user-triggered fetchers: welcome
 User-agent: OAI-SearchBot
