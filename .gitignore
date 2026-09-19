@@ -30,3 +30,18 @@ Thumbs.db
 
 # VS Code settings
 .vscode/
+# Playwright CLI output (may contain credentials)
+.playwright-cli/
+
+# Redesign: screenshot di confronto (lo script .redesign/shots.py resta versionato)
+.redesign/baseline/
+.redesign/after/
+
+# Impeccable e Claude Code: impostazioni della singola macchina
+.impeccable/config.local.json
+.impeccable/live/
+.claude/settings.local.json
+# Motore di Impeccable: binario per piattaforma, il launcher lo riscarica al primo avvio
+.claude/skills/impeccable/scripts/bin/
+# Impeccable: log delle sessioni della pagina di decisione
+apps/web/.impeccable/questions/

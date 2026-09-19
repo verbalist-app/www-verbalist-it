@@ -1,0 +1,131 @@
+{
+  "title": "Scegli il mondo visivo della nuova home",
+  "question": "Il tiro ha assegnato Linea. Tienila, prendi un'alternativa, oppure chiedi un'altra mano (più sicura o più audace).",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Linea",
+      "kicker": "THE ROLL",
+      "lineage": "Segnaletica della Metropolitana Milanese (Bob Noorda, 1964) e schemi di linea",
+      "thesis": "La catena di agenti è una linea con quattro fermate: si legge come si legge una metropolitana, senza spiegazioni.",
+      "palette": ["#D5281F", "#111315", "#F3F4F2", "#0B7A43", "#F0C419"],
+      "materials": ["fascia smaltata continua", "pannelli di segnaletica", "schema di linea SVG"],
+      "viewport": "Fascia rossa a tutta larghezza con il nome del prodotto a scala di stazione; sotto, due ingressi affiancati (Agenzie / Aziende) come le due entrate di una fermata; lo schema a quattro fermate corre sotto e la demo avanza da una fermata all'altra. Prova gratis è il pannello nero a destra della fascia.",
+      "risk": "Se biglietti e treni diventano letterali, il sistema scade a costume da parco a tema: deve restare segnaletica, non illustrazione.",
+      "raised": [
+        {"from": "challenger-blast", "raise": "Nessuna immagine nel primo viewport: è la massa tipografica dei nomi di fermata a fare da figura."},
+        {"from": "challenger-annual", "raise": "Ogni prova porta la sua riga di crediti: cliente, settore, mercato, lingua, data."},
+        {"from": "challenger-city", "raise": "La linea mostra la posizione in tempo reale: la demo è un punto che avanza tra le fermate, non un video in loop."},
+        {"from": "challenger-quote", "raise": "Ogni zona della pagina ha il suo nome letterale su un pannello; la fermata attiva tiene il segnale acceso."},
+        {"from": "challenger-ink", "raise": "La linea è disegnata davvero: un tracciato SVG guidato dallo scroll, non un'immagine di sfondo."}
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "La pagina dei risultati",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "La SERP: classifica, URL a briciole, snippet, People Also Ask",
+      "thesis": "La home è una pagina di risultati: Verbalist si presenta nella lingua visiva che un SEO legge otto ore al giorno.",
+      "palette": ["#1A0DAB", "#006621", "#FFFFFF", "#202124", "#F1F3F4"],
+      "materials": ["lista ordinata con posizioni", "snippet e accordion", "evidenziatore sulle entità"],
+      "viewport": "Un campo di ricerca con la keyword di esempio già scritta; sotto, i primi cinque risultati reali e in posizione zero il blocco Verbalist con i due ingressi e Prova gratis. Le sezioni sono risultati espandibili.",
+      "risk": "È anche dove atterra gran parte dei tool SEO: rischia la parodia di Google e prende in prestito un'identità altrui."
+    },
+    {
+      "id": "challenger-darkroom",
+      "label": "Camera oscura",
+      "verdict": "competitive",
+      "lineage": "camera oscura di stampa sotto luce di sicurezza ambra",
+      "thesis": "Il contenuto non si genera a peso: emerge per stazioni, e i due provini A e B si confrontano prima di fissare.",
+      "palette": ["#C9731A", "#1A1410", "#8C8A86", "#F4F1EA"],
+      "materials": ["luce ambra a campo pieno", "grigi d'argento bagnati", "provini a gradini"],
+      "viewport": "Campo ambra pieno; al centro un articolo che affiora nel bagno di sviluppo mentre il timer scorre; ai lati le due porte Agenzie / Aziende come etichette dei flaconi; Prova gratis è il pulsante dell'ingranditore.",
+      "case": "Tiene sulla chiarezza: stazioni in ordine e provini A/B mappano la catena e le due versioni. Perde sull'identificazione: nessun SEO ha mai stampato in camera oscura.",
+      "risk": "L'ambra totale può leggersi come tema scuro d'atmosfera e affatica sul testo lungo di blog e help.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay.webp"
+    },
+    {
+      "id": "challenger-blast",
+      "label": "Manifesto in caratteri di legno",
+      "verdict": "declined",
+      "lineage": "pagina-manifesto del 1914 in caratteri di legno",
+      "thesis": "Contro il contenuto a peso: la home è un manifesto di blocchi tipografici ruotati.",
+      "palette": ["#B5607A", "#0E0E0E"],
+      "materials": ["caratteri di legno", "filetti spessi"],
+      "viewport": "Blocchi di maiuscole condensate impilati e ruotati di novanta gradi, nessuna immagine.",
+      "case": "Perde su entrambi: urlare contraddice la voce sobria del brand e non mostra mai il prodotto al lavoro.",
+      "kept": "La massa tipografica come unica figura del primo viewport.",
+      "risk": "Sensazionalismo, vietato dagli impegni di brand.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-blast-manifesto-page-hero.webp"
+    },
+    {
+      "id": "challenger-annual",
+      "label": "Tavole d'annuario",
+      "verdict": "declined",
+      "lineage": "sezione tavole di un annuario di design",
+      "thesis": "Ogni schermata e ogni caso è una tavola con crocini di registro e riga dei crediti.",
+      "palette": ["#F5F4F6", "#16181A", "#DCDDF3", "#C9C7C4"],
+      "materials": ["carta non patinata", "crocini di registro", "filetti da 1px"],
+      "viewport": "Foglio quasi bianco, un solo grottesco, etichette mono maiuscole, filetti sottili.",
+      "case": "Perde su entrambi: è la cultura dei designer, non dei SEO, ed è quasi alla lettera l'identità che hai chiesto di superare.",
+      "kept": "La riga dei crediti sotto ogni prova.",
+      "risk": "Riconsegna il sito di oggi con un timbro in più.",
+      "hero": "https://impeccable.style/worlds/cards/design-annual-s-plate-section-hero.webp"
+    },
+    {
+      "id": "challenger-city",
+      "label": "Notturno urbano",
+      "verdict": "declined",
+      "lineage": "città sotto la pioggia tra ora blu e notte",
+      "thesis": "La produzione di contenuti come ritmo notturno di una città.",
+      "palette": ["#0E2A5C", "#0A0A0C", "#E8A33D", "#C9CED6"],
+      "materials": ["vene di transito ambra", "riflessi sull'asfalto"],
+      "viewport": "Skyline scuro con linee di transito luminose e un solo edificio argento.",
+      "case": "Perde su entrambi: atmosfera senza legame col mestiere, e il buio con un accento luminoso è l'altro cliché della categoria AI.",
+      "kept": "La posizione in tempo reale lungo un asse.",
+      "risk": "Dark + accento: il contrario prevedibile del sito attuale.",
+      "hero": "https://impeccable.style/worlds/cards/light-shadow-caustics-rain-night-cityscape-hero.webp"
+    },
+    {
+      "id": "challenger-quote",
+      "label": "Grammatica industriale tra virgolette",
+      "verdict": "declined",
+      "lineage": "streetwear industriale: parole tra virgolette, fascette, strisce di pericolo",
+      "thesis": "Ogni cosa porta il suo nome ovvio tra virgolette, su bianco e nero con fascetta arancione.",
+      "palette": ["#FFFFFF", "#0B0B0B", "#FF5A00"],
+      "materials": ["strisce diagonali", "targhette", "fascette arancioni"],
+      "viewport": "Maiuscole industriali tra virgolette dritte, striscia diagonale sotto ciò che conta.",
+      "case": "Perde su entrambi: ironia di moda estranea a un'agenzia SEO; la chiarezza letterale la dà già la segnaletica.",
+      "kept": "Il nome letterale su ogni zona; l'elemento attivo tiene il segnale.",
+      "risk": "L'ironia mina la fiducia, che è l'emozione da produrre.",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-industrial-quote-grammar-hero.webp"
+    },
+    {
+      "id": "challenger-ink",
+      "label": "Bacino di inchiostro",
+      "verdict": "declined",
+      "lineage": "suminagashi, inchiostro marmorizzato su acqua",
+      "thesis": "La pagina è una superficie liquida che risponde al puntatore.",
+      "palette": ["#1F2A5A", "#1B1B1B", "#FAFAF8", "#9A9CA3"],
+      "materials": ["inchiostro sumi", "acqua bianco carta"],
+      "viewport": "Una vasca di inchiostro in WebGL, il testo fermo a margine.",
+      "case": "Perde su entrambi: decorazione estranea al prodotto, lo stesso difetto delle immagini floreali di oggi.",
+      "kept": "La tecnica costruita davvero, non imitata con un'immagine.",
+      "risk": "Peso GPU per zero informazione.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-fluid-ink-basin-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "Lo standard della categoria",
+    "thesis": "Ciò che la categoria SaaS pubblica, eseguito al massimo della cura.",
+    "palette": ["#FFFFFF", "#111827", "#2563EB"],
+    "materials": ["griglia pulita", "finestra di prodotto"],
+    "viewport": "Hero centrato, finestra del prodotto, loghi, feature, prezzi: la disposizione che un visitatore si aspetta.",
+    "risk": "Indistinguibile dalla concorrenza per costruzione."
+  },
+  "steer": true
+}
