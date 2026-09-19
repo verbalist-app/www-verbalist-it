@@ -243,6 +243,21 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
       banner.classList.add("hidden");
     });
 
+    // Pubblico della pagina (parametro `audience`): le pagine /soluzioni lo
+    // dichiarano su <body data-audience>; su /contatti arriva dal link che ha
+    // portato lì (?profilo=agenzie — stesso nome usato in lib/utils.ts, che è
+    // anche il nome interno della proprietà HubSpot da valorizzare).
+    // Solo slug brevi: niente testo libero, quindi niente PII nel dataLayer.
+    var audience = (document.body && document.body.getAttribute("data-audience")) || "";
+    try {
+      var fromLink = new URLSearchParams(location.search).get("profilo") || "";
+      if (/^[a-z0-9-]{1,30}$/.test(fromLink)) audience = fromLink;
+    } catch (err) {}
+    function withAudience(payload) {
+      if (audience) payload.audience = audience;
+      return payload;
+    }
+
     // Eventi CTA → dataLayer per GTM (il Consent Mode gestisce il gating lato tag).
     // Delega sul document: intercetta i click su qualunque link, anche futuri.
     document.addEventListener("click", function (e) {
@@ -252,7 +267,7 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
       var text = (a.textContent || "").trim().replace(/\s+/g, " ");
       if (href.indexOf("app.verbalist.it/login") !== -1) {
         if (href.indexOf("registration") !== -1) {
-          window.dataLayer.push({ event: "cta_prova_gratis", link_text: text, link_url: href });
+          window.dataLayer.push(withAudience({ event: "cta_prova_gratis", link_text: text, link_url: href }));
         } else {
           window.dataLayer.push({ event: "cta_accedi", link_text: text, link_url: href });
         }
@@ -261,7 +276,7 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
         (!/^https?:\/\//.test(href) || a.hostname === location.hostname)
       ) {
         // Intento demo/contatto: qualunque link interno verso /contatti.
-        window.dataLayer.push({ event: "cta_contatti", link_text: text, link_url: href });
+        window.dataLayer.push(withAudience({ event: "cta_contatti", link_text: text, link_url: href }));
       } else if (/^https?:\/\//.test(href) && a.hostname && a.hostname !== location.hostname) {
         window.dataLayer.push({ event: "outbound_click", link_url: href, link_text: text });
       }
@@ -274,7 +289,7 @@ const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
     window.addEventListener("message", function (e) {
       var d = e && e.data;
       if (d && d.type === "hsFormCallback" && d.eventName === "onFormSubmitted") {
-        window.dataLayer.push({ event: "hubspot_form_submit", form_id: d.id || "" });
+        window.dataLayer.push(withAudience({ event: "hubspot_form_submit", form_id: d.id || "" }));
       }
     });
   })();

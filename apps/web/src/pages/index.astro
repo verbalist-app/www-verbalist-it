@@ -10,6 +10,7 @@ import Feature3 from "@/components/features/Feature3.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Pricing1 from "@/components/pricing/Pricing1.astro";
 import Testimonial1 from "@/components/testimonials/Testimonial1.astro";
+import AudienceDoors from "@/components/solutions/AudienceDoors.astro";
 
 const appLd = {
   "@context": "https://schema.org",
@@ -37,6 +38,14 @@ const appLd = {
       description: "70 contenuti, validi 12 mesi dall'acquisto",
     },
   ],
+  // A chi si rivolge: una voce per ogni pagina /soluzioni/.
+  audience: [
+    "Agenzie di digital marketing, web agency e consulenti SEO",
+    "Grandi aziende e gruppi con più mercati o linee di prodotto",
+    "Piccole e medie imprese",
+    "E-commerce con catalogo ampio",
+    "Aziende B2B e manifatturiere",
+  ].map((audienceType) => ({ "@type": "BusinessAudience", audienceType })),
   publisher: { "@id": "https://www.verbalist.it/#organization" },
 };
 ---
@@ -58,6 +67,7 @@ const appLd = {
   <Feature3 />
   <Feature1 />
   <Feature2 />
+  <AudienceDoors />
   <Testimonial1 />
   <Pricing1 />
   <Cta2

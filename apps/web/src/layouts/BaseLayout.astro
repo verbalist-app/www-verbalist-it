@@ -20,11 +20,19 @@ interface Props {
   };
   hideNavigation?: boolean;
   hideFooter?: boolean;
+  // Pubblico della pagina (es. "agenzie"): finisce su <body data-audience>
+  // e CookieBanner lo aggiunge agli eventi CTA come parametro `audience`.
+  audience?: string;
 }
 
 // Hides the navigation, or footer on selected screens by passing props:
 // <BaseLayout hideNavigation={true} hideFooter={true}>
-const { seo, hideNavigation = false, hideFooter = false } = Astro.props;
+const {
+  seo,
+  hideNavigation = false,
+  hideFooter = false,
+  audience,
+} = Astro.props;
 ---
 
 <html
@@ -35,7 +43,10 @@ const { seo, hideNavigation = false, hideFooter = false } = Astro.props;
     <BaseHead seo={seo} />
     <slot name="head" />
   </head>
-  <body class="relative flex flex-col bg-white min-h-svh">
+  <body
+    class="relative flex flex-col bg-white min-h-svh"
+    data-audience={audience}
+  >
     {
       GTM_ID && (
         <noscript>

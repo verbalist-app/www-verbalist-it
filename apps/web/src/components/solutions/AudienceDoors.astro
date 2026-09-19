@@ -1,0 +1,133 @@
+---
+// Le "porte" d'ingresso per pubblico: a sinistra le agenzie, a destra le
+// aziende (una cella per ogni pagina soluzione). È il doppio ingresso
+// agenzia/azienda: stesse celle tratteggiate della griglia strutturale,
+// l'intera cella è cliccabile (link sul titolo, esteso con ::after).
+// Usato in home (con testata di sezione) e nell'hub /soluzioni/ (senza).
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import { getAllSolutions } from "@/lib/data";
+
+interface Props {
+  withHeader?: boolean;
+}
+const { withHeader = true } = Astro.props;
+
+const solutions = await getAllSolutions();
+const agencies = solutions.filter((s) => s.data.group === "agenzie");
+const companies = solutions.filter((s) => s.data.group === "aziende");
+
+const linkClass =
+  "pt-8 mt-auto text-sm font-medium w-fit text-base-800 transition-colors duration-200 group-hover:text-accent-500";
+---
+
+<section
+  id="per-chi"
+  class="scroll-mt-20 border-t border-dashed border-base-200"
+>
+  {
+    withHeader && (
+      <Wrapper variant="standard" class="pt-12 pb-10">
+        <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
+          Per chi è
+        </p>
+        <div class="max-w-xl mt-4 text-balance">
+          <Text
+            tag="h2"
+            variant="displaySM"
+            class="font-serif font-medium tracking-tight text-base-950"
+          >
+            Un percorso per le agenzie, uno per le aziende
+          </Text>
+          <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+            Il prodotto è lo stesso. Cambia quello che ti serve intorno: tanti
+            clienti da tenere separati, più mercati, un catalogo, un team
+            piccolo.
+          </Text>
+        </div>
+      </Wrapper>
+    )
+  }
+  <Wrapper variant="standard" class="py-0">
+    <div
+      class:list={[
+        "grid grid-cols-1 -mx-4 lg:grid-cols-2 2xl:-mx-12",
+        withHeader && "border-t border-dashed border-base-200",
+      ]}
+    >
+      <div class="flex flex-col lg:border-r lg:border-dashed lg:border-base-200">
+        {
+          agencies.map((s) => (
+            <div class="relative flex flex-col h-full px-4 py-8 group 2xl:pl-12 lg:pr-10 transition-colors duration-200 hover:bg-mist-50">
+              <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
+                Per le agenzie
+              </p>
+              <Text
+                tag="h3"
+                variant="textXL"
+                class="mt-4 font-serif font-medium tracking-tight text-base-950"
+              >
+                <a
+                  href={`/soluzioni/${s.id}/`}
+                  class="after:absolute after:inset-0"
+                >
+                  {s.data.doorTitle}
+                </a>
+              </Text>
+              <Text tag="p" variant="textBase" class="max-w-md mt-3 text-base-600">
+                {s.data.doorText}
+              </Text>
+              {s.data.doorPoints && (
+                <ul role="list" class="mt-8">
+                  {s.data.doorPoints.map((point) => (
+                    <li class="py-3.5 text-base border-t border-dashed border-base-200 text-base-800 last:border-b">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p class={linkClass} aria-hidden="true">
+                <span class="border-b border-dashed border-base-400">
+                  {s.data.doorLink}
+                </span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="grid grid-cols-1 border-t border-dashed sm:grid-cols-2 border-base-200 lg:border-t-0"
+      >
+        {
+          companies.map((s) => (
+            <div class="relative flex flex-col px-4 py-8 border-b border-dashed group border-base-200 last:border-b-0 sm:[&:nth-child(odd)]:border-r sm:[&:nth-last-child(-n+2)]:border-b-0 lg:px-8 2xl:[&:nth-child(even)]:pr-12 transition-colors duration-200 hover:bg-mist-50">
+              <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
+                Aziende · {s.data.name}
+              </p>
+              <Text
+                tag="h3"
+                variant="textLG"
+                class="mt-4 font-serif font-medium tracking-tight text-base-950"
+              >
+                <a
+                  href={`/soluzioni/${s.id}/`}
+                  class="after:absolute after:inset-0"
+                >
+                  {s.data.doorTitle}
+                </a>
+              </Text>
+              <Text tag="p" variant="textSM" class="mt-2 text-base-600">
+                {s.data.doorText}
+              </Text>
+              <p class={linkClass} aria-hidden="true">
+                <span class="border-b border-dashed border-base-400">
+                  {s.data.doorLink}
+                </span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>

@@ -169,6 +169,31 @@
       "source": "/piattaforma/generazione-contenuto/",
       "destination": "/agenti/generazione-articolo/",
       "statusCode": 301
+    },
+    {
+      "source": "/soluzioni/enterprise/",
+      "destination": "/soluzioni/corporate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/soluzioni/team-marketing/",
+      "destination": "/soluzioni/",
+      "statusCode": 301
+    },
+    {
+      "source": "/soluzioni/team-seo/",
+      "destination": "/soluzioni/",
+      "statusCode": 301
+    },
+    {
+      "source": "/soluzioni/ai-strategist/",
+      "destination": "/soluzioni/",
+      "statusCode": 301
+    },
+    {
+      "source": "/agenzie/",
+      "destination": "/soluzioni/agenzie/",
+      "statusCode": 301
     }
   ]
 }

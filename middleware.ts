@@ -1,17 +1,13 @@
 // Edge Middleware (Vercel): gestisce le URL del vecchio sito.
 // - /guide e /guide/getting-started hanno un equivalente -> 301
-// - tutto il resto di /guide/* e /soluzioni/* non esiste più -> 410 Gone
+// - tutto il resto di /guide/* non esiste più -> 410 Gone
 // - /en/* (versione inglese del vecchio sito) non esiste più -> 410 Gone
 // I redirect semplici (slug diversi con equivalente) stanno in vercel.json.
+// /soluzioni/* NON passa più da qui: la sezione è tornata (pagine focus per
+// pubblico in src/content/solutions); i vecchi slug senza equivalente sono
+// 301 verso l'hub /soluzioni/ in vercel.json.
 export const config = {
-  matcher: [
-    "/guide/:path*",
-    "/soluzioni/:path*",
-    "/guide",
-    "/soluzioni",
-    "/en/:path*",
-    "/en",
-  ],
+  matcher: ["/guide/:path*", "/guide", "/en/:path*", "/en"],
 };
 
 const MOVED: Record<string, string> = {

@@ -41,7 +41,16 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 
 ## Struttura utile
 
-- `src/pages/` — route (it: /agenti, /clienti, /categorie, /help, /legale…)
+- `src/pages/` — route (it: /agenti, /soluzioni, /clienti, /categorie, /help, /legale…)
+- `src/content/solutions/` — pagine focus per pubblico (`/soluzioni/<slug>/`:
+  agenzie, corporate, pmi, ecommerce, b2b). Ogni claim deve stare già
+  nell'help center, nelle pagine agenti, nei prezzi o nei case study: niente
+  listini dedicati, white label, integrazioni o funzioni non verificate. Il
+  campo `audience` alimenta il tracking (vedi `docs/tracking-plan.md`).
+- `src/components/featurepage/` — blocchi condivisi da pagine agente e
+  soluzioni (pattern "feature page" di Profound): `SubNav` (pagine sorelle),
+  `Manifesto` (hero che si accende allo scroll, opacity soltanto, spento con
+  `prefers-reduced-motion`), `SectionHead` (etichetta mono + titolo 48px).
 - `src/content/` — markdown dei contenuti
 - `src/lib/data.ts` — accesso unico alle collections
 - `src/components/fundations/` — primitivi (Text, Button, Wrapper, head/Seo)

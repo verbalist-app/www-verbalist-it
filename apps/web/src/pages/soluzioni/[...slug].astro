@@ -1,0 +1,50 @@
+---
+import SolutionsLayout from "@/layouts/SolutionsLayout.astro";
+import { render } from "astro:content";
+import { getAllSolutions, getAllCustomers } from "@/lib/data";
+
+export async function getStaticPaths() {
+  const solutions = await getAllSolutions();
+  const allCustomers = await getAllCustomers();
+  const links = solutions.map((s) => ({
+    id: s.id,
+    name: s.data.name,
+    doorTitle: s.data.doorTitle,
+  }));
+  return solutions.map((solution) => ({
+    params: { slug: solution.id },
+    props: {
+      solution,
+      all: links,
+      // Risolve i clienti citati nella prova: un refuso nello slug deve
+      // rompere la build, non far sparire una riga in silenzio.
+      customers: solution.data.proof.customers.map(({ slug, fact }) => {
+        const c = allCustomers.find((x) => x.slug === slug);
+        if (!c) {
+          throw new Error(
+            `soluzioni/${solution.id}: cliente "${slug}" non trovato in content/customers`
+          );
+        }
+        return {
+          slug,
+          fact,
+          name: c.data.customer,
+          logo: c.data.logo.url as string,
+        };
+      }),
+    },
+  }));
+}
+
+const { solution, all, customers } = Astro.props;
+const { Content } = await render(solution);
+---
+
+<SolutionsLayout
+  frontmatter={solution.data}
+  slug={solution.id}
+  all={all}
+  customers={customers}
+>
+  <Content />
+</SolutionsLayout>

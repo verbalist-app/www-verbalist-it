@@ -1,0 +1,79 @@
+---
+// Hub delle soluzioni: il doppio ingresso agenzie / aziende.
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SubNav from "@/components/featurepage/SubNav.astro";
+import SectionHead from "@/components/featurepage/SectionHead.astro";
+import AudienceDoors from "@/components/solutions/AudienceDoors.astro";
+import Cta2 from "@/components/ctas/Cta2.astro";
+import { getAllSolutions } from "@/lib/data";
+
+const solutions = await getAllSolutions();
+const SITE = "https://www.verbalist.it";
+
+const listLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Soluzioni Verbalist per pubblico",
+  itemListElement: solutions.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: s.data.seoTitle,
+    url: `${SITE}/soluzioni/${s.id}/`,
+  })),
+};
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+    { "@type": "ListItem", position: 2, name: "Soluzioni" },
+  ],
+};
+---
+
+<BaseLayout
+  seo={{
+    title: "Soluzioni per agenzie e aziende",
+    description:
+      "Verbalist per chi produce contenuti per i clienti e per chi li produce per sé: agenzie, corporate, PMI, e-commerce e aziende B2B. Scegli il tuo caso.",
+  }}
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(breadcrumbLd)}
+  />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(listLd)} />
+
+  <SubNav
+    label="Le soluzioni per pubblico"
+    home={{ href: "/soluzioni/", label: "Soluzioni" }}
+    items={solutions.map((s) => ({
+      href: `/soluzioni/${s.id}/`,
+      label: s.data.name,
+    }))}
+    current="/soluzioni/"
+  />
+
+  <section>
+    <Wrapper variant="standard" class="pt-16 pb-16 lg:pt-24 lg:pb-20">
+      <SectionHead
+        tag="h1"
+        eyebrow="Per chi è"
+        title="Soluzioni per agenzie e aziende"
+        text="Il prodotto è lo stesso: legge i risultati di Google per una keyword e scrive contenuti ottimizzati per la ricerca e per le risposte AI. Cambia quello che ti serve intorno. Scegli il tuo caso: trovi cosa cambia per te, i casi di aziende come la tua e il piano da cui partire."
+      />
+    </Wrapper>
+  </section>
+
+  <AudienceDoors withHeader={false} />
+
+  <Cta2
+    compact
+    title="Non ti ritrovi in nessuno di questi casi?"
+    text="Raccontaci come lavori: ti diciamo se Verbalist fa per te. Oppure provalo: 30 giorni, 15 documenti, senza carta di credito."
+    secondaryText="Parla con noi"
+    secondaryHref="/contatti/"
+  />
+</BaseLayout>

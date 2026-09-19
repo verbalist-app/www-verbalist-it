@@ -130,6 +130,12 @@ const agents = defineCollection({
     seoDescription: z.string().optional(),
     headline: z.string(),
     lede: z.string(),
+    // Manifesto in hero: soggetto + tre passi numerati inline nel testo
+    // ("L'agente ① legge…, ② estrae…, ③ trova…").
+    stepsLead: z.string().optional(),
+    steps: z.array(z.string()).optional(),
+    // Titolo grande del blocco prodotto (poche parole).
+    pitch: z.string().optional(),
     intro: z.string().optional(),
     summary: z.string(),
     input: z.array(z.string()),
@@ -143,6 +149,75 @@ const agents = defineCollection({
   }),
 });
 
+// Pagine focus per pubblico (/soluzioni/<slug>/): agenzie, corporate, ecc.
+// Regola di prodotto: ogni claim deve stare già nell'help center, nelle pagine
+// agenti o nei case study. Niente listini, white label o funzioni non verificate.
+const solutions = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/solutions", generateId: slugId }),
+  schema: z.object({
+    order: z.number(),
+    // Chiave di tracking (parametro `audience` negli eventi CTA e nel lead)
+    // e valore di ?profilo= sui link verso /contatti.
+    audience: z.string(),
+    // Porta d'ingresso: le agenzie da una parte, le aziende dall'altra.
+    group: z.enum(["agenzie", "aziende"]),
+    name: z.string(),
+    audienceType: z.string(), // schema.org BusinessAudience.audienceType
+    doorTitle: z.string(),
+    doorText: z.string(),
+    doorLink: z.string(), // etichetta del link nella cella: "Verbalist per le agenzie"
+    doorPoints: z.array(z.string()).optional(), // righe extra nella porta grande
+    seoTitle: z.string(),
+    seoDescription: z.string(),
+    headline: z.string(),
+    lede: z.string(),
+    // Manifesto in hero: soggetto + tre passi numerati inline nel testo.
+    stepsLead: z.string(),
+    steps: z.array(z.string()),
+    // Titolo grande del blocco "In breve" (poche parole).
+    pitch: z.string(),
+    // Quale CTA è primaria: la prova self-service o la chiamata (piano Custom).
+    primaryCta: z.enum(["prova", "contatti"]),
+    image: z.string(),
+    // Uno o più brief d'esempio per il mockup in hero (dati verosimili).
+    briefs: z.array(
+      z.object({
+        project: z.string().optional(),
+        fields: z.array(z.object({ label: z.string(), value: z.string() })),
+        file: z.string(),
+      })
+    ),
+    summary: z.string(),
+    needs: z.object({
+      eyebrow: z.string(),
+      title: z.string(),
+      text: z.string(),
+      items: z.array(
+        z.object({
+          title: z.string(),
+          text: z.string(),
+          href: z.string().optional(),
+          linkLabel: z.string().optional(),
+        })
+      ),
+    }),
+    proof: z.object({
+      eyebrow: z.string(),
+      title: z.string(),
+      text: z.string(),
+      customers: z.array(z.object({ slug: z.string(), fact: z.string() })),
+    }),
+    plan: z.object({
+      name: z.string(),
+      price: z.string().optional(),
+      text: z.string(),
+      points: z.array(z.string()),
+    }),
+    faq: z.array(z.object({ question: z.string(), answer: z.string() })),
+    cta: z.object({ title: z.string(), text: z.string() }),
+  }),
+});
+
 export const collections = {
   team,
   customers,
@@ -151,4 +226,5 @@ export const collections = {
   helpcenter,
   posts: postsCollection,
   agents,
+  solutions,
 };

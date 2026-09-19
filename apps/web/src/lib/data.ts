@@ -533,6 +533,21 @@ export async function renderLegalPageContent(slug: string) {
 }
 
 // =============================================================================
+// SOLUZIONI (pagine focus per pubblico)
+// =============================================================================
+
+export type Solution = CollectionEntry<"solutions">;
+
+/**
+ * Tutte le pagine soluzione, nell'ordine editoriale (campo `order`).
+ * Restituisce le entry native: servono a `render()` nella route.
+ */
+export async function getAllSolutions(): Promise<Solution[]> {
+  const entries = await getCollection("solutions");
+  return entries.sort((a, b) => a.data.order - b.data.order);
+}
+
+// =============================================================================
 // UTILITY EXPORTS
 // =============================================================================
 

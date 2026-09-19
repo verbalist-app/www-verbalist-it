@@ -11,6 +11,15 @@
 - [Agente esportazione](https://www.verbalist.it/agenti/esportazione-contenuto): HTML pronto per il CMS, metadati compilati, immagini con alt text
 - [Changelog](https://www.verbalist.it/changelog): novità e rilasci della piattaforma, release per release
 
+## Per chi è
+
+- [Soluzioni](https://www.verbalist.it/soluzioni/): il doppio ingresso per agenzie e aziende, con una pagina per ogni pubblico
+- [Verbalist per le agenzie](https://www.verbalist.it/soluzioni/agenzie/): un progetto per ogni cliente, contesto del brand in ogni documento, costo per contenuto noto prima di generare
+- [Verbalist per il corporate](https://www.verbalist.it/soluzioni/corporate/): guidelines e glossari dentro ogni contenuto, analisi paese per paese, piano Custom con utenti illimitati e account manager
+- [Verbalist per le PMI](https://www.verbalist.it/soluzioni/pmi/): percorso guidato dalla keyword al testo pronto, piano Starter una tantum, prova gratuita di 30 giorni
+- [Verbalist per l'e-commerce](https://www.verbalist.it/soluzioni/ecommerce/): schede prodotto e pagine categoria scritte ex novo, con title tag, meta description e slug compilati
+- [Verbalist per il B2B](https://www.verbalist.it/soluzioni/b2b/): contenuti tecnici con il lessico dei glossari, competitor scelti a mano, testi nella lingua dei mercati di export
+
 ## Guide e approfondimenti
 
 Ogni articolo del blog è disponibile anche in Markdown puro aggiungendo `.md` all'URL (es. https://www.verbalist.it/blog/cos-e-la-geo.md).
@@ -38,4 +47,7 @@ Ogni articolo del blog è disponibile anche in Markdown puro aggiungendo `.md` a
 - I testi sono scritti ex novo nella lingua del mercato target, non tradotti.
 - Il prezzo è per contenuto generato, non per token.
 - La prova gratuita dura 30 giorni e include 15 documenti, da usare entro la prova: alla scadenza, i documenti non utilizzati scadono.
+- I piani: Starter 270 € per 30 contenuti, Pro 500 € per 70 contenuti, una tantum con crediti validi 12 mesi e le stesse funzionalità; Custom su richiesta, con volume su misura, utenti illimitati, account manager dedicato e onboarding guidato.
+- I contenuti generati restano di proprietà dell'utente (termini e condizioni, art. 4).
+- Verbalist nasce in NUR, agenzia di digital marketing attiva dal 1999, che lo usa sui clienti che segue: i case study pubblicati sono clienti dell'agenzia.
 - L'azienda è italiana; l'app è su app.verbalist.it.

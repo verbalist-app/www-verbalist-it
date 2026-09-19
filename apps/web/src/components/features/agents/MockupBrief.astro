@@ -1,7 +1,16 @@
 ---
 // 01 · Keyword e contesto — brief: keyword/mercato/lingua/tono + PDF di contesto.
 // Grande, esce dal bordo in basso (stile Feature4). side = lato illustrazione.
-const { side = "right", variant = "panel" } = Astro.props;
+// fields / file / project: dati del brief. I default sono la demo "scarpe
+// running" di home e pagine agenti; le pagine /soluzioni passano un brief
+// verosimile per il loro pubblico (project = progetto a cui è associato).
+const {
+  side = "right",
+  variant = "panel",
+  fields: fieldsProp,
+  file = "brief-prodotto.pdf",
+  project = null,
+} = Astro.props;
 const isCard = variant === "card";
 const pad = side === "right" ? "pr-0" : "pl-0";
 const bleed = side === "right" ? "-mr-1 rounded-tl-xl" : "-ml-1 rounded-tr-xl";
@@ -12,7 +21,7 @@ const cardClass = isCard
   ? "w-full max-w-md p-5 mx-auto bg-white rounded-xl shadow-sm outline outline-mist-500/10"
   : `relative z-10 max-w-md p-5 mx-auto -mb-1 ${bleed} bg-white shadow-sm outline outline-mist-500/10`;
 
-const fields = [
+const fields = fieldsProp ?? [
   { label: "Keyword", value: "scarpe running 2026" },
   { label: "Mercato", value: "Italia · IT" },
   { label: "Lingua", value: "Italiano" },
@@ -42,6 +51,11 @@ const fields = [
         </svg>
       </div>
       <p class="text-sm font-medium text-base-900">Brief</p>
+      {
+        project && (
+          <span class="ml-auto text-xs truncate text-base-500">{project}</span>
+        )
+      }
     </div>
 
     <dl class="grid grid-cols-2 pt-4 gap-y-5 gap-x-4">
@@ -74,7 +88,7 @@ const fields = [
           <path d="M14 2v6h6"></path>
         </svg>
         <span class="text-xs font-medium truncate text-base-900"
-          >brief-prodotto.pdf</span
+          >{file}</span
         >
         <svg
           class="ml-auto size-3.5 shrink-0 text-base-900"

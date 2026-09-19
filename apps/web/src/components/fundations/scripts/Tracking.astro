@@ -23,6 +23,12 @@ const VERCEL_ANALYTICS = import.meta.env.PUBLIC_VERCEL_ANALYTICS === "true";
       function gtag() {
         dataLayer.push(arguments);
       }
+      // define:vars chiude questo script in una funzione: senza questa riga
+      // gtag non è globale, il banner (CookieBanner.astro) trova
+      // `typeof gtag !== "function"` e l'aggiornamento di consenso non parte
+      // mai. Risultato: nella pagina in cui si accettano i cookie non veniva
+      // tracciato nulla (pageview e CTA perse), solo dalla pagina dopo.
+      window.gtag = gtag;
       gtag("consent", "default", {
         ad_storage: "denied",
         ad_user_data: "denied",

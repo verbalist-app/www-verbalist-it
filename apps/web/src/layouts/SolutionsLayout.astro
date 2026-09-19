@@ -1,0 +1,449 @@
+---
+// Pagina soluzione (/soluzioni/<slug>/): stesso linguaggio delle pagine
+// agente (pattern "feature page"): sotto-nav, manifesto, blocco "In breve"
+// con titolo grande e brief d'esempio, griglia di celle, prosa + piano,
+// casi reali, FAQ. Tutti i contenuti arrivano dal frontmatter della
+// collection `solutions`: vedi le regole di prodotto in content.config.ts.
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Check from "@/components/fundations/icons/Check.astro";
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Blocchi condivisi delle pagine feature
+import SubNav from "@/components/featurepage/SubNav.astro";
+import Manifesto from "@/components/featurepage/Manifesto.astro";
+import SectionHead from "@/components/featurepage/SectionHead.astro";
+// Prodotto
+import MockupBrief from "@/components/features/agents/MockupBrief.astro";
+import MockupWindow from "@/components/features/agents/MockupWindow.astro";
+import Cta2 from "@/components/ctas/Cta2.astro";
+import { contactHref } from "@/lib/utils";
+
+// slug: id della pagina · all: tutte le soluzioni ({ id, name, doorTitle })
+// customers: i clienti citati nella prova, già risolti ({ slug, name, logo, fact })
+const { frontmatter, slug, all = [], customers = [] } = Astro.props;
+
+const SITE = "https://www.verbalist.it";
+const TRIAL_URL =
+  "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26";
+const contactUrl = contactHref(frontmatter.audience);
+const pageUrl = `${SITE}/soluzioni/${slug}/`;
+
+// CTA: la prova self-service o la chiamata, a seconda del pubblico.
+const trial = { text: "Prova gratis 30 giorni", href: TRIAL_URL };
+const talk = { text: "Parla con noi", href: contactUrl };
+const [primary, secondary] =
+  frontmatter.primaryCta === "contatti" ? [talk, trial] : [trial, talk];
+
+const others = all.filter((s: { id: string }) => s.id !== slug);
+const multiBrief = frontmatter.briefs.length > 1;
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Soluzioni",
+      item: `${SITE}/soluzioni/`,
+    },
+    { "@type": "ListItem", position: 3, name: frontmatter.name },
+  ],
+};
+const pageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": pageUrl,
+  url: pageUrl,
+  name: frontmatter.seoTitle,
+  description: frontmatter.seoDescription,
+  inLanguage: "it",
+  isPartOf: { "@id": `${SITE}/#website` },
+  audience: {
+    "@type": "BusinessAudience",
+    audienceType: frontmatter.audienceType,
+  },
+  about: {
+    "@type": "SoftwareApplication",
+    name: "Verbalist",
+    url: SITE,
+    applicationCategory: "BusinessApplication",
+  },
+};
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: frontmatter.faq.map(
+    (f: { question: string; answer: string }) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })
+  ),
+};
+---
+
+<BaseLayout
+  audience={frontmatter.audience}
+  seo={{
+    title: frontmatter.seoTitle,
+    description: frontmatter.seoDescription,
+  }}
+>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(breadcrumbLd)}
+  />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(pageLd)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqLd)} />
+
+  <SubNav
+    label="Le soluzioni per pubblico"
+    home={{ href: "/soluzioni/", label: "Soluzioni" }}
+    items={all.map((s: { id: string; name: string }) => ({
+      href: `/soluzioni/${s.id}/`,
+      label: s.name,
+    }))}
+    current={`/soluzioni/${slug}/`}
+  />
+
+  <Manifesto
+    eyebrow={frontmatter.doorLink}
+    headline={frontmatter.headline}
+    text={frontmatter.lede}
+    stepsLead={frontmatter.stepsLead}
+    steps={frontmatter.steps}
+    image={frontmatter.image}
+  />
+
+  <!-- In breve: la risposta secca (citabile), le azioni, il brief d'esempio -->
+  <section class="border-t border-dashed border-base-200">
+    <Wrapper variant="standard" class="pt-16 pb-4 lg:pt-24">
+      <SectionHead
+        eyebrow="In breve"
+        title={frontmatter.pitch}
+        text={frontmatter.summary}
+      >
+        <Button isLink size="sm" variant="accent" href={primary.href}>
+          {primary.text}
+        </Button>
+        <Button isLink size="sm" variant="muted" href={secondary.href}>
+          {secondary.text}
+        </Button>
+      </SectionHead>
+      <div
+        class:list={[
+          "relative mt-12 overflow-hidden rounded-xl bg-mist-100 bg-cover bg-center",
+          multiBrief ? "p-5 sm:p-8 lg:p-10" : "p-5 sm:p-10 md:p-14",
+        ]}
+        style={`background-image: url('${frontmatter.image}')`}
+      >
+        <div class="absolute inset-0 bg-mist-100/25" aria-hidden="true"></div>
+        {
+          multiBrief ? (
+            <div class="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {frontmatter.briefs.map(
+                (
+                  b: { fields: any[]; file: string; project?: string },
+                  i: number
+                ) => (
+                  <div
+                    class:list={[
+                      i === 1 && "hidden md:block",
+                      i >= 2 && "hidden lg:block",
+                    ]}
+                  >
+                    <MockupBrief
+                      variant="card"
+                      fields={b.fields}
+                      file={b.file}
+                      project={b.project}
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          ) : (
+            <MockupWindow url="app.verbalist.it/nuovo">
+              <MockupBrief
+                variant="card"
+                fields={frontmatter.briefs[0].fields}
+                file={frontmatter.briefs[0].file}
+                project={frontmatter.briefs[0].project}
+              />
+            </MockupWindow>
+          )
+        }
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Cosa cambia per questo pubblico: griglia di celle 3×2 -->
+  <section class="border-t border-dashed border-base-200">
+    <Wrapper variant="standard" class="pt-16 pb-0 lg:pt-24">
+      <SectionHead
+        eyebrow={frontmatter.needs.eyebrow}
+        title={frontmatter.needs.title}
+        text={frontmatter.needs.text}
+      />
+      <div
+        class="grid grid-cols-1 mt-12 -mx-4 border-t border-dashed md:grid-cols-2 lg:grid-cols-3 border-base-200 2xl:-mx-12"
+      >
+        {
+          frontmatter.needs.items.map(
+            (item: {
+              title: string;
+              text: string;
+              href?: string;
+              linkLabel?: string;
+            }) => (
+              <div class="flex flex-col px-4 py-8 border-b border-dashed border-base-200 last:border-b-0 md:max-lg:[&:nth-child(odd)]:border-r md:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:px-8 lg:py-10 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-last-child(-n+3)]:border-b-0 lg:[&:nth-child(3n+1)]:pl-4 2xl:[&:nth-child(3n+1)]:pl-12">
+                <Text
+                  tag="h3"
+                  variant="textLG"
+                  class="font-serif font-medium tracking-tight text-base-950"
+                >
+                  {item.title}
+                </Text>
+                <Text tag="p" variant="textBase" class="mt-3 text-base-600">
+                  {item.text}
+                </Text>
+                {item.href && (
+                  <a
+                    href={item.href}
+                    class="pt-6 mt-auto text-sm font-medium w-fit text-base-800 transition-colors duration-200 hover:text-accent-500"
+                  >
+                    <span class="border-b border-dashed border-base-400">
+                      {item.linkLabel ?? "Approfondisci"}
+                    </span>
+                  </a>
+                )}
+              </div>
+            )
+          )
+        }
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- In pratica: prosa con link interni + il piano da cui partire -->
+  <section class="border-t border-dashed border-base-200">
+    <Wrapper variant="standard" class="py-0">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div
+          class="py-12 lg:py-20 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200"
+        >
+          <Wrapper
+            variant="prose"
+            class="max-w-xl [&_h2]:font-serif [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:text-base-950 [&_h2]:text-2xl lg:[&_h2]:text-3xl lg:[&_h2]:leading-[1.2] [&_h2]:mb-6 [&_h2:first-child]:mt-0"
+          >
+            <slot />
+          </Wrapper>
+        </div>
+        <div class="pb-12 lg:py-20 lg:pl-10">
+          <div class="lg:sticky lg:top-24">
+            <p
+              class="font-mono text-xs font-medium tracking-wider uppercase text-base-500"
+            >
+              Il piano da cui partire
+            </p>
+            <div class="p-6 mt-4 rounded-xl bg-mist-100 sm:p-8">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <Text
+                  tag="h2"
+                  variant="displaySM"
+                  class="font-serif font-medium tracking-tight text-base-950"
+                >
+                  {frontmatter.plan.name}
+                </Text>
+                {
+                  frontmatter.plan.price && (
+                    <p class="text-sm text-base-600">
+                      {frontmatter.plan.price}
+                    </p>
+                  )
+                }
+              </div>
+              <Text tag="p" variant="textBase" class="mt-4 text-base-600">
+                {frontmatter.plan.text}
+              </Text>
+              <ul
+                role="list"
+                class="flex flex-col pt-6 mt-6 text-sm border-t border-dashed gap-y-3 border-base-300 text-base-900"
+              >
+                {
+                  frontmatter.plan.points.map((point: string) => (
+                    <li class="flex items-start gap-2">
+                      <Check size="sm" class="shrink-0 mt-0.5 text-base-500" />
+                      <span>{point}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+              <div class="flex flex-wrap items-center mt-8 gap-2">
+                <Button isLink size="sm" variant="accent" href={primary.href}>
+                  {primary.text}
+                </Button>
+                <a
+                  href="/#prezzi"
+                  class="px-2 text-sm font-medium text-base-800 transition-colors duration-200 hover:text-accent-500"
+                >
+                  <span class="border-b border-dashed border-base-400"
+                    >Tutti i piani</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- La prova: casi reali, una riga per cliente -->
+  <section class="border-t border-dashed border-base-200">
+    <Wrapper variant="standard" class="pt-16 pb-0 lg:pt-24">
+      <SectionHead
+        eyebrow={frontmatter.proof.eyebrow}
+        title={frontmatter.proof.title}
+        text={frontmatter.proof.text}
+      />
+      <ul role="list" class="mt-12 -mx-4 2xl:-mx-12">
+        {
+          customers.map(
+            (c: {
+              slug: string;
+              name: string;
+              logo: string;
+              fact: string;
+            }) => (
+              <li class="relative grid items-center grid-cols-1 px-4 py-6 border-t border-dashed gap-x-10 gap-y-3 group border-base-200 md:grid-cols-[11rem_1fr_auto] 2xl:px-12 transition-colors duration-200 hover:bg-mist-50">
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  class="w-auto h-6 max-w-[9rem] object-contain object-left brightness-0"
+                  loading="lazy"
+                />
+                <div>
+                  <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
+                    {c.name}
+                  </p>
+                  <Text tag="p" variant="textBase" class="mt-1 text-base-800">
+                    {c.fact}
+                  </Text>
+                </div>
+                <a
+                  href={`/clienti/${c.slug}/`}
+                  class="flex items-center text-sm font-medium gap-1 text-base-800 after:absolute after:inset-0"
+                >
+                  <span class="sr-only">{c.name}:</span>
+                  Leggi il case study
+                  <ChevronRight
+                    size="sm"
+                    class="duration-300 group-hover:translate-x-1"
+                  />
+                </a>
+              </li>
+            )
+          )
+        }
+      </ul>
+    </Wrapper>
+  </section>
+
+  <!-- FAQ: titolo a sinistra, domande a destra, separate da un filo -->
+  <section class="border-t border-dashed border-base-200">
+    <Wrapper variant="standard" class="py-0">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div
+          class="pt-12 lg:py-20 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200"
+        >
+          <SectionHead
+            eyebrow="Prima di iniziare"
+            title="Domande frequenti"
+          />
+        </div>
+        <div class="py-8 lg:py-16 lg:pl-10">
+          {
+            frontmatter.faq.map(
+              (faq: { question: string; answer: string }) => (
+                <details class="border-b border-dashed cursor-pointer border-base-200 group last:border-b-0">
+                  <summary
+                    data-gtm="faq-accordion"
+                    class="flex items-start justify-between w-full py-5 font-medium text-left select-none gap-4 text-base-900 hover:text-accent-500 [&::-webkit-details-marker]:hidden list-none"
+                  >
+                    {faq.question}
+                    <svg
+                      class="mt-0.5 size-5 shrink-0 duration-300 ease-out text-base-500 transform group-open:-rotate-45"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 6v12m6-6H6"
+                      />
+                    </svg>
+                  </summary>
+                  <p class="pb-6 pr-8 text-base-600">{faq.answer}</p>
+                </details>
+              )
+            )
+          }
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Le altre soluzioni: celle -->
+  <section class="border-t border-dashed border-base-200">
+    <Wrapper variant="standard" class="py-0">
+      <nav
+        aria-label="Altre soluzioni"
+        class="grid grid-cols-1 -mx-4 sm:grid-cols-2 lg:grid-cols-4 2xl:-mx-12"
+      >
+        {
+          others.map(
+            (s: { id: string; name: string; doorTitle: string }) => (
+              <a
+                href={`/soluzioni/${s.id}/`}
+                class="flex flex-col px-4 py-8 border-b border-dashed gap-2 group border-base-200 last:border-b-0 sm:max-lg:[&:nth-child(odd)]:border-r sm:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:border-b-0 lg:px-6 lg:[&:not(:last-child)]:border-r lg:first:pl-4 2xl:first:pl-12 transition-colors duration-200 hover:bg-mist-50"
+              >
+                <span class="flex items-center font-mono text-xs font-medium tracking-wider uppercase gap-1 text-base-500">
+                  {s.name}
+                  <ChevronRight
+                    size="sm"
+                    class="duration-300 group-hover:translate-x-1"
+                  />
+                </span>
+                <span class="font-serif text-lg font-medium tracking-tight text-base-950">
+                  {s.doorTitle}
+                </span>
+              </a>
+            )
+          )
+        }
+      </nav>
+    </Wrapper>
+  </section>
+
+  <Cta2
+    compact
+    title={frontmatter.cta.title}
+    text={frontmatter.cta.text}
+    primaryText={primary.text}
+    primaryHref={primary.href}
+    secondaryText={secondary.text}
+    secondaryHref={secondary.href}
+  />
+</BaseLayout>

@@ -1,6 +1,6 @@
 # Tracking plan — www.verbalist.it
 
-Aggiornato: 2026-07-18 · Owner: SEO/Analytics (NUR)
+Aggiornato: 2026-09-19 · Owner: SEO/Analytics (NUR)
 
 ## Strumenti
 
@@ -38,10 +38,10 @@ trigger customEvent. Convenzione nomi: evento GA4 raccomandato dove esiste
 | Evento | Descrizione / decisione che informa | Parametri | Sorgente |
 |---|---|---|---|
 | `page_view` | Traffico e landing (automatico) | standard GA4 | Google Tag |
-| `cta_prova_gratis` | Quale CTA porta alla registrazione | `link_text`, `link_url` | sito → dataLayer |
+| `cta_prova_gratis` | Quale CTA porta alla registrazione | `link_text`, `link_url`, `audience`* | sito → dataLayer |
 | `cta_accedi` | Click login utenti esistenti | — | sito → dataLayer |
-| `cta_contatti` | Intento demo/contatto (link interni a /contatti) | `link_text`, `link_url` | sito → dataLayer |
-| `generate_lead` | **Conversione**: submit form HubSpot su /contatti | `form_id` | postMessage HubSpot → dataLayer |
+| `cta_contatti` | Intento demo/contatto (link interni a /contatti) | `link_text`, `link_url`, `audience`* | sito → dataLayer |
+| `generate_lead` | **Conversione**: submit form HubSpot su /contatti | `form_id`, `audience`* | postMessage HubSpot → dataLayer |
 | `click` (outbound) | Uscite verso siti esterni | `link_url`, `outbound=true` | sito → dataLayer |
 | `search` | Cosa cercano nel blog (0 risultati = gap editoriale) | `search_term`, `search_results` | BlogSearch → dataLayer (debounce 900ms, ≥3 char) |
 | `faq_interaction` | Quali FAQ vengono aperte | `question_text` | trigger click GTM (`data-gtm="faq-accordion"`) |
@@ -49,6 +49,53 @@ trigger customEvent. Convenzione nomi: evento GA4 raccomandato dove esiste
 | `scroll` | Profondità lettura (25/50/75/90) | `percent_scrolled` | trigger scroll GTM |
 | `consent_update` | Stato consenso (uso interno, fa ripartire i tag) | `consent_analytics` | banner → dataLayer |
 | Clarity `prova_gratis` | Filtro registrazioni in Clarity | — | smart event Clarity su evento GTM |
+
+### Parametro `audience` (pagine /soluzioni) — dal 2026-09-19
+
+\* `audience` dice da quale pubblico arriva l'azione: `agenzie`, `corporate`,
+`pmi`, `ecommerce`, `b2b`. Serve a verificare con i dati l'ipotesi commerciale
+"le agenzie rispondono più delle aziende" e a leggere i lead per segmento.
+
+- **Da dove viene**: le pagine `/soluzioni/<slug>/` lo dichiarano su
+  `<body data-audience>` (prop `audience` di `BaseLayout`); i link verso i
+  contatti portano `?profilo=<audience>` (helper `contactHref` in
+  `src/lib/utils.ts`) e `/contatti` lo rilegge dall'URL, così arriva anche su
+  `generate_lead`. Fuori da questi casi il parametro non viene inviato.
+- **Niente PII**: passano solo slug `[a-z0-9-]`, mai testo libero.
+- **GTM: fatto** il 2026-09-19, versione 11 pubblicata ("v11 - Parametro
+  audience su CTA e lead"): variabile `DLV - audience` (Data Layer v2, nessun
+  default) e parametro evento `audience` sui tag GA4 `cta_prova_gratis`,
+  `cta_contatti` e `generate_lead`. Verificato end to end sulla build locale
+  con il container live e le chiamate a GA4 bloccate in uscita: `agenzie` ed
+  `ecommerce` sulle CTA delle rispettive pagine, nessun parametro dalla home,
+  `corporate` sul lead da `/contatti/?profilo=corporate`, nessun duplicato.
+  Finché il sito non è deployato il parametro resta vuoto e non viene inviato.
+- **Da fare in GA4** (serve un accesso con permesso di modifica): Admin →
+  Definizioni personalizzate → Crea dimensione personalizzata. Nome
+  "Audience", ambito Evento, parametro evento `audience`, descrizione
+  "Pubblico della pagina /soluzioni/ da cui parte l'azione". Senza, il
+  parametro viene raccolto ma non compare nei report.
+- **Da fare in HubSpot** (Viola): proprietà contatto con nome interno
+  `profilo` (valori come sopra) aggiunta al form come campo nascosto. HubSpot
+  valorizza i campi dalla query string quando il nome coincide: senza questo
+  campo il segmento si vede in GA4 ma non nel CRM. Se il nome interno sarà
+  diverso, cambiarlo in `CONTACT_AUDIENCE_PARAM` e in `CookieBanner.astro`.
+
+Il click sulle "porte" (home e hub /soluzioni/) non ha un evento suo: è una
+navigazione interna, si legge dai `page_view` di `/soluzioni/*` con
+`page_referrer`.
+
+### Consenso dato nella pagina: bug corretto il 2026-09-19
+
+`Tracking.astro` usa `define:vars`, che chiude lo script in una funzione:
+`gtag` non era globale, `CookieBanner.astro` trovava `typeof gtag !==
+"function"` e `gtag("consent","update")` non partiva mai. Effetto sul sito
+live: nella pagina in cui il visitatore accetta i cookie non veniva tracciato
+nulla (pageview e click sulle CTA persi); tutto funzionava solo dalla pagina
+successiva, dove il consenso salvato viene letto prima di caricare GTM.
+Correzione: `window.gtag = gtag` nello script. Verificato sulla build locale:
+dopo "Accetta" parte la pageview e le CTA della stessa pagina arrivano a GA4.
+Va in produzione con il prossimo deploy del sito.
 
 ## Configurazione GA4 (Admin)
 
@@ -63,6 +110,7 @@ compaiono nei report:
 | FAQ question | `question_text` |
 | Blog category | `category` |
 | Search results count | `search_results` |
+| Audience (da registrare) | `audience` |
 
 (`search_term` e `percent_scrolled` sono dimensioni predefinite GA4.)
 

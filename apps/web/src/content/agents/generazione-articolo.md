@@ -8,6 +8,12 @@ seoTitle: "Agente di scrittura: contenuti SEO e GEO"
 seoDescription: "Genera contenuti scritti ex novo nella lingua del mercato, costruiti sull'analisi della SERP e strutturati per featured snippet e People Also Ask."
 headline: "Un contenuto scritto nella tua voce"
 lede: "L'agente di scrittura costruisce il contenuto sull'analisi della SERP e lo scrive nella lingua del mercato. Le guidelines del brief valgono anche qui: tono e terminologia restano i tuoi."
+stepsLead: "L'agente"
+steps:
+  - "costruisce la scaletta dalla mappa"
+  - "scrive nella lingua del mercato"
+  - "propone due versioni a confronto"
+pitch: "Due versioni complete, da confrontare"
 intro: "Dall'analisi arriva la mappa, dal brief le tue regole: qui diventano un testo completo, con le scelte editoriali spiegate invece che da indovinare."
 summary: "Contenuto scritto ex novo nella lingua del mercato, strutturato per featured snippet e People Also Ask."
 input:

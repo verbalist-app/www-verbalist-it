@@ -8,6 +8,9 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import Check from "@/components/fundations/icons/Check.astro";
 
 // Piani reali dal -DEF (siteConfig.pricing): pacchetti una tantum, crediti 12 mesi.
+// Prezzi e volumi compaiono anche in: pages/index.astro (JSON-LD),
+// content/helpcenter/cosa-includono-i-piani.md e content/solutions/*.md
+// (piano consigliato e FAQ). Se cambiano qui, vanno allineati anche lì.
 const pricingOptions = [
   {
     title: "Starter",
@@ -50,7 +53,7 @@ const pricingOptions = [
     price: "Su richiesta",
     period: "",
     description:
-      "Per aziende con volumi alti o esigenze custom su brand e workflow.",
+      "Per agenzie e aziende con volumi alti o esigenze custom su brand e workflow.",
     button: { text: "Contattaci", variant: "muted", href: "/contatti/" },
     isPopular: false,
     features: [
