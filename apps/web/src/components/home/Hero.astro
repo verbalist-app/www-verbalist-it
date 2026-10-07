@@ -1,9 +1,10 @@
 ---
-// Primo viewport: a sinistra titolo, testo e azioni; a destra il prodotto
-// vero, grande: la pagina del documento in app (AppWindow.astro) più larga
-// della colonna, tagliata a destra e in basso con una dissolvenza, con la luce
-// di un oggetto appoggiato sul foglio (filo chiaro in alto, ombra lunga e
-// morbida). Davanti, la card dei motori a cui il contenuto è destinato.
+// Primo viewport: a sinistra titolo, testo e azioni; a destra una card con
+// angoli ampi e una velatura in basso (il modello sono le card di prodotto di
+// claude.com): dentro, il brief come un messaggio, l'elenco dei motori a cui
+// il contenuto è destinato e la pagina del documento in app (AppWindow.astro),
+// più larga della card e tagliata dai suoi bordi, con la luce di un oggetto
+// appoggiato (filo chiaro in alto, ombra lunga e morbida).
 // Nessuna animazione. I marchi dei motori (simple-icons, CC0) restano dei
 // rispettivi proprietari; ChatGPT è senza marchio perché OpenAI non lo
 // concede alle raccolte di icone.
@@ -53,28 +54,37 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
 
     <div
       role="img"
-      aria-label={`La pagina del documento in Verbalist per la keyword «${demoBrief.keyword}»: stato completato, title tag, e le due versioni generate, A e B. Davanti, i motori a cui il contenuto è destinato: Google, ChatGPT, Gemini, Claude, Perplexity.`}
-      class="relative h-[17rem] sm:h-[28rem] lg:h-[36rem] [--vb-zoom:0.38] sm:[--vb-zoom:0.52] lg:[--vb-zoom:0.6]"
+      aria-label={`Il brief con la keyword «${demoBrief.keyword}», la pagina del documento in Verbalist con le due versioni generate, A e B, e i motori a cui il contenuto è destinato: Google, ChatGPT, Gemini, Claude, Perplexity.`}
+      class="relative overflow-hidden bg-white border rounded-3xl border-base-200 h-[20rem] sm:h-[30rem] lg:h-[36rem] vb-card [--vb-zoom:0.42] sm:[--vb-zoom:0.5] lg:[--vb-zoom:0.56]"
     >
-      <!-- Il prodotto: più largo della colonna, dissolto dove viene tagliato -->
-      <div class="absolute inset-0 overflow-hidden vb-crop">
-        <div class="absolute top-4 left-0 overflow-hidden rounded-xl vb-window lg:top-6 lg:left-2">
-          <AppWindow />
-        </div>
+      <!-- Il prodotto, tagliato dai bordi della card -->
+      <div class="absolute overflow-hidden rounded-xl top-12 left-[40%] vb-window sm:top-14 sm:left-[44%] lg:top-16">
+        <AppWindow sidebar={false} />
+      </div>
+
+      <!-- Il brief di partenza, come un messaggio -->
+      <div class="absolute z-10 p-4 bg-white top-6 left-5 w-[15.5rem] rounded-2xl rounded-tl-md vb-float sm:top-8 sm:left-7 sm:w-72">
+        <p class={label}>Brief</p>
+        <p class="mt-2 text-sm leading-snug text-base-900">
+          «{demoBrief.keyword}»
+        </p>
+        <p class="mt-2 text-xs text-base-500">{demoBrief.type} · {demoBrief.market} · {demoBrief.language}</p>
       </div>
 
       <!-- Dove va a finire: Google e le risposte delle AI -->
-      <div class="absolute hidden p-4 bg-white border rounded-xl bottom-5 right-4 w-56 border-base-200 vb-float sm:block">
-        <p class={label}>Per Google e per le AI</p>
-        <ul role="list" class="flex flex-wrap mt-3 gap-1.5">
+      <div class="absolute z-10 hidden p-4 bg-white left-5 bottom-6 w-60 rounded-2xl vb-float sm:left-7 sm:bottom-8 sm:block">
+        <p class={`${label} flex items-center gap-2`}><span class="rounded-full size-1.5 bg-status-success"></span>Per Google e per le AI</p>
+        <ul role="list" class="mt-3 space-y-2">
           {
             engines.map((e) => (
-              <li class="inline-flex items-center h-7 px-2.5 text-xs border rounded-full gap-1.5 border-base-200 text-base-800 bg-base-50">
-                {e.path && (
-                  <svg viewBox="0 0 24 24" class="size-3.5" fill={`#${e.hex}`} aria-hidden="true">
-                    <path d={e.path} />
-                  </svg>
-                )}
+              <li class="flex items-center text-sm gap-2.5 text-base-900">
+                <span class="flex items-center justify-center bg-white border rounded-md size-6 border-base-200">
+                  {e.path ? (
+                    <svg viewBox="0 0 24 24" class="size-3.5" fill={`#${e.hex}`} aria-hidden="true"><path d={e.path} /></svg>
+                  ) : (
+                    <span class="font-mono text-2xs text-base-700">AI</span>
+                  )}
+                </span>
                 {e.name}
               </li>
             ))
@@ -86,8 +96,15 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
 </Frame>
 
 <style>
-  /* La luce dell'oggetto: un filo chiaro sul bordo alto, un bordo appena
-     visibile e un'ombra lunga che si allarga verso il basso. */
+  /* La card: angoli ampi e una velatura in basso, calda a destra dove sta il
+     prodotto, fredda a sinistra dove sta l'elenco. Il resto è bianco. */
+  .vb-card {
+    background:
+      radial-gradient(70% 55% at 100% 100%, var(--color-wash-warm) 0, transparent 70%),
+      radial-gradient(55% 45% at 0% 100%, var(--color-wash-cool) 0, transparent 70%),
+      var(--color-white);
+  }
+  /* La luce dell'oggetto: filo chiaro in alto, bordo sottile, ombra lunga. */
   .vb-window {
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.9),
@@ -98,19 +115,9 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
   }
   .vb-float {
     box-shadow:
+      0 0 0 1px rgb(22 27 29 / 0.06),
       0 1px 2px rgb(22 27 29 / 0.05),
-      0 12px 24px -10px rgb(22 27 29 / 0.18),
-      0 32px 56px -24px rgb(22 27 29 / 0.22);
-  }
-  /* Il taglio a destra e in basso è una dissolvenza, non un bordo. */
-  .vb-crop {
-    mask-image:
-      linear-gradient(to right, black 72%, transparent 100%),
-      linear-gradient(to bottom, black 70%, transparent 100%);
-    mask-composite: intersect;
-    -webkit-mask-image:
-      linear-gradient(to right, black 72%, transparent 100%),
-      linear-gradient(to bottom, black 70%, transparent 100%);
-    -webkit-mask-composite: source-in;
+      0 12px 24px -10px rgb(22 27 29 / 0.16),
+      0 32px 56px -24px rgb(22 27 29 / 0.2);
   }
 </style>

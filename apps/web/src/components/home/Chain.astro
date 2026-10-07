@@ -49,7 +49,7 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
             <a
               href={`/agenti/${agent.id}/`}
               data-node={i}
-              class="flex flex-col w-full overflow-hidden bg-white border rounded-lg border-base-200 vb-node transition-[border-color,background-color,box-shadow] duration-300 hover:border-accent-400"
+              class="flex flex-col w-full overflow-hidden bg-white border rounded-2xl border-base-200 vb-node transition-[border-color,background-color,box-shadow] duration-300 hover:border-accent-400"
             >
               <span class="flex flex-col p-5 pb-0 grow">
                 <span class="font-mono text-xs tracking-wider uppercase text-base-500 vb-node-label">
@@ -59,8 +59,8 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
                 <span class="mt-2 text-xs leading-relaxed text-base-600">{agent.data.summary}</span>
                 <span class="pt-3 mt-auto font-mono text-xs border-t border-dashed border-base-200 text-base-500">→ {io[i]}</span>
               </span>
-              <span aria-hidden="true" class="relative block h-24 mt-4 overflow-hidden vb-fragment [--vb-zoom:0.56] lg:h-36 lg:[--vb-zoom:0.66]">
-                <span class="absolute block top-0 left-5 vb-fragment-card">
+              <span aria-hidden="true" class="relative block h-28 mt-4 overflow-hidden vb-fragment [--vb-zoom:0.56] lg:h-40 lg:[--vb-zoom:0.66]">
+                <span class="absolute block top-3 left-5 vb-fragment-card">
                   <ChainFragment step={fragment[agent.data.mockup as keyof typeof fragment] ?? "brief"} />
                 </span>
               </span>
@@ -94,10 +94,9 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
   .vb-node.is-past .vb-node-label::before { content: "✓ "; color: var(--color-status-success); }
   /* Il pezzo di prodotto esce dal nodo in basso e a destra, dissolvendosi. */
   .vb-fragment {
-    mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
+    background: radial-gradient(90% 90% at 60% 110%, var(--color-wash-warm) 0, transparent 70%);
   }
-  .vb-fragment-card { box-shadow: 0 1px 2px rgb(22 27 29 / 0.05), 0 12px 24px -12px rgb(22 27 29 / 0.2); border-radius: 0.5rem; }
+  .vb-fragment-card { box-shadow: 0 0 0 1px rgb(22 27 29 / 0.06), 0 1px 2px rgb(22 27 29 / 0.05), 0 16px 32px -14px rgb(22 27 29 / 0.22); border-radius: 0.75rem; }
   .vb-chain.is-live .vb-wire.is-on { animation: vb-flow 0.6s linear infinite; }
   .vb-chain.is-live .vb-wire.is-on, .vb-chain.is-live .vb-wire-tip.is-on { color: var(--color-accent-500); }
   @keyframes vb-flow { to { stroke-dashoffset: -6; } }

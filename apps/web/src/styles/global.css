@@ -120,6 +120,9 @@
 @theme static {
   --color-status-success: oklch(65% 0.1 150);
   --color-status-error: oklch(60% 0.13 25);
+  /* Velature delle card di prodotto (hero, catena): calda e fredda, quasi bianche. */
+  --color-wash-warm: oklch(95% 0.03 60);
+  --color-wash-cool: oklch(96% 0.012 200);
 }
 :root {
   /* Accento = Nero Verbalist (#161B1D), l'identità registrata in /brand:
