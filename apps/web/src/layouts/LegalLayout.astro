@@ -1,7 +1,7 @@
 ---
 // Fundations
 import BaseLayout from "./BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
+import Frame from "@/components/section/Frame.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Icons
 import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
@@ -37,68 +37,42 @@ const breadcrumbLd = {
     is:inline
     set:html={JSON.stringify(breadcrumbLd)}
   />
-  <section>
-    <Wrapper variant="standard" class="pt-32 pb-4">
-      <div class="max-w-xl mx-auto">
-        <nav
-          aria-label="Breadcrumb"
-          class="bg-mist-100 p-1.5 rounded-full px-6 w-fit"
-        >
-          <ol class="flex items-center text-sm gap-x-2 text-base-600">
-            {
-              breadcrumbs.map((item, index) => (
-                <>
-                  <li>
-                    {index < breadcrumbs.length - 1 ? (
-                      <a
-                        href={item.href}
-                        class="text-xs font-medium hover:text-accent-500 text-base-800"
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <span class="block truncate max-w-[10rem] sm:max-w-xs md:max-w-sm text-xs font-medium text-accent-500">
-                        {item.label}
-                      </span>
-                    )}
-                  </li>
-                  {index < breadcrumbs.length - 1 && (
-                    <li class="text-base-400">
-                      <ChevronRight size="sm" />
-                    </li>
+  <div class="pt-[72px]">
+    <Frame n={1} flush tone="soft" class="pt-8 pb-12 lg:pt-10 lg:pb-16 lg:!px-14">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex flex-wrap items-center font-mono text-xs tracking-wider uppercase gap-2 text-base-500">
+          {
+            breadcrumbs.map((item, index) => (
+              <>
+                <li>
+                  {index < breadcrumbs.length - 1 ? (
+                    <a href={item.href} class="hover:text-accent-600">{item.label}</a>
+                  ) : (
+                    <span class="block truncate max-w-[12rem] sm:max-w-sm text-accent-600">{item.label}</span>
                   )}
-                </>
-              ))
-            }
-          </ol>
-        </nav>
-        <Text
-          tag="h1"
-          variant="displayMD"
-          class="mt-12 font-serif font-medium tracking-tight text-base-950"
-        >
+                </li>
+                {index < breadcrumbs.length - 1 && <li aria-hidden="true">/</li>}
+              </>
+            ))
+          }
+        </ol>
+      </nav>
+      <div class="max-w-3xl mt-10">
+        <h1 class="text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 text-balance lg:text-5xl lg:leading-[1.08]">
           {frontmatter.page}
-        </Text>
-        <Text tag="p" variant="textBase" class="mt-4 text-base-500">
-          Ultimo aggiornamento:{" "}
+        </h1>
+        <p class="mt-6 font-mono text-xs tracking-wider uppercase text-base-500">
+          Ultimo aggiornamento:
           <time datetime={new Date(frontmatter.pubDate).toISOString()}>
-            {
-              new Date(frontmatter.pubDate).toLocaleDateString("it-IT", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })
-            }
+            {new Date(frontmatter.pubDate).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}
           </time>
-        </Text>
+        </p>
       </div>
-    </Wrapper>
-  </section>
-  <section>
-    <Wrapper variant="standard" class="py-12 border-t border-dashed">
-      <Wrapper variant="prose" class="max-w-xl mx-auto">
+    </Frame>
+    <Frame n={2} class="py-12 lg:py-16 lg:!px-14">
+      <Wrapper variant="prose" class="max-w-xl">
         <slot />
       </Wrapper>
-    </Wrapper>
-  </section>
+    </Frame>
+  </div>
 </BaseLayout>

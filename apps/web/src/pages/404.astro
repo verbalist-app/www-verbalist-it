@@ -1,44 +1,194 @@
 ---
-// Fundations
+// 404: l'indirizzo richiesto letto come una keyword. La pagina porta con sé
+// l'indice del sito (titolo, indirizzo, parole); lo script confronta le
+// parole dell'URL con quelle dell'indice (lib/nearest.ts) e mostra le cinque
+// pagine più vicine, come i cinque risultati che Verbalist legge prima di
+// scrivere. Senza JavaScript, o senza parole in comune, restano cinque
+// pagine da cui ripartire. Nessuna animazione.
+import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 import Button from "@/components/fundations/elements/Button.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import {
+  getAllChangelog,
+  getAllCustomers,
+  getAllHelpcenter,
+  getAllLegalPages,
+  getAllPostTags,
+  getAllPosts,
+  getAllSolutions,
+  getAllTeamMembers,
+  slugifyTag,
+} from "@/lib/data";
+import { tokenize, type IndexedPage } from "@/lib/nearest";
+
+// Le pagine fisse, con qualche sinonimo (anche inglese: i vecchi indirizzi
+// del sito erano in inglese).
+const fixed = [
+  { title: "Home", url: "/", keys: "home" },
+  { title: "Gli agenti", url: "/#agenti", keys: "agenti agent agents catena funzionalita features" },
+  { title: "Prezzi", url: "/#prezzi", keys: "prezzi prezzo pricing price piani piano listino costi" },
+  { title: "Soluzioni per agenzie e aziende", url: "/soluzioni/", keys: "solutions" },
+  { title: "Clienti", url: "/clienti/", keys: "casi studio case study customers" },
+  { title: "Blog", url: "/blog/", keys: "articoli articolo news" },
+  { title: "Argomenti del blog", url: "/categorie/", keys: "categorie categoria tag topics" },
+  { title: "Help center", url: "/help/", keys: "aiuto supporto support faq guida" },
+  { title: "Changelog", url: "/changelog/", keys: "novita release aggiornamenti updates" },
+  { title: "Chi siamo", url: "/chi-siamo/", keys: "about azienda nur" },
+  { title: "Team", url: "/team/", keys: "persone" },
+  { title: "Contatti", url: "/contatti/", keys: "contact demo" },
+  { title: "Brand", url: "/brand/", keys: "logo marchio press" },
+];
+const versionOf = (slug: string) => slug.replace(/^verbalist-/, "").replaceAll("-", ".");
+const agents = (await getCollection("agents")).sort((a, b) => a.data.n.localeCompare(b.data.n));
+
+const entries = [
+  ...fixed,
+  ...(await getAllSolutions()).map((s) => ({ title: s.data.doorLink ?? s.data.name, url: `/soluzioni/${s.id}/`, keys: s.data.name })),
+  ...agents.map((a) => ({ title: a.data.name, url: `/agenti/${a.id}/`, keys: "agente" })),
+  ...(await getAllHelpcenter()).map((h) => ({ title: h.data.page, url: `/help/${h.slug}/`, keys: "aiuto" })),
+  ...(await getAllPosts()).map((p) => ({ title: p.data.title, url: `/blog/${p.slug}/`, keys: p.data.tags.join(" ") })),
+  ...(await getAllCustomers()).map((c) => ({ title: c.data.customer, url: `/clienti/${c.slug}/`, keys: "caso studio cliente" })),
+  ...(await getAllChangelog()).map((c) => ({ title: `v${versionOf(c.slug)} · ${c.data.page}`, url: `/changelog/${c.slug}/`, keys: "release" })),
+  ...(await getAllPostTags()).map((t) => ({ title: t, url: `/categorie/${slugifyTag(t)}/`, keys: "argomento" })),
+  ...(await getAllTeamMembers()).map((m) => ({ title: m.data.name, url: `/team/${m.slug}/`, keys: "team" })),
+  ...(await getAllLegalPages()).map((l) => ({ title: l.data.page, url: `/legale/${l.slug}/`, keys: "legale" })),
+];
+const index: IndexedPage[] = entries.map((e) => ({
+  title: e.title,
+  url: e.url,
+  words: tokenize(`${e.url} ${e.title} ${e.keys}`),
+}));
+const pagesRead = index.filter((p) => !p.url.includes("#")).length;
+
+// Da dove ripartire: senza JavaScript o senza parole in comune.
+const restart = ["/soluzioni/", "/#prezzi", "/clienti/", "/blog/", "/help/"].map(
+  (url) => index.find((p) => p.url === url)!,
+);
+
+const label = "font-mono text-xs tracking-wider uppercase text-base-500";
+const panel = "p-4 bg-white border rounded-xl border-base-200";
+// Come un risultato di ricerca: titolo sopra, indirizzo sotto.
+const row =
+  "grid grid-cols-[1.25rem_minmax(0,1fr)] items-baseline gap-x-3 px-2 py-2.5 -mx-2 rounded-md min-h-11 transition-colors duration-200 hover:bg-base-50";
+const json = JSON.stringify(index).replace(/</g, "\\u003c");
 ---
 
 <BaseLayout seo={{ title: "Pagina non trovata", noindex: true }}>
-  <section>
-    <Wrapper
-      variant="standard"
-      class="flex flex-col items-center justify-center pt-32 pb-4 lg:h-svh bg-mist-50"
-    >
-      <div class="text-center text-balance">
-        <Text
-          tag="h1"
-          variant="displayMD"
-          class="font-serif font-medium tracking-tight text-base-950"
-        >
-          Questa pagina si è persa.
-        </Text>
-        <Text
-          tag="p"
-          variant="textBase"
-          class="max-w-xl mx-auto mt-4 text-base-500"
-        >
-          Quello che cercavi non è qui: forse l'indirizzo è cambiato, o forse
-          non è mai esistito. Riparti dalla home, o scrivici.
-        </Text>
+  <div class="pt-[72px]">
+    <Frame n={4} flush tone="soft" labelledby="nf-title" class="py-16 lg:py-24 lg:!px-14">
+      <div class="grid items-start grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,27rem)] lg:gap-14">
+        <div class="min-w-0">
+          <Head tag="404" id="nf-title" title="Questa pagina si è persa." level="h1" />
+          <p
+            class="max-w-md mt-6 text-lg font-light leading-snug text-base-600"
+            data-lede="Questo indirizzo non porta a nessuna pagina. L'abbiamo letto come una keyword e abbiamo cercato le pagine del sito più vicine."
+          >
+            Questo indirizzo non porta a nessuna pagina. Riparti da una di
+            queste, dalla home, o scrivici.
+          </p>
+          <div class="flex flex-wrap items-center mt-8 gap-3">
+            <Button isLink size="base" variant="accent" href="/">Torna alla home</Button>
+            <Button isLink size="base" variant="muted" href="/contatti/">Scrivici</Button>
+          </div>
+        </div>
+
+        <div class="flex flex-col min-w-0 gap-2">
+          <div class={panel} data-asked-panel hidden>
+            <div class="flex items-center justify-between">
+              <p class={`${label} flex items-center gap-2`}>
+                <span class="rounded-full size-1.5 bg-status-success"></span>Indirizzo
+              </p>
+              <p class={label}>Keyword</p>
+            </div>
+            <p class="flex items-center h-9 px-4 mt-3 font-mono text-[13px] border rounded-full border-base-200 text-base-800 bg-base-50">
+              <span class="truncate" data-asked></span>
+            </p>
+          </div>
+
+          <div class={panel}>
+            <div class="flex items-center justify-between gap-4">
+              <p class={`${label} flex items-center gap-2`}>
+                <span class="rounded-full size-1.5 bg-base-300" data-dot></span>Analisi
+              </p>
+              <p class={label} data-read={`${pagesRead} pagine lette`}>{pagesRead} pagine nel sito</p>
+            </div>
+            <ol role="list" class="mt-2" data-results>
+              {
+                restart.map((p, i) => (
+                  <li class="border-t border-dashed border-base-200 first:border-t-0">
+                    <a href={p.url} class={row}>
+                      <span class="font-mono text-xs text-base-500">{i + 1}</span>
+                      <span class="min-w-0">
+                        <span class="block text-sm truncate text-base-900">{p.title}</span>
+                        <span class="block mt-0.5 font-mono text-xs truncate text-base-500">{p.url}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ol>
+            <p class="pt-3 mt-1 text-xs border-t border-dashed text-base-500 border-base-200" data-note>
+              Da dove ripartire.
+            </p>
+          </div>
+        </div>
       </div>
-      <div
-        class="flex flex-wrap items-center justify-center w-full mt-10 gap-2"
-      >
-        <Button isLink size="sm" variant="accent" href="/"
-          >Torna alla home</Button
-        >
-        <Button isLink size="sm" variant="muted" href="/contatti/"
-          >Scrivici</Button
-        >
-      </div>
-    </Wrapper>
-  </section>
+    </Frame>
+  </div>
+  <script is:inline type="application/json" id="indice-pagine" set:html={json} />
 </BaseLayout>
+
+<script>
+  import { nearest, tokenize, type IndexedPage } from "@/lib/nearest";
+
+  const source = document.getElementById("indice-pagine");
+  const list = document.querySelector<HTMLOListElement>("[data-results]");
+  if (source && list) {
+    const index: IndexedPage[] = JSON.parse(source.textContent || "[]");
+    let asked = location.pathname;
+    try {
+      asked = decodeURIComponent(asked);
+    } catch {
+      // indirizzo con codifica non valida: si legge così com'è
+    }
+
+    // L'indirizzo richiesto, come la keyword del brief.
+    const askedPanel = document.querySelector<HTMLElement>("[data-asked-panel]");
+    const askedText = document.querySelector<HTMLElement>("[data-asked]");
+    if (askedPanel && askedText) {
+      askedText.textContent = asked;
+      askedText.title = asked;
+      askedPanel.hidden = false;
+    }
+    const lede = document.querySelector<HTMLElement>("[data-lede]");
+    if (lede) lede.textContent = lede.dataset.lede || lede.textContent;
+    const read = document.querySelector<HTMLElement>("[data-read]");
+    if (read) read.textContent = read.dataset.read || read.textContent;
+    document.querySelector("[data-dot]")?.classList.replace("bg-base-300", "bg-status-success");
+
+    const hits = nearest(tokenize(asked), index);
+    const note = document.querySelector<HTMLElement>("[data-note]");
+    if (hits.length) {
+      // Stesse righe del markup di partenza: si clona la prima e si riempie.
+      const template = list.querySelector("li")!;
+      list.replaceChildren(
+        ...hits.map((page, i) => {
+          const item = template.cloneNode(true) as HTMLLIElement;
+          const link = item.querySelector("a")!;
+          const rank = link.firstElementChild as HTMLElement;
+          const [title, url] = Array.from(link.lastElementChild!.children) as HTMLElement[];
+          link.href = page.url;
+          rank.textContent = String(i + 1);
+          title.textContent = page.title;
+          url.textContent = page.url;
+          return item;
+        }),
+      );
+      if (note) note.textContent = "Le pagine più vicine alle parole dell'indirizzo, in ordine.";
+    } else if (note) {
+      note.textContent = "Nessuna pagina somiglia a questo indirizzo: ecco da dove ripartire.";
+    }
+  }
+</script>

@@ -1,9 +1,8 @@
 ---
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-import Logo from "@/components/assets/Logo.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 ---
 
 <BaseLayout
@@ -13,29 +12,34 @@ import Logo from "@/components/assets/Logo.astro";
       "25 anni di SEO, il primo libro italiano sulla GEO e un team di prodotto: scopri il metodo che abbiamo trasformato in software.",
   }}
 >
-  <section>
-    <Wrapper variant="standard" class="pt-32 pb-12">
-      <div class="max-w-xl mx-auto">
-        <div class="p-4 bg-mist-100 w-fit rounded-xl">
-          <Logo class="h-8 text-base-900" />
-        </div>
-        <Text
-          tag="h1"
-          variant="displayMD"
-          class="mt-12 font-serif font-medium tracking-tight text-base-950 text-balance"
-        >
-          25 anni di esperienza SEO, ora in un software
-        </Text>
-        <div class="flex flex-col mt-4 gap-4">
-          <Text tag="p" variant="textBase" class="text-base-500">
+  <div class="pt-[72px]">
+    <Frame n={1} flush tone="soft" class="pt-12 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:items-end">
+        <Head tag="Chi siamo" title="25 anni di esperienza SEO, ora in un software" level="h1" />
+        <dl class="p-6 bg-white border rounded-xl border-base-200">
+          {
+            [["Agenzia", "NUR Digital Marketing, dal 1999"], ["Aziende seguite", "oltre 430, in Italia e all'estero"], ["Partnership", "Google Premier Partner, HubSpot Platinum"], ["Sede", "San Giorgio Bigarello (MN)"]].map(([k, v]) => (
+              <div class="flex justify-between py-2.5 text-sm border-b border-dashed gap-4 border-base-200 last:border-b-0">
+                <dt class="font-mono text-xs leading-5 tracking-wider uppercase text-base-500">{k}</dt>
+                <dd class="text-right text-base-800">{v}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </Frame>
+    <Frame n={2} class="py-16 lg:py-24 lg:!px-14">
+      <div class="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+        <div class="space-y-4 text-lg font-light leading-relaxed text-base-700">
+          <p>
             NUR Digital Marketing nasce nel 1999. Da allora abbiamo lavorato a
             SEO, GEO e contenuti per oltre 430 aziende, in Italia e all'estero.
-          </Text>
-          <Text tag="p" variant="textBase" class="text-base-500">
+          </p>
+          <p>
             Siamo Google Premier Partner (nel 3% delle agenzie in Italia) e HubSpot Partner Platinum. Tra i clienti enterprise: EY,
             Mercedes-Benz, LVMH e SDA Bocconi.
-          </Text>
-          <Text tag="p" variant="textBase" class="text-base-500">
+          </p>
+          <p>
             Da anni investiamo in software, automazioni e sistemi basati
             sull'intelligenza artificiale, collaborando con università ed enti
             di ricerca italiani come la Fondazione Bruno Kessler. Siamo stati
@@ -45,35 +49,35 @@ import Logo from "@/components/assets/Logo.astro";
               href="https://amzn.eu/d/00Ki6HeV"
               target="_blank"
               rel="noopener"
-              class="text-base-900 underline underline-offset-2 transition hover:text-accent-500"
+              class="font-normal text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500"
               >il primo libro italiano sul tema</a
             >, oggi citato come fonte su Wikipedia.
-          </Text>
-          <Text tag="p" variant="textBase" class="text-base-500">
+          </p>
+          <p class="text-base-900">
             Verbalist nasce da qui: lo stesso processo che facevamo a mano coi
             clienti, ora dentro un software.
-          </Text>
+          </p>
+          <p class="pt-4">
+            <a href="/team/" class="text-base font-normal text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Il team</a>
+          </p>
+        </div>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <img
+            src="/img/about/nur-stand.webp"
+            alt="Lo stand NUR al Global Summit Marketing & Digital"
+            width="1400"
+            height="788"
+            class="object-cover w-full aspect-[4/3] rounded-xl border border-base-200"
+          />
+          <img
+            src="/img/about/nur-keynote.webp"
+            alt="Rinaldo Zambello, CEO di NUR, sul palco del Global Summit Marketing & Digital"
+            width="1400"
+            height="788"
+            class="object-cover w-full aspect-[4/3] rounded-xl border border-base-200"
+          />
         </div>
       </div>
-    </Wrapper>
-
-    <Wrapper variant="standard" class="pt-4 pb-16">
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <img
-          src="/img/about/nur-stand.webp"
-          alt="Lo stand NUR al Global Summit Marketing & Digital"
-          width="1400"
-          height="788"
-          class="object-cover w-full aspect-[4/3] rounded-xl"
-        />
-        <img
-          src="/img/about/nur-keynote.webp"
-          alt="Rinaldo Zambello, CEO di NUR, sul palco del Global Summit Marketing & Digital"
-          width="1400"
-          height="788"
-          class="object-cover w-full aspect-[4/3] rounded-xl"
-        />
-      </div>
-    </Wrapper>
-  </section>
+    </Frame>
+  </div>
 </BaseLayout>

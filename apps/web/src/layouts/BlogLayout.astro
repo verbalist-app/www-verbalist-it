@@ -72,6 +72,7 @@ const breadcrumbLd = {
       : {}),
   })),
 };
+import Unbroken from "@/components/fundations/elements/Unbroken.astro";
 ---
 
 <BaseLayout seo={seo}>
@@ -92,80 +93,59 @@ const breadcrumbLd = {
     is:inline
     set:html={JSON.stringify(breadcrumbLd)}
   />
-  <section>
-    <Wrapper variant="standard" class="pt-32 pb-4">
-      <div
-        class="flex flex-col justify-between max-w-xl mx-auto text-center text-balance"
+  <div class="pt-[72px]">
+  <section class="border-b border-dashed border-base-200 bg-base-50">
+    <Wrapper variant="standard" class="pt-8 pb-12 lg:pt-10 lg:pb-16 lg:px-14">
+      <div class="flex items-center justify-between gap-4">
+      <nav aria-label="Breadcrumb" class="min-w-0">
+        <ol class="flex flex-wrap items-center font-mono text-xs tracking-wider uppercase gap-2 text-base-500">
+          {
+            breadcrumbs.map((item, index) => (
+              <>
+                <li>
+                  {index < breadcrumbs.length - 1 ? (
+                    <a href={item.href} class="hover:text-accent-600">{item.label}</a>
+                  ) : (
+                    <span class="block truncate max-w-[12rem] sm:max-w-sm text-accent-600">{item.label}</span>
+                  )}
+                </li>
+                {index < breadcrumbs.length - 1 && <li aria-hidden="true">/</li>}
+              </>
+            ))
+          }
+        </ol>
+      </nav>
+      <!-- Lo stesso articolo in Markdown (route blog/[slug].md.ts), per agenti e LLM -->
+      <a
+        href={`/blog/${currentSlug}.md`}
+        type="text/markdown"
+        title="Lo stesso articolo in Markdown, per agenti e LLM"
+        class="relative inline-flex items-center h-8 px-3 font-mono text-xs tracking-wider uppercase bg-white border rounded-full tap-target shrink-0 border-base-200 text-base-600 hover:border-base-300 hover:text-base-900"
       >
-        <div>
-          <nav
-            aria-label="Breadcrumb"
-            class="bg-mist-100 p-1.5 rounded-full px-6 w-fit mx-auto"
-          >
-            <ol class="flex items-center text-xs gap-2 text-base-500">
-              {
-                breadcrumbs.map((item, index) => (
-                  <>
-                    <li>
-                      {index < breadcrumbs.length - 1 ? (
-                        <a
-                          href={item.href}
-                          class="text-xs font-medium hover:text-accent-500 text-base-800"
-                        >
-                          {item.label}
-                        </a>
-                      ) : (
-                        <span class="block truncate max-w-[10rem] sm:max-w-xs md:max-w-sm text-xs font-medium text-accent-500">
-                          {item.label}
-                        </span>
-                      )}
-                    </li>
-                    {index < breadcrumbs.length - 1 && (
-                      <li class="text-base-400">
-                        <ChevronRight size="sm" />
-                      </li>
-                    )}
-                  </>
-                ))
-              }
-            </ol>
-          </nav>
-          <Text
-            tag="h1"
-            variant="displayMD"
-            class="mt-12 font-serif font-medium tracking-tight text-base-900"
-          >
-            {frontmatter.title}
-          </Text>
-          <Text
-            tag="p"
-            variant="textBase"
-            class="max-w-xl mx-auto mt-4 text-base-500"
-          >
-            {frontmatter.description}
-          </Text>
-        </div>
+        Markdown<span class="sr-only"> di questo articolo</span>
+      </a>
+      </div>
+      <div class="max-w-3xl mt-10">
+        <h1 class="text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 text-balance lg:text-5xl lg:leading-[1.08]">
+          <Unbroken text={frontmatter.title} />
+        </h1>
+        <p class="max-w-xl mt-6 text-lg font-light leading-snug text-base-600">
+          {frontmatter.description}
+        </p>
       </div>
 
-      <Image
-        width={1000}
-        height={800}
-        alt={frontmatter.image.alt}
-        src={frontmatter.image.url}
-        loading="eager"
-        fetchpriority="high"
-        class="object-cover object-center mt-8 size-full max-h-120 lg:col-span-2 rounded-xl bg-mist-100"
-      />
     </Wrapper>
+  </section>
+  <section>
     <Wrapper variant="standard" class="pt-12 pb-4 border-t border-base-200 border-dashed">
       <div class="max-w-xl mx-auto">
         {
           frontmatter.tldr && frontmatter.tldr.length > 0 && (
-            <details open class="mb-10 group bg-mist-100 rounded-xl">
+            <details open class="mb-10 bg-white border group border-base-200 rounded-xl">
               <summary class="flex items-center justify-between px-5 py-3.5 font-mono text-xs font-medium tracking-wider uppercase select-none cursor-pointer list-none text-base-700 [&::-webkit-details-marker]:hidden">
                 Riassunto
                 <svg
-                  class="size-4 text-base-400 duration-300 transition-transform group-open:rotate-180"
+                  class="size-4 text-base-500 duration-300 transition-transform group-open:rotate-180"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -179,7 +159,7 @@ const breadcrumbLd = {
               <ul class="flex flex-col px-5 pb-4 gap-2">
                 {frontmatter.tldr.map((point: string) => (
                   <li class="flex items-start gap-2 text-sm leading-relaxed text-base-700">
-                    <span class="shrink-0 text-base-400">—</span>
+                    <span class="shrink-0 text-base-500">—</span>
                     <span>{point}</span>
                   </li>
                 ))}
@@ -264,14 +244,10 @@ const breadcrumbLd = {
     relatedPosts.length > 0 && (
       <section class="border-t border-base-200 border-dashed">
         <Wrapper variant="standard" class="py-12">
-          <Text
-            tag="h2"
-            variant="displayMD"
-            class="font-serif font-medium tracking-tight text-base-900"
-          >
+          <h2 class="text-display-xs font-normal tracking-[-0.025em] text-base-900">
             Articoli correlati
-          </Text>
-          <div class="mt-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          </h2>
+          <div class="grid mt-8 -mx-4 border-t border-dashed border-base-200 md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(3n))]:border-r lg:-mx-12">
             {relatedPosts.slice(0, 3).map((post) => (
               <BlogCard post={post} />
             ))}
@@ -280,4 +256,5 @@ const breadcrumbLd = {
       </section>
     )
   }
+  </div>
 </BaseLayout>

@@ -1,0 +1,33 @@
+---
+// Barra fissa in basso su mobile: "Prova gratis" nella zona del pollice.
+// Compare dopo il primo viewport, sparisce quando la chiusura o il footer
+// sono in vista (lì la CTA c'è già). Rispetta la safe area di iOS.
+import Button from "@/components/fundations/elements/Button.astro";
+const TRIAL = "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26";
+---
+
+<div
+  data-mobile-cta
+  class="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between px-4 py-2.5 bg-white/95 border-t border-dashed border-base-200 backdrop-blur-sm gap-3 translate-y-full transition-transform duration-300 ease-out lg:hidden [padding-bottom:calc(0.625rem+env(safe-area-inset-bottom))]"
+  aria-hidden="true"
+>
+  <p class="text-xs leading-tight text-base-600">30 giorni, 15 documenti,<br />senza carta di credito.</p>
+  <Button isLink size="base" variant="accent" href={TRIAL} tabindex="-1">Prova gratis</Button>
+</div>
+
+<script>
+  // Visibile solo tra la fine del primo viewport e l'inizio della chiusura/footer.
+  const bar = document.querySelector<HTMLElement>("[data-mobile-cta]");
+  const end = document.querySelector<HTMLElement>("footer");
+  if (bar && end) {
+    let pastHero = false, nearEnd = false;
+    const show = () => {
+      const on = pastHero && !nearEnd && window.matchMedia("(max-width: 63.99rem)").matches;
+      bar.classList.toggle("translate-y-full", !on);
+      bar.setAttribute("aria-hidden", String(!on));
+      bar.querySelector("a")?.setAttribute("tabindex", on ? "0" : "-1");
+    };
+    window.addEventListener("scroll", () => { pastHero = window.scrollY > window.innerHeight * 0.9; show(); }, { passive: true });
+    new IntersectionObserver(([e]) => { nearEnd = e.isIntersecting; show(); }, { rootMargin: "0px 0px 420px 0px" }).observe(end);
+  }
+</script>

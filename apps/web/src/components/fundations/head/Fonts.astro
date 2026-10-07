@@ -1,11 +1,7 @@
-<!-- Geist, Geist Mono e Familjen Grotesk da Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400..500&family=Geist:wght@400..700&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&display=swap"
-  rel="stylesheet"
-/>
+---
+// Geist e Geist Mono sono self-hosted (fontsource, importati da BaseLayout):
+// qui si precarica solo il file latin del testo, che serve al primo paint.
+import geist from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
+---
+
+<link rel="preload" as="font" type="font/woff2" href={geist} crossorigin />

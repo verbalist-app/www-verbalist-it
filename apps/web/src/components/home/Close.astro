@@ -1,0 +1,18 @@
+---
+// Chiusura: una sola azione, con la sua rassicurazione.
+import Button from "@/components/fundations/elements/Button.astro";
+import Frame from "@/components/section/Frame.astro";
+import { TRIAL_HREF } from "@/lib/pricing";
+---
+
+<Frame n={10} labelledby="close-title" tone="soft" class="py-16 lg:py-20 lg:!px-14">
+  <h2 id="close-title" class="text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 lg:text-display">
+    Provalo sui tuoi contenuti.
+  </h2>
+  <p class="max-w-md mt-6 text-lg font-light leading-snug text-base-600">
+    Tutte le funzionalità per 30 giorni, con 15 documenti inclusi e senza carta di credito.
+  </p>
+  <div class="flex mt-8">
+    <Button isLink size="base" variant="accent" href={TRIAL_HREF}>Prova gratis</Button>
+  </div>
+</Frame>

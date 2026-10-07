@@ -1,57 +1,97 @@
 @import "tailwindcss";
+
+/* Fallback a metriche compatibili con Geist: se il woff2 arriva dopo il
+   primo paint, il testo di sistema occupa lo stesso spazio (niente reflow). */
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Helvetica");
+  size-adjust: 106%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Geist Mono Fallback";
+  src: local("Menlo"), local("Consolas"), local("Courier New");
+  size-adjust: 96%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 @plugin "tailwind-scrollbar-hide";
 @theme {
-  /* Typography */
-  --font-sans: Geist, sans-serif;
-  --font-mono: Geist Mono, monospace;
-  --font-serif: "Familjen Grotesk", sans-serif;
+  /* Typography: un solo grottesco (Geist) per display e testo, Geist Mono per
+     etichette e artefatti tecnici. `font-serif` resta come alias storico dei
+     display: ora punta a Geist. Font self-hosted via fontsource. */
+  --font-sans: "Geist Variable", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono Fallback", ui-monospace, monospace;
+  --font-serif: "Geist Variable", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  /* Scala tipografica documentata in DESIGN.md: i passi fuori dalla scala
+     Tailwind di default hanno un nome, così nessuna misura resta arbitraria. */
+  --text-2xs: 0.6875rem; /* 11px: solo artefatti tecnici nei mockup */
+  --text-2xs--line-height: 1.4;
+  --text-md: 0.9375rem; /* 15px: secondario nei fogli e nelle card */
+  --text-md--line-height: 1.6;
+  --text-lede: 1.1875rem; /* 19px: lede sotto hero e chiusure */
+  --text-lede--line-height: 1.375;
+  --text-headline: 1.75rem; /* 28px: citazioni, titoli di release */
+  --text-headline--line-height: 1.25;
+  --text-display-xs: 2rem; /* 32px: H2 di cella, prezzo "Su richiesta" */
+  --text-display-xs--line-height: 1.15;
+  --text-display: 3.25rem; /* 52px: H1 interne e H2 di sezione (desktop) */
+  --text-display--line-height: 1.08;
+  --text-hero-sm: 3.5rem; /* 56px: hero da sm */
+  --text-hero-sm--line-height: 1.06;
+  --text-hero: 3.75rem; /* 60px: hero della home (desktop) */
+  --text-hero--line-height: 1.06;
   /* Colors */
-  /* Reskin MIST (monocromo Verbalist) — accent/sand/base mappati sulla palette mist.
-     Accent arancione e sand beige rimossi → tutto sul grigio-freddo mist. */
-  /* Accent = brand monocromo SCURO (CTA/link/icone neri, come Verbalist). Rampa
-     che diventa near-black già a 500, così bg-accent-500 dei bottoni = nero. */
-  --color-accent-50: oklch(96.3% 0.002 197.1);
-  --color-accent-100: oklch(92.5% 0.005 214.3);
-  --color-accent-200: oklch(87.2% 0.007 219.6);
-  --color-accent-300: oklch(72.3% 0.014 214.4);
-  --color-accent-400: oklch(45% 0.017 213.2);
-  --color-accent-500: oklch(21.8% 0.008 223.9);
-  --color-accent-600: oklch(14.8% 0.004 228.8);
-  --color-accent-700: oklch(14.8% 0.004 228.8);
-  --color-accent-800: oklch(14.8% 0.004 228.8);
-  --color-accent-900: oklch(14.8% 0.004 228.8);
-  --color-accent-950: oklch(14.8% 0.004 228.8);
+  /* Accent = l'unico colore saturo del sito: CTA, icone, parole chiave,
+     etichette di sezione. I valori vivono in :root (--vb-accent-*), così il
+     colore si cambia in un punto solo. 500 regge il testo bianco in AA. */
+  --color-accent-50: var(--vb-accent-50);
+  --color-accent-100: var(--vb-accent-100);
+  --color-accent-200: var(--vb-accent-200);
+  --color-accent-300: var(--vb-accent-300);
+  --color-accent-400: var(--vb-accent-400);
+  --color-accent-500: var(--vb-accent-500);
+  --color-accent-600: var(--vb-accent-600);
+  --color-accent-700: var(--vb-accent-700);
+  --color-accent-800: var(--vb-accent-700);
+  --color-accent-900: var(--vb-accent-700);
+  --color-accent-950: var(--vb-accent-700);
+  /* Neutri del brand: rampa fredda (hue ~215) con Mist #F1F3F3 a 100,
+     Grigio testo #67787C a 500 e Nero Verbalist #161B1D a 900. */
   --color-base-50: oklch(98.7% 0.002 197.1);
   --color-base-100: oklch(96.3% 0.002 197.1);
-  --color-base-200: oklch(87.2% 0.007 219.6);
+  --color-base-200: oklch(92.5% 0.005 214.3);
   --color-base-300: oklch(87.2% 0.007 219.6);
   --color-base-400: oklch(72.3% 0.014 214.4);
-  --color-base-500: oklch(56% 0.021 213.5);
+  --color-base-500: oklch(54% 0.021 213.5);
   --color-base-600: oklch(45% 0.017 213.2);
   --color-base-700: oklch(37.8% 0.015 216);
   --color-base-800: oklch(27.5% 0.011 216.9);
   --color-base-900: oklch(21.8% 0.008 223.9);
   --color-base-950: oklch(14.8% 0.004 228.8);
 
-  /* Token Verbalist per il componente hero animato (HeroMockup/HeroDemo) */
-  --color-mist-50: oklch(98.7% 0.002 197.1);
-  --color-mist-100: oklch(96.3% 0.002 197.1);
-  --color-mist-200: oklch(92.5% 0.005 214.3);
-  --color-mist-300: oklch(87.2% 0.007 219.6);
-  --color-mist-400: oklch(72.3% 0.014 214.4);
-  --color-mist-500: oklch(56% 0.021 213.5);
-  --color-mist-600: oklch(45% 0.017 213.2);
-  --color-mist-700: oklch(37.8% 0.015 216);
-  --color-mist-800: oklch(27.5% 0.011 216.9);
-  --color-mist-900: oklch(21.8% 0.008 223.9);
-  --color-mist-950: oklch(14.8% 0.004 228.8);
+  /* Alias storico (mockup di prodotto, bottoni): stessa rampa di base-*. */
+  --color-mist-50: var(--color-base-50);
+  --color-mist-100: var(--color-base-100);
+  --color-mist-200: var(--color-base-200);
+  --color-mist-300: var(--color-base-300);
+  --color-mist-400: var(--color-base-400);
+  --color-mist-500: var(--color-base-500);
+  --color-mist-600: var(--color-base-600);
+  --color-mist-700: var(--color-base-700);
+  --color-mist-800: var(--color-base-800);
+  --color-mist-900: var(--color-base-900);
+  --color-mist-950: var(--color-base-950);
   --color-background: oklch(1 0 0);
   --color-card: oklch(1 0 0);
   --color-popover: oklch(1 0 0);
-  --color-border: oklch(92.5% 0.005 214.3);
-  --color-foreground: oklch(14.8% 0.004 228.8);
+  --color-border: oklch(94% 0 0);
+  --color-foreground: oklch(22% 0 0);
 /* Keyframes */
   --animate-marquee: marquee 12s linear infinite;
   --animate-rightMarquee: rightMarquee 300s linear infinite;
@@ -73,7 +113,25 @@
     }
   }
 }
+/* Stati, gli stessi di app.verbalist.it (css.css): in corso = grigio,
+   completato = verde desaturato, errore = rosso desaturato. Stanno nel tema
+   perché esistano anche le utility (bg-status-success, text-status-success);
+   `static` emette sempre le variabili, che alcuni stili usano direttamente. */
+@theme static {
+  --color-status-success: oklch(65% 0.1 150);
+  --color-status-error: oklch(60% 0.13 25);
+}
 :root {
+  /* Accento = Nero Verbalist (#161B1D), l'identità registrata in /brand:
+     pillole, targhette, punti. Nessun colore saturo nel sito. */
+  --vb-accent-50: oklch(96.3% 0.002 197.1);
+  --vb-accent-100: oklch(92.5% 0.005 214.3);
+  --vb-accent-200: oklch(87.2% 0.007 219.6);
+  --vb-accent-300: oklch(72.3% 0.014 214.4);
+  --vb-accent-400: oklch(45% 0.017 213.2);
+  --vb-accent-500: oklch(21.8% 0.008 223.9);
+  --vb-accent-600: oklch(21.8% 0.008 223.9);
+  --vb-accent-700: oklch(14.8% 0.004 228.8);
   --astro-code-color-text: var(--color-base-500);
   --astro-code-foreground: var(--color-base-500);
   --astro-code-token-link: var(--color-accent-500);
@@ -101,7 +159,7 @@ code .line::before {
   margin-right: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: #999999;
+  color: var(--color-base-400);
 }
 
 /* Rispetta la preferenza di riduzione del movimento */
@@ -129,4 +187,28 @@ code .line::before {
     left: 0;
     right: 0;
   }
+}
+
+/* Superfici del browser nell'inchiostro del sito: cursore di testo, controlli
+   nativi, focus da tastiera e barre di scorrimento. La selezione nera sta su
+   <html> (BaseLayout). Base layer: le utility dei componenti hanno la meglio. */
+@layer base {
+  html {
+    caret-color: var(--color-base-900);
+    accent-color: var(--color-base-900);
+    scrollbar-color: var(--color-base-300) transparent;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-base-900);
+    outline-offset: 2px;
+  }
+}
+
+/* Dove il fondo è già nero (targhette, pillole piene) la selezione si
+   inverte, altrimenti non si vedrebbe. Fuori dai layer per prevalere sulla
+   utility `selection:` di <html>. */
+:where(.bg-base-900, .bg-base-950, .bg-accent-500, .bg-accent-600, .bg-accent-700)::selection,
+:where(.bg-base-900, .bg-base-950, .bg-accent-500, .bg-accent-600, .bg-accent-700) ::selection {
+  background-color: var(--color-white);
+  color: var(--color-base-900);
 }

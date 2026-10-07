@@ -4,7 +4,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import SubNav from "@/components/featurepage/SubNav.astro";
 import SectionHead from "@/components/featurepage/SectionHead.astro";
-import AudienceDoors from "@/components/solutions/AudienceDoors.astro";
+import Doors from "@/components/home/Doors.astro";
+import Frame from "@/components/section/Frame.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import { getAllSolutions } from "@/lib/data";
 
@@ -56,18 +57,16 @@ const breadcrumbLd = {
     current="/soluzioni/"
   />
 
-  <section>
-    <Wrapper variant="standard" class="pt-16 pb-16 lg:pt-24 lg:pb-20">
-      <SectionHead
-        tag="h1"
-        eyebrow="Per chi è"
-        title="Soluzioni per agenzie e aziende"
-        text="Il prodotto è lo stesso: legge i risultati di Google per una keyword e scrive contenuti ottimizzati per la ricerca e per le risposte AI. Cambia quello che ti serve intorno. Scegli il tuo caso: trovi cosa cambia per te, i casi di aziende come la tua e il piano da cui partire."
-      />
-    </Wrapper>
-  </section>
+  <Frame n={1} flush tone="soft" class="pt-12 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
+    <SectionHead
+      tag="h1"
+      eyebrow="Per chi è"
+      title="Soluzioni per agenzie e aziende"
+      text="Il prodotto è lo stesso: legge i risultati di Google per una keyword e scrive contenuti ottimizzati per la ricerca e per le risposte AI. Cambia quello che ti serve intorno. Scegli il tuo caso: trovi cosa cambia per te, i casi di aziende come la tua e il piano da cui partire."
+    />
+  </Frame>
 
-  <AudienceDoors withHeader={false} />
+  <Doors />
 
   <Cta2
     compact

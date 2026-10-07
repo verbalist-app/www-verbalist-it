@@ -1,0 +1,62 @@
+---
+// Il doppio ingresso, subito sotto il primo viewport: l'agenzia per prima,
+// poi le aziende con i loro quattro casi. Testi dalle pagine /soluzioni.
+// Ogni cella è cliccabile per intero: quella delle aziende porta alla pagina
+// corporate, le righe dei casi restano link a sé, sopra il link della cella.
+import { getAllSolutions } from "@/lib/data";
+import Frame from "@/components/section/Frame.astro";
+
+const solutions = await getAllSolutions();
+const agency = solutions.find((s) => s.data.audience === "agenzie");
+const companies = solutions.filter((s) => s.data.audience !== "agenzie");
+const corporate = companies.find((s) => s.data.audience === "corporate") ?? companies[0];
+// Il prezzo per contenuto non si mostra in home (brief, §7.2).
+const points = (agency?.data.doorPoints ?? []).filter((p) => !/costo per contenuto/i.test(p));
+const label = "font-mono text-xs tracking-wider uppercase text-accent-600";
+---
+
+<Frame n={2} labelledby="doors-title" class="!px-0">
+  <h2 id="doors-title" class="sr-only">Da dove entri: agenzie o aziende</h2>
+  <div class="grid lg:grid-cols-2 lg:divide-x lg:divide-dashed lg:divide-base-200">
+    <div class="relative flex flex-col px-4 py-10 transition-colors duration-200 lg:px-10 lg:py-14 hover:bg-base-50 group">
+      <p class={label}>Per le agenzie</p>
+      <h3 class="mt-6 text-2xl font-normal tracking-tight text-base-900">
+        <a href={`/soluzioni/${agency?.id}/`} class="after:absolute after:inset-0">{agency?.data.doorTitle}</a>
+      </h3>
+      <p class="max-w-md mt-3 text-md leading-relaxed text-base-600">{agency?.data.doorText}</p>
+      <ul role="list" class="mt-8 text-sm text-base-800">
+        {points.map((p) => (
+          <li class="flex items-center py-3 border-t border-dashed gap-3 border-base-200 last:border-b">
+            <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>{p}
+          </li>
+        ))}
+      </ul>
+      <p class="pt-6 mt-auto text-sm text-base-900 group-hover:text-accent-600" aria-hidden="true">
+        {agency?.data.doorLink} →
+      </p>
+    </div>
+    <div class="relative flex flex-col px-4 py-10 border-t border-dashed transition-colors duration-200 lg:px-10 lg:py-14 border-base-200 lg:border-t-0 hover:bg-base-50 group">
+      <p class={label}>Per le aziende</p>
+      <h3 class="mt-6 text-2xl font-normal tracking-tight text-base-900">
+        <a href={`/soluzioni/${corporate?.id}/`} class="after:absolute after:inset-0">Dalla PMI al gruppo con più mercati</a>
+      </h3>
+      <p class="max-w-md mt-3 text-md leading-relaxed text-base-600">
+        Il prodotto è lo stesso, cambia quello che ti serve intorno. Scegli il tuo caso.
+      </p>
+      <ul role="list" class="mt-8 text-sm">
+        {companies.map((s) => (
+          <li class="border-t border-dashed border-base-200 last:border-b">
+            <a href={`/soluzioni/${s.id}/`} class="relative z-10 flex items-baseline py-3 -mx-2 px-2 gap-4 transition-colors duration-200 rounded-md group/row min-h-11 hover:bg-base-100">
+              <span class="text-base-900 whitespace-nowrap shrink-0">{s.data.name}</span>
+              <span class="ml-auto text-right text-base-500">{s.data.doorTitle}</span>
+              <span class="text-base-900" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="pt-6 mt-auto text-sm text-base-900 group-hover:text-accent-600" aria-hidden="true">
+        {corporate?.data.doorLink} →
+      </p>
+    </div>
+  </div>
+</Frame>

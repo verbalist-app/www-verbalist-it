@@ -1,47 +1,55 @@
 ---
-// Assets
-import { Image } from "astro:assets";
-import Avatar from "@/images/assets/contact.jpeg";
-import Logo from "@/components/assets/Logo.astro";
-// Fundations
+// Pagina contatti: testo e cosa aspettarsi a sinistra, form HubSpot in un
+// pannello a destra. Il form (portal, formId, target, callback) non si tocca:
+// il submit arriva al tracking via postMessage (vedi CookieBanner.astro).
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 ---
 
 <BaseLayout
-  hideNavigation={true}
-  hideFooter={true}
+  mobileCta={false}
   seo={{
     title: "Demo e contatti: parla con il team di Verbalist",
     description:
       "Demo, domande o supporto: scrivici e parli direttamente con chi costruisce il prodotto.",
   }}
 >
-  <div class="flex">
-    <div
-      class="flex items-center justify-center w-full p-8 bg-mist-100 lg:w-2/3 min-h-screen"
-    >
-      <div class="w-full max-w-md py-12 lg:py-16">
-        <div class="text-center">
-          <Text
-            tag="h1"
-            variant="displayMD"
-            class="font-serif font-medium tracking-tight text-base-950"
-          >
-            Parliamo.
-          </Text>
-          <Text
-            tag="p"
-            variant="textBase"
-            class="max-w-xl mx-auto mt-4 text-base-500 text-balance"
-          >
-            Domande, richieste o una demo di Verbalist? Scrivici qui sotto, ti
-            rispondiamo davvero.
-          </Text>
+  <div class="pt-[72px]">
+    <Frame n={1} flush tone="soft" class="pt-12 pb-16 lg:pt-20 lg:pb-24 lg:!px-14">
+      <div class="grid gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-16 lg:items-start">
+        <div>
+          <Head tag="Contatti" title="Parliamo del tuo caso." level="h1" />
+          <p class="max-w-md mt-6 text-lg font-light leading-snug text-base-600">
+            Domande, richieste o una demo di Verbalist? Scrivici qui a fianco:
+            ti rispondiamo davvero, e parli con chi costruisce il prodotto.
+          </p>
+          <ul role="list" class="max-w-md mt-10 text-md text-base-800">
+            {
+              [
+                ["Demo", "Mezz'ora sul tuo caso: keyword, mercato, contenuti che produci oggi."],
+                ["Piano Custom", "Volume su misura, utenti illimitati, account manager e onboarding guidato."],
+                ["Supporto", "Se usi già Verbalist e qualcosa non torna, scrivi qui: ti rispondiamo dal team."],
+              ].map(([k, v]) => (
+                <li class="grid grid-cols-[6.5rem_1fr] py-4 border-t border-dashed gap-4 border-base-200 last:border-b">
+                  <span class="font-mono text-xs leading-6 tracking-wider uppercase text-accent-600">{k}</span>
+                  <span class="leading-relaxed text-base-600">{v}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="mt-8 text-sm text-base-500">
+            Preferisci provare da solo?
+            <a href="https://app.verbalist.it/login?registration&code=PROVAGRATUITA26" class="text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Prova gratis 30 giorni</a>, senza carta di credito.
+          </p>
         </div>
-
+        <div class="p-6 bg-white border rounded-xl border-base-200 sm:p-8">
+          <p class="flex items-center justify-between font-mono text-xs tracking-wider uppercase text-base-500">
+            <span class="flex items-center gap-2"><span class="rounded-full size-1.5 bg-accent-500"></span>Scrivici</span>
+            <span>Risposta dal team</span>
+          </p>
         <!-- HubSpot form (form in iframe cross-origin → stile iniettato via opzione css) -->
-        <div id="hubspot-form" class="mt-10"></div>
+        <div id="hubspot-form" class="mt-6"></div>
         <script
           charset="utf-8"
           type="text/javascript"
@@ -53,59 +61,162 @@ import Text from "@/components/fundations/elements/Text.astro";
             formId: "4267f028-3ada-4953-863f-7fcde9648c1c",
             region: "eu1",
             target: "#hubspot-form",
-            css: `
-              @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap');
-              form, .hs-form, .hs-form-field, label, input, textarea, select, .hs-button, span, p, a { font-family: 'Geist', ui-sans-serif, system-ui, sans-serif !important; }
-              .hs-form-field { margin-bottom: 16px; }
-              .hs-form-field > label { font-size: 14px !important; font-weight: 500 !important; color: #67787c !important; display: block; margin-bottom: 4px; }
-              .hs-form-required { color: #9ca8ab !important; }
-              input[type=text].hs-input, input[type=email].hs-input, input[type=tel].hs-input, input[type=number].hs-input, input[type=password].hs-input, textarea.hs-input, select.hs-input { width: 100% !important; box-sizing: border-box !important; padding: 8px 16px !important; font-size: 13px !important; color: #67787c !important; background: #fff !important; border: 1px solid transparent !important; border-radius: 6px !important; box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 0 0 1px #d0d6d8 !important; }
-              input[type=text].hs-input, input[type=email].hs-input, input[type=tel].hs-input, input[type=number].hs-input { height: 38px !important; }
-              textarea.hs-input { min-height: 96px !important; }
-              .hs-input::placeholder { color: #9ca8ab !important; }
-              input[type=text].hs-input:focus, input[type=email].hs-input:focus, input[type=tel].hs-input:focus, textarea.hs-input:focus, select.hs-input:focus { outline: none !important; border-color: #1b2224 !important; box-shadow: 0 0 0 2px #e3e7e8 !important; }
-              .hs-form input[type=checkbox], .legal-consent-container input[type=checkbox], input[type=radio] { -webkit-appearance: checkbox !important; appearance: checkbox !important; width: 15px !important; min-width: 15px !important; max-width: 15px !important; height: 15px !important; min-height: 15px !important; max-height: 15px !important; box-shadow: none !important; border: 0 !important; border-radius: 0 !important; margin: 1px 8px 0 0 !important; padding: 0 !important; flex: 0 0 15px !important; }
-              .hs-form-booleancheckbox label, .legal-consent-container label, ul.inputs-list li label { display: flex !important; align-items: flex-start !important; font-size: 12px !important; font-weight: 400 !important; color: #67787c !important; line-height: 1.45 !important; margin: 0 0 8px 0 !important; }
-              .hs-form-booleancheckbox label span, .legal-consent-container label span { flex: 1 1 auto !important; }
-              ul.inputs-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-              .hs-button, .actions input[type=submit], input.hs-button, button.hs-button { width: 100% !important; margin-top: 8px !important; padding: 10px 16px !important; font-size: 14px !important; font-weight: 500 !important; color: #fff !important; background: #1b2224 !important; border: none !important; border-radius: 9999px !important; box-shadow: none !important; cursor: pointer !important; }
-              .hs-button:hover { opacity: .9 !important; }
-              .hs-error-msgs { list-style: none !important; padding: 0 !important; margin: 4px 0 0 !important; }
-              .hs-error-msg, label.hs-error-msg { color: #dc2626 !important; font-size: 12px !important; }
-            `,
+            // Il form è renderizzato nel DOM della pagina (l'iframe è solo il
+            // target nascosto del submit): lo stile sta nel foglio qui sotto,
+            // con i token del sito. Stringa vuota = nessun CSS di HubSpot.
+            css: "",
           });
         </script>
-      </div>
-    </div>
-    <div
-      class="relative hidden overflow-hidden lg:block lg:w-1/3 lg:order-first"
-    >
-      <Image
-        src={Avatar}
-        alt="Background"
-        aria-hidden="true"
-        width="1200"
-        height="1200"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        class="object-cover object-center w-full h-full bg-base-50"
-      />
-      <div
-        aria-hidden="true"
-        class="absolute inset-0 pointer-events-none bg-mist-800/50"
-      >
-      </div>
-      <div
-        class="absolute inset-0 flex flex-col items-center justify-between p-8 text-center"
-      >
-        <div>
-          <a href="/">
-            <span class="sr-only">Torna alla home</span>
-            <Logo class="h-8 mx-auto text-white" />
-          </a>
         </div>
       </div>
-    </div>
+    </Frame>
   </div>
 </BaseLayout>
+
+<style is:global>
+  /* Tema del form HubSpot: stessi token e stessi caratteri del sito. */
+  #hubspot-form,
+  #hubspot-form input,
+  #hubspot-form textarea,
+  #hubspot-form select,
+  #hubspot-form .hs-button {
+    font-family: var(--font-sans);
+  }
+  #hubspot-form fieldset {
+    max-width: none;
+  }
+  #hubspot-form .hs-form-field {
+    margin-bottom: 1rem;
+  }
+  #hubspot-form .form-columns-2 {
+    display: grid;
+    gap: 0 0.75rem;
+  }
+  @media (min-width: 40rem) {
+    #hubspot-form .form-columns-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  #hubspot-form .form-columns-2 .hs-form-field {
+    width: auto;
+    float: none;
+  }
+  #hubspot-form .input {
+    margin: 0;
+  }
+  #hubspot-form .hs-form-field > label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-base-500);
+  }
+  #hubspot-form .hs-form-required {
+    color: var(--color-base-500);
+  }
+  #hubspot-form input.hs-input:not([type="checkbox"]):not([type="radio"]),
+  #hubspot-form textarea.hs-input,
+  #hubspot-form select.hs-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 2.75rem;
+    padding: 0 1rem;
+    border: 1px solid var(--color-base-200);
+    border-radius: 9999px;
+    background: var(--color-white);
+    color: var(--color-base-900);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  #hubspot-form textarea.hs-input {
+    height: auto;
+    min-height: 7rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+  }
+  #hubspot-form .hs-input::placeholder {
+    color: var(--color-base-500);
+  }
+  #hubspot-form .hs-input:focus-visible {
+    outline: none;
+    border-color: var(--color-base-900);
+    box-shadow: 0 0 0 3px var(--color-base-100);
+  }
+  #hubspot-form ul.inputs-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  #hubspot-form .hs-form-booleancheckbox label,
+  #hubspot-form .legal-consent-container label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-base-600);
+  }
+  #hubspot-form input[type="checkbox"],
+  #hubspot-form input[type="radio"] {
+    flex: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0.125rem 0 0;
+    border: 1px solid var(--color-base-300);
+    border-radius: 0;
+    color: var(--color-base-900);
+  }
+  #hubspot-form .legal-consent-container,
+  #hubspot-form .hs-richtext {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-base-600);
+  }
+  #hubspot-form .hs-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 9rem;
+    height: 2.75rem;
+    margin-top: 0.5rem;
+    padding: 0 1.5rem;
+    border: 0;
+    border-radius: 9999px;
+    background: var(--color-accent-500);
+    color: var(--color-white);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.22), 0 1px 2px rgb(0 0 0 / 0.14);
+    transition: background-color 0.3s;
+  }
+  #hubspot-form .hs-button:hover {
+    background: var(--color-base-700);
+  }
+  #hubspot-form .hs-button:focus-visible {
+    outline: 2px solid var(--color-base-900);
+    outline-offset: 2px;
+  }
+  #hubspot-form .hs-error-msgs {
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  #hubspot-form .hs-error-msg,
+  #hubspot-form label.hs-error-msg {
+    font-size: 0.8125rem;
+    color: var(--color-status-error);
+  }
+  #hubspot-form input.hs-input.error,
+  #hubspot-form textarea.hs-input.error {
+    border-color: var(--color-status-error);
+  }
+  #hubspot-form .submitted-message {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-base-800);
+  }
+</style>

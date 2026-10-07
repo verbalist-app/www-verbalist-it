@@ -1,0 +1,29 @@
+---
+// Le capacità che la catena non racconta da sola. Testi allineati a help
+// center e pagine agenti: niente claim nuovi.
+import Frame from "@/components/section/Frame.astro";
+import List from "@/components/fundations/icons/List.astro";
+import Filters from "@/components/fundations/icons/Filters.astro";
+import Stacked from "@/components/fundations/icons/Stacked.astro";
+
+const items = [
+  { Icon: List, title: "30+ lingue, scritte e non tradotte", text: "Il testo nasce nella lingua del mercato, analizzando i competitor locali: titoli e meta tag compresi." },
+  { Icon: Filters, title: "Anche i contenuti che hai già", text: "Incolli un testo, un URL o un PDF e Verbalist lo rivede a confronto con le pagine che oggi ti stanno davanti." },
+  { Icon: Stacked, title: "Due versioni, due modelli", text: "Ogni generazione produce due versioni del testo, scritte da due modelli diversi. Le vedi qui sotto, intere." },
+];
+---
+
+<Frame n={4} id="funzionalita" labelledby="beyond-title" class="!px-0">
+  <h2 id="beyond-title" class="sr-only">Intorno alla catena</h2>
+  <div class="grid md:grid-cols-3 md:divide-x md:divide-dashed md:divide-base-200">
+    {
+      items.map(({ Icon, title, text }) => (
+        <div class="px-4 py-10 border-b border-dashed lg:px-10 lg:py-12 border-base-200 last:border-b-0 md:border-b-0">
+          <Icon class="size-5 text-accent-600" aria-hidden="true" />
+          <h3 class="mt-10 text-lg font-normal text-base-900">{title}</h3>
+          <p class="mt-2 text-md leading-relaxed text-base-600">{text}</p>
+        </div>
+      ))
+    }
+  </div>
+</Frame>

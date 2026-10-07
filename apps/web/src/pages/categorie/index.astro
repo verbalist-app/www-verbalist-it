@@ -3,8 +3,8 @@
 import { Image } from "astro:assets";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 // Content
 import { getCollection } from "astro:content";
 import { slugifyTag } from "@/lib/data";
@@ -35,51 +35,26 @@ function getTagImage(tag) {
       "Gli articoli del blog Verbalist divisi per argomento: SEO, GEO, guide pratiche e automazione AI.",
   }}
 >
-  <section>
-    <Wrapper variant="standard" class="pt-32 pb-4">
-      <div class="max-w-xl text-balance">
-        <Text
-          tag="h1"
-          variant="displayMD"
-          class="font-serif font-medium tracking-tight text-base-950"
-        >
-          Tutti gli argomenti del blog
-        </Text>
-        <Text tag="p" variant="textBase" class="mt-4 text-base-500">
-          Gli articoli divisi per tema, così trovi subito quello che ti serve.
-        </Text>
-      </div>
-      <div
-        class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 gap-y-24"
-      >
+  <div class="pt-[72px]">
+    <Frame n={1} flush tone="soft" class="pt-12 pb-14 lg:pt-20 lg:pb-16 lg:!px-14">
+      <Head
+        tag="Blog"
+        title="Tutti gli argomenti del blog"
+        level="h1"
+        text="Gli articoli divisi per tema, così trovi subito quello che ti serve."
+      />
+    </Frame>
+    <Frame n={2} class="!px-0">
+      <nav aria-label="Argomenti" class="grid md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(3n))]:border-r">
         {
           tags.map((tag) => (
-            <div class="relative flex flex-col group">
-              <a href={`/categorie/${slugifyTag(tag)}/`} class="absolute inset-0 z-10" />
-              {/* Display the image next to the tag */}
-              <Image
-                width={800}
-                height={800}
-                src={getTagImage(tag)}
-                alt={`${tag} icon`}
-                class="object-cover w-full aspect-12/8 rounded-xl"
-              />
-              <div class="mt-2">
-                <Text
-                  tag="h2"
-                  variant="textBase"
-                  class="flex items-start justify-between mt-1 font-medium capitalize gap-4 text-base-900 group-hover:underline font-display"
-                >
-                  {tag}
-                  <Text tag="span" variant="textXS" class="text-base-500">
-                    ({tagCounts[tag]})
-                  </Text>
-                </Text>
-              </div>
-            </div>
+            <a href={`/categorie/${slugifyTag(tag)}/`} class="flex flex-col px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
+              <span class="font-mono text-xs tracking-wider uppercase text-base-500">{tagCounts[tag]} articoli</span>
+              <span class="mt-8 text-xl font-normal tracking-tight capitalize text-base-900 group-hover:text-accent-600">{tag}</span>
+            </a>
           ))
         }
-      </div>
-    </Wrapper>
-  </section>
+      </nav>
+    </Frame>
+  </div>
 </BaseLayout>

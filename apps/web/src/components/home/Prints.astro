@@ -1,0 +1,142 @@
+---
+// Un output vero, versione A e versione B affiancate: estratti del documento
+// generato in piattaforma (demo.ts), riportati senza ritocchi.
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
+import { demoBrief, demoDocument, demoVersions } from "./demo";
+
+const label = "font-mono text-xs tracking-wider uppercase text-base-500";
+const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600 box-decoration-clone";
+// I segnaposto che la piattaforma lascia a chi revisiona restano visibili.
+const parts = (t: string) => t.split(/(\[SOURCE NEEDED\]|\[INTERNAL:[^\]]*\])/).filter(Boolean);
+const isTag = (t: string) => t.startsWith("[SOURCE NEEDED") || t.startsWith("[INTERNAL:");
+const count = (n: number) => n.toLocaleString("it-IT");
+---
+
+<Frame n={5} labelledby="prints-title" class="py-14 lg:py-20 lg:!px-14">
+  <Head tag="Due versioni" id="prints-title">
+    <Fragment slot="title">
+      Una generazione. Due testi interi,
+      da confrontare.
+    </Fragment>
+    <p>Due modelli diversi scrivono sulla stessa analisi. Cambiano taglio e struttura, non i dati di partenza: scegli quello che serve, o prendi il meglio di entrambi.</p>
+  </Head>
+
+  <div class="grid grid-cols-2 p-1 mt-10 text-sm border rounded-full border-base-200 md:hidden" role="group" aria-label="Scegli la versione da leggere">
+    <button type="button" data-print-go="a" aria-pressed="true" class="rounded-full h-10 text-base-600 aria-pressed:bg-accent-600 aria-pressed:text-white">Versione A</button>
+    <button type="button" data-print-go="b" aria-pressed="false" class="rounded-full h-10 text-base-600 aria-pressed:bg-accent-600 aria-pressed:text-white">Versione B</button>
+  </div>
+
+  <div
+    data-prints
+    role="group"
+    aria-label="Versione A e versione B, affiancate"
+    class="grid grid-flow-col auto-cols-[100%] gap-4 mt-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:mt-12 md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:overflow-visible md:items-start"
+  >
+    {
+      demoVersions.map((v) => (
+        <article data-sheet={v.id} aria-label={`${v.label}: ${v.angle}`} class="overflow-hidden bg-white border snap-start rounded-xl border-base-200">
+          <header class="flex items-center justify-between px-5 border-b h-11 border-base-200 gap-4">
+            <p class="text-sm text-accent-600 whitespace-nowrap">{v.label}</p>
+            <p class={`${label} whitespace-nowrap`}>Generato da Verbalist</p>
+          </header>
+          <dl class="grid grid-cols-[auto_1fr] px-5 py-4 text-xs border-b border-dashed gap-x-4 gap-y-1.5 border-base-200 bg-base-50">
+            <dt class={label}>Taglio</dt><dd class="text-base-800">{v.angle}</dd>
+            <dt class={label}>Testo</dt><dd class="text-base-800 tabular-nums">{count(v.words)} parole, {v.headings} sezioni</dd>
+          </dl>
+          <div class="px-5 py-6 sm:px-7 group/sheet">
+            <h3 class="text-2xl font-normal tracking-tight text-base-900 text-balance">{v.h1}</h3>
+            <p class="mt-3 text-md leading-relaxed text-base-700 line-clamp-5 group-has-[details[open]]/sheet:line-clamp-none">{v.intro}</p>
+            <details class="mt-5 group">
+              <summary class="inline-flex items-center h-9 px-4 text-sm bg-white border rounded-full cursor-pointer gap-2 border-base-200 text-base-900 list-none hover:border-base-300 hover:text-accent-600 [&::-webkit-details-marker]:hidden">
+                <span class="group-open:hidden">Leggi un estratto</span><span class="hidden group-open:inline">Chiudi</span>
+                <svg viewBox="0 0 16 16" class="size-3.5 transition-transform duration-300 text-accent-500 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 2v12M2 8h12"></path></svg>
+              </summary>
+              <div class="mt-4">
+                {v.sections.map((s) => (
+                  <>
+                    <h4 class="mt-6 text-md font-medium text-base-900">{s.h2}</h4>
+                    {s.blocks.map((b) => (
+                      <>
+                        {"p" in b && (
+                          <p class="mt-2 text-md leading-relaxed text-base-600">
+                            {parts(b.p).map((t) => (isTag(t) ? <span class={tag}>{t}</span> : t))}
+                          </p>
+                        )}
+                        {"ul" in b && (
+                          <ul class="pl-5 mt-2 text-md leading-relaxed list-disc text-base-600 space-y-1 marker:text-accent-400">
+                            {b.ul.map((li) => <li>{li}</li>)}
+                          </ul>
+                        )}
+                        {"ol" in b && (
+                          <ol class="pl-5 mt-2 text-md leading-relaxed list-decimal text-base-600 space-y-1 marker:text-accent-400">
+                            {b.ol.map((li) => <li>{li}</li>)}
+                          </ol>
+                        )}
+                        {"table" in b && (
+                          <div class="mt-4 overflow-x-auto" tabindex="0" role="region" aria-label={`Tabella: ${s.h2}`}>
+                            <table class="w-full text-sm text-left tabular-nums">
+                              <thead>
+                                <tr>{b.table.head.map((h) => <th scope="col" class={`${label} py-2 pr-3 font-normal align-bottom border-b border-base-200`}>{h}</th>)}</tr>
+                              </thead>
+                              <tbody class="text-base-700">
+                                {b.table.rows.map((r) => (
+                                  <tr>{r.map((c) => <td class="py-2 pr-3 align-top border-b border-dashed border-base-200">{c}</td>)}</tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        )}
+                      </>
+                    ))}
+                  </>
+                ))}
+                <h4 class="mt-6 text-md font-medium text-base-900">Domande frequenti</h4>
+                <ul class="pl-5 mt-2 text-sm list-disc text-base-600 space-y-1 marker:text-accent-400">
+                  {v.faq.map((q) => <li>{q}</li>)}
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <p class="max-w-lg mt-8 text-sm leading-relaxed text-base-500">
+    <span class="font-mono tracking-wider uppercase text-base-500">Output reale</span> ·
+    documento generato da Verbalist il {demoDocument.generated} per la keyword
+    «{demoBrief.keyword}» ({demoBrief.type}, mercato {demoBrief.market},
+    lingua: {demoBrief.language}). Qui ne leggi un estratto, senza ritocchi.
+    <span class={tag}>[SOURCE NEEDED]</span> e <span class={tag}>[INTERNAL: …]</span>
+    sono i segnaposto che Verbalist lascia a chi revisiona: un dato a cui
+    aggiungere la fonte, un link interno da inserire.
+  </p>
+</Frame>
+
+<script>
+  // Su schermi stretti le due versioni si sfogliano in orizzontale: il
+  // selettore porta al foglio e ne riflette la posizione.
+  const pair = document.querySelector<HTMLElement>("[data-prints]");
+  if (pair) {
+    const sync = () =>
+      pair.scrollWidth > pair.clientWidth + 1 ? pair.setAttribute("tabindex", "0") : pair.removeAttribute("tabindex");
+    new ResizeObserver(sync).observe(pair);
+    const go = document.querySelectorAll<HTMLButtonElement>("[data-print-go]");
+    go.forEach((btn) =>
+      btn.addEventListener("click", () =>
+        pair.querySelector(`[data-sheet="${btn.dataset.printGo}"]`)?.scrollIntoView({ inline: "start", block: "nearest", behavior: "smooth" })
+      )
+    );
+    const seen = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const id = (e.target as HTMLElement).dataset.sheet;
+          go.forEach((btn) => btn.setAttribute("aria-pressed", String(btn.dataset.printGo === id)));
+        }),
+      { root: pair, threshold: 0.6 }
+    );
+    pair.querySelectorAll("[data-sheet]").forEach((el) => seen.observe(el));
+  }
+</script>

@@ -1,9 +1,7 @@
 ---
-// Testa di sezione delle pagine "feature": etichetta mono, titolo grande
-// allineato a sinistra (displayLG, 48px su desktop), una riga di testo e,
-// nello slot, le azioni. È il blocco che dà il ritmo alla pagina: tutto il
-// resto (griglie, finestre, liste) gli sta sotto.
-import Text from "@/components/fundations/elements/Text.astro";
+// Testa di sezione delle pagine "feature": alias di section/Head con la
+// stessa firma di prima (eyebrow, title, text, tag). Le azioni nello slot.
+import Head from "@/components/section/Head.astro";
 
 interface Props {
   eyebrow?: string;
@@ -13,42 +11,14 @@ interface Props {
   id?: string;
   class?: string;
 }
-const {
-  eyebrow,
-  title,
-  text,
-  tag = "h2",
-  id,
-  class: className = "",
-} = Astro.props;
+const { eyebrow, title, text, tag = "h2", id, class: className = "" } = Astro.props;
 ---
 
-<div class={`max-w-3xl ${className}`}>
-  {
-    eyebrow && (
-      <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
-        {eyebrow}
-      </p>
-    )
-  }
-  <Text
-    tag={tag}
-    id={id}
-    variant="displayLG"
-    class={`font-serif font-medium tracking-tight text-balance text-base-950 ${eyebrow ? "mt-4" : ""}`}
-  >
-    {title}
-  </Text>
-  {
-    text && (
-      <Text tag="p" variant="textBase" class="max-w-2xl mt-4 text-base-600">
-        {text}
-      </Text>
-    )
-  }
+<div class={className}>
+  <Head tag={eyebrow} id={id} title={title} level={tag} text={text} />
   {
     Astro.slots.has("default") && (
-      <div class="flex flex-wrap items-center mt-8 gap-2">
+      <div class="flex flex-wrap items-center mt-8 gap-3">
         <slot />
       </div>
     )

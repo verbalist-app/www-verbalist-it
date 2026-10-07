@@ -1,0 +1,124 @@
+---
+// I quattro livelli dell'app in una figura: un esploso assonometrico a solo
+// tratto, un piano per agente, dall'alto (il brief) al basso (l'export). Su
+// ogni piano c'è lo schema di quello che l'agente produce. Le etichette sono
+// HTML, allineate ai piani, e portano alla pagina dell'agente. Figura statica.
+import { getCollection } from "astro:content";
+
+const agents = (await getCollection("agents")).sort((a, b) => a.data.n.localeCompare(b.data.n));
+const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML per il CMS"];
+
+// Proiezione: x scende verso destra, y verso sinistra, z sale.
+const KX = 0.866;
+const KY = 0.36;
+const W = 200;
+const D = 150;
+const GAP = 100;
+const T = 6;
+const VIEW = { x: -140, y: -310, w: 356, h: 452 };
+const p = (x: number, y: number, z: number) => `${((x - y) * KX).toFixed(1)},${((x + y) * KY - z).toFixed(1)}`;
+
+const INK = "var(--color-base-900)";
+const MID = "var(--color-base-300)";
+const SOFT = "var(--color-base-100)";
+const PAPER = "var(--color-white)";
+
+const face = (x0: number, y0: number, x1: number, y1: number, z: number, fill: string, stroke = INK) =>
+  `<polygon points="${p(x0, y0, z)} ${p(x1, y0, z)} ${p(x1, y1, z)} ${p(x0, y1, z)}" fill="${fill}" stroke="${stroke}" stroke-width="1" stroke-linejoin="round"/>`;
+const rule = (x0: number, y0: number, x1: number, y1: number, z: number, stroke = MID, width = 1) => {
+  const [a, b] = [p(x0, y0, z).split(","), p(x1, y1, z).split(",")];
+  return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${stroke}" stroke-width="${width}" stroke-linecap="round"/>`;
+};
+const rows = (x0: number, x1: number, ys: number[], z: number, stroke = MID) =>
+  ys.map((y, i) => rule(x0, y, i % 3 === 2 ? x0 + (x1 - x0) * 0.6 : x1, y, z, stroke)).join("");
+
+// Lo schema disegnato su ciascun piano.
+const glyphs = [
+  // Brief: il campo della keyword, mercato e lingua, i PDF di contesto.
+  (z: number) =>
+    face(16, 18, 184, 48, z, PAPER) +
+    rule(28, 33, 120, 33, z, INK, 2) +
+    face(16, 62, 74, 82, z, SOFT, MID) +
+    face(82, 62, 140, 82, z, SOFT, MID) +
+    face(16, 98, 44, 132, z, PAPER, MID) +
+    face(52, 98, 80, 132, z, PAPER, MID) +
+    face(88, 98, 116, 132, z, PAPER, MID),
+  // Analisi: cinque risultati, uno per riga.
+  (z: number) =>
+    [22, 48, 74, 100, 126]
+      .map((y, i) => face(16, y - 6, 28, y + 6, z, INK) + rule(40, y, [184, 150, 168, 132, 110][i], y, z))
+      .join(""),
+  // Scrittura: due versioni affiancate.
+  (z: number) =>
+    face(16, 18, 96, 132, z, INK) +
+    rule(28, 34, 70, 34, z, PAPER, 2) +
+    rows(28, 84, [52, 66, 80, 94, 108], z, "var(--color-base-600)") +
+    face(104, 18, 184, 132, z, PAPER) +
+    rule(116, 34, 158, 34, z, INK, 2) +
+    rows(116, 172, [52, 66, 80, 94, 108], z),
+  // Export: il markup pronto per il CMS.
+  (z: number) =>
+    rule(16, 24, 92, 24, z, INK, 2) +
+    rule(16, 46, 150, 46, z) +
+    rule(34, 62, 184, 62, z) +
+    rule(34, 78, 140, 78, z) +
+    rule(34, 94, 166, 94, z) +
+    rule(16, 110, 70, 110, z) +
+    face(140, 112, 184, 132, z, INK),
+];
+
+const layers = agents.map((agent, i) => {
+  const z = (agents.length - 1 - i) * GAP;
+  const y = W * KY - z;
+  return { agent, z, y, top: ((y - VIEW.y) / VIEW.h) * 100, out: io[i] };
+});
+
+const slab = (z: number) =>
+  `<polygon points="${p(W, 0, z)} ${p(W, D, z)} ${p(W, D, z - T)} ${p(W, 0, z - T)}" fill="${SOFT}" stroke="${INK}" stroke-width="1" stroke-linejoin="round"/>` +
+  `<polygon points="${p(0, D, z)} ${p(W, D, z)} ${p(W, D, z - T)} ${p(0, D, z - T)}" fill="${SOFT}" stroke="${INK}" stroke-width="1" stroke-linejoin="round"/>` +
+  face(0, 0, W, D, z, PAPER);
+const guide = (x: number, y: number, z0: number, z1: number) => {
+  const [a, b] = [p(x, y, z0).split(","), p(x, y, z1).split(",")];
+  return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${MID}" stroke-width="1" stroke-dasharray="2 5" stroke-linecap="round"/>`;
+};
+
+// Dal basso verso l'alto: il piano sopra copre quello sotto.
+const drawing = [...layers]
+  .reverse()
+  .map((l, k, all) => {
+    const i = layers.length - 1 - k;
+    const edge = VIEW.x + VIEW.w;
+    const corner = p(W, 0, l.z).split(",");
+    const above = all[k + 1];
+    return (
+      slab(l.z) +
+      glyphs[i](l.z) +
+      `<line x1="${corner[0]}" y1="${corner[1]}" x2="${edge}" y2="${corner[1]}" stroke="${INK}" stroke-width="1"/>` +
+      `<circle cx="${corner[0]}" cy="${corner[1]}" r="2.5" fill="${INK}"/>` +
+      (above ? guide(0, D, above.z - T, l.z) + guide(W, 0, above.z - T, l.z) : "")
+    );
+  })
+  .join("");
+---
+
+<div class="grid grid-cols-[minmax(0,11rem)_minmax(0,1fr)] sm:grid-cols-[minmax(0,19rem)_minmax(0,1fr)]">
+  <svg
+    viewBox={`${VIEW.x} ${VIEW.y} ${VIEW.w} ${VIEW.h}`}
+    class="w-full h-auto"
+    aria-hidden="true"
+    set:html={drawing}
+  />
+  <ol role="list" class="relative">
+    {
+      layers.map((l) => (
+        <li class="absolute inset-x-0 pl-3 -translate-y-1/2" style={`top:${l.top.toFixed(2)}%`}>
+          <a href={`/agenti/${l.agent.id}/`} class="block py-2 group/layer">
+            <span class="hidden font-mono text-xs tracking-wider uppercase text-base-500 sm:block">{l.agent.data.n}</span>
+            <span class="block text-sm leading-snug text-base-900 group-hover/layer:text-accent-600 sm:text-md">{l.agent.data.name}</span>
+            <span class="hidden font-mono text-xs whitespace-nowrap text-base-500 sm:block">→ {l.out}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</div>

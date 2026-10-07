@@ -7,7 +7,7 @@ const pad = side === "right" ? "pr-0" : "pl-0";
 const bleed = side === "right" ? "-mr-1 rounded-tl-xl" : "-ml-1 rounded-tr-xl";
 const panelClass = isCard
   ? "contents"
-  : `relative p-8 pb-0 ${pad} h-full overflow-hidden bg-mist-100 bg-[url(/img/agent-serp.webp)] bg-cover bg-center rounded-xl group`;
+  : `relative p-8 pb-0 ${pad} h-full overflow-hidden bg-base-50 border border-base-200 rounded-xl group`;
 const cardClass = isCard
   ? "w-full max-w-md p-5 mx-auto bg-white rounded-xl shadow-sm outline outline-mist-500/10"
   : `relative z-10 max-w-md p-5 mx-auto -mb-1 ${bleed} bg-white shadow-sm outline outline-mist-500/10`;
@@ -32,7 +32,7 @@ const tags = ["ammortizzazione", "drop", "Nike"];
       {
         results.map((r) => (
           <div class="flex items-center gap-3 py-3">
-            <span class="inline-flex items-center justify-center text-xs font-semibold rounded size-6 shrink-0 bg-base-900 text-white">
+            <span class="inline-flex items-center justify-center text-xs font-medium rounded size-6 shrink-0 bg-base-900 text-white">
               {r.rank}
             </span>
             <div class="min-w-0">
@@ -51,7 +51,7 @@ const tags = ["ammortizzazione", "drop", "Nike"];
           tags.map((tag) => (
             <span class="inline-flex items-center gap-1 px-2 py-1 text-xs border rounded-md border-mist-500/15 bg-mist-50 text-base-700">
               <svg
-                class="size-3 shrink-0 text-base-400"
+                class="size-3 shrink-0 text-base-500"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"

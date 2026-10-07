@@ -4,7 +4,8 @@
 import { getCollection, render } from "astro:content";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 const releases = (await getCollection("changelog")).sort(
@@ -30,70 +31,48 @@ const dateOf = (d: Date) =>
       "Segui i rilasci di Verbalist: nuove funzioni, migliorie e correzioni, release dopo release.",
   }}
 >
-  <section>
-    <Wrapper variant="standard" class="pt-32 pb-4">
-      <div class="max-w-xl text-balance mx-auto text-center">
-        <Text
-          tag="h1"
-          variant="displayMD"
-          class="font-serif font-medium tracking-tight text-base-950"
-        >
-          Cosa c'è di nuovo
-        </Text>
-        <Text
-          tag="p"
-          variant="textBase"
-          class="max-w-xl mx-auto mt-4 text-base-500"
-        >
-          Release dopo release: nuove funzioni, migliorie e correzioni di
-          Verbalist.
-        </Text>
-      </div>
-
-      <ol class="flex flex-col mt-12">
+  <div class="pt-[72px]">
+    <Frame n={1} flush tone="soft" class="pt-12 pb-14 lg:pt-20 lg:pb-16 lg:!px-14">
+      <Head
+        tag="Changelog"
+        title="Cosa c'è di nuovo"
+        level="h1"
+        text="Release dopo release: nuove funzioni, migliorie e correzioni di Verbalist."
+      />
+    </Frame>
+    <Frame n={2} class="pb-8 lg:!px-14">
+      <ol class="flex flex-col">
         {
           releases.map(async (release) => {
             const { Content } = await render(release);
             return (
               <li
-                class="flex flex-col py-12 gap-4 border-t border-base-200 md:flex-row md:gap-10"
+                class="flex flex-col py-12 gap-4 border-b border-dashed border-base-200 last:border-b-0 md:flex-row md:gap-10"
                 id={release.id}
               >
                 <div class="md:w-40 shrink-0">
                   <div class="flex items-baseline gap-3 md:sticky md:top-24 md:block">
                     <a
                       href={`/changelog/${release.id}/`}
-                      class="inline-block px-3 py-1 font-mono text-xs font-medium text-white rounded-full bg-accent-500 hover:bg-accent-600"
+                      class="inline-flex items-center min-h-8 px-2 font-mono text-xs tracking-wider text-white uppercase bg-accent-600 hover:bg-accent-700"
                     >
                       v{versionOf(release.id)}
                     </a>
                     <time
                       datetime={release.data.pubDate.toISOString()}
-                      class="block text-xs tracking-wide uppercase text-base-500 md:mt-3"
+                      class="block font-mono text-xs tracking-wider uppercase text-base-500 md:mt-3"
                     >
                       {dateOf(release.data.pubDate)}
                     </time>
                   </div>
                 </div>
                 <div class="w-full max-w-2xl min-w-0">
-                  <Text
-                    tag="h2"
-                    variant="displaySM"
-                    class="font-serif font-medium tracking-tight text-base-900"
-                  >
-                    <a
-                      href={`/changelog/${release.id}/`}
-                      class="duration-300 transition-colors hover:text-base-500"
-                    >
+                  <h2 class="text-2xl font-normal tracking-tight text-base-900 lg:text-headline">
+                    <a href={`/changelog/${release.id}/`} class="duration-300 transition-colors hover:text-accent-600">
                       {release.data.page}
                     </a>
-                  </Text>
-                  {/* Novità/Modifiche come etichette small-caps (stile eyebrow
-                      del pricing): non devono competere col titolo della release */}
-                  <Wrapper
-                    variant="prose"
-                    class="mt-6 [&_h2]:font-mono [&_h2]:text-xs [&_h2]:font-medium [&_h2]:uppercase [&_h2]:tracking-wider [&_h2]:text-base-500 [&_h2]:mt-10 [&_h2]:mb-3"
-                  >
+                  </h2>
+                  <Wrapper variant="prose" class="mt-4 [&_h2]:font-mono [&_h2]:text-xs [&_h2]:font-normal [&_h2]:uppercase [&_h2]:tracking-wider [&_h2]:text-accent-600 [&_h2]:mt-8 [&_h2]:mb-3">
                     <Content />
                   </Wrapper>
                 </div>
@@ -102,6 +81,6 @@ const dateOf = (d: Date) =>
           })
         }
       </ol>
-    </Wrapper>
-  </section>
+    </Frame>
+  </div>
 </BaseLayout>

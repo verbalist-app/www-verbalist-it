@@ -3,7 +3,8 @@
 import { Image } from "astro:assets";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import BlogCard from "@/components/blog/BlogCard.astro";
@@ -54,114 +55,59 @@ const profileLd = {
     is:inline
     set:html={JSON.stringify(profileLd)}
   />
-  <section>
-    <Wrapper variant="standard" class="pt-32 pb-4">
-      <div class="max-w-md mx-auto text-center text-balance">
-        <Text
-          tag="h1"
-          variant="displaySM"
-          class="font-serif font-medium tracking-tight text-base-900"
-        >
-          {frontmatter.name}
-        </Text>
-        {
-          frontmatter.role && (
-            <Text
-              tag="p"
-              variant="textBase"
-              class="max-w-xl mx-auto mt-4 text-base-500"
-            >
-              {frontmatter.role}
-            </Text>
-          )
-        }
-        {
-          frontmatter.socials && (
-            <div class="flex items-center justify-center mt-8 gap-2">
+  <div class="pt-[72px]">
+    <Frame n={1} flush tone="soft" class="pt-12 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:items-start">
+        <div>
+          <p class="font-mono text-xs tracking-wider uppercase text-base-500"><a href="/team/" class="hover:text-accent-600">Team</a></p>
+          <h1 class="mt-6 text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 lg:text-display lg:leading-[1.08]">
+            {frontmatter.name}
+          </h1>
+          {frontmatter.role && <p class="mt-4 text-lg font-light text-base-600">{frontmatter.role}</p>}
+          {
+            frontmatter.socials && (
+              <div class="flex flex-wrap items-center mt-8 gap-4">
               {frontmatter.socials.twitter && (
-                <a
-                  href={frontmatter.socials.twitter}
-                  class="text-sm text-base-600 hover:text-base-800 duration-300"
-                  aria-label="X"
-                >
-                  Twitter
-                </a>
+                <a href={frontmatter.socials.twitter} class="text-sm text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500" aria-label="X">Twitter</a>
               )}
               {frontmatter.socials.linkedin && (
-                <a
-                  href={frontmatter.socials.linkedin}
-                  class="text-sm text-base-600 hover:text-base-800 duration-300"
-                  aria-label="LinkedIn"
-                >
-                  Linkedin
-                </a>
+                <a href={frontmatter.socials.linkedin} class="text-sm text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500" aria-label="LinkedIn">LinkedIn</a>
               )}
               {frontmatter.socials.email && (
-                <a
-                  href={frontmatter.socials.email}
-                  class="text-sm text-base-600 hover:text-base-800 duration-300"
-                  aria-label="Email"
-                >
-                  Email
-                </a>
+                <a href={frontmatter.socials.email} class="text-sm text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500" aria-label="Email">Email</a>
               )}
               {frontmatter.socials.website && (
-                <a
-                  href={frontmatter.socials.website}
-                  class="text-sm text-base-600 hover:text-base-800 duration-300"
-                  aria-label="Website"
-                >
-                  Website
-                </a>
+                <a href={frontmatter.socials.website} class="text-sm text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500" aria-label="Website">Sito</a>
               )}
-            </div>
-          )
-        }
-      </div>
-      <Image
-        width={1000}
-        height={1000}
-        alt={frontmatter.image.alt}
-        src={frontmatter.image.url}
-        class="object-contain object-center mt-8 size-full max-h-120 lg:col-span-2 rounded-xl bg-mist-100"
-      />
-      {
-        frontmatter.bio && (
-          <div class="flex flex-col max-w-md mx-auto mt-8 gap-2">
-            {frontmatter.bio.split("\n").map((paragraph) => (
-              <Text tag="p" variant="textSM" class="text-base-500">
-                {paragraph}
-              </Text>
-            ))}
-          </div>
-        )
-      }
-    </Wrapper>
-  </section>
-  <section class="border-t border-base-200 border-dashed">
-    <Wrapper variant="standard" class="py-12">
-      <div class="">
-        {
-          relatedPosts.length > 0 && (
-            <div>
-              <Text
-                tag="h2"
-                variant="displaySM"
-                class="font-serif font-medium tracking-tight text-base-900"
-              >
-                Altri post di{" "}
-                <span class="capitalize">{teamSlug.replace(/-/g, " ")}</span>
-              </Text>
-
-              <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {relatedPosts.map((post) => (
-                  <BlogCard post={post} />
-                ))}
               </div>
-            </div>
-          )
-        }
+            )
+          }
+          {
+            frontmatter.bio && (
+              <div class="max-w-lg mt-10 space-y-3 text-base leading-relaxed text-base-700">
+                {frontmatter.bio.split("\n").map((paragraph) => <p>{paragraph}</p>)}
+              </div>
+            )
+          }
+        </div>
+        <Image
+          width={1000}
+          height={1000}
+          alt={frontmatter.image.alt}
+          src={frontmatter.image.url}
+          class="object-cover w-full max-w-sm border aspect-square rounded-xl border-base-200 bg-base-100 grayscale lg:justify-self-end"
+        />
       </div>
-    </Wrapper>
-  </section>
+    </Frame>
+    {
+      relatedPosts.length > 0 && (
+        <Frame n={2} class="pt-16 lg:pt-24 lg:!px-14">
+          <Head tag="Blog" title={`Gli articoli di ${frontmatter.name}`} />
+          <div class="grid mt-10 -mx-4 border-t border-dashed border-base-200 md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(3n))]:border-r lg:-mx-14">
+            {relatedPosts.map((post) => <BlogCard post={post} />)}
+          </div>
+        </Frame>
+      )
+    }
+  </div>
 </BaseLayout>

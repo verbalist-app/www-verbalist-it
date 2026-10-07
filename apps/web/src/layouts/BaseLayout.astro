@@ -1,11 +1,15 @@
 ---
 // Fundations
 import "@/styles/global.css";
+// Geist e Geist Mono self-hosted: niente richieste a Google Fonts.
+import "@fontsource-variable/geist/wght.css";
+import "@fontsource-variable/geist-mono/wght.css";
 import BaseHead from "@/components/fundations/head/BaseHead.astro";
 // Components
 import Footer from "@/components/global/Footer.astro";
 import Navigation from "@/components/global/Navigation.astro";
 import CookieBanner from "@/components/global/CookieBanner.astro";
+import MobileCta from "@/components/global/MobileCta.astro";
 
 const GTM_ID = (import.meta.env.PUBLIC_GTM_ID || "").trim();
 
@@ -23,6 +27,8 @@ interface Props {
   // Pubblico della pagina (es. "agenzie"): finisce su <body data-audience>
   // e CookieBanner lo aggiunge agli eventi CTA come parametro `audience`.
   audience?: string;
+  // Barra "Prova gratis" fissa in basso su mobile (di default sì; no su /contatti)
+  mobileCta?: boolean;
 }
 
 // Hides the navigation, or footer on selected screens by passing props:
@@ -32,13 +38,21 @@ const {
   hideNavigation = false,
   hideFooter = false,
   audience,
+  mobileCta = true,
 } = Astro.props;
 ---
 
 <html
   lang="it"
-  class="scroll-smooth selection:bg-mist-100 selection:text-accent-500"
+  class="scroll-smooth selection:bg-accent-500 selection:text-white"
 >
+  <!--
+    Verbalist · www.verbalist.it
+    Se stai leggendo il sorgente, probabilmente lavori nel SEO. Tre indirizzi utili:
+    /llms.txt      i fatti chiave su Verbalist, per i motori AI
+    /blog/<articolo>.md   ogni articolo del blog anche in Markdown (es. /blog/llms-txt.md)
+    /robots.txt    chi può leggere e citare il sito, e chi no
+  -->
   <head>
     <BaseHead seo={seo} />
     <slot name="head" />
@@ -69,6 +83,7 @@ const {
     {!hideNavigation && <Navigation />}
     <main id="contenuto" class="flex flex-col grow"><slot /></main>
     {!hideFooter && <Footer />}
+    {mobileCta && !hideFooter && <MobileCta />}
     <CookieBanner />
     <script is:inline>
       // Riallinea l'ancora dopo il load: la demo in hero si monta in ritardo

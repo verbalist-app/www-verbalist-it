@@ -2,7 +2,6 @@
 // Assets
 import { Image } from "astro:assets";
 // Fundations
-import Text from "@/components/fundations/elements/Text.astro";
 const { url, name, image, role } = {
   url: "/team/" + Astro.props.post.slug + "/",
   name: Astro.props.post.data.name,
@@ -11,32 +10,17 @@ const { url, name, image, role } = {
 };
 ---
 
-<div class="relative flex flex-col items-center text-center gap-4 group">
-  <a
-    href={url}
-    title={`Vedi il profilo di ${name}`}
-    aria-label={`Vedi il profilo di ${name}`}
-    class="absolute inset-0 z-10"></a>
-
+<article class="relative flex flex-col px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
   <Image
     width="800"
     height="800"
     src={image}
     alt={name}
     loading="eager"
-    class="object-cover size-28 rounded-xl bg-mist-100"
+    class="object-cover border size-24 rounded-xl border-base-200 bg-base-100 grayscale"
   />
-
-  <div>
-    <Text
-      tag="h2"
-      variant="textBase"
-      class="font-medium text-base-900 transition-colors duration-300 group-hover:text-accent-500"
-    >
-      {name}
-    </Text>
-    <Text tag="p" variant="textXS" class="text-base-500">
-      {role}
-    </Text>
-  </div>
-</div>
+  <h2 class="mt-8 text-lg font-normal tracking-tight text-base-900">
+    <a href={url} class="after:absolute after:inset-0 group-hover:text-accent-600">{name}</a>
+  </h2>
+  <p class="mt-1 text-sm text-base-600">{role}</p>
+</article>

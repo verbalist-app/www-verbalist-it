@@ -1,58 +1,28 @@
 ---
-// Assets
-import { Image } from "astro:assets";
-// Fundations
-import Text from "@/components/fundations/elements/Text.astro";
-// Content
+// Cella di articolo: data e categoria in mono, titolo, descrizione. Niente
+// copertina nell'elenco: le immagini astratte del blog restano nel post.
 const headingTag = Astro.props.headingTag ?? "h3";
-// Le card above-the-fold caricano la cover subito (niente griglia vuota
-// al primo paint); le altre restano lazy col fondo mist come placeholder.
-const eager = Astro.props.eager ?? false;
-const { url, title, description, pubDate, image } = {
-  url: "/blog/" + Astro.props.post.slug + "/",
-  title: Astro.props.post.data.title,
-  description: Astro.props.post.data.description,
-  image: Astro.props.post.data.image.url,
-  pubDate: new Date(Astro.props.post.data.pubDate).toLocaleDateString("it-IT", {
-    year: "numeric",
-    month: "long",
-    day: "2-digit",
-  }),
-};
+const Heading = headingTag;
+const post = Astro.props.post;
+const url = "/blog/" + post.slug + "/";
+const title = post.data.title;
+const description = post.data.description;
+const tag = post.data.tags?.[0];
+const pubDate = new Date(post.data.pubDate).toLocaleDateString("it-IT", {
+  year: "numeric",
+  month: "short",
+  day: "2-digit",
+});
 ---
 
-<article class="relative">
-  <a
-    href={url}
-    title={`Leggi l'articolo: ${title}`}
-    aria-label={`Leggi l'articolo: ${title}`}
-    class="absolute inset-0 z-10"></a>
-  <Image
-    src={image}
-    alt={title}
-    width={600}
-    height={600}
-    loading={eager ? "eager" : "lazy"}
-    fetchpriority={eager ? "high" : "auto"}
-    class="object-cover w-full aspect-12/8 rounded-xl bg-mist-100"
-  />
-  <div class="flex flex-col mt-4">
-    <Text tag="p" variant="textXS" class="font-mono tracking-wider uppercase text-base-500">
-      {pubDate}
-    </Text>
-    <Text
-      tag={headingTag}
-      variant="textSM"
-      class="mt-4 font-medium text-base-900 text-balance"
-    >
-      {title}
-    </Text>
-    <Text
-      tag="p"
-      variant="textSM"
-      class="mt-2 text-base-500 line-clamp-2 lg:text-balance"
-    >
-      {description}
-    </Text>
-  </div>
+<article class="relative flex flex-col px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
+  <p class="flex items-center justify-between font-mono text-xs tracking-wider uppercase gap-4 text-base-500">
+    <time datetime={new Date(post.data.pubDate).toISOString()}>{pubDate}</time>
+    {tag && <span class="text-accent-600">{tag}</span>}
+  </p>
+  <Heading class="mt-8 text-xl font-normal leading-snug tracking-tight text-base-900 text-balance">
+    <a href={url} class="after:absolute after:inset-0 group-hover:text-accent-600">{title}</a>
+  </Heading>
+  <p class="mt-3 text-md leading-relaxed text-base-600 line-clamp-3">{description}</p>
+  <p class="pt-6 mt-auto text-sm text-base-900" aria-hidden="true">Leggi →</p>
 </article>

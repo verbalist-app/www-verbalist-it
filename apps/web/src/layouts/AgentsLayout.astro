@@ -22,6 +22,7 @@ import MockupExport from "@/components/features/agents/MockupExport.astro";
 import MockupWindow from "@/components/features/agents/MockupWindow.astro";
 import MockupOutcome from "@/components/features/agents/MockupOutcome.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
+import Frame from "@/components/section/Frame.astro";
 
 // slug: id della pagina; all: i quattro agenti ({ id, n, name }) per la
 // sotto-nav; prev/next: agente precedente e successivo, con la sintesi.
@@ -35,14 +36,12 @@ const mockups: Record<string, any> = {
   "export": MockupExport,
 };
 const Mockup = mockups[frontmatter.mockup] ?? MockupBrief;
+// Il passo della catena che lavora nell'hero di questa pagina. (La chiave è
+// tra virgolette: il compilatore Astro tratta la parola nuda come keyword.)
+const runStep = { brief: "brief", serp: "serp", article: "write", "export": "export" }[
+  frontmatter.mockup as string
+] as "brief" | "serp" | "write" | undefined;
 
-const heroImages: Record<string, string> = {
-  brief: "/img/agent-brief.webp",
-  serp: "/img/agent-serp.webp",
-  article: "/img/agent-article.webp",
-  "export": "/img/agent-export.webp",
-};
-const heroImage = heroImages[frontmatter.mockup] ?? heroImages.brief;
 
 const appUrls: Record<string, string> = {
   brief: "app.verbalist.it/nuovo",
@@ -84,64 +83,53 @@ const ioCells = [
     text={frontmatter.lede}
     stepsLead={frontmatter.stepsLead}
     steps={frontmatter.steps}
-    image={heroImage}
+    run={runStep ?? "brief"}
   />
 
   <!-- Il prodotto: titolo grande, azioni, finestra app -->
-  <section class="border-t border-dashed border-base-200">
-    <Wrapper variant="standard" class="pt-16 pb-4 lg:pt-24">
+  <Frame n={2} class="pt-14 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
       <SectionHead
         eyebrow={`Agente ${frontmatter.n} di 04`}
         title={frontmatter.pitch ?? frontmatter.name}
         text={frontmatter.intro}
       >
-        <Button isLink size="sm" variant="accent" href={TRIAL_URL}>
-          Prova gratis 30 giorni
+        <Button isLink size="base" variant="accent" href={TRIAL_URL}>
+          Prova gratis
         </Button>
-        <Button isLink size="sm" variant="muted" href="/contatti/">
+        <Button isLink size="base" variant="muted" href="/contatti/">
           Parla con noi
         </Button>
       </SectionHead>
-      <div
-        class="relative p-5 mt-12 overflow-hidden rounded-xl bg-mist-100 bg-cover bg-center sm:p-10 md:p-14"
-        style={`background-image: url('${heroImage}')`}
-      >
-        <div class="absolute inset-0 bg-mist-100/25" aria-hidden="true"></div>
+      <div class="relative p-4 mt-10 overflow-hidden border rounded-xl border-base-200 bg-base-50 sm:p-8">
         <MockupWindow url={appUrl}>
           <Mockup variant="card" />
         </MockupWindow>
       </div>
-    </Wrapper>
-  </section>
+  </Frame>
 
   <!-- Ingresso e uscita: due celle della griglia -->
-  <section class="border-t border-dashed border-base-200">
-    <Wrapper variant="standard" class="py-0">
-      <div class="grid grid-cols-1 md:grid-cols-2">
+  <Frame n={3} class="!px-0">
+      <div class="grid grid-cols-1 px-4 md:grid-cols-2 lg:px-14">
         {
           ioCells.map((cell, i) => (
             <div
               class:list={[
-                "py-10 lg:py-14",
+                "py-8 lg:py-12",
                 i === 0
                   ? "md:pr-10 md:border-r md:border-dashed md:border-base-200 max-md:border-b max-md:border-dashed max-md:border-base-200"
                   : "md:pl-10",
               ]}
             >
-              <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
+              <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
                 {cell.eyebrow}
               </p>
-              <Text
-                tag="h2"
-                variant="textXL"
-                class="mt-3 font-serif font-medium tracking-tight text-base-950"
-              >
+              <h2 class="mt-4 text-2xl font-normal tracking-tight text-base-900">
                 {cell.title}
-              </Text>
-              <ul role="list" class="mt-6">
+              </h2>
+              <ul role="list" class="mt-6 text-md text-base-800">
                 {cell.items.map((item: string) => (
-                  <li class="py-3.5 text-base border-t border-dashed border-base-200 text-base-600">
-                    {item}
+                  <li class="flex items-start py-3.5 border-t border-dashed gap-3 border-base-200 last:border-b">
+                    <span class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0" />{item}
                   </li>
                 ))}
               </ul>
@@ -149,88 +137,78 @@ const ioCells = [
           ))
         }
       </div>
-    </Wrapper>
-  </section>
+  </Frame>
 
   <!-- Come funziona: prosa con link interni + l'output della fase -->
   {
     Astro.slots.has("default") && (
-      <section class="border-t border-dashed border-base-200">
-        <Wrapper variant="standard" class="py-0">
-          <div class="grid grid-cols-1 lg:grid-cols-2">
-            <div class="py-12 lg:py-20 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200">
+      <Frame n={4} class="!px-0">
+          <div class="grid grid-cols-1 px-4 lg:grid-cols-2 lg:px-14">
+            <div class="py-12 lg:py-16 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200">
               <Wrapper
                 variant="prose"
-                class="max-w-xl [&_h2]:font-serif [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:text-base-950 [&_h2]:text-3xl lg:[&_h2]:text-5xl lg:[&_h2]:leading-[1.1] [&_h2]:mt-0 [&_h2]:mb-8"
+                class="max-w-xl [&_h2]:font-normal [&_h2]:tracking-[-0.025em] [&_h2]:text-base-900 [&_h2]:text-3xl lg:[&_h2]:text-[2.75rem] lg:[&_h2]:leading-[1.1] [&_h2]:mt-0 [&_h2]:mb-8"
               >
                 <slot />
               </Wrapper>
             </div>
-            <div class="pb-12 lg:py-20 lg:pl-10">
+            <div class="pb-12 lg:py-16 lg:pl-10">
               <div class="lg:sticky lg:top-24">
-                <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
-                  Cosa ti porti a casa
-                </p>
-                <div class="p-6 mt-4 rounded-xl bg-mist-100 sm:p-8">
+                <div class="p-6 bg-white border rounded-xl border-base-200 sm:p-8">
+                  <p class="mb-6 font-mono text-xs tracking-wider uppercase text-accent-600">
+                    Cosa ti porti a casa
+                  </p>
                   <MockupOutcome variant={frontmatter.mockup} />
                 </div>
               </div>
             </div>
           </div>
-        </Wrapper>
-      </section>
+      </Frame>
     )
   }
 
   <!-- Nota: una cella a due colonne, domanda a sinistra e risposta a destra -->
   {
     frontmatter.note && (
-      <section class="border-t border-dashed border-base-200">
-        <Wrapper variant="standard" class="py-0">
-          <div class="grid grid-cols-1 md:grid-cols-2">
+      <Frame n={5} class="!px-0">
+          <div class="grid grid-cols-1 px-4 md:grid-cols-2 lg:px-14">
             <div class="pt-10 md:py-14 md:pr-10 md:border-r md:border-dashed md:border-base-200">
-              <p class="font-mono text-xs font-medium tracking-wider uppercase text-base-500">
+              <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
                 Da sapere
               </p>
-              <Text
-                tag="h2"
-                variant="textXL"
-                class="mt-3 font-serif font-medium tracking-tight text-base-950"
-              >
+              <h2 class="mt-4 text-2xl font-normal tracking-tight text-base-900">
                 {frontmatter.note.label}
-              </Text>
+              </h2>
             </div>
             <div class="pt-4 pb-10 md:py-14 md:pl-10">
-              <Text tag="p" variant="textBase" class="max-w-md text-base-600">
+              <p class="max-w-md text-base leading-relaxed text-base-600">
                 {frontmatter.note.text}
-              </Text>
+              </p>
             </div>
           </div>
-        </Wrapper>
-      </section>
+      </Frame>
     )
   }
 
   <!-- La catena: precedente e successivo come celle -->
-  <section class="border-t border-dashed border-base-200">
-    <Wrapper variant="standard" class="py-0">
+  <Frame n={6} class="!px-0">
       <nav
         aria-label="Agente precedente e successivo"
-        class="grid grid-cols-1 md:grid-cols-2"
+        class="grid grid-cols-1 px-4 md:grid-cols-2 lg:px-14"
       >
         <a
           href={prev ? "/agenti/" + prev.id + "/" : "/#agenti"}
           rel={prev ? "prev" : undefined}
           class="flex flex-col py-10 gap-2 group md:pr-10 md:border-r md:border-dashed md:border-base-200 max-md:border-b max-md:border-dashed max-md:border-base-200"
         >
-          <span class="flex items-center font-mono text-xs font-medium tracking-wider uppercase gap-1 text-base-500">
+          <span class="flex items-center font-mono text-xs tracking-wider uppercase gap-1 text-accent-600">
             <ChevronRight
               size="sm"
               class="rotate-180 duration-300 group-hover:-translate-x-1"
             />
             {prev ? "Agente " + prev.n : "La catena"}
           </span>
-          <span class="font-serif text-xl font-medium tracking-tight md:text-2xl text-base-950 transition-colors duration-200 group-hover:text-base-600">
+          <span class="text-xl font-normal tracking-tight md:text-2xl text-base-900 transition-colors duration-200 group-hover:text-accent-600">
             {prev ? prev.name : "Tutti gli agenti"}
           </span>
           <span class="max-w-sm text-sm text-base-500">
@@ -246,14 +224,14 @@ const ioCells = [
           rel={next ? "next" : undefined}
           class="flex flex-col py-10 gap-2 group md:pl-10 md:items-end md:text-right"
         >
-          <span class="flex items-center font-mono text-xs font-medium tracking-wider uppercase gap-1 text-base-500">
+          <span class="flex items-center font-mono text-xs tracking-wider uppercase gap-1 text-accent-600">
             {next ? "Agente " + next.n : "La catena"}
             <ChevronRight
               size="sm"
               class="duration-300 group-hover:translate-x-1"
             />
           </span>
-          <span class="font-serif text-xl font-medium tracking-tight md:text-2xl text-base-950 transition-colors duration-200 group-hover:text-base-600">
+          <span class="text-xl font-normal tracking-tight md:text-2xl text-base-900 transition-colors duration-200 group-hover:text-accent-600">
             {next ? next.name : "Tutti gli agenti"}
           </span>
           <span class="max-w-sm text-sm text-base-500">
@@ -265,8 +243,7 @@ const ioCells = [
           </span>
         </a>
       </nav>
-    </Wrapper>
-  </section>
+  </Frame>
 
   <Cta2
     compact

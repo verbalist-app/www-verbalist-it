@@ -1,0 +1,42 @@
+---
+// Cornice di sezione della home: riga tratteggiata in testa, colonna
+// incorniciata (Wrapper), sigla di sezione nel margine esterno e due punti
+// d'angolo nell'accento. È la griglia tecnica che tiene insieme la pagina.
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+interface Props {
+  n?: number;
+  id?: string;
+  labelledby?: string;
+  class?: string;
+  tone?: "white" | "soft";
+  /** Senza riga in testa (prima sezione sotto una SubNav). */
+  flush?: boolean;
+}
+const { n, id, labelledby, class: className = "", tone = "white", flush = false } = Astro.props;
+---
+
+<section
+  id={id}
+  aria-labelledby={labelledby}
+  class={`relative ${flush ? "" : "border-t border-dashed border-base-200"} scroll-mt-[72px]`}
+>
+  <Wrapper
+    variant="standard"
+    class={`relative ${tone === "soft" ? "bg-base-50" : ""} ${className}`}
+  >
+    {
+      n !== undefined && (
+        <span
+          aria-hidden="true"
+          class="absolute hidden mr-8 font-mono text-xs tracking-widest uppercase right-full top-8 text-base-300 whitespace-nowrap xl:block"
+        >
+          Sec 0.{n}
+        </span>
+      )
+    }
+    <span aria-hidden="true" class="absolute rounded-full top-2 left-2 size-[3px] bg-accent-500"></span>
+    <span aria-hidden="true" class="absolute rounded-full top-2 right-2 size-[3px] bg-accent-500"></span>
+    <slot />
+  </Wrapper>
+</section>

@@ -3,8 +3,24 @@
 import LogoFooter from "@/components/assets/LogoFooter.astro";
 // Fundatons
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import { getAllChangelog } from "@/lib/data";
 
 const year = new Date().getFullYear();
+
+// Cartiglio, come il riquadro in basso di un disegno tecnico: il foglio è
+// l'indirizzo della pagina, la piattaforma è l'ultima release del changelog,
+// la revisione è la data in cui il sito è stato pubblicato (la build).
+const path = Astro.url.pathname.replace(/\.html$/, "");
+const sheet = /^\/404\/?$/.test(path) ? "404" : path;
+const [latest] = await getAllChangelog();
+const release = latest && {
+  version: `v${latest.slug.replace(/^verbalist-/, "").replaceAll("-", ".")}`,
+  href: `/changelog/${latest.slug}/`,
+};
+const revision = new Date().toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
+const cell = "min-w-0 px-3 py-2.5 border-r border-b border-dashed border-base-200";
+const cellLink = `${cell} relative transition-colors duration-200 hover:bg-base-50`;
+const label = "font-mono text-xs tracking-wider uppercase text-base-500";
 
 const footerLinks = [
   {
@@ -51,12 +67,12 @@ const footerLinks = [
       <div class="text-base-950">
         <a
           href="/"
-          class="flex items-center font-serif text-lg gap-2 text-accent-900"
+          class="flex items-center min-h-11 text-base-900"
         >
-          <span class="sr-only">Vai alla home</span>
-          <LogoFooter class="h-6 text-base-900" />
+          <span class="sr-only">Verbalist, vai alla home</span>
+          <LogoFooter class="w-auto h-5" aria-hidden="true" />
         </a>
-        <p class="mt-1 text-sm font-normal text-base-500 text-balance">
+        <p class="max-w-xs mt-2 text-sm text-base-600 text-balance">
           Verbalist legge i primi risultati di Google per la tua keyword e scrive contenuti ottimizzati per SEO e GEO.
         </p>
       </div>
@@ -64,11 +80,11 @@ const footerLinks = [
         {
           footerLinks.map((section) => (
             <div class="mt-12 md:mt-0">
-              <p class="text-base-950 font-display">{section.heading}</p>
-              <ul role="list" class="mt-4 text-sm space-y-2 text-base-500">
+              <p class="font-mono text-xs tracking-wider uppercase text-base-500">{section.heading}</p>
+              <ul role="list" class="mt-3 text-sm text-base-700">
                 {section.links.map((link) => (
                   <li>
-                    <a href={link.href} class="hover:text-base-950">
+                    <a href={link.href} class="inline-flex items-center min-h-11 lg:min-h-9 hover:text-accent-600">
                       {link.label}
                     </a>
                   </li>
@@ -79,32 +95,48 @@ const footerLinks = [
         }
       </div>
     </div>
-    <div
-      class="flex flex-col pt-6 mt-12 gap-2 border-t border-base-200 sm:flex-row sm:items-center sm:justify-between"
-    >
-      <p class="text-xs text-base-500">
-        © {year}
-        <a
-          href="https://www.nur.it"
-          target="_blank"
-          rel="noopener"
-          class="hover:text-base-800"
-        >
-          NUR S.r.l.
-        </a>
-        · P.IVA 01902640208
-      </p>
-      <a
-        id="stato-sistemi"
-        href="https://uptime.verbalist.it"
-        target="_blank"
-        rel="noopener"
-        class="flex items-center text-xs gap-1.5 text-base-500 hover:text-base-800 w-fit"
-      >
-        <span data-dot class="size-1.5 rounded-full bg-emerald-500"></span>
-        <span data-label>Tutti i sistemi operativi</span>
-      </a>
-    </div>
+    <dl class="grid grid-cols-2 mt-12 text-xs border-t border-l border-dashed border-base-200 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1.4fr)_minmax(0,0.9fr)_minmax(0,1fr)_minmax(0,1.4fr)]">
+      <div class={`${cell} col-span-2 lg:col-span-1`}>
+        <dt class={label}>© {year}</dt>
+        <dd class="mt-1 text-base-700">
+          <a href="https://www.nur.it" target="_blank" rel="noopener" class="hover:text-base-900">NUR S.r.l.</a>
+          · P.IVA 01902640208
+        </dd>
+      </div>
+      <div class={cell}>
+        <dt class={label}>Foglio</dt>
+        <dd class="mt-1 font-mono truncate text-base-800" title={sheet}>{sheet}</dd>
+      </div>
+      {
+        release && (
+          <div class={cellLink}>
+            <dt class={label}>Piattaforma</dt>
+            <dd class="mt-1 font-mono text-base-800">
+              <a href={release.href} class="after:absolute after:inset-0">{release.version}</a>
+            </dd>
+          </div>
+        )
+      }
+      <div class={cell}>
+        <dt class={label}>Revisione</dt>
+        <dd class="mt-1 text-base-800">{revision}</dd>
+      </div>
+      <div class={cellLink}>
+        <dt class={label}>Stato</dt>
+        <dd class="mt-1">
+          <a
+            id="stato-sistemi"
+            href="https://uptime.verbalist.it"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-1.5 text-base-800 after:absolute after:inset-0"
+          >
+            <span data-dot class="size-1.5 rounded-full bg-status-success shrink-0"></span>
+            <span data-label>Tutti i sistemi operativi</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
   </Wrapper>
 </footer>
 
@@ -118,7 +150,7 @@ const footerLinks = [
           (m: { statusClass: string }) => m.statusClass === "danger"
         );
         if (down) {
-          badge.querySelector("[data-dot]")?.classList.replace("bg-emerald-500", "bg-amber-500");
+          badge.querySelector("[data-dot]")?.classList.replace("bg-status-success", "bg-status-error");
           const label = badge.querySelector("[data-label]");
           if (label) label.textContent = "Alcuni sistemi non operativi";
         }

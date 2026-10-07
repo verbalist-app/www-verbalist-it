@@ -1,8 +1,8 @@
 ---
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 // Components
 import BlogCard from "@/components/blog/BlogCard.astro";
 // Data
@@ -30,24 +30,15 @@ const { posts, label } = Astro.props;
     description: `Tutti gli articoli del blog Verbalist sul tema ${label}.`,
   }}
 >
-  <section>
-    <Wrapper variant="standard" class="pt-32 pb-4">
-      <div class="max-w-xl text-balance">
-        <Text
-          tag="h1"
-          variant="displayMD"
-          class="font-serif font-medium tracking-tight text-base-950"
-        >
-          Articoli su {label}
-        </Text>
-      </div>
-    </Wrapper>
-    <Wrapper variant="standard" class="py-4 border-t">
-      <div
-        class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 gap-y-24"
-      >
+  <div class="pt-[72px]">
+    <Frame n={1} flush tone="soft" class="pt-12 pb-14 lg:pt-20 lg:pb-16 lg:!px-14">
+      <Head tag="Blog" title={`Articoli su ${label}`} level="h1" />
+      <p class="mt-8"><a href="/categorie/" class="text-sm text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Tutti gli argomenti</a></p>
+    </Frame>
+    <Frame n={2} class="!px-0">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(3n))]:border-r">
         {posts.map((post) => <BlogCard post={post} headingTag="h2" />)}
       </div>
-    </Wrapper>
-  </section>
+    </Frame>
+  </div>
 </BaseLayout>

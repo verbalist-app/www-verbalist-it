@@ -1,8 +1,8 @@
 ---
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 // Components
 import HelpCenterCard from "@/components/helpcenter/HelpCenterCard.astro";
 // Sections
@@ -19,28 +19,28 @@ const allEntries = await getAllHelpcenter();
       "Crea il primo documento, carica il contesto del brand, scegli i competitor, genera le immagini: tutte le guide, passo per passo.",
   }}
 >
-  <section>
-    <Wrapper variant="standard" class="pt-32 pb-4">
-      <div class="max-w-xl mx-auto text-center text-balance">
-        <Text
-          tag="h1"
-          variant="displayMD"
-          class="font-serif font-medium tracking-tight text-base-950"
-        >
-          Come possiamo aiutarti?
-        </Text>
-        <Text tag="p" variant="textBase" class="mt-4 text-base-500">
-          Guide brevi su documenti, generazione e immagini: le risposte alle
-          domande che riceviamo più spesso.
-        </Text>
-      </div>
-
-      <div
-        class="items-center mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2"
-      >
+  <div class="pt-[72px]">
+    <Frame n={1} flush tone="soft" class="pt-12 pb-14 lg:pt-20 lg:pb-16 lg:!px-14">
+      <Head
+        tag="Help center"
+        title="Come possiamo aiutarti?"
+        level="h1"
+        text="Guide brevi su documenti, generazione e immagini: le risposte alle domande che riceviamo più spesso."
+      />
+    </Frame>
+    <Frame n={2} class="!px-0">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(4n))]:border-r">
         {allEntries.map((post) => <HelpCenterCard post={post} />)}
+        {/* Ottava cella: chiude la griglia 4×2 e apre la strada a chi non trova la risposta */}
+        <article class="relative flex flex-col px-4 py-8 border-b border-dashed group border-base-200 bg-base-50 lg:px-8 lg:py-10">
+          <span class="font-mono text-xs tracking-wider uppercase text-accent-600">Non trovi la risposta?</span>
+          <h2 class="mt-8 text-lg font-normal leading-snug tracking-tight text-base-900">
+            <a href="/contatti/" class="after:absolute after:inset-0 group-hover:text-accent-600">Scrivi al team</a>
+          </h2>
+          <p class="mt-2 text-md leading-relaxed text-base-600">Ti rispondiamo dal team che costruisce Verbalist.</p>
+        </article>
       </div>
-    </Wrapper>
-  </section>
+    </Frame>
   <Faq1 />
+  </div>
 </BaseLayout>

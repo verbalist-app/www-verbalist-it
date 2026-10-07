@@ -1,0 +1,103 @@
+---
+// Un pezzo di prodotto per ogni agente della catena: il brief del nuovo
+// documento, i passaggi dell'analisi, le due versioni, i menu di export.
+// Sono ricostruzioni fedeli dell'app (procedura "Nuovo documento" e pagina
+// del documento), disegnate a 320 px e ridotte con `zoom` dal contenitore.
+import { demoBrief, demoVersions } from "./demo";
+
+interface Props {
+  step: "brief" | "serp" | "write" | "export";
+}
+const { step } = Astro.props;
+
+const steps = [
+  "Analisi SERP per la keyword",
+  "Scraping dei top 5 risultati Google",
+  "Identificazione pattern vincenti",
+  "Generazione contenuto ottimizzato",
+];
+const field = "flex items-center h-9 px-3 text-[13px] bg-white border rounded-lg border-base-200 text-base-800";
+const lbl = "block text-[12px] text-base-700";
+---
+
+<div class={`${step === "write" ? "w-[560px]" : "w-[320px]"} p-4 text-base-900 bg-base-50 border rounded-lg border-base-200 antialiased [zoom:var(--vb-zoom,1)]`}>
+  {
+    step === "brief" && (
+      <div class="space-y-3">
+        <div>
+          <span class={lbl}>Keyword principale</span>
+          <span class={`${field} mt-1.5`}>{demoBrief.keyword}</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <span class={lbl}>Località</span>
+            <span class={`${field} mt-1.5 justify-between`}>Italia<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+          </div>
+          <div>
+            <span class={lbl}>Lingua</span>
+            <span class={`${field} mt-1.5 justify-between`}>Italiano<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+          </div>
+        </div>
+        <div>
+          <span class={lbl}>Contesto <span class="text-base-500">(opzionale)</span></span>
+          <span class={`${field} mt-1.5 h-14 items-start pt-2 text-base-400`}>Brand guidelines, glossario, tono…</span>
+        </div>
+      </div>
+    )
+  }
+  {
+    step === "serp" && (
+      <div>
+        <p class="text-[13px] font-medium text-base-900">Cosa succederà</p>
+        <ol class="mt-2 space-y-1.5 text-[13px] text-base-700">
+          {steps.map((s, i) => (
+            <li class={`flex gap-2 ${i === 1 ? "text-base-900" : ""}`}>
+              <span class="w-4 shrink-0 text-base-500">{i + 1}.</span>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ol>
+        <p class="mt-3 text-[12px] text-base-500">Tempo stimato: 4-5 minuti</p>
+      </div>
+    )
+  }
+  {
+    step === "write" && (
+      <div class="grid grid-cols-2 gap-3">
+        {demoVersions.map((v) => (
+          <div class="bg-white border rounded-lg border-base-200">
+            <div class="flex items-center justify-between px-3 border-b h-9 border-base-200">
+              <span class="text-[13px] font-medium whitespace-nowrap">{v.label}</span>
+              <span class="inline-flex items-center h-6 px-2 text-2xs border rounded-full gap-1 whitespace-nowrap border-base-200">Usa questa versione<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg></span>
+            </div>
+            <div class="px-3 py-3 space-y-1.5">
+              <span class="block h-2 rounded bg-base-800 w-5/6" />
+              <span class="block h-1.5 rounded bg-base-200" />
+              <span class="block h-1.5 rounded bg-base-200 w-11/12" />
+              <span class="block h-1.5 rounded bg-base-200 w-4/6" />
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+  {
+    step === "export" && (
+      <div class="flex gap-3">
+        <div class="relative">
+          <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-900 text-base-900">Copia<svg class="size-3.5 text-base-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+          <ul class="absolute left-0 w-48 py-1 mt-1.5 text-[13px] bg-white border rounded-lg border-base-200 text-base-800 vb-menu">
+            <li class="px-3 py-1.5">Copia testo pulito</li>
+            <li class="px-3 py-1.5 bg-base-100 text-base-900">Copia HTML</li>
+            <li class="px-3 py-1.5">Copia Markdown</li>
+          </ul>
+        </div>
+        <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800">Esporta<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .vb-menu { box-shadow: 0 8px 24px -8px rgb(22 27 29 / 0.25); }
+</style>

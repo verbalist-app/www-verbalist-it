@@ -16,6 +16,7 @@ import Plus from "@/components/fundations/icons/Plus.astro";
 import List from "@/components/fundations/icons/List.astro";
 
 // Content
+const category = Astro.props.post.data.category;
 const { page, description, url, iconId } = {
   url: "/help/" + Astro.props.post.slug + "/",
   page: Astro.props.post.data.page,
@@ -42,30 +43,13 @@ const iconMap = {
 const IconComponent = iconMap[iconId] || InfoCircle; // Default to InfoCircle if not found
 ---
 
-<div
-  class="relative flex flex-col h-full p-4 bg-mist-100 rounded-xl group hover:bg-white hover:shadow-sm duration-300 outline-transparent hover:outline hover:outline-mist-100"
->
-  <a
-    title={`Leggi la guida: ${page}`}
-    aria-label={`Leggi la guida: ${page}`}
-    class="absolute inset-0 z-10"
-    href={url}></a>
-  <div class="relative flex flex-col justify-between h-full gap-8">
-    <div>
-      <div
-        class="inline-flex p-4 bg-white rounded-lg group-hover:bg-mist-100 duration-300 group-hover:-rotate-12 group-hover:-translate-y-2 w-fit"
-      >
-        <IconComponent size="sm" />
-        <!-- Render dynamic icon here -->
-      </div>
-      <div>
-        <Text tag="h2" variant="textSM" class="mt-12 font-medium text-base-900">
-          {page}
-        </Text>
-        <Text tag="p" variant="textSM" class="mt-2 text-base-500"
-          >{description}</Text
-        >
-      </div>
-    </div>
+<article class="relative flex flex-col px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
+  <div class="flex items-center justify-between gap-4">
+    <IconComponent size="sm" class="text-accent-600" aria-hidden="true" />
+    {category && <span class="font-mono text-xs tracking-wider uppercase text-base-500">{category}</span>}
   </div>
-</div>
+  <h2 class="mt-8 text-lg font-normal leading-snug tracking-tight text-base-900">
+    <a href={url} class="after:absolute after:inset-0 group-hover:text-accent-600">{page}</a>
+  </h2>
+  <p class="mt-2 text-md leading-relaxed text-base-600">{description}</p>
+</article>

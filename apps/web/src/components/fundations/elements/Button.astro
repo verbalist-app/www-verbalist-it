@@ -17,17 +17,25 @@ const defaultClass = [
   "focus:ring-black",
   "hover:bg-base-700",
 ];
+// Pillola piena nell'accento: un filo di luce in alto e un'ombra corta la
+// staccano dal foglio senza farne un bottone "lucido".
 const accentClass = [
   "text-white",
   "bg-accent-500",
-  "hover:bg-accent-600",
-  "focus:ring-accent-600",
+  "hover:bg-base-700",
+  "focus:ring-base-900",
+  "shadow-[inset_0_1px_0_rgb(255_255_255/0.22),0_1px_2px_rgb(0_0_0/0.14)]",
 ];
+// Pillola bianca con filetto: l'azione secondaria.
 const mutedClass = [
-  "text-mist-950",
-  "bg-mist-100",
-  "hover:text-accent-500",
-  "focus:ring-mist-100",
+  "text-base-900",
+  "bg-white",
+  "border",
+  "border-base-200",
+  "hover:border-base-300",
+  "hover:text-accent-600",
+  "focus:ring-base-300",
+  "shadow-[0_1px_2px_rgb(0_0_0/0.05)]",
 ];
 
 const sizes = {
@@ -73,7 +81,7 @@ const sizeClass = iconOnly
 const gapClass = !iconOnly && gap ? gapMap[gap] || [] : [];
 // Su touch i bottoni piccoli estendono l'area cliccabile a ~44px
 // (utility .tap-target in global.css, attiva solo con pointer: coarse).
-const touchClass = ["xs", "sm"].includes(sizeValue)
+const touchClass = ["xs", "sm", "base"].includes(sizeValue)
   ? ["relative", "tap-target"]
   : [];
 

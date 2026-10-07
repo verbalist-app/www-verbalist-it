@@ -1,0 +1,39 @@
+---
+// Primo viewport: a sinistra titolo, testo e azioni; a destra i quattro
+// livelli dell'app in una figura (Layers.astro). Nessuna animazione.
+import Button from "@/components/fundations/elements/Button.astro";
+import Frame from "@/components/section/Frame.astro";
+import { TRIAL_HREF } from "@/lib/pricing";
+import Layers from "./Layers.astro";
+---
+
+<Frame n={1} labelledby="home-title" tone="soft" class="pt-12 pb-14 lg:pt-14 lg:pb-16">
+  <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,31rem)] lg:gap-10 lg:px-10">
+    <div class="min-w-0">
+      <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
+        SEO e GEO per agenzie e team marketing
+      </p>
+      <h1
+        id="home-title"
+        class="mt-6 text-[2.75rem] leading-[1.06] font-normal tracking-[-0.03em] text-base-900 sm:text-hero-sm lg:text-hero"
+      >
+        Prima legge Google.<br />Poi scrive.
+      </h1>
+      <p class="max-w-lg mt-6 text-lg font-light leading-snug text-base-600 lg:text-lede">
+        Verbalist analizza i primi cinque risultati per la tua keyword, ne
+        ricava argomenti, struttura e lacune, e scrive il contenuto ex novo
+        nella lingua del tuo mercato: per Google e per le risposte delle AI
+        (GEO).
+      </p>
+      <div class="flex flex-wrap items-center mt-8 gap-3">
+        <Button isLink size="base" variant="accent" href={TRIAL_HREF}>Prova gratis</Button>
+        <Button isLink size="base" variant="muted" href="/contatti/">Parla con noi</Button>
+      </div>
+      <p class="mt-4 text-sm text-base-500">
+        30 giorni, 15 documenti, senza carta di credito.
+      </p>
+    </div>
+
+    <Layers />
+  </div>
+</Frame>

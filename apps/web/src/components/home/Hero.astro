@@ -1,0 +1,116 @@
+---
+// Primo viewport: a sinistra titolo, testo e azioni; a destra il prodotto
+// vero, grande: la pagina del documento in app (AppWindow.astro) più larga
+// della colonna, tagliata a destra e in basso con una dissolvenza, con la luce
+// di un oggetto appoggiato sul foglio (filo chiaro in alto, ombra lunga e
+// morbida). Davanti, la card dei motori a cui il contenuto è destinato.
+// Nessuna animazione. I marchi dei motori (simple-icons, CC0) restano dei
+// rispettivi proprietari; ChatGPT è senza marchio perché OpenAI non lo
+// concede alle raccolte di icone.
+import Button from "@/components/fundations/elements/Button.astro";
+import Frame from "@/components/section/Frame.astro";
+import { TRIAL_HREF } from "@/lib/pricing";
+import { demoBrief } from "./demo";
+import AppWindow from "./AppWindow.astro";
+import { siGoogle, siGooglegemini, siClaude, siPerplexity } from "simple-icons";
+
+const engines: { name: string; path?: string; hex?: string }[] = [
+  { name: "Google", path: siGoogle.path, hex: siGoogle.hex },
+  { name: "ChatGPT" },
+  { name: "Gemini", path: siGooglegemini.path, hex: siGooglegemini.hex },
+  { name: "Claude", path: siClaude.path, hex: siClaude.hex },
+  { name: "Perplexity", path: siPerplexity.path, hex: siPerplexity.hex },
+];
+const label = "font-mono text-xs tracking-wider uppercase text-base-500";
+---
+
+<Frame n={1} labelledby="home-title" tone="soft" class="pt-12 pb-14 lg:pt-14 lg:pb-16">
+  <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,34rem)] lg:gap-12 lg:px-10">
+    <div class="min-w-0">
+      <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
+        SEO e GEO per agenzie e team marketing
+      </p>
+      <h1
+        id="home-title"
+        class="mt-6 text-[2.75rem] leading-[1.06] font-normal tracking-[-0.03em] text-base-900 sm:text-hero-sm lg:text-hero"
+      >
+        Prima legge Google.<br />Poi scrive.
+      </h1>
+      <p class="max-w-lg mt-6 text-lg font-light leading-snug text-base-600 lg:text-lede">
+        Verbalist analizza i primi cinque risultati per la tua keyword, ne
+        ricava argomenti, struttura e lacune, e scrive il contenuto ex novo
+        nella lingua del tuo mercato: per Google e per le risposte delle AI
+        (GEO).
+      </p>
+      <div class="flex flex-wrap items-center mt-8 gap-3">
+        <Button isLink size="base" variant="accent" href={TRIAL_HREF}>Prova gratis</Button>
+        <Button isLink size="base" variant="muted" href="/contatti/">Parla con noi</Button>
+      </div>
+      <p class="mt-4 text-sm text-base-500">
+        30 giorni, 15 documenti, senza carta di credito.
+      </p>
+    </div>
+
+    <div
+      role="img"
+      aria-label={`La pagina del documento in Verbalist per la keyword «${demoBrief.keyword}»: stato completato, title tag, e le due versioni generate, A e B. Davanti, i motori a cui il contenuto è destinato: Google, ChatGPT, Gemini, Claude, Perplexity.`}
+      class="relative h-[17rem] sm:h-[28rem] lg:h-[36rem] [--vb-zoom:0.38] sm:[--vb-zoom:0.52] lg:[--vb-zoom:0.6]"
+    >
+      <!-- Il prodotto: più largo della colonna, dissolto dove viene tagliato -->
+      <div class="absolute inset-0 overflow-hidden vb-crop">
+        <div class="absolute top-4 left-0 overflow-hidden rounded-xl vb-window lg:top-6 lg:left-2">
+          <AppWindow />
+        </div>
+      </div>
+
+      <!-- Dove va a finire: Google e le risposte delle AI -->
+      <div class="absolute hidden p-4 bg-white border rounded-xl bottom-5 right-4 w-56 border-base-200 vb-float sm:block">
+        <p class={label}>Per Google e per le AI</p>
+        <ul role="list" class="flex flex-wrap mt-3 gap-1.5">
+          {
+            engines.map((e) => (
+              <li class="inline-flex items-center h-7 px-2.5 text-xs border rounded-full gap-1.5 border-base-200 text-base-800 bg-base-50">
+                {e.path && (
+                  <svg viewBox="0 0 24 24" class="size-3.5" fill={`#${e.hex}`} aria-hidden="true">
+                    <path d={e.path} />
+                  </svg>
+                )}
+                {e.name}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</Frame>
+
+<style>
+  /* La luce dell'oggetto: un filo chiaro sul bordo alto, un bordo appena
+     visibile e un'ombra lunga che si allarga verso il basso. */
+  .vb-window {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.9),
+      0 0 0 1px rgb(22 27 29 / 0.08),
+      0 2px 4px rgb(22 27 29 / 0.04),
+      0 16px 32px -12px rgb(22 27 29 / 0.14),
+      0 48px 96px -32px rgb(22 27 29 / 0.28);
+  }
+  .vb-float {
+    box-shadow:
+      0 1px 2px rgb(22 27 29 / 0.05),
+      0 12px 24px -10px rgb(22 27 29 / 0.18),
+      0 32px 56px -24px rgb(22 27 29 / 0.22);
+  }
+  /* Il taglio a destra e in basso è una dissolvenza, non un bordo. */
+  .vb-crop {
+    mask-image:
+      linear-gradient(to right, black 72%, transparent 100%),
+      linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-image:
+      linear-gradient(to right, black 72%, transparent 100%),
+      linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-composite: source-in;
+  }
+</style>

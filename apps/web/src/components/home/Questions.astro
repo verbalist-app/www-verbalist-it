@@ -1,0 +1,38 @@
+---
+// Domande: risposte tratte dall'help center (creazione documento, URL
+// competitor, crediti, immagini, piani). `data-gtm` resta sul summary.
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
+
+const faqs = [
+  { question: "Come nasce un contenuto su Verbalist?", answer: "In quattro passaggi: imposti keyword, mercato e contesto del brand, Verbalist legge le pagine che si posizionano per quella ricerca, scrive il contenuto nella lingua del mercato e lo consegna in HTML con i metadati compilati." },
+  { question: "Posso scegliere io i competitor da analizzare?", answer: "Sì, fino a cinque URL. Se non li indichi, Verbalist parte dai primi risultati organici di Google per la tua keyword nel tuo mercato." },
+  { question: "Posso fargli rivedere un contenuto che ho già?", answer: "Sì. Incolli un testo, un URL o un PDF e Verbalist lo confronta con i competitor che oggi si posizionano in SERP, suggerendo cosa aggiungere o sistemare." },
+  { question: "Che differenza c'è tra Starter e Pro?", answer: "Solo il volume: 30 contenuti con Starter, 70 con Pro. Le funzionalità sono identiche, in entrambi i casi con crediti validi 12 mesi." },
+  { question: "Come funzionano i crediti?", answer: "Ogni contenuto generato usa crediti del tuo piano. Se una generazione fallisce per un errore, i crediti non vengono scalati." },
+  { question: "Le immagini sono incluse?", answer: "Le generi su richiesta a partire dal contenuto: copertina e figure interne arrivano con alt text e posizione suggerita nel testo, pronte da scaricare." },
+  { question: "Serve la carta di credito per provare?", answer: "No. Provi Verbalist gratis per 30 giorni, con 15 documenti inclusi e senza carta di credito." },
+];
+---
+
+<Frame n={9} labelledby="faq-title" class="py-14 lg:py-20 lg:!px-14">
+  <Head tag="Domande" id="faq-title">
+    <Fragment slot="title">
+      Le risposte brevi.
+    </Fragment>
+    <p>Quelle lunghe stanno nell'<a href="/help/" class="border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">help center</a>.</p>
+  </Head>
+  <div class="mt-10 lg:mt-14">
+    {
+      faqs.map((faq) => (
+        <details class="border-t border-dashed group border-base-200 last:border-b">
+          <summary data-gtm="faq-accordion" class="flex items-center justify-between py-5 text-lg list-none cursor-pointer gap-6 text-base-900 hover:text-accent-600 [&::-webkit-details-marker]:hidden">
+            {faq.question}
+            <svg viewBox="0 0 16 16" class="transition-transform duration-300 size-4 shrink-0 text-accent-600 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 2v12M2 8h12"></path></svg>
+          </summary>
+          <p class="max-w-2xl pb-6 text-md leading-relaxed text-base-600">{faq.answer}</p>
+        </details>
+      ))
+    }
+  </div>
+</Frame>

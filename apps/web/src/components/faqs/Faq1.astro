@@ -1,6 +1,6 @@
 ---
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 const faqs = [
   {
     question: "Come nasce un contenuto su Verbalist?",
@@ -35,47 +35,24 @@ const faqs = [
 ];
 ---
 
-<section class="border-t border-base-200 border-dashed">
-  <Wrapper variant="standard" class="pt-12 pb-4">
-    <div class="max-w-xl mx-auto text-center text-balance">
-      <Text
-        tag="h2"
-        variant="displaySM"
-        class="font-serif font-medium text-base-950"
-      >
-        Domande frequenti
-      </Text>
-
-      <Text tag="p" variant="textBase" class="mt-4 text-base-500">
-        Le risposte rapide su generazione, crediti e immagini.
-      </Text>
-
-      <div class="relative w-full mx-auto mt-12 space-y-4">
-        {
-          faqs.map((faq) => (
-            <details class="text-left cursor-pointer group">
-              <summary data-gtm="faq-accordion" class="flex items-center justify-between w-full pb-1 text-left select-none  text-base-600 hover:text-accent-500">
-                {faq.question}
-                <svg
-                  class="w-5 h-5 duration-300 ease-out text-accent-500 transform group-open:-rotate-45"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6v12m6-6H6"
-                  />
-                </svg>
-              </summary>
-              <div class="py-4 pt-2 text-base-500">{faq.answer}</div>
-            </details>
-          ))
-        }
-      </div>
+<Frame n={3} class="py-14 lg:py-20 lg:!px-14">
+  <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+    <div>
+      <Head tag="Domande" title="Le risposte brevi." />
+      <p class="mt-6 text-base text-base-600">Su generazione, crediti e immagini.</p>
     </div>
-  </Wrapper>
-</section>
+    <div>
+      {
+        faqs.map((faq) => (
+          <details class="border-t border-dashed group border-base-200 last:border-b">
+            <summary data-gtm="faq-accordion" class="flex items-center justify-between py-5 text-lg list-none cursor-pointer gap-6 text-base-900 hover:text-accent-600 [&::-webkit-details-marker]:hidden">
+              {faq.question}
+              <svg viewBox="0 0 16 16" class="transition-transform duration-300 size-4 shrink-0 text-accent-500 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 2v12M2 8h12" /></svg>
+            </summary>
+            <p class="max-w-2xl pb-6 text-md leading-relaxed text-base-600">{faq.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</Frame>

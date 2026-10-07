@@ -61,6 +61,12 @@ trigger customEvent. Convenzione nomi: evento GA4 raccomandato dove esiste
   contatti portano `?profilo=<audience>` (helper `contactHref` in
   `src/lib/utils.ts`) e `/contatti` lo rilegge dall'URL, così arriva anche su
   `generate_lead`. Fuori da questi casi il parametro non viene inviato.
+- **Home (redesign, dal 2026-09-21)**: la home non dichiara `<body
+  data-audience>` e i suoi link a `/contatti/` non portano `?profilo`, quindi
+  le CTA della home restano senza parametro. Il pubblico entra in gioco solo
+  dopo il doppio ingresso: le celle "Per le agenzie" e "Per le aziende"
+  (`components/home/Doors.astro`) portano a `/soluzioni/agenzie/` e
+  `/soluzioni/corporate/`, dove il parametro viene dichiarato dalla pagina.
 - **Niente PII**: passano solo slug `[a-z0-9-]`, mai testo libero.
 - **GTM: fatto** il 2026-09-19, versione 11 pubblicata ("v11 - Parametro
   audience su CTA e lead"): variabile `DLV - audience` (Data Layer v2, nessun

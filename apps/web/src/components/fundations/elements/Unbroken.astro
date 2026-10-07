@@ -1,0 +1,12 @@
+---
+// Testo di un titolo in cui le parole con il trattino (GEO-ready, E-E-A-T)
+// non vanno a capo a metà: il trattino resta, la parola resta intera.
+interface Props {
+  text: string;
+}
+const words = Astro.props.text.split(" ");
+---
+
+{words.map((word, i) => (
+  <>{word.includes("-") ? <span class="whitespace-nowrap">{word}</span> : word}{i < words.length - 1 ? " " : ""}</>
+))}

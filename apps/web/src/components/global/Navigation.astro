@@ -1,295 +1,145 @@
 ---
 // Fundations
-import Logo from "@/components/assets/Logo.astro";
+import LogoFooter from "@/components/assets/LogoFooter.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const TRIAL = "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26";
+const LOGIN = "https://app.verbalist.it/login";
+
 const navigationLinks = [
-  {
-    title: "Funzionalità",
-    href: "/#funzionalita",
-    activePaths: [],
-  },
-  {
-    title: "Agenti",
-    href: "/#agenti",
-    activePaths: ["/agenti"],
-  },
-  {
-    title: "Soluzioni",
-    href: "/soluzioni/",
-    activePaths: ["/soluzioni"],
-  },
-  {
-    title: "Prezzi",
-    href: "/#prezzi",
-    activePaths: [],
-  },
-  {
-    title: "Clienti",
-    href: "/clienti/",
-    activePaths: ["/clienti"],
-  },
-  {
-    title: "Blog",
-    href: "/blog/",
-    activePaths: ["/blog", "/categorie"],
-  },
+  { title: "Agenti", href: "/#agenti", activePaths: ["/agenti"] },
+  { title: "Soluzioni", href: "/soluzioni/", activePaths: ["/soluzioni"] },
+  { title: "Prezzi", href: "/#prezzi", activePaths: [] },
+  { title: "Clienti", href: "/clienti/", activePaths: ["/clienti"] },
+  { title: "Blog", href: "/blog/", activePaths: ["/blog", "/categorie"] },
+  { title: "Contatti", href: "/contatti/", activePaths: ["/contatti"] },
 ];
 
 // Stato attivo: la voce si accende sulle sezioni reali (Blog copre anche le
 // categorie, Agenti le pagine di dettaglio). Le ancore della home restano
-// neutre. La pillola desktop riposa sulla voce attiva (vedi script sotto).
+// neutre.
 const path = Astro.url.pathname;
 const isActive = (link) =>
   link.activePaths.some((base) => path === base || path.startsWith(base + "/"));
 ---
 
-<div
+<header
   id="nav-wrapper"
-  class="fixed inset-x-0 top-0 z-50 w-full mx-auto bg-white border-b border-dashed border-base-200"
+  class="fixed inset-x-0 top-0 z-50 bg-white/95 border-b border-dashed border-base-200 backdrop-blur-sm"
 >
-  <div
-    id="nav-blur"
-    aria-hidden="true"
-    class="absolute inset-0 -z-10 bg-white/80 backdrop-blur-lg opacity-0 transition-opacity duration-300"
-  >
-  </div>
-  <Wrapper id="second-wrapper" variant="standard" class="py-4">
-    <div
-      id="navigation-wrapper"
-      class="relative flex flex-col md:items-center md:justify-between md:flex-row"
+  <Wrapper variant="standard" class="h-[72px] flex items-center gap-6">
+    <a href="/" class="flex items-center h-11 shrink-0 text-base-900">
+      <span class="sr-only">Verbalist, vai alla home</span>
+      <LogoFooter class="w-auto h-5" aria-hidden="true" />
+    </a>
+    <nav
+      aria-label="Principale"
+      class="items-center hidden pl-6 border-l gap-1 border-base-200 lg:flex"
     >
-      <div class="flex flex-row items-center justify-between">
-        <a href="/">
-          <span class="sr-only">Vai alla home</span>
-          <Logo class="h-6 text-base-800" />
-        </a>
-        <button
-          id="menu-toggle"
-          class="inline-flex items-center justify-center p-2 text-base-600 hover:text-base-800 focus:outline-none focus:text-base-500 md:hidden"
-        >
-          <svg
-            class="size-6"
-            stroke="currentColor"
-            fill="none"
-            viewBox="0 0 24 24"
+      {
+        navigationLinks.map((link) => (
+          <a
+            href={link.href}
+            aria-current={isActive(link) ? "page" : undefined}
+            class={`flex items-center h-9 px-3 text-sm rounded-full transition-colors duration-200 hover:text-base-950 hover:bg-base-100 ${
+              isActive(link) ? "text-base-950 bg-base-100" : "text-base-600"
+            }`}
           >
-            <path
-              id="menu-icon"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-            <path
-              id="close-icon"
-              class="hidden"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <div
-        id="nav-desktop-links"
-        class="absolute hidden lg:flex left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center"
+            {link.title}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="flex items-center ml-auto gap-2">
+      <a
+        href={LOGIN}
+        class="items-center hidden px-3 text-sm h-9 text-base-600 hover:text-base-950 lg:flex"
       >
-        <span
-          id="nav-pill"
+        Accedi
+      </a>
+
+      <Button isLink size="sm" variant="accent" href={TRIAL}>Prova gratis</Button>
+
+      <button
+        type="button"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="navigation-menu"
+        aria-label="Apri il menu"
+        class="inline-flex items-center justify-center -mr-2 size-11 text-base-700 hover:text-base-950 lg:hidden"
+      >
+        <svg
+          class="size-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
           aria-hidden="true"
-          class="absolute top-1/2 h-8 -translate-y-1/2 rounded-full bg-mist-100 opacity-0 pointer-events-none transition-[left,width,opacity] duration-300 ease-out"
-        ></span>
-        {
-          navigationLinks.map((link) => (
-            <a
-              href={link.href}
-              data-active={isActive(link) ? "1" : undefined}
-              aria-current={isActive(link) ? "page" : undefined}
-              class={`relative flex items-center h-8 px-3 text-sm duration-300 transition-colors hover:text-base-800 ${
-                isActive(link)
-                  ? "font-medium text-base-950"
-                  : "font-normal text-base-500"
-              }`}
-            >
-              {link.title}
-            </a>
-          ))
-        }
-      </div>
-      <nav
-        id="navigation-menu"
-        class="fixed inset-x-0 top-[72px] bottom-0 flex flex-col justify-between pt-2 pb-8 bg-white opacity-0 pointer-events-none md:bg-none md:bg-transparent lg:p-0 md:p-0 transform transition-all duration-300 ease-in-out -translate-y-4 md:relative md:inset-auto md:opacity-100 md:pointer-events-auto md:translate-y-0"
-      >
-        <div
-          class="relative flex flex-col items-start justify-start w-full h-full px-6 list-none md:ml-auto gap-10 md:px-0 md:flex-row md:items-center md:justify-center md:text-left md:gap-4"
         >
-          <div
-            class="flex flex-col w-full gap-1 md:w-auto md:gap-4 md:flex-row lg:hidden"
-          >
-            {
-              navigationLinks.map((link) => (
-                <a
-                  href={link.href}
-                  aria-current={isActive(link) ? "page" : undefined}
-                  class={`py-2.5 text-lg md:py-0 md:text-sm hover:text-base-500 md:hover:text-base-600 ${
-                    isActive(link)
-                      ? "font-medium text-base-950 md:text-base-950"
-                      : "text-base-800 md:text-base-500"
-                  }`}
-                >
-                  {link.title}
-                </a>
-              ))
-            }
-            <div class="flex flex-col pt-4 mt-4 border-t border-base-200 md:hidden">
-              <a
-                href="/help/"
-                class="py-2 text-base text-base-500 hover:text-base-800"
-              >
-                Help center
-              </a>
-              <a
-                href="/contatti/"
-                class="py-2 text-base text-base-500 hover:text-base-800"
-              >
-                Contatti
-              </a>
-            </div>
-          </div>
-          <div class="flex flex-col w-full mt-auto gap-3 md:hidden">
-            <Button
-              isLink
-              size="base"
-              variant="muted"
-              class="w-full"
-              href="https://app.verbalist.it/login"
-            >
-              Accedi
-            </Button>
-            <Button
-              isLink
-              size="base"
-              variant="accent"
-              class="w-full"
-              href="https://app.verbalist.it/login?registration&code=PROVAGRATUITA26"
-            >
-              Prova gratis
-            </Button>
-          </div>
-          <div class="hidden md:flex flex-wrap items-center gap-2">
-            <Button
-              isLink
-              size="xs"
-              variant="muted"
-              href="https://app.verbalist.it/login"
-            >
-              Accedi
-            </Button>
-            <Button
-              isLink
-              size="xs"
-              variant="accent"
-              href="https://app.verbalist.it/login?registration&code=PROVAGRATUITA26"
-            >
-              Prova gratis
-            </Button>
-          </div>
-        </div>
-      </nav>
+          <path id="menu-icon" d="M4 8h16M4 16h16"></path>
+          <path id="close-icon" class="hidden" d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </button>
     </div>
   </Wrapper>
-</div>
-<script type="module">
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const menuIcon = document.getElementById("menu-icon");
-    const closeIcon = document.getElementById("close-icon");
-    const navigationMenu = document.getElementById("navigation-menu");
-    // Toggle mobile menu
-    function toggleMenu(open) {
-      navigationMenu.classList.toggle("opacity-100", open);
-      navigationMenu.classList.toggle("translate-y-0", open);
-      navigationMenu.classList.toggle("pointer-events-auto", open);
-      navigationMenu.classList.toggle("opacity-0", !open);
-      navigationMenu.classList.toggle("-translate-y-4", !open);
-      navigationMenu.classList.toggle("pointer-events-none", !open);
-      menuIcon.classList.toggle("hidden", open);
-      closeIcon.classList.toggle("hidden", !open);
+</header>
+<!-- Fuori dall'header: il suo backdrop-blur renderebbe l'header il riferimento
+     dei figli fixed, e il pannello resterebbe alto quanto la barra. -->
+  <nav
+    id="navigation-menu"
+    aria-label="Menu"
+    hidden
+    class="fixed z-50 inset-x-0 bottom-0 top-[72px] flex-col px-4 pt-2 pb-8 overflow-y-auto bg-white [&:not([hidden])]:flex lg:!hidden"
+  >
+    {
+      navigationLinks.map((link) => (
+        <a
+          href={link.href}
+          aria-current={isActive(link) ? "page" : undefined}
+          class={`flex items-center min-h-13 text-xl border-b border-dashed border-base-200 ${
+            isActive(link) ? "text-accent-600" : "text-base-900"
+          }`}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+    <a
+      href="/help/"
+      class="flex items-center text-xl border-b border-dashed min-h-13 border-base-200 text-base-900"
+    >
+      Help center
+    </a>
+    <div class="flex flex-col pt-8 mt-auto gap-3">
+      <Button isLink size="lg" variant="muted" class="w-full" href={LOGIN}>Accedi</Button>
+      <Button isLink size="lg" variant="accent" class="w-full" href={TRIAL}>Prova gratis</Button>
+    </div>
+  </nav>
+
+<script>
+  // Il menu chiuso è `hidden`: fuori dal focus e dall'albero di accessibilità.
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("navigation-menu");
+  if (toggle && menu) {
+    const set = (open: boolean) => {
+      menu.hidden = !open;
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Chiudi il menu" : "Apri il menu");
+      document.getElementById("menu-icon")?.classList.toggle("hidden", open);
+      document.getElementById("close-icon")?.classList.toggle("hidden", !open);
       document.body.classList.toggle("overflow-hidden", open);
-    }
-    // Event Listeners
-    let menuOpen = false;
-    menuToggle.addEventListener("click", () => {
-      menuOpen = !menuOpen;
-      toggleMenu(menuOpen);
+    };
+    toggle.addEventListener("click", () => set(menu.hidden));
+    // Chiudi sul click di una voce (ancore in pagina) e con Esc.
+    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => set(false)));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !menu.hidden) {
+        set(false);
+        toggle.focus();
+      }
     });
-
-    // Chiudi il menu quando si clicca una voce (utile per le ancore in pagina)
-    navigationMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (menuOpen) {
-          menuOpen = false;
-          toggleMenu(false);
-        }
-      });
-    });
-
-    // Barra viva allo scroll: traslucida con blur oltre i 50px
-    const headerEl = document.getElementById("nav-wrapper");
-    const blurEl = document.getElementById("nav-blur");
-    let ticking = false;
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const active = window.scrollY > 50;
-          headerEl.classList.toggle("bg-transparent", active);
-          headerEl.classList.toggle("bg-white", !active);
-          blurEl.classList.toggle("opacity-100", active);
-          ticking = false;
-        });
-      },
-      { passive: true }
-    );
-
-    // Pillola che scivola dietro le voci desktop. Se una voce è attiva
-    // (data-active), la pillola riposa lì e ci torna a fine hover: fa da
-    // indicatore di sezione corrente oltre che da feedback di hover.
-    const linksWrap = document.getElementById("nav-desktop-links");
-    const pill = document.getElementById("nav-pill");
-    if (linksWrap && pill) {
-      const activeLink = linksWrap.querySelector('a[data-active="1"]');
-      const moveTo = (el, instant = false) => {
-        const wasHidden = pill.dataset.on !== "1";
-        if (wasHidden || instant) pill.style.transitionProperty = "opacity";
-        pill.style.left = el.offsetLeft + "px";
-        pill.style.width = el.offsetWidth + "px";
-        if (wasHidden || instant) {
-          void pill.offsetWidth;
-          pill.style.transitionProperty = "";
-        }
-        pill.style.opacity = "1";
-        pill.dataset.on = "1";
-      };
-      const rest = () => {
-        if (activeLink) {
-          moveTo(activeLink);
-        } else {
-          pill.style.opacity = "0";
-          pill.dataset.on = "";
-        }
-      };
-      if (activeLink) moveTo(activeLink, true);
-      linksWrap.querySelectorAll("a").forEach((a) => {
-        a.addEventListener("mouseenter", () => moveTo(a));
-        a.addEventListener("focus", () => moveTo(a));
-      });
-      linksWrap.addEventListener("mouseleave", rest);
-      linksWrap.addEventListener("focusout", (e) => {
-        if (!linksWrap.contains(e.relatedTarget)) rest();
-      });
-    }
-  });
+    window.matchMedia("(min-width: 64rem)").addEventListener("change", (e) => e.matches && set(false));
+  }
 </script>

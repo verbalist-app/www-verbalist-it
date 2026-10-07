@@ -45,3 +45,6 @@ Thumbs.db
 .claude/skills/impeccable/scripts/bin/
 # Impeccable: log delle sessioni della pagina di decisione
 apps/web/.impeccable/questions/
+
+# Immagini di confronto del redesign: restano locali
+.redesign/*.png

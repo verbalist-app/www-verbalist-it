@@ -7,7 +7,7 @@ const pad = side === "right" ? "pr-0" : "pl-0";
 const bleed = side === "right" ? "-mr-1 rounded-tl-xl" : "-ml-1 rounded-tr-xl";
 const panelClass = isCard
   ? "contents"
-  : `relative p-8 pb-0 ${pad} h-full overflow-hidden bg-mist-100 bg-[url(/img/agent-article.webp)] bg-cover bg-center rounded-xl group`;
+  : `relative p-8 pb-0 ${pad} h-full overflow-hidden bg-base-50 border border-base-200 rounded-xl group`;
 const cardClass = isCard
   ? "w-full max-w-md p-5 mx-auto bg-white rounded-xl shadow-sm outline outline-mist-500/10"
   : `relative z-10 max-w-md p-5 mx-auto -mb-1 ${bleed} bg-white shadow-sm outline outline-mist-500/10`;
@@ -25,7 +25,7 @@ const cardClass = isCard
     </div>
 
     <div class="pt-4 space-y-3">
-      <p class="text-base font-semibold text-base-900">
+      <p class="text-base font-medium text-base-900">
         Migliori scarpe running 2026
       </p>
       <p class="text-sm leading-relaxed text-base-700">

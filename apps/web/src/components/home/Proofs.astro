@@ -1,0 +1,123 @@
+---
+// Prove: NUR dal 1999, la citazione firmata, poi i sette casi come registro.
+// Ogni riga ha i suoi crediti, presi dai case study: niente campi inventati
+// (lingua solo dove il caso la dichiara; mercato e data non ci sono).
+import { getAllCustomers, getAllChangelog } from "@/lib/data";
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
+
+const customers = await getAllCustomers();
+const cases = customers.map((c) => {
+  const results = c.data.results;
+  const fact = results.find((r) => /\d|trentina|ventina/.test(r)) ?? results[0];
+  const all = results.join(" ");
+  const lingua = /in italiano e in inglese/.test(all)
+    ? "italiano e inglese"
+    : /in inglese/.test(all)
+      ? "inglese"
+      : undefined;
+  return {
+    slug: c.slug,
+    name: c.data.customer,
+    logo: c.data.logo,
+    fact,
+    credits: [
+      ["Settore", c.data.details?.Settore],
+      ["Sede", c.data.details?.Sede],
+      ["Lingua", lingua],
+    ].filter(([, v]) => v),
+  };
+});
+
+const [latest] = await getAllChangelog();
+const latestDate = latest?.data.pubDate.toLocaleDateString("it-IT", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+const label = "font-mono text-xs tracking-wider uppercase text-base-500";
+---
+
+<Frame n={7} labelledby="proofs-title" class="py-14 lg:py-20 lg:!px-14">
+  <Head tag="Dal 1999" id="proofs-title">
+    <Fragment slot="title">
+      Nasce in un'agenzia. Lavora sui suoi
+      clienti.
+    </Fragment>
+    <p>
+      Verbalist è costruito dentro NUR, agenzia di digital marketing attiva dal
+      1999, che lo usa sui clienti che segue. I {cases.length} casi qui sotto
+      sono clienti dell'agenzia.
+    </p>
+    <p><a href="/chi-siamo/" class="border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Chi siamo</a></p>
+  </Head>
+
+  <figure class="p-6 mt-12 border rounded-xl border-base-200 bg-base-50 sm:p-10 lg:mt-16">
+    <blockquote class="max-w-3xl text-2xl font-normal leading-snug tracking-tight text-base-900 lg:text-headline">
+      «Per ogni keyword Verbalist analizza i competitor su Google. Il team usa
+      quei dati per scrivere e i contenuti escono già nel tono del brand.»
+    </blockquote>
+    <figcaption class="flex flex-wrap items-center mt-8 text-sm gap-x-4 gap-y-2 text-base-600">
+      <img src="/img/logos/jurny.svg" alt="" class="w-auto h-5" loading="lazy" />
+      <span><span class="text-base-900">Luca Zambello</span>, CEO di Jurny</span>
+      <a href="/clienti/jurny/" class="border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Leggi il caso</a>
+    </figcaption>
+  </figure>
+
+  <ul role="list" class="mt-10">
+    {
+      cases.slice(0, 4).map((c) => (
+        <li class="relative grid py-6 border-t border-dashed gap-x-8 gap-y-3 border-base-200 last:border-b transition-colors duration-200 hover:bg-base-50 lg:grid-cols-[minmax(0,3fr)_minmax(0,5fr)_minmax(0,4fr)] lg:px-3 lg:-mx-3">
+          <div>
+            <h3 class="text-lg font-normal text-base-900">
+              <a href={`/clienti/${c.slug}/`} class="after:absolute after:inset-0 hover:text-accent-600">{c.name}</a>
+            </h3>
+          </div>
+          <p class="text-md leading-relaxed text-base-800 max-w-md">{c.fact}</p>
+          <dl class="text-xs space-y-1">
+            {c.credits.map(([k, v]) => (
+              <div class="flex gap-3">
+                <dt class={`${label} w-16 shrink-0`}>{k}</dt>
+                <dd class="text-base-600">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    cases.length > 4 && (
+      <details class="group">
+        <summary class="inline-flex items-center h-9 px-4 mt-5 text-sm bg-white border rounded-full cursor-pointer gap-2 border-base-200 text-base-900 list-none hover:border-base-300 hover:text-accent-600 [&::-webkit-details-marker]:hidden">
+          <span class="group-open:hidden">Altri {cases.length - 4} casi</span><span class="hidden group-open:inline">Chiudi</span>
+          <svg viewBox="0 0 16 16" class="size-3.5 transition-transform duration-300 text-accent-500 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 2v12M2 8h12"></path></svg>
+        </summary>
+        <ul role="list" class="mt-5 border-t border-dashed border-base-200">
+          {cases.slice(4).map((c) => (
+            <li class="relative grid py-6 border-b border-dashed gap-x-8 gap-y-3 border-base-200 transition-colors duration-200 hover:bg-base-50 lg:grid-cols-[minmax(0,3fr)_minmax(0,5fr)_minmax(0,4fr)] lg:px-3 lg:-mx-3">
+              <h3 class="text-lg font-normal text-base-900"><a href={`/clienti/${c.slug}/`} class="after:absolute after:inset-0 hover:text-accent-600">{c.name}</a></h3>
+              <p class="text-md leading-relaxed text-base-800 max-w-md">{c.fact}</p>
+              <dl class="text-xs space-y-1">
+                {c.credits.map(([k, v]) => (
+                  <div class="flex gap-3"><dt class={`${label} w-16 shrink-0`}>{k}</dt><dd class="text-base-600">{v}</dd></div>
+                ))}
+              </dl>
+            </li>
+          ))}
+        </ul>
+      </details>
+    )
+  }
+  {
+    latest && (
+      <p class="flex flex-wrap items-center mt-8 text-sm gap-x-4 gap-y-2 text-base-600">
+        <span class={`${label} flex items-center gap-2`}><span class="rounded-full size-1.5 bg-accent-500"></span>Ultima release</span>
+        <a href={`/changelog/${latest.slug}/`} class="text-base-900 hover:text-accent-600">{latest.data.page}</a>
+        <span>{latestDate}</span>
+        <a href="/changelog/" class="border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Tutto il changelog</a>
+      </p>
+    )
+  }
+</Frame>

@@ -1,58 +1,35 @@
 ---
-// CTA editoriale di chiusura (dal Cta2 del template, rebrand):
-// aria sopra, titolo serif a sinistra, azione in basso a destra.
-// Niente pannello e niente fondo: l'aria funziona solo sul bianco della
-// pagina — su un riempimento leggerebbe come contenitore vuoto.
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Chiusura delle pagine interne: titolo con la parola nell'accento, testo e
+// pillole. Sta sul fondo `base-50`, come la chiusura della home.
+import Frame from "@/components/section/Frame.astro";
+import Head from "@/components/section/Head.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 
 const {
   title,
   text,
-  primaryText = "Prova gratis 30 giorni",
+  primaryText = "Prova gratis",
   primaryHref = "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26",
   secondaryText = null,
   secondaryHref = null,
-  // compact: meno aria sopra il titolo, per le pagine corte (es. agenti)
-  // dove il pt-36 della versione da fine-home peserebbe più del contenuto.
   compact = false,
 } = Astro.props;
 ---
 
-<section class="border-t border-base-200 border-dashed">
-  <Wrapper variant="standard" class="pt-12 pb-4">
-    <div
-      class={`grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-end ${compact ? "lg:pt-8" : "lg:pt-36"}`}
-    >
-      <div class="lg:col-span-2">
-        <Text
-          tag="h2"
-          variant="displaySM"
-          class="font-serif font-medium text-base-900 lg:text-balance"
-        >
-          {title}
-        </Text>
-        <Text
-          tag="p"
-          variant="textBase"
-          class="mt-2 text-base-500 lg:text-balance"
-        >
-          {text}
-        </Text>
-      </div>
-      <div class="flex flex-wrap items-center gap-2 lg:ml-auto lg:justify-end">
-        <Button isLink size="sm" variant="accent" href={primaryHref}>
-          {primaryText}
-        </Button>
-        {
-          secondaryText && secondaryHref && (
-            <Button isLink size="sm" variant="muted" href={secondaryHref}>
-              {secondaryText}
-            </Button>
-          )
-        }
-      </div>
-    </div>
-  </Wrapper>
-</section>
+<Frame tone="soft" class={compact ? "py-12 lg:py-14 lg:!px-14" : "py-14 lg:py-20 lg:!px-14"}>
+  <Head title={title} />
+  <p class="max-w-md mt-6 text-lg font-light leading-snug text-base-600">{text}</p>
+  <div class="flex flex-wrap items-center mt-8 gap-3">
+    <Button isLink size="base" variant="accent" href={primaryHref}>{primaryText}</Button>
+    {
+      secondaryText && secondaryHref && (
+        <Button isLink size="base" variant="muted" href={secondaryHref}>{secondaryText}</Button>
+      )
+    }
+  </div>
+  {
+    /registration/.test(primaryHref) && (
+      <p class="mt-4 text-sm text-base-500">30 giorni, 15 documenti, senza carta di credito.</p>
+    )
+  }
+</Frame>

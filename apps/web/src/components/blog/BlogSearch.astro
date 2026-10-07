@@ -18,12 +18,12 @@ const posts = await Promise.all(
     type="button"
     id="searchButton"
     aria-label="Cerca negli articoli (⌘K)"
-    class="flex items-center justify-center p-2 rounded-full bg-mist-100 hover:bg-accent-500 hover:text-white duration-300 group md:px-3 md:gap-2"
+    class="flex items-center justify-center h-11 lg:h-9 px-3 bg-white border rounded-full border-base-200 text-base-700 hover:border-base-300 hover:text-accent-600 duration-300 group md:px-4 md:gap-2"
   >
     <Search size="base" />
     <kbd
       aria-hidden="true"
-      class="hidden font-mono text-[11px] leading-none text-base-400 transition-colors duration-300 group-hover:text-white/80 md:inline"
+      class="hidden font-mono text-2xs leading-none text-base-500 md:inline"
       >⌘K</kbd
     >
   </button>
@@ -40,14 +40,14 @@ const posts = await Promise.all(
       >
       </div>
       <div
-        class="relative inline-block w-full max-w-md mt-12 mb-8 text-left align-middle bg-mist-100 lg:mt-48 rounded-xl transition-all transform"
+        class="relative inline-block w-full max-w-md mt-12 mb-8 text-left align-middle bg-white border border-base-200 lg:mt-48 rounded-xl transition-all transform"
       >
         <div class="p-4 pb-2">
           <div class="hidden">
             <button
               type="button"
               id="closeSearch"
-              class="ml-auto cursor-pointer text-base-400 hover:text-base-500"
+              class="ml-auto cursor-pointer text-base-500 hover:text-base-500"
               aria-label="Close search"
             >
               <X size="base" />
@@ -57,7 +57,7 @@ const posts = await Promise.all(
             type="text"
             id="searchInput"
             placeholder="Cerca negli articoli..."
-            class="block w-full px-4 py-2 text-xs leading-tight align-middle bg-white border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-base-500 ring-1 ring-base-200 placeholder-base-400 focus:border-accent-500 focus:ring-accent-100 focus:ring-2 focus:outline-none shadow-sm"
+            class="block w-full px-4 py-2 text-base leading-tight lg:text-xs align-middle bg-white border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-base-500 ring-1 ring-base-200 placeholder-base-500 focus:border-accent-500 focus:ring-accent-100 focus:ring-2 focus:outline-none shadow-sm"
           />
           <div
             id="searchResults"
@@ -127,12 +127,12 @@ const posts = await Promise.all(
         searchResults.innerHTML = `
                 <div class="px-4 py-4 text-sm">
                     <p class="text-base-600">Nessun risultato per &ldquo;${safeTerm}&rdquo;.</p>
-                    <p class="mt-3 font-mono text-xs tracking-wider uppercase text-base-400">Prova da qui</p>
+                    <p class="mt-3 font-mono text-xs tracking-wider uppercase text-base-500">Prova da qui</p>
                     <div class="flex flex-wrap mt-2 gap-2">
-                      <a href="/categorie/guide/" class="px-3 py-1.5 text-xs rounded-full bg-mist-100 text-base-600 hover:text-accent-500">Guide</a>
-                      <a href="/categorie/seo/" class="px-3 py-1.5 text-xs rounded-full bg-mist-100 text-base-600 hover:text-accent-500">SEO</a>
-                      <a href="/categorie/ai-automation/" class="px-3 py-1.5 text-xs rounded-full bg-mist-100 text-base-600 hover:text-accent-500">AI &amp; Automation</a>
-                      <a href="/help/" class="px-3 py-1.5 text-xs rounded-full bg-mist-100 text-base-600 hover:text-accent-500">Help center</a>
+                      <a href="/categorie/guide/" class="px-3 py-1.5 text-xs rounded-full border border-base-200 text-base-600 hover:text-accent-600">Guide</a>
+                      <a href="/categorie/seo/" class="px-3 py-1.5 text-xs rounded-full border border-base-200 text-base-600 hover:text-accent-600">SEO</a>
+                      <a href="/categorie/ai-automation/" class="px-3 py-1.5 text-xs rounded-full border border-base-200 text-base-600 hover:text-accent-600">AI &amp; Automation</a>
+                      <a href="/help/" class="px-3 py-1.5 text-xs rounded-full border border-base-200 text-base-600 hover:text-accent-600">Help center</a>
                     </div>
                 </div>
             `;

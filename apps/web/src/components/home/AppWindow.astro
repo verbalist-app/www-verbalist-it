@@ -1,0 +1,141 @@
+---
+// La pagina del documento in app.verbalist.it, ricostruita fedelmente:
+// barra laterale, barra in alto, intestazione del documento e le due versioni.
+// È disegnata a 1100 px e ridotta con `zoom` (variabile --vb-zoom) dal
+// contenitore, così resta nitida a ogni dimensione. Testi dal documento vero
+// (demo.ts). Solo immagine: il contenitore che la usa è `role="img"`.
+import { demoBrief, demoDocument, demoVersions } from "./demo";
+
+const I = {
+  panel: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  grid: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+  folder: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  file: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>',
+  sliders: '<path d="M4 7h9M17 7h3M4 12h3M11 12h9M4 17h11M19 17h1"/><circle cx="14.5" cy="7" r="1.6"/><circle cx="8.5" cy="12" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/>',
+  card: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/>',
+  help: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M5.6 5.6l3.9 3.9M14.5 14.5l3.9 3.9M18.4 5.6l-3.9 3.9M9.5 14.5l-3.9 3.9"/>',
+  chevron: '<path d="M9 6l6 6-6 6"/>',
+  down: '<path d="M6 9l6 6 6-6"/>',
+  zap: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+  external: '<path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>',
+  home: '<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>',
+  copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',
+  download: '<path d="M12 4v12M6 11l6 6 6-6M4 20h16"/>',
+  sparkles: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>',
+  check: '<path d="M5 12l5 5 9-10"/>',
+};
+const menu = [
+  { group: "Menu", items: [["Panoramica", I.grid], ["Progetti", I.folder], ["Documenti", I.file]] },
+  { group: "Account", items: [["Impostazioni", I.sliders], ["Abbonamento", I.card]] },
+  { group: "Supporto", items: [["Aiuto", I.help]] },
+];
+const stroke = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"';
+const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800";
+---
+
+<div class="flex w-[1100px] bg-white text-base-900 antialiased [zoom:var(--vb-zoom,1)]">
+  <!-- Barra laterale -->
+  <aside class="w-[208px] shrink-0 border-r border-base-200">
+    <div class="flex items-center h-12 px-5 border-b border-base-200">
+      <img src="/brand/verbalist-simbolo.svg" alt="" class="w-auto h-5" />
+    </div>
+    <div class="px-3 pt-3">
+      <p class="flex items-center h-9 px-2 text-[13px] rounded-md gap-2.5 text-base-900">
+        <svg class="size-4" set:html={I.plus} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />Nuovo documento
+      </p>
+      {
+        menu.map((m) => (
+          <div class="mt-4">
+            <p class="px-2 text-2xs text-base-500">{m.group}</p>
+            <ul class="mt-1">
+              {m.items.map(([label, svg], k) => (
+                <li class={`flex items-center h-9 px-2 text-[13px] rounded-md gap-2.5 ${m.group === "Menu" && k === 2 ? "bg-base-100 text-base-900" : "text-base-700"}`}>
+                  <svg class="size-4 text-base-700" set:html={svg} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  {label}
+                  {label === "Progetti" && (
+                    <svg class="ml-auto size-3.5 text-base-400" set:html={I.chevron} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </aside>
+
+  <div class="flex-1 min-w-0 bg-base-50">
+    <!-- Barra in alto -->
+    <div class="flex items-center h-12 px-5 bg-white border-b border-base-200 gap-5 text-[13px] text-base-700">
+      <svg class="size-4" set:html={I.panel} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+      <span class="flex items-center ml-auto gap-1.5"><svg class="size-3.5 text-base-900" set:html={I.zap} viewBox="0 0 24 24" fill="currentColor" />15 documenti residui</span>
+      <span class="flex items-center gap-1.5"><svg class="size-3.5" set:html={I.globe} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" />EN</span>
+      <span class="flex items-center gap-1.5"><svg class="size-3.5" set:html={I.external} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />Sito</span>
+    </div>
+
+    <div class="px-8 pt-5">
+      <!-- Briciole -->
+      <p class="flex items-center text-[13px] gap-2 text-base-500">
+        <svg class="size-4" set:html={I.home} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        <svg class="size-3" set:html={I.chevron} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        Documenti
+        <svg class="size-3" set:html={I.chevron} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        <span class="text-base-900">{demoDocument.titleTag}</span>
+      </p>
+
+      <!-- Stato e azioni -->
+      <div class="flex items-center mt-5 gap-3">
+        <span class="inline-flex items-center h-6 px-2.5 text-[12px] font-medium text-white rounded-md bg-base-900">Completato</span>
+        <span class="text-[13px] text-base-500">{demoDocument.generated}, 13:16</span>
+        <span class="flex ml-auto gap-2">
+          <span class={btn}><svg class="size-4" set:html={I.copy} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />Copia<svg class="size-3" set:html={I.down} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></span>
+          <span class={btn}><svg class="size-4" set:html={I.download} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />Esporta<svg class="size-3" set:html={I.down} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></span>
+        </span>
+      </div>
+
+      <h2 class="mt-7 text-2xl font-normal leading-tight tracking-tight text-base-900">{demoDocument.titleTag}</h2>
+      <p class="flex items-center mt-2 text-[13px] gap-2 text-base-600">
+        {demoBrief.type}
+        <span class="text-base-400">·</span>
+        <span class="px-2 py-0.5 text-[12px] rounded-md bg-base-200 text-base-800">{demoBrief.keyword}</span>
+      </p>
+
+      <!-- Avviso delle due versioni -->
+      <div class="flex items-center p-4 mt-6 rounded-lg gap-4 bg-base-200/70">
+        <span class="flex items-center justify-center bg-white rounded-md size-10 text-base-900">
+          <svg class="size-5" set:html={I.sparkles} viewBox="0 0 24 24" fill="currentColor" />
+        </span>
+        <span>
+          <span class="block text-[13px] font-medium text-base-900">Abbiamo generato due versioni</span>
+          <span class="block text-[13px] text-base-600">Confronta i due contenuti generati e scegli quello che preferisci.</span>
+        </span>
+      </div>
+
+      <!-- Le due versioni -->
+      <div class="grid grid-cols-2 mt-5 gap-5">
+        {
+          demoVersions.map((v) => (
+            <div class="bg-white border rounded-xl border-base-200">
+              <div class="flex items-center justify-between px-5 border-b h-14 border-base-200">
+                <span class="text-[14px] font-medium text-base-900">{v.label}</span>
+                <span class="inline-flex items-center h-8 px-3.5 text-[13px] bg-white border rounded-full gap-2 border-base-200 text-base-900">
+                  Usa questa versione
+                  <svg class="size-3.5" set:html={I.check} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </span>
+              </div>
+              <div class="relative px-6 pt-5 pb-8">
+                <p class="text-[19px] font-medium leading-snug tracking-tight text-base-900">{v.h1}</p>
+                <p class="mt-4 text-[13px] leading-relaxed text-base-700">{v.intro}</p>
+                <p class="mt-5 text-[15px] font-medium text-base-900">{v.sections[0].h2}</p>
+                <p class="mt-2 text-[13px] leading-relaxed text-base-700">{"p" in v.sections[0].blocks[0] ? v.sections[0].blocks[0].p : ""}</p>
+                <span aria-hidden="true" class="absolute right-1.5 top-5 w-1.5 h-24 rounded-full bg-base-300"></span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

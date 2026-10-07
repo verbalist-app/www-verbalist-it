@@ -1,0 +1,92 @@
+---
+// Primo viewport: in alto titolo, testo e azioni; sotto, la pagina di un
+// documento in piattaforma con le due versioni, tagliata dal bordo della
+// sezione. I testi vengono da un documento vero (demo.ts). La finestra è
+// statica: nessuna animazione nell'hero.
+import Button from "@/components/fundations/elements/Button.astro";
+import Frame from "@/components/section/Frame.astro";
+import { TRIAL_HREF } from "@/lib/pricing";
+import { demoBrief, demoDocument, demoVersions } from "./demo";
+
+const pill = "inline-flex items-center h-7 px-3 text-xs bg-white border rounded-full border-base-200 text-base-700";
+---
+
+<Frame n={1} labelledby="home-title" tone="soft" class="pt-12 !pb-0 lg:pt-14">
+  <div class="lg:px-10">
+    <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
+      SEO e GEO per agenzie e team marketing
+    </p>
+    <h1
+      id="home-title"
+      class="mt-6 text-[2.75rem] leading-[1.06] font-normal tracking-[-0.03em] text-base-900 sm:text-hero-sm lg:text-hero"
+    >
+      Prima legge Google.<br />Poi scrive.
+    </h1>
+    <div class="grid items-end grid-cols-1 mt-6 gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-12">
+      <p class="max-w-xl text-lg font-light leading-snug text-base-600 text-pretty lg:text-lede">
+        Verbalist analizza i primi cinque risultati per la tua keyword, ne
+        ricava argomenti, struttura e lacune, e scrive il contenuto ex novo
+        nella lingua del tuo mercato: per Google e per le risposte delle AI
+        (GEO).
+      </p>
+      <div>
+        <div class="flex flex-wrap items-center gap-3">
+          <Button isLink size="base" variant="accent" href={TRIAL_HREF}>Prova gratis</Button>
+          <Button isLink size="base" variant="muted" href="/contatti/">Parla con noi</Button>
+        </div>
+        <p class="mt-4 text-sm text-base-500">
+          30 giorni, 15 documenti, senza carta di credito.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-12 lg:px-10">
+    <div
+      role="img"
+      aria-label={`La pagina di un documento in Verbalist: per la keyword «${demoBrief.keyword}» la piattaforma ha generato due versioni, A e B, da confrontare.`}
+      class="overflow-hidden bg-white border border-b-0 h-80 rounded-t-xl border-base-200 lg:h-88"
+    >
+      <div class="flex items-center h-10 px-4 border-b gap-3 border-base-200">
+        <div class="flex gap-1.5">
+          <span class="rounded-full size-2.5 bg-base-200"></span>
+          <span class="rounded-full size-2.5 bg-base-200"></span>
+          <span class="rounded-full size-2.5 bg-base-200"></span>
+        </div>
+      </div>
+      <div class="px-4 pt-4 bg-base-50 sm:px-6 sm:pt-5">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center h-6 px-2.5 text-xs font-medium text-white rounded-full bg-base-900">Completato</span>
+          <span class="text-xs text-base-500">{demoDocument.generated}</span>
+          <span class="hidden ml-auto gap-2 sm:flex">
+            <span class={pill}>Copia</span>
+            <span class={pill}>Esporta</span>
+          </span>
+        </div>
+        <p class="mt-3 text-lg truncate text-base-900">{demoDocument.titleTag}</p>
+        <p class="flex items-center mt-1 text-xs gap-2 text-base-500">
+          {demoBrief.type}
+          <span class="px-2 py-0.5 rounded-full bg-base-200 text-base-800 truncate">{demoBrief.keyword}</span>
+        </p>
+        <div class="grid grid-flow-col auto-cols-[17rem] gap-3 mt-4 sm:grid-flow-row sm:auto-cols-auto sm:grid-cols-2 sm:gap-4">
+          {
+            demoVersions.map((v) => (
+              <div class="bg-white border rounded-lg border-base-200">
+                <div class="flex items-center justify-between h-10 px-4 border-b border-base-200">
+                  <span class="text-sm text-base-900">{v.label}</span>
+                  <span class="font-mono text-xs text-base-500 tabular-nums">
+                    {v.words} parole
+                  </span>
+                </div>
+                <div class="px-4 py-4">
+                  <p class="font-medium leading-snug text-md text-base-900">{v.h1}</p>
+                  <p class="mt-2 text-sm leading-relaxed text-base-600">{v.intro}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</Frame>
