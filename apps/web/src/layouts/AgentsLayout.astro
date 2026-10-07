@@ -20,7 +20,6 @@ import BriefWindow from "@/components/features/agents/BriefWindow.astro";
 import ProgressWindow from "@/components/features/agents/ProgressWindow.astro";
 import ExportWindow from "@/components/features/agents/ExportWindow.astro";
 import AppWindow from "@/components/home/AppWindow.astro";
-import ChainFragment from "@/components/home/ChainFragment.astro";
 import { demoBrief } from "@/components/home/demo";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Frame from "@/components/section/Frame.astro";
@@ -29,7 +28,8 @@ import Frame from "@/components/section/Frame.astro";
 // sotto-nav; prev/next: agente precedente e successivo, con la sintesi.
 const { frontmatter, slug, all = [], prev = null, next = null } = Astro.props;
 
-// La finestra dell'app mostrata nella card di prodotto (chiave = frontmatter.mockup)
+// La finestra dell'app mostrata nell'hero (chiave = frontmatter.mockup): il
+// passo della procedura che questo agente compie.
 const mockup = (frontmatter.mockup as string) ?? "brief";
 const fragmentStep = ({ brief: "brief", serp: "serp", article: "write", "export": "export" } as const)[
   mockup as "brief" | "serp" | "article" | "export"
@@ -79,8 +79,16 @@ const ioCells = [
     text={frontmatter.lede}
     stepsLead={frontmatter.stepsLead}
     steps={frontmatter.steps}
-    run={runStep ?? "brief"}
-  />
+  >
+    <Fragment slot="card">
+      <div class={`absolute overflow-hidden rounded-xl vb-window top-8 sm:top-10 lg:top-12 ${mockup === "article" ? "left-[34%]" : "left-[40%]"}`}>
+        {mockup === "brief" && <BriefWindow fields={briefFields} file="brand-guidelines.pdf" />}
+        {mockup === "serp" && <ProgressWindow />}
+        {mockup === "article" && <AppWindow sidebar={false} />}
+        {mockup === "export" && <ExportWindow />}
+      </div>
+    </Fragment>
+  </Manifesto>
 
   <!-- Il prodotto: titolo grande, azioni, finestra app -->
   <Frame n={2} class="pt-14 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
@@ -98,14 +106,11 @@ const ioCells = [
       </SectionHead>
       <ProductCard
         tone="sera"
-        label={`La finestra di Verbalist per questo agente: ${frontmatter.summary}`}
-        class="mt-10 h-[20rem] sm:h-[24rem] lg:h-[28rem] [--vb-zoom:0.62] sm:[--vb-zoom:0.9] lg:[--vb-zoom:1.1]"
+        label="La pagina del documento in Verbalist, con la barra laterale dell'app: progetti, documenti, impostazioni e le due versioni generate."
+        class="mt-10 h-[20rem] sm:h-[26rem] lg:h-[30rem] [--vb-zoom:0.5] sm:[--vb-zoom:0.7] lg:[--vb-zoom:0.82]"
       >
-        <div class={`absolute overflow-hidden rounded-xl vb-window top-8 ${mockup === "article" ? "left-6 sm:left-10 lg:left-16" : "left-6 sm:left-1/2 sm:-translate-x-1/2"}`}>
-          {mockup === "brief" && <BriefWindow fields={briefFields} file="brand-guidelines.pdf" />}
-          {mockup === "serp" && <ProgressWindow />}
-          {mockup === "article" && <AppWindow sidebar={false} />}
-          {mockup === "export" && <ExportWindow />}
+        <div class="absolute overflow-hidden rounded-xl vb-window top-8 left-6 sm:top-10 sm:left-10 lg:top-12 lg:left-14">
+          <AppWindow />
         </div>
       </ProductCard>
   </Frame>
@@ -145,29 +150,13 @@ const ioCells = [
   <!-- Come funziona: prosa con link interni + l'output della fase -->
   {
     Astro.slots.has("default") && (
-      <Frame n={4} class="!px-0">
-          <div class="grid grid-cols-1 px-4 lg:grid-cols-2 lg:px-14">
-            <div class="py-12 lg:py-16 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200">
-              <Wrapper
-                variant="prose"
-                class="max-w-xl [&_h2]:font-normal [&_h2]:tracking-[-0.025em] [&_h2]:text-base-900 [&_h2]:text-3xl lg:[&_h2]:text-[2.75rem] lg:[&_h2]:leading-[1.1] [&_h2]:mt-0 [&_h2]:mb-8"
-              >
-                <slot />
-              </Wrapper>
-            </div>
-            <div class="pb-12 lg:py-16 lg:pl-10">
-              <div class="lg:sticky lg:top-24">
-                <p class="mb-4 font-mono text-xs tracking-wider uppercase text-accent-600">
-                  Cosa ti porti a casa
-                </p>
-                <ProductCard tone="carta" label={`L'uscita di questo agente: ${frontmatter.output.join("; ")}`} class="h-64 [--vb-zoom:0.78] sm:h-72 sm:[--vb-zoom:0.9]">
-                  <div class="absolute overflow-hidden rounded-xl top-6 left-6 vb-window">
-                    <ChainFragment step={fragmentStep} />
-                  </div>
-                </ProductCard>
-              </div>
-            </div>
-          </div>
+      <Frame n={4} class="py-12 lg:py-16 lg:!px-14">
+        <Wrapper
+          variant="prose"
+          class="max-w-xl [&_h2]:font-normal [&_h2]:tracking-[-0.025em] [&_h2]:text-base-900 [&_h2]:text-3xl lg:[&_h2]:text-[2.75rem] lg:[&_h2]:leading-[1.1] [&_h2]:mt-0 [&_h2]:mb-8"
+        >
+          <slot />
+        </Wrapper>
       </Frame>
     )
   }

@@ -64,7 +64,8 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   campo `audience` alimenta il tracking (vedi `docs/tracking-plan.md`).
 - `src/components/featurepage/` — blocchi condivisi da pagine agente e
   soluzioni: `SubNav` (pagine sorelle, voci a pillola), `Manifesto` (hero
-  statico: targhetta, titolo, testo e passi numerati in un pannello),
+  statico: targhetta, titolo, testo; a destra una `ProductCard` con i passi
+  numerati e la finestra dell'app passata nello slot `card`),
   `SectionHead` (alias di `components/section/Head.astro`).
 - `src/components/section/` — `Frame` (cornice di sezione) e `Head` (testa
   di sezione): il pattern con cui si costruisce ogni sezione del sito.

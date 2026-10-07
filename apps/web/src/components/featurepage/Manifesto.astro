@@ -1,17 +1,14 @@
 ---
 // Hero delle pagine "feature" (agenti, soluzioni): targhetta, titolo, testo
 // e azioni a sinistra. A destra:
-//  - pagine agente (`run`): la catena al lavoro, con il pannello di questo
-//    agente in corso e gli altri fermi; i passi numerati scendono sotto il testo;
-//  - pagine soluzione: una card di prodotto (ProductCard) con, in primo
-//    piano, i passi numerati e, dietro, l'illustrazione passata nello slot
-//    "card" (una finestra dell'app diversa per ogni pubblico); senza slot, la
-//    pagina del documento.
+//  - una card di prodotto (ProductCard) con, in primo piano, i passi
+//    numerati e, dietro, l'illustrazione passata nello slot "card" (una
+//    finestra dell'app diversa per ogni agente e per ogni pubblico); senza
+//    slot, la pagina del documento.
 // `image` resta nella firma per compatibilità ma è ignorata: niente immagini
 // decorative.
 import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
-import Run from "@/components/run/Run.astro";
 import ProductCard from "@/components/featurepage/ProductCard.astro";
 import AppWindow from "@/components/home/AppWindow.astro";
 
@@ -22,12 +19,11 @@ interface Props {
   stepsLead?: string;
   steps?: string[];
   image?: string;
-  run?: "brief" | "serp" | "write" | "export";
 }
-const { eyebrow, headline, text, stepsLead = "", steps = [], run } = Astro.props;
+const { eyebrow, headline, text, stepsLead = "", steps = [] } = Astro.props;
 const title = headline.trim().replace(/[.!?…:]$/, "");
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-const split = run || steps.length > 0;
+const split = steps.length > 0;
 ---
 
 <Frame n={1} flush tone="soft" class="pt-10 pb-12 lg:pt-16 lg:pb-16 lg:!px-14">
@@ -35,25 +31,12 @@ const split = run || steps.length > 0;
     <div class="min-w-0">
       <Head tag={eyebrow} title={title} level="h1" />
       <p class="max-w-lg mt-6 text-lg font-light leading-snug text-base-600 lg:text-lede">{text}</p>
-      {
-        run && steps.length > 0 && (
-          <ol role="list" class="max-w-lg mt-8 text-md text-base-800" aria-label={stepsLead || undefined}>
-            {steps.map((step, i) => (
-              <li class="flex items-start py-3 border-t border-dashed gap-4 border-base-200 last:border-b">
-                <span class="font-mono text-xs leading-6 text-base-500">0{i + 1}</span>
-                <span>{stepsLead ? `${stepsLead} ${step}` : cap(step)}</span>
-              </li>
-            ))}
-          </ol>
-        )
-      }
       <div class="flex flex-wrap items-center mt-8 gap-3">
         <slot />
       </div>
     </div>
-    {run && <Run focus={run} />}
     {
-      !run && steps.length > 0 && (
+      steps.length > 0 && (
         <ProductCard
           label={`La pagina di un documento completato in Verbalist e i passi: ${steps.map(cap).join("; ")}.`}
           class="h-[18rem] sm:h-[24rem] lg:h-[27rem] [--vb-zoom:0.42] sm:[--vb-zoom:0.5] lg:[--vb-zoom:0.52]"
