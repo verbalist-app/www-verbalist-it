@@ -88,7 +88,7 @@ const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rou
       <!-- Stato e azioni -->
       <div class="flex items-center mt-5 gap-3">
         <span class="inline-flex items-center h-6 px-2.5 text-[12px] font-medium text-white rounded-md bg-base-900">Completato</span>
-        <span class="text-[13px] text-base-500">{demoDocument.generated}, 13:16</span>
+        <span class="text-[13px] text-base-500">{demoDocument.generated}, {demoDocument.time}</span>
         <span class="flex ml-auto gap-2">
           <span class={btn}><svg class="size-4" set:html={I.copy} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />Copia<svg class="size-3" set:html={I.down} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></span>
           <span class={btn}><svg class="size-4" set:html={I.download} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />Esporta<svg class="size-3" set:html={I.down} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></span>

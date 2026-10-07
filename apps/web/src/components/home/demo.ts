@@ -1,7 +1,8 @@
 // OUTPUT REALE. Le due versioni qui sotto vengono da un documento generato in
-// piattaforma (app.verbalist.it, documento 406, 28 settembre 2026). Il testo è
-// riportato così com'è uscito, segnaposto compresi: in pagina se ne legge un
-// estratto, non si riscrive. Se si rigenera il documento, si sostituisce tutto.
+// piattaforma (app.verbalist.it, documento 408, 7 ottobre 2026, 07:16;
+// sostituisce il 406, la cui versione A era uscita senza lettere accentate).
+// Il testo è riportato così com'è uscito, segnaposto compresi: in pagina se
+// ne legge un estratto, non si riscrive. Se si rigenera, si sostituisce tutto.
 //
 // Restano dimostrativi, e non vengono dalla piattaforma, `demoSerp` e
 // `demoGaps`: l'analisi dei risultati non è esposta nella pagina del documento.
@@ -16,9 +17,10 @@ export const demoBrief = {
 // Dati del documento in piattaforma. Il title tag è quello che la piattaforma
 // assegna al documento; lo slug è quello dell'indirizzo del documento.
 export const demoDocument = {
-  generated: "28 settembre 2026",
-  titleTag: "Come scegliere le scarpe da running: guida tecnica 2025",
-  slug: "/come-scegliere-le-scarpe-da-running-guida-tecnica-2025",
+  generated: "7 ottobre 2026",
+  time: "07:16",
+  titleTag: "Come scegliere le scarpe da running: guida completa",
+  slug: "/come-scegliere-le-scarpe-da-running-guida-completa",
 };
 
 // I cinque risultati "letti" nella dimostrazione dell'hero: domini fittizi,
@@ -49,7 +51,7 @@ export interface DemoVersion {
   headings: number;
   h1: string;
   intro: string;
-  // Sezioni scelte per l'estratto, ciascuna dall'inizio.
+  // Sezioni scelte per l'estratto, ciascuna intera.
   sections: { h2: string; blocks: DemoBlock[] }[];
   faq: string[];
 }
@@ -58,157 +60,147 @@ export const demoVersions: DemoVersion[] = [
   {
     id: "a",
     label: "Versione A",
-    angle: "Per parametri tecnici e categorie",
-    words: 2472,
-    headings: 11,
-    h1: "Come scegliere le scarpe da running: guida tecnica alla calzatura giusta",
+    angle: "Per misure, categorie e prova in negozio",
+    words: 2469,
+    headings: 12,
+    h1: "Come scegliere le scarpe da running: guida completa a misura, appoggio e terreno",
     intro:
-      "Capire come scegliere le scarpe da running significa incrociare sei variabili: tipo di appoggio, conformazione dell'arco plantare, peso corporeo, superficie di allenamento, ritmo abituale e chilometraggio settimanale. Una scarpa giusta riduce il rischio di infortunio, allunga la vita del prodotto e migliora la resa in gara; una scarpa sbagliata trasferisce lo stress su ginocchia, tibia e fascia plantare. Questa guida spiega i parametri tecnici da valutare, come leggerli sul proprio piede e come tradurli nella categoria di calzatura corretta, con un capitolo dedicato ai modelli a basso impatto ambientale.",
+      "Capire come scegliere le scarpe da running significa incrociare cinque variabili: lunghezza reale del piede, tipo di appoggio, peso corporeo, superficie su cui corri e volume di chilometri settimanali. Marchio e colore vengono dopo. Questa guida spiega come misurare il piede in centimetri, quanto spazio lasciare davanti alle dita, quale drop e quale ammortizzazione scegliere in base alla tua corsa e come leggere la classificazione A1–A6 usata da molti negozi specializzati italiani. In fondo trovi una procedura di prova in sette passaggi da seguire prima dell'acquisto.",
     sections: [
       {
-        h2: "Come capire che scarpa da running scegliere?",
+        h2: "Cosa rende comodo un paio di scarpe da corsa?",
         blocks: [
           {
-            p: "La scarpa giusta si trova incrociando due variabili chiave: peso corporeo e ritmo abituale. La matrice che segue traduce i profili piu comuni in categoria consigliata, ipotizzando appoggio neutro su asfalto. Pronatori aggiungono un livello di stabilita (passaggio ad A4); trail runner scelgono A5 indipendentemente dagli altri parametri.",
+            p: "Una scarpa da corsa è comoda quando la calzata segue la forma del piede senza punti di pressione, l'intersuola assorbe l'impatto in proporzione al peso del runner e la geometria della suola (drop e stabilità) asseconda il modo in cui il piede tocca terra. La morbidezza percepita al primo passo in negozio, da sola, non è un indicatore affidabile.",
+          },
+          {
+            p: "Un esempio concreto: una scarpa con schiuma molto soffice e tallone alto può sembrare perfetta per due minuti sul pavimento del negozio e diventare instabile dopo dieci chilometri, quando la muscolatura del piede è affaticata e la caviglia comincia a cedere verso l'interno. La comodità vera si misura in movimento, a ritmo di corsa, e su una distanza che somiglia a quella dei tuoi allenamenti.",
+          },
+        ],
+      },
+      {
+        h2: "La classificazione A1–A6: cosa significano le sigle",
+        blocks: [
+          {
+            p: "In Italia molti negozi e riviste di settore raggruppano le scarpe da running in sei categorie, dalla A1 alla A6, in base a ammortizzazione, peso e destinazione d'uso [SOURCE NEEDED]. Non si tratta di una norma tecnica: le definizioni possono variare leggermente da una fonte all'altra, ma la sigla aiuta a orientarsi rapidamente tra gli scaffali.",
           },
           {
             table: {
-              head: ["Peso / Ritmo", "Sotto 4:30 min/km", "4:30-5:30 min/km", "Sopra 5:30 min/km"],
+              head: ["Categoria", "Tipologia", "Uso tipico"],
               rows: [
-                ["Fino a 65 kg", "A1 con piastra", "A2", "A2 o A3 leggera"],
-                ["65-80 kg", "A2 reattiva", "A2-A3", "A3"],
-                ["Oltre 80 kg", "A2 rinforzata", "A3", "A3 massimo ammortizzamento"],
+                ["A1", "Scarpe da gara superleggere", "Competizioni, runner leggeri ed esperti"],
+                ["A2", "Scarpe intermedie", "Allenamenti veloci, gare su distanze medie"],
+                ["A3", "Massimo ammortizzamento, neutre", "Allenamento quotidiano, lunghi, runner di peso medio-alto"],
+                ["A4", "Stabili o antipronazione", "Runner con iperpronazione"],
+                ["A5", "Trail e fuoristrada", "Sentieri, sterrato, montagna"],
+                ["A6", "Scarpe da pista o chiodate", "Atletica su pista"],
               ],
             },
           },
-          {
-            p: "La tabella e uno schema di orientamento, non una prescrizione. Chi ha appena iniziato a correre parte sempre da una A3 anche se leggero, perche i tessuti muscolo-tendinei non sono ancora abituati all'impatto ripetuto.",
-          },
         ],
       },
       {
-        h2: "Quando sostituire le scarpe da running",
+        h2: "Le conseguenze di una scelta sbagliata",
         blocks: [
           {
-            p: "Le scarpe da running vanno sostituite tra i 500 e gli 800 chilometri percorsi [SOURCE NEEDED], intervallo che si stringe per runner sopra gli 80 kg e si allarga per corridori leggeri e tecnici. Segnali di usura oltre il chilometraggio:",
+            p: "Una scarpa inadatta raramente provoca un infortunio da sola, ma ne aumenta la probabilità sommando sollecitazioni ripetute per migliaia di passi. Gli effetti più comuni sono:",
           },
           {
             ul: [
-              "L'intersuola presenta rughe visibili o zone compresse.",
-              "Il battistrada e liscio nel punto di appoggio prevalente.",
-              "Compaiono fastidi ricorrenti a polpaccio, ginocchio o pianta del piede senza altre cause identificabili.",
-              "La sensazione di corsa e piatta: l'intersuola non ritorna piu dopo la compressione.",
+              "Scarpa troppo corta: unghie nere, vesciche sulla punta delle dita, dolore all'alluce.",
+              "Scarpa troppo larga o con tallone lasco: sfregamenti e vesciche sul tallone, instabilità della caviglia.",
+              "Ammortizzazione insufficiente per il peso: affaticamento di ginocchia e tibie, maggiore carico sulla fascia plantare.",
+              "Drop ridotto troppo in fretta: sovraccarico di polpacci e tendine d'Achille.",
+              "Scarpa consumata: perdita di assorbimento, dolori diffusi che compaiono senza un cambio evidente nell'allenamento.",
             ],
           },
           {
-            p: "Annotare il chilometraggio su un'app o un foglio permette di anticipare il cambio prima che l'usura provochi problemi.",
-          },
-        ],
-      },
-      {
-        h2: "Uso di configuratori online e shoe finder",
-        blocks: [
-          {
-            p: "I configuratori online (shoe finder) proposti da molti rivenditori chiedono peso, sesso, appoggio, superficie e ritmo, poi restituiscono una selezione di modelli compatibili. Sono un buon filtro iniziale: riducono l'assortimento da centinaia a decine di prodotti. Non sostituiscono la prova in negozio con corsa sul tapis o su breve tratto, che resta l'unico modo per verificare calzata, volume interno e sensazione dinamica.",
-          },
-          {
-            p: "Prima di usare uno shoe finder conviene aver eseguito i test descritti sopra: dati approssimativi in ingresso producono suggerimenti approssimativi in uscita.",
+            p: "Gli infortuni da corsa hanno cause multifattoriali, in cui contano soprattutto la progressione dei carichi e il recupero [SOURCE NEEDED]. In caso di dolore persistente, il riferimento resta un medico dello sport o un fisioterapista. [INTERNAL: prevenzione degli infortuni più comuni nella corsa]",
           },
         ],
       },
     ],
     faq: [
-      "Posso usare le scarpe da running per la palestra?",
-      "Che numero devo prendere?",
-      "Scarpe con piastra in carbonio: quando servono davvero?",
-      "Meglio scarpe neutre o stabili se non conosco il mio appoggio?",
-      "Quante paia di scarpe servono per allenarsi bene?",
-      "Le scarpe da running eco-sostenibili durano meno?",
+      "Conviene prendere mezza taglia in più?",
+      "Ogni quanti chilometri vanno cambiate le scarpe da running?",
+      "Un principiante deve comprare scarpe con piastra in carbonio?",
+      "Le scarpe da running vanno bene anche per camminare o per la palestra?",
+      "Si può usare un plantare nelle scarpe da corsa?",
     ],
   },
   {
     id: "b",
     label: "Versione B",
     angle: "Per domande e prove pratiche",
-    words: 2855,
-    headings: 16,
-    h1: "Come scegliere le scarpe da running: guida pratica completa",
+    words: 3265,
+    headings: 14,
+    h1: "Come scegliere le scarpe da running: guida pratica per trovare il modello giusto",
     intro:
-      "Capire come scegliere le scarpe da running significa trovare un modello compatibile con piede, terreno, distanza e sensazioni personali, non inseguire la scarpa più costosa o più pubblicizzata. La scelta corretta parte da quattro verifiche: destinazione d’uso, calzata, livello di ammortizzazione e stabilità richiesta. Questa guida spiega come valutare appoggio, arco plantare, peso, ritmo, drop e struttura della scarpa. Include inoltre una procedura di prova concreta, una tabella comparativa e criteri ambientali verificabili. L’obiettivo è restringere la scelta a pochi modelli coerenti e selezionare quello che rimane comodo durante una breve corsa, senza pressioni, scivolamenti o correzioni forzate del movimento.",
+      "Capire come scegliere le scarpe da running significa abbinare la scarpa al piede, al tipo di corsa e al terreno, non inseguire il modello più costoso o più pubblicizzato. Questa guida trasforma peso, passo, distanza, appoggio e calzata in criteri concreti. Troverai anche una procedura di prova, confronti fra categorie e soluzioni ai problemi più comuni. Il principio decisivo è semplice: la scarpa corretta deve risultare stabile e confortevole per quello specifico runner, lasciando spazio alle dita senza permettere al tallone di muoversi. Se dolore o infortuni persistono, la scelta della scarpa non sostituisce una valutazione sanitaria qualificata.",
     sections: [
       {
-        h2: "Come scegliere le scarpe da running in breve",
+        h2: "Come scegliere le scarpe da running in 7 passaggi",
         blocks: [
           {
-            p: "Per scegliere le scarpe da running, definisci prima dove e quanto correrai; verifica poi larghezza, spazio in punta e tenuta del tallone. Confronta almeno due modelli della stessa categoria e preferisci quello che risulta subito stabile e confortevole. Appoggio e peso aiutano a restringere le opzioni, ma non sostituiscono la prova in movimento.",
+            p: "Per scegliere una scarpa da corsa senza perdersi tra sigle e tecnologie, conviene seguire un ordine preciso. Prima si definiscono uso e superficie; poi si valutano piede, sensazioni e calzata. Il passo medio o il peso, considerati da soli, non possono determinare il modello.",
           },
           {
             ol: [
-              "Definisci l’uso principale: strada, trail, pista, tapis roulant, allenamento quotidiano o gara.",
-              "Considera il carico: distanza abituale, frequenza settimanale, peso corporeo e intensità.",
-              "Valuta la calzata: il piede non deve essere compresso e il tallone non deve sollevarsi.",
-              "Scegli la struttura: neutra, stabile, molto ammortizzata, leggera oppure specialistica.",
-              "Prova la scarpa correndo: bastano pochi minuti per individuare pressioni, instabilità o sfregamenti evidenti.",
+              "Definisci l’uso principale: corsa quotidiana, fondo lungo, gara, ripetute, trail o tapis roulant.",
+              "Identifica il terreno: asfalto, pista, sterrato compatto oppure sentiero tecnico.",
+              "Considera il carico reale: peso corporeo, chilometri settimanali, distanza della singola uscita e frequenza.",
+              "Osserva piede e andatura: larghezza, volume, arco plantare, eventuali asimmetrie e stabilità durante la corsa.",
+              "Scegli la funzione prevalente: comfort e ammortizzazione, supporto, aderenza o reattività.",
+              "Prova la calzata: usa le calze da corsa, allaccia entrambe le scarpe e corri, se possibile.",
+              "Confronta almeno due modelli: valuta quale scompare maggiormente ai piedi, senza punti di pressione o correzioni percepite come invasive.",
             ],
           },
+          { p: "[INTERNAL: guida per iniziare a correre]" },
         ],
       },
       {
-        h2: "Come cambia la scelta in base alla superficie di corsa?",
+        h2: "Errori comuni e soluzioni pratiche",
         blocks: [
           {
-            p: "La superficie determina soprattutto battistrada, protezione e stabilità. L’asfalto richiede una transizione fluida; fango e roccia richiedono trazione e protezioni; la pista favorisce modelli specialistici. Usare una scarpa sul terreno sbagliato può ridurre aderenza e comfort anche quando la misura è corretta.",
+            p: "Gli errori più frequenti nascono da scorciatoie: comprare in base al colore, scegliere la stessa taglia di ogni marchio o correggere la pronazione senza una prova dinamica. La soluzione è trasformare ogni problema in un controllo osservabile.",
           },
           {
             table: {
-              head: ["Superficie", "Caratteristiche utili", "Possibile limite"],
+              head: ["Problema", "Possibile causa", "Prova pratica"],
               rows: [
-                [
-                  "Strada",
-                  "Battistrada relativamente uniforme, ammortizzazione, transizione fluida",
-                  "Poca trazione su fango e terreno cedevole",
-                ],
-                [
-                  "Trail",
-                  "Tasselli, protezione del puntale, base stabile, tomaia resistente",
-                  "Può risultare rigida e rumorosa sull’asfalto",
-                ],
-                [
-                  "Pista",
-                  "Peso ridotto, risposta rapida, eventuali chiodi per disciplina",
-                  "Uso specialistico e protezione limitata",
-                ],
-                [
-                  "Tapis roulant",
-                  "Comfort, ventilazione, battistrada non aggressivo",
-                  "Non sostituisce una trail sui percorsi esterni",
-                ],
+                ["Dita che urtano", "Scarpa corta o volume anteriore insufficiente", "Prova più lunghezza o una punta di forma diversa"],
+                ["Tallone che scivola", "Conchiglia ampia o allacciatura inadeguata", "Usa l’occhiello finale con nodo a blocco"],
+                ["Formicolio", "Lacci stretti o avampiede compresso", "Allenta la zona interessata e prova maggiore larghezza"],
+                ["Instabilità in curva", "Base stretta o intersuola troppo cedevole", "Confronta una piattaforma più ampia e consistente"],
+                ["Scarso grip", "Battistrada inadatto o usurato", "Scegli tassello e mescola per la superficie prevalente"],
+                ["Fastidio al polpaccio dopo il cambio", "Transizione rapida di drop o rigidità", "Riduci durata e alterna con la scarpa precedente"],
               ],
             },
           },
         ],
       },
       {
-        h2: "Drop: che cos’è e come influenza la corsa?",
+        h2: "Quando sostituire le scarpe e come gestire la rotazione",
         blocks: [
           {
-            p: "Il drop è la differenza di altezza tra tallone e avampiede. Un drop maggiore tende a spostare parte della richiesta meccanica lontano da caviglia e polpaccio; un drop basso può aumentare il lavoro di queste strutture, soprattutto durante una transizione improvvisa [SOURCE NEEDED]. Non determina automaticamente l’appoggio di tallone o avampiede.",
+            p: "Le scarpe vanno sostituite quando intersuola, battistrada o tomaia non svolgono più la loro funzione, non al raggiungimento automatico di un numero. L’intervallo di 500-800 km citato da molte guide è soltanto orientativo e dipende da modello, runner, superficie e uso [SOURCE NEEDED].",
           },
           {
-            p: "Chi passa a un drop molto diverso dovrebbe aumentare gradualmente il tempo di utilizzo. Un esempio prudente consiste nell’impiegare la nuova scarpa in una corsa breve e facile, alternandola al modello abituale, invece di usarla subito per la distanza più lunga della settimana.",
+            p: "Registra i chilometri, ma osserva anche appiattimento asimmetrico, gomma consumata fino alla schiuma, tomaia lacerata e cambiamenti persistenti nella sensazione. Un nuovo dolore non dimostra da solo che la scarpa sia esaurita; se persiste, riduci il carico e valuta la causa con una figura qualificata.",
           },
-          { p: "[INTERNAL: significato del drop e transizione verso scarpe minimaliste]" },
+          {
+            p: "La shoe rotation consiste nell’alternare due o più paia. Può essere utile per separare fondo, velocità e trail, oppure per evitare di dipendere da una sola geometria. Non è obbligatoria. Per un runner con tre uscite simili, un unico modello versatile può essere la scelta più razionale.",
+          },
+          { p: "[INTERNAL: quando cambiare le scarpe da running]" },
         ],
       },
     ],
     faq: [
-      "Quale caratteristica è più importante per ridurre il rischio di infortuni?",
-      "Con quale frequenza devo sostituire le scarpe da running?",
-      "I principianti hanno bisogno di scarpe diverse dai runner esperti?",
-      "Che differenza c’è tra scarpe da strada e scarpe da trail?",
-      "I runner più pesanti hanno bisogno di scarpe diverse?",
-      "È necessario conoscere la propria pronazione?",
-      "Posso usare le scarpe da running anche per camminare?",
+      "Le scarpe stabili servono a tutti i pronatori?",
+      "Più ammortizzazione significa maggiore protezione?",
+      "Si può correre con scarpe da trail su asfalto?",
+      "È meglio comprare una scarpa più grande?",
+      "Una scarpa veloce va bene per ogni allenamento?",
     ],
   },
 ];

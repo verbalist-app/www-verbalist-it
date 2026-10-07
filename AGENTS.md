@@ -69,7 +69,7 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 - `src/components/section/` — `Frame` (cornice di sezione) e `Head` (testa
   di sezione): il pattern con cui si costruisce ogni sezione del sito.
 - `src/components/home/` — sezioni della home; `demo.ts` contiene un output
-  vero della piattaforma (documento 406 del 2026-09-28, versioni A e B):
+  vero della piattaforma (documento 408 del 2026-10-07, versioni A e B):
   va riportato senza ritocchi, segnaposto `[SOURCE NEEDED]` e `[INTERNAL: …]`
   compresi. Dimostrativi restano solo i cinque risultati e le lacune dell'hero.
 - `src/content/` — markdown dei contenuti
