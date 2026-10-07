@@ -17,8 +17,8 @@ import SubNav from "@/components/featurepage/SubNav.astro";
 import Manifesto from "@/components/featurepage/Manifesto.astro";
 import SectionHead from "@/components/featurepage/SectionHead.astro";
 // Prodotto
-import MockupBrief from "@/components/features/agents/MockupBrief.astro";
-import MockupWindow from "@/components/features/agents/MockupWindow.astro";
+import ProductCard from "@/components/featurepage/ProductCard.astro";
+import BriefWindow from "@/components/features/agents/BriefWindow.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Frame from "@/components/section/Frame.astro";
 import { contactHref } from "@/lib/utils";
@@ -136,48 +136,25 @@ const faqLd = {
           {secondary.text}
         </Button>
       </SectionHead>
-      <div
-        class:list={[
-          "relative mt-12 overflow-hidden rounded-xl border border-base-200 bg-base-50",
-          multiBrief ? "p-4 sm:p-6" : "p-4 sm:p-8",
-        ]}
+      <ProductCard
+        label={`La procedura "Nuovo documento" di Verbalist compilata con ${multiBrief ? frontmatter.briefs.length + " brief d'esempio, uno per cliente" : "un brief d'esempio"}: ${frontmatter.briefs.map((b: { fields: { label: string; value: string }[] }) => b.fields.map((f) => f.value).join(", ")).join("; ")}.`}
+        class={`mt-12 ${multiBrief ? "h-[20rem] sm:h-[22rem] lg:h-[24rem]" : "h-[20rem] sm:h-[22rem]"} [--vb-zoom:0.62] sm:[--vb-zoom:0.72] lg:[--vb-zoom:0.8]`}
       >
         {
-          multiBrief ? (
-            <div class="relative grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {frontmatter.briefs.map(
-                (
-                  b: { fields: any[]; file: string; project?: string },
-                  i: number
-                ) => (
-                  <div
-                    class:list={[
-                      i === 1 && "hidden md:block",
-                      i >= 2 && "hidden lg:block",
-                    ]}
-                  >
-                    <MockupBrief
-                      variant="card"
-                      fields={b.fields}
-                      file={b.file}
-                      project={b.project}
-                    />
-                  </div>
-                )
-              )}
+          frontmatter.briefs.map((b: { fields: { label: string; value: string }[]; file?: string; project?: string }, i: number) => (
+            <div
+              class:list={[
+                "absolute overflow-hidden rounded-xl vb-window",
+                multiBrief
+                  ? ["top-8 left-6", "top-14 left-[36%] hidden md:block", "top-20 left-[64%] hidden lg:block"][i]
+                  : "top-8 left-1/2 -translate-x-1/2",
+              ]}
+            >
+              <BriefWindow fields={b.fields} file={b.file} project={b.project} />
             </div>
-          ) : (
-            <MockupWindow url="app.verbalist.it/nuovo">
-              <MockupBrief
-                variant="card"
-                fields={frontmatter.briefs[0].fields}
-                file={frontmatter.briefs[0].file}
-                project={frontmatter.briefs[0].project}
-              />
-            </MockupWindow>
-          )
+          ))
         }
-      </div>
+      </ProductCard>
   </Frame>
 
   <!-- Cosa cambia per questo pubblico: griglia di celle 3×2 -->

@@ -3,12 +3,15 @@
 // e azioni a sinistra. A destra:
 //  - pagine agente (`run`): la catena al lavoro, con il pannello di questo
 //    agente in corso e gli altri fermi; i passi numerati scendono sotto il testo;
-//  - pagine soluzione: i passi numerati in un pannello.
+//  - pagine soluzione: una card di prodotto (ProductCard) con la pagina del
+//    documento in app e, in primo piano, i passi numerati.
 // `image` resta nella firma per compatibilità ma è ignorata: niente immagini
 // decorative.
 import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
 import Run from "@/components/run/Run.astro";
+import ProductCard from "@/components/featurepage/ProductCard.astro";
+import AppWindow from "@/components/home/AppWindow.astro";
 
 interface Props {
   eyebrow?: string;
@@ -49,15 +52,23 @@ const split = run || steps.length > 0;
     {run && <Run focus={run} />}
     {
       !run && steps.length > 0 && (
-        <ol role="list" class="p-2 bg-white border rounded-xl border-base-200" aria-label={stepsLead || undefined}>
-          {stepsLead && <li class="px-4 pt-3 pb-1 font-mono text-xs tracking-wider uppercase text-base-500" aria-hidden="true">{stepsLead}</li>}
-          {steps.map((step, i) => (
-            <li class="flex items-start px-4 py-3.5 gap-4 border-t border-dashed border-base-200 first-of-type:border-t-0">
-              <span class="font-mono text-xs leading-6 text-accent-600">0{i + 1}</span>
-              <span class="text-md leading-relaxed text-base-800">{cap(step)}</span>
-            </li>
-          ))}
-        </ol>
+        <ProductCard
+          label={`La pagina di un documento completato in Verbalist e i passi: ${steps.map(cap).join("; ")}.`}
+          class="h-[18rem] sm:h-[24rem] lg:h-[27rem] [--vb-zoom:0.42] sm:[--vb-zoom:0.5] lg:[--vb-zoom:0.52]"
+        >
+          <div class="absolute overflow-hidden rounded-xl top-10 left-[46%] vb-window sm:top-12 lg:top-14">
+            <AppWindow sidebar={false} />
+          </div>
+          <ol role="list" class="absolute z-10 p-4 bg-white left-5 bottom-5 w-[16.5rem] rounded-2xl vb-float sm:left-7 sm:bottom-7 sm:w-72">
+            {stepsLead && <li class="pb-1 font-mono text-xs tracking-wider uppercase text-base-500" aria-hidden="true">{stepsLead}</li>}
+            {steps.map((step, i) => (
+              <li class="flex items-start py-2.5 gap-3 border-t border-dashed border-base-200 first-of-type:border-t-0">
+                <span class="font-mono text-xs leading-6 text-accent-600">0{i + 1}</span>
+                <span class="text-sm leading-6 text-base-900">{cap(step)}</span>
+              </li>
+            ))}
+          </ol>
+        </ProductCard>
       )
     }
   </div>
