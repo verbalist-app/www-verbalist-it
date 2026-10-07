@@ -19,6 +19,10 @@ import SectionHead from "@/components/featurepage/SectionHead.astro";
 // Prodotto
 import ProductCard from "@/components/featurepage/ProductCard.astro";
 import BriefWindow from "@/components/features/agents/BriefWindow.astro";
+import ProjectsWindow from "@/components/features/agents/ProjectsWindow.astro";
+import ContextWindow from "@/components/features/agents/ContextWindow.astro";
+import DocumentsWindow from "@/components/features/agents/DocumentsWindow.astro";
+import ProductPageWindow from "@/components/features/agents/ProductPageWindow.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Frame from "@/components/section/Frame.astro";
 import { contactHref } from "@/lib/utils";
@@ -41,6 +45,23 @@ const [primary, secondary] =
 
 const others = all.filter((s: { id: string }) => s.id !== slug);
 const multiBrief = frontmatter.briefs.length > 1;
+
+// L'illustrazione dell'hero cambia con il pubblico: ognuno vede nell'app la
+// cosa che gli serve. Dati d'esempio coerenti con i brief della pagina.
+const brief0 = frontmatter.briefs[0];
+const val = (label: string) => brief0.fields.find((f: { label: string }) => f.label === label)?.value ?? "";
+const market0 = val("Mercato").split("·")[0].trim();
+const projects = frontmatter.briefs.map((b: { project?: string }, i: number) => ({
+  name: (b.project ?? "Progetto").replace(/^Progetto:\s*/i, ""),
+  docs: [12, 9, 6][i] ?? 4,
+  updated: ["oggi", "ieri", "3 giorni fa"][i] ?? "questa settimana",
+}));
+const pmiDocs = [
+  { title: `${val("Keyword").charAt(0).toUpperCase() + val("Keyword").slice(1)}: la guida`, type: val("Tipo"), status: "Completato", date: "oggi" },
+  { title: "Prezzi e tempi di consegna", type: "Blog/Articolo", status: "Completato", date: "ieri" },
+  { title: "Domande frequenti sul servizio", type: "Guida/Tutorial", status: "In elaborazione", date: "ieri" },
+  { title: "Chi siamo e come lavoriamo", type: "Landing Page", status: "Completato", date: "3 gg fa" },
+] as const;
 
 const breadcrumbLd = {
   "@context": "https://schema.org",
@@ -120,7 +141,17 @@ const faqLd = {
     text={frontmatter.lede}
     stepsLead={frontmatter.stepsLead}
     steps={frontmatter.steps}
-  />
+  >
+    <Fragment slot="card">
+      <div class="absolute overflow-hidden rounded-xl top-8 left-[38%] vb-window sm:top-10 lg:top-12">
+        {frontmatter.audience === "agenzie" && <ProjectsWindow projects={projects} />}
+        {frontmatter.audience === "corporate" && <ContextWindow market={market0} language={val("Lingua")} files={[brief0.file, "glossario.pdf"]} />}
+        {frontmatter.audience === "pmi" && <DocumentsWindow docs={[...pmiDocs]} />}
+        {frontmatter.audience === "ecommerce" && <ProductPageWindow title={val("Keyword").charAt(0).toUpperCase() + val("Keyword").slice(1)} keyword={val("Keyword")} />}
+        {frontmatter.audience === "b2b" && <ContextWindow market={market0} language={val("Lingua")} files={[brief0.file, "schede-tecniche.pdf"]} />}
+      </div>
+    </Fragment>
+  </Manifesto>
 
   <!-- In breve: la risposta secca (citabile), le azioni, il brief d'esempio -->
   <Frame n={2} class="pt-14 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
@@ -137,6 +168,7 @@ const faqLd = {
         </Button>
       </SectionHead>
       <ProductCard
+        tone="foschia"
         label={`La procedura "Nuovo documento" di Verbalist compilata con ${multiBrief ? frontmatter.briefs.length + " brief d'esempio, uno per cliente" : "un brief d'esempio"}: ${frontmatter.briefs.map((b: { fields: { label: string; value: string }[] }) => b.fields.map((f) => f.value).join(", ")).join("; ")}.`}
         class={`mt-12 ${multiBrief ? "h-[20rem] sm:h-[22rem] lg:h-[24rem]" : "h-[20rem] sm:h-[22rem]"} [--vb-zoom:0.62] sm:[--vb-zoom:0.72] lg:[--vb-zoom:0.8]`}
       >

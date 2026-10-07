@@ -6,20 +6,36 @@
 interface Props {
   label: string;
   class?: string;
+  /** Sfondo: alba (caldo a destra), sera (caldo a sinistra), foschia (solo fredda, in alto), carta (nessuna velatura). */
+  tone?: "alba" | "sera" | "foschia" | "carta";
 }
-const { label, class: className = "" } = Astro.props;
+const { label, class: className = "", tone = "alba" } = Astro.props;
 ---
 
-<div role="img" aria-label={label} class={`relative overflow-hidden bg-white border rounded-3xl border-base-200 vb-product-card ${className}`}>
+<div role="img" aria-label={label} class={`relative overflow-hidden bg-white border rounded-3xl border-base-200 vb-product-card ${className}`} data-tone={tone}>
   <slot />
 </div>
 
 <style is:global>
-  .vb-product-card {
+  .vb-product-card[data-tone="alba"] {
     background:
       radial-gradient(70% 55% at 100% 100%, var(--color-wash-warm) 0, transparent 70%),
       radial-gradient(55% 45% at 0% 100%, var(--color-wash-cool) 0, transparent 70%),
       var(--color-white);
+  }
+  .vb-product-card[data-tone="sera"] {
+    background:
+      radial-gradient(70% 55% at 0% 100%, var(--color-wash-warm) 0, transparent 70%),
+      radial-gradient(55% 45% at 100% 0%, var(--color-wash-cool) 0, transparent 70%),
+      var(--color-white);
+  }
+  .vb-product-card[data-tone="foschia"] {
+    background:
+      radial-gradient(80% 70% at 100% 0%, var(--color-wash-cool) 0, transparent 70%),
+      var(--color-white);
+  }
+  .vb-product-card[data-tone="carta"] {
+    background: var(--color-base-50);
   }
   /* Finestre dell'app: filo chiaro in alto, bordo sottile, ombra lunga. */
   .vb-product-card .vb-window {

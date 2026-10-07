@@ -1,0 +1,54 @@
+---
+// La pagina "Documenti" dell'app: la lista di tutto quello che è stato
+// prodotto, con tipo, stato e data, come nella tabella reale. I titoli sono
+// esempi coerenti con il brief della pagina. Disegnata a 560 px, `zoom` dal
+// contenitore. Solo immagine.
+interface Doc {
+  title: string;
+  type: string;
+  status: "Completato" | "In elaborazione";
+  date: string;
+}
+interface Props {
+  docs: Doc[];
+  class?: string;
+}
+const { docs, class: className = "" } = Astro.props;
+---
+
+<div class={`w-[560px] overflow-hidden text-base-900 bg-white rounded-xl antialiased [zoom:var(--vb-zoom,1)] ${className}`}>
+  <div class="flex items-center h-8 px-3 border-b gap-1.5 border-base-200">
+    <span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span>
+  </div>
+  <div class="p-5 bg-base-50">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xl font-normal leading-tight tracking-tight text-base-900">Documenti</p>
+        <p class="mt-1 text-[13px] text-base-500">Gestisci tutti i tuoi contenuti generati</p>
+      </div>
+      <span class="inline-flex items-center h-9 px-3.5 text-[13px] text-white rounded-full gap-2 bg-base-900">
+        <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>Nuovo documento
+      </span>
+    </div>
+    <div class="mt-4 overflow-hidden bg-white border rounded-lg border-base-200">
+      <div class="grid grid-cols-[minmax(0,1fr)_7rem_7rem_5rem] px-4 py-2 text-2xs uppercase tracking-wider border-b border-base-200 text-base-500 gap-3">
+        <span>Documento</span><span>Tipo</span><span>Stato</span><span>Data</span>
+      </div>
+      {
+        docs.map((d) => (
+          <div class="grid grid-cols-[minmax(0,1fr)_7rem_7rem_5rem] items-center px-4 py-2.5 text-[12px] border-b border-base-200 last:border-b-0 gap-3">
+            <span class="flex items-center min-w-0 gap-2 text-base-900">
+              <svg class="size-3.5 shrink-0 text-base-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /></svg>
+              <span class="truncate">{d.title}</span>
+            </span>
+            <span class="text-base-700">{d.type}</span>
+            <span>
+              <span class={`inline-flex items-center h-5 px-2 text-2xs font-medium rounded-md ${d.status === "Completato" ? "text-white bg-base-900" : "bg-base-200 text-base-700"}`}>{d.status}</span>
+            </span>
+            <span class="text-base-500">{d.date}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

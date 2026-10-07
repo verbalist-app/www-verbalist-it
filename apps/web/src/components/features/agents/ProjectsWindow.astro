@@ -1,0 +1,49 @@
+---
+// La pagina "Progetti" dell'app, un progetto per ogni cliente: nome, numero
+// di documenti, ultimo aggiornamento, pulsante "Nuovo progetto". I nomi
+// arrivano dai brief d'esempio della pagina. Disegnata a 520 px, `zoom` dal
+// contenitore. Solo immagine.
+interface Project {
+  name: string;
+  docs: number;
+  updated: string;
+}
+interface Props {
+  projects: Project[];
+  class?: string;
+}
+const { projects, class: className = "" } = Astro.props;
+---
+
+<div class={`w-[520px] overflow-hidden text-base-900 bg-white rounded-xl antialiased [zoom:var(--vb-zoom,1)] ${className}`}>
+  <div class="flex items-center h-8 px-3 border-b gap-1.5 border-base-200">
+    <span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span>
+  </div>
+  <div class="p-5 bg-base-50">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-[20px] font-normal leading-tight tracking-tight text-base-900">Progetti</p>
+        <p class="mt-1 text-[13px] text-base-500">Un progetto per ogni cliente o sito</p>
+      </div>
+      <span class="inline-flex items-center h-9 px-3.5 text-[13px] text-white rounded-full gap-2 bg-base-900">
+        <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>Nuovo progetto
+      </span>
+    </div>
+    <ul class="mt-4 bg-white border rounded-lg border-base-200 divide-y divide-base-200">
+      {
+        projects.map((p) => (
+          <li class="flex items-center px-4 py-3 gap-3">
+            <span class="flex items-center justify-center rounded-md size-8 bg-base-100 text-base-700">
+              <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-[13px] font-medium truncate text-base-900">{p.name}</span>
+              <span class="block text-[12px] text-base-500">{p.docs} documenti · aggiornato {p.updated}</span>
+            </span>
+            <svg class="ml-auto size-4 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

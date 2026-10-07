@@ -14,13 +14,14 @@ import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
 import SubNav from "@/components/featurepage/SubNav.astro";
 import Manifesto from "@/components/featurepage/Manifesto.astro";
 import SectionHead from "@/components/featurepage/SectionHead.astro";
-// Mockup degli agenti (variante "card": solo la scheda, senza pannello)
-import MockupBrief from "@/components/features/agents/MockupBrief.astro";
-import MockupSerp from "@/components/features/agents/MockupSerp.astro";
-import MockupArticle from "@/components/features/agents/MockupArticle.astro";
-import MockupExport from "@/components/features/agents/MockupExport.astro";
-import MockupWindow from "@/components/features/agents/MockupWindow.astro";
-import MockupOutcome from "@/components/features/agents/MockupOutcome.astro";
+// Illustrazioni di prodotto: una finestra dell'app per agente, dentro la card
+import ProductCard from "@/components/featurepage/ProductCard.astro";
+import BriefWindow from "@/components/features/agents/BriefWindow.astro";
+import ProgressWindow from "@/components/features/agents/ProgressWindow.astro";
+import ExportWindow from "@/components/features/agents/ExportWindow.astro";
+import AppWindow from "@/components/home/AppWindow.astro";
+import ChainFragment from "@/components/home/ChainFragment.astro";
+import { demoBrief } from "@/components/home/demo";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Frame from "@/components/section/Frame.astro";
 
@@ -28,28 +29,23 @@ import Frame from "@/components/section/Frame.astro";
 // sotto-nav; prev/next: agente precedente e successivo, con la sintesi.
 const { frontmatter, slug, all = [], prev = null, next = null } = Astro.props;
 
-// Pannello dipinto + finestra app, come in home (chiave = frontmatter.mockup)
-const mockups: Record<string, any> = {
-  brief: MockupBrief,
-  serp: MockupSerp,
-  article: MockupArticle,
-  "export": MockupExport,
-};
-const Mockup = mockups[frontmatter.mockup] ?? MockupBrief;
+// La finestra dell'app mostrata nella card di prodotto (chiave = frontmatter.mockup)
+const mockup = (frontmatter.mockup as string) ?? "brief";
+const fragmentStep = ({ brief: "brief", serp: "serp", article: "write", "export": "export" } as const)[
+  mockup as "brief" | "serp" | "article" | "export"
+] ?? "brief";
+const briefFields = [
+  { label: "Keyword", value: demoBrief.keyword },
+  { label: "Mercato", value: `${demoBrief.market} · IT` },
+  { label: "Lingua", value: demoBrief.language.charAt(0).toUpperCase() + demoBrief.language.slice(1) },
+  { label: "Tipo", value: demoBrief.type },
+];
 // Il passo della catena che lavora nell'hero di questa pagina. (La chiave è
 // tra virgolette: il compilatore Astro tratta la parola nuda come keyword.)
 const runStep = { brief: "brief", serp: "serp", article: "write", "export": "export" }[
   frontmatter.mockup as string
 ] as "brief" | "serp" | "write" | undefined;
 
-
-const appUrls: Record<string, string> = {
-  brief: "app.verbalist.it/nuovo",
-  serp: "app.verbalist.it/analisi",
-  article: "app.verbalist.it/editor",
-  "export": "app.verbalist.it/esporta",
-};
-const appUrl = appUrls[frontmatter.mockup] ?? appUrls.brief;
 
 const TRIAL_URL =
   "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26";
@@ -100,11 +96,18 @@ const ioCells = [
           Parla con noi
         </Button>
       </SectionHead>
-      <div class="relative p-4 mt-10 overflow-hidden border rounded-xl border-base-200 bg-base-50 sm:p-8">
-        <MockupWindow url={appUrl}>
-          <Mockup variant="card" />
-        </MockupWindow>
-      </div>
+      <ProductCard
+        tone="sera"
+        label={`La finestra di Verbalist per questo agente: ${frontmatter.summary}`}
+        class="mt-10 h-[20rem] sm:h-[24rem] lg:h-[28rem] [--vb-zoom:0.62] sm:[--vb-zoom:0.9] lg:[--vb-zoom:1.1]"
+      >
+        <div class={`absolute overflow-hidden rounded-xl vb-window top-8 ${mockup === "article" ? "left-6 sm:left-10 lg:left-16" : "left-6 sm:left-1/2 sm:-translate-x-1/2"}`}>
+          {mockup === "brief" && <BriefWindow fields={briefFields} file="brand-guidelines.pdf" />}
+          {mockup === "serp" && <ProgressWindow />}
+          {mockup === "article" && <AppWindow sidebar={false} />}
+          {mockup === "export" && <ExportWindow />}
+        </div>
+      </ProductCard>
   </Frame>
 
   <!-- Ingresso e uscita: due celle della griglia -->
@@ -154,12 +157,14 @@ const ioCells = [
             </div>
             <div class="pb-12 lg:py-16 lg:pl-10">
               <div class="lg:sticky lg:top-24">
-                <div class="p-6 bg-white border rounded-xl border-base-200 sm:p-8">
-                  <p class="mb-6 font-mono text-xs tracking-wider uppercase text-accent-600">
-                    Cosa ti porti a casa
-                  </p>
-                  <MockupOutcome variant={frontmatter.mockup} />
-                </div>
+                <p class="mb-4 font-mono text-xs tracking-wider uppercase text-accent-600">
+                  Cosa ti porti a casa
+                </p>
+                <ProductCard tone="carta" label={`L'uscita di questo agente: ${frontmatter.output.join("; ")}`} class="h-64 [--vb-zoom:0.78] sm:h-72 sm:[--vb-zoom:0.9]">
+                  <div class="absolute overflow-hidden rounded-xl top-6 left-6 vb-window">
+                    <ChainFragment step={fragmentStep} />
+                  </div>
+                </ProductCard>
               </div>
             </div>
           </div>

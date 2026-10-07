@@ -1,0 +1,46 @@
+---
+// L'export dalla pagina del documento: i menu "Copia" e "Esporta" dell'app
+// (Copia testo pulito / HTML / Markdown; Scarica .md / .html / .txt) e
+// l'anteprima dell'HTML con il testo vero del documento (demo.ts). Disegnata
+// a 520 px, `zoom` dal contenitore. Solo immagine.
+import { demoDocument, demoVersions } from "@/components/home/demo";
+
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+const [a] = demoVersions;
+const firstBlock = a.sections[0].blocks[0];
+const excerpt = "p" in firstBlock ? firstBlock.p.slice(0, 92) + "…" : "";
+const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800";
+const chev = '<path d="M6 9l6 6 6-6"/>';
+---
+
+<div class={`w-[520px] overflow-hidden text-base-900 bg-white rounded-xl antialiased [zoom:var(--vb-zoom,1)] ${className}`}>
+  <div class="flex items-center h-8 px-3 border-b gap-1.5 border-base-200">
+    <span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span>
+  </div>
+  <div class="p-5 bg-base-50">
+    <div class="flex items-center gap-3">
+      <span class="inline-flex items-center h-6 px-2.5 text-[12px] font-medium text-white rounded-md bg-base-900">Completato</span>
+      <span class="text-[13px] text-base-500">{demoDocument.generated}, {demoDocument.time}</span>
+      <span class="flex ml-auto gap-2">
+        <span class={btn}><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>Copia<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={chev} /></span>
+        <span class={`${btn} !border-base-900 !text-base-900`}><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M4 20h16" /></svg>Esporta<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={chev} /></span>
+      </span>
+    </div>
+    <div class="relative mt-3">
+      <ul class="absolute right-0 z-10 w-44 py-1 text-[13px] bg-white border rounded-lg border-base-200 text-base-800 vb-menu">
+        <li class="px-3 py-1.5">Scarica .md</li>
+        <li class="px-3 py-1.5 bg-base-100 text-base-900">Scarica .html</li>
+        <li class="px-3 py-1.5">Scarica .txt</li>
+      </ul>
+      <p class="text-xl font-normal leading-tight tracking-tight text-base-900 pr-48">{demoDocument.titleTag}</p>
+    </div>
+    <pre class="p-4 mt-5 overflow-hidden text-[12px] leading-relaxed bg-white border rounded-lg border-base-200 text-base-700 whitespace-pre-wrap"><code>{`<h1>${a.h1}</h1>\n<p>${excerpt}</p>\n<h2>${a.sections[0].h2}</h2>`}</code></pre>
+  </div>
+</div>
+
+<style>
+  .vb-menu { box-shadow: 0 8px 24px -8px rgb(22 27 29 / 0.25); }
+</style>

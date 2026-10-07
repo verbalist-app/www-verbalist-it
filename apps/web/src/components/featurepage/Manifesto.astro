@@ -3,8 +3,10 @@
 // e azioni a sinistra. A destra:
 //  - pagine agente (`run`): la catena al lavoro, con il pannello di questo
 //    agente in corso e gli altri fermi; i passi numerati scendono sotto il testo;
-//  - pagine soluzione: una card di prodotto (ProductCard) con la pagina del
-//    documento in app e, in primo piano, i passi numerati.
+//  - pagine soluzione: una card di prodotto (ProductCard) con, in primo
+//    piano, i passi numerati e, dietro, l'illustrazione passata nello slot
+//    "card" (una finestra dell'app diversa per ogni pubblico); senza slot, la
+//    pagina del documento.
 // `image` resta nella firma per compatibilità ma è ignorata: niente immagini
 // decorative.
 import Frame from "@/components/section/Frame.astro";
@@ -56,9 +58,15 @@ const split = run || steps.length > 0;
           label={`La pagina di un documento completato in Verbalist e i passi: ${steps.map(cap).join("; ")}.`}
           class="h-[18rem] sm:h-[24rem] lg:h-[27rem] [--vb-zoom:0.42] sm:[--vb-zoom:0.5] lg:[--vb-zoom:0.52]"
         >
-          <div class="absolute overflow-hidden rounded-xl top-10 left-[46%] vb-window sm:top-12 lg:top-14">
-            <AppWindow sidebar={false} />
-          </div>
+          {
+            Astro.slots.has("card") ? (
+              <slot name="card" />
+            ) : (
+              <div class="absolute overflow-hidden rounded-xl top-10 left-[46%] vb-window sm:top-12 lg:top-14">
+                <AppWindow sidebar={false} />
+              </div>
+            )
+          }
           <ol role="list" class="absolute z-10 p-4 bg-white left-5 bottom-5 w-[16.5rem] rounded-2xl vb-float sm:left-7 sm:bottom-7 sm:w-72">
             {stepsLead && <li class="pb-1 font-mono text-xs tracking-wider uppercase text-base-500" aria-hidden="true">{stepsLead}</li>}
             {steps.map((step, i) => (
