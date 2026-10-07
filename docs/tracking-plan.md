@@ -76,11 +76,10 @@ trigger customEvent. Convenzione nomi: evento GA4 raccomandato dove esiste
   `ecommerce` sulle CTA delle rispettive pagine, nessun parametro dalla home,
   `corporate` sul lead da `/contatti/?profilo=corporate`, nessun duplicato.
   Finché il sito non è deployato il parametro resta vuoto e non viene inviato.
-- **Da fare in GA4** (serve un accesso con permesso di modifica): Admin →
-  Definizioni personalizzate → Crea dimensione personalizzata. Nome
-  "Audience", ambito Evento, parametro evento `audience`, descrizione
-  "Pubblico della pagina /soluzioni/ da cui parte l'azione". Senza, il
-  parametro viene raccolto ma non compare nei report.
+- **GA4: fatto** il 2026-10-07. Dimensione personalizzata "Audience", ambito
+  Evento, parametro evento `audience` (`customEvent:audience` nell'API),
+  creata da Filippo in Amministrazione → Visualizzazione dei dati →
+  Definizioni personalizzate. Vale per gli eventi raccolti da quel giorno.
 - **Da fare in HubSpot** (Viola): proprietà contatto con nome interno
   `profilo` (valori come sopra) aggiunta al form come campo nascosto. HubSpot
   valorizza i campi dalla query string quando il nome coincide: senza questo
@@ -105,7 +104,7 @@ Va in produzione con il prossimo deploy del sito.
 
 ## Configurazione GA4 (Admin)
 
-**Custom dimensions** (scope evento) da registrare — senza, i parametri non
+**Custom dimensions** (scope evento) registrate — senza, i parametri non
 compaiono nei report:
 
 | Nome dimensione | Parametro |
@@ -116,7 +115,7 @@ compaiono nei report:
 | FAQ question | `question_text` |
 | Blog category | `category` |
 | Search results count | `search_results` |
-| Audience (da registrare) | `audience` |
+| Audience | `audience` |
 
 (`search_term` e `percent_scrolled` sono dimensioni predefinite GA4.)
 
