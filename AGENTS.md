@@ -42,6 +42,10 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   di default `public/img/og-verbalist.jpg` (1200×630). Header e redirect
   vanno scritti in entrambi i `vercel.json` (root e `apps/web`). La ricerca
   del blog usa fuse.js dal bundle: niente script da CDN.
+  Titoli: ogni pagina ha almeno un H2 e i primi H2 non si ripetono tra
+  pagine (Screaming Frog li confronta). Le etichette di sezione uguali
+  ovunque (Novità, Modifiche, Cosa riceve…) sono H3 sotto un H2 unico, anche
+  solo `sr-only`; dentro le illustrazioni dell'app niente tag h1–h6.
 
 ## Scala tipografica (regole vincolanti)
 
