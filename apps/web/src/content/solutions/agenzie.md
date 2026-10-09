@@ -107,6 +107,8 @@ plan:
 faq:
   - question: "Posso gestire più clienti con un solo account?"
     answer: "Sì. I progetti raggruppano i documenti dello stesso sito o cliente, e ogni documento ha il suo paese, la sua lingua e il suo contesto di brand. I crediti sono quelli del tuo piano: li usi sul cliente che ti serve."
+  - question: "Gli altri clienti di Verbalist vedono i documenti dei miei clienti?"
+    answer: "No. Ogni account vede solo i propri progetti, documenti e PDF caricati: i dati di un account non si mescolano con quelli degli altri."
   - question: "Di chi sono i contenuti che genero per i clienti?"
     answer: "Restano tuoi. I termini e condizioni stabiliscono che i contenuti generati sono di proprietà dell'utente, che ne è responsabile per l'uso e la pubblicazione. Il servizio in sé, invece, non si può rivendere o sublicenziare senza autorizzazione."
   - question: "Quante persone dell'agenzia possono usarlo?"

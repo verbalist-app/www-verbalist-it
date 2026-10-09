@@ -79,6 +79,8 @@ plan:
 faq:
   - question: "Come si mantiene la coerenza con le brand guidelines?"
     answer: "Le carichi nel brief, come testo libero e come PDF, fino a tre per documento. Entrano nei prompt di analisi e di scrittura: tono, terminologia da usare e parole da evitare valgono per l'agente che scrive. La rilettura finale resta comunque al tuo team."
+  - question: "Gli altri clienti di Verbalist vedono i nostri documenti?"
+    answer: "No. Ogni account vede solo i propri progetti, documenti e PDF caricati: i dati di un account non si mescolano con quelli degli altri."
   - question: "Funziona per i mercati esteri?"
     answer: "Sì. Paese e lingua si impostano per ogni documento. L'analisi legge i primi risultati di Google in quel mercato e il testo nasce nella lingua di destinazione, titoli e meta tag compresi: non è una traduzione."
   - question: "Quante persone possono accedere?"

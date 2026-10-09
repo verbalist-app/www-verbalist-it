@@ -8,7 +8,7 @@ keywords:
   - file PDF di contesto
   - brand guidelines
   - terminologia
-lastUpdated: "2026-06-10"
+lastUpdated: "2026-10-09"
 faq:
   - question: "Quanti file posso caricare?"
     answer: "Fino a 3 file PDF di contesto, massimo 1MB ciascuno. In più c'è il campo Testo di contesto, libero."
@@ -16,6 +16,8 @@ faq:
     answer: "Brand guidelines, schede prodotto, glossari, pagine istituzionali: tutto ciò che definisce come parla il tuo brand e di cosa."
   - question: "Il contesto vale anche per i documenti successivi?"
     answer: "Il contesto è legato al singolo documento: per un nuovo contenuto lo carichi o lo incolli di nuovo. Così ogni documento ha esattamente il contesto che gli serve."
+  - question: "Gli altri clienti di Verbalist vedono i PDF che carico?"
+    answer: "No. I PDF sono legati al documento per cui li carichi, e ogni account vede solo i propri progetti e documenti: i dati di un account non si mescolano con quelli degli altri."
 ---
 
 ## I due campi del contesto

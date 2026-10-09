@@ -43,6 +43,7 @@ Ogni articolo del blog è disponibile anche in Markdown puro aggiungendo `.md` a
 - I contenuti nascono dall'analisi dei primi 5 risultati organici di Google per la keyword, nel mercato e nella lingua impostati.
 - Tipi di contenuto: Blog/Articolo, Pagina Prodotto, Guida/Tutorial, Landing Page.
 - Il contesto del brand (testo libero + fino a 3 PDF) entra nei prompt di analisi e scrittura.
+- Ogni account vede solo i propri progetti, documenti e PDF caricati: i dati di un account non sono visibili agli altri clienti.
 - Ogni generazione produce due versioni complete del testo (A e B), scritte da due modelli diversi: l'utente le confronta e sceglie quella da tenere.
 - I testi sono scritti ex novo nella lingua del mercato target, non tradotti.
 - Il prezzo è per contenuto generato, non per token.
