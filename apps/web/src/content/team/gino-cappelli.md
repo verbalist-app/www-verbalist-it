@@ -2,7 +2,7 @@
 name: Gino Cappelli
 role: Senior Web Developer
 bio: |
-  Sviluppa per il web da oltre 10 anni. In NUR Digital Marketing si occupa dello sviluppo web; laurea in Computer Science alla Kingston University.
+  Sviluppa per il web da oltre 10 anni. In NUR Digital Growth & AI si occupa dello sviluppo web; laurea in Computer Science alla Kingston University.
 image:
   url: "/img/team/gino-cappelli.webp"
   alt: "Gino Cappelli"
