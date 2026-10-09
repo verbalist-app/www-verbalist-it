@@ -1,8 +1,21 @@
 ---
-// Fundations
+// Chi siamo, sul modello delle pagine /soluzioni/: testa di sezione con il
+// testo a fianco, due celle sul modello delle porte (l'agenzia, il metodo
+// diventato software), le foto e la chiusura. Fatti da nur.it e da questa
+// pagina: niente numeri che non stiano già lì.
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Frame from "@/components/section/Frame.astro";
-import Head from "@/components/section/Head.astro";
+import SectionHead from "@/components/featurepage/SectionHead.astro";
+import Cta2 from "@/components/ctas/Cta2.astro";
+
+const label = "font-mono text-xs tracking-wider uppercase text-accent-600";
+const link = "text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500";
+const agency = [
+  "Google Premier Partner, nel 3% delle agenzie in Italia",
+  "HubSpot Partner Platinum",
+  "Tra i clienti enterprise: EY, Mercedes-Benz, LVMH e SDA Bocconi",
+  "Sedi a Mantova, Milano e Los Angeles",
+];
 ---
 
 <BaseLayout
@@ -14,70 +27,86 @@ import Head from "@/components/section/Head.astro";
 >
   <div class="pt-[72px]">
     <Frame n={1} flush tone="soft" class="pt-12 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
-      <div class="grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:items-end">
-        <Head tag="Chi siamo" title="25 anni di esperienza SEO, ora in un software" level="h1" />
-        <dl class="p-6 bg-white border rounded-xl border-base-200">
-          {
-            [["Agenzia", "NUR Digital Growth & AI, dal 1999"], ["Aziende seguite", "oltre 430, in Italia e all'estero"], ["Partnership", "Google Premier Partner, HubSpot Platinum"], ["Sede", "San Giorgio Bigarello (MN)"]].map(([k, v]) => (
-              <div class="flex justify-between py-2.5 text-sm border-b border-dashed gap-4 border-base-200 last:border-b-0">
-                <dt class="font-mono text-xs leading-5 tracking-wider uppercase text-base-500">{k}</dt>
-                <dd class="text-right text-base-800">{v}</dd>
-              </div>
-            ))
-          }
-        </dl>
-      </div>
+      <SectionHead
+        tag="h1"
+        eyebrow="Chi siamo"
+        title="25 anni di esperienza SEO, ora in un software"
+        text="Verbalist nasce in NUR Digital Growth & AI, agenzia fondata a Mantova nel 1999 e oggi anche a Milano e Los Angeles. Il processo che seguivamo a mano con i clienti ora è dentro un software."
+      />
     </Frame>
-    <Frame n={2} class="py-16 lg:py-24 lg:!px-14">
-      <div class="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
-        <div class="space-y-4 text-lg font-light leading-relaxed text-base-700">
-          <p>
-            NUR Digital Growth &amp; AI nasce nel 1999. Da allora abbiamo lavorato a
-            SEO, GEO e contenuti per oltre 430 aziende, in Italia e all'estero.
+
+    <Frame n={2} labelledby="about-title" class="!px-0">
+      <h2 id="about-title" class="sr-only">L'agenzia e il metodo dietro Verbalist</h2>
+      <div class="grid lg:grid-cols-2 lg:divide-x lg:divide-dashed lg:divide-base-200">
+        <div class="flex flex-col px-4 py-10 lg:px-10 lg:py-14">
+          <p class={label}>L'agenzia</p>
+          <h3 class="mt-6 text-2xl font-normal tracking-tight text-base-900">Dal 1999, oltre 430 aziende</h3>
+          <p class="max-w-md mt-3 text-md leading-relaxed text-base-600">
+            Lavoriamo su SEO, GEO e contenuti per aziende in Italia e all'estero, dalle PMI ai gruppi enterprise.
           </p>
-          <p>
-            Siamo Google Premier Partner (nel 3% delle agenzie in Italia) e HubSpot Partner Platinum. Tra i clienti enterprise: EY,
-            Mercedes-Benz, LVMH e SDA Bocconi.
-          </p>
-          <p>
-            Da anni investiamo in software, automazioni e sistemi basati
-            sull'intelligenza artificiale, collaborando con università ed enti
-            di ricerca italiani come la Fondazione Bruno Kessler. Siamo stati
-            tra le prime realtà in Italia a strutturare un framework dedicato
-            alla Generative Engine Optimization e a pubblicare
-            <a
-              href="https://amzn.eu/d/00Ki6HeV"
-              target="_blank"
-              rel="noopener"
-              class="font-normal text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500"
-              >il primo libro italiano sul tema</a
-            >, oggi citato come fonte su Wikipedia.
-          </p>
-          <p class="text-base-900">
-            Verbalist nasce da qui: lo stesso processo che facevamo a mano coi
-            clienti, ora dentro un software.
-          </p>
-          <p class="pt-4">
-            <a href="/team/" class="text-base font-normal text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Il team</a>
-          </p>
+          <ul role="list" class="mt-8 text-sm text-base-800">
+            {agency.map((p) => (
+              <li class="flex items-center py-3 border-t border-dashed gap-3 border-base-200 last:border-b">
+                <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>{p}
+              </li>
+            ))}
+          </ul>
         </div>
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <img
-            src="/img/about/nur-stand.webp"
-            alt="Lo stand NUR al Global Summit Marketing & Digital"
-            width="1400"
-            height="788"
-            class="object-cover w-full aspect-[4/3] rounded-xl border border-base-200"
-          />
-          <img
-            src="/img/about/nur-keynote.webp"
-            alt="Rinaldo Zambello, CEO di NUR, sul palco del Global Summit Marketing & Digital"
-            width="1400"
-            height="788"
-            class="object-cover w-full aspect-[4/3] rounded-xl border border-base-200"
-          />
+        <div class="flex flex-col px-4 py-10 border-t border-dashed lg:px-10 lg:py-14 border-base-200 lg:border-t-0">
+          <p class={label}>Ricerca e GEO</p>
+          <h3 class="mt-6 text-2xl font-normal tracking-tight text-base-900">Dal metodo al software</h3>
+          <p class="max-w-md mt-3 text-md leading-relaxed text-base-600">
+            Da anni investiamo in software, automazioni e sistemi basati sull'intelligenza artificiale, insieme a
+            università ed enti di ricerca italiani come la Fondazione Bruno Kessler.
+          </p>
+          <ul role="list" class="mt-8 text-sm text-base-800">
+            <li class="flex items-center py-3 border-t border-dashed gap-3 border-base-200">
+              <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>Tra le prime realtà in Italia con un framework dedicato alla Generative Engine Optimization
+            </li>
+            <li class="flex items-center py-3 border-t border-dashed gap-3 border-base-200">
+              <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>
+              <span>
+                <a href="https://amzn.eu/d/00Ki6HeV" target="_blank" rel="noopener" class={link}>Il primo libro italiano sulla GEO</a>, oggi citato come fonte su Wikipedia
+              </span>
+            </li>
+            <li class="flex items-center py-3 border-t border-b border-dashed gap-3 border-base-200">
+              <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>Verbalist: lo stesso processo che facevamo a mano con i clienti, dentro un software
+            </li>
+          </ul>
+          <p class="pt-8 mt-auto text-sm">
+            <a href="/team/" class={link}>Le persone del team →</a>
+          </p>
         </div>
       </div>
     </Frame>
+
+    <Frame n={3} class="py-12 lg:py-16 lg:!px-14">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <img
+          src="/img/about/nur-stand.webp"
+          alt="Lo stand NUR al Global Summit Marketing & Digital"
+          width="1400"
+          height="788"
+          loading="lazy"
+          class="object-cover w-full aspect-[4/3] rounded-xl border border-base-200"
+        />
+        <img
+          src="/img/about/nur-keynote.webp"
+          alt="Rinaldo Zambello, CEO di NUR, sul palco del Global Summit Marketing & Digital"
+          width="1400"
+          height="788"
+          loading="lazy"
+          class="object-cover w-full aspect-[4/3] rounded-xl border border-base-200"
+        />
+      </div>
+    </Frame>
+
+    <Cta2
+      compact
+      title="Provalo su un caso tuo."
+      text="Scegli una keyword e guarda cosa esce. Se preferisci parlarne prima, scrivici: risponde il team che costruisce il prodotto."
+      secondaryText="Parla con noi"
+      secondaryHref="/contatti/"
+    />
   </div>
 </BaseLayout>
