@@ -109,7 +109,7 @@ const profileLd = {
       relatedPosts.length > 0 && (
         <Frame n={2} class="pt-16 lg:pt-24 lg:!px-14">
           <Head tag="Blog" title={`Gli articoli di ${frontmatter.name}`} />
-          <div class="grid mt-10 -mx-4 border-t border-dashed border-base-200 md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(3n))]:border-r lg:-mx-14">
+          <div class="grid mt-10 -mx-4 border-t border-dashed border-base-200 md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:not(:nth-child(3n))]:border-r lg:[&>*:nth-child(3n)]:border-r-0 lg:-mx-14">
             {relatedPosts.map((post) => <BlogCard post={post} />)}
           </div>
         </Frame>
@@ -118,7 +118,7 @@ const profileLd = {
     <Frame n={relatedPosts.length > 0 ? 3 : 2} class="pt-16 lg:pt-24 lg:!px-14">
       <Head
         tag="Team"
-        title="Chi costruisce Verbalist"
+        title={`Chi costruisce Verbalist con ${frontmatter.name.split(" ")[0]}`}
         text="Verbalist nasce in NUR, agenzia di digital marketing fondata a Mantova nel 1999, oggi anche a Milano e Los Angeles. L'agenzia lo usa sui clienti che segue: i casi studio di questo sito sono clienti NUR."
       />
       <div class="grid mt-10 -mx-4 border-t border-dashed border-base-200 md:grid-cols-3 md:[&>*:not(:nth-child(3n))]:border-r md:[&>*]:border-dashed lg:-mx-14">

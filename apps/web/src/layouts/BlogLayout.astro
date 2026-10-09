@@ -261,7 +261,7 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
           <h2 class="text-display-xs font-normal tracking-[-0.025em] text-base-900">
             Articoli correlati
           </h2>
-          <div class="grid mt-8 -mx-4 border-t border-dashed border-base-200 md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(3n))]:border-r lg:-mx-12">
+          <div class="grid mt-8 -mx-4 border-t border-dashed border-base-200 md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:not(:nth-child(3n))]:border-r lg:[&>*:nth-child(3n)]:border-r-0 lg:-mx-12">
             {relatedPosts.slice(0, 3).map((post) => (
               <BlogCard post={post} />
             ))}

@@ -105,7 +105,7 @@ import { svgSize } from "@/lib/svgSize";
     </Frame>
 
     <Frame n={3} class="py-16 lg:py-24 lg:!px-14">
-      <Head tag="Risultati" title="Cosa è cambiato" />
+      <Head tag="Risultati" title={`Cosa è cambiato per ${frontmatter.customer}`} />
       <ul role="list" class="mt-10 text-md text-base-800">
         {
           frontmatter.results.map((result) => (

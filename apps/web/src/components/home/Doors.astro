@@ -6,6 +6,8 @@
 import { getAllSolutions } from "@/lib/data";
 import Frame from "@/components/section/Frame.astro";
 
+// Titolo della sezione (solo per la lettura assistita): diverso per pagina
+const { title = "Da dove entri: agenzie o aziende" } = Astro.props;
 const solutions = await getAllSolutions();
 const agency = solutions.find((s) => s.data.audience === "agenzie");
 const companies = solutions.filter((s) => s.data.audience !== "agenzie");
@@ -16,7 +18,7 @@ const label = "font-mono text-xs tracking-wider uppercase text-accent-600";
 ---
 
 <Frame n={2} labelledby="doors-title" class="!px-0">
-  <h2 id="doors-title" class="sr-only">Da dove entri: agenzie o aziende</h2>
+  <h2 id="doors-title" class="sr-only">{title}</h2>
   <div class="grid lg:grid-cols-2 lg:divide-x lg:divide-dashed lg:divide-base-200">
     <div class="relative flex flex-col px-4 py-10 transition-colors duration-200 lg:px-10 lg:py-14 hover:bg-base-50 group">
       <p class={label}>Per le agenzie</p>

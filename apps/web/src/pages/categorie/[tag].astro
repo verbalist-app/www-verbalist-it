@@ -37,8 +37,9 @@ const { posts, label } = Astro.props;
       <p class="mt-8"><a href="/categorie/" class="text-sm text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Tutti gli argomenti</a></p>
     </Frame>
     <Frame n={2} class="!px-0">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(3n))]:border-r">
-        {posts.map((post) => <BlogCard post={post} headingTag="h2" />)}
+      <h2 class="sr-only">Gli articoli su {label}</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:not(:nth-child(3n))]:border-r lg:[&>*:nth-child(3n)]:border-r-0">
+        {posts.map((post) => <BlogCard post={post} headingTag="h3" />)}
       </div>
     </Frame>
   </div>

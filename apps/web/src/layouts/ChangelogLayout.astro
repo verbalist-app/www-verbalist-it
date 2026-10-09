@@ -9,6 +9,9 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Icons
 import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
 const { frontmatter } = Astro.props;
+// La versione dall'indirizzo (verbalist-2-0-4 → 2.0.4), come nel cartiglio
+const slug = Astro.url.pathname.split("/").filter(Boolean).pop() ?? "";
+const version = slug.replace(/^verbalist-/, "").replaceAll("-", ".");
 // Breadcrumbs Data
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -78,7 +81,8 @@ const breadcrumbLd = {
 
     </Frame>
     <Frame n={2} class="py-12 lg:py-16 lg:!px-14">
-      <Wrapper variant="prose" class="max-w-xl [&_h2]:font-mono [&_h2]:text-xs [&_h2]:font-normal [&_h2]:uppercase [&_h2]:tracking-wider [&_h2]:text-accent-600 [&_h2]:mt-8 [&_h2]:mb-3">
+      <h2 class="sr-only">Note di rilascio della versione {version}</h2>
+      <Wrapper variant="prose" class="max-w-xl [&_h3]:font-mono [&_h3]:text-xs [&_h3]:font-normal [&_h3]:uppercase [&_h3]:tracking-wider [&_h3]:text-accent-600 [&_h3]:mt-8 [&_h3]:mb-3">
         <slot />
       </Wrapper>
     </Frame>

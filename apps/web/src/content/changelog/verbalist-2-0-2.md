@@ -7,20 +7,20 @@ image:
   alt: "Contesto del brand e URL Competitor nel brief"
 ---
 
-## Novità
+### Novità
 
 - Contesto del brand nel brief: testo libero più fino a 3 PDF (guidelines, schede, glossari), usati nei prompt di analisi e scrittura
 - URL Competitor: fino a 5 URL analizzati al posto dei risultati di Google
 - Stop & Resume nei documenti: una generazione interrotta riparte da dove si era fermata
 
-## Modifiche
+### Modifiche
 
 - Modello di scrittura aggiornato a Claude Opus 4.7
 - Avvisi su licenza e crediti riscritti
 - Ordine dei passaggi rivisto: Ottimizza viene prima di Crea
 - Testi guida dei campi più espliciti
 
-## Nel dettaglio
+### Nel dettaglio
 
 Il contesto del brand entra nei prompt di analisi e di scrittura: se le guidelines escludono un termine, l'agente che scrive lo sa. Si caricano fino a tre PDF da 1 MB ciascuno, e valgono per il documento in cui li carichi, non per i successivi.
 

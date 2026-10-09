@@ -7,17 +7,17 @@ image:
   alt: "Verbalist 2.0: nuova interfaccia e prezzi per contenuto"
 ---
 
-## Novità
+### Novità
 
 - Prezzo per contenuto generato, non più per token: il costo di ogni documento è noto prima di generarlo
 - Percorso di creazione a passaggi, con meno campi in vista per volta
 
-## Modifiche
+### Modifiche
 
 - Interfaccia sostituita per intero
 - Etichette riscritte: dicono cosa succede, senza gergo tecnico
 
-## Nel dettaglio
+### Nel dettaglio
 
 Con i token il costo dipendeva da quanto testo veniva elaborato, e non si conosceva in anticipo. Adesso si paga a documento: il riepilogo mostra il costo prima dell'avvio, e in dashboard vedi quanti crediti hai usato e quanti documenti puoi ancora generare.
 

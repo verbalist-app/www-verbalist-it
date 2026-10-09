@@ -7,12 +7,12 @@ image:
   alt: "Aggiornamento dell'infrastruttura"
 ---
 
-## Modifiche
+### Modifiche
 
 - Runtime della piattaforma aggiornato a PHP 8.2: pagine dell'app più rapide e aggiornamenti di sicurezza garantiti
 - Nessun intervento richiesto: progetti e documenti restano dove sono
 
-## Nel dettaglio
+### Nel dettaglio
 
 Il runtime è la versione di PHP su cui gira l'app: dashboard, progetti, documenti e percorso di creazione. PHP pubblica correzioni di sicurezza solo per le versioni ancora supportate, quindi restare aggiornati conta anche quando in superficie non cambia nulla.
 

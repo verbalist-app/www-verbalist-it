@@ -8,18 +8,18 @@ image:
   alt: "Riprese automatiche e crediti non scalati in caso di errore"
 ---
 
-## Novità
+### Novità
 
 - Riprese automatiche: se una fase fallisce (ricerca, analisi o scrittura), la generazione riparte da quella fase
 - In caso di errore i crediti non vengono scalati
 - Supporto a italiano e inglese, con mercato e lingua impostabili separatamente
 
-## Modifiche
+### Modifiche
 
 - Modello di scrittura aggiornato a Claude Opus 4.6, a parità di costo
 - Messaggi di errore riscritti: dicono cosa è successo e cosa fare, senza codici tecnici
 
-## Nel dettaglio
+### Nel dettaglio
 
 Una generazione passa per tre fasi: ricerca, analisi e scrittura. Se una fallisce, il lavoro riprende da quella fase invece di ricominciare, e i crediti vengono scalati solo quando la generazione va a buon fine.
 

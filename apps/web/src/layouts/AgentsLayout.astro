@@ -139,6 +139,7 @@ const ioCells = [
 
   <!-- Ingresso e uscita: due celle della griglia -->
   <Frame n={3} class="!px-0">
+      <h2 class="sr-only">Cosa riceve e cosa consegna: {frontmatter.name}</h2>
       <div class="grid grid-cols-1 px-4 md:grid-cols-2 lg:px-14">
         {
           ioCells.map((cell, i) => (
@@ -153,9 +154,9 @@ const ioCells = [
               <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
                 {cell.eyebrow}
               </p>
-              <h2 class="mt-4 text-2xl font-normal tracking-tight text-base-900">
+              <h3 class="mt-4 text-2xl font-normal tracking-tight text-base-900">
                 {cell.title}
-              </h2>
+              </h3>
               <ul role="list" class="mt-6 text-md text-base-800">
                 {cell.items.map((item: string) => (
                   <li class="flex items-start py-3.5 border-t border-dashed gap-3 border-base-200 last:border-b">
