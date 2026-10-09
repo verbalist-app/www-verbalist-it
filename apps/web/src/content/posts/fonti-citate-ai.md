@@ -42,6 +42,5 @@ La lettura operativa di questi dati sta in tre mosse, in ordine di controllo dec
 
 C'è anche un risvolto difensivo: se le AI parlano del tuo brand attingendo da fonti terze, quello che le fonti terze dicono di te diventa quello che l'AI risponde. Recensioni vecchie, dati sbagliati su una directory, una pagina Wikipedia imprecisa: errori che prima restavano ai margini ora vengono sintetizzati e ripetuti. Il censimento periodico delle proprie query sui motori AI serve anche a scoprire questi errori prima dei clienti.
 
-## Conclusione
-
+## Due gambe: il tuo sito e le fonti terze
 La visibilità nelle risposte AI si costruisce su due gambe: il proprio sito, fatto per essere citato, e l'ecosistema di fonti terze da cui i modelli attingono quando parlano di te. I dati dicono che le abitudini di citazione differiscono per motore e per lingua, e che per l'italiano la partita è più aperta che per l'inglese: meno fonti, meno concorrenza, più spazio per chi si muove ora. Sulla prima gamba, il sito, Verbalist fa il lavoro pesante: analisi delle fonti che vincono sulla tua keyword e contenuti costruiti su quei pattern. La seconda tocca a te. Se vuoi partire dalla prima, la prova è gratuita per 30 giorni.

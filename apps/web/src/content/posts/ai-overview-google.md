@@ -59,6 +59,5 @@ La tentazione di scrivere "per il riquadro" produce pagine piene di paragrafi-de
 
 La strada corta è un'altra: prendere le pagine che già rispondono bene e sistemare struttura, apertura e dati. Il [content refresh](/blog/content-refresh/ "Content refresh: quando e come aggiornare i contenuti") batte quasi sempre la pagina nuova scritta da zero.
 
-## Conclusione
-
+## Prima il censimento delle query, poi le pagine
 Le AI Overview sono il pezzo di ricerca generativa con cui ogni sito italiano fa già i conti, che lo sappia o no. Il censimento delle proprie query richiede mezz'ora; sistemare le pagine che meritano di essere citate richiede metodo. Verbalist fa esattamente questo: analizza i contenuti che Google sta premiando sulla tua keyword e genera un testo costruito su quei pattern, con struttura e dati al posto giusto. Se vuoi vedere l'analisi su una query del tuo settore, prenota una demo.

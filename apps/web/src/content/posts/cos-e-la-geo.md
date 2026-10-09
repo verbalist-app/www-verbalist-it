@@ -90,8 +90,7 @@ Le agenzie SEO la usano per offrire un servizio aggiuntivo ai clienti. I team ma
 
 Il denominatore comune è che tutti questi soggetti producono già contenuti web. La GEO non chiede di fare qualcosa di radicalmente diverso: chiede di farlo meglio, con una struttura e una precisione che i motori generativi possano leggere e usare.
 
-## Conclusione
-
+## Un mercato italiano ancora quasi vuoto
 La GEO non è una moda. È la conseguenza diretta del fatto che i motori di ricerca stanno diventando generativi. Chi produce contenuti web e non ne tiene conto perderà visibilità progressivamente.
 
 La buona notizia è che il mercato italiano è ancora quasi vuoto su questo fronte. Chi si muove adesso ha un vantaggio concreto. Se vuoi vedere come funziona un workflow GEO completo sulla tua keyword, puoi prenotare una demo.

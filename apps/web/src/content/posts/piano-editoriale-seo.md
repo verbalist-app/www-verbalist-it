@@ -63,6 +63,5 @@ I passi 1-3 sono lavoro di lettura sistematica di dati: il tipo di compito che [
 
 I passi 4 e 5 no. La priorità dipende dal business e la costanza dipende dal team: nessun modello decide al posto tuo dove vale la pena investire.
 
-## Conclusione
-
+## Basta un foglio di calcolo per iniziare
 Il piano editoriale guidato dalla SERP toglie l'opinione dal processo e la rimette dove serve, sulle priorità. Il metodo sta in piedi anche con un foglio di calcolo e Search Console; con gli strumenti giusti diventa più veloce, non diverso. Se vuoi vedere come Verbalist trasforma una keyword in un brief e un brief in un contenuto pronto, la prova è gratuita: 30 giorni, 15 documenti.

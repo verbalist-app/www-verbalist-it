@@ -63,6 +63,5 @@ Il numero di sessioni è la metrica meno interessante. Più utili:
 - Le pagine citate: dicono quali dei tuoi contenuti i motori considerano fonti. È la lista da proteggere e aggiornare per prima nel [content refresh](/blog/content-refresh/ "Content refresh: quando e come aggiornare i contenuti").
 - Le query dove non compari: il censimento manuale su ChatGPT e Perplexity delle tue venti query principali resta il complemento necessario ai dati di GA4.
 
-## Conclusione
-
+## Il valore sta nella serie storica
 Misurare il traffico AI in GA4 è un lavoro da un pomeriggio: una regex, un canale, un'esplorazione salvata. Il valore non è nel numero di oggi ma nella serie storica che inizi a costruire, perché tra un anno la domanda "quanto ci porta l'AI?" arriverà in ogni riunione marketing, e la risposta buona richiede dati raccolti da mesi. Il passo successivo è aumentare quel numero: contenuti strutturati per essere citati. È il lavoro per cui è nato Verbalist, e puoi provarlo gratis per 30 giorni.

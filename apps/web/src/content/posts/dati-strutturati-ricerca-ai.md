@@ -53,6 +53,5 @@ BreadcrumbList completa il quadro dando la posizione della pagina nell'architett
 
 Per la verifica: il test dei risultati avanzati di Google e il validatore di schema.org, su una pagina per tipo, a ogni modifica del template.
 
-## Conclusione
-
+## Cosa aspettarsi dai dati strutturati
 I dati strutturati sono infrastruttura: invisibili quando ci sono, costosi quando mancano. Per la ricerca AI non sono la leva principale, che resta il contenuto [strutturato per essere citato](/blog/geo-ottimizzazione-ai/ "Come ottimizzare i contenuti per la ricerca generativa"), ma sono il modo più affidabile per dichiarare alle macchine autore, data, prezzo e domande senza lasciarglieli indovinare. Verbalist genera lo schema FAQ e HowTo insieme al contenuto, già allineato al testo: se vuoi vedere come, prenota una demo.

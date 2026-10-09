@@ -60,6 +60,5 @@ Quattro domande da fare, a noi come a chiunque:
 3. Dove entra il tuo controllo? Prima della pubblicazione dev'esserci un punto in cui una persona approva, modifica o scarta.
 4. Cosa succede quando fallisce? Errori, riprese, crediti: il comportamento nei casi storti dice più del comportamento in demo.
 
-## Conclusione
-
+## Agenti sui dati, persone sulle decisioni
 Gli agenti AI per la SEO sono passati dalla promessa alla routine: analisi, brief, generazione e refresh oggi si delegano davvero. Quello che non si delega è la testa: obiettivi, contesto, giudizio finale. La formula che funziona è agenti sui dati, persone sulle decisioni. Se vuoi vedere come lavora una catena di agenti su una keyword vera, puoi provare Verbalist gratis per 30 giorni.

@@ -63,6 +63,5 @@ C'è anche una regola nuova: pensare per sessioni, non per query. L'utente di AI
 
 Il lavoro di mappatura è esattamente quello che Verbalist fa in automatico quando analizza la SERP per una keyword: estrae le domande, la struttura e i punti scoperti dei contenuti che si posizionano, e ci costruisce sopra il testo. Se vuoi vederlo su una tua keyword, puoi provarlo gratis per 30 giorni.
 
-## Conclusione
-
+## Quanto tempo resta alle pagine generiche
 AI Mode non è un widget in più: è la ricerca Google riprogettata attorno alla conversazione. I numeri italiani dicono che gli utenti ci stanno già andando. Chi ha contenuti strutturati per rispondere a domande precise ha tutto da guadagnare dal fan-out; chi ha pagine generiche costruite per il click ha un anno, forse meno, per adeguarsi.

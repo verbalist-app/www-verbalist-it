@@ -49,6 +49,5 @@ Il refresh parte da una diagnosi, non dal calendario. Tre segnali, in ordine di 
 
 Cambiare URL (butti la storia della pagina), aggiornare solo la data (non inganna nessuno, algoritmi inclusi), riscrivere tutto ogni volta (butti quello che già funzionava), e fare refresh a tappeto senza diagnosi (ore su pagine che non le meritano). L'ordine giusto è sempre: diagnosi, priorità, intervento.
 
-## Conclusione
-
+## La manutenzione è metà del mestiere
 Il content refresh è il lavoro meno glamour e più redditizio del content marketing: nessun titolo nuovo da annunciare, solo pagine che tornano a rendere. In un ecosistema dove i motori premiano il fresco e le citazioni AI si spostano di settimana in settimana, la manutenzione è diventata metà del mestiere. L'altra metà, [scegliere cosa scrivere](/blog/piano-editoriale-seo/ "Piano editoriale guidato dalla SERP"), l'abbiamo raccontata a parte. Su Verbalist il refresh ha un flusso dedicato: incolli il testo, l'URL o un PDF, e il contenuto viene rivisto a confronto con la SERP attuale della keyword. Puoi provarlo gratis per 30 giorni.

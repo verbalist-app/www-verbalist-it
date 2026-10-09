@@ -47,6 +47,5 @@ Le regolarità osservabili su Perplexity, interrogandola sulle proprie query:
 
 Un po' di onestà sulle proporzioni: Perplexity è grande per essere un'azienda nata nel 2022, piccola rispetto a Google. Il traffico che porta ai siti italiani è, per ora, una frazione di quello organico. Il motivo per presidiarla non è il volume di oggi: è che è il posto migliore per imparare le regole della selezione delle fonti AI, con un ciclo di feedback visibile, e che il pubblico che la usa (tecnico, informato, in fase di ricerca attiva) vale spesso più della sua quantità.
 
-## Conclusione
-
+## Un motore che mostra le carte
 Perplexity è il motore generativo che mostra le carte: ogni risposta dice chi ha citato e perché, basta guardare. Trattarla come un canale da studiare, prima ancora che da sfruttare, è il modo giusto di starci. I contenuti che vincono lì, freschi, strutturati a domande, pieni di dati con la fonte, sono gli stessi che vincono su ChatGPT e nelle AI Overview: è la struttura su cui Verbalist costruisce ogni contenuto che genera. Se vuoi vederlo sulla tua keyword, la prova è gratuita per 30 giorni.

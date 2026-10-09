@@ -55,6 +55,5 @@ Su verbalist.it il file è in produzione, e la struttura è questa:
 
 Un errore comune è generarlo in automatico elencando tutte le URL della sitemap. Così diventa una sitemap più povera. Il valore del file è la selezione: dieci link curati battono trecento link nudi.
 
-## Conclusione
-
+## Un tassello piccolo di una strategia più ampia
 llms.txt non ti farà comparire nelle risposte AI da solo, e chi lo vende come fattore di ranking sta esagerando. È un tassello piccolo e onesto di una strategia più ampia: rendere il sito leggibile per le macchine che sempre più spesso lo leggono al posto degli utenti. Il grosso di quella strategia resta [come strutturare i contenuti](/blog/come-farsi-citare-motori-ai/ "Come farsi citare dai motori AI") perché valga la pena citarli. Se vuoi vedere come Verbalist costruisce contenuti pensati per questo, la prova è gratuita per 30 giorni.
