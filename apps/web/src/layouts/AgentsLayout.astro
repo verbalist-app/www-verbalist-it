@@ -103,7 +103,7 @@ const ioCells = [
     steps={frontmatter.steps}
   >
     <Fragment slot="card">
-      <div class={`absolute overflow-hidden rounded-xl vb-window top-8 sm:top-10 lg:top-12 ${mockup === "article" ? "left-[34%]" : "left-[40%]"}`}>
+      <div class={`absolute overflow-hidden rounded-xl vb-window top-6 left-5 sm:top-10 lg:top-12 ${mockup === "article" ? "sm:left-[34%] lg:left-[29%]" : mockup === "export" ? "sm:left-[40%] lg:left-[38%]" : "sm:left-[40%]"}`}>
         {mockup === "brief" && <BriefWindow fields={briefFields} file="brand-guidelines.pdf" />}
         {mockup === "serp" && <ProgressWindow />}
         {mockup === "article" && <AppWindow sidebar={false} />}

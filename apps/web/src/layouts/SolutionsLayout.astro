@@ -31,6 +31,9 @@ import { svgSize } from "@/lib/svgSize";
 // slug: id della pagina · all: tutte le soluzioni ({ id, name, doorTitle })
 // customers: i clienti citati nella prova, già risolti ({ slug, name, logo, fact })
 const { frontmatter, slug, all = [], customers = [] } = Astro.props;
+// Posizione della finestra nell'hero a lg: il bordo della card non deve
+// tagliare a metà pulsanti ed etichette (misurato per finestra)
+const winLg = ({ agenzie: "lg:left-[42%]", pmi: "lg:left-[39%]", ecommerce: "lg:left-[44%]" } as Record<string, string>)[frontmatter.audience] ?? "";
 
 const SITE = "https://www.verbalist.it";
 const TRIAL_URL =
@@ -144,7 +147,7 @@ const faqLd = {
     steps={frontmatter.steps}
   >
     <Fragment slot="card">
-      <div class="absolute overflow-hidden rounded-xl top-8 left-[38%] vb-window sm:top-10 lg:top-12">
+      <div class={`absolute overflow-hidden rounded-xl top-6 left-5 vb-window sm:top-10 sm:left-[38%] lg:top-12 ${winLg}`}>
         {frontmatter.audience === "agenzie" && <ProjectsWindow projects={projects} />}
         {frontmatter.audience === "corporate" && <ContextWindow market={market0} language={val("Lingua")} files={[brief0.file, "glossario.pdf"]} />}
         {frontmatter.audience === "pmi" && <DocumentsWindow docs={[...pmiDocs]} />}
