@@ -8,6 +8,7 @@ import Head from "@/components/section/Head.astro";
 // Content
 import { getCollection } from "astro:content";
 import { slugifyTag } from "@/lib/data";
+import { categoryDescriptions } from "@/lib/categories";
 // Get all posts
 const allPosts = await getCollection("posts");
 // Extract tags from all posts and count occurrences
@@ -19,6 +20,11 @@ const tagCounts = allPosts.reduce((acc, post) => {
 }, {});
 // Extract unique tags for display
 const tags = Object.keys(tagCounts);
+// L'ultimo articolo uscito per ogni tag
+const latestByTag = (tag) =>
+  allPosts
+    .filter((post) => post.data.tags.includes(tag))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
 // Function to get the image for a specific tag
 function getTagImage(tag) {
   const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
@@ -45,16 +51,20 @@ function getTagImage(tag) {
       />
     </Frame>
     <Frame n={2} class="!px-0">
-      <nav aria-label="Argomenti" class="grid md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:nth-child(2n+1)]:border-r-0 lg:[&>*:not(:nth-child(3n))]:border-r">
+      <ul role="list" aria-label="Argomenti" class="grid md:grid-cols-2 lg:grid-cols-3 [&>*]:border-base-200 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:not(:nth-child(3n))]:border-r lg:[&>*:nth-child(3n)]:border-r-0">
         {
           tags.map((tag) => (
-            <a href={`/categorie/${slugifyTag(tag)}/`} class="flex flex-col px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
-              <span class="font-mono text-xs tracking-wider uppercase text-base-500">{tagCounts[tag]} articoli</span>
-              <span class="mt-8 text-xl font-normal tracking-tight capitalize text-base-900 group-hover:text-accent-600">{tag}</span>
-            </a>
+            <li class="flex">
+              <a href={`/categorie/${slugifyTag(tag)}/`} class="flex flex-col flex-1 px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
+                <span class="font-mono text-xs tracking-wider uppercase text-base-500">{tagCounts[tag]} articoli</span>
+                <span class="mt-8 text-xl font-normal tracking-tight capitalize text-base-900 group-hover:text-accent-600">{tag}</span>
+                {categoryDescriptions[tag] && <span class="mt-3 text-md leading-relaxed text-base-600">{categoryDescriptions[tag]}</span>}
+                {latestByTag(tag) && <span class="pt-6 mt-auto text-sm text-base-500">Ultimo articolo: {latestByTag(tag).data.title}</span>}
+              </a>
+            </li>
           ))
         }
-      </nav>
+      </ul>
     </Frame>
   </div>
 </BaseLayout>

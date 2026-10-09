@@ -18,3 +18,11 @@ image:
 
 - Modello di scrittura aggiornato a Claude Opus 4.6, a parità di costo
 - Messaggi di errore riscritti: dicono cosa è successo e cosa fare, senza codici tecnici
+
+## Nel dettaglio
+
+Una generazione passa per tre fasi: ricerca, analisi e scrittura. Se una fallisce, il lavoro riprende da quella fase invece di ricominciare, e i crediti vengono scalati solo quando la generazione va a buon fine.
+
+Mercato e lingua sono due scelte separate: l'analisi legge i risultati di Google del mercato scelto, e il testo nasce nella lingua indicata. Si possono combinare, per esempio risultati italiani e articolo in inglese.
+
+Quando i crediti vengono scalati, e quando no, è spiegato in [Crediti ed errori](/help/crediti-ed-errori/).

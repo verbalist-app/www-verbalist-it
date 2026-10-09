@@ -5,6 +5,17 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
+// Le domande che arrivano prima di una demo: risposte prese da prezzi e help center
+const beforeWriting = [
+  {
+    q: "Serve una demo per iniziare?",
+    a: "No. La prova gratuita dura 30 giorni, include 15 documenti e non chiede la carta di credito. La demo serve se vuoi capire quale piano fa per te, o usarlo in più persone.",
+  },
+  {
+    q: "Quanto costa?",
+    a: "Starter costa 270 € per 30 contenuti, Pro 500 € per 70: pacchetti una tantum, con crediti validi 12 mesi e le stesse funzionalità. Per volumi più alti c'è il piano Custom, che si definisce insieme.",
+  },
+];
 ---
 
 <BaseLayout
@@ -42,6 +53,26 @@ import Head from "@/components/section/Head.astro";
             Preferisci provare da solo?
             <a href="https://app.verbalist.it/login?registration&code=PROVAGRATUITA26" class="text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Prova gratis 30 giorni</a>, senza carta di credito.
           </p>
+          <div class="max-w-md mt-12">
+            <p class="font-mono text-xs tracking-wider uppercase text-base-500">Prima di scrivere</p>
+            <dl class="mt-3 text-md">
+              {
+                beforeWriting.map(({ q, a }) => (
+                  <div class="py-4 border-t border-dashed border-base-200">
+                    <dt class="text-base-900">{q}</dt>
+                    <dd class="mt-1 leading-relaxed text-base-600">{a}</dd>
+                  </div>
+                ))
+              }
+              <div class="py-4 border-t border-b border-dashed border-base-200">
+                <dt class="text-base-900">Dove trovo le istruzioni?</dt>
+                <dd class="mt-1 leading-relaxed text-base-600">
+                  Nell'<a href="/help/" class="text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">help center</a>:
+                  come si crea un documento, come usare contesto e PDF, come funzionano crediti ed errori.
+                </dd>
+              </div>
+            </dl>
+          </div>
         </div>
         <div class="p-6 bg-white border rounded-xl border-base-200 sm:p-8">
           <p class="flex items-center justify-between font-mono text-xs tracking-wider uppercase text-base-500">

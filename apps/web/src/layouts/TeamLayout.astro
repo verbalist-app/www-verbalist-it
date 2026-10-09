@@ -8,6 +8,8 @@ import Head from "@/components/section/Head.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import BlogCard from "@/components/blog/BlogCard.astro";
+import TeamCard from "@/components/team/TeamCard.astro";
+import { getAllTeamMembers } from "@/lib/data";
 // Load all posts
 import { getCollection } from "astro:content";
 // Content
@@ -19,6 +21,10 @@ const relatedPosts = allPosts
   .filter((post) => post.data.team === teamSlug)
   .map((post) => ({ ...post, slug: post.id }));
 const { frontmatter } = Astro.props;
+// Le altre persone del team, in ordine alfabetico
+const others = (await getAllTeamMembers())
+  .filter((m) => m.slug !== teamSlug)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
 
 const SITE = "https://www.verbalist.it";
 const profileLd = {
@@ -109,5 +115,15 @@ const profileLd = {
         </Frame>
       )
     }
+    <Frame n={relatedPosts.length > 0 ? 3 : 2} class="pt-16 lg:pt-24 lg:!px-14">
+      <Head
+        tag="Team"
+        title="Chi costruisce Verbalist"
+        text="Verbalist nasce in NUR, agenzia di digital marketing fondata a Mantova nel 1999, oggi anche a Milano e Los Angeles. L'agenzia lo usa sui clienti che segue: i casi studio di questo sito sono clienti NUR."
+      />
+      <div class="grid mt-10 -mx-4 border-t border-dashed border-base-200 md:grid-cols-3 md:[&>*:not(:nth-child(3n))]:border-r md:[&>*]:border-dashed lg:-mx-14">
+        {others.map((m) => <TeamCard post={m} level="h3" />)}
+      </div>
+    </Frame>
   </div>
 </BaseLayout>

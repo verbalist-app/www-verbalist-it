@@ -7,6 +7,7 @@ import Head from "@/components/section/Head.astro";
 import BlogCard from "@/components/blog/BlogCard.astro";
 // Data
 import { getAllPostTags, getPostsByTag, slugifyTag } from "@/lib/data";
+import { categoryDescriptions } from "@/lib/categories";
 
 export async function getStaticPaths() {
   const uniqueTags = await getAllPostTags();
@@ -22,20 +23,12 @@ export async function getStaticPaths() {
   return paths;
 }
 const { posts, label } = Astro.props;
-// Cosa trova nella categoria chi arriva da una ricerca
-const descriptions: Record<string, string> = {
-  "AI & Automation":
-    "Come funzionano AI Overview, AI Mode, ChatGPT e Perplexity, da dove prendono le fonti e cosa serve per farsi citare: GEO, AEO e agenti AI per la SEO.",
-  Guide:
-    "Guide pratiche per chi produce contenuti: piano editoriale dalla SERP, SEO copywriting, content refresh, schede prodotto e traffico AI in GA4.",
-  SEO: "La SEO nell'era delle risposte AI: le differenze tra GEO e SEO, i dati strutturati che contano, l'E-E-A-T per i motori generativi e il file llms.txt.",
-};
 ---
 
 <BaseLayout
   seo={{
     title: `${label}: articoli e guide del blog`,
-    description: descriptions[label] ?? `Tutti gli articoli del blog Verbalist sul tema ${label}.`,
+    description: categoryDescriptions[label] ?? `Tutti gli articoli del blog Verbalist sul tema ${label}.`,
   }}
 >
   <div class="pt-[72px]">

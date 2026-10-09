@@ -1,13 +1,17 @@
 ---
 // Assets
 import { Image } from "astro:assets";
-// Fundations
-const { url, name, image, role } = {
+// Scheda di una persona del team: foto, nome, ruolo e il primo paragrafo
+// della bio (gli altri restano nella pagina della persona).
+const { url, name, image, role, bio } = {
   url: "/team/" + Astro.props.post.slug + "/",
   name: Astro.props.post.data.name,
   role: Astro.props.post.data.role,
   image: Astro.props.post.data.image.url,
+  bio: (Astro.props.post.data.bio ?? "").split("\n")[0].trim(),
 };
+// h2 nell'indice /team/, h3 sotto la sezione "Chi costruisce Verbalist"
+const { level: Level = "h2" } = Astro.props;
 ---
 
 <article class="relative flex flex-col px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
@@ -16,11 +20,12 @@ const { url, name, image, role } = {
     height="800"
     src={image}
     alt={name}
-    loading="eager"
+    loading={Level === "h3" ? "lazy" : "eager"}
     class="object-cover border size-24 rounded-xl border-base-200 bg-base-100 grayscale"
   />
-  <h2 class="mt-8 text-lg font-normal tracking-tight text-base-900">
+  <Level class="mt-8 text-lg font-normal tracking-tight text-base-900">
     <a href={url} class="after:absolute after:inset-0 group-hover:text-accent-600">{name}</a>
-  </h2>
+  </Level>
   <p class="mt-1 text-sm text-base-600">{role}</p>
+  {bio && <p class="mt-4 text-md leading-relaxed text-base-600">{bio}</p>}
 </article>

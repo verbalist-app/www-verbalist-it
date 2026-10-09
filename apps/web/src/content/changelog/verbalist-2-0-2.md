@@ -19,3 +19,11 @@ image:
 - Avvisi su licenza e crediti riscritti
 - Ordine dei passaggi rivisto: Ottimizza viene prima di Crea
 - Testi guida dei campi più espliciti
+
+## Nel dettaglio
+
+Il contesto del brand entra nei prompt di analisi e di scrittura: se le guidelines escludono un termine, l'agente che scrive lo sa. Si caricano fino a tre PDF da 1 MB ciascuno, e valgono per il documento in cui li carichi, non per i successivi.
+
+Gli URL Competitor servono quando i concorrenti che ti interessano non sono in prima pagina, o quando la prima pagina è piena di marketplace, directory e video. Basta inserirne uno e l'analisi lavora solo sulla tua lista: risultati di Google e URL scelti da te non si mescolano.
+
+Tutti i dettagli in [Contesto e file PDF](/help/contesto-e-pdf/) e [URL Competitor](/help/url-competitor/).
