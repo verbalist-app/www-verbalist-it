@@ -26,6 +26,7 @@ import ProductPageWindow from "@/components/features/agents/ProductPageWindow.as
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Frame from "@/components/section/Frame.astro";
 import { contactHref } from "@/lib/utils";
+import { svgSize } from "@/lib/svgSize";
 
 // slug: id della pagina · all: tutte le soluzioni ({ id, name, doorTitle })
 // customers: i clienti citati nella prova, già risolti ({ slug, name, logo, fact })
@@ -311,6 +312,7 @@ const faqLd = {
                 <img
                   src={c.logo}
                   alt={c.name}
+                  {...svgSize(c.logo, 20)}
                   class="w-auto h-5 max-w-[8rem] object-contain object-left grayscale opacity-70"
                   loading="lazy"
                 />

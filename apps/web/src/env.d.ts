@@ -8,3 +8,8 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+// GTM: il dataLayer che gli script del sito alimentano (vedi docs/tracking-plan.md)
+interface Window {
+  dataLayer?: unknown[];
+}

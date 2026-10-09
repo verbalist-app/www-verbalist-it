@@ -10,8 +10,8 @@ interface Props {
 }
 const { class: className = "" } = Astro.props;
 const [a] = demoVersions;
-const firstBlock = a.sections[0].blocks[0];
-const excerpt = "p" in firstBlock ? firstBlock.p.slice(0, 92) + "…" : "";
+// L'HTML nell'ordine del documento: titolo, attacco dell'introduzione, primo H2
+const excerpt = a.intro.slice(0, 92) + "…";
 const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800";
 const chev = '<path d="M6 9l6 6 6-6"/>';
 ---

@@ -31,24 +31,44 @@ const { frontmatter, slug, all = [], prev = null, next = null } = Astro.props;
 // La finestra dell'app mostrata nell'hero (chiave = frontmatter.mockup): il
 // passo della procedura che questo agente compie.
 const mockup = (frontmatter.mockup as string) ?? "brief";
-const fragmentStep = ({ brief: "brief", serp: "serp", article: "write", "export": "export" } as const)[
-  mockup as "brief" | "serp" | "article" | "export"
-] ?? "brief";
 const briefFields = [
   { label: "Keyword", value: demoBrief.keyword },
   { label: "Mercato", value: `${demoBrief.market} · IT` },
   { label: "Lingua", value: demoBrief.language.charAt(0).toUpperCase() + demoBrief.language.slice(1) },
   { label: "Tipo", value: demoBrief.type },
 ];
-// Il passo della catena che lavora nell'hero di questa pagina. (La chiave è
-// tra virgolette: il compilatore Astro tratta la parola nuda come keyword.)
-const runStep = { brief: "brief", serp: "serp", article: "write", "export": "export" }[
-  frontmatter.mockup as string
-] as "brief" | "serp" | "write" | undefined;
-
 
 const TRIAL_URL =
   "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26";
+
+// Dati strutturati: briciole (la pagina indice degli agenti è un'ancora
+// della home, quindi Home > agente) e WebPage sul prodotto.
+const SITE = "https://www.verbalist.it";
+const pageUrl = `${SITE}/agenti/${slug}/`;
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+    { "@type": "ListItem", position: 2, name: frontmatter.name },
+  ],
+};
+const pageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": pageUrl,
+  url: pageUrl,
+  name: frontmatter.seoTitle,
+  description: frontmatter.seoDescription ?? frontmatter.lede,
+  inLanguage: "it",
+  isPartOf: { "@id": `${SITE}/#website` },
+  about: {
+    "@type": "SoftwareApplication",
+    name: "Verbalist",
+    url: SITE,
+    applicationCategory: "BusinessApplication",
+  },
+};
 
 const ioCells = [
   { eyebrow: "In ingresso", title: "Cosa riceve", items: frontmatter.input },
@@ -62,6 +82,8 @@ const ioCells = [
     description: frontmatter.seoDescription ?? frontmatter.lede,
   }}
 >
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbLd)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(pageLd)} />
   <SubNav
     label="Gli agenti della catena"
     home={{ href: "/#agenti", label: "Agenti" }}

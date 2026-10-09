@@ -35,6 +35,13 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   Non aggiungere script di terze parti fuori da GTM.
 - **Build**: `pnpm --filter @verbalist/web build`; il postbuild appiattisce la
   sitemap in `/sitemap.xml`. Verifica sempre con una build prima di chiudere.
+- **SEO tecnica**: il meta robots lo scrive solo `Seo.astro` (uno per pagina,
+  con `max-image-preview:large`); il suffisso ` | Verbalist` si aggiunge solo
+  se il titolo resta entro 60 caratteri. Il `lastmod` della sitemap arriva
+  dal frontmatter (`astro.config.mjs`: `pubDate`, `lastUpdated`). Immagine OG
+  di default `public/img/og-verbalist.jpg` (1200×630). Header e redirect
+  vanno scritti in entrambi i `vercel.json` (root e `apps/web`). La ricerca
+  del blog usa fuse.js dal bundle: niente script da CDN.
 
 ## Scala tipografica (regole vincolanti)
 
@@ -73,6 +80,9 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   vero della piattaforma (documento 408 del 2026-10-07, versioni A e B):
   va riportato senza ritocchi, segnaposto `[SOURCE NEEDED]` e `[INTERNAL: …]`
   compresi. Dimostrativi restano solo i cinque risultati e le lacune dell'hero.
+  In home se ne legge una sezione per versione e le illustrazioni hanno
+  `data-nosnippet`: il testo dimostrativo non deve prevalere su quello del
+  prodotto.
 - `src/content/` — markdown dei contenuti
 - `src/lib/data.ts` — accesso unico alle collections
 - `src/components/fundations/` — primitivi (Text, Button, Wrapper, head/Seo)

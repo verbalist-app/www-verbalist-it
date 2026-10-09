@@ -12,7 +12,7 @@ interface Props {
 const { label, class: className = "", tone = "alba" } = Astro.props;
 ---
 
-<div role="img" aria-label={label} class={`relative overflow-hidden bg-white border rounded-3xl border-base-200 vb-product-card ${className}`} data-tone={tone}>
+<div role="img" data-nosnippet aria-label={label} class={`relative overflow-hidden bg-white border rounded-3xl border-base-200 vb-product-card ${className}`} data-tone={tone}>
   <slot />
 </div>
 

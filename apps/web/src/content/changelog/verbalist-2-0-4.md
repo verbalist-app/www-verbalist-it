@@ -1,6 +1,6 @@
 ---
 page: "Due versioni per ogni testo generato"
-description: "A fine generazione il documento propone due versioni del testo, scritte da due modelli diversi: le confronti e tieni la migliore. Contesto in evidenza nel brief."
+description: "A fine generazione il documento propone due versioni del testo, scritte da due modelli diversi: confrontale e tieni la migliore. Contesto in evidenza nel brief."
 pubDate: 2026-08-03
 image:
   url: "/img/changelog/verbalist-2-0-4.webp"

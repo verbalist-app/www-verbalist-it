@@ -24,6 +24,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "astro": "^6.3.5",
     "clsx": "^2.1.1",
+    "fuse.js": "7.0.0",
     "groq": "^5.25.1",
     "lucide-react": "^0.479.0",
     "motion": "^12.40.0",
@@ -37,7 +38,6 @@
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.104.1",
     "@tailwindcss/vite": "^4.3.0",
-    "simple-icons": "^16.33.0",
     "tailwindcss": "^4.3.0"
   }
 }

@@ -47,11 +47,25 @@ const articleLd = {
   description: frontmatter.description,
   image: new URL(frontmatter.image.url, siteUrl).toString(),
   datePublished: new Date(frontmatter.pubDate).toISOString(),
+  // Nessun campo di revisione nei post: la modifica coincide con l'uscita
+  dateModified: new Date(frontmatter.pubDate).toISOString(),
   inLanguage: "it",
   author: team
-    ? { "@type": "Person", name: team.data.name, jobTitle: team.data.role }
-    : { "@type": "Organization", name: "Verbalist" },
-  publisher: { "@type": "Organization", name: "Verbalist", url: siteUrl },
+    ? {
+        "@type": "Person",
+        name: team.data.name,
+        jobTitle: team.data.role,
+        url: new URL(`/team/${team.slug}/`, siteUrl).toString(),
+        sameAs: [team.data.socials?.linkedin, team.data.socials?.website].filter(Boolean),
+      }
+    : { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Verbalist" },
+  publisher: {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "Verbalist",
+    url: siteUrl,
+    logo: { "@type": "ImageObject", url: `${siteUrl}/android-chrome-512x512.png` },
+  },
   mainEntityOfPage: new URL(Astro.url.pathname, siteUrl).toString(),
 };
 

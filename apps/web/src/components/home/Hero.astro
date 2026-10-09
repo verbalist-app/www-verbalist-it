@@ -5,22 +5,21 @@
 // il contenuto è destinato e la pagina del documento in app (AppWindow.astro),
 // più larga della card e tagliata dai suoi bordi, con la luce di un oggetto
 // appoggiato (filo chiaro in alto, ombra lunga e morbida).
-// Nessuna animazione. I marchi dei motori (simple-icons, CC0) restano dei
-// rispettivi proprietari; ChatGPT è senza marchio perché OpenAI non lo
-// concede alle raccolte di icone.
+// Nessuna animazione. I marchi dei motori (public/img/engines/, forniti dal
+// maintainer) restano dei rispettivi proprietari e sono gli unici colori
+// della card.
 import Button from "@/components/fundations/elements/Button.astro";
 import Frame from "@/components/section/Frame.astro";
 import { TRIAL_HREF } from "@/lib/pricing";
 import { demoBrief } from "./demo";
 import AppWindow from "./AppWindow.astro";
-import { siGoogle, siGooglegemini, siClaude, siPerplexity } from "simple-icons";
 
-const engines: { name: string; path?: string; hex?: string }[] = [
-  { name: "Google", path: siGoogle.path, hex: siGoogle.hex },
-  { name: "ChatGPT" },
-  { name: "Gemini", path: siGooglegemini.path, hex: siGooglegemini.hex },
-  { name: "Claude", path: siClaude.path, hex: siClaude.hex },
-  { name: "Perplexity", path: siPerplexity.path, hex: siPerplexity.hex },
+const engines = [
+  { name: "Google", logo: "google" },
+  { name: "ChatGPT", logo: "openai" },
+  { name: "Gemini", logo: "gemini" },
+  { name: "Claude", logo: "claude" },
+  { name: "Perplexity", logo: "perplexity" },
 ];
 const label = "font-mono text-xs tracking-wider uppercase text-base-500";
 ---
@@ -54,6 +53,7 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
 
     <div
       role="img"
+      data-nosnippet
       aria-label={`Il brief con la keyword «${demoBrief.keyword}», la pagina del documento in Verbalist con le due versioni generate, A e B, e i motori a cui il contenuto è destinato: Google, ChatGPT, Gemini, Claude, Perplexity.`}
       class="relative overflow-hidden bg-white border rounded-3xl border-base-200 h-[20rem] sm:h-[30rem] lg:h-[36rem] vb-card [--vb-zoom:0.42] sm:[--vb-zoom:0.5] lg:[--vb-zoom:0.56]"
     >
@@ -79,11 +79,7 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
             engines.map((e) => (
               <li class="flex items-center text-sm gap-2.5 text-base-900">
                 <span class="flex items-center justify-center bg-white border rounded-md size-6 border-base-200">
-                  {e.path ? (
-                    <svg viewBox="0 0 24 24" class="size-3.5" fill={`#${e.hex}`} aria-hidden="true"><path d={e.path} /></svg>
-                  ) : (
-                    <span class="font-mono text-2xs text-base-700">AI</span>
-                  )}
+                  <img src={`/img/engines/${e.logo}.svg`} alt="" width="14" height="14" class="object-contain size-3.5" loading="lazy" decoding="async" />
                 </span>
                 {e.name}
               </li>

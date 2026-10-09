@@ -1,5 +1,6 @@
 ---
 page: Termini e condizioni
+description: "Le condizioni d'uso di Verbalist, fornito da NUR S.r.l.: account, uso del servizio, contenuti generati, pagamenti e abbonamenti, sospensione e risoluzione."
 pubDate: 2026-05-01
 ---
 

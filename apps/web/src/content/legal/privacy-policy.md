@@ -1,5 +1,6 @@
 ---
 page: Privacy Policy
+description: "Come NUR S.r.l., titolare di Verbalist, tratta i dati personali: finalità e basi giuridiche, destinatari, trasferimenti extra UE, conservazione e diritti."
 pubDate: 2026-07-18
 ---
 

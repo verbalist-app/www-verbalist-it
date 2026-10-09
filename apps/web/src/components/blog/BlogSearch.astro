@@ -11,6 +11,8 @@ const posts = await Promise.all(
     slug: post.id,
   }))
 );
+// I post viaggiano come JSON nella pagina; "<" escapato per non chiudere lo script
+const postsJson = JSON.stringify(posts).replace(/</g, "\\u003c");
 ---
 
 <div class="relative">
@@ -69,15 +71,21 @@ const posts = await Promise.all(
     </div>
   </div>
 </div>
-<script is:inline define:vars={{ posts }}>
-  window.addEventListener("load", () => {
+<script is:inline type="application/json" id="blog-search-data" set:html={postsJson} />
+<script>
+  // Fuse.js arriva dal bundle (non più dal CDN): lo script è un modulo, gira
+  // a DOM già pronto e solo nella pagina del blog.
+  import Fuse from "fuse.js";
+
+  const posts = JSON.parse(document.getElementById("blog-search-data")?.textContent || "[]");
+  {
     // Get references to necessary DOM elements
-    const searchButton = document.getElementById("searchButton");
-    const searchModal = document.getElementById("searchModal");
-    const modalOverlay = document.getElementById("modalOverlay");
-    const searchInput = document.getElementById("searchInput");
-    const searchResults = document.getElementById("searchResults");
-    const closeSearch = document.getElementById("closeSearch");
+    const searchButton = document.getElementById("searchButton") as HTMLButtonElement;
+    const searchModal = document.getElementById("searchModal") as HTMLDivElement;
+    const modalOverlay = document.getElementById("modalOverlay") as HTMLDivElement;
+    const searchInput = document.getElementById("searchInput") as HTMLInputElement;
+    const searchResults = document.getElementById("searchResults") as HTMLDivElement;
+    const closeSearch = document.getElementById("closeSearch") as HTMLButtonElement;
     // Clear the search input field on page load to prevent old values from persisting
     searchInput.value = "";
     // Initialize Fuse.js for fuzzy searching
@@ -88,7 +96,7 @@ const posts = await Promise.all(
     });
     // Function to open the search modal (chiamabile anche senza evento:
     // la usano il ⌘K globale di BaseLayout e l'arrivo con #cerca)
-    function openSearch(e) {
+    function openSearch(e?: Event) {
       if (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -98,7 +106,7 @@ const posts = await Promise.all(
       setTimeout(() => searchInput.focus(), 100); // Delay focus to ensure input is ready
     }
     // Function to close the search modal
-    function closeSearchModal(e) {
+    function closeSearchModal(e?: Event) {
       if (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -109,7 +117,7 @@ const posts = await Promise.all(
       searchResults.innerHTML = ""; // Clear search results
     }
     // Function to display search results
-    function renderResults(results) {
+    function renderResults(results: { item: { slug: string; title: string; description: string } }[]) {
       // If search input is empty, clear results
       if (!searchInput.value.trim()) {
         searchResults.innerHTML = "";
@@ -143,7 +151,7 @@ const posts = await Promise.all(
         .slice(0, 5) // Limit results to top 5 matches
         .map(
           (result) => `
-                <a href="/blog/${result.item.slug}"   class="block p-4 text-balance m-1  rounded-lg hover:bg-mist-100 focus:outline-none focus:ring-2 ring-inset focus:ring-accent-500 duration-300">   
+                <a href="/blog/${result.item.slug}/"   class="block p-4 text-balance m-1  rounded-lg hover:bg-mist-100 focus:outline-none focus:ring-2 ring-inset focus:ring-accent-500 duration-300">   
                   <h3 class="font-medium text-base-800 text-sm">${result.item.title}</h3>   
                   <p class="mt-2 text-sm text-base-500 ">${result.item.description}</p> 
                 </a>
@@ -155,9 +163,9 @@ const posts = await Promise.all(
     // dal Consent Mode). Debounce: pusha solo quando l'utente smette di
     // digitare, con termine normalizzato e numero di risultati — serve a
     // capire cosa viene cercato e cosa non viene trovato (search_results=0).
-    let searchTrackTimer;
+    let searchTrackTimer: ReturnType<typeof setTimeout> | undefined;
     let lastTrackedTerm = "";
-    function trackSearch(term, resultsCount) {
+    function trackSearch(term: string, resultsCount: number) {
       clearTimeout(searchTrackTimer);
       if (term.length < 3 || term === lastTrackedTerm) return;
       searchTrackTimer = setTimeout(() => {
@@ -181,7 +189,7 @@ const posts = await Promise.all(
     modalOverlay.addEventListener("touchend", closeSearchModal);
     // Perform search when input changes
     searchInput.addEventListener("input", (e) => {
-      const value = e.target.value; // Get the input value
+      const value = (e.target as HTMLInputElement).value; // Get the input value
       const results = value.trim() ? fuse.search(value) : []; // Perform search if input isn't empty
       renderResults(results); // Update the displayed results
       trackSearch(value.trim().toLowerCase(), results.length);
@@ -198,5 +206,5 @@ const posts = await Promise.all(
       openSearch();
       history.replaceState(null, "", location.pathname);
     }
-  });
+  }
 </script>

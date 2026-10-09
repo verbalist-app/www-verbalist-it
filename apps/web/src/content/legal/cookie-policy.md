@@ -1,5 +1,6 @@
 ---
 page: Cookie Policy
+description: "I cookie di verbalist.it: tecnici, statistici e di profilazione, l'elenco dei cookie usati, come gestirli o disattivarli e per quanto si conservano i dati."
 pubDate: 2026-07-18
 ---
 

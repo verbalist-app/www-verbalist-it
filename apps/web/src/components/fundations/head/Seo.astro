@@ -1,5 +1,8 @@
 ---
 import { AstroSeo } from "@lexingtonthemes/seo";
+import { existsSync } from "node:fs";
+import { extname, join } from "node:path";
+import sharp from "sharp";
 
 interface Props {
   title?: string;
@@ -23,11 +26,14 @@ const {
 } = Astro.props;
 
 const siteName = "Verbalist";
-const title = pageTitle
-  ? pageTitle.includes(siteName)
+// Il suffisso " | Verbalist" solo se il titolo resta entro i 60 caratteri:
+// oltre, Google lo taglia o lo riscrive.
+const suffixed = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
+const title = !pageTitle
+  ? siteName
+  : pageTitle.includes(siteName) || suffixed.length > 60
     ? pageTitle
-    : `${pageTitle} | ${siteName}`
-  : siteName;
+    : suffixed;
 const description =
   pageDescription ||
   "Verbalist legge i primi risultati di Google per la tua keyword e scrive contenuti ottimizzati per SEO e GEO.";
@@ -35,11 +41,28 @@ const siteUrl = Astro.site?.toString() || "https://www.verbalist.it";
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 
 // Immagine: quella di pagina, altrimenti la OG di default
-const rawOgImage = pageImage?.url || "/img/og-default.jpg";
+const rawOgImage = pageImage?.url || "/img/og-verbalist.jpg";
 const ogImageUrl = rawOgImage.startsWith("http")
   ? rawOgImage
   : new URL(rawOgImage, siteUrl).toString();
 const ogImageAlt = pageImage?.alt || title;
+
+// Tipo e misure dell'immagine letti dal file in public/, quando è nostro
+const mimeByExt: Record<string, string> = {
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
+  ".webp": "image/webp",
+  ".avif": "image/avif",
+  ".gif": "image/gif",
+};
+const ogPath = new URL(ogImageUrl).pathname;
+const ogType = mimeByExt[extname(ogPath).toLowerCase()];
+const ogFile = join(process.cwd(), "public", decodeURIComponent(ogPath));
+const ogSize =
+  ogImageUrl.startsWith(siteUrl.replace(/\/$/, "")) && existsSync(ogFile)
+    ? await sharp(ogFile).metadata()
+    : undefined;
 
 const twitterHandle = "";
 ---
@@ -49,6 +72,8 @@ const twitterHandle = "";
   description={description}
   canonical={canonical}
   noindex={noindex}
+  nofollow={false}
+  robotsProps={{ maxImagePreview: "large", maxSnippet: -1 }}
   openGraph={{
     url: canonical,
     title: title,
@@ -57,16 +82,15 @@ const twitterHandle = "";
       ? [
           {
             url: ogImageUrl,
-            width: 1200,
-            height: 630,
             alt: ogImageAlt,
-            type: "image/jpeg",
+            ...(ogType && { type: ogType }),
+            ...(ogSize?.width && ogSize?.height && { width: ogSize.width, height: ogSize.height }),
           },
         ]
       : [],
     site_name: siteName,
     type: type,
-    locale: "en_US",
+    locale: "it_IT",
     ...(type === "article" &&
       publishedTime && {
         article: {

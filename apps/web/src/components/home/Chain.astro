@@ -59,7 +59,7 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
                 <span class="mt-2 text-xs leading-relaxed text-base-600">{agent.data.summary}</span>
                 <span class="pt-3 mt-auto font-mono text-xs border-t border-dashed border-base-200 text-base-500">→ {io[i]}</span>
               </span>
-              <span aria-hidden="true" class="relative block h-28 mt-4 overflow-hidden vb-fragment [--vb-zoom:0.56] lg:h-40 lg:[--vb-zoom:0.66]">
+              <span aria-hidden="true" data-nosnippet class="relative block h-28 mt-4 overflow-hidden vb-fragment [--vb-zoom:0.56] lg:h-40 lg:[--vb-zoom:0.66]">
                 <span class="absolute block top-3 left-5 vb-fragment-card">
                   <ChainFragment step={fragment[agent.data.mockup as keyof typeof fragment] ?? "brief"} />
                 </span>

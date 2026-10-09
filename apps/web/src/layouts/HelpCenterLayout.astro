@@ -26,6 +26,20 @@ const breadcrumbs = [
   { label: frontmatter.page, href: "#" }, // Current page (unstyled)
 ];
 
+const pageUrl = new URL(Astro.url.pathname, "https://www.verbalist.it").toString();
+const articleLd = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: frontmatter.page,
+  description: frontmatter.description,
+  inLanguage: "it",
+  ...(frontmatter.lastUpdated && { dateModified: frontmatter.lastUpdated }),
+  about: { "@type": "SoftwareApplication", name: "Verbalist", applicationCategory: "BusinessApplication" },
+  author: { "@id": "https://www.verbalist.it/#organization" },
+  publisher: { "@id": "https://www.verbalist.it/#organization" },
+  mainEntityOfPage: pageUrl,
+};
+
 const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -47,6 +61,11 @@ const breadcrumbLd = {
     type="application/ld+json"
     is:inline
     set:html={JSON.stringify(breadcrumbLd)}
+  />
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(articleLd)}
   />
   <div class="pt-[72px]">
     <Frame n={1} flush tone="soft" class="pt-8 pb-12 lg:pt-10 lg:pb-16 lg:!px-14">

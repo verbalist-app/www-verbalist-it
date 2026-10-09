@@ -29,7 +29,8 @@ const breadcrumbLd = {
 <BaseLayout
   seo={{
     title: frontmatter.page,
-    description: `${frontmatter.page} di Verbalist: il documento completo e aggiornato.`,
+    description:
+      frontmatter.description ?? `${frontmatter.page} di Verbalist: il documento completo e aggiornato.`,
   }}
 >
   <script

@@ -120,6 +120,7 @@ export interface LegalPage {
   slug: string;
   data: {
     page: string;
+    description?: string;
     pubDate: Date;
   };
   body?: string;
@@ -273,6 +274,7 @@ function contentCollectionToLegalPage(
     slug: entry.id,
     data: {
       page: entry.data.page,
+      description: entry.data.description,
       pubDate: entry.data.pubDate,
     },
     body: entry.body,

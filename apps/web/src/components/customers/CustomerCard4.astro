@@ -1,7 +1,7 @@
 ---
 // Cella di caso studio nell'indice /clienti: logo, titolo, il primo risultato
 // con un numero e i crediti dichiarati dal caso.
-import { Image } from "astro:assets";
+import { svgSize } from "@/lib/svgSize";
 import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
 
 const post = Astro.props.post;
@@ -20,7 +20,7 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
 
 <article class="relative flex flex-col px-4 py-10 border-b border-dashed group border-base-200 last:border-b-0 md:[&:nth-child(odd)]:border-r md:[&:nth-last-child(-n+2)]:border-b-0 lg:px-10 lg:py-12 lg:[&:nth-child(odd)]:pl-14 lg:[&:nth-child(even)]:pr-14 transition-colors duration-200 hover:bg-base-50">
   <div class="flex items-center justify-between gap-4">
-    <Image src={logo} alt="" width={200} height={200} loading={index < 2 ? "eager" : "lazy"} class="object-contain object-left w-auto h-5 max-w-28 grayscale opacity-70" />
+    <img src={logo} alt="" {...svgSize(logo, 20)} loading={index < 2 ? "eager" : "lazy"} class="object-contain object-left w-auto h-5 max-w-28 grayscale opacity-70" />
     <p class={label}>{details?.Settore?.split("/")[0].split(",")[0]}</p>
   </div>
   <h2 class="mt-10 text-2xl font-normal tracking-tight text-base-900 text-balance">

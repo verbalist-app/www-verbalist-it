@@ -31,6 +31,7 @@ const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600";
 
   <div class="grid mt-12 gap-10 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:items-center">
     <article aria-label="Estratto annotato della versione B, generata da Verbalist" class="p-6 bg-white border rounded-xl border-base-200 sm:p-8">
+      <div data-nosnippet>
       <p class={label}>Estratto · {article.label}</p>
       <h3 class="mt-3 text-xl font-normal tracking-tight text-base-900">{article.h1}</h3>
       <p class="mt-4 text-sm leading-relaxed text-base-700">
@@ -45,6 +46,7 @@ const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600";
         <mark class={mark} data-mark="3">Non coincide con l’altezza totale della scarpa: due modelli possono avere lo stesso drop ma quantità di materiale molto diverse.</mark><sup class={ref}>3</sup>
         Un cambio marcato può spostare il lavoro percepito tra polpaccio, caviglia, ginocchio e anca <span class={tag}>[SOURCE NEEDED]</span>.
       </p>
+      </div>
     </article>
     <ol role="list">
       {

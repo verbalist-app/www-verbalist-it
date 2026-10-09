@@ -5,6 +5,7 @@
 import { getAllCustomers, getAllChangelog } from "@/lib/data";
 import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
+import { svgSize } from "@/lib/svgSize";
 
 const customers = await getAllCustomers();
 const cases = customers.map((c) => {
@@ -58,7 +59,7 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
       quei dati per scrivere e i contenuti escono già nel tono del brand.»
     </blockquote>
     <figcaption class="flex flex-wrap items-center mt-8 text-sm gap-x-4 gap-y-2 text-base-600">
-      <img src="/img/logos/jurny.svg" alt="" class="w-auto h-5" loading="lazy" />
+      <img src="/img/logos/jurny.svg" alt="" {...svgSize("/img/logos/jurny.svg", 20)} class="w-auto h-5" loading="lazy" />
       <span><span class="text-base-900">Luca Zambello</span>, CEO di Jurny</span>
       <a href="/clienti/jurny/" class="border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Leggi il caso</a>
     </figcaption>

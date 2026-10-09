@@ -4,7 +4,6 @@ import Meta from "@/components/fundations/head/Meta.astro";
 import Fonts from "@/components/fundations/head/Fonts.astro";
 import Favicons from "@/components/fundations/head/Favicons.astro";
 // Scripts
-import FuseJS from "@/components/fundations/scripts/FuseJS.astro";
 import Tracking from "@/components/fundations/scripts/Tracking.astro";
 interface Props {
   seo?: {
@@ -37,6 +36,20 @@ const { seo } = Astro.props;
         },
         description:
           "Verbalist legge i primi risultati di Google per una keyword e scrive contenuti ottimizzati per SEO e GEO.",
+        parentOrganization: {
+          "@type": "Organization",
+          name: "NUR S.r.l.",
+          url: "https://www.nur.it",
+          vatID: "IT01902640208",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Via del Commercio 1/N",
+            postalCode: "46030",
+            addressLocality: "San Giorgio Bigarello",
+            addressRegion: "MN",
+            addressCountry: "IT",
+          },
+        },
       },
       {
         "@type": "WebSite",
@@ -54,4 +67,3 @@ const { seo } = Astro.props;
 <Favicons />
 <!-- Scripts -->
 <Tracking />
-<FuseJS />

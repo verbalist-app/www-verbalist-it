@@ -3,7 +3,8 @@
 // barra laterale, barra in alto, intestazione del documento e le due versioni.
 // È disegnata a 1100 px e ridotta con `zoom` (variabile --vb-zoom) dal
 // contenitore, così resta nitida a ogni dimensione. Testi dal documento vero
-// (demo.ts). Solo immagine: il contenitore che la usa è `role="img"`.
+// (demo.ts): delle versioni solo titolo e attacco dell'introduzione, il resto
+// è a righe neutre. Solo immagine: il contenitore che la usa è `role="img"`.
 import { demoBrief, demoDocument, demoVersions } from "./demo";
 
 interface Props {
@@ -11,6 +12,11 @@ interface Props {
   sidebar?: boolean;
 }
 const { sidebar = true } = Astro.props;
+// L'attacco dell'introduzione, troncato a parola intera
+const opening = (t: string, words = 32) => {
+  const w = t.split(/\s+/);
+  return w.length > words ? `${w.slice(0, words).join(" ")}…` : t;
+};
 
 const I = {
   panel: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/>',
@@ -46,7 +52,7 @@ const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rou
   {sidebar && (
   <aside class="w-[208px] shrink-0 border-r border-base-200">
     <div class="flex items-center h-12 px-5 border-b border-base-200">
-      <img src="/brand/verbalist-simbolo.svg" alt="" class="w-auto h-5" />
+      <img src="/brand/verbalist-simbolo.svg" alt="" width="17" height="20" class="w-auto h-5" />
     </div>
     <div class="px-3 pt-3">
       <p class="flex items-center h-9 px-2 text-[13px] rounded-md gap-2.5 text-base-900">
@@ -135,9 +141,14 @@ const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rou
               </div>
               <div class="relative px-6 pt-5 pb-8">
                 <p class="text-[19px] font-medium leading-snug tracking-tight text-base-900">{v.h1}</p>
-                <p class="mt-4 text-[13px] leading-relaxed text-base-700">{v.intro}</p>
-                <p class="mt-5 text-[15px] font-medium text-base-900">{v.sections[0].h2}</p>
-                <p class="mt-2 text-[13px] leading-relaxed text-base-700">{"p" in v.sections[0].blocks[0] ? v.sections[0].blocks[0].p : ""}</p>
+                <p class="mt-4 text-[13px] leading-relaxed text-base-700">{opening(v.intro)}</p>
+                <span aria-hidden="true" class="block w-3/5 h-3 mt-6 rounded bg-base-800"></span>
+                <span aria-hidden="true" class="block mt-3 space-y-2.5">
+                  <span class="block h-2 rounded bg-base-200"></span>
+                  <span class="block h-2 rounded bg-base-200 w-11/12"></span>
+                  <span class="block h-2 rounded bg-base-200 w-5/6"></span>
+                  <span class="block w-2/3 h-2 rounded bg-base-200"></span>
+                </span>
                 <span aria-hidden="true" class="absolute right-1.5 top-5 w-1.5 h-24 rounded-full bg-base-300"></span>
               </div>
             </div>

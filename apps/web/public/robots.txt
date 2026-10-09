@@ -27,9 +27,8 @@ User-agent: Diffbot
 User-agent: omgilibot
 Disallow: /
 
-# Note: robots.txt is advisory only and some crawlers (e.g. Bytespider)
-# are known to ignore it. Actual enforcement of the training block is
-# handled at the CDN level (Cloudflare AI crawler blocking).
+# Note: robots.txt is advisory and is not enforced at the edge: some
+# crawlers (e.g. Bytespider) are known to ignore it.
 
 # Everyone else (classic search engines included)
 User-agent: *
