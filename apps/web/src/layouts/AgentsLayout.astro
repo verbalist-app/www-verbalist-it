@@ -1,8 +1,8 @@
 ---
 // Pagina agente sul pattern "feature page" di Profound, tradotto nel sistema
-// chiaro di Verbalist: sotto-nav della catena, manifesto che si accende allo
-// scroll, blocco prodotto con titolo grande e finestra app, poi celle della
-// griglia tratteggiata al posto delle colonne centrate.
+// chiaro di Verbalist: sotto-nav della catena, hero con la finestra dell'app
+// e le azioni, la frase citabile, poi celle della griglia tratteggiata al
+// posto delle colonne centrate e "Come funziona" a capitoli.
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -14,8 +14,7 @@ import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
 import SubNav from "@/components/featurepage/SubNav.astro";
 import Manifesto from "@/components/featurepage/Manifesto.astro";
 import SectionHead from "@/components/featurepage/SectionHead.astro";
-// Illustrazioni di prodotto: una finestra dell'app per agente, dentro la card
-import ProductCard from "@/components/featurepage/ProductCard.astro";
+// Illustrazioni di prodotto: una finestra dell'app per agente, nell'hero
 import BriefWindow from "@/components/features/agents/BriefWindow.astro";
 import ProgressWindow from "@/components/features/agents/ProgressWindow.astro";
 import ExportWindow from "@/components/features/agents/ExportWindow.astro";
@@ -102,6 +101,12 @@ const ioCells = [
     stepsLead={frontmatter.stepsLead}
     steps={frontmatter.steps}
   >
+    <Button isLink size="base" variant="accent" href={TRIAL_URL}>
+      Prova gratis
+    </Button>
+    <Button isLink size="base" variant="muted" href="/contatti/">
+      Parla con noi
+    </Button>
     <Fragment slot="card">
       <div class={`absolute overflow-hidden rounded-xl vb-window top-6 left-5 sm:top-10 lg:top-12 ${mockup === "article" ? "sm:left-[34%] lg:left-[29%]" : mockup === "export" ? "sm:left-[40%] lg:left-[38%]" : "sm:left-[40%]"}`}>
         {mockup === "brief" && <BriefWindow fields={briefFields} file="brand-guidelines.pdf" />}
@@ -112,29 +117,13 @@ const ioCells = [
     </Fragment>
   </Manifesto>
 
-  <!-- Il prodotto: titolo grande, azioni, finestra app -->
+  <!-- Il punto: la frase citabile e l'introduzione, solo testo -->
   <Frame n={2} class="pt-14 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
       <SectionHead
         eyebrow={`Agente ${frontmatter.n} di 04`}
         title={frontmatter.pitch ?? frontmatter.name}
         text={frontmatter.intro}
-      >
-        <Button isLink size="base" variant="accent" href={TRIAL_URL}>
-          Prova gratis
-        </Button>
-        <Button isLink size="base" variant="muted" href="/contatti/">
-          Parla con noi
-        </Button>
-      </SectionHead>
-      <ProductCard
-        tone="sera"
-        label="La pagina del documento in Verbalist, con la barra laterale dell'app: progetti, documenti, impostazioni e le due versioni generate."
-        class="mt-10 h-[20rem] sm:h-[26rem] lg:h-[30rem] [--vb-zoom:0.5] sm:[--vb-zoom:0.7] lg:[--vb-zoom:0.82]"
-      >
-        <div class="absolute overflow-hidden rounded-xl vb-window top-8 left-6 sm:top-10 sm:left-10 lg:top-12 lg:left-14">
-          <AppWindow />
-        </div>
-      </ProductCard>
+      />
   </Frame>
 
   <!-- Ingresso e uscita: due celle della griglia -->
