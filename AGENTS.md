@@ -87,6 +87,8 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   In home se ne legge una sezione per versione e le illustrazioni hanno
   `data-nosnippet`: il testo dimostrativo non deve prevalere su quello del
   prodotto.
+- `src/styles/motion.css` e `src/lib/motion.ts` — token di movimento (durate,
+  curve); il linguaggio di movimento sta in `.claude/skills/motion-design/`.
 - `src/content/` — markdown dei contenuti
 - `src/lib/data.ts` — accesso unico alle collections
 - `src/components/fundations/` — primitivi (Text, Button, Wrapper, head/Seo)
