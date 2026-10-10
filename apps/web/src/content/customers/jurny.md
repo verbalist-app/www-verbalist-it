@@ -14,6 +14,10 @@ results:
   - "Contenuti di prodotto strutturati secondo i pattern delle SERP di riferimento nel settore hospitality tech."
   - "Maggiore coerenza tra i testi del sito e il posizionamento atteso nei motori di risposta AI."
   - "14 contenuti informazionali in inglese pubblicati nei primi due mesi, senza ampliare il team."
+sector: "Hospitality tech"
+figure:
+  value: "14"
+  label: "contenuti in inglese pubblicati nei primi due mesi, senza ampliare il team"
 details:
   Settore: "Hospitality Software, AI property management"
   Sede: "Los Angeles, California, USA"

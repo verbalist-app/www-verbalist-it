@@ -14,6 +14,10 @@ results:
   - "Oltre 200 schede prodotto ottimizzate a ogni cambio di stagione."
   - "Maggiore coerenza stilistica tra le categorie di prodotto nel catalogo online."
   - "Struttura dei contenuti allineata ai pattern estratti dalle SERP di riferimento."
+sector: "Intimo e calze"
+figure:
+  value: "200+"
+  label: "schede prodotto ottimizzate a ogni cambio di stagione"
 details:
   Settore: "Intimo, calze e abbigliamento tecnico"
   Sede: "Medole, Mantova, Italia"

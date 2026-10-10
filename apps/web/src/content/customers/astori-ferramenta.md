@@ -15,6 +15,10 @@ results:
   - "Oltre 120 pagine di categoria riscritte nel primo trimestre di lavoro."
   - "Maggiore coerenza terminologica tra le pagine di prodotto del catalogo."
   - "Struttura dei contenuti allineata ai pattern estratti dalle SERP di settore."
+sector: "Ferramenta"
+figure:
+  value: "120+"
+  label: "pagine di categoria riscritte nel primo trimestre di lavoro"
 details:
   Settore: "Commercio all'ingrosso e al dettaglio di ferramenta"
   Sede: "Montichiari, Brescia, Italia"

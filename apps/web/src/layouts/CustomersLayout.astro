@@ -1,16 +1,20 @@
 ---
+// Pagina di un caso studio (/clienti/<slug>/): nell'hero logo, titolo e
+// azienda a sinistra, il numero del caso a destra; poi problema e soluzione,
+// i risultati in tre celle, e il racconto con a fianco la scheda dell'azienda
+// che segue la lettura. Senza `figure` la scheda resta nell'hero.
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
-// Icons
-import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
-import Check from "@/components/fundations/icons/Check.astro";
+import Unbroken from "@/components/fundations/elements/Unbroken.astro";
+import { svgSize } from "@/lib/svgSize";
 
 const { frontmatter } = Astro.props;
+const TRIAL_URL = "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26";
 // Breadcrumbs Data
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -30,8 +34,8 @@ const breadcrumbLd = {
       : {}),
   })),
 };
-import Unbroken from "@/components/fundations/elements/Unbroken.astro";
-import { svgSize } from "@/lib/svgSize";
+const hasBody = Astro.slots.has("default");
+const figure = frontmatter.figure;
 ---
 
 <BaseLayout
@@ -70,7 +74,7 @@ import { svgSize } from "@/lib/svgSize";
           }
         </ol>
       </nav>
-      <div class="grid gap-10 mt-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:items-start">
+      <div class="grid gap-10 mt-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:items-end">
         <div>
           <img src={frontmatter.logo.url} alt="" {...svgSize(frontmatter.logo.url, 24)} class="object-contain object-left w-auto h-6 max-w-32" />
           <h1 class="mt-8 text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 text-balance lg:text-display lg:leading-[1.08]">
@@ -78,16 +82,23 @@ import { svgSize } from "@/lib/svgSize";
           </h1>
           <p class="max-w-lg mt-6 text-lg font-light leading-snug text-base-600">{frontmatter.about}</p>
         </div>
-        <dl class="p-6 bg-white border rounded-xl border-base-200">
-          {
-            Object.entries(frontmatter.details).map(([key, value]) => (
-              <div class="flex justify-between py-2.5 text-sm border-b border-dashed gap-4 border-base-200 last:border-b-0">
-                <dt class="font-mono text-xs leading-5 tracking-wider uppercase text-base-500">{key}</dt>
-                <dd class="text-right text-base-800">{value}</dd>
-              </div>
-            ))
-          }
-        </dl>
+        {
+          figure ? (
+            <p class="lg:pb-1">
+              <span class="block leading-none tracking-[-0.025em] text-base-900 text-display lg:text-hero">{figure.value}</span>
+              <span class="block max-w-xs mt-4 text-lg font-light leading-snug text-base-600">{figure.label}</span>
+            </p>
+          ) : (
+            <dl class="p-6 bg-white border rounded-xl border-base-200">
+              {Object.entries(frontmatter.details).map(([key, value]) => (
+                <div class="flex justify-between py-2.5 text-sm border-b border-dashed gap-4 border-base-200 last:border-b-0">
+                  <dt class="font-mono text-xs leading-5 tracking-wider uppercase text-base-500">{key}</dt>
+                  <dd class="text-right text-base-800">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          )
+        }
       </div>
     </Frame>
 
@@ -104,30 +115,60 @@ import { svgSize } from "@/lib/svgSize";
       </div>
     </Frame>
 
-    <Frame n={3} class="py-16 lg:py-24 lg:!px-14">
+    <!-- Risultati: una cella per risultato, numerata -->
+    <Frame n={3} class="pt-14 pb-0 lg:pt-20 lg:!px-14">
       <Head tag="Risultati" title={`Cosa è cambiato per ${frontmatter.customer}`} />
-      <ul role="list" class="mt-10 text-md text-base-800">
+      <ol role="list" class="grid grid-cols-1 mt-12 -mx-4 border-t border-dashed border-base-200 md:grid-cols-3 lg:-mx-14">
         {
-          frontmatter.results.map((result) => (
-            <li class="flex items-start py-4 border-t border-dashed gap-3 border-base-200 last:border-b">
-              <span class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0" />{result}
+          frontmatter.results.map((result, i) => (
+            <li class="px-4 py-8 border-b border-dashed border-base-200 md:border-b-0 md:[&:not(:last-child)]:border-r lg:px-8 lg:py-10 lg:first:pl-14 lg:last:pr-14">
+              <span class="font-mono text-xs tracking-wider text-base-500">0{i + 1}</span>
+              <p class="mt-4 text-lg leading-snug text-base-900 text-balance">{result}</p>
             </li>
           ))
         }
-      </ul>
-      {
-        Astro.slots.has("default") && (
-          <div class="max-w-xl mt-12">
-            <Wrapper variant="prose"><slot /></Wrapper>
-          </div>
-        )
-      }
+      </ol>
     </Frame>
-  <Cta2
-    title="Metti Verbalist al lavoro sui tuoi contenuti"
-    text="Parti da una keyword: analisi della SERP, brief, articolo pronto per il CMS. Gratis per 30 giorni."
-    secondaryText="Altri casi di successo"
-    secondaryHref="/clienti/"
-  />
+
+    <!-- Il racconto, con la scheda dell'azienda che segue la lettura -->
+    {
+      hasBody && (
+        <Frame n={4} class="!px-0">
+          <div class="grid grid-cols-1 px-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:px-14">
+            <div class="py-12 lg:py-16 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200">
+              <Wrapper
+                variant="prose"
+                class="max-w-xl [&_h2]:font-normal [&_h2]:tracking-[-0.025em] [&_h2]:text-base-900 [&_h2]:text-2xl lg:[&_h2]:text-3xl lg:[&_h2]:leading-[1.2] [&_h2]:mb-6 [&_h2:first-child]:mt-0"
+              >
+                <slot />
+              </Wrapper>
+            </div>
+            <div class="pb-12 lg:py-16 lg:pl-10">
+              <div class="lg:sticky lg:top-24">
+                <div class="p-6 bg-white border rounded-xl border-base-200">
+                  <dl>
+                    {Object.entries(frontmatter.details).map(([key, value]) => (
+                      <div class="flex justify-between py-2.5 text-sm border-b border-dashed gap-4 border-base-200">
+                        <dt class="font-mono text-xs leading-5 tracking-wider uppercase text-base-500">{key}</dt>
+                        <dd class="text-right text-base-800">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <div class="flex pt-6">
+                    <Button isLink size="base" variant="accent" href={TRIAL_URL}>Prova gratis</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Frame>
+      )
+    }
+    <Cta2
+      title="Metti Verbalist al lavoro sui tuoi contenuti"
+      text="Parti da una keyword: analisi della SERP, brief, articolo pronto per il CMS. Gratis per 30 giorni."
+      secondaryText="Altri casi di successo"
+      secondaryHref="/clienti/"
+    />
   </div>
 </BaseLayout>

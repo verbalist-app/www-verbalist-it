@@ -13,6 +13,10 @@ results:
   - "24 pagine di categoria e servizio pubblicate nel primo trimestre del progetto."
   - "Coerenza di tono e struttura mantenuta tra le diverse pagine prodotte nel progetto."
   - "Contenuti impostati per rispondere ai pattern di citazione dei principali motori di risposta AI."
+sector: "Container"
+figure:
+  value: "24"
+  label: "pagine di categoria e servizio pubblicate nel primo trimestre"
 details:
   Settore: "Noleggio e vendita container marittimi, celle frigorifere, strutture prefabbricate"
   Sede: "Livorno, Italia"

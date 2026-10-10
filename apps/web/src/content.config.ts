@@ -27,6 +27,10 @@ const customers = defineCollection({
       })
     ),
     results: z.array(z.string()),
+    /** Il numero del caso: il valore in grande ("200+") e la sua riga ("schede prodotto…"). */
+    figure: z.object({ value: z.string(), label: z.string() }).optional(),
+    /** Settore in una o due parole, per la targhetta della cella. */
+    sector: z.string().optional(),
     about: z.string(),
     details: z.record(z.string(), z.string()),
     logo: z.object({

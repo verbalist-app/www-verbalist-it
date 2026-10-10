@@ -14,6 +14,10 @@ results:
   - "Contenuti tecnici più coerenti con il lessico di settore e con le aspettative dei motori di ricerca."
   - "Processo editoriale più rapido grazie all'analisi automatizzata delle SERP e all'estrazione dei pattern strutturali."
   - "Una ventina di topic tecnici prima assenti dal sito ora coperti, in italiano e in inglese."
+sector: "Energia"
+figure:
+  value: "~20"
+  label: "topic tecnici prima assenti dal sito, ora coperti in italiano e in inglese"
 details:
   Settore: "Energia / Efficienza energetica (sistemi ORC)"
   Sede: "Brescia, Italia"

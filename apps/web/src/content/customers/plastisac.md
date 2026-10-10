@@ -14,6 +14,10 @@ results:
   - "Maggiore coerenza tra le pagine prodotto e il linguaggio atteso dagli acquirenti B2B."
   - "Tempo per scheda di categoria sceso da circa due giorni a mezza giornata, revisione inclusa."
   - "Struttura dei contenuti allineata ai pattern estratti dalle SERP del settore imballaggi."
+sector: "Imballaggi"
+figure:
+  value: "½"
+  label: "giornata per scheda di categoria, revisione inclusa, da circa due giorni"
 details:
   Settore: "Imballaggi flessibili in polietilene"
   Sede: "Gambarara, Mantova, Italia"

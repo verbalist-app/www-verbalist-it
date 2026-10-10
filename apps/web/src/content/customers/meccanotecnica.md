@@ -15,6 +15,10 @@ results:
   - "Contenuti tecnici più coerenti con il lessico di settore e con le aspettative dei motori di ricerca internazionali."
   - "Una trentina di topic di nicchia coperti nei primi sei mesi tra automotive, industriale e aerospace."
   - "Migliorata la copertura su termini tecnici di prodotto precedentemente assenti o sottorappresentati nelle pagine digitali."
+sector: "Manifattura"
+figure:
+  value: "~30"
+  label: "topic di nicchia coperti nei primi sei mesi tra automotive, industriale e aerospace"
 details:
   Settore: "Manifatturiero / Tenute meccaniche"
   Sede: "Campello sul Clitunno (PG), Italia"

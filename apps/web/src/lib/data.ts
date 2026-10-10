@@ -74,6 +74,8 @@ export interface Customer {
       content: string;
     }>;
     results: string[];
+    figure?: { value: string; label: string };
+    sector?: string;
     about: string;
     details: Record<string, string>;
     logo: {
@@ -210,6 +212,8 @@ function contentCollectionToCustomer(
       },
       challengesAndSolutions: entry.data.challengesAndSolutions || [],
       results: entry.data.results || [],
+      figure: entry.data.figure,
+      sector: entry.data.sector,
       about: entry.data.about,
       details: entry.data.details || {},
       logo: {

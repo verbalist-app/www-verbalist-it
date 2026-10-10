@@ -7,7 +7,13 @@ import Head from "@/components/section/Head.astro";
 import CustomerCard4 from "@/components/customers/CustomerCard4.astro";
 // Data
 import { getAllCustomers } from "@/lib/data";
-const allCustomers = await getAllCustomers();
+
+// Il caso in testa, a tutta larghezza; gli altri sotto, tre per riga. Con
+// sette casi la griglia chiude esatta (1 + 3 + 3): se cambiano, cambia lo slug.
+const FEATURED = "pompea";
+const all = await getAllCustomers();
+const featured = all.find((c) => c.slug === FEATURED) ?? all[0];
+const customers = [featured, ...all.filter((c) => c !== featured)];
 ---
 
 <BaseLayout
@@ -27,8 +33,14 @@ const allCustomers = await getAllCustomers();
       />
     </Frame>
     <Frame n={2} class="!px-0">
-      <div class="grid md:grid-cols-2">
-        {allCustomers.map((post, i) => <CustomerCard4 post={post} index={i} />)}
+      <div
+        class="grid md:grid-cols-2 lg:grid-cols-3 [&>*]:border-b [&>*]:border-dashed [&>*]:border-base-200 [&>*:last-child]:border-b-0 md:max-lg:[&>*:nth-child(even)]:border-r md:max-lg:[&>*:nth-last-child(-n+2)]:border-b-0 lg:[&>*:nth-child(3n+2)]:border-r lg:[&>*:nth-child(3n)]:border-r lg:[&>*:nth-last-child(-n+3)]:border-b-0"
+      >
+        {
+          customers.map((post, i) => (
+            <CustomerCard4 post={post} index={i} featured={i === 0} class={i === 0 ? "md:col-span-2 lg:col-span-3" : "lg:[&:nth-child(3n+2)]:pl-14 lg:[&:nth-child(3n+1)]:pr-14"} />
+          ))
+        }
       </div>
     </Frame>
   </div>
