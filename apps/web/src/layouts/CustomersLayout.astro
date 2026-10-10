@@ -2,10 +2,9 @@
 // Pagina di un caso studio (/clienti/<slug>/): nell'hero logo, titolo e
 // azienda a sinistra, il numero del caso a destra; poi problema e soluzione,
 // i risultati in tre celle, e il racconto con a fianco la scheda dell'azienda
-// che segue la lettura. Senza `figure` la scheda resta nell'hero.
+// che segue la lettura (senza azioni: la chiusura le ha già). Senza `figure` la scheda resta nell'hero.
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Frame from "@/components/section/Frame.astro";
@@ -14,7 +13,6 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
 import { svgSize } from "@/lib/svgSize";
 
 const { frontmatter } = Astro.props;
-const TRIAL_URL = "https://app.verbalist.it/login?registration&code=PROVAGRATUITA26";
 // Breadcrumbs Data
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -154,9 +152,6 @@ const figure = frontmatter.figure;
                       </div>
                     ))}
                   </dl>
-                  <div class="flex pt-6">
-                    <Button isLink size="base" variant="accent" href={TRIAL_URL}>Prova gratis</Button>
-                  </div>
                 </div>
               </div>
             </div>

@@ -14,11 +14,6 @@ import ChainFragment from "./ChainFragment.astro";
 const fragment = { brief: "brief", serp: "serp", article: "write", "export": "export" } as const;
 
 const agents = (await getCollection("agents")).sort((a, b) => a.data.n.localeCompare(b.data.n));
-const facts = [
-  "I primi 5 risultati di Google, o fino a 5 URL scelti da te",
-  "Due versioni complete, scritte da due modelli",
-  "HTML con title tag, meta description, slug e alt text",
-];
 ---
 
 <Frame n={3} id="agenti" labelledby="chain-title" class="py-14 lg:py-20 lg:!px-14">
@@ -31,10 +26,6 @@ const facts = [
   </Head>
 
   <div class="relative p-4 mt-12 bg-white border rounded-xl border-base-200 sm:p-8 lg:mt-16 lg:p-10 vb-chain" data-chain>
-    <span aria-hidden="true" class="absolute w-2 h-2 border-t border-l top-2 left-2 border-base-300"></span>
-    <span aria-hidden="true" class="absolute w-2 h-2 border-t border-r top-2 right-2 border-base-300"></span>
-    <span aria-hidden="true" class="absolute w-2 h-2 border-b border-l bottom-2 left-2 border-base-300"></span>
-    <span aria-hidden="true" class="absolute w-2 h-2 border-b border-r bottom-2 right-2 border-base-300"></span>
     <div class="flex items-center justify-between mb-6 font-mono text-xs tracking-wider uppercase text-base-500">
       <span class="flex items-center gap-2"><span class="rounded-full size-1.5 bg-accent-500"></span>Un documento, quattro passaggi</span>
       <button type="button" class="inline-flex items-center h-8 gap-1.5 hover:text-base-900" data-chain-toggle aria-pressed="false">
@@ -65,11 +56,6 @@ const facts = [
         ))
       }
     </ol>
-    <ul role="list" class="grid pt-6 mt-8 text-xs border-t border-dashed gap-3 border-base-200 text-base-600 sm:grid-cols-3">
-      {facts.map((f) => (
-        <li class="flex items-start gap-2"><span class="mt-1.5 rounded-full size-1.5 bg-accent-500 shrink-0"></span>{f}</li>
-      ))}
-    </ul>
   </div>
 </Frame>
 
