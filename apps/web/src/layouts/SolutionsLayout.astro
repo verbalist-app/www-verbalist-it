@@ -23,6 +23,7 @@ import ProjectsWindow from "@/components/features/agents/ProjectsWindow.astro";
 import ContextWindow from "@/components/features/agents/ContextWindow.astro";
 import DocumentsWindow from "@/components/features/agents/DocumentsWindow.astro";
 import ProductPageWindow from "@/components/features/agents/ProductPageWindow.astro";
+import ChainFragment from "@/components/home/ChainFragment.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 import Frame from "@/components/section/Frame.astro";
 import { contactHref } from "@/lib/utils";
@@ -48,6 +49,20 @@ const [primary, secondary] =
   frontmatter.primaryCta === "contatti" ? [talk, trial] : [trial, talk];
 
 const others = all.filter((s: { id: string }) => s.id !== slug);
+
+// Il pezzo di prodotto in testa alle prime tre celle di "Cosa cambia", scelto
+// dalla pagina che la cella approfondisce: il brief, il contesto con i PDF,
+// l'analisi, le due versioni, l'export. Senza corrispondenza la cella è di testo.
+type Peek = "brief" | "serp" | "write" | "export" | "context";
+const peekFor = (href?: string): Peek | null => {
+  const p = (href ?? "").replace(/^\//, "");
+  if (p.startsWith("help/creazione-documento")) return "brief";
+  if (p.startsWith("help/contesto-e-pdf")) return "context";
+  if (p.startsWith("agenti/analisi-competitor") || p.startsWith("help/url-competitor")) return "serp";
+  if (p.startsWith("agenti/generazione-articolo") || p.startsWith("changelog/verbalist-2-0-4")) return "write";
+  if (p.startsWith("agenti/esportazione-contenuto")) return "export";
+  return null;
+};
 const multiBrief = frontmatter.briefs.length > 1;
 
 // L'illustrazione dell'hero cambia con il pubblico: ognuno vede nell'app la
@@ -193,7 +208,7 @@ const faqLd = {
       </ProductCard>
   </Frame>
 
-  <!-- Cosa cambia per questo pubblico: griglia di celle 3×2 -->
+  <!-- Cosa cambia per questo pubblico: celle 3×2, le prime tre con il pezzo di prodotto -->
   <Frame n={3} class="pt-14 pb-0 lg:pt-20 lg:!px-14">
       <SectionHead
         eyebrow={frontmatter.needs.eyebrow}
@@ -210,22 +225,38 @@ const faqLd = {
               text: string;
               href?: string;
               linkLabel?: string;
-            }) => (
-              <div class="flex flex-col px-4 py-6 border-b border-dashed border-base-200 last:border-b-0 md:max-lg:[&:nth-child(odd)]:border-r md:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:px-8 lg:py-7 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-last-child(-n+3)]:border-b-0 lg:[&:nth-child(3n+1)]:pl-14 transition-colors duration-200 hover:bg-base-50">
-                <h3 class="flex items-start text-lg gap-2.5 text-base-900"><span aria-hidden="true" class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0" />{item.title}</h3>
-                <p class="mt-2 text-md leading-relaxed text-base-600 pl-4">{item.text}</p>
-                {item.href && (
-                  <a
-                    href={item.href}
-                    class="pt-4 mt-auto text-sm w-fit text-base-900 transition-colors duration-200 hover:text-accent-600 pl-4"
-                  >
-                    <span class="border-b border-dashed border-base-400">
-                      {item.linkLabel ?? "Approfondisci"}
+            }, i: number) => {
+              const peek = i < 3 ? peekFor(item.href) : null;
+              return (
+                <div class="flex flex-col border-b border-dashed border-base-200 last:border-b-0 md:max-lg:[&:nth-child(odd)]:border-r md:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-last-child(-n+3)]:border-b-0 [--cell-x:1rem] lg:[--cell-x:2rem] lg:[&:nth-child(3n+1)]:[--cell-x:3.5rem] transition-colors duration-200 hover:bg-base-50">
+                  {peek && (
+                    <span aria-hidden="true" data-nosnippet class="relative block h-44 overflow-hidden vb-peek [--vb-zoom:0.66]">
+                      <span class="absolute block top-6 left-(--cell-x) vb-peek-card">
+                        {peek === "context" ? (
+                          <ContextWindow market={market0} language={val("Lingua")} files={[brief0.file].filter(Boolean)} />
+                        ) : (
+                          <ChainFragment step={peek} />
+                        )}
+                      </span>
                     </span>
-                  </a>
-                )}
-              </div>
-            )
+                  )}
+                  <div class:list={["flex flex-col px-(--cell-x) pb-6 grow lg:pb-7", peek ? "pt-2" : "pt-6 lg:pt-7"]}>
+                    <h3 class="text-lg text-base-900">{item.title}</h3>
+                    <p class="mt-2 text-md leading-relaxed text-base-600">{item.text}</p>
+                    {item.href && (
+                      <a
+                        href={item.href}
+                        class="pt-4 mt-auto text-sm w-fit text-base-900 transition-colors duration-200 hover:text-accent-600"
+                      >
+                        <span class="border-b border-dashed border-base-400">
+                          {item.linkLabel ?? "Approfondisci"}
+                        </span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            }
           )
         }
       </div>

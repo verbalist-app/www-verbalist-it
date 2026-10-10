@@ -216,3 +216,16 @@ code .line::before {
   background-color: var(--color-white);
   color: var(--color-base-900);
 }
+
+/* Pezzo di prodotto in testa a una cella (le celle di Profound): la finestra
+   dell'app sfuma verso il testo con una maschera, senza riquadro. Usato dalla
+   catena della home e dalle celle "Cosa cambia" delle pagine soluzione. */
+.vb-peek {
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+.vb-peek-card {
+  border-radius: 0.5rem;
+  box-shadow:
+    0 0 0 1px rgb(22 27 29 / 0.08),
+    0 12px 24px -12px rgb(22 27 29 / 0.25);
+}

@@ -48,8 +48,8 @@ const facts = [
         agents.map((agent, i) => (
           <li class="relative flex flex-col vb-node" data-node={i}>
             <span aria-hidden="true" class="absolute inset-0 opacity-0 pointer-events-none bg-base-50" data-m-on></span>
-            <span aria-hidden="true" data-nosnippet class="relative block overflow-hidden h-36 lg:h-44 [--vb-zoom:0.56] lg:[--vb-zoom:0.6] vb-fragment">
-              <span class="absolute block top-5 left-5 lg:top-6 lg:left-6 vb-fragment-card">
+            <span aria-hidden="true" data-nosnippet class="relative block overflow-hidden h-36 lg:h-44 [--vb-zoom:0.56] lg:[--vb-zoom:0.6] vb-peek">
+              <span class="absolute block top-5 left-5 lg:top-6 lg:left-6 vb-peek-card">
                 <ChainFragment step={fragment[agent.data.mockup as keyof typeof fragment] ?? "brief"} />
               </span>
             </span>
@@ -189,8 +189,5 @@ const facts = [
   /* Stato statico (prefers-reduced-motion, mobile): analisi accesa, keyword fatta */
   .vb-node.is-on { background: var(--color-base-50); }
   .vb-node.is-past [data-m-tick] { opacity: 1; }
-  /* La finestra dell'app sfuma verso il testo, senza riquadro */
-  .vb-fragment { mask-image: linear-gradient(to bottom, #000 55%, transparent); }
-  .vb-fragment-card { box-shadow: 0 0 0 1px rgb(22 27 29 / 0.08), 0 12px 24px -12px rgb(22 27 29 / 0.25); border-radius: 0.5rem; }
   [data-chain-toggle]:focus-visible { outline: 2px solid var(--color-base-900); outline-offset: 2px; border-radius: 999px; }
 </style>
