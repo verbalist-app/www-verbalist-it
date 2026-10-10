@@ -30,16 +30,20 @@ const lbl = "block text-[12px] text-base-700";
       <div class="space-y-3">
         <div>
           <span class={lbl}>Keyword principale</span>
-          <span class={`${field} mt-1.5`}>{demoBrief.keyword}</span>
+          <span class={`${field} mt-1.5 relative`}>
+            <span class="absolute inset-[-1px] border-[1.5px] rounded-lg border-base-900 opacity-0 pointer-events-none" data-m-ring></span>
+            <span class="relative whitespace-nowrap" data-m-typed>{[...demoBrief.keyword].map((c) => <span data-m-ch>{c}</span>)}</span>
+            <span class="absolute left-3 top-1/2 -mt-2 w-px h-4 bg-base-900 opacity-0" data-m-caret></span>
+          </span>
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>
             <span class={lbl}>Località</span>
-            <span class={`${field} mt-1.5 justify-between`}>Italia<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+            <span class={`${field} mt-1.5 justify-between`}><span data-m-val>Italia</span><svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
           </div>
           <div>
             <span class={lbl}>Lingua</span>
-            <span class={`${field} mt-1.5 justify-between`}>Italiano<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+            <span class={`${field} mt-1.5 justify-between`}><span data-m-val>Italiano</span><svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
           </div>
         </div>
         <div>
@@ -55,9 +59,19 @@ const lbl = "block text-[12px] text-base-700";
         <p class="text-[13px] font-medium text-base-900">Cosa succederà</p>
         <ol class="mt-2 space-y-1.5 text-[13px] text-base-700">
           {steps.map((s, i) => (
-            <li class={`flex gap-2 ${i === 1 ? "text-base-900" : ""}`}>
-              <span class="w-4 shrink-0 text-base-500">{i + 1}.</span>
+            <li class={`relative flex gap-2 ${i === 1 ? "text-base-900" : ""}`} data-m-item>
+              <span class="relative w-4 shrink-0 text-base-500">
+                <span data-m-num>{i + 1}.</span>
+                <span class="absolute left-0 top-[3px] size-3 rounded-full border-[1.5px] border-base-300 border-t-base-900 opacity-0" data-m-run></span>
+                <span class="absolute left-0 top-0 text-status-success opacity-0" data-m-ok>✓</span>
+              </span>
               <span>{s}</span>
+              {i === 1 && (
+                <span class="absolute right-0 top-0 pl-2 bg-base-50 tabular-nums text-base-500 opacity-0" data-m-count>
+                  <span class="invisible">5/5</span>
+                  {[1, 2, 3, 4, 5].map((n) => <span class="absolute right-0 top-0 opacity-0" data-m-n>{n}/5</span>)}
+                </span>
+              )}
             </li>
           ))}
         </ol>
@@ -75,10 +89,10 @@ const lbl = "block text-[12px] text-base-700";
               <span class="inline-flex items-center h-6 px-2 text-2xs border rounded-full gap-1 whitespace-nowrap border-base-200">Usa questa versione<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg></span>
             </div>
             <div class="px-3 py-3 space-y-1.5">
-              <span class="block h-2 rounded bg-base-800 w-5/6" />
-              <span class="block h-1.5 rounded bg-base-200" />
-              <span class="block h-1.5 rounded bg-base-200 w-11/12" />
-              <span class="block h-1.5 rounded bg-base-200 w-4/6" />
+              <span class="block h-2 rounded bg-base-800 w-5/6" data-m-bar />
+              <span class="block h-1.5 rounded bg-base-200" data-m-bar />
+              <span class="block h-1.5 rounded bg-base-200 w-11/12" data-m-bar />
+              <span class="block h-1.5 rounded bg-base-200 w-4/6" data-m-bar />
             </div>
           </div>
         ))}
@@ -89,12 +103,13 @@ const lbl = "block text-[12px] text-base-700";
     step === "export" && (
       <div class="flex gap-3">
         <div class="relative">
-          <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-900 text-base-900">Copia<svg class="size-3.5 text-base-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
-          <ul class="absolute left-0 w-48 py-1 mt-1.5 text-[13px] bg-white border rounded-lg border-base-200 text-base-800 vb-menu">
-            <li class="px-3 py-1.5">Copia testo pulito</li>
-            <li class="px-3 py-1.5 bg-base-100 text-base-900">Copia HTML</li>
-            <li class="px-3 py-1.5">Copia Markdown</li>
+          <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-900 text-base-900" data-m-copy>Copia<svg class="size-3.5 text-base-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+          <ul class="absolute left-0 w-48 py-1 mt-1.5 text-[13px] bg-white border rounded-lg border-base-200 text-base-800 vb-menu" data-m-menu>
+            <li class="px-3 py-1.5" data-m-mi>Copia testo pulito</li>
+            <li class="relative px-3 py-1.5 text-base-900" data-m-mi data-m-html><span class="absolute inset-0 bg-base-100" data-m-hl></span><span class="relative">Copia HTML</span></li>
+            <li class="px-3 py-1.5" data-m-mi>Copia Markdown</li>
           </ul>
+          <svg class="absolute left-0 top-0 z-10 w-4 h-5 opacity-0 pointer-events-none" viewBox="0 0 16 20" data-m-cursor><path d="M1.5 1.5v15l4-4 2.6 6 2.4-1-2.6-5.9h5.6z" class="fill-base-900 stroke-white" stroke-width="1.2" stroke-linejoin="round" /></svg>
         </div>
         <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800">Esporta<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
       </div>

@@ -22,7 +22,8 @@ export const RISE = 10; // px di salita negli ingressi
 export const POP = { scale: 0.96, y: 4 } as const; // popover in apertura
 export const READ = 0.75; // pausa di lettura dopo un passaggio
 
-/** Ritmo di battitura leggermente irregolare (35–55 ms), deterministico. */
-export const typeGap = (i: number) => 0.035 + ((i * 7919) % 21) / 1000;
+/** Ritmo di battitura leggermente irregolare (30–45 ms), deterministico.
+ *  Più rapido dei 35–55 ms di partenza per tenere il ciclo della catena sotto i 20 s. */
+export const typeGap = (i: number) => 0.03 + ((i * 7919) % 16) / 1000;
 
 export const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;

@@ -31,10 +31,10 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
   </Head>
 
   <div class="relative p-4 mt-12 bg-white border rounded-xl border-base-200 sm:p-8 lg:mt-16 lg:p-10 vb-chain" data-chain>
-    <span aria-hidden="true" class="absolute w-2 h-2 border-t border-l top-2 left-2 border-base-300"></span>
-    <span aria-hidden="true" class="absolute w-2 h-2 border-t border-r top-2 right-2 border-base-300"></span>
-    <span aria-hidden="true" class="absolute w-2 h-2 border-b border-l bottom-2 left-2 border-base-300"></span>
-    <span aria-hidden="true" class="absolute w-2 h-2 border-b border-r bottom-2 right-2 border-base-300"></span>
+    <span aria-hidden="true" class="absolute w-2 h-2 border-t border-l top-2 left-2 border-base-300" data-m-corner></span>
+    <span aria-hidden="true" class="absolute w-2 h-2 border-t border-r top-2 right-2 border-base-300" data-m-corner></span>
+    <span aria-hidden="true" class="absolute w-2 h-2 border-b border-l bottom-2 left-2 border-base-300" data-m-corner></span>
+    <span aria-hidden="true" class="absolute w-2 h-2 border-b border-r bottom-2 right-2 border-base-300" data-m-corner></span>
     <div class="flex items-center justify-between mb-6 font-mono text-xs tracking-wider uppercase text-base-500">
       <span class="flex items-center gap-2"><span class="rounded-full size-1.5 bg-accent-500"></span>Un documento, quattro passaggi</span>
       <button type="button" class="inline-flex items-center h-8 gap-1.5 hover:text-base-900" data-chain-toggle aria-pressed="false">
@@ -49,16 +49,27 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
             <a
               href={`/agenti/${agent.id}/`}
               data-node={i}
-              class="flex flex-col w-full overflow-hidden bg-white border rounded-2xl border-base-200 vb-node transition-[border-color,background-color,box-shadow] duration-300 hover:border-accent-400"
+              data-scene={fragment[agent.data.mockup as keyof typeof fragment] ?? "brief"}
+              class="relative flex flex-col w-full overflow-hidden bg-white border rounded-2xl border-base-200 vb-node transition-[border-color,background-color,box-shadow] duration-300 hover:border-accent-400"
             >
-              <span class="flex flex-col p-5 pb-0 grow">
+              <span aria-hidden="true" class="absolute inset-0 border rounded-2xl opacity-0 pointer-events-none border-base-900 bg-base-50 vb-node-on" data-m-on></span>
+              <span class="relative flex flex-col p-5 pb-0 grow">
                 <span class="font-mono text-xs tracking-wider uppercase text-base-500 vb-node-label lg:min-h-[3lh]">
-                  {agent.data.n} · {agent.data.role}
+                  <span class="relative inline-block"><span data-m-n0>{agent.data.n}</span><span aria-hidden="true" class="absolute inset-0 opacity-0 text-status-success" data-m-tick>✓</span></span> · {agent.data.role}
                 </span>
                 <span class="mt-3 text-base leading-snug text-base-900 vb-node-title">{agent.data.name}</span>
                 <span class="mt-2 text-xs leading-relaxed text-base-600">{agent.data.summary}</span>
-                <span class="pt-3 mt-auto font-mono text-xs border-t border-dashed border-base-200 text-base-500">→ {io[i]}</span>
+                <span class="relative pt-3 mt-auto font-mono text-xs border-t border-dashed border-base-200 text-base-500">
+                  <span data-m-out0>→ {io[i]}</span>
+                  <span aria-hidden="true" class="absolute left-0 top-3 opacity-0 text-base-900" data-m-out1><span class="inline-block" data-m-arrow>→</span>{" "}{io[i]}</span>
+                </span>
               </span>
+              {i === 2 && (
+                <span aria-hidden="true" class="absolute z-20 inline-flex items-center gap-1.5 px-3 h-7 text-xs bg-white border rounded-full opacity-0 right-4 bottom-5 border-base-900 text-base-900 vb-float" data-m-float>Usa questa versione <span class="text-status-success">✓</span><span class="vb-float-shadow" data-m-shadow></span></span>
+              )}
+              {i === 3 && (
+                <span aria-hidden="true" class="absolute z-20 inline-flex items-center gap-1.5 px-3 h-7 text-xs bg-white border rounded-full opacity-0 right-4 bottom-5 border-base-900 text-base-900 vb-float" data-m-float>HTML copiato <span class="text-status-success">✓</span><span class="vb-float-shadow" data-m-shadow></span></span>
+              )}
               <span aria-hidden="true" data-nosnippet class="relative block h-28 mt-4 overflow-hidden vb-fragment [--vb-zoom:0.56] lg:h-40 lg:[--vb-zoom:0.66]">
                 <span class="absolute block top-3 left-5 vb-fragment-card">
                   <ChainFragment step={fragment[agent.data.mockup as keyof typeof fragment] ?? "brief"} />
@@ -70,6 +81,11 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
                 <svg viewBox="0 0 32 8" class="w-full h-2 overflow-visible" fill="none">
                   <path d="M0 4H30" class="vb-wire" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
                   <path d="M27 1l3 3-3 3" class="vb-wire-tip" stroke="currentColor" stroke-width="1" />
+                  <g class="text-base-900 vb-wire-ink" data-m-wire>
+                    <path d="M0 4H30" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
+                    <path d="M27 1l3 3-3 3" stroke="currentColor" stroke-width="1" />
+                  </g>
+                  <circle cx="0" cy="4" r="2" class="opacity-0 fill-base-900" data-m-dot />
                 </svg>
               </span>
             )}
@@ -79,78 +95,302 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
     </ol>
     <ul role="list" class="grid pt-6 mt-8 text-xs border-t border-dashed gap-3 border-base-200 text-base-600 sm:grid-cols-3">
       {facts.map((f) => (
-        <li class="flex items-start gap-2"><span class="mt-1.5 rounded-full size-1.5 bg-accent-500 shrink-0"></span>{f}</li>
+        <li class="flex items-start gap-2"><span class="mt-1.5 rounded-full size-1.5 bg-accent-500 shrink-0" data-m-fact></span>{f}</li>
       ))}
     </ul>
   </div>
 </Frame>
 
+<script>
+  // La catena al lavoro: una sola sequenza Motion in loop. Ogni passaggio
+  // segue lo schema "si attiva → azione nel mockup → uscita → spunta →
+  // consegna". Sotto lg ogni card fa la sua scena una volta, quando entra.
+  // Con prefers-reduced-motion: stato statico (analisi accesa), niente loop.
+  import { animate } from "motion";
+  import { D, E, SNAP, STAGGER, READ, POP, exit, typeGap, reduced } from "@/lib/motion";
+
+  type Seg = [Element | Element[], Record<string, unknown>, Record<string, unknown>];
+  const chain = document.querySelector<HTMLElement>("[data-chain]");
+
+  if (chain) {
+    const $ = <T extends Element = HTMLElement>(root: ParentNode, sel: string) => root.querySelector<T>(sel)!;
+    const $$ = <T extends Element = HTMLElement>(root: ParentNode, sel: string) => Array.from(root.querySelectorAll<T>(sel));
+    const nodes = $$(chain, "[data-node]");
+    const wires = $$<SVGGElement>(chain, "[data-m-wire]");
+    const dots = $$<SVGCircleElement>(chain, "[data-m-dot]");
+    const facts = $$(chain, "[data-m-fact]");
+    const corners = $$(chain, "[data-m-corner]");
+    const toggle = $<HTMLButtonElement>(chain, "[data-chain-toggle]");
+    const desktop = window.matchMedia("(min-width: 1024px)");
+
+    const still = () => {
+      nodes.forEach((n, i) => { n.classList.toggle("is-on", i === 1); n.classList.toggle("is-past", i < 1); });
+    };
+
+    // Una scena per nodo: ritorna il tempo in cui finisce. `seq` riceve i segmenti.
+    const scene = (node: HTMLElement, seq: Seg[], t: number): number => {
+      const kind = node.dataset.scene;
+      const at = (el: Element | Element[] | null, kf: Record<string, unknown>, o: Record<string, unknown>) => {
+        if (el && (!Array.isArray(el) || el.length)) seq.push([el, kf, o]);
+      };
+      const set = (el: Element | Element[] | null, kf: Record<string, unknown>) => at(el, kf, { duration: 0.001, at: 0 });
+
+      // Si attiva
+      const on = $(node, "[data-m-on]");
+      set(on, { opacity: 0 });
+      at(on, { opacity: 1 }, { duration: D.base, ease: E.in, at: t });
+      t += D.base;
+
+      // Azione nel mockup
+      if (kind === "brief") {
+        const ring = $(node, "[data-m-ring]"), caret = $(node, "[data-m-caret]");
+        const chars = $$(node, "[data-m-ch]"), vals = $$(node, "[data-m-val]");
+        set(ring, { opacity: 0 }); set(caret, { opacity: 0, x: 0 }); set(chars, { opacity: 0 }); set(vals, { opacity: 0, y: POP.y });
+        at(ring, { opacity: 1 }, { duration: D.micro, at: t });
+        at(caret, { opacity: [0, 1, 1, 0, 0, 1, 1, 0, 0, 1] }, { duration: 0.9, ease: "linear", at: t + 0.05 });
+        t += 0.95;
+        chars.forEach((ch, k) => {
+          const x = ch.offsetLeft + ch.offsetWidth;
+          at(ch, { opacity: 1 }, { duration: 0.001, at: t });
+          at(caret, { x }, { duration: 0.001, at: t });
+          t += typeGap(k);
+        });
+        vals.forEach((v, k) => at(v, { opacity: 1, y: 0 }, { duration: D.base, ease: E.in, at: t + 0.15 + k * STAGGER * 2 }));
+        at(caret, { opacity: 0 }, { duration: D.micro, at: t + 0.45 });
+        at(ring, { opacity: 0 }, { duration: exit(D.base), ease: E.out, at: t + 0.5 });
+        t += 0.55;
+      }
+      if (kind === "serp") {
+        const items = $$(node, "[data-m-item]");
+        const count = $(node, "[data-m-count]"), ns = $$(node, "[data-m-n]");
+        set(items, { opacity: 0.45 }); set(count, { opacity: 0 }); set(ns, { opacity: 0 });
+        items.forEach((it, k) => {
+          const num = $(it, "[data-m-num]"), run = $(it, "[data-m-run]"), ok = $(it, "[data-m-ok]");
+          set(num, { opacity: 1 }); set(run, { opacity: 0, rotate: 0 }); set(ok, { opacity: 0, scale: 0.6 });
+          const work = k === 1 ? 0.9 : 0.42;
+          at(it, { opacity: 1 }, { duration: D.micro, at: t });
+          at(num, { opacity: 0 }, { duration: D.micro, at: t });
+          at(run, { opacity: 1 }, { duration: D.micro, at: t });
+          at(run, { rotate: 360 * Math.ceil(work / 0.45) }, { duration: work, ease: "linear", at: t });
+          if (k === 1) {
+            at(count, { opacity: 1 }, { duration: D.micro, at: t });
+            ns.forEach((n, j) => {
+              at(n, { opacity: 1 }, { duration: 0.001, at: t + j * 0.17 });
+              if (j < ns.length - 1) at(n, { opacity: 0 }, { duration: 0.001, at: t + (j + 1) * 0.17 });
+            });
+          }
+          t += work;
+          at(run, { opacity: 0 }, { duration: D.micro, at: t });
+          at(ok, { opacity: 1, scale: 1 }, { ...SNAP, at: t });
+          t += 0.12;
+        });
+      }
+      if (kind === "write") {
+        const versions = $$(node, "[data-m-bar]");
+        const half = versions.length / 2;
+        set(versions, { scaleX: 0, transformOrigin: "0% 50%" });
+        let end = t;
+        versions.forEach((bar, k) => {
+          const b = k >= half, j = k % half;
+          const dur = [0.34, 0.5, 0.44, 0.36][j] * (b ? 1.15 : 1);
+          const start = t + (b ? 0.1 : 0) + j * (b ? 0.17 : 0.14);
+          at(bar, { scaleX: 1 }, { duration: dur, ease: E.in, at: start });
+          end = Math.max(end, start + dur);
+        });
+        t = end + 0.1;
+      }
+      if (kind === "export") {
+        const cursor = $(node, "[data-m-cursor]"), copy = $(node, "[data-m-copy]");
+        const menu = $(node, "[data-m-menu]"), mis = $$(node, "[data-m-mi]");
+        const html = $(node, "[data-m-html]"), hl = $(node, "[data-m-hl]");
+        const cx = copy.offsetLeft + copy.offsetWidth * 0.55, cy = copy.offsetTop + copy.offsetHeight * 0.6;
+        const hx = menu.offsetLeft + html.offsetLeft + html.offsetWidth * 0.45;
+        const hy = copy.offsetTop + copy.offsetHeight + 6 + html.offsetTop + html.offsetHeight * 0.55;
+        set(cursor, { opacity: 0, x: cx + 70, y: cy + 60, scale: 1 }); set(copy, { scale: 1 });
+        set(menu, { opacity: 0, scale: POP.scale, y: POP.y, transformOrigin: "0% 0%" }); set(mis, { opacity: 0, y: POP.y }); set(hl, { opacity: 0 });
+        at(cursor, { opacity: 1 }, { duration: D.micro, at: t });
+        at(cursor, { x: cx, y: cy }, { duration: D.wide * 0.85, ease: E.move, at: t });
+        t += D.wide * 0.85;
+        at(copy, { scale: [POP.scale, 1] }, { duration: D.micro, ease: E.in, at: t });
+        at(cursor, { scale: [0.9, 1] }, { duration: D.micro, ease: E.in, at: t });
+        t += D.micro;
+        at(menu, { opacity: 1, scale: 1, y: 0 }, { ...SNAP, at: t });
+        mis.forEach((m, k) => at(m, { opacity: 1, y: 0 }, { duration: D.base, ease: E.in, at: t + 0.04 + k * STAGGER }));
+        t += 0.4;
+        at(cursor, { x: hx, y: hy }, { duration: D.base * 1.4, ease: E.move, at: t });
+        t += D.base * 1.4;
+        at(hl, { opacity: 1 }, { duration: D.micro, at: t });
+        t += 0.18;
+        at(cursor, { scale: [0.9, 1] }, { duration: D.micro, ease: E.in, at: t });
+        t += D.micro + 0.1;
+        at(menu, { opacity: 0, scale: POP.scale }, { duration: exit(D.base), ease: E.out, at: t });
+        at(cursor, { opacity: 0 }, { duration: D.micro, at: t + 0.1 });
+        t += 0.1;
+      }
+      // Elemento in primo piano (pillola di 03, conferma di 04)
+      const float = node.querySelector<HTMLElement>("[data-m-float]");
+      if (float) {
+        const shadow = $(float, "[data-m-shadow]");
+        set(float, { opacity: 0, scale: POP.scale, y: POP.y }); set(shadow, { opacity: 0 });
+        at(float, { opacity: 1, scale: 1, y: 0 }, { ...SNAP, at: t });
+        at(shadow, { opacity: 1 }, { duration: D.base, ease: E.in, at: t });
+        t += kind === "export" ? 1.5 : 0.45;
+      }
+
+      // Uscita: la riga "→ …" si accende e la freccia avanza
+      const out0 = $(node, "[data-m-out0]"), out1 = $(node, "[data-m-out1]"), arrow = $(node, "[data-m-arrow]");
+      set(out0, { opacity: 1 }); set(out1, { opacity: 0 }); set(arrow, { x: 0 });
+      at(out0, { opacity: 0 }, { duration: D.micro, at: t });
+      at(out1, { opacity: 1 }, { duration: D.base, ease: E.in, at: t });
+      at(arrow, { x: 3 }, { duration: D.base, ease: E.in, at: t });
+      t += D.base * 0.6;
+
+      // Spunta nell'etichetta
+      const n0 = $(node, "[data-m-n0]"), tick = $(node, "[data-m-tick]");
+      set(n0, { opacity: 1 }); set(tick, { opacity: 0, scale: 0.6 });
+      at(n0, { opacity: 0 }, { duration: D.micro, at: t });
+      at(tick, { opacity: 1, scale: 1 }, { ...SNAP, at: t });
+      return t + D.micro;
+    };
+
+    // Ritorno allo stato iniziale, in ordine inverso, alla fine del ciclo.
+    const resetNode = (node: HTMLElement, seq: Seg[], t: number) => {
+      const o = { duration: exit(D.base), ease: E.out, at: t };
+      const q = (sel: string) => $$(node, sel);
+      seq.push([q("[data-m-on]"), { opacity: 0 }, o]);
+      seq.push([q("[data-m-tick]"), { opacity: 0 }, o]);
+      seq.push([q("[data-m-n0], [data-m-out0]"), { opacity: 1 }, o]);
+      seq.push([q("[data-m-out1]"), { opacity: 0 }, o]);
+      const hide = q("[data-m-ch], [data-m-val], [data-m-ok], [data-m-count], [data-m-float], [data-m-hl], [data-m-mi]");
+      if (hide.length) seq.push([hide, { opacity: 0 }, o]);
+      const items = q("[data-m-item]");
+      if (items.length) seq.push([items, { opacity: 0.45 }, o]);
+      const nums = q("[data-m-num]");
+      if (nums.length) seq.push([nums, { opacity: 1 }, o]);
+      const bars = q("[data-m-bar]");
+      if (bars.length) seq.push([bars, { scaleX: 0 }, o]);
+    };
+
+    let controls: ReturnType<typeof animate> | null = null;
+    let solo: ReturnType<typeof animate>[] = [];
+    let io: IntersectionObserver | null = null;
+    let userPaused = false, inView = false, started = false;
+
+    const setLabel = () => {
+      toggle.setAttribute("aria-pressed", String(userPaused));
+      $(toggle, "[data-chain-label]").textContent = userPaused ? "Riprendi" : "Ferma";
+      $(toggle, "[data-icon-pause]").classList.toggle("hidden", userPaused);
+      $(toggle, "[data-icon-play]").classList.toggle("hidden", !userPaused);
+    };
+
+    const loop = () => {
+      const seq: Seg[] = [];
+      seq.push([wires, { clipPath: "inset(0 100% 0 0)" }, { duration: 0.001, at: 0 }]);
+      seq.push([dots, { opacity: 0, x: 0 }, { duration: 0.001, at: 0 }]);
+      seq.push([facts, { opacity: 0.35 }, { duration: 0.001, at: 0 }]);
+      let t = 0.3;
+      nodes.forEach((node, i) => {
+        t = scene(node, seq, t) + (i < nodes.length - 1 ? READ : 0);
+        if (i < nodes.length - 1) {
+          // Consegna: il connettore si disegna e il punto lo percorre
+          seq.push([wires[i], { clipPath: "inset(0 0% 0 0)" }, { duration: 0.55, ease: E.move, at: t }]);
+          seq.push([dots[i], { opacity: 1 }, { duration: D.micro, at: t }]);
+          seq.push([dots[i], { x: 30 }, { duration: 0.55, ease: E.move, at: t }]);
+          seq.push([dots[i], { opacity: 0 }, { duration: D.micro, at: t + 0.55 }]);
+          seq.push([$(node, "[data-m-on]"), { opacity: 0 }, { duration: exit(D.base), ease: E.out, at: t + 0.35 }]);
+          seq.push([facts[i], { opacity: 1 }, { duration: D.base, ease: E.in, at: t + 0.55 }]);
+          t += 0.55;
+        }
+      });
+      t += 2; // le quattro spunte restano visibili
+      let r = t;
+      [...nodes].reverse().forEach((node) => { resetNode(node, seq, r); r += 0.06; });
+      seq.push([wires, { clipPath: "inset(0 100% 0 0)" }, { duration: exit(D.base), ease: E.out, at: t }]);
+      seq.push([dots, { x: 0 }, { duration: 0.001, at: r }]);
+      seq.push([facts, { opacity: 0.35 }, { duration: exit(D.base), ease: E.out, at: t }]);
+      return animate(seq as never, { repeat: Infinity });
+    };
+
+    const teardown = () => {
+      io?.disconnect(); io = null;
+      controls?.cancel(); controls = null;
+      solo.forEach((c) => c.cancel()); solo = [];
+      started = false;
+    };
+
+    const setup = () => {
+      teardown();
+      if (reduced()) { still(); toggle.remove(); return; }
+      nodes.forEach((n) => n.classList.remove("is-on", "is-past"));
+      if (desktop.matches) {
+        toggle.hidden = false;
+        controls = loop();
+        controls.pause();
+        controls.time = 0;
+        animate(corners, { opacity: 0 }, { duration: 0 });
+        io = new IntersectionObserver(([e]) => {
+          inView = e.isIntersecting;
+          if (inView && !started) {
+            started = true;
+            animate(corners, { opacity: [0, 1], scale: [0.4, 1] }, { duration: D.base, ease: E.in, delay: (i: number) => i * STAGGER } as never);
+          }
+          if (inView && !userPaused && !document.hidden) controls?.play();
+          else controls?.pause();
+        }, { threshold: 0.4 });
+        io.observe(chain);
+      } else {
+        // Mobile: ogni card fa la sua scena una volta, quando è visibile
+        toggle.hidden = true;
+        solo = nodes.map((node) => {
+          const seq: Seg[] = [];
+          scene(node, seq, 0.15);
+          const c = animate(seq as never);
+          c.pause(); c.time = 0;
+          return c;
+        });
+        io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            solo[nodes.indexOf(e.target as HTMLElement)]?.play();
+            io?.unobserve(e.target);
+          });
+        }, { threshold: 0.4 });
+        nodes.forEach((n) => io!.observe(n));
+      }
+    };
+
+    toggle.addEventListener("click", () => {
+      userPaused = !userPaused;
+      setLabel();
+      if (userPaused) controls?.pause();
+      else if (inView && !document.hidden) controls?.play();
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) controls?.pause();
+      else if (inView && !userPaused) controls?.play();
+    });
+    desktop.addEventListener("change", setup);
+    setup();
+  }
+</script>
 <style>
   .vb-chain { --wire: var(--color-base-300); }
-  .vb-wire, .vb-wire-tip { color: var(--wire); transition: color 0.4s; }
+  .vb-wire, .vb-wire-tip { color: var(--wire); }
+  /* Strato inchiostro del connettore: rivelato da clip-path, mai il tratteggio */
+  .vb-wire-ink { clip-path: inset(0 100% 0 0); }
+  /* Stato statico (prefers-reduced-motion): analisi accesa, keyword fatta */
   .vb-node.is-on { border-color: var(--color-base-900); background: var(--color-base-50); box-shadow: 0 0 0 3px var(--color-base-100); }
   .vb-node.is-on .vb-node-label, .vb-node.is-on .vb-node-title { color: var(--color-base-900); }
   .vb-node.is-past { border-color: var(--color-base-300); }
   .vb-node.is-past .vb-node-label::before { content: "✓ "; color: var(--color-status-success); }
+  /* Card attiva durante la sequenza: bordo, fondo e anello come lo stato statico */
+  .vb-node-on { box-shadow: 0 0 0 3px var(--color-base-100); }
   /* Il pezzo di prodotto esce dal nodo in basso e a destra, dissolvendosi. */
   .vb-fragment {
     background: radial-gradient(90% 90% at 60% 110%, var(--color-wash-warm) 0, transparent 70%);
   }
   .vb-fragment-card { box-shadow: 0 0 0 1px rgb(22 27 29 / 0.06), 0 1px 2px rgb(22 27 29 / 0.05), 0 16px 32px -14px rgb(22 27 29 / 0.22); border-radius: 0.75rem; }
-  .vb-chain.is-live .vb-wire.is-on { animation: vb-flow 0.6s linear infinite; }
-  .vb-chain.is-live .vb-wire.is-on, .vb-chain.is-live .vb-wire-tip.is-on { color: var(--color-accent-500); }
-  @keyframes vb-flow { to { stroke-dashoffset: -6; } }
-  @media (prefers-reduced-motion: reduce) {
-    .vb-chain .vb-wire { animation: none !important; }
-  }
+  /* Elementi in primo piano: l'ombra è uno strato a parte, se ne anima l'opacità */
+  .vb-float-shadow { position: absolute; inset: 0; z-index: -1; border-radius: inherit; opacity: 0; box-shadow: 0 10px 24px -8px rgb(22 27 29 / 0.28); }
+  [data-chain-toggle]:focus-visible { outline: 2px solid var(--color-base-900); outline-offset: 2px; border-radius: 999px; }
 </style>
-
-<script>
-  // La corrente attraversa la catena: nodo acceso → scintilla sul connettore →
-  // nodo successivo. In loop finché è in vista, con pausa.
-  const chain = document.querySelector<HTMLElement>("[data-chain]");
-  const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
-  if (chain) {
-    const nodes = Array.from(chain.querySelectorAll<HTMLElement>("[data-node]"));
-    const wires = Array.from(chain.querySelectorAll<SVGElement>(".vb-wire"));
-    const tips = Array.from(chain.querySelectorAll<SVGElement>(".vb-wire-tip"));
-    const toggle = chain.querySelector<HTMLButtonElement>("[data-chain-toggle]");
-    const still = () => {
-      nodes.forEach((n, i) => { n.classList.toggle("is-on", i === 1); n.classList.toggle("is-past", i < 1); });
-      wires.forEach((w) => w.classList.remove("is-on")); tips.forEach((t) => t.classList.remove("is-on"));
-    };
-    if (calm.matches) { still(); toggle?.remove(); }
-    else {
-      let run = 0, paused = false, visible = false;
-      const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
-      const alive = (id: number) => id === run && !paused && visible;
-      const play = async () => {
-        const id = ++run;
-        chain.classList.add("is-live");
-        while (alive(id)) {
-          for (let i = 0; i < nodes.length; i++) {
-            if (!alive(id)) return;
-            nodes.forEach((n, k) => { n.classList.toggle("is-on", k === i); n.classList.toggle("is-past", k < i); });
-            wires.forEach((w, k) => w.classList.toggle("is-on", k === i - 1));
-            tips.forEach((t, k) => t.classList.toggle("is-on", k === i - 1));
-            await wait(i === 1 ? 2200 : 1500);
-          }
-          if (!alive(id)) return;
-          await wait(1600);
-        }
-      };
-      const stop = () => { run++; chain.classList.remove("is-live"); still(); };
-      new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !paused) play(); else stop(); }, { threshold: 0.35 }).observe(chain);
-      document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else if (visible && !paused) play(); });
-      toggle?.addEventListener("click", () => {
-        paused = !paused;
-        toggle.setAttribute("aria-pressed", String(paused));
-        toggle.querySelector("[data-chain-label]")!.textContent = paused ? "Riprendi" : "Ferma";
-        toggle.querySelector("[data-icon-pause]")!.classList.toggle("hidden", paused);
-        toggle.querySelector("[data-icon-play]")!.classList.toggle("hidden", !paused);
-        if (paused) stop(); else play();
-      });
-      still();
-    }
-  }
-</script>
