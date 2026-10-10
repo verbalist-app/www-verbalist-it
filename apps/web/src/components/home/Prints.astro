@@ -11,9 +11,6 @@ const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600 box-dec
 const parts = (t: string) => t.split(/(\[SOURCE NEEDED\]|\[INTERNAL:[^\]]*\])/).filter(Boolean);
 const isTag = (t: string) => t.startsWith("[SOURCE NEEDED") || t.startsWith("[INTERNAL:");
 const count = (n: number) => n.toLocaleString("it-IT");
-// Lo streaming rivela parola per parola: il testo intero resta per gli
-// screen reader in una copia nascosta, la versione a parole è aria-hidden.
-const words = (t: string) => t.split(/\s+/).filter(Boolean);
 ---
 
 <Frame n={5} labelledby="prints-title" class="py-14 lg:py-20 lg:!px-14">
@@ -39,24 +36,24 @@ const words = (t: string) => t.split(/\s+/).filter(Boolean);
   >
     {
       demoVersions.map((v) => (
-        <article data-sheet={v.id} aria-label={`${v.label}: ${v.angle}`} class="relative overflow-hidden bg-white border snap-start rounded-xl border-base-200">
+        <article data-sheet={v.id} aria-label={`${v.label}: ${v.angle}`} class="overflow-hidden bg-white border snap-start rounded-xl border-base-200">
           <header class="flex items-center justify-between px-5 border-b h-11 border-base-200 gap-4">
             <p class="text-sm text-accent-600 whitespace-nowrap">{v.label}</p>
             <p class={`${label} whitespace-nowrap`}>Generato da Verbalist</p>
           </header>
           <dl class="grid grid-cols-[auto_1fr] px-5 py-4 text-xs border-b border-dashed gap-x-4 gap-y-1.5 border-base-200 bg-base-50">
-            <dt class={label}>Taglio</dt><dd class="text-base-800" data-p-cut>{v.angle}</dd>
-            <dt class={label}>Testo</dt><dd class="text-base-800 tabular-nums"><span class="relative inline-block"><span class="invisible">{count(v.words)}</span><span class="absolute inset-0 text-right" data-p-num={v.words}>{count(v.words)}</span></span> parole, <span class="relative inline-block"><span class="invisible">{v.headings}</span><span class="absolute inset-0 text-right" data-p-num={v.headings}>{v.headings}</span></span> sezioni</dd>
+            <dt class={label}>Taglio</dt><dd class="text-base-800">{v.angle}</dd>
+            <dt class={label}>Testo</dt><dd class="text-base-800 tabular-nums">{count(v.words)} parole, {v.headings} sezioni</dd>
           </dl>
           <div class="px-5 py-6 sm:px-7 group/sheet">
-            <h3 class="text-2xl font-normal tracking-tight text-base-900 text-balance"><span class="sr-only">{v.h1}</span><span aria-hidden="true" data-p-stream>{words(v.h1).map((w) => <span data-p-w>{w} </span>)}</span></h3>
-            <p class="mt-3 text-md leading-relaxed text-base-700 line-clamp-5 group-has-[details[open]]/sheet:line-clamp-none"><span class="sr-only">{v.intro}</span><span aria-hidden="true" data-p-stream>{words(v.intro).map((w) => <span data-p-w>{w} </span>)}</span></p>
+            <h3 class="text-2xl font-normal tracking-tight text-base-900 text-balance">{v.h1}</h3>
+            <p class="mt-3 text-md leading-relaxed text-base-700 line-clamp-5 group-has-[details[open]]/sheet:line-clamp-none">{v.intro}</p>
             <details class="mt-5 group">
               <summary class="inline-flex items-center h-9 px-4 text-sm bg-white border rounded-full cursor-pointer gap-2 border-base-200 text-base-900 list-none hover:border-base-300 hover:text-accent-600 [&::-webkit-details-marker]:hidden">
                 <span class="group-open:hidden">Leggi un estratto</span><span class="hidden group-open:inline">Chiudi</span>
                 <svg viewBox="0 0 16 16" class="size-3.5 transition-transform duration-300 text-accent-500 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 2v12M2 8h12"></path></svg>
               </summary>
-              <div class="grid" data-p-panel><div class="min-h-0 overflow-hidden"><div class="mt-4" data-p-panel-in>
+              <div class="mt-4">
                 {v.sections.map((s) => (
                   <>
                     <h4 class="mt-6 text-md font-medium text-base-900">{s.h2}</h4>
@@ -99,7 +96,7 @@ const words = (t: string) => t.split(/\s+/).filter(Boolean);
                 <ul class="pl-5 mt-2 text-sm list-disc text-base-600 space-y-1 marker:text-accent-400">
                   {v.faq.map((q) => <li>{q}</li>)}
                 </ul>
-              </div></div></div>
+              </div>
             </details>
           </div>
         </article>
@@ -119,51 +116,6 @@ const words = (t: string) => t.split(/\s+/).filter(Boolean);
 </Frame>
 
 <script>
-  // Due versioni: una volta sola, quando il foglio è visibile al 40%. Prima il
-  // taglio, poi titolo ed estratto si scrivono a gruppi di parole (le due
-  // versioni a velocità diverse) mentre i contatori salgono. Meno di 5 s.
-  // Con prefers-reduced-motion resta il foglio statico.
-  import { animate } from "motion";
-  import { D, E, STAGGER, reduced } from "@/lib/motion";
-
-  if (!reduced()) {
-    document.querySelectorAll<HTMLElement>("[data-sheet]").forEach((sheet, s) => {
-      const cut = sheet.querySelector<HTMLElement>("[data-p-cut]")!;
-      const ws = Array.from(sheet.querySelectorAll<HTMLElement>("[data-p-w]"));
-      const nums = Array.from(sheet.querySelectorAll<HTMLElement>("[data-p-num]"));
-      const fmt = (n: number) => Math.round(n).toLocaleString("it-IT");
-      animate([cut, ...ws], { opacity: 0 }, { duration: 0 });
-      nums.forEach((n) => (n.textContent = "0"));
-      const pace = s === 0 ? 0.075 : 0.09; // la B scrive più lenta
-      const play = () => {
-        animate(cut, { opacity: 1 }, { duration: D.base, ease: E.in });
-        let t = 0.35, k = 0, g = 0;
-        while (k < ws.length) {
-          const size = 2 + ((g * 5 + s) % 3); // gruppi di 2–4 parole
-          const group = ws.slice(k, k + size);
-          animate(group, { opacity: 1 }, { duration: D.micro, ease: E.in, delay: t });
-          k += size; g++; t += pace;
-        }
-        nums.forEach((n, i) => {
-          const to = Number(n.dataset.pNum);
-          animate(0, to, { duration: t - 0.5 - i * 0.4 + s * 0.3, ease: E.move, delay: 0.4, onUpdate: (v: number) => (n.textContent = fmt(v)) } as never);
-        });
-      };
-      const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { play(); io.disconnect(); } }, { threshold: 0.4 });
-      io.observe(sheet);
-    });
-    // "Leggi un estratto": il pannello si apre in altezza, il contenuto entra subito dopo
-    document.querySelectorAll<HTMLDetailsElement>("[data-sheet] details").forEach((d) => {
-      const panel = d.querySelector<HTMLElement>("[data-p-panel]")!;
-      const inner = d.querySelector<HTMLElement>("[data-p-panel-in]")!;
-      d.addEventListener("toggle", () => {
-        if (!d.open) return;
-        animate(panel, { gridTemplateRows: ["0fr", "1fr"] }, { duration: D.base, ease: E.in });
-        animate(inner, { opacity: [0, 1], y: [8, 0] }, { duration: D.base, ease: E.in, delay: STAGGER * 2 });
-      });
-    });
-  }
-
   // Su schermi stretti le due versioni si sfogliano in orizzontale: il
   // selettore porta al foglio e ne riflette la posizione.
   const pair = document.querySelector<HTMLElement>("[data-prints]");
