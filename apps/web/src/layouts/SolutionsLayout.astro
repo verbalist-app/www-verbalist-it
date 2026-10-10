@@ -51,11 +51,10 @@ const [primary, secondary] =
 const others = all.filter((s: { id: string }) => s.id !== slug);
 const multiBrief = frontmatter.briefs.length > 1;
 
-// Il pezzo di prodotto in testa a ogni cella di "Cosa cambia", scelto dalla
-// pagina che la cella approfondisce. Per ogni link c'è una lista di schermate
-// in ordine di pertinenza: si prende la prima non ancora usata nella pagina,
-// così le sei celle mostrano sei schermate diverse. Senza alternative libere
-// la cella resta di testo.
+// Il pezzo di prodotto in testa alle prime tre celle di "Cosa cambia": la
+// schermata la sceglie il frontmatter (`peek`), altrimenti si ricava dal link
+// della cella. Per ogni link c'è una lista in ordine di pertinenza e si prende
+// la prima non ancora usata nella pagina. Le altre tre celle sono di testo.
 type Peek = "brief" | "context" | "serp" | "progress" | "riepilogo" | "write" | "export" | "ottimizza" | "crediti" | "documenti";
 const PEEKS: [RegExp, Peek[]][] = [
   [/^help\/creazione-documento/, ["brief", "documenti", "riepilogo"]],
@@ -227,7 +226,7 @@ const faqLd = {
       </ProductCard>
   </Frame>
 
-  <!-- Cosa cambia per questo pubblico: celle 3×2, ognuna con un pezzo di prodotto diverso -->
+  <!-- Cosa cambia per questo pubblico: celle 3×2, le prime tre con un pezzo di prodotto -->
   <Frame n={3} class="pt-14 pb-0 lg:pt-20 lg:!px-14">
       <SectionHead
         eyebrow={frontmatter.needs.eyebrow}
@@ -244,14 +243,15 @@ const faqLd = {
               text: string;
               href?: string;
               linkLabel?: string;
+              peek?: Peek;
             }, i: number) => {
-              const peek = peekFor(item.href);
+              const peek = i < 3 ? (item.peek ?? peekFor(item.href)) : null;
               return (
                 <div class="flex flex-col border-b border-dashed border-base-200 last:border-b-0 md:max-lg:[&:nth-child(odd)]:border-r md:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-last-child(-n+3)]:border-b-0 [--cell-x:1rem] lg:[--cell-x:2rem] lg:[&:nth-child(3n+1)]:[--cell-x:3.5rem] transition-colors duration-200 hover:bg-base-50">
                   {peek && (
                     <span aria-hidden="true" data-nosnippet class="relative block h-44 overflow-hidden vb-peek [--vb-zoom:0.66]">
                       <span class="absolute block top-6 left-(--cell-x) vb-peek-card">
-                        <ChainFragment step={peek} projects={projectNames} />
+                        <ChainFragment step={peek} projects={projectNames} market={market0} language={val("Lingua")} />
                       </span>
                     </span>
                   )}

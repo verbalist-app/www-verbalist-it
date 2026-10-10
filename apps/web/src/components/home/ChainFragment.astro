@@ -5,15 +5,18 @@
 // le due versioni, i menu di export, la scheda crediti della Panoramica e la
 // tabella Documenti. Disegnate a 320 px (420 e 560 le più larghe) e ridotte
 // con `zoom` dal contenitore. I dati sono quelli dimostrativi di demo.ts; i
-// nomi dei progetti arrivano da `projects` (default: nessun progetto, "-").
+// nomi dei progetti arrivano da `projects` (default: nessun progetto, "-"),
+// mercato e lingua del brief da `market` e `language` (default Italia, Italiano).
 import { demoBrief, demoDocument, demoSerp, demoVersions } from "./demo";
 
 type Step = "brief" | "context" | "serp" | "progress" | "riepilogo" | "write" | "export" | "ottimizza" | "crediti" | "documenti";
 interface Props {
   step: Step;
   projects?: string[];
+  market?: string;
+  language?: string;
 }
-const { step, projects = [] } = Astro.props;
+const { step, projects = [], market = "Italia", language = "Italiano" } = Astro.props;
 
 const steps = [
   "Analisi SERP per la keyword",
@@ -50,11 +53,11 @@ const pill = "inline-flex items-center h-6 px-2.5 text-[11px] font-medium rounde
         <div class="grid grid-cols-2 gap-3">
           <div>
             <span class={lbl}>Località</span>
-            <span class={`${field} mt-1.5 justify-between`}>Italia<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={chev} /></svg></span>
+            <span class={`${field} mt-1.5 justify-between`}>{market}<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={chev} /></svg></span>
           </div>
           <div>
             <span class={lbl}>Lingua</span>
-            <span class={`${field} mt-1.5 justify-between`}>Italiano<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={chev} /></svg></span>
+            <span class={`${field} mt-1.5 justify-between`}>{language}<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={chev} /></svg></span>
           </div>
         </div>
         <div>

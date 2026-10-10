@@ -203,6 +203,8 @@ const solutions = defineCollection({
           text: z.string(),
           href: z.string().optional(),
           linkLabel: z.string().optional(),
+          /** Schermata dell'app in testa alla cella (solo le prime tre): vedi home/ChainFragment.astro. */
+          peek: z.enum(["brief", "context", "serp", "progress", "riepilogo", "write", "export", "ottimizza", "crediti", "documenti"]).optional(),
         })
       ),
     }),
