@@ -1,0 +1,24 @@
+/* Linguaggio di movimento del sito: le sole durate, curve e distanze che le
+   animazioni usano. I valori gemelli per JavaScript stanno in
+   src/lib/motion.ts: se cambi qui, cambia anche lì. */
+:root {
+  /* Durate: micro (spunte, pressioni), base (ingressi), ampia (spostamenti,
+     connettori). Le uscite durano il 70% dell'ingresso. */
+  --m-micro: 150ms;
+  --m-base: 320ms;
+  --m-wide: 600ms;
+  --m-exit: 0.7;
+  /* Curve */
+  --m-ease-in: cubic-bezier(0.16, 1, 0.3, 1);
+  --m-ease-move: cubic-bezier(0.65, 0, 0.35, 1);
+  --m-ease-out: cubic-bezier(0.3, 0, 0.8, 0.15);
+  /* Scatto: molla con poco rimbalzo (bounce ~0.25) */
+  --m-ease-snap: linear(0, 0.286 7.1%, 0.786 17.6%, 1.04 27.4%, 1.075 33.7%, 1.06 40%, 1.012 55%, 0.998 70%, 1);
+  /* Sequenza e distanze */
+  --m-stagger: 55ms;
+  --m-rise: 10px;
+  --m-pop-scale: 0.96;
+  --m-pop-y: 4px;
+  /* Pausa di lettura dopo un passaggio completato */
+  --m-read: 750ms;
+}

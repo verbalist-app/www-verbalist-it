@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./motion.css";
 
 /* Fallback a metriche compatibili con Geist: se il woff2 arriva dopo il
    primo paint, il testo di sistema occupa lo stesso spazio (niente reflow). */
