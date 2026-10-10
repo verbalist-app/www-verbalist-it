@@ -170,13 +170,13 @@ const ioCells = [
       </div>
   </Frame>
 
-  <!-- Come funziona: prosa con link interni + l'output della fase -->
+  <!-- Come funziona: la prosa a capitoli, un numero mono su un filo a sinistra -->
   {
     Astro.slots.has("default") && (
       <Frame n={4} class="py-12 lg:py-16 lg:!px-14">
         <Wrapper
           variant="prose"
-          class="max-w-xl [&_h2]:font-normal [&_h2]:tracking-[-0.025em] [&_h2]:text-base-900 [&_h2]:text-3xl lg:[&_h2]:text-[2.75rem] lg:[&_h2]:leading-[1.1] [&_h2]:mt-0 [&_h2]:mb-8"
+          class="max-w-xl vb-chapters [&_h2]:font-normal [&_h2]:tracking-[-0.025em] [&_h2]:text-base-900 [&_h2]:text-3xl lg:[&_h2]:text-[2.75rem] lg:[&_h2]:leading-[1.1] [&_h2]:mt-0 [&_h2]:mb-8"
         >
           <slot />
         </Wrapper>
@@ -270,3 +270,31 @@ const ioCells = [
     secondaryHref="/contatti/"
   />
 </BaseLayout>
+
+<style is:global>
+  /* I paragrafi di "Come funziona" come capitoli: numero mono su un filo
+     tratteggiato che li collega, sul modello delle pagine di Profound. */
+  .vb-chapters { counter-reset: chapter; }
+  .vb-chapters > p {
+    position: relative;
+    counter-increment: chapter;
+    margin: 0;
+    padding: 0 0 2rem 3rem;
+    border-left: 1px dashed var(--color-base-200);
+  }
+  .vb-chapters > p:last-child { padding-bottom: 0; border-left-color: transparent; }
+  .vb-chapters > p::before {
+    content: "0" counter(chapter);
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    transform: translateX(-50%);
+    padding: 0 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    color: var(--color-base-500);
+    background: var(--color-white);
+  }
+</style>
