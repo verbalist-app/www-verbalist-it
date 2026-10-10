@@ -1,8 +1,9 @@
 ---
-// La catena dei quattro agenti come schema: quattro scatole collegate da
-// connettori tratteggiati. Su desktop una linea d'inchiostro percorre i
-// connettori e accende un nodo alla volta (in vista, in loop con pausa). Nomi, ruoli e testi dalla
-// collection `agents`. In fondo a ogni nodo, un pezzo dell'app (ChainFragment).
+// La catena dei quattro agenti come griglia di celle: in alto il pezzo
+// dell'app che sfuma, sotto numero, nome, riassunto e link all'agente. Su
+// desktop una linea d'inchiostro corre sul bordo alto e accende una cella
+// alla volta (in vista, in loop con pausa). Nomi, ruoli e testi dalla
+// collection `agents`. Il pezzo dell'app è ChainFragment.
 // Senza movimento: l'analisi resta accesa.
 import { getCollection } from "astro:content";
 import Frame from "@/components/section/Frame.astro";
@@ -18,7 +19,6 @@ const facts = [
   "Due versioni complete, scritte da due modelli",
   "HTML con title tag, meta description, slug e alt text",
 ];
-const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML per il CMS"];
 ---
 
 <Frame n={3} id="agenti" labelledby="chain-title" class="py-14 lg:py-20 lg:!px-14">
@@ -42,45 +42,25 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
         <span data-chain-label>Ferma</span>
       </button>
     </div>
-    <ol role="list" class="grid gap-3 lg:grid-cols-4 lg:gap-0">
+    <ol role="list" class="relative grid overflow-hidden border rounded-xl border-base-200 sm:grid-cols-2 lg:grid-cols-4 vb-cells">
+      <span aria-hidden="true" class="absolute inset-x-0 top-0 z-10 hidden h-px bg-base-900 lg:block vb-ink" data-m-ink></span>
       {
         agents.map((agent, i) => (
-          <li class="relative flex lg:items-stretch">
-            <a
-              href={`/agenti/${agent.id}/`}
-              data-node={i}
-              class="relative flex flex-col w-full overflow-hidden bg-white border rounded-2xl border-base-200 vb-node transition-[border-color,background-color,box-shadow] duration-300 hover:border-accent-400"
-            >
-              <span aria-hidden="true" class="absolute inset-0 opacity-0 pointer-events-none bg-base-50" data-m-on></span>
-              <span class="relative flex flex-col p-5 pb-0 grow">
-                <span class="font-mono text-xs tracking-wider uppercase text-base-500 vb-node-label lg:min-h-[3lh]">
-                  {agent.data.n} · {agent.data.role}
-                </span>
-                <span class="mt-3 text-base leading-snug text-base-900 vb-node-title">{agent.data.name}</span>
-                <span class="mt-2 text-xs leading-relaxed text-base-600">{agent.data.summary}</span>
-                <span class="relative pt-3 mt-auto font-mono text-xs border-t border-dashed border-base-200 text-base-500 vb-node-out">
-                  → {io[i]} <span aria-hidden="true" class="inline-block opacity-0 text-status-success" data-m-tick>✓</span>
-                </span>
+          <li class="relative flex flex-col vb-node" data-node={i}>
+            <span aria-hidden="true" class="absolute inset-0 opacity-0 pointer-events-none bg-base-50" data-m-on></span>
+            <span aria-hidden="true" data-nosnippet class="relative block overflow-hidden h-36 lg:h-44 [--vb-zoom:0.56] lg:[--vb-zoom:0.6] vb-fragment">
+              <span class="absolute block top-5 left-5 lg:top-6 lg:left-6 vb-fragment-card">
+                <ChainFragment step={fragment[agent.data.mockup as keyof typeof fragment] ?? "brief"} />
               </span>
-              <span aria-hidden="true" class="absolute inset-0 z-10 border opacity-0 pointer-events-none rounded-2xl border-base-400" data-m-on></span>
-              <span aria-hidden="true" data-nosnippet class="relative block h-28 mt-4 overflow-hidden vb-fragment [--vb-zoom:0.56] lg:h-40 lg:[--vb-zoom:0.66]">
-                <span class="absolute block top-3 left-5 vb-fragment-card">
-                  <ChainFragment step={fragment[agent.data.mockup as keyof typeof fragment] ?? "brief"} />
-                </span>
-              </span>
-            </a>
-            {i < agents.length - 1 && (
-              <span aria-hidden="true" class="items-center hidden w-8 shrink-0 lg:flex">
-                <svg viewBox="0 0 32 8" class="w-full h-2 overflow-visible" fill="none">
-                  <path d="M0 4H30" class="vb-wire" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
-                  <path d="M27 1l3 3-3 3" class="vb-wire-tip" stroke="currentColor" stroke-width="1" />
-                  <g class="text-base-900 vb-wire-ink" data-m-wire>
-                    <path d="M0 4H30" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
-                    <path d="M27 1l3 3-3 3" stroke="currentColor" stroke-width="1" />
-                  </g>
-                </svg>
-              </span>
-            )}
+            </span>
+            <span class="relative flex flex-col px-5 pt-2 pb-6 lg:px-6 grow">
+              <span class="font-mono text-xs tracking-wider text-base-500">{agent.data.n} <span aria-hidden="true" class="inline-block opacity-0 text-status-success" data-m-tick>✓</span></span>
+              <span class="mt-2 text-base leading-snug text-base-900">{agent.data.name}</span>
+              <span class="mt-1 mb-5 text-[15px] leading-relaxed text-base-600">{agent.data.summary}</span>
+              <a href={`/agenti/${agent.id}/`} class="self-start inline-flex items-center h-8 mt-auto text-sm transition-colors duration-200 rounded-full px-3.5 whitespace-nowrap bg-base-100 text-base-900 hover:bg-base-200">
+                Vedi l'agente<span class="sr-only">: {agent.data.name}</span>
+              </a>
+            </span>
           </li>
         ))
       }
@@ -94,8 +74,9 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
 </Frame>
 
 <script>
-  // La catena al lavoro, un solo movimento: la linea d'inchiostro percorre i
-  // connettori e accende un nodo alla volta; il nodo finito prende la spunta.
+  // La catena al lavoro, un solo movimento: la linea d'inchiostro corre sul
+  // bordo alto delle celle e accende un nodo alla volta; il nodo finito prende
+  // la spunta accanto al numero.
   // Solo da lg in su, in loop mentre è in vista, con Ferma/Riprendi.
   // Sotto lg e con prefers-reduced-motion: stato statico (analisi accesa).
   import { animate } from "motion";
@@ -108,11 +89,12 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
     const $ = <T extends Element = HTMLElement>(root: ParentNode, sel: string) => root.querySelector<T>(sel)!;
     const $$ = <T extends Element = HTMLElement>(root: ParentNode, sel: string) => Array.from(root.querySelectorAll<T>(sel));
     const nodes = $$(chain, "[data-node]");
-    const wires = $$<SVGGElement>(chain, "[data-m-wire]");
+    const ink = $(chain, "[data-m-ink]");
+    const upTo = (i: number) => `inset(0 ${100 - ((i + 1) / 4) * 100}% 0 0)`;
     const toggle = $<HTMLButtonElement>(chain, "[data-chain-toggle]");
     const desktop = window.matchMedia("(min-width: 1024px)");
     const HOLD = 1.2; // quanto resta acceso un nodo prima della spunta
-    const WIRE = 0.55; // la linea da un nodo al successivo
+    const WIRE = 0.55; // la linea da una cella alla successiva
 
     const still = () => {
       nodes.forEach((n, i) => { n.classList.toggle("is-on", i === 1); n.classList.toggle("is-past", i < 1); });
@@ -122,26 +104,26 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
       const seq: Seg[] = [];
       const on = nodes.map((n) => $$(n, "[data-m-on]"));
       const ticks = nodes.map((n) => $(n, "[data-m-tick]"));
-      seq.push([wires, { clipPath: "inset(0 100% 0 0)" }, { duration: 0.001, at: 0 }]);
+      seq.push([ink, { clipPath: "inset(0 100% 0 0)" }, { duration: 0.001, at: 0 }]);
       seq.push([on.flat(), { opacity: 0 }, { duration: 0.001, at: 0 }]);
       seq.push([ticks, { opacity: 0, scale: 0.6 }, { duration: 0.001, at: 0 }]);
       let t = 0.3;
       nodes.forEach((_, i) => {
         seq.push([on[i], { opacity: 1 }, { duration: D.base, ease: E.in, at: t }]);
+        seq.push([ink, { clipPath: upTo(i) }, { duration: WIRE, ease: E.move, at: t }]);
         t += D.base + HOLD;
         seq.push([ticks[i], { opacity: 1, scale: 1 }, { duration: D.micro, ease: E.in, at: t }]);
         t += D.micro;
         if (i < nodes.length - 1) {
-          seq.push([wires[i], { clipPath: "inset(0 0% 0 0)" }, { duration: WIRE, ease: E.move, at: t }]);
-          seq.push([on[i], { opacity: 0 }, { duration: exit(D.base), ease: E.out, at: t + 0.3 }]);
-          t += WIRE * 0.8;
+          seq.push([on[i], { opacity: 0 }, { duration: exit(D.base), ease: E.out, at: t }]);
+          t += D.micro;
         }
       });
       t += 2; // le quattro spunte restano visibili, poi si riparte
       const o = { duration: exit(D.base), ease: E.out, at: t };
       seq.push([on[nodes.length - 1], { opacity: 0 }, o]);
       seq.push([ticks, { opacity: 0 }, o]);
-      seq.push([wires, { clipPath: "inset(0 100% 0 0)" }, o]);
+      seq.push([ink, { clipPath: "inset(0 100% 0 0)" }, o]);
       return animate(seq as never, { repeat: Infinity });
     };
 
@@ -191,19 +173,24 @@ const io = ["Keyword + contesto", "Mappa degli argomenti", "Testo A e B", "HTML 
   }
 </script>
 <style>
-  .vb-chain { --wire: var(--color-base-300); }
-  .vb-wire, .vb-wire-tip { color: var(--wire); }
-  /* Strato inchiostro del connettore: rivelato da clip-path, mai il tratteggio */
-  .vb-wire-ink { clip-path: inset(0 100% 0 0); }
-  /* Stato statico (prefers-reduced-motion): analisi accesa, keyword fatta */
-  .vb-node.is-on { border-color: var(--color-base-400); background: var(--color-base-50); }
-  .vb-node.is-on .vb-node-label, .vb-node.is-on .vb-node-title { color: var(--color-base-900); }
-  .vb-node.is-past { border-color: var(--color-base-300); }
-  .vb-node.is-past [data-m-tick] { opacity: 1; }
-  /* Il pezzo di prodotto esce dal nodo in basso e a destra, dissolvendosi. */
-  .vb-fragment {
-    background: radial-gradient(90% 90% at 60% 110%, var(--color-wash-warm) 0, transparent 70%);
+  /* Righe tra le celle: verticali da sm, orizzontali sotto */
+  .vb-cells > li + li { border-top: 1px solid var(--color-base-200); }
+  @media (min-width: 40rem) {
+    .vb-cells > li + li { border-top: 0; }
+    .vb-cells > li:nth-of-type(odd) { border-right: 1px solid var(--color-base-200); }
+    .vb-cells > li:nth-of-type(n + 3) { border-top: 1px solid var(--color-base-200); }
   }
-  .vb-fragment-card { box-shadow: 0 0 0 1px rgb(22 27 29 / 0.06), 0 1px 2px rgb(22 27 29 / 0.05), 0 16px 32px -14px rgb(22 27 29 / 0.22); border-radius: 0.75rem; }
+  @media (min-width: 64rem) {
+    .vb-cells > li:nth-of-type(n) { border-top: 0; border-right: 1px solid var(--color-base-200); }
+    .vb-cells > li:last-of-type { border-right: 0; }
+  }
+  /* Linea d'inchiostro sul bordo alto: rivelata da clip-path */
+  .vb-ink { clip-path: inset(0 100% 0 0); }
+  /* Stato statico (prefers-reduced-motion, mobile): analisi accesa, keyword fatta */
+  .vb-node.is-on { background: var(--color-base-50); }
+  .vb-node.is-past [data-m-tick] { opacity: 1; }
+  /* La finestra dell'app sfuma verso il testo, senza riquadro */
+  .vb-fragment { mask-image: linear-gradient(to bottom, #000 55%, transparent); }
+  .vb-fragment-card { box-shadow: 0 0 0 1px rgb(22 27 29 / 0.08), 0 12px 24px -12px rgb(22 27 29 / 0.25); border-radius: 0.5rem; }
   [data-chain-toggle]:focus-visible { outline: 2px solid var(--color-base-900); outline-offset: 2px; border-radius: 999px; }
 </style>
