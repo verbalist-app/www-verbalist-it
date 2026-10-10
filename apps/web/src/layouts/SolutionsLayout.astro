@@ -49,21 +49,34 @@ const [primary, secondary] =
   frontmatter.primaryCta === "contatti" ? [talk, trial] : [trial, talk];
 
 const others = all.filter((s: { id: string }) => s.id !== slug);
-
-// Il pezzo di prodotto in testa alle prime tre celle di "Cosa cambia", scelto
-// dalla pagina che la cella approfondisce: il brief, il contesto con i PDF,
-// l'analisi, le due versioni, l'export. Senza corrispondenza la cella è di testo.
-type Peek = "brief" | "serp" | "write" | "export" | "context";
-const peekFor = (href?: string): Peek | null => {
-  const p = (href ?? "").replace(/^\//, "");
-  if (p.startsWith("help/creazione-documento")) return "brief";
-  if (p.startsWith("help/contesto-e-pdf")) return "context";
-  if (p.startsWith("agenti/analisi-competitor") || p.startsWith("help/url-competitor")) return "serp";
-  if (p.startsWith("agenti/generazione-articolo") || p.startsWith("changelog/verbalist-2-0-4")) return "write";
-  if (p.startsWith("agenti/esportazione-contenuto")) return "export";
-  return null;
-};
 const multiBrief = frontmatter.briefs.length > 1;
+
+// Il pezzo di prodotto in testa a ogni cella di "Cosa cambia", scelto dalla
+// pagina che la cella approfondisce. Per ogni link c'è una lista di schermate
+// in ordine di pertinenza: si prende la prima non ancora usata nella pagina,
+// così le sei celle mostrano sei schermate diverse. Senza alternative libere
+// la cella resta di testo.
+type Peek = "brief" | "context" | "serp" | "progress" | "riepilogo" | "write" | "export" | "ottimizza" | "crediti" | "documenti";
+const PEEKS: [RegExp, Peek[]][] = [
+  [/^help\/creazione-documento/, ["brief", "documenti", "riepilogo"]],
+  [/^help\/contesto-e-pdf/, ["context"]],
+  [/^agenti\/analisi-competitor/, ["progress", "serp"]],
+  [/^help\/url-competitor/, ["progress", "serp"]],
+  [/^agenti\/generazione-articolo/, ["write", "progress", "documenti"]],
+  [/^changelog\/verbalist-2-0-4/, ["write"]],
+  [/^agenti\/esportazione-contenuto/, ["export"]],
+  [/^help\/crediti-ed-errori/, ["crediti", "riepilogo"]],
+  [/^help\/ottimizzazione-contenuto/, ["ottimizza"]],
+  [/^#prezzi/, ["riepilogo", "crediti"]],
+];
+const used = new Set<Peek>();
+const peekFor = (href?: string): Peek | null => {
+  const path = (href ?? "").replace(/^\/+/, "");
+  const list = PEEKS.find(([re]) => re.test(path))?.[1] ?? [];
+  const pick = list.find((p) => !used.has(p)) ?? null;
+  if (pick) used.add(pick);
+  return pick;
+};
 
 // L'illustrazione dell'hero cambia con il pubblico: ognuno vede nell'app la
 // cosa che gli serve. Dati d'esempio coerenti con i brief della pagina.
@@ -81,6 +94,12 @@ const pmiDocs = [
   { title: "Domande frequenti sul servizio", type: "Guida/Tutorial", status: "In elaborazione", date: "ieri" },
   { title: "Chi siamo e come lavoriamo", type: "Landing Page", status: "Completato", date: "3 gg fa" },
 ] as const;
+
+// Nomi dei progetti per la tabella Documenti della cella: solo quelli
+// dichiarati nei brief della pagina (senza progetto la tabella mostra "-").
+const projectNames = frontmatter.briefs
+  .map((b: { project?: string }) => (b.project ?? "").replace(/^Progetto:\s*/i, "").trim())
+  .filter(Boolean);
 
 const breadcrumbLd = {
   "@context": "https://schema.org",
@@ -208,7 +227,7 @@ const faqLd = {
       </ProductCard>
   </Frame>
 
-  <!-- Cosa cambia per questo pubblico: celle 3×2, le prime tre con il pezzo di prodotto -->
+  <!-- Cosa cambia per questo pubblico: celle 3×2, ognuna con un pezzo di prodotto diverso -->
   <Frame n={3} class="pt-14 pb-0 lg:pt-20 lg:!px-14">
       <SectionHead
         eyebrow={frontmatter.needs.eyebrow}
@@ -226,17 +245,13 @@ const faqLd = {
               href?: string;
               linkLabel?: string;
             }, i: number) => {
-              const peek = i < 3 ? peekFor(item.href) : null;
+              const peek = peekFor(item.href);
               return (
                 <div class="flex flex-col border-b border-dashed border-base-200 last:border-b-0 md:max-lg:[&:nth-child(odd)]:border-r md:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-last-child(-n+3)]:border-b-0 [--cell-x:1rem] lg:[--cell-x:2rem] lg:[&:nth-child(3n+1)]:[--cell-x:3.5rem] transition-colors duration-200 hover:bg-base-50">
                   {peek && (
                     <span aria-hidden="true" data-nosnippet class="relative block h-44 overflow-hidden vb-peek [--vb-zoom:0.66]">
                       <span class="absolute block top-6 left-(--cell-x) vb-peek-card">
-                        {peek === "context" ? (
-                          <ContextWindow market={market0} language={val("Lingua")} files={[brief0.file].filter(Boolean)} />
-                        ) : (
-                          <ChainFragment step={peek} />
-                        )}
+                        <ChainFragment step={peek} projects={projectNames} />
                       </span>
                     </span>
                   )}

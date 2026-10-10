@@ -1,14 +1,19 @@
 ---
-// Un pezzo di prodotto per ogni agente della catena: il brief del nuovo
-// documento, i passaggi dell'analisi, le due versioni, i menu di export.
-// Sono ricostruzioni fedeli dell'app (procedura "Nuovo documento" e pagina
-// del documento), disegnate a 320 px e ridotte con `zoom` dal contenitore.
-import { demoBrief, demoVersions } from "./demo";
+// Un pezzo di prodotto per cella: ricostruzioni fedeli di schermate di
+// app.verbalist.it, rilette in piattaforma il 2026-10-10. Procedura "Nuovo
+// documento" (brief, contesto, modalità, riepilogo), documento in elaborazione,
+// le due versioni, i menu di export, la scheda crediti della Panoramica e la
+// tabella Documenti. Disegnate a 320 px (420 e 560 le più larghe) e ridotte
+// con `zoom` dal contenitore. I dati sono quelli dimostrativi di demo.ts; i
+// nomi dei progetti arrivano da `projects` (default: nessun progetto, "-").
+import { demoBrief, demoDocument, demoSerp, demoVersions } from "./demo";
 
+type Step = "brief" | "context" | "serp" | "progress" | "riepilogo" | "write" | "export" | "ottimizza" | "crediti" | "documenti";
 interface Props {
-  step: "brief" | "serp" | "write" | "export";
+  step: Step;
+  projects?: string[];
 }
-const { step } = Astro.props;
+const { step, projects = [] } = Astro.props;
 
 const steps = [
   "Analisi SERP per la keyword",
@@ -16,11 +21,21 @@ const steps = [
   "Identificazione pattern vincenti",
   "Generazione contenuto ottimizzato",
 ];
+const queue = demoSerp.map((r) => `https://${r.host}/${r.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}/`);
+const docs = [
+  { title: demoDocument.titleTag, status: "Completato" },
+  { title: "Prezzi e tempi di consegna", status: "Completato" },
+  { title: "Domande frequenti sul servizio", status: "In elaborazione" },
+];
+const width = step === "write" ? "w-[560px]" : ["ottimizza", "crediti", "documenti"].includes(step) ? "w-[420px]" : "w-[320px]";
 const field = "flex items-center h-9 px-3 text-[13px] bg-white border rounded-lg border-base-200 text-base-800";
 const lbl = "block text-[12px] text-base-700";
+const chev = "M6 9l6 6 6-6";
+const check = "M5 12l5 5 9-10";
+const pill = "inline-flex items-center h-6 px-2.5 text-[11px] font-medium rounded-md whitespace-nowrap";
 ---
 
-<div class={`${step === "write" ? "w-[560px]" : "w-[320px]"} overflow-hidden text-base-900 bg-white rounded-xl antialiased [zoom:var(--vb-zoom,1)]`}>
+<div class={`${width} overflow-hidden text-base-900 bg-white rounded-xl antialiased [zoom:var(--vb-zoom,1)]`}>
   <div class="flex items-center h-8 px-3 border-b gap-1.5 border-base-200">
     <span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span>
   </div>
@@ -35,17 +50,42 @@ const lbl = "block text-[12px] text-base-700";
         <div class="grid grid-cols-2 gap-3">
           <div>
             <span class={lbl}>Località</span>
-            <span class={`${field} mt-1.5 justify-between`}>Italia<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+            <span class={`${field} mt-1.5 justify-between`}>Italia<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={chev} /></svg></span>
           </div>
           <div>
             <span class={lbl}>Lingua</span>
-            <span class={`${field} mt-1.5 justify-between`}>Italiano<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+            <span class={`${field} mt-1.5 justify-between`}>Italiano<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={chev} /></svg></span>
           </div>
         </div>
         <div>
           <span class={lbl}>Contesto <span class="text-base-500">(opzionale)</span></span>
           <span class={`${field} mt-1.5 h-14 items-start pt-2 text-base-400`}>Brand guidelines, glossario, tono…</span>
         </div>
+      </div>
+    )
+  }
+  {
+    step === "context" && (
+      <div>
+        <span class={lbl}>Contesto <span class="text-base-500">(opzionale)</span> <span class="ml-1 px-1.5 py-0.5 text-2xs rounded bg-base-200 text-base-700">Consigliato</span></span>
+        <span class="block mt-1 text-[11px] text-base-500">Fornisci informazioni aggiuntive per migliorare la generazione del contenuto</span>
+        <div class="p-3 mt-2 bg-white border rounded-lg border-base-200 space-y-2">
+          <span class="block h-2 rounded bg-base-200 w-11/12"></span>
+          <span class="block h-2 rounded bg-base-200 w-full"></span>
+          <span class="block h-2 rounded bg-base-200 w-4/6"></span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 mt-3">
+          <span class="inline-flex items-center h-8 px-3 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800">
+            <svg class="size-4 text-base-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /></svg>
+            brand-guidelines.pdf
+            <svg class="size-3.5 text-base-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={check} /></svg>
+          </span>
+          <span class="inline-flex items-center h-8 px-3 text-[13px] bg-white border border-dashed rounded-lg gap-2 border-base-300 text-base-700">
+            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-9.2 9.2a5.5 5.5 0 0 1-7.8-7.8l9.2-9.2a3.5 3.5 0 0 1 5 5l-9.2 9.2a1.5 1.5 0 0 1-2.1-2.1L15.5 7" /></svg>
+            Inserisci PDF
+          </span>
+        </div>
+        <span class="block mt-2 text-[11px] text-base-500">Puoi caricare fino a 3 file PDF, massimo 1MB ciascuno</span>
       </div>
     )
   }
@@ -66,13 +106,68 @@ const lbl = "block text-[12px] text-base-700";
     )
   }
   {
+    step === "progress" && (
+      <div>
+        <div class="flex items-center gap-2">
+          <span class={`${pill} bg-base-200 text-base-700`}>In elaborazione</span>
+          <span class="text-[12px] truncate text-base-500">Analisi dei primi 5 risultati · Google IT</span>
+        </div>
+        <p class="mt-3 text-[15px] leading-tight tracking-tight text-base-900">Nuovo documento</p>
+        <div class="p-3 mt-3 bg-white border rounded-lg border-base-200">
+          <p class="flex items-center text-[12px] font-medium gap-2 text-base-900">
+            <span class="rounded-full size-2 bg-base-900"></span>Generazione in corso...
+          </p>
+          <ol class="mt-2 space-y-1">
+            {queue.slice(0, 4).map((url, i) => (
+              <li class={`flex items-center gap-2 text-[11px] font-mono ${i < 2 ? "text-base-800" : "text-base-400"}`}>
+                <span class="w-12 shrink-0 text-base-500">{i < 2 ? "Letto" : "In coda:"}</span>
+                <span class="truncate">{url}</span>
+                {i < 2 && (
+                  <svg class="ml-auto size-3 shrink-0 text-status-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={check} /></svg>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    )
+  }
+  {
+    step === "riepilogo" && (
+      <div>
+        <div class="flex gap-3 p-3 bg-white border rounded-lg border-base-200">
+          <span class="flex items-center justify-center text-white rounded-md shrink-0 size-8 bg-base-900">
+            <svg class="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM5 17l.8 2.2L8 20l-2.2.8L5 23l-.8-2.2L2 20l2.2-.8z" /></svg>
+          </span>
+          <div class="min-w-0">
+            <p class="text-[13px] font-medium text-base-900">Cosa succederà</p>
+            <ol class="mt-1.5 space-y-1 text-[12px] text-base-700">
+              {steps.map((s, i) => (
+                <li class="flex gap-1.5"><span class="shrink-0">{i + 1}.</span><span class="truncate">{i === 0 ? `${s} "${demoBrief.keyword}"` : s}</span></li>
+              ))}
+            </ol>
+            <p class="mt-2.5 text-[12px] text-base-600">Tempo stimato: 4-5 minuti • ~ 1.5 crediti</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-3">
+          <span class="inline-flex items-center h-8 px-3 text-[12px] bg-white border rounded-lg gap-1.5 border-base-200 text-base-700">
+            <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>Indietro
+          </span>
+          <span class="inline-flex items-center h-8 px-3.5 text-[12px] font-medium text-white rounded-lg gap-1.5 bg-base-900">
+            Avvia generazione<svg class="size-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" /></svg>
+          </span>
+        </div>
+      </div>
+    )
+  }
+  {
     step === "write" && (
       <div class="grid grid-cols-2 gap-3">
         {demoVersions.map((v) => (
           <div class="bg-white border rounded-lg border-base-200">
             <div class="flex items-center justify-between px-3 border-b h-9 border-base-200">
               <span class="text-[13px] font-medium whitespace-nowrap">{v.label}</span>
-              <span class="inline-flex items-center h-6 px-2 text-2xs border rounded-full gap-1 whitespace-nowrap border-base-200">Usa questa versione<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg></span>
+              <span class="inline-flex items-center h-6 px-2 text-2xs border rounded-full gap-1 whitespace-nowrap border-base-200">Usa questa versione<svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={check} /></svg></span>
             </div>
             <div class="px-3 py-3 space-y-1.5">
               <span class="block h-2 rounded bg-base-800 w-5/6" />
@@ -89,14 +184,81 @@ const lbl = "block text-[12px] text-base-700";
     step === "export" && (
       <div class="flex gap-3">
         <div class="relative">
-          <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-900 text-base-900">Copia<svg class="size-3.5 text-base-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+          <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-900 text-base-900">Copia<svg class="size-3.5 text-base-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={chev} /></svg></span>
           <ul class="absolute left-0 w-48 py-1 mt-1.5 text-[13px] bg-white border rounded-lg border-base-200 text-base-800 vb-menu">
             <li class="px-3 py-1.5">Copia testo pulito</li>
             <li class="px-3 py-1.5 bg-base-100 text-base-900">Copia HTML</li>
             <li class="px-3 py-1.5">Copia Markdown</li>
           </ul>
         </div>
-        <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800">Esporta<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></span>
+        <span class="inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800">Esporta<svg class="size-3.5 text-base-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={chev} /></svg></span>
+      </div>
+    )
+  }
+  {
+    step === "ottimizza" && (
+      <div>
+        <span class={lbl}>Modalità</span>
+        <div class="grid grid-cols-2 gap-2 mt-1.5">
+          <span class="block p-2.5 bg-white border rounded-lg border-base-900">
+            <span class="block text-[12px] font-medium text-base-900">Ottimizza contenuto esistente</span>
+            <span class="block mt-0.5 text-[11px] text-base-500">Migliora un contenuto già esistente</span>
+          </span>
+          <span class="block p-2.5 bg-white border rounded-lg border-base-200 text-base-400">
+            <span class="block text-[12px]">Crea nuovo contenuto</span>
+            <span class="block mt-0.5 text-[11px]">Genera un contenuto da zero basandoti sulla keyword</span>
+          </span>
+        </div>
+        <span class={`${lbl} mt-3`}>Contenuto esistente</span>
+        <div class="flex gap-1.5 mt-1.5">
+          <span class="inline-flex items-center h-7 px-3 text-[12px] font-medium text-white rounded-full gap-1.5 bg-base-900">
+            <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>URL
+          </span>
+          <span class="inline-flex items-center h-7 px-3 text-[12px] bg-white border rounded-full gap-1.5 border-base-200 text-base-800">
+            <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h6" /></svg>Testo
+          </span>
+          <span class="inline-flex items-center h-7 px-3 text-[12px] bg-white border rounded-full gap-1.5 border-base-200 text-base-800">
+            <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /></svg>PDF
+          </span>
+        </div>
+        <span class={`${field} mt-2 text-base-400`}>https://www.esempio.com/pagina</span>
+      </div>
+    )
+  }
+  {
+    step === "crediti" && (
+      <div class="grid grid-cols-2 gap-3">
+        <div class="p-3.5 bg-white border rounded-lg border-base-200">
+          <svg class="size-4 text-base-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" /></svg>
+          <p class="mt-3 text-[13px] leading-none text-base-900"><span class="font-medium">18</span><span class="text-base-500">/45.00</span></p>
+          <p class="mt-1.5 text-[12px] text-base-600">Crediti utilizzati</p>
+          <span class="block h-1.5 mt-3 overflow-hidden rounded-full bg-base-200"><span class="block h-full w-2/5 rounded-full bg-status-success"></span></span>
+          <p class="mt-2 text-[11px] text-base-600">Puoi generare 18 documenti</p>
+        </div>
+        <div class="p-3.5 bg-white border rounded-lg border-base-200">
+          <svg class="size-4 text-base-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+          <p class="mt-3 text-[18px] leading-none text-base-900">294</p>
+          <p class="mt-1.5 text-[12px] text-base-600">Giorni rimanenti</p>
+        </div>
+      </div>
+    )
+  }
+  {
+    step === "documenti" && (
+      <div class="overflow-hidden bg-white border rounded-lg border-base-200">
+        <div class="grid grid-cols-[1fr_5rem_5.5rem] items-center h-8 px-3 text-[11px] font-medium border-b gap-2 border-base-200 text-base-600">
+          <span>Documento</span><span>Progetto</span><span>Status</span>
+        </div>
+        {docs.map((d, i) => (
+          <div class="grid grid-cols-[1fr_5rem_5.5rem] items-center px-3 text-[12px] border-b h-9 gap-2 border-base-200 last:border-b-0">
+            <span class="flex items-center min-w-0 gap-1.5 text-base-900">
+              <svg class="size-3.5 shrink-0 text-base-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /></svg>
+              <span class="truncate">{d.title}</span>
+            </span>
+            <span class="truncate text-base-600">{projects[i] ?? "-"}</span>
+            <span><span class={`${pill} ${d.status === "Completato" ? "text-white bg-base-900" : "bg-base-200 text-base-700"}`}>{d.status}</span></span>
+          </div>
+        ))}
       </div>
     )
   }
