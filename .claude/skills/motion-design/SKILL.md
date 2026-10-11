@@ -7,7 +7,10 @@ description: Linguaggio di movimento di www.verbalist.it. Usalo prima di aggiung
 
 Il sito è un foglio tecnico monocromo: il movimento serve a mostrare il
 meccanismo del prodotto, mai a decorare. Riferimento del risultato approvato:
-la catena "Un documento, quattro passaggi" in home (`src/components/home/Chain.astro`).
+la catena "Un documento, quattro passaggi" (commit `3a32d2e`, in home fino
+all'11 ottobre 2026, poi sostituita da quattro card statiche: `git show
+3a32d2e:apps/web/src/components/home/Chain.astro`). Oggi il sito non ha
+animazioni in loop; lo schema qui sotto vale per la prossima.
 
 ## Principi
 

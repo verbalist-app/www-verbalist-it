@@ -1,13 +1,12 @@
 ---
-// Primo viewport: a sinistra titolo, testo e azioni; a destra una card con
-// angoli ampi e una velatura in basso (il modello sono le card di prodotto di
-// claude.com): dentro, il brief come un messaggio, l'elenco dei motori a cui
-// il contenuto è destinato e la pagina del documento in app (AppWindow.astro),
-// più larga della card e tagliata dai suoi bordi, con la luce di un oggetto
-// appoggiato (filo chiaro in alto, ombra lunga e morbida).
-// Nessuna animazione. I marchi dei motori (public/img/engines/, forniti dal
-// maintainer) restano dei rispettivi proprietari e sono gli unici colori
-// della card.
+// Primo viewport, centrato (composizione delle hero di Fulldev e Craft):
+// titolo, lede e azioni al centro; sotto, a tutta larghezza e senza riquadro,
+// la pagina del documento in app (AppWindow.astro) con la luce di un oggetto
+// appoggiato (filo chiaro in alto, ombra lunga), il brief come un messaggio e
+// l'elenco dei motori a cui il contenuto è destinato in primo piano. Il palco
+// sfuma in basso prima del bordo della sezione. Nessuna animazione. I marchi
+// dei motori (public/img/engines/, forniti dal maintainer) restano dei
+// rispettivi proprietari e sono gli unici colori della sezione.
 import Button from "@/components/fundations/elements/Button.astro";
 import Frame from "@/components/section/Frame.astro";
 import { TRIAL_HREF } from "@/lib/pricing";
@@ -24,82 +23,69 @@ const engines = [
 const label = "font-mono text-xs tracking-wider uppercase text-base-500";
 ---
 
-<Frame n={1} labelledby="home-title" tone="soft" class="pt-12 pb-14 lg:pt-14 lg:pb-16">
-  <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,34rem)] lg:gap-12 lg:px-10">
-    <div class="min-w-0">
-      <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
-        SEO e GEO per agenzie e team marketing
-      </p>
-      <h1
-        id="home-title"
-        class="mt-6 text-[2.75rem] leading-[1.06] font-normal tracking-[-0.03em] text-base-900 sm:text-hero-sm lg:text-hero"
-      >
-        Prima legge Google.<br />Poi scrive.
-      </h1>
-      <p class="max-w-lg mt-6 text-lg font-light leading-snug text-base-600 lg:text-lede">
-        Verbalist analizza i primi cinque risultati per la tua keyword, ne
-        ricava argomenti, struttura e lacune, e scrive il contenuto ex novo
-        nella lingua del tuo mercato: per Google e per le risposte delle AI
-        (GEO).
-      </p>
-      <div class="flex flex-wrap items-center mt-8 gap-3">
-        <Button isLink size="base" variant="accent" href={TRIAL_HREF}>Prova gratis</Button>
-        <Button isLink size="base" variant="muted" href="/contatti/">Parla con noi</Button>
-      </div>
-      <p class="mt-4 text-sm text-base-500">
-        30 giorni, 15 documenti, senza carta di credito.
-      </p>
+<Frame n={1} labelledby="home-title" tone="soft" class="pt-20 pb-10 lg:pt-28 lg:pb-14 lg:!px-14">
+  <div class="flex flex-col items-center text-center">
+    <h1
+      id="home-title"
+      class="max-w-3xl text-[2.75rem] leading-[1.06] font-normal tracking-[-0.03em] text-base-900 sm:text-hero-sm lg:text-hero"
+    >
+      Prima legge Google.<br />Poi scrive.
+    </h1>
+    <p class="max-w-2xl mt-6 text-lg font-light leading-snug text-base-600 lg:text-lede">
+      Verbalist analizza i primi cinque risultati per la tua keyword, ne
+      ricava argomenti, struttura e lacune, e scrive il contenuto ex novo
+      nella lingua del tuo mercato: per Google e per le risposte delle AI
+      (GEO).
+    </p>
+    <div class="flex flex-wrap items-center justify-center mt-8 gap-3">
+      <Button isLink size="base" variant="accent" href={TRIAL_HREF}>Prova gratis</Button>
+      <Button isLink size="base" variant="muted" href="/contatti/">Parla con noi</Button>
+    </div>
+    <p class="mt-4 text-sm text-base-500">
+      30 giorni, 15 documenti, senza carta di credito.
+    </p>
+  </div>
+
+  <!-- Il palco: la finestra dell'app al centro, il brief e i motori in primo piano -->
+  <div
+    role="img"
+    data-nosnippet
+    aria-label={`Il brief con la keyword «${demoBrief.keyword}», la pagina del documento in Verbalist con le due versioni generate, A e B, e i motori a cui il contenuto è destinato: Google, ChatGPT, Gemini, Claude, Perplexity.`}
+    class="relative mt-12 h-[17rem] sm:h-[26rem] lg:mt-16 lg:h-[32rem] vb-stage [--vb-zoom:0.3] sm:[--vb-zoom:0.56] lg:[--vb-zoom:0.76]"
+  >
+    <div class="absolute overflow-hidden rounded-xl vb-window top-6 left-1/2 -translate-x-1/2 sm:top-8 lg:top-10 lg:left-[54%]">
+      <AppWindow />
     </div>
 
-    <div
-      role="img"
-      data-nosnippet
-      aria-label={`Il brief con la keyword «${demoBrief.keyword}», la pagina del documento in Verbalist con le due versioni generate, A e B, e i motori a cui il contenuto è destinato: Google, ChatGPT, Gemini, Claude, Perplexity.`}
-      class="relative overflow-hidden bg-white border rounded-3xl border-base-200 h-[20rem] sm:h-[30rem] lg:h-[36rem] vb-card [--vb-zoom:0.42] sm:[--vb-zoom:0.5] lg:[--vb-zoom:0.56]"
-    >
-      <!-- Il prodotto, tagliato dai bordi della card -->
-      <div class="absolute overflow-hidden rounded-xl top-12 left-[40%] vb-window sm:top-14 sm:left-[44%] lg:top-16">
-        <AppWindow sidebar={false} />
-      </div>
+    <!-- Il brief di partenza, come un messaggio -->
+    <div class="absolute z-10 p-4 bg-white top-0 left-0 w-[15.5rem] rounded-2xl rounded-tl-md vb-float sm:left-2 sm:w-72 lg:top-2 lg:left-4">
+      <p class={label}>Brief</p>
+      <p class="mt-2 text-sm leading-snug text-base-900">«{demoBrief.keyword}»</p>
+      <p class="mt-2 text-xs text-base-500">{demoBrief.type} · {demoBrief.market} · {demoBrief.language}</p>
+    </div>
 
-      <!-- Il brief di partenza, come un messaggio -->
-      <div class="absolute z-10 p-4 bg-white top-6 left-5 w-[15.5rem] rounded-2xl rounded-tl-md vb-float sm:top-8 sm:left-7 sm:w-72">
-        <p class={label}>Brief</p>
-        <p class="mt-2 text-sm leading-snug text-base-900">
-          «{demoBrief.keyword}»
-        </p>
-        <p class="mt-2 text-xs text-base-500">{demoBrief.type} · {demoBrief.market} · {demoBrief.language}</p>
-      </div>
-
-      <!-- Dove va a finire: Google e le risposte delle AI -->
-      <div class="absolute z-10 hidden p-4 bg-white left-5 bottom-6 w-60 rounded-2xl vb-float sm:left-7 sm:bottom-8 sm:block">
-        <p class={`${label} flex items-center gap-2`}><span class="rounded-full size-1.5 bg-status-success"></span>Per Google e per le AI</p>
-        <ul role="list" class="mt-3 space-y-2">
-          {
-            engines.map((e) => (
-              <li class="flex items-center text-sm gap-2.5 text-base-900">
-                <span class="flex items-center justify-center bg-white border rounded-md size-6 border-base-200">
-                  <img src={`/img/engines/${e.logo}.svg`} alt="" width="14" height="14" class="object-contain size-3.5" loading="lazy" decoding="async" />
-                </span>
-                {e.name}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+    <!-- Dove va a finire: Google e le risposte delle AI -->
+    <div class="absolute z-10 hidden p-4 bg-white left-2 bottom-10 w-60 rounded-2xl vb-float sm:block lg:left-4 lg:bottom-16">
+      <p class={`${label} flex items-center gap-2`}><span class="rounded-full size-1.5 bg-status-success"></span>Per Google e per le AI</p>
+      <ul role="list" class="mt-3 space-y-2">
+        {
+          engines.map((e) => (
+            <li class="flex items-center text-sm gap-2.5 text-base-900">
+              <span class="flex items-center justify-center bg-white border rounded-md size-6 border-base-200">
+                <img src={`/img/engines/${e.logo}.svg`} alt="" width="14" height="14" class="object-contain size-3.5" loading="lazy" decoding="async" />
+              </span>
+              {e.name}
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </Frame>
 
 <style>
-  /* La card: angoli ampi e una velatura in basso, calda a destra dove sta il
-     prodotto, fredda a sinistra dove sta l'elenco. Il resto è bianco. */
-  .vb-card {
-    background:
-      radial-gradient(70% 55% at 100% 100%, var(--color-wash-warm) 0, transparent 70%),
-      radial-gradient(55% 45% at 0% 100%, var(--color-wash-cool) 0, transparent 70%),
-      var(--color-white);
-  }
+  /* Il palco sfuma in basso prima del bordo della sezione: la finestra non lo tocca. */
+  .vb-stage { mask-image: linear-gradient(to bottom, #000 70%, transparent); }
   /* La luce dell'oggetto: filo chiaro in alto, bordo sottile, ombra lunga. */
   .vb-window {
     box-shadow:
