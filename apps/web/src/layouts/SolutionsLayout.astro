@@ -191,7 +191,7 @@ const faqLd = {
   </Manifesto>
 
   <!-- In breve: la risposta secca (citabile), le azioni, il brief d'esempio -->
-  <Frame n={2} class="pt-14 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
+  <Frame n={2} rhythm="section" class="lg:!px-14">
       <SectionHead
         eyebrow="In breve"
         title={frontmatter.pitch}
@@ -227,14 +227,14 @@ const faqLd = {
   </Frame>
 
   <!-- Cosa cambia per questo pubblico: celle 3×2, le prime tre con un pezzo di prodotto -->
-  <Frame n={3} class="pt-14 pb-0 lg:pt-20 lg:!px-14">
+  <Frame n={3} rhythm="open" class="lg:!px-14">
       <SectionHead
         eyebrow={frontmatter.needs.eyebrow}
         title={frontmatter.needs.title}
         text={frontmatter.needs.text}
       />
       <div
-        class="grid grid-cols-1 mt-12 -mx-4 border-t border-dashed md:grid-cols-2 lg:grid-cols-3 border-base-200 lg:-mx-14"
+        class="grid grid-cols-1 mt-12 -mx-4 border-t md:grid-cols-2 lg:grid-cols-3 border-base-200 lg:-mx-14"
       >
         {
           frontmatter.needs.items.map(
@@ -247,7 +247,7 @@ const faqLd = {
             }, i: number) => {
               const peek = i < 3 ? (item.peek ?? peekFor(item.href)) : null;
               return (
-                <div class="flex flex-col border-b border-dashed border-base-200 last:border-b-0 md:max-lg:[&:nth-child(odd)]:border-r md:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-last-child(-n+3)]:border-b-0 [--cell-x:1rem] lg:[--cell-x:2rem] lg:[&:nth-child(3n+1)]:[--cell-x:3.5rem] transition-colors duration-200 hover:bg-base-50">
+                <div class="flex flex-col border-b border-base-200 last:border-b-0 md:max-lg:[&:nth-child(odd)]:border-r md:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-last-child(-n+3)]:border-b-0 [--cell-x:1rem] lg:[--cell-x:2rem] lg:[&:nth-child(3n+1)]:[--cell-x:3.5rem] transition-colors duration-200 hover:bg-base-50">
                   {peek && (
                     <span aria-hidden="true" data-nosnippet class="relative block h-44 overflow-hidden vb-peek [--vb-zoom:0.66]">
                       <span class="absolute block top-6 left-(--cell-x) vb-peek-card">
@@ -263,7 +263,7 @@ const faqLd = {
                         href={item.href}
                         class="pt-4 mt-auto text-sm w-fit text-base-900 transition-colors duration-200 hover:text-accent-600"
                       >
-                        <span class="border-b border-dashed border-base-400">
+                        <span class="border-b border-base-400">
                           {item.linkLabel ?? "Approfondisci"}
                         </span>
                       </a>
@@ -281,7 +281,7 @@ const faqLd = {
   <Frame n={4} class="!px-0">
       <div class="grid grid-cols-1 px-4 lg:grid-cols-2 lg:px-14">
         <div
-          class="py-12 lg:py-16 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200"
+          class="py-12 lg:py-16 lg:pr-10 lg:border-r lg:border-base-200"
         >
           <Wrapper
             variant="prose"
@@ -292,8 +292,8 @@ const faqLd = {
         </div>
         <div class="pb-12 lg:py-16 lg:pl-10">
           <div class="lg:sticky lg:top-24">
-            <div class="p-6 bg-white border rounded-xl border-base-200 sm:p-8">
-              <p class="font-mono text-xs tracking-wider uppercase text-accent-600">Il piano da cui partire</p>
+            <div class="p-6 bg-panel rounded-md sm:p-8">
+              <p class="text-sm text-accent-600">Il piano da cui partire</p>
               <div class="flex flex-wrap items-baseline justify-between mt-6 gap-2">
                 <h2 class="text-display-xs leading-none font-normal tracking-[-0.025em] text-base-900">
                   {frontmatter.plan.name}
@@ -315,7 +315,7 @@ const faqLd = {
               >
                 {
                   frontmatter.plan.points.map((point: string) => (
-                    <li class="flex items-start py-3 border-t border-dashed gap-3 border-base-200 last:border-b">
+                    <li class="flex items-start py-3 border-t gap-3 border-base-200 last:border-b">
                       <span class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0" />
                       <span>{point}</span>
                     </li>
@@ -330,7 +330,7 @@ const faqLd = {
                   href="/#prezzi"
                   class="px-2 text-sm text-base-900 transition-colors duration-200 hover:text-accent-600"
                 >
-                  <span class="border-b border-dashed border-base-400"
+                  <span class="border-b border-base-400"
                     >Tutti i piani</span
                   >
                 </a>
@@ -342,7 +342,7 @@ const faqLd = {
   </Frame>
 
   <!-- La prova: casi reali, una riga per cliente -->
-  <Frame n={5} class="pt-14 pb-0 lg:pt-20 lg:!px-14">
+  <Frame n={5} rhythm="open" class="lg:!px-14">
       <SectionHead
         eyebrow={frontmatter.proof.eyebrow}
         title={frontmatter.proof.title}
@@ -357,7 +357,7 @@ const faqLd = {
               logo: string;
               fact: string;
             }) => (
-              <li class="relative grid items-center grid-cols-1 px-4 py-5 border-t border-dashed gap-x-10 gap-y-3 group border-base-200 md:grid-cols-[11rem_1fr_auto] lg:px-14 transition-colors duration-200 hover:bg-base-50">
+              <li class="relative grid items-center grid-cols-1 px-4 py-5 border-t gap-x-10 gap-y-3 group border-base-200 md:grid-cols-[11rem_1fr_auto] lg:px-14 transition-colors duration-200 hover:bg-base-50">
                 <img
                   src={c.logo}
                   alt={c.name}
@@ -366,7 +366,7 @@ const faqLd = {
                   loading="lazy"
                 />
                 <div>
-                  <p class="font-mono text-xs tracking-wider uppercase text-base-500">
+                  <p class="text-sm text-base-500">
                     {c.name}
                   </p>
                   <p class="mt-1 text-md leading-relaxed text-base-800">
@@ -395,7 +395,7 @@ const faqLd = {
   <Frame n={6} class="!px-0">
       <div class="grid grid-cols-1 px-4 lg:grid-cols-2 lg:px-14">
         <div
-          class="pt-12 lg:py-16 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200"
+          class="pt-12 lg:py-16 lg:pr-10 lg:border-r lg:border-base-200"
         >
           <SectionHead
             eyebrow="Prima di iniziare"
@@ -406,7 +406,7 @@ const faqLd = {
           {
             frontmatter.faq.map(
               (faq: { question: string; answer: string }) => (
-                <details class="border-b border-dashed cursor-pointer border-base-200 group last:border-b-0">
+                <details class="border-b cursor-pointer border-base-200 group last:border-b-0">
                   <summary
                     data-gtm="faq-accordion"
                     class="flex items-start justify-between w-full py-5 text-lg text-left select-none gap-4 text-base-900 hover:text-accent-600 [&::-webkit-details-marker]:hidden list-none"
@@ -448,9 +448,9 @@ const faqLd = {
             (s: { id: string; name: string; doorTitle: string }) => (
               <a
                 href={`/soluzioni/${s.id}/`}
-                class="flex flex-col px-4 py-8 border-b border-dashed gap-2 group border-base-200 last:border-b-0 sm:max-lg:[&:nth-child(odd)]:border-r sm:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:border-b-0 lg:px-8 lg:[&:not(:last-child)]:border-r lg:first:pl-14 lg:last:pr-14 transition-colors duration-200 hover:bg-base-50"
+                class="flex flex-col px-4 py-8 border-b gap-2 group border-base-200 last:border-b-0 sm:max-lg:[&:nth-child(odd)]:border-r sm:max-lg:[&:nth-last-child(-n+2)]:border-b-0 lg:border-b-0 lg:px-8 lg:[&:not(:last-child)]:border-r lg:first:pl-14 lg:last:pr-14 transition-colors duration-200 hover:bg-base-50"
               >
-                <span class="flex items-center font-mono text-xs tracking-wider uppercase gap-1 text-accent-600">
+                <span class="flex items-center text-sm gap-1 text-accent-600">
                   {s.name}
                   <ChevronRight
                     size="sm"

@@ -1,5 +1,5 @@
 ---
-// Primo viewport, centrato (composizione delle hero di Fulldev e Craft):
+// Primo viewport, centrato (composizione a titolo, lede e azioni):
 // titolo, lede e azioni al centro; sotto, a tutta larghezza e senza riquadro,
 // la pagina del documento in app (AppWindow.astro) con la luce di un oggetto
 // appoggiato (filo chiaro in alto, ombra lunga), il brief come un messaggio e
@@ -20,24 +20,27 @@ const engines = [
   { name: "Claude", logo: "claude" },
   { name: "Perplexity", logo: "perplexity" },
 ];
-const label = "font-mono text-xs tracking-wider uppercase text-base-500";
+const label = "text-sm text-base-500";
 ---
 
-<Frame n={1} labelledby="home-title" tone="soft" class="pt-20 pb-10 lg:pt-28 lg:pb-14 lg:!px-14">
-  <div class="flex flex-col items-center text-center">
+<!-- Hero nella grammatica a carta avorio (dal 2026-10-17): a sinistra
+     una frase a 28px, il lede e le due pillole; sotto, il prodotto in un
+     pannello tinto a tutta larghezza. (Prima: 60px centrati sul palco.) -->
+<Frame n={1} labelledby="home-title" class="pt-12 pb-10 lg:pt-20 lg:pb-14 lg:!px-14">
+  <div class="max-w-2xl">
     <h1
       id="home-title"
-      class="max-w-3xl text-[2.75rem] leading-[1.06] font-normal tracking-[-0.03em] text-base-900 sm:text-hero-sm lg:text-hero"
+      class="text-2xl leading-[1.25] font-normal tracking-[-0.0125em] text-base-900 lg:text-headline"
     >
       Prima legge Google.<br />Poi scrive.
     </h1>
-    <p class="max-w-2xl mt-6 text-lg font-light leading-snug text-base-600 lg:text-lede">
+    <p class="max-w-xl mt-4 text-lg leading-snug text-base-600 lg:text-lede">
       Verbalist analizza i primi cinque risultati per la tua keyword, ne
       ricava argomenti, struttura e lacune, e scrive il contenuto ex novo
       nella lingua del tuo mercato: per Google e per le risposte delle AI
       (GEO).
     </p>
-    <div class="flex flex-wrap items-center justify-center mt-8 gap-3">
+    <div class="flex flex-wrap items-center mt-8 gap-3">
       <Button isLink size="base" variant="accent" href={TRIAL_HREF}>Prova gratis</Button>
       <Button isLink size="base" variant="muted" href="/contatti/">Parla con noi</Button>
     </div>
@@ -46,32 +49,32 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
     </p>
   </div>
 
-  <!-- Il palco: la finestra dell'app al centro, il brief e i motori in primo piano -->
+  <!-- Il pannello di prodotto: la finestra dell'app, il brief e i motori in primo piano -->
   <div
     role="img"
     data-nosnippet
     aria-label={`Il brief con la keyword «${demoBrief.keyword}», la pagina del documento in Verbalist con le due versioni generate, A e B, e i motori a cui il contenuto è destinato: Google, ChatGPT, Gemini, Claude, Perplexity.`}
-    class="relative mt-12 h-[17rem] sm:h-[26rem] lg:mt-16 lg:h-[32rem] vb-stage [--vb-zoom:0.3] sm:[--vb-zoom:0.56] lg:[--vb-zoom:0.76]"
+    class="relative mt-12 h-[17rem] overflow-hidden rounded-md bg-base-50 sm:h-[26rem] lg:mt-16 lg:h-[32rem] vb-stage [--vb-zoom:0.3] sm:[--vb-zoom:0.56] lg:[--vb-zoom:0.76]"
   >
-    <div class="absolute overflow-hidden rounded-xl vb-window top-6 left-1/2 -translate-x-1/2 sm:top-8 lg:top-10 lg:left-[54%]">
+    <div class="absolute overflow-hidden rounded-xl vb-window top-10 left-1/2 -translate-x-1/2 sm:top-12 lg:top-14 lg:left-[54%]">
       <AppWindow />
     </div>
 
     <!-- Il brief di partenza, come un messaggio -->
-    <div class="absolute z-10 p-4 bg-white top-0 left-0 w-[15.5rem] rounded-2xl rounded-tl-md vb-float sm:left-2 sm:w-72 lg:top-2 lg:left-4">
+    <div class="absolute z-10 p-4 bg-panel top-4 left-4 w-[15.5rem] rounded-2xl rounded-tl-md vb-float sm:left-6 sm:w-72 lg:top-6 lg:left-8">
       <p class={label}>Brief</p>
       <p class="mt-2 text-sm leading-snug text-base-900">«{demoBrief.keyword}»</p>
       <p class="mt-2 text-xs text-base-500">{demoBrief.type} · {demoBrief.market} · {demoBrief.language}</p>
     </div>
 
     <!-- Dove va a finire: Google e le risposte delle AI -->
-    <div class="absolute z-10 hidden p-4 bg-white left-2 bottom-10 w-60 rounded-2xl vb-float sm:block lg:left-4 lg:bottom-16">
+    <div class="absolute z-10 hidden p-4 bg-panel left-6 bottom-6 w-60 rounded-2xl vb-float sm:block lg:left-8 lg:bottom-8">
       <p class={`${label} flex items-center gap-2`}><span class="rounded-full size-1.5 bg-status-success"></span>Per Google e per le AI</p>
       <ul role="list" class="mt-3 space-y-2">
         {
           engines.map((e) => (
             <li class="flex items-center text-sm gap-2.5 text-base-900">
-              <span class="flex items-center justify-center bg-white border rounded-md size-6 border-base-200">
+              <span class="flex items-center justify-center bg-panel border rounded-md size-6 border-base-200">
                 <img src={`/img/engines/${e.logo}.svg`} alt="" width="14" height="14" class="object-contain size-3.5" loading="lazy" decoding="async" />
               </span>
               {e.name}
@@ -84,22 +87,20 @@ const label = "font-mono text-xs tracking-wider uppercase text-base-500";
 </Frame>
 
 <style>
-  /* Il palco sfuma in basso prima del bordo della sezione: la finestra non lo tocca. */
-  .vb-stage { mask-image: linear-gradient(to bottom, #000 70%, transparent); }
   /* La luce dell'oggetto: filo chiaro in alto, bordo sottile, ombra lunga. */
   .vb-window {
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.9),
-      0 0 0 1px rgb(22 27 29 / 0.08),
-      0 2px 4px rgb(22 27 29 / 0.04),
-      0 16px 32px -12px rgb(22 27 29 / 0.14),
-      0 48px 96px -32px rgb(22 27 29 / 0.28);
+      0 0 0 1px rgb(38 37 30 / 0.08),
+      0 2px 4px rgb(38 37 30 / 0.04),
+      0 16px 32px -12px rgb(38 37 30 / 0.14),
+      0 48px 96px -32px rgb(38 37 30 / 0.28);
   }
   .vb-float {
     box-shadow:
-      0 0 0 1px rgb(22 27 29 / 0.06),
-      0 1px 2px rgb(22 27 29 / 0.05),
-      0 12px 24px -10px rgb(22 27 29 / 0.16),
-      0 32px 56px -24px rgb(22 27 29 / 0.2);
+      0 0 0 1px rgb(38 37 30 / 0.06),
+      0 1px 2px rgb(38 37 30 / 0.05),
+      0 12px 24px -10px rgb(38 37 30 / 0.16),
+      0 32px 56px -24px rgb(38 37 30 / 0.2);
   }
 </style>

@@ -20,7 +20,7 @@ const postsJson = JSON.stringify(posts).replace(/</g, "\\u003c");
     type="button"
     id="searchButton"
     aria-label="Cerca negli articoli (⌘K)"
-    class="flex items-center justify-center h-11 lg:h-9 px-3 bg-white border rounded-full border-base-200 text-base-700 hover:border-base-300 hover:text-accent-600 duration-300 group md:px-4 md:gap-2"
+    class="flex items-center justify-center h-11 lg:h-9 px-3 bg-panel border rounded-full border-base-200 text-base-700 hover:border-base-300 hover:text-accent-600 duration-300 group md:px-4 md:gap-2"
   >
     <Search size="base" />
     <kbd
@@ -42,7 +42,7 @@ const postsJson = JSON.stringify(posts).replace(/</g, "\\u003c");
       >
       </div>
       <div
-        class="relative inline-block w-full max-w-md mt-12 mb-8 text-left align-middle bg-white border border-base-200 lg:mt-48 rounded-xl transition-all transform"
+        class="relative inline-block w-full max-w-md mt-12 mb-8 text-left align-middle bg-panel border border-base-200 lg:mt-48 rounded-xl transition-all transform"
       >
         <div class="p-4 pb-2">
           <div class="hidden">
@@ -59,11 +59,11 @@ const postsJson = JSON.stringify(posts).replace(/</g, "\\u003c");
             type="text"
             id="searchInput"
             placeholder="Cerca negli articoli..."
-            class="block w-full px-4 py-2 text-base leading-tight lg:text-xs align-middle bg-white border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-base-500 ring-1 ring-base-200 placeholder-base-500 focus:border-accent-500 focus:ring-accent-100 focus:ring-2 focus:outline-none shadow-sm"
+            class="block w-full px-4 py-2 text-base leading-tight lg:text-xs align-middle bg-panel border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-base-500 ring-1 ring-base-200 placeholder-base-500 focus:border-accent-500 focus:ring-accent-100 focus:ring-2 focus:outline-none"
           />
           <div
             id="searchResults"
-            class="flex flex-col w-full mt-2 overflow-y-auto bg-white max-h-200 rounded-xl scrollbar-hide focus:outline-none space-y-2 focus:ring-2 focus:ring-accent-500"
+            class="flex flex-col w-full mt-2 overflow-y-auto bg-panel max-h-200 rounded-xl scrollbar-hide focus:outline-none space-y-2 focus:ring-2 focus:ring-accent-500"
           >
           </div>
         </div>
@@ -135,7 +135,7 @@ const postsJson = JSON.stringify(posts).replace(/</g, "\\u003c");
         searchResults.innerHTML = `
                 <div class="px-4 py-4 text-sm">
                     <p class="text-base-600">Nessun risultato per &ldquo;${safeTerm}&rdquo;.</p>
-                    <p class="mt-3 font-mono text-xs tracking-wider uppercase text-base-500">Prova da qui</p>
+                    <p class="mt-3 text-sm text-base-500">Prova da qui</p>
                     <div class="flex flex-wrap mt-2 gap-2">
                       <a href="/categorie/guide/" class="px-3 py-1.5 text-xs rounded-full border border-base-200 text-base-600 hover:text-accent-600">Guide</a>
                       <a href="/categorie/seo/" class="px-3 py-1.5 text-xs rounded-full border border-base-200 text-base-600 hover:text-accent-600">SEO</a>
@@ -151,9 +151,9 @@ const postsJson = JSON.stringify(posts).replace(/</g, "\\u003c");
         .slice(0, 5) // Limit results to top 5 matches
         .map(
           (result) => `
-                <a href="/blog/${result.item.slug}/"   class="block p-4 text-balance m-1  rounded-lg hover:bg-mist-100 focus:outline-none focus:ring-2 ring-inset focus:ring-accent-500 duration-300">   
+                <a href="/blog/${result.item.slug}/"   class="block p-4 text-balance m-1 rounded-lg hover:bg-mist-100 focus:outline-none focus:ring-2 ring-inset focus:ring-accent-500 duration-300">   
                   <h3 class="font-medium text-base-800 text-sm">${result.item.title}</h3>   
-                  <p class="mt-2 text-sm text-base-500 ">${result.item.description}</p> 
+                  <p class="mt-2 text-sm text-base-500">${result.item.description}</p> 
                 </a>
             `
         )

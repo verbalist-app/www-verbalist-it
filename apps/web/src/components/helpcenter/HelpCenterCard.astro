@@ -43,10 +43,10 @@ const iconMap = {
 const IconComponent = iconMap[iconId] || InfoCircle; // Default to InfoCircle if not found
 ---
 
-<article class="relative flex flex-col px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
+<article class="relative flex flex-col px-4 py-8 border-b group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
   <div class="flex items-center justify-between gap-4">
     <IconComponent size="sm" class="text-accent-600" aria-hidden="true" />
-    {category && <span class="font-mono text-xs tracking-wider uppercase text-base-500">{category}</span>}
+    {category && <span class="text-sm text-base-500">{category}</span>}
   </div>
   <h2 class="mt-8 text-lg font-normal leading-snug tracking-tight text-base-900">
     <a href={url} class="after:absolute after:inset-0 group-hover:text-accent-600">{page}</a>

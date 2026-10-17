@@ -24,10 +24,10 @@ const isActive = (link) =>
   link.activePaths.some((base) => path === base || path.startsWith(base + "/"));
 ---
 
-<header
-  id="nav-wrapper"
-  class="fixed inset-x-0 top-0 z-50 bg-white/95 border-b border-dashed border-base-200 backdrop-blur-sm"
->
+<!-- Nav nella grammatica a carta avorio (dal 2026-10-17): fondo pagina
+     opaco senza riga, marchio a sinistra, voci al centro, a destra il link
+     testuale, la pillola ghost e la pillola primaria. -->
+<header id="nav-wrapper" class="fixed inset-x-0 top-0 z-50 bg-background">
   <Wrapper variant="standard" class="h-[72px] flex items-center gap-6">
     <a href="/" class="flex items-center h-11 shrink-0 text-base-900">
       <span class="sr-only">Verbalist, vai alla home</span>
@@ -35,7 +35,7 @@ const isActive = (link) =>
     </a>
     <nav
       aria-label="Principale"
-      class="items-center hidden pl-6 border-l gap-1 border-base-200 lg:flex"
+      class="absolute items-center hidden -translate-x-1/2 left-1/2 gap-1 lg:flex"
     >
       {
         navigationLinks.map((link) => (
@@ -43,7 +43,7 @@ const isActive = (link) =>
             href={link.href}
             aria-current={isActive(link) ? "page" : undefined}
             class={`flex items-center h-9 px-3 text-sm rounded-full transition-colors duration-200 hover:text-base-950 hover:bg-base-100 ${
-              isActive(link) ? "text-base-950 bg-base-100" : "text-base-600"
+              isActive(link) ? "text-base-950" : "text-base-900"
             }`}
           >
             {link.title}
@@ -54,11 +54,11 @@ const isActive = (link) =>
     <div class="flex items-center ml-auto gap-2">
       <a
         href={LOGIN}
-        class="items-center hidden px-3 text-sm h-9 text-base-600 hover:text-base-950 lg:flex"
+        class="items-center hidden px-3 text-sm h-9 text-base-900 hover:opacity-75 lg:flex"
       >
         Accedi
       </a>
-
+      <Button isLink size="sm" variant="ghost" href="/contatti/" class="hidden lg:flex">Parla con noi</Button>
       <Button isLink size="sm" variant="accent" href={TRIAL}>Prova gratis</Button>
 
       <button
@@ -91,14 +91,14 @@ const isActive = (link) =>
     id="navigation-menu"
     aria-label="Menu"
     hidden
-    class="fixed z-50 inset-x-0 bottom-0 top-[72px] flex-col px-4 pt-2 pb-8 overflow-y-auto bg-white [&:not([hidden])]:flex lg:!hidden"
+    class="fixed z-50 inset-x-0 bottom-0 top-[72px] flex-col px-4 pt-2 pb-8 overflow-y-auto bg-panel [&:not([hidden])]:flex lg:!hidden"
   >
     {
       navigationLinks.map((link) => (
         <a
           href={link.href}
           aria-current={isActive(link) ? "page" : undefined}
-          class={`flex items-center min-h-13 text-xl border-b border-dashed border-base-200 ${
+          class={`flex items-center min-h-13 text-xl border-b  border-base-200 ${
             isActive(link) ? "text-accent-600" : "text-base-900"
           }`}
         >
@@ -108,7 +108,7 @@ const isActive = (link) =>
     }
     <a
       href="/help/"
-      class="flex items-center text-xl border-b border-dashed min-h-13 border-base-200 text-base-900"
+      class="flex items-center text-xl border-b min-h-13 border-base-200 text-base-900"
     >
       Help center
     </a>

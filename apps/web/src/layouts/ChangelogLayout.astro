@@ -49,7 +49,7 @@ const breadcrumbLd = {
   <div class="pt-[72px]">
     <Frame n={1} flush tone="soft" class="pt-8 pb-12 lg:pt-10 lg:pb-16 lg:!px-14">
       <nav aria-label="Breadcrumb">
-        <ol class="flex flex-wrap items-center font-mono text-xs tracking-wider uppercase gap-2 text-base-500">
+        <ol class="flex flex-wrap items-center text-sm gap-2 text-base-500">
           {
             breadcrumbs.map((item, index) => (
               <>
@@ -67,7 +67,7 @@ const breadcrumbLd = {
         </ol>
       </nav>
       <div class="max-w-3xl mt-10">
-        <p class="font-mono text-xs tracking-wider uppercase text-base-500">
+        <p class="text-sm text-base-500">
           Pubblicato il
           <time datetime={new Date(frontmatter.pubDate).toISOString()}>
             {new Date(frontmatter.pubDate).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}
@@ -76,13 +76,13 @@ const breadcrumbLd = {
         <h1 class="mt-6 text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 text-balance lg:text-5xl lg:leading-[1.08]">
           {frontmatter.page}
         </h1>
-        <p class="max-w-xl mt-6 text-lg font-light leading-snug text-base-600 lg:text-lede">{frontmatter.description}</p>
+        <p class="max-w-xl mt-6 text-lg leading-snug text-base-600 lg:text-lede">{frontmatter.description}</p>
       </div>
 
     </Frame>
-    <Frame n={2} class="py-12 lg:py-16 lg:!px-14">
+    <Frame n={2} rhythm="section" class="lg:!px-14">
       <h2 class="sr-only">Note di rilascio della versione {version}</h2>
-      <Wrapper variant="prose" class="max-w-xl [&_h3]:font-mono [&_h3]:text-xs [&_h3]:font-normal [&_h3]:uppercase [&_h3]:tracking-wider [&_h3]:text-accent-600 [&_h3]:mt-8 [&_h3]:mb-3">
+      <Wrapper variant="prose" class="max-w-xl [&_h3]:text-sm [&_h3]:font-normal [&_h3]:text-base-500 [&_h3]:mt-8 [&_h3]:mb-3">
         <slot />
       </Wrapper>
     </Frame>

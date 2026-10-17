@@ -70,7 +70,7 @@ const breadcrumbLd = {
   <div class="pt-[72px]">
     <Frame n={1} flush tone="soft" class="pt-8 pb-12 lg:pt-10 lg:pb-16 lg:!px-14">
       <nav aria-label="Breadcrumb">
-        <ol class="flex flex-wrap items-center font-mono text-xs tracking-wider uppercase gap-2 text-base-500">
+        <ol class="flex flex-wrap items-center text-sm gap-2 text-base-500">
           {
             breadcrumbs.map((item, index) => (
               <>
@@ -88,7 +88,7 @@ const breadcrumbLd = {
         </ol>
       </nav>
       <div class="max-w-3xl mt-10">
-        <p class="flex items-center font-mono text-xs tracking-wider uppercase gap-2 text-base-500">
+        <p class="flex items-center text-sm gap-2 text-base-500">
           <IconComponent size="sm" class="text-accent-600" aria-hidden="true" />
           {frontmatter.category && <span>{frontmatter.category}</span>}
           <span aria-hidden="true">·</span>
@@ -102,17 +102,17 @@ const breadcrumbLd = {
         <h1 class="mt-6 text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 text-balance lg:text-5xl lg:leading-[1.08]">
           {frontmatter.page}
         </h1>
-        <p class="max-w-xl mt-6 text-lg font-light leading-snug text-base-600">{frontmatter.description}</p>
+        <p class="max-w-xl mt-6 text-lg leading-snug text-base-600">{frontmatter.description}</p>
       </div>
     </Frame>
-    <Frame n={2} class="py-12 lg:py-16 lg:!px-14">
+    <Frame n={2} rhythm="section" class="lg:!px-14">
       <Wrapper variant="prose" class="max-w-xl">
         <slot />
       </Wrapper>
     </Frame>
     {
       (frontmatter.faq ?? []).length > 0 && (
-        <Frame n={3} class="py-16 lg:py-24 lg:!px-14">
+        <Frame n={3} rhythm="close" class="lg:!px-14">
           <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
             <div>
               <Head tag="Domande" title="Su questo argomento" />
@@ -120,7 +120,7 @@ const breadcrumbLd = {
             </div>
             <dl>
               {frontmatter.faq.map((item) => (
-                <div class="py-5 border-t border-dashed border-base-200 last:border-b">
+                <div class="py-5 border-t border-base-200 last:border-b">
                   <dt class="text-lg text-base-900">{item.question}</dt>
                   <dd class="max-w-2xl mt-2 text-md leading-relaxed text-base-600">{item.answer}</dd>
                 </div>

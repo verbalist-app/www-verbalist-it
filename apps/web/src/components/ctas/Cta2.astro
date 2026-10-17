@@ -1,8 +1,7 @@
 ---
-// Chiusura delle pagine interne: titolo con la parola nell'accento, testo e
-// pillole. Sta sul fondo `base-50`, come la chiusura della home.
+// Chiusura delle pagine interne, nella grammatica a carta avorio (prova del
+// 2026-10-17): titolo grande al centro, testo e pillole sotto.
 import Frame from "@/components/section/Frame.astro";
-import Head from "@/components/section/Head.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 
 const {
@@ -16,20 +15,22 @@ const {
 } = Astro.props;
 ---
 
-<Frame tone="soft" class={compact ? "py-12 lg:py-14 lg:!px-14" : "py-14 lg:py-20 lg:!px-14"}>
-  <Head title={title} />
-  <p class="max-w-md mt-6 text-lg font-light leading-snug text-base-600">{text}</p>
-  <div class="flex flex-wrap items-center mt-8 gap-3">
-    <Button isLink size="base" variant="accent" href={primaryHref}>{primaryText}</Button>
+<Frame rhythm={compact ? "section" : "close"} class="lg:!px-14">
+  <div class="flex flex-col items-center text-center">
+    <h2 class="max-w-3xl text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 text-balance lg:text-display">{title}</h2>
+    <p class="max-w-md mt-6 text-lg leading-snug text-base-600">{text}</p>
+    <div class="flex flex-wrap items-center justify-center mt-8 gap-3">
+      <Button isLink size="base" variant="accent" href={primaryHref}>{primaryText}</Button>
+      {
+        secondaryText && secondaryHref && (
+          <Button isLink size="base" variant="muted" href={secondaryHref}>{secondaryText}</Button>
+        )
+      }
+    </div>
     {
-      secondaryText && secondaryHref && (
-        <Button isLink size="base" variant="muted" href={secondaryHref}>{secondaryText}</Button>
+      /registration/.test(primaryHref) && (
+        <p class="mt-4 text-sm text-base-500">30 giorni, 15 documenti, senza carta di credito.</p>
       )
     }
   </div>
-  {
-    /registration/.test(primaryHref) && (
-      <p class="mt-4 text-sm text-base-500">30 giorni, 15 documenti, senza carta di credito.</p>
-    )
-  }
 </Frame>

@@ -30,7 +30,7 @@ const split = steps.length > 0;
   <div class={`grid gap-10 ${split ? "lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:items-center" : ""}`}>
     <div class="min-w-0">
       <Head tag={eyebrow} title={title} level="h1" />
-      <p class="max-w-lg mt-6 text-lg font-light leading-snug text-base-600 lg:text-lede">{text}</p>
+      <p class="max-w-lg mt-6 text-lg leading-snug text-base-600 lg:text-lede">{text}</p>
       <div class="flex flex-wrap items-center mt-8 gap-3">
         <slot />
       </div>
@@ -50,10 +50,10 @@ const split = steps.length > 0;
               </div>
             )
           }
-          <ol role="list" class="absolute z-10 p-4 bg-white left-5 bottom-5 w-[16.5rem] rounded-2xl vb-float sm:left-7 sm:bottom-7 sm:w-72">
-            {stepsLead && <li class="pb-1 font-mono text-xs tracking-wider uppercase text-base-500" aria-hidden="true">{stepsLead}</li>}
+          <ol role="list" class="absolute z-10 p-4 bg-panel left-5 bottom-5 w-[16.5rem] rounded-2xl vb-float sm:left-7 sm:bottom-7 sm:w-72">
+            {stepsLead && <li class="pb-1 text-sm text-base-500" aria-hidden="true">{stepsLead}</li>}
             {steps.map((step, i) => (
-              <li class="flex items-start py-2.5 gap-3 border-t border-dashed border-base-200 first-of-type:border-t-0">
+              <li class="flex items-start py-2.5 gap-3 border-t border-base-200 first-of-type:border-t-0">
                 <span class="font-mono text-xs leading-5 text-accent-600">0{i + 1}</span>
                 <span class="text-sm leading-5 text-base-900">{cap(step)}</span>
               </li>

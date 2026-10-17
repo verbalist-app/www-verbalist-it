@@ -30,7 +30,7 @@ Method: dual-agent (A: design review isolata · B: detector CLI + browser Playwr
 | 9 | Recupero errori | n/a | — |
 | 10 | Aiuto | 3 | FAQ + help center, non contestuale |
 
-## Verdetto di specificità: la cornice è di Cloudflare, il corpo è di Verbalist
+## Verdetto di specificità: la cornice è del riferimento esterno, il corpo è di Verbalist
 Guscio (tratteggio, Sec 0.x, puntini, targhetta mono, Geist, arancio) preso alla lettera: un devtool qualsiasi potrebbe usarlo. Ciò che nessuno potrebbe copiare: l'esempio "scarpe da running" che attraversa hero → catena → due versioni → anatomia GEO, e il registro dei sette clienti.
 
 Detector CLI: 0 finding sul perimetro home. Overlay in pagina: 71 finding, di cui verificati: **low-contrast 37** (bianco su #f6590c 3,31:1 sui bottoni ×5; etichette mono base-400 #a1a1a1 su bianco 2,58:1 ×32: label dei pannelli hero, dt di Prints, crediti di Proofs, "Materiale dimostrativo"; parole grigie nei titoli 2,58:1 a 52 px; "€" 24 px), nested-cards 7 (pannelli hero e dl in Prints), cramped-padding 4, all-caps-body 3 (etichette mono: regola di brand). Falsi positivi: text-occlusion 11 e dark-glow 1 (DOM dell'overlay), line-length su FAQ chiuse. Browser: 0 errori console, 0 overflow, focus visibile 15/15 su entrambi i viewport, un h1, outline h2/h3 senza salti, 8 img con alt, 0 controlli senza nome, toggle menu con aria-expanded corretto, font self-hosted (0 richieste a Google Fonts). Target < 44 px a 375: link inline dei clienti (h 23), link footer (h 36), "Prova gratis" in barra (h 36), bottoni h 40. Segnalato da B e non da A: contrasto delle etichette mono e delle parole grigie nei titoli.

@@ -31,7 +31,7 @@ const beforeWriting = [
       <div class="grid gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-16 lg:items-start">
         <div>
           <Head tag="Contatti" title="Parliamo del tuo caso." level="h1" />
-          <p class="max-w-md mt-6 text-lg font-light leading-snug text-base-600">
+          <p class="max-w-md mt-6 text-lg leading-snug text-base-600">
             Domande, richieste o una demo di Verbalist? Scrivici qui a fianco:
             ti rispondiamo davvero, e parli con chi costruisce il prodotto.
           </p>
@@ -42,8 +42,8 @@ const beforeWriting = [
                 ["Piano Custom", "Volume su misura, utenti illimitati, account manager e onboarding guidato."],
                 ["Supporto", "Se usi già Verbalist e qualcosa non torna, scrivi qui: ti rispondiamo dal team."],
               ].map(([k, v]) => (
-                <li class="grid grid-cols-[6.5rem_1fr] py-4 border-t border-dashed gap-4 border-base-200 last:border-b">
-                  <span class="font-mono text-xs leading-6 tracking-wider uppercase text-accent-600">{k}</span>
+                <li class="grid grid-cols-[6.5rem_1fr] py-4 border-t gap-4 border-base-200 last:border-b">
+                  <span class="text-sm leading-6 text-base-500">{k}</span>
                   <span class="leading-relaxed text-base-600">{v}</span>
                 </li>
               ))
@@ -51,31 +51,31 @@ const beforeWriting = [
           </ul>
           <p class="mt-8 text-sm text-base-500">
             Preferisci provare da solo?
-            <a href="https://app.verbalist.it/login?registration&code=PROVAGRATUITA26" class="text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">Prova gratis 30 giorni</a>, senza carta di credito.
+            <a href="https://app.verbalist.it/login?registration&code=PROVAGRATUITA26" class="text-base-900 border-b border-base-400 hover:text-accent-600 hover:border-accent-500">Prova gratis 30 giorni</a>, senza carta di credito.
           </p>
           <div class="max-w-md mt-12">
-            <h2 class="font-mono text-xs font-normal tracking-wider uppercase text-base-500">Prima di scrivere</h2>
+            <h2 class="text-sm font-normal text-base-500">Prima di scrivere</h2>
             <dl class="mt-3 text-md">
               {
                 beforeWriting.map(({ q, a }) => (
-                  <div class="py-4 border-t border-dashed border-base-200">
+                  <div class="py-4 border-t border-base-200">
                     <dt class="text-base-900">{q}</dt>
                     <dd class="mt-1 leading-relaxed text-base-600">{a}</dd>
                   </div>
                 ))
               }
-              <div class="py-4 border-t border-b border-dashed border-base-200">
+              <div class="py-4 border-t border-b border-base-200">
                 <dt class="text-base-900">Dove trovo le istruzioni?</dt>
                 <dd class="mt-1 leading-relaxed text-base-600">
-                  Nell'<a href="/help/" class="text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500">help center</a>:
+                  Nell'<a href="/help/" class="text-base-900 border-b border-base-400 hover:text-accent-600 hover:border-accent-500">help center</a>:
                   come si crea un documento, come usare contesto e PDF, come funzionano crediti ed errori.
                 </dd>
               </div>
             </dl>
           </div>
         </div>
-        <div class="p-6 bg-white border rounded-xl border-base-200 sm:p-8">
-          <p class="flex items-center justify-between font-mono text-xs tracking-wider uppercase text-base-500">
+        <div class="p-6 bg-panel rounded-md sm:p-8">
+          <p class="flex items-center justify-between text-sm text-base-500">
             <span class="flex items-center gap-2"><span class="rounded-full size-1.5 bg-accent-500"></span>Scrivici</span>
             <span>Risposta dal team</span>
           </p>
@@ -138,10 +138,7 @@ const beforeWriting = [
   #hubspot-form .hs-form-field > label {
     display: block;
     margin-bottom: 0.375rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-size: 0.875rem;
     color: var(--color-base-500);
   }
   #hubspot-form .hs-form-required {

@@ -15,8 +15,8 @@ const pubDate = new Date(post.data.pubDate).toLocaleDateString("it-IT", {
 });
 ---
 
-<article class="relative flex flex-col px-4 py-8 border-b border-dashed group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
-  <p class="flex items-center justify-between font-mono text-xs tracking-wider uppercase gap-4 text-base-500">
+<article class="relative flex flex-col px-4 py-8 border-b group border-base-200 lg:px-8 lg:py-10 transition-colors duration-200 hover:bg-base-50">
+  <p class="flex items-center justify-between text-sm gap-4 text-base-500">
     <time datetime={new Date(post.data.pubDate).toISOString()}>{pubDate}</time>
     {tag && <span class="text-accent-600">{tag}</span>}
   </p>

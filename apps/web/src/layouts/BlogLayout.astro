@@ -108,11 +108,11 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
     set:html={JSON.stringify(breadcrumbLd)}
   />
   <div class="pt-[72px]">
-  <section class="border-b border-dashed border-base-200 bg-base-50">
+  <section class="border-b border-base-200 bg-base-50">
     <Wrapper variant="standard" class="pt-8 pb-12 lg:pt-10 lg:pb-16 lg:px-14">
       <div class="flex items-center justify-between gap-4">
       <nav aria-label="Breadcrumb" class="min-w-0">
-        <ol class="flex flex-wrap items-center font-mono text-xs tracking-wider uppercase gap-2 text-base-500">
+        <ol class="flex flex-wrap items-center text-sm gap-2 text-base-500">
           {
             breadcrumbs.map((item, index) => (
               <>
@@ -134,7 +134,7 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
         href={`/blog/${currentSlug}.md`}
         type="text/markdown"
         title="Lo stesso articolo in Markdown, per agenti e LLM"
-        class="relative inline-flex items-center h-8 px-3 font-mono text-xs tracking-wider uppercase bg-white border rounded-full tap-target shrink-0 border-base-200 text-base-600 hover:border-base-300 hover:text-base-900"
+        class="relative inline-flex items-center h-8 px-3 text-sm bg-panel border rounded-full tap-target shrink-0 border-base-200 text-base-600 hover:border-base-300 hover:text-base-900"
       >
         Markdown<span class="sr-only"> di questo articolo</span>
       </a>
@@ -143,7 +143,7 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
         <h1 class="text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 text-balance lg:text-5xl lg:leading-[1.08]">
           <Unbroken text={frontmatter.title} />
         </h1>
-        <p class="max-w-xl mt-6 text-lg font-light leading-snug text-base-600">
+        <p class="max-w-xl mt-6 text-lg leading-snug text-base-600">
           {frontmatter.description}
         </p>
       </div>
@@ -151,12 +151,12 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
     </Wrapper>
   </section>
   <section>
-    <Wrapper variant="standard" class="pt-12 pb-4 border-t border-base-200 border-dashed">
+    <Wrapper variant="standard" class="pt-12 pb-4 border-t border-base-200">
       <div class="max-w-xl mx-auto">
         {
           frontmatter.tldr && frontmatter.tldr.length > 0 && (
-            <details open class="mb-10 bg-white border group border-base-200 rounded-xl">
-              <summary class="flex items-center justify-between px-5 py-3.5 font-mono text-xs font-medium tracking-wider uppercase select-none cursor-pointer list-none text-base-700 [&::-webkit-details-marker]:hidden">
+            <details open class="mb-10 bg-panel border group border-base-200 rounded-xl">
+              <summary class="flex items-center justify-between px-5 py-3.5 text-sm select-none cursor-pointer list-none text-base-700 [&::-webkit-details-marker]:hidden">
                 Riassunto
                 <svg
                   class="size-4 text-base-500 duration-300 transition-transform group-open:rotate-180"
@@ -184,10 +184,10 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
         <Wrapper variant="prose">
           <slot />
         </Wrapper>
-        <div class="w-full pt-8 mt-8 border-t border-base-200 border-dashed">
+        <div class="w-full pt-8 mt-8 border-t border-base-200">
           {
             team && (
-              <div class="flex items-center gap-3 hover:opacity-80 transition ">
+              <div class="flex items-center gap-3 hover:opacity-80 transition">
                 <a href={`/team/${team.slug}/`}>
                   {team?.data?.image?.url && (
                     <Image
@@ -199,10 +199,10 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
                     />
                   )}
                 </a>
-                <Text tag="p" variant="textXS" class="text-base-500 ">
+                <Text tag="p" variant="textXS" class="text-base-500">
                   <span class="">
                     Pubblicato il
-                    <span class="font-medium  text-base-500">
+                    <span class="font-medium text-base-500">
                       <time
                         datetime={new Date(frontmatter.pubDate).toISOString()}
                       >
@@ -219,7 +219,7 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
                   </span>
                   <span class="">
                     da
-                    <span class="font-medium text-base-500 ">
+                    <span class="font-medium text-base-500">
                       {team.data.name}
                     </span>
                   </span>
@@ -228,7 +228,7 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
                     ·
                     {frontmatter.tags.map((tag) => (
                       <>
-                        <a href={`/categorie/${slugifyTag(tag)}/`} class="capitalize ">
+                        <a href={`/categorie/${slugifyTag(tag)}/`} class="capitalize">
                           {tag}
                         </a>
                       </>
@@ -256,12 +256,12 @@ import Unbroken from "@/components/fundations/elements/Unbroken.astro";
   />
   {
     relatedPosts.length > 0 && (
-      <section class="border-t border-base-200 border-dashed">
+      <section class="border-t border-base-200">
         <Wrapper variant="standard" class="py-12">
           <h2 class="text-display-xs font-normal tracking-[-0.025em] text-base-900">
             Articoli correlati
           </h2>
-          <div class="grid mt-8 -mx-4 border-t border-dashed border-base-200 md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:not(:nth-child(3n))]:border-r lg:[&>*:nth-child(3n)]:border-r-0 lg:-mx-12">
+          <div class="grid mt-8 -mx-4 border-t border-base-200 md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]: lg:[&>*:not(:nth-child(3n))]:border-r lg:[&>*:nth-child(3n)]:border-r-0 lg:-mx-12">
             {relatedPosts.slice(0, 3).map((post) => (
               <BlogCard post={post} />
             ))}

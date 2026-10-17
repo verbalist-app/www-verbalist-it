@@ -5,7 +5,7 @@ import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
 import { demoBrief, demoDocument, demoVersions } from "./demo";
 
-const label = "font-mono text-xs tracking-wider uppercase text-base-500";
+const label = "text-sm text-base-500";
 const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600 box-decoration-clone";
 // I segnaposto che la piattaforma lascia a chi revisiona restano visibili.
 const parts = (t: string) => t.split(/(\[SOURCE NEEDED\]|\[INTERNAL:[^\]]*\])/).filter(Boolean);
@@ -13,7 +13,7 @@ const isTag = (t: string) => t.startsWith("[SOURCE NEEDED") || t.startsWith("[IN
 const count = (n: number) => n.toLocaleString("it-IT");
 ---
 
-<Frame n={5} labelledby="prints-title" class="py-14 lg:py-20 lg:!px-14">
+<Frame n={5} labelledby="prints-title" rhythm="section" class="lg:!px-14">
   <Head tag="Due versioni" id="prints-title">
     <Fragment slot="title">
       Una generazione. Due testi interi,
@@ -36,12 +36,12 @@ const count = (n: number) => n.toLocaleString("it-IT");
   >
     {
       demoVersions.map((v) => (
-        <article data-sheet={v.id} aria-label={`${v.label}: ${v.angle}`} class="overflow-hidden bg-white border snap-start rounded-xl border-base-200">
+        <article data-sheet={v.id} aria-label={`${v.label}: ${v.angle}`} class="overflow-hidden bg-panel border snap-start rounded-xl border-base-200">
           <header class="flex items-center justify-between px-5 border-b h-11 border-base-200 gap-4">
             <p class="text-sm text-accent-600 whitespace-nowrap">{v.label}</p>
             <p class={`${label} whitespace-nowrap`}>Generato da Verbalist</p>
           </header>
-          <dl class="grid grid-cols-[auto_1fr] px-5 py-4 text-xs border-b border-dashed gap-x-4 gap-y-1.5 border-base-200 bg-base-50">
+          <dl class="grid grid-cols-[auto_1fr] px-5 py-4 text-xs border-b gap-x-4 gap-y-1.5 border-base-200 bg-base-50">
             <dt class={label}>Taglio</dt><dd class="text-base-800">{v.angle}</dd>
             <dt class={label}>Testo</dt><dd class="text-base-800 tabular-nums">{count(v.words)} parole, {v.headings} sezioni</dd>
           </dl>
@@ -49,7 +49,7 @@ const count = (n: number) => n.toLocaleString("it-IT");
             <h3 class="text-2xl font-normal tracking-tight text-base-900 text-balance">{v.h1}</h3>
             <p class="mt-3 text-md leading-relaxed text-base-700 line-clamp-5 group-has-[details[open]]/sheet:line-clamp-none">{v.intro}</p>
             <details class="mt-5 group">
-              <summary class="inline-flex items-center h-9 px-4 text-sm bg-white border rounded-full cursor-pointer gap-2 border-base-200 text-base-900 list-none hover:border-base-300 hover:text-accent-600 [&::-webkit-details-marker]:hidden">
+              <summary class="inline-flex items-center h-9 px-4 text-sm bg-panel border rounded-full cursor-pointer gap-2 border-base-200 text-base-900 list-none hover:border-base-300 hover:text-accent-600 [&::-webkit-details-marker]:hidden">
                 <span class="group-open:hidden">Leggi un estratto</span><span class="hidden group-open:inline">Chiudi</span>
                 <svg viewBox="0 0 16 16" class="size-3.5 transition-transform duration-300 text-accent-500 group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 2v12M2 8h12"></path></svg>
               </summary>
@@ -82,7 +82,7 @@ const count = (n: number) => n.toLocaleString("it-IT");
                               </thead>
                               <tbody class="text-base-700">
                                 {b.table.rows.map((r) => (
-                                  <tr>{r.map((c) => <td class="py-2 pr-3 align-top border-b border-dashed border-base-200">{c}</td>)}</tr>
+                                  <tr>{r.map((c) => <td class="py-2 pr-3 align-top border-b border-base-200">{c}</td>)}</tr>
                                 ))}
                               </tbody>
                             </table>
@@ -105,7 +105,7 @@ const count = (n: number) => n.toLocaleString("it-IT");
   </div>
 
   <p class="max-w-lg mt-8 text-sm leading-relaxed text-base-500">
-    <span class="font-mono tracking-wider uppercase text-base-500">Output reale</span> ·
+    <span class="text-base-500">Output reale</span> ·
     documento generato da Verbalist il {demoDocument.generated} per la keyword
     «{demoBrief.keyword}» ({demoBrief.type}, mercato {demoBrief.market},
     lingua: {demoBrief.language}). Qui ne leggi un estratto, senza ritocchi.

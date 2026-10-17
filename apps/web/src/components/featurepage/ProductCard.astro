@@ -1,5 +1,5 @@
 ---
-// La card di prodotto (modello: le card di claude.com): angoli ampi, bordo
+// La card di prodotto : angoli ampi, bordo
 // sottile, bianca con due velature quasi bianche in basso. Dentro ci stanno
 // oggetti sovrapposti (finestre dell'app, messaggi, elenchi) che i bordi
 // tagliano netti. Solo immagine: chi la usa passa `label` per il role="img".
@@ -12,7 +12,7 @@ interface Props {
 const { label, class: className = "", tone = "alba" } = Astro.props;
 ---
 
-<div role="img" data-nosnippet aria-label={label} class={`relative overflow-hidden bg-white border rounded-3xl border-base-200 vb-product-card ${className}`} data-tone={tone}>
+<div role="img" data-nosnippet aria-label={label} class={`relative overflow-hidden bg-panel rounded-3xl vb-product-card ${className}`} data-tone={tone}>
   <slot />
 </div>
 
@@ -21,18 +21,18 @@ const { label, class: className = "", tone = "alba" } = Astro.props;
     background:
       radial-gradient(70% 55% at 100% 100%, var(--color-wash-warm) 0, transparent 70%),
       radial-gradient(55% 45% at 0% 100%, var(--color-wash-cool) 0, transparent 70%),
-      var(--color-white);
+      var(--color-panel);
   }
   .vb-product-card[data-tone="sera"] {
     background:
       radial-gradient(70% 55% at 0% 100%, var(--color-wash-warm) 0, transparent 70%),
       radial-gradient(55% 45% at 100% 0%, var(--color-wash-cool) 0, transparent 70%),
-      var(--color-white);
+      var(--color-panel);
   }
   .vb-product-card[data-tone="foschia"] {
     background:
       radial-gradient(80% 70% at 100% 0%, var(--color-wash-cool) 0, transparent 70%),
-      var(--color-white);
+      var(--color-panel);
   }
   .vb-product-card[data-tone="carta"] {
     background: var(--color-base-50);
@@ -41,17 +41,17 @@ const { label, class: className = "", tone = "alba" } = Astro.props;
   .vb-product-card .vb-window {
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.9),
-      0 0 0 1px rgb(22 27 29 / 0.08),
-      0 2px 4px rgb(22 27 29 / 0.04),
-      0 16px 32px -12px rgb(22 27 29 / 0.14),
-      0 48px 96px -32px rgb(22 27 29 / 0.28);
+      0 0 0 1px rgb(38 37 30 / 0.08),
+      0 2px 4px rgb(38 37 30 / 0.04),
+      0 16px 32px -12px rgb(38 37 30 / 0.14),
+      0 48px 96px -32px rgb(38 37 30 / 0.28);
   }
   /* Card in primo piano (messaggi, elenchi): ombra più corta. */
   .vb-product-card .vb-float {
     box-shadow:
-      0 0 0 1px rgb(22 27 29 / 0.06),
-      0 1px 2px rgb(22 27 29 / 0.05),
-      0 12px 24px -10px rgb(22 27 29 / 0.16),
-      0 32px 56px -24px rgb(22 27 29 / 0.2);
+      0 0 0 1px rgb(38 37 30 / 0.06),
+      0 1px 2px rgb(38 37 30 / 0.05),
+      0 12px 24px -10px rgb(38 37 30 / 0.16),
+      0 32px 56px -24px rgb(38 37 30 / 0.2);
   }
 </style>

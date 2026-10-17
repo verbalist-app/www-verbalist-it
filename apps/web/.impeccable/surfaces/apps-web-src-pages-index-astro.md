@@ -8,7 +8,7 @@ related_targets: ["apps/web/src/components/global/Navigation.astro","apps/web/sr
 # Homepage — surface brief
 
 Scope: `apps/web/src/pages/index.astro` più navigazione, footer, token e bottoni condivisi. Mode: Persuade.
-Brief di contenuto: `.redesign/home-brief.md` (sequenza, prove, decisioni del maintainer). Il mondo visivo "Bacino di inchiostro" è stato scartato dal maintainer il 2026-09-21 dopo la prima build ("mi fa veramente schifo"); riferimento scelto: https://try.cloudflare.com/, con il suo schema colori.
+Brief di contenuto: `.redesign/home-brief.md` (sequenza, prove, decisioni del maintainer). Il mondo visivo "Bacino di inchiostro" è stato scartato dal maintainer il 2026-09-21 dopo la prima build ("mi fa veramente schifo"); riferimento scelto: https://il primo riferimento esterno/, con il suo schema colori.
 
 ## Direction contract
 

@@ -17,25 +17,33 @@ const defaultClass = [
   "focus:ring-black",
   "hover:bg-base-700",
 ];
-// Pillola piena nell'accento: un filo di luce in alto e un'ombra corta la
-// staccano dal foglio senza farne un bottone "lucido".
+// Pillola piena nell'accento, senza ombra: in hover il nero si apre di un
+// passo. (Le due ombre delle pillole sono state tolte il 2026-10-17: il
+// sito non ha più ombre fuori dagli oggetti di prodotto.)
 const accentClass = [
   "text-white",
   "bg-accent-500",
   "hover:bg-base-700",
   "focus:ring-base-900",
-  "shadow-[inset_0_1px_0_rgb(255_255_255/0.22),0_1px_2px_rgb(0_0_0/0.14)]",
 ];
-// Pillola bianca con filetto: l'azione secondaria.
+// Pillola secondaria come nel riferimento esterno (dal 2026-10-17): tinta, senza
+// bordo visibile, in hover un tono più scura.
 const mutedClass = [
   "text-base-900",
-  "bg-white",
+  "bg-base-100",
   "border",
-  "border-base-200",
-  "hover:border-base-300",
-  "hover:text-accent-600",
+  "border-transparent",
+  "hover:bg-base-200",
   "focus:ring-base-300",
-  "shadow-[0_1px_2px_rgb(0_0_0/0.05)]",
+];
+// Pillola "ghost": trasparente con filetto al 20%, si riempie in hover (nav).
+const ghostClass = [
+  "text-base-900",
+  "bg-transparent",
+  "border",
+  "border-base-300",
+  "hover:bg-panel",
+  "focus:ring-base-300",
 ];
 
 const sizes = {
@@ -69,6 +77,7 @@ const variantClass = {
   default: defaultClass,
   accent: accentClass,
   muted: mutedClass,
+  ghost: ghostClass,
   none: [],
 };
 
@@ -91,7 +100,7 @@ const baseClass = [
   "text-center",
   "rounded-full",
   "items-center",
-  "duration-300",
+  "duration-150",
   "justify-center",
   "focus:ring-2",
   "focus:outline-none",

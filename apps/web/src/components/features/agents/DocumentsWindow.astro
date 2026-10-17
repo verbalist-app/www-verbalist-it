@@ -16,7 +16,7 @@ interface Props {
 const { docs, class: className = "" } = Astro.props;
 ---
 
-<div class={`w-[560px] overflow-hidden text-base-900 bg-white rounded-xl antialiased [zoom:var(--vb-zoom,1)] ${className}`}>
+<div class={`w-[560px] overflow-hidden text-base-900 bg-panel rounded-xl antialiased [zoom:var(--vb-zoom,1)] ${className}`}>
   <div class="flex items-center h-8 px-3 border-b gap-1.5 border-base-200">
     <span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span><span class="rounded-full size-2 bg-base-200"></span>
   </div>
@@ -30,7 +30,7 @@ const { docs, class: className = "" } = Astro.props;
         <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>Nuovo documento
       </span>
     </div>
-    <div class="mt-4 overflow-hidden bg-white border rounded-lg border-base-200">
+    <div class="mt-4 overflow-hidden bg-panel border rounded-lg border-base-200">
       <div class="grid grid-cols-[minmax(0,1fr)_7rem_7rem_5rem] px-4 py-2 text-2xs uppercase tracking-wider border-b border-base-200 text-base-500 gap-3">
         <span>Documento</span><span>Tipo</span><span>Stato</span><span>Data</span>
       </div>

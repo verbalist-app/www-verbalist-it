@@ -12,11 +12,12 @@ const plans = pricingOptions.map((p) => ({
   // voce del brand: niente anglicismi di servizio
   features: p.features.map((f) => f.replace("Onboarding white-glove", "Onboarding guidato")),
 }));
-const label = "font-mono text-xs tracking-wider uppercase";
+// grammatica a carta avorio (dal 2026-10-17): tre card tinte, il piano
+// consigliato un tono più scuro con la targhetta a pillola.
 ---
 
-<Frame n={8} id="prezzi" labelledby="plans-title" class="pt-14 lg:pt-20 !px-0">
-  <Head tag="Prezzi" id="plans-title" class="px-4 lg:px-14">
+<Frame n={8} id="prezzi" labelledby="plans-title" rhythm="section" class="lg:!px-14">
+  <Head tag="Prezzi" id="plans-title">
     <Fragment slot="title">
       Paghi una volta, per quanto
       produci.
@@ -24,13 +25,13 @@ const label = "font-mono text-xs tracking-wider uppercase";
     <p>Nessun abbonamento: scegli il volume di contenuti e li usi entro 12 mesi. Le funzionalità sono le stesse in ogni piano.</p>
   </Head>
 
-  <div class="grid mt-10 border-t border-dashed border-base-200 lg:mt-14 lg:grid-cols-3 lg:divide-x lg:divide-dashed lg:divide-base-200">
+  <div class="grid gap-3 mt-10 lg:mt-14 lg:grid-cols-3">
     {
       plans.map((plan) => (
-        <article class={`flex flex-col px-4 py-10 border-b border-dashed border-base-200 last:border-b-0 lg:border-b-0 lg:px-10 ${plan.isPopular ? "bg-base-50" : ""}`}>
+        <article class={`flex flex-col p-6 rounded-md lg:p-10 ${plan.isPopular ? "bg-base-100" : "bg-panel"}`}>
           <div class="flex items-center justify-between">
-            <h3 class={`${label} ${plan.isPopular ? "text-accent-600" : "text-base-500"}`}>{plan.title}</h3>
-            {plan.isPopular && <span class={`${label} px-1.5 py-0.5 text-white bg-accent-600`}>Consigliato</span>}
+            <h3 class="text-xl font-normal text-base-900">{plan.title}</h3>
+            {plan.isPopular && <span class="inline-flex items-center h-6 px-2.5 text-xs border rounded-full border-current text-base-900">Consigliato</span>}
           </div>
           <p class="mt-6 text-[2.75rem] leading-none font-normal tracking-[-0.03em] text-base-900 tabular-nums">
             {plan.price.startsWith("€") ? <>{plan.price.slice(1)}<span class="ml-1 text-2xl text-base-500">€</span></> : <span class="text-display-xs">{plan.price}</span>}
@@ -39,7 +40,7 @@ const label = "font-mono text-xs tracking-wider uppercase";
           <p class="mt-4 text-md leading-relaxed text-base-600 min-h-10">{plan.description}</p>
           <ul role="list" class="mt-6 mb-10 text-sm text-base-800">
             {plan.features.map((f) => (
-              <li class="flex items-start py-3 border-t border-dashed gap-3 border-base-200 last:border-b">
+              <li class="flex items-start py-3 border-t gap-3 border-base-200 last:border-b">
                 <span class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0"></span>{f}
               </li>
             ))}
