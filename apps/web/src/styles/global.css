@@ -11,23 +11,16 @@
   descent-override: 24%;
   line-gap-override: 0%;
 }
-@font-face {
-  font-family: "Geist Mono Fallback";
-  src: local("Menlo"), local("Consolas"), local("Courier New");
-  size-adjust: 96%;
-  ascent-override: 92%;
-  descent-override: 24%;
-  line-gap-override: 0%;
-}
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 @plugin "tailwind-scrollbar-hide";
 @theme {
-  /* Typography: un solo grottesco (Geist) per display e testo, Geist Mono per
-     etichette e artefatti tecnici. `font-serif` resta come alias storico dei
-     display: ora punta a Geist. Font self-hosted via fontsource. */
+  /* Typography: un solo carattere, Geist, per tutto: display, testo, dati e
+     codice (il mono è stato ritirato il 2026-10-17). `font-serif` e
+     `font-mono` restano come alias storici che puntano a Geist. Font
+     self-hosted via fontsource. */
   --font-sans: "Geist Variable", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono Variable", "Geist Mono Fallback", ui-monospace, monospace;
+  --font-mono: "Geist Variable", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Geist Variable", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   /* Scala tipografica documentata in DESIGN.md: i passi fuori dalla scala
      Tailwind di default hanno un nome, così nessuna misura resta arbitraria. */
@@ -43,6 +36,8 @@
   --text-display-xs--line-height: 1.15;
   --text-display: 3.25rem; /* 52px: H1 interne e H2 di sezione (desktop) */
   --text-display--line-height: 1.08;
+  --text-hero-md: 2.75rem; /* 44px: H1 dell'hero in home (desktop), peso 500 */
+  --text-hero-md--line-height: 1.1;
   --text-hero-sm: 3.5rem; /* 56px: hero da sm */
   --text-hero-sm--line-height: 1.06;
   --text-hero: 3.75rem; /* 60px: hero della home (desktop) */

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-17T00:00:00Z",
+  "generatedAt": "2026-10-17T18:00:00Z",
   "title": "Design System: Verbalist",
   "extensions": {
     "colorMeta": {
@@ -378,6 +378,10 @@
         "displayName": "Hero",
         "purpose": "44 px, 56 da sm, 60 da lg: titolo della chiusura (Close) e numero del caso in testa ai clienti. Dal 2026-10-17 non è più l'H1 della home. Il prezzo dei piani a 44 px con tabular-nums."
       },
+      "hero-md": {
+        "displayName": "Hero home",
+        "purpose": "Solo l'H1 dell'hero della home: 36 px (text-4xl, leading 1.1), 44 da lg (text-hero-md), peso 500, tracking -0.03em, text-balance. Unico titolo in 500; il motore di destinazione cambia nel titolo ogni 2,6 s."
+      },
       "display": {
         "displayName": "Display",
         "purpose": "H1 delle pagine interne, H2 di sezione (section/Head.astro) e titolo di Cta2: 36 px, 52 da lg, text-balance."
@@ -388,7 +392,7 @@
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "H1 dell'hero della home (24 px, 28 da lg, tracking -0.0125em) e citazione delle prove."
+        "purpose": "Citazione delle prove e titoli di release (24 px, 28 da lg, tracking-tight). Dal 2026-10-17 (sera) non è più l'H1 dell'hero della home."
       },
       "pair": {
         "displayName": "Coppia titolo/lede",
@@ -414,9 +418,9 @@
         "displayName": "Label (sans)",
         "purpose": "14 px Geist base-500 sentence case: etichette di sezione e dei pannelli, numeri delle card, intestazioni del footer, breadcrumb, rassicurazioni. Stesso passo di voci nav, SubNav, righe con punto e cartiglio."
       },
-      "mono": {
-        "displayName": "Mono (artefatti)",
-        "purpose": "Geist Mono 12 px solo per slug, versioni, numeri dei passi, esadecimali, codice. Mai per etichette scritte da noi."
+      "note": {
+        "displayName": "Dati e note",
+        "purpose": "Geist 12 px (text-xs) base-500 o accent-600: slug, versioni, numeri dei passi e della SubNav, esadecimali, codice, rassicurazioni e metadati. Il mono è stato ritirato il 2026-10-17: gli artefatti si distinguono per misura e colore, non per carattere."
       }
     },
     "shadows": [
@@ -428,7 +432,7 @@
       {
         "name": "vb-float",
         "value": "0 0 0 1px rgb(38 37 30 / 0.06), 0 1px 2px rgb(38 37 30 / 0.05), 0 12px 24px -10px rgb(38 37 30 / 0.16), 0 32px 56px -24px rgb(38 37 30 / 0.2)",
-        "purpose": "Card in primo piano dentro il pannello di prodotto: brief, motori, passi numerati."
+        "purpose": "Card in primo piano dentro il pannello di prodotto: il brief nell'hero, i passi numerati del Manifesto."
       },
       {
         "name": "vb-peek-card",
@@ -460,7 +464,12 @@
       {
         "name": "m-tokens",
         "value": "--m-micro 150ms, --m-base 320ms, --m-wide 600ms, --m-exit 0.7, --m-stagger 55ms",
-        "purpose": "Linguaggio di movimento in src/styles/motion.css e src/lib/motion.ts; nessuna sezione in loop dal 2026-10-11."
+        "purpose": "Linguaggio di movimento in src/styles/motion.css e src/lib/motion.ts. Unico loop del sito: il motore nel titolo dell'hero della home (ogni 2,6 s, --m-micro/--m-ease-out, fermo con prefers-reduced-motion, in pausa con il mouse sul titolo e a scheda nascosta)."
+      },
+      {
+        "name": "hero-engine",
+        "value": "2600ms interval, leave/enter --m-micro --m-ease-out, translateY(0.18em)",
+        "purpose": "home/Hero.astro: il nome e l'icona del motore scendono di 0.18em e sfumano, poi risalgono col nuovo (ChatGPT, Gemini, Claude, Perplexity, Google). Non parte con prefers-reduced-motion; salta i passi con il mouse sul titolo o document.hidden."
       },
       {
         "name": "reduced-motion",
@@ -544,9 +553,9 @@
       "name": "Pannello tinto con coppia",
       "kind": "card",
       "refersTo": "panel",
-      "description": "La porta della home: carta a 4 px senza bordo, etichetta, titolo e lede alla stessa misura, righe piene con punto, link in fondo.",
-      "html": "<a class=\"ds-panel\" href=\"#\"><p class=\"ds-panel-label\">Per le agenzie</p><h3 class=\"ds-panel-title\">Contenuti per più clienti, con un metodo solo.</h3><p class=\"ds-panel-lede\">Un progetto per cliente, un brief per contenuto, due versioni da revisionare.</p><ul class=\"ds-panel-list\"><li><span class=\"ds-dot\"></span>Progetti separati per cliente</li><li><span class=\"ds-dot\"></span>Due versioni, due modelli</li><li><span class=\"ds-dot\"></span>Export in HTML, Word e Markdown</li></ul><p class=\"ds-panel-more\">Verbalist per le agenzie →</p></a>",
-      "css": ".ds-panel { display: flex; flex-direction: column; padding: 24px; background: var(--color-panel, oklch(95.8% 0.005 95)); border-radius: 4px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; text-decoration: none; color: inherit; } @media (min-width: 64rem) { .ds-panel { padding: 40px; } } .ds-panel-label { margin: 0; font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-panel-title { margin: 24px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-panel-lede { margin: 4px 0 0; max-width: 448px; font-size: 20px; line-height: 1.375; letter-spacing: -0.025em; color: var(--color-base-600, oklch(45% 0.012 100)); text-wrap: pretty; } .ds-panel-list { list-style: none; margin: 32px 0 0; padding: 0; font-size: 14px; color: var(--color-base-800, oklch(30% 0.012 100)); } .ds-panel-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-panel-list li:last-child { border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 9999px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-panel-more { margin: auto 0 0; padding-top: 24px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: opacity 200ms; } .ds-panel:hover .ds-panel-more { opacity: 0.75; } .ds-panel:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
+      "description": "La porta della home: carta a 4 px senza bordo, etichetta, titolo e lede alla stessa misura, righe piene con la V del marchio come marker, link in fondo.",
+      "html": "<a class=\"ds-panel\" href=\"#\"><p class=\"ds-panel-label\">Per le agenzie</p><h3 class=\"ds-panel-title\">Contenuti per più clienti, con un metodo solo.</h3><p class=\"ds-panel-lede\">Un progetto per cliente, un brief per contenuto, due versioni da revisionare.</p><ul class=\"ds-panel-list\"><li><svg class=\"ds-v\" viewBox=\"0 -0.078 28.727 33.652\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m23.77-.078-4.454 7.84-2.691 4.734-2.566 4.516-1.473 2.593-3.227 5.684-.004.004 4.704 8.281 2.945-5.18 1.762-3.101.937-1.652 4.184-7.368 4.84-8.511ZM.309 9.816l4.058 7.149 2.895 5.09 4.789-8.13-2.332-4.109Z\"></path></svg>Progetti separati per cliente</li><li><svg class=\"ds-v\" viewBox=\"0 -0.078 28.727 33.652\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m23.77-.078-4.454 7.84-2.691 4.734-2.566 4.516-1.473 2.593-3.227 5.684-.004.004 4.704 8.281 2.945-5.18 1.762-3.101.937-1.652 4.184-7.368 4.84-8.511ZM.309 9.816l4.058 7.149 2.895 5.09 4.789-8.13-2.332-4.109Z\"></path></svg>Due versioni, due modelli</li><li><svg class=\"ds-v\" viewBox=\"0 -0.078 28.727 33.652\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m23.77-.078-4.454 7.84-2.691 4.734-2.566 4.516-1.473 2.593-3.227 5.684-.004.004 4.704 8.281 2.945-5.18 1.762-3.101.937-1.652 4.184-7.368 4.84-8.511ZM.309 9.816l4.058 7.149 2.895 5.09 4.789-8.13-2.332-4.109Z\"></path></svg>Export in HTML, Word e Markdown</li></ul><p class=\"ds-panel-more\">Verbalist per le agenzie →</p></a>",
+      "css": ".ds-panel { display: flex; flex-direction: column; padding: 24px; background: var(--color-panel, oklch(95.8% 0.005 95)); border-radius: 4px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; text-decoration: none; color: inherit; } @media (min-width: 64rem) { .ds-panel { padding: 40px; } } .ds-panel-label { margin: 0; font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-panel-title { margin: 24px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-panel-lede { margin: 4px 0 0; max-width: 448px; font-size: 20px; line-height: 1.375; letter-spacing: -0.025em; color: var(--color-base-600, oklch(45% 0.012 100)); text-wrap: pretty; } .ds-panel-list { list-style: none; margin: 32px 0 0; padding: 0; font-size: 14px; color: var(--color-base-800, oklch(30% 0.012 100)); } .ds-panel-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-panel-list li:last-child { border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-v { flex-shrink: 0; width: 10px; height: 10px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-panel-more { margin: auto 0 0; padding-top: 24px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: opacity 200ms; } .ds-panel:hover .ds-panel-more { opacity: 0.75; } .ds-panel:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
     },
     {
       "name": "Card dell'agente",
@@ -570,15 +579,15 @@
       "refersTo": "subnav-pill",
       "description": "Riga 48 px sotto la nav (56 su mobile) con riga piena: voce di testa 14 px grigia, pillole 32 px (40 su mobile), la corrente piena nell'inchiostro.",
       "html": "<nav class=\"ds-subnav\"><a class=\"ds-subnav-home\" href=\"#\">Agenti</a><a class=\"ds-subnav-pill is-active\" href=\"#\" aria-current=\"page\"><span class=\"ds-subnav-n\">01</span>Analista</a><a class=\"ds-subnav-pill\" href=\"#\"><span class=\"ds-subnav-n\">02</span>Stratega</a><a class=\"ds-subnav-pill\" href=\"#\"><span class=\"ds-subnav-n\">03</span>Redattore</a></nav>",
-      "css": ".ds-subnav { display: flex; align-items: center; gap: 4px; height: 48px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-subnav-home { display: flex; align-items: center; height: 100%; padding: 0 16px; margin-right: 4px; border-right: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); text-decoration: none; } .ds-subnav-home:hover { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-pill { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-subnav-pill:hover { color: var(--color-base-950, oklch(18.2% 0.014 94)); background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-subnav-pill.is-active { color: #fff; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-n { font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-subnav-pill.is-active .ds-subnav-n { color: rgb(255 255 255 / 0.8); } .ds-subnav-pill:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
+      "css": ".ds-subnav { display: flex; align-items: center; gap: 4px; height: 48px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-subnav-home { display: flex; align-items: center; height: 100%; padding: 0 16px; margin-right: 4px; border-right: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); text-decoration: none; } .ds-subnav-home:hover { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-pill { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-subnav-pill:hover { color: var(--color-base-950, oklch(18.2% 0.014 94)); background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-subnav-pill.is-active { color: #fff; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-n { font-size: 12px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-subnav-pill.is-active .ds-subnav-n { color: rgb(255 255 255 / 0.8); } .ds-subnav-pill:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
     },
     {
       "name": "Cartiglio del footer",
       "kind": "custom",
       "refersTo": "footer",
-      "description": "Una riga a 14 px in fondo al footer di carta: © NUR, foglio e piattaforma in mono, revisione, stato dei sistemi come pillola con punto.",
-      "html": "<dl class=\"ds-colophon\"><div><dt>© 2026</dt><dd>NUR S.r.l. · P.IVA 01902640208</dd></div><div><dt class=\"ds-sr\">Foglio</dt><dd class=\"ds-colophon-mono\">/agenti/analista/</dd></div><div><dt>Piattaforma</dt><dd class=\"ds-colophon-mono\">v2.6.1</dd></div><div><dt>Revisione</dt><dd>17 ottobre 2026</dd></div><div class=\"ds-colophon-end\"><dt class=\"ds-sr\">Stato</dt><dd><a class=\"ds-status\" href=\"#\"><span class=\"ds-status-dot\"></span>Tutti i sistemi operativi</a></dd></div></dl>",
-      "css": ".ds-colophon { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin: 0; padding: 24px 20px; background: var(--color-panel, oklch(95.8% 0.005 95)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-colophon > div { display: flex; gap: 6px; } .ds-colophon dd { margin: 0; } .ds-colophon-mono { font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; } .ds-colophon-end { margin-left: auto; } .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .ds-status { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); border-radius: 9999px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: background-color 150ms; } .ds-status:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-status-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--color-status-success, oklch(65% 0.1 150)); }"
+      "description": "Una riga a 14 px in fondo al footer di carta: © NUR, foglio e piattaforma a 12 px nello stesso Geist, revisione, stato dei sistemi come pillola con punto.",
+      "html": "<dl class=\"ds-colophon\"><div><dt>© 2026</dt><dd>NUR S.r.l. · P.IVA 01902640208</dd></div><div><dt class=\"ds-sr\">Foglio</dt><dd class=\"ds-colophon-data\">/agenti/analista/</dd></div><div><dt>Piattaforma</dt><dd class=\"ds-colophon-data\">v2.6.1</dd></div><div><dt>Revisione</dt><dd>17 ottobre 2026</dd></div><div class=\"ds-colophon-end\"><dt class=\"ds-sr\">Stato</dt><dd><a class=\"ds-status\" href=\"#\"><span class=\"ds-status-dot\"></span>Tutti i sistemi operativi</a></dd></div></dl>",
+      "css": ".ds-colophon { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin: 0; padding: 24px 20px; background: var(--color-panel, oklch(95.8% 0.005 95)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-colophon > div { display: flex; gap: 6px; } .ds-colophon dd { margin: 0; } .ds-colophon-data { font-size: 12px; } .ds-colophon-end { margin-left: auto; } .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .ds-status { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); border-radius: 9999px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: background-color 150ms; } .ds-status:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-status-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--color-status-success, oklch(65% 0.1 150)); }"
     },
     {
       "name": "Barra CTA mobile",
@@ -591,11 +600,12 @@
   ],
   "narrative": {
     "northStar": "Carta avorio, un solo inchiostro",
-    "overview": "Il sito è una pagina avorio su cui stanno pannelli di carta un passo più scura, scritti in un solo inchiostro caldo. La grammatica a carta avorio (riferimento estratto il 2026-10-16, adottata il 2026-10-17): nessuna cornice, nessuna riga in testa alle sezioni, le sezioni si separano con l'aria e con il tono dei pannelli; colonna da 1300 px; nav opaca senza riga; chiusure centrate con il titolo grande. L'identità resta quella registrata in `/brand/`, aggiornata ai nuovi valori: Nero Verbalist #26251E, Avorio #F7F7F4, Carta #F2F1ED, Grigio testo #6A6961. Nessun colore saturo. La fiducia viene dal prodotto che si vede all'opera dentro pannelli tinti, non dall'effetto.\n\nLa densità è quella di uno strumento: pannelli a 4 px senza bordo, righe piene `base-200` da 1 px per elenchi e celle, un punto pieno davanti ai fatti. Un solo carattere, Geist, in due pesi: 400 per tutto, 500 solo per `strong` e le enfasi nei mockup. Le etichette di sezione sono in sans a 14 px grigie, in sentence case; Geist Mono resta solo per gli artefatti (slug, versioni, numeri dei passi, codice). La gerarchia si regge su misura e tono di grigio: titoli interamente neri sotto un'etichetta grigia, e nelle coppie titolo/lede alla stessa misura la distanza la fa solo il colore.\n\nIl movimento è funzionale e uno per sezione, e dal 2026-10-11 nessuna sezione ha un'animazione in loop: restano transizioni di colore e il chevron che scorre di 4 px. Tutto rispetta `prefers-reduced-motion`.\n\n**Decisioni registrate.** 2026-09-26: l'accento arancio preso da il primo riferimento esterno è stato ritirato (\"Mono\" scelta dal maintainer); le rampe `accent-*` restano nel tema come alias dell'inchiostro. 2026-10-17: il \"foglio tecnico\" di il primo riferimento esterno (cornice tratteggiata, sigle nel margine, punti d'angolo, targhette mono bianche su nero, pannelli bianchi con bordo) è stato sostituito dalla grammatica a carta avorio; la rampa fredda (hue ~215) è diventata calda (hue ~100); l'accento arancio di il riferimento esterno è stato valutato e tenuto spento: l'accento è l'inchiostro. I colori di stato sono quelli della piattaforma (`platform/css/css.css`): verde per il completato, rosso per l'errore, nessun colore per l'\"in corso\".",
+    "overview": "Il sito è una pagina avorio su cui stanno pannelli di carta un passo più scura, scritti in un solo inchiostro caldo. La grammatica a carta avorio (riferimento estratto il 2026-10-16, adottata il 2026-10-17): nessuna cornice, nessuna riga in testa alle sezioni, le sezioni si separano con l'aria e con il tono dei pannelli; colonna da 1300 px; nav opaca senza riga; chiusure centrate con il titolo grande. L'identità resta quella registrata in `/brand/`, aggiornata ai nuovi valori: Nero Verbalist #26251E, Avorio #F7F7F4, Carta #F2F1ED, Grigio testo #6A6961. Nessun colore saturo. La fiducia viene dal prodotto che si vede all'opera dentro pannelli tinti, non dall'effetto.\n\nLa densità è quella di uno strumento: pannelli a 4 px senza bordo, righe piene `base-200` da 1 px per elenchi e celle, la V del marchio davanti ai fatti. Un solo carattere, Geist, per tutto (display, testo, dati, codice, slug, versioni), in due pesi: 400 per tutto, 500 per `strong`, le enfasi nei mockup e, unica eccezione tra i titoli, l'H1 dell'hero della home. Dal 2026-10-17 non c'è più un mono: gli artefatti (slug, versioni, numeri dei passi, codice) si distinguono per misura e colore (12 px, `base-500`), non per carattere. Le etichette di sezione sono in sans a 14 px grigie, in sentence case. La gerarchia si regge su misura e tono di grigio: titoli interamente neri sotto un'etichetta grigia, e nelle coppie titolo/lede alla stessa misura la distanza la fa solo il colore.\n\nIl movimento è funzionale e uno per sezione. L'unica animazione in loop del sito è nel titolo dell'hero della home: il motore per cui Verbalist scrive cambia ogni 2,6 s con una dissolvenza sui token `--m-micro`/`--m-ease-out`, ferma con `prefers-reduced-motion`, in pausa al passaggio del mouse e a scheda nascosta. Il resto sono transizioni di colore e il chevron che scorre di 4 px.\n\n**Decisioni registrate.** 2026-09-26: l'accento arancio preso da il primo riferimento esterno è stato ritirato (\"Mono\" scelta dal maintainer); le rampe `accent-*` restano nel tema come alias dell'inchiostro. 2026-10-17: il \"foglio tecnico\" di il primo riferimento esterno (cornice tratteggiata, sigle nel margine, punti d'angolo, targhette mono bianche su nero, pannelli bianchi con bordo) è stato sostituito dalla grammatica a carta avorio; la rampa fredda (hue ~215) è diventata calda (hue ~100); l'accento arancio di il riferimento esterno è stato valutato e tenuto spento: l'accento è l'inchiostro. I colori di stato sono quelli della piattaforma (`platform/css/css.css`): verde per il completato, rosso per l'errore, nessun colore per l'\"in corso\". 2026-10-17, più tardi: il mono è stato ritirato del tutto (`--font-mono` è un alias di Geist, il pacchetto e il suo fallback sono stati rimossi da `BaseLayout.astro` e `global.css`); la V del marchio (`assets/Logo.astro`) è diventata la firma del sito, in filigrana nei pannelli-palco (`assets/Watermark.astro`) e come marker degli elenchi al posto del punto; l'H1 dell'hero della home è sceso a 36/44 px in peso 500 con il motore di destinazione che cambia nel titolo.",
     "keyCharacteristics": [
       "Due superfici: pagina avorio (`background`) e pannelli di carta (`panel`), un passo più scuri; `bg-white` non si usa più.",
-      "Un solo inchiostro: il Nero Verbalist caldo riempie pillole, punti e voci attive. Il resto è una rampa calda di grigi.",
-      "Un solo carattere (Geist) in 400, 500 solo per `strong`; etichette in sans 14 px grigie; Geist Mono solo per artefatti.",
+      "Un solo inchiostro: il Nero Verbalist caldo riempie pillole, le V dei marker e voci attive. Il resto è una rampa calda di grigi.",
+      "Un solo carattere, Geist, per tutto: 400, con il 500 per `strong` e per l'H1 dell'hero; etichette in sans 14 px grigie; dati e artefatti a 12 px `base-500`, nello stesso carattere.",
+      "La V del marchio come firma: in filigrana al 5% nei pannelli-palco (hero della home, 404) e come marker a 10 px davanti alle righe di elenco; mai colorata.",
       "Pannelli tinti a 4 px senza bordo, righe piene `base-200` da 1 px; nessun tratteggio.",
       "Nessuna ombra su pannelli, card, nav e bottoni; l'unica luce è sugli oggetti di prodotto (finestre dell'app, card in primo piano).",
       "Pillole per azioni e navigazione; sezioni separate dall'aria (`rhythm`), con più spazio sotto che sopra."
@@ -623,7 +633,7 @@
       },
       {
         "name": "The Two Weights Rule",
-        "body": "Due pesi in tutto il sito: 400 per titoli, lede, corpo e UI; 500 solo per `strong` nella prose, gli H4 dentro i fogli A/B e le enfasi nei mockup. Il 300 è stato ritirato il 2026-10-17; niente 600–700.",
+        "body": "Due pesi in tutto il sito: 400 per titoli, lede, corpo e UI; 500 per `strong` nella prose, gli H4 dentro i fogli A/B, le enfasi nei mockup e, sola eccezione tra i titoli, l'H1 dell'hero della home (`font-medium`, 36/44 px). Ogni altro titolo resta in 400. Il 300 è stato ritirato il 2026-10-17; niente 600–700.",
         "section": "typography"
       },
       {
@@ -632,14 +642,19 @@
         "section": "typography"
       },
       {
-        "name": "The Mono Artefact Rule",
-        "body": "Geist Mono si usa solo per ciò che la piattaforma o la build producono (slug, versioni, numeri dei passi, esadecimali, codice), a 12 px, senza maiuscole forzate. Un'etichetta scritta da noi non va mai in mono.",
+        "name": "The Size Not Face Rule",
+        "body": "Un solo carattere per tutto, Geist: niente mono, nemmeno per ciò che la piattaforma o la build producono. Slug, versioni, numeri dei passi, esadecimali e codice si distinguono per misura e colore (`text-xs` 12 px, `base-500` o `accent-600`; `text-sm` 14 px dove vanno letti), senza maiuscole forzate. `font-mono` è un alias di Geist: non è un carattere.",
         "section": "typography"
       },
       {
         "name": "The Same Size Pair Rule",
         "body": "Dove titolo e lede di un pannello stanno alla stessa misura (porte 20→24, capacità 20), la gerarchia la fa solo il colore: `base-900` sopra, `base-600` sotto, a 4 px di distanza.",
         "section": "typography"
+      },
+      {
+        "name": "The V Mark Rule",
+        "body": "La V del marchio è la firma del sito e compare in due soli modi: in filigrana al 5% dell'inchiostro dentro un pannello-palco (il pannello di prodotto dell'hero, l'hero della 404), sempre assoluta e tagliata dal bordo; e come marker a 10 px davanti alle righe di elenco, al posto del punto. Mai come decorazione libera su una pagina, mai colorata, mai più di una filigrana per viewport. I punti restano solo per gli stati (`status-success`, `status-error`, `base-300` per l'attesa).",
+        "section": "shapes"
       },
       {
         "name": "The More Air Below Rule",
@@ -654,10 +669,11 @@
     ],
     "dos": [
       "Do costruire ogni sezione con `Frame` (tone, rhythm) e `Head` (tag, title, text): colonna da 1300 px, ritmo verticale e testa di sezione non si replicano a mano.",
-      "Do usare il Nero Verbalist (`accent-500`/`accent-600`, `base-900`) per tutto ciò che deve pesare: pillola primaria, punti, voce attiva, titoli. Nessun altro colore.",
+      "Do usare il Nero Verbalist (`accent-500`/`accent-600`, `base-900`) per tutto ciò che deve pesare: pillola primaria, marker a V, voce attiva, titoli. Nessun altro colore.",
       "Do posare i contenuti su pannelli tinti `bg-panel rounded-md` senza bordo (`p-6 lg:p-10`), e separare righe e celle con linee piene `base-200` da 1 px.",
-      "Do tenere i titoli in peso 400 con tracking −0.025em (chiusura −0.03em, hero −0.0125em), interamente `base-900`, sotto un'etichetta sans 14 px `base-500`.",
-      "Do scrivere in Geist Mono 12 px solo gli artefatti (slug, versioni, numeri dei passi, esadecimali, codice); etichette e intestazioni restano in Geist 14 px.",
+      "Do tenere i titoli in peso 400 con tracking −0.025em (chiusura −0.03em), interamente `base-900`, sotto un'etichetta sans 14 px `base-500`; l'H1 dell'hero della home (500, −0.03em) è l'unica eccezione e non si replica.",
+      "Do scrivere dati e artefatti (slug, versioni, numeri dei passi, esadecimali, codice) nello stesso Geist, a 12 px `base-500`; etichette e intestazioni restano a 14 px. Nessun secondo carattere.",
+      "Do mettere la V del marchio davanti alle righe di elenco (`Logo` a `size-2.5 text-base-900`) e, in filigrana al 5%, dentro i pannelli-palco (`Watermark` in un contenitore `relative overflow-hidden`).",
       "Do usare pillole per tutto ciò che si preme (`Button`, voci nav, SubNav, selettori, `summary`) e una sola pillola accent per gruppo di azioni, con la rassicurazione a 12–14 px sotto; `muted` come secondaria, `ghost` solo nella nav.",
       "Do usare `bg-base-50` per il tono \"soft\" (hero delle pagine interne, pannello di prodotto dell'hero, hover delle celle) e `bg-base-100` per ciò che è premuto, consigliato o in hover; nient'altro come tinta di superficie.",
       "Do mettere titolo e lede di un pannello alla stessa misura (20, 24 nelle porte) con la gerarchia affidata al colore, salvo nelle griglie a quattro colonne.",
@@ -668,10 +684,11 @@
       "Don't aggiungere ombre a pannelli, card, nav, menu, barra mobile o bottoni: le uniche ombre sono quelle degli oggetti di prodotto (`.vb-window`, `.vb-float`, `.vb-peek-card`).",
       "Don't usare `bg-white`, bordi tratteggiati, cornici, sigle nel margine o punti d'angolo: la grammatica del foglio tecnico è stata ritirata il 2026-10-17.",
       "Don't usare un colore saturo o una parola colorata nel titolo: l'arancio dei riferimenti esterni è stato ritirato; verde e rosso sono stati di sistema.",
-      "Don't usare pesi 500–700 sui titoli, il peso 300 (ritirato il 2026-10-17) o un secondo carattere (`font-serif` è un alias di Geist).",
+      "Don't usare pesi 500–700 sui titoli (salvo l'H1 dell'hero della home), il peso 300 (ritirato il 2026-10-17) o un secondo carattere: `font-serif` e `font-mono` sono alias di Geist e il mono è stato ritirato il 2026-10-17.",
       "Don't mettere testo di lettura sotto i 12 px.",
       "Don't usare glifi da font o icone piene: solo SVG a tratto 1.4–1.6 in `accent-500`/`base-900`.",
-      "Don't ricreare targhette: niente etichette mono maiuscole, niente fondo nero sotto un'etichetta, niente due etichette sullo stesso titolo.",
+      "Don't ricreare targhette: niente etichette maiuscole a 12 px, niente fondo nero sotto un'etichetta, niente due etichette sullo stesso titolo.",
+      "Don't usare la V come decorazione libera, colorarla o metterne più di una in filigrana per viewport; i punti restano solo per gli stati.",
       "Don't aggiungere reveal allo scroll, hover-lift, parallax o stagger: una sola animazione per sezione, e solo se mostra il prodotto."
     ]
   }

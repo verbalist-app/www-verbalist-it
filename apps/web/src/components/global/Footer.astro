@@ -104,12 +104,12 @@ const footerLinks = [
         <dt>© {year}</dt>
         <dd><a href="https://www.nur.it" target="_blank" rel="noopener" class="hover:text-base-900">NUR S.r.l.</a> · P.IVA 01902640208</dd>
       </div>
-      <div class="flex gap-1.5"><dt class="sr-only">Foglio</dt><dd class="font-mono text-xs truncate" title={sheet}>{sheet}</dd></div>
+      <div class="flex gap-1.5"><dt class="sr-only">Foglio</dt><dd class="text-xs truncate" title={sheet}>{sheet}</dd></div>
       {
         release && (
           <div class="flex gap-1.5">
             <dt>Piattaforma</dt>
-            <dd><a href={release.href} class="font-mono text-xs hover:text-base-900">{release.version}</a></dd>
+            <dd><a href={release.href} class="text-xs hover:text-base-900">{release.version}</a></dd>
           </div>
         )
       }

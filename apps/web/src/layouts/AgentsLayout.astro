@@ -4,6 +4,7 @@
 // e le azioni, la frase citabile, poi celle della griglia tratteggiata al
 // posto delle colonne centrate e "Come funziona" a capitoli.
 // Fundations
+import Logo from "@/components/assets/Logo.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -149,7 +150,7 @@ const ioCells = [
               <ul role="list" class="mt-6 text-md text-base-800">
                 {cell.items.map((item: string) => (
                   <li class="flex items-start py-3.5 border-t gap-3 border-base-200 last:border-b">
-                    <span class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0" />{item}
+                    <Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900 mt-1.5" />{item}
                   </li>
                 ))}
               </ul>
@@ -279,10 +280,8 @@ const ioCells = [
     left: 0;
     transform: translateX(-50%);
     padding: 0 0.25rem;
-    font-family: var(--font-mono);
     font-size: 0.75rem;
     line-height: 1;
-    letter-spacing: 0.05em;
     color: var(--color-base-500);
     background: var(--color-white);
   }

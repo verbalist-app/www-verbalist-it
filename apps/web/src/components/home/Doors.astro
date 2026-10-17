@@ -4,6 +4,7 @@
 // Nella grammatica a carta avorio (dal 2026-10-17): due pannelli tinti
 // affiancati, titolo e lede alla stessa misura, righe piene. Ogni pannello è
 // cliccabile per intero; le righe dei casi restano link a sé.
+import Logo from "@/components/assets/Logo.astro";
 import { getAllSolutions } from "@/lib/data";
 import Frame from "@/components/section/Frame.astro";
 
@@ -31,7 +32,7 @@ const panel = "relative flex flex-col p-6 bg-panel rounded-md lg:p-10 group";
       <ul role="list" class="mt-8 text-sm text-base-800">
         {points.map((p) => (
           <li class="flex items-center py-3 border-t gap-3 border-base-200 last:border-b">
-            <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>{p}
+            <Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900" />{p}
           </li>
         ))}
       </ul>

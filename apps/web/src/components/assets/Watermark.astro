@@ -1,0 +1,9 @@
+---
+// La V del brand in filigrana: grande, al 5% dell'inchiostro, tagliata dal
+// contenitore, che deve essere `relative` e `overflow-hidden`. Posizione e
+// misura le passa chi la usa (es. `-right-16 -top-10 h-[120%]`).
+import Logo from "./Logo.astro";
+const { class: className = "" } = Astro.props;
+---
+
+<Logo aria-hidden="true" class={`absolute w-auto pointer-events-none text-base-900/[0.05] ${className}`} />

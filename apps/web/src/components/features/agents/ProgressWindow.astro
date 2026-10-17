@@ -34,7 +34,7 @@ const queue = demoSerp.map((r) => `https://${r.host}/${r.title.toLowerCase().rep
       <ol class="mt-3 space-y-1.5">
         {
           queue.map((url, i) => (
-            <li class={`flex items-center gap-2 text-[12px] font-mono ${i < 3 ? "text-base-800" : "text-base-400"}`}>
+            <li class={`flex items-center gap-2 text-[12px]  ${i < 3 ? "text-base-800" : "text-base-400"}`}>
               <span class="w-14 shrink-0 text-base-500">{i < 3 ? "Letto" : "In coda:"}</span>
               <span class="truncate">{url}</span>
               {i < 3 && (

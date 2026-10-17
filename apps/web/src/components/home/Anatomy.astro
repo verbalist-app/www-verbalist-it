@@ -15,9 +15,9 @@ const traits = [
   { title: "Le entità del settore", text: "Drop, tallone, avampiede: i termini che i modelli collegano al topic. Se mancano, il contenuto resta fuori dalle risposte." },
 ];
 const mark = "px-1 -mx-0.5 rounded-sm bg-base-100 text-base-900 box-decoration-clone";
-const ref = "ml-1 font-mono text-xs text-accent-600";
+const ref = "ml-1  text-xs text-accent-600";
 const label = "text-sm text-base-500";
-const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600";
+const tag = "px-1  text-xs rounded-sm bg-base-100 text-base-600";
 ---
 
 <Frame n={6} labelledby="anatomy-title" rhythm="section" class="lg:!px-14">
@@ -37,7 +37,7 @@ const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600";
       <p class="mt-4 text-sm leading-relaxed text-base-700">
         <mark class={mark} data-mark="1">Capire come scegliere le scarpe da running significa abbinare la scarpa al piede, al tipo di corsa e al terreno, non inseguire il modello più costoso o più pubblicizzato.</mark><sup class={ref}>1</sup>
       </p>
-      <p class="mt-4 font-mono text-xs text-base-500" aria-hidden="true">[…]</p>
+      <p class="mt-4 text-xs text-base-500" aria-hidden="true">[…]</p>
       <p class="mt-4 text-sm font-medium text-base-900">
         <mark class={mark} data-mark="2">Che cos’è il drop e come sceglierlo?</mark><sup class={ref}>2</sup>
       </p>
@@ -52,7 +52,7 @@ const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600";
       {
         traits.map((t, i) => (
           <li class="flex py-5 border-t gap-5 border-base-200 last:border-b transition-colors duration-200 vb-note" data-note={i + 1} tabindex="0">
-            <span class="font-mono text-xs leading-6 text-accent-600">{i + 1}</span>
+            <span class="text-xs leading-6 text-accent-600">{i + 1}</span>
             <div>
               <h3 class="text-base text-base-900">{t.title}</h3>
               <p class="mt-1 text-md leading-relaxed text-base-600">{t.text}</p>

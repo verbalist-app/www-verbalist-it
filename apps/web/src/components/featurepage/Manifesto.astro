@@ -54,7 +54,7 @@ const split = steps.length > 0;
             {stepsLead && <li class="pb-1 text-sm text-base-500" aria-hidden="true">{stepsLead}</li>}
             {steps.map((step, i) => (
               <li class="flex items-start py-2.5 gap-3 border-t border-base-200 first-of-type:border-t-0">
-                <span class="font-mono text-xs leading-5 text-accent-600">0{i + 1}</span>
+                <span class="text-xs leading-5 text-accent-600">0{i + 1}</span>
                 <span class="text-sm leading-5 text-base-900">{cap(step)}</span>
               </li>
             ))}

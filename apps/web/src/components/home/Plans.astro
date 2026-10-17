@@ -1,6 +1,7 @@
 ---
 // Prezzi: i tre piani dalla fonte unica (lib/pricing). In home non si mostra
 // il prezzo per contenuto (brief, §7.2). Sotto ogni CTA la sua rassicurazione.
+import Logo from "@/components/assets/Logo.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
@@ -41,7 +42,7 @@ const plans = pricingOptions.map((p) => ({
           <ul role="list" class="mt-6 mb-10 text-sm text-base-800">
             {plan.features.map((f) => (
               <li class="flex items-start py-3 border-t gap-3 border-base-200 last:border-b">
-                <span class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0"></span>{f}
+                <Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900 mt-1.5" />{f}
               </li>
             ))}
           </ul>

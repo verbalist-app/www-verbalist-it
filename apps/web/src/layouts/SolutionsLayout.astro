@@ -5,6 +5,7 @@
 // casi reali, FAQ. Tutti i contenuti arrivano dal frontmatter della
 // collection `solutions`: vedi le regole di prodotto in content.config.ts.
 // Fundations
+import Logo from "@/components/assets/Logo.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -316,7 +317,7 @@ const faqLd = {
                 {
                   frontmatter.plan.points.map((point: string) => (
                     <li class="flex items-start py-3 border-t gap-3 border-base-200 last:border-b">
-                      <span class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0" />
+                      <Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900 mt-1.5" />
                       <span>{point}</span>
                     </li>
                   ))

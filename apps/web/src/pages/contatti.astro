@@ -2,6 +2,7 @@
 // Pagina contatti: testo e cosa aspettarsi a sinistra, form HubSpot in un
 // pannello a destra. Il form (portal, formId, target, callback) non si tocca:
 // il submit arriva al tracking via postMessage (vedi CookieBanner.astro).
+import Logo from "@/components/assets/Logo.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
@@ -76,7 +77,7 @@ const beforeWriting = [
         </div>
         <div class="p-6 bg-panel rounded-md sm:p-8">
           <p class="flex items-center justify-between text-sm text-base-500">
-            <span class="flex items-center gap-2"><span class="rounded-full size-1.5 bg-accent-500"></span>Scrivici</span>
+            <span class="flex items-center gap-2"><Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900" />Scrivici</span>
             <span>Risposta dal team</span>
           </p>
         <!-- HubSpot form (form in iframe cross-origin → stile iniettato via opzione css) -->

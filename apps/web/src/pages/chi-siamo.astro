@@ -3,6 +3,7 @@
 // testo a fianco, due celle sul modello delle porte (l'agenzia, il metodo
 // diventato software), le foto e la chiusura. Fatti da nur.it e da questa
 // pagina: niente numeri che non stiano già lì.
+import Logo from "@/components/assets/Logo.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Frame from "@/components/section/Frame.astro";
 import SectionHead from "@/components/featurepage/SectionHead.astro";
@@ -47,7 +48,7 @@ const agency = [
           <ul role="list" class="mt-8 text-sm text-base-800">
             {agency.map((p) => (
               <li class="flex items-center py-3 border-t gap-3 border-base-200 last:border-b">
-                <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>{p}
+                <Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900" />{p}
               </li>
             ))}
           </ul>
@@ -61,16 +62,16 @@ const agency = [
           </p>
           <ul role="list" class="mt-8 text-sm text-base-800">
             <li class="flex items-center py-3 border-t gap-3 border-base-200">
-              <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>Tra le prime realtà in Italia con un framework dedicato alla Generative Engine Optimization
+              <Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900" />Tra le prime realtà in Italia con un framework dedicato alla Generative Engine Optimization
             </li>
             <li class="flex items-center py-3 border-t gap-3 border-base-200">
-              <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>
+              <Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900" />
               <span>
                 <a href="https://amzn.eu/d/00Ki6HeV" target="_blank" rel="noopener" class={link}>Il primo libro italiano sulla GEO</a>, oggi citato come fonte su Wikipedia
               </span>
             </li>
             <li class="flex items-center py-3 border-t border-b gap-3 border-base-200">
-              <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>Verbalist: lo stesso processo che facevamo a mano con i clienti, dentro un software
+              <Logo aria-hidden="true" class="size-2.5 shrink-0 text-base-900" />Verbalist: lo stesso processo che facevamo a mano con i clienti, dentro un software
             </li>
           </ul>
           <p class="pt-8 mt-auto text-sm">

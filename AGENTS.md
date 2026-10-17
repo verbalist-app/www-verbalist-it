@@ -7,9 +7,11 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 
 - **Verità di prodotto**: ogni claim sulle funzionalità va verificato contro la
   piattaforma reale (app.verbalist.it). Non inventare feature, limiti o numeri.
-- **Brand** (dal 2026-10-17, ramo `stile-carta`; prima il "foglio tecnico" del primo riferimento esterno, dal 2026-09-23): grammatica a carta avorio, presa da un riferimento esterno. Un solo carattere, Geist (self-hosted via fontsource;
-  `font-serif` è un alias storico che punta a Geist), Geist Mono solo per
-  artefatti tecnici (slug, versioni, numeri dei passi, codice). Palette
+- **Brand** (dal 2026-10-17, ramo `stile-carta`; prima il "foglio tecnico" del primo riferimento esterno, dal 2026-09-23): grammatica a carta avorio, presa da un riferimento esterno. Un solo carattere, Geist, per tutto (self-hosted via
+  fontsource; `font-serif` e `font-mono` sono alias storici che puntano a
+  Geist: il mono è stato ritirato il 2026-10-17). La V del brand
+  (`assets/Logo.astro`) è la firma: in filigrana nei pannelli-palco
+  (`assets/Watermark.astro`) e come marker degli elenchi al posto del punto. Palette
   monocroma calda (`/brand/`): Nero Verbalist #26251E, Avorio #F7F7F4
   (pagina, `bg-background`), Carta #F2F1ED (pannelli, `bg-panel`;
   `bg-white` non si usa), Grigio testo #6A6961. `base-*` è la rampa calda
@@ -54,17 +56,18 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 
 ## Scala tipografica (regole vincolanti)
 
-- Un solo carattere di testo e display, Geist (400 per corpo, titoli, lede e UI; 500 solo per
-  `strong` e le enfasi nei mockup; nessun peso 300); Geist Mono solo per
-  artefatti tecnici (versioni, slug, numeri dei passi, codice); le
+- Un solo carattere, Geist, per tutto (400 per corpo, titoli, lede e UI;
+  500 per l'H1 dell'hero, `strong` e le enfasi nei mockup; nessun peso 300;
+  nessun mono: dati, slug e versioni si distinguono per misura e colore); le
   etichette di sezione sono Geist 14px `base-500`, sentence case.
-- Titoli in peso regolare con tracking −0.025em: hero della home 28px
-  (`text-headline`, 24px su mobile; `text-hero` 60px solo per la chiusura),
+- Titoli in peso regolare con tracking −0.025em: hero della home 44px in
+  peso 500 (`text-hero-md`, 36px su mobile; `text-hero` 60px solo per la
+  chiusura),
   H1/H2 di sezione 52px
   (`components/section/Head.astro`, 36px su mobile), H2 di cella 24px,
   H3 di card 18–20px. Titoli interamente `base-900`: niente parole colorate.
 - Corpo 16–18px con line-height ≥1.5 (lede 19px, regolare, `base-600`); secondario di
-  lettura 15px regolare; metadati ed etichette 14px; mono 12–13px solo per gli artefatti. Mai testo di
+  lettura 15px regolare; metadati ed etichette 14px; artefatti 12–13px in Geist, `base-500`. Mai testo di
   lettura sotto i 12px, mai peso 300.
 - Prose (blog, help, changelog, legali): colonna `max-w-xl`, testo regolare,
   link con bordo sottile, elenchi con marker nell'accento.

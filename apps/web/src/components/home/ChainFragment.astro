@@ -122,7 +122,7 @@ const pill = "inline-flex items-center h-6 px-2.5 text-[11px] font-medium rounde
           </p>
           <ol class="mt-2 space-y-1">
             {queue.slice(0, 4).map((url, i) => (
-              <li class={`flex items-center gap-2 text-[11px] font-mono ${i < 2 ? "text-base-800" : "text-base-400"}`}>
+              <li class={`flex items-center gap-2 text-[11px]  ${i < 2 ? "text-base-800" : "text-base-400"}`}>
                 <span class="w-12 shrink-0 text-base-500">{i < 2 ? "Letto" : "In coda:"}</span>
                 <span class="truncate">{url}</span>
                 {i < 2 && (

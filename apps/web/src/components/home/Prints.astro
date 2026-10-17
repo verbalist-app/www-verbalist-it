@@ -6,7 +6,7 @@ import Head from "@/components/section/Head.astro";
 import { demoBrief, demoDocument, demoVersions } from "./demo";
 
 const label = "text-sm text-base-500";
-const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600 box-decoration-clone";
+const tag = "px-1  text-xs rounded-sm bg-base-100 text-base-600 box-decoration-clone";
 // I segnaposto che la piattaforma lascia a chi revisiona restano visibili.
 const parts = (t: string) => t.split(/(\[SOURCE NEEDED\]|\[INTERNAL:[^\]]*\])/).filter(Boolean);
 const isTag = (t: string) => t.startsWith("[SOURCE NEEDED") || t.startsWith("[INTERNAL:");
