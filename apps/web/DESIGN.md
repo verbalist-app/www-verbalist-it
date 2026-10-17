@@ -1,25 +1,29 @@
 ---
 name: Verbalist
-description: Foglio tecnico monocromo in Geist, cornice tratteggiata, un solo inchiostro (Nero Verbalist)
+description: Nero caldo su carta avorio, pannelli tinti senza bordo, un solo carattere (Geist) e un solo inchiostro
 colors:
-  ink: "oklch(21.8% 0.008 223.9)"
-  ink-deep: "oklch(14.8% 0.004 228.8)"
-  ink-soft: "oklch(45% 0.017 213.2)"
-  ink-line: "oklch(72.3% 0.014 214.4)"
+  ink: "oklch(26.3% 0.013 100.5)"
+  ink-deep: "oklch(18.2% 0.014 94)"
+  ink-soft: "oklch(45% 0.012 100)"
+  ink-line: "oklch(70% 0.012 100)"
+  background: "oklch(97.5% 0.004 106.5)"
+  panel: "oklch(95.8% 0.005 95)"
   white: "#ffffff"
-  base-50: "oklch(98.7% 0.002 197.1)"
-  base-100: "oklch(96.3% 0.002 197.1)"
-  base-200: "oklch(92.5% 0.005 214.3)"
-  base-300: "oklch(87.2% 0.007 219.6)"
-  base-400: "oklch(72.3% 0.014 214.4)"
-  base-500: "oklch(54% 0.021 213.5)"
-  base-600: "oklch(45% 0.017 213.2)"
-  base-700: "oklch(37.8% 0.015 216)"
-  base-800: "oklch(27.5% 0.011 216.9)"
-  base-900: "oklch(21.8% 0.008 223.9)"
-  base-950: "oklch(14.8% 0.004 228.8)"
+  base-50: "oklch(94.6% 0.006 97)"
+  base-100: "oklch(92.1% 0.007 97)"
+  base-200: "oklch(90.6% 0.007 97)"
+  base-300: "oklch(85% 0.008 97)"
+  base-400: "oklch(70% 0.012 100)"
+  base-500: "oklch(52% 0.012 100)"
+  base-600: "oklch(45% 0.012 100)"
+  base-700: "oklch(37.8% 0.012 100)"
+  base-800: "oklch(30% 0.012 100)"
+  base-900: "oklch(26.3% 0.013 100.5)"
+  base-950: "oklch(18.2% 0.014 94)"
   status-success: "oklch(65% 0.1 150)"
   status-error: "oklch(60% 0.13 25)"
+  wash-warm: "oklch(95% 0.03 60)"
+  wash-cool: "oklch(96% 0.006 97)"
 typography:
   hero:
     fontFamily: "Geist Variable, Geist Fallback, ui-sans-serif, system-ui, sans-serif"
@@ -31,7 +35,7 @@ typography:
     fontFamily: "Geist Variable, Geist Fallback, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(2.25rem, 2.25rem + 1vw, 3.25rem)"
     fontWeight: 400
-    lineHeight: 1.08
+    lineHeight: 1.1
     letterSpacing: "-0.025em"
   display-xs:
     fontFamily: "Geist Variable, Geist Fallback, ui-sans-serif, system-ui, sans-serif"
@@ -41,9 +45,15 @@ typography:
     letterSpacing: "-0.025em"
   headline:
     fontFamily: "Geist Variable, Geist Fallback, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.5rem"
+    fontSize: "1.75rem"
     fontWeight: 400
-    lineHeight: 1.33
+    lineHeight: 1.25
+    letterSpacing: "-0.0125em"
+  pair:
+    fontFamily: "Geist Variable, Geist Fallback, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 400
+    lineHeight: 1.375
     letterSpacing: "-0.025em"
   title:
     fontFamily: "Geist Variable, Geist Fallback, ui-sans-serif, system-ui, sans-serif"
@@ -54,7 +64,7 @@ typography:
   lede:
     fontFamily: "Geist Variable, Geist Fallback, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.1875rem"
-    fontWeight: 300
+    fontWeight: 400
     lineHeight: 1.375
     letterSpacing: "normal"
   body:
@@ -69,29 +79,23 @@ typography:
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "normal"
-  meta:
+  label:
     fontFamily: "Geist Variable, Geist Fallback, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: "normal"
-  label:
+  mono:
     fontFamily: "Geist Mono Variable, Geist Mono Fallback, ui-monospace, monospace"
     fontSize: "0.75rem"
     fontWeight: 400
     lineHeight: 1.33
-    letterSpacing: "0.05em"
-  mono:
-    fontFamily: "Geist Mono Variable, Geist Mono Fallback, ui-monospace, monospace"
-    fontSize: "0.8125rem"
-    fontWeight: 400
-    lineHeight: 1.5
     letterSpacing: "normal"
 rounded:
   none: "0px"
-  sm: "2px"
-  lg: "8px"
-  xl: "12px"
+  md: "4px"
+  xl: "6px"
+  2xl: "8px"
   full: "9999px"
 spacing:
   xs: "4px"
@@ -102,9 +106,12 @@ spacing:
   2xl: "24px"
   3xl: "32px"
   4xl: "40px"
-  5xl: "48px"
-  6xl: "56px"
-  7xl: "80px"
+  v1: "24px"
+  v2: "48px"
+  v3: "72px"
+  v4: "96px"
+  v5: "120px"
+  v6: "144px"
 components:
   button-accent:
     backgroundColor: "{colors.ink}"
@@ -119,70 +126,103 @@ components:
   button-accent-sm:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.white}"
-    typography: "{typography.meta}"
+    typography: "{typography.label}"
     rounded: "{rounded.full}"
     padding: "0 16px"
     height: "36px"
   button-muted:
-    backgroundColor: "{colors.white}"
+    backgroundColor: "{colors.base-100}"
     textColor: "{colors.base-900}"
     typography: "{typography.body}"
     rounded: "{rounded.full}"
     padding: "0 24px"
     height: "40px"
   button-muted-hover:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.base-200}"
+    textColor: "{colors.base-900}"
+  button-ghost:
+    backgroundColor: "transparent"
+    textColor: "{colors.base-900}"
+    typography: "{typography.label}"
+    rounded: "{rounded.full}"
+    padding: "0 16px"
+    height: "36px"
+  button-ghost-hover:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.base-900}"
   nav-item:
     backgroundColor: "transparent"
-    textColor: "{colors.base-600}"
-    typography: "{typography.meta}"
+    textColor: "{colors.base-900}"
+    typography: "{typography.label}"
     rounded: "{rounded.full}"
     padding: "0 12px"
     height: "36px"
-  nav-item-active:
+  nav-item-hover:
     backgroundColor: "{colors.base-100}"
     textColor: "{colors.base-950}"
   subnav-pill:
     backgroundColor: "transparent"
     textColor: "{colors.base-600}"
-    typography: "{typography.meta}"
+    typography: "{typography.label}"
     rounded: "{rounded.full}"
     padding: "0 12px"
     height: "32px"
   subnav-pill-active:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.white}"
-  tag-section:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.white}"
+  label-section:
+    backgroundColor: "transparent"
+    textColor: "{colors.base-500}"
     typography: "{typography.label}"
     rounded: "{rounded.none}"
-    padding: "2px 6px"
-  chip-gap:
-    backgroundColor: "{colors.base-900}"
-    textColor: "{colors.white}"
+    padding: "0"
+  chip-recommended:
+    backgroundColor: "transparent"
+    textColor: "{colors.base-900}"
+    typography: "{typography.mono}"
+    rounded: "{rounded.full}"
+    padding: "0 10px"
+    height: "24px"
+  chip-status:
+    backgroundColor: "transparent"
+    textColor: "{colors.base-900}"
     typography: "{typography.label}"
     rounded: "{rounded.full}"
-    padding: "2px 8px"
+    padding: "0 12px"
+    height: "32px"
   panel:
-    backgroundColor: "{colors.white}"
+    backgroundColor: "{colors.panel}"
     textColor: "{colors.base-900}"
-    rounded: "{rounded.xl}"
-    padding: "16px"
-  panel-active:
-    backgroundColor: "{colors.white}"
+    rounded: "{rounded.md}"
+    padding: "24px"
+  panel-lg:
+    backgroundColor: "{colors.panel}"
     textColor: "{colors.base-900}"
-    rounded: "{rounded.xl}"
-    padding: "16px"
-  node:
-    backgroundColor: "{colors.white}"
+    rounded: "{rounded.md}"
+    padding: "40px"
+  panel-hover:
+    backgroundColor: "{colors.base-100}"
     textColor: "{colors.base-900}"
-    rounded: "{rounded.lg}"
-    padding: "20px"
-  node-active:
+  panel-soft:
     backgroundColor: "{colors.base-50}"
     textColor: "{colors.base-900}"
+    rounded: "{rounded.md}"
+    padding: "24px"
+  panel-popular:
+    backgroundColor: "{colors.base-100}"
+    textColor: "{colors.base-900}"
+    rounded: "{rounded.md}"
+    padding: "40px"
+  window:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.base-900}"
+    rounded: "{rounded.xl}"
+    padding: "24px"
+  float-card:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.base-900}"
+    rounded: "{rounded.2xl}"
+    padding: "16px"
   cell:
     backgroundColor: "transparent"
     textColor: "{colors.base-900}"
@@ -190,229 +230,245 @@ components:
     padding: "32px 16px"
   cell-hover:
     backgroundColor: "{colors.base-50}"
-  input-keyword:
-    backgroundColor: "{colors.base-50}"
-    textColor: "{colors.base-800}"
-    typography: "{typography.mono}"
-    rounded: "{rounded.full}"
+  input-search:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.base-500}"
+    typography: "{typography.body}"
+    rounded: "{rounded.md}"
     padding: "0 16px"
     height: "36px"
   mobile-cta-bar:
-    backgroundColor: "{colors.white}"
+    backgroundColor: "{colors.background}"
     textColor: "{colors.base-600}"
-    typography: "{typography.label}"
+    typography: "{typography.mono}"
     rounded: "{rounded.none}"
     padding: "10px 16px"
+  footer:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.base-900}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "72px 20px 32px"
 ---
 
 # Design System: Verbalist
 
 ## Overview
 
-**Creative North Star: "Il foglio tecnico"**
+**Creative North Star: "Carta avorio, un solo inchiostro"**
 
-Il sito è un foglio tecnico stampato in un solo inchiostro. Una colonna incorniciata da linee tratteggiate, la sigla di sezione nel margine (`Sec 0.n`), due punti d'angolo da 3 px su ogni sezione, pannelli bianchi con bordo sottile dentro cui la catena di Verbalist lavora davvero. L'identità è quella registrata in `/brand/`: Nero Verbalist, Bianco, Mist e Grigio testo. Nessun colore saturo. La fiducia viene dalla precisione e dal fatto che il prodotto si vede all'opera, non dall'effetto.
+Il sito è una pagina avorio su cui stanno pannelli di carta un passo più scura, scritti in un solo inchiostro caldo. La grammatica è quella di cursor.com (riferimento estratto il 2026-10-16, adottata il 2026-10-17): nessuna cornice, nessuna riga in testa alle sezioni, le sezioni si separano con l'aria e con il tono dei pannelli; colonna da 1300 px; nav opaca senza riga; chiusure centrate con il titolo grande. L'identità resta quella registrata in `/brand/`, aggiornata ai nuovi valori: Nero Verbalist #26251E, Avorio #F7F7F4, Carta #F2F1ED, Grigio testo #6A6961. Nessun colore saturo. La fiducia viene dal prodotto che si vede all'opera dentro pannelli tinti, non dall'effetto.
 
-La densità è quella di uno strumento: celle divise da tratteggi, elenchi a righe con un punto pieno, tabelle e metadati in mono. Un solo carattere, Geist, in peso regolare per i titoli e light solo per il lede; Geist Mono maiuscolo per targhette, etichette, slug e versioni. La gerarchia si regge su dimensione, tracking e tono di grigio, non su peso o colore: i titoli sono interamente neri sotto una targhetta mono nera.
+La densità è quella di uno strumento: pannelli a 4 px senza bordo, righe piene `base-200` da 1 px per elenchi e celle, un punto pieno davanti ai fatti. Un solo carattere, Geist, in due pesi: 400 per tutto, 500 solo per `strong` e le enfasi nei mockup. Le etichette di sezione sono in sans a 14 px grigie, in sentence case; Geist Mono resta solo per gli artefatti (slug, versioni, numeri dei passi, codice). La gerarchia si regge su misura e tono di grigio: titoli interamente neri sotto un'etichetta grigia, e nelle coppie titolo/lede alla stessa misura la distanza la fa solo il colore.
 
-Il movimento è funzionale e uno per sezione: nell'hero delle pagine agente i quattro pannelli eseguono il flusso in sequenza (keyword digitata, cinque risultati letti, contatori di parole, title e slug compilati); l'hero della home è statico, nell'anatomia GEO nota e passaggio si accendono a vicenda. Tutto ha pausa, si ferma fuori schermo e con `prefers-reduced-motion` mostra lo stato finale.
+Il movimento è funzionale e uno per sezione, e dal 2026-10-11 nessuna sezione ha un'animazione in loop: restano transizioni di colore e il chevron che scorre di 4 px. Tutto rispetta `prefers-reduced-motion`.
 
-**Decisioni registrate (2026-09-26).** L'accento arancio preso da try.cloudflare.com è stato ritirato dopo il confronto di tre dosi di segnale ("Mono" scelta dal maintainer). Le rampe `accent-*` restano nel tema come alias del Nero Verbalist. I colori di stato sono quelli della piattaforma (`platform/css/css.css`): verde per il completato, rosso per l'errore, nessun colore per l'"in corso". Il mondo precedente ("Bacino di inchiostro") è stato scartato dopo la prima build.
+**Decisioni registrate.** 2026-09-26: l'accento arancio preso da try.cloudflare.com è stato ritirato ("Mono" scelta dal maintainer); le rampe `accent-*` restano nel tema come alias dell'inchiostro. 2026-10-17: il "foglio tecnico" di try.cloudflare.com (cornice tratteggiata, sigle nel margine, punti d'angolo, targhette mono bianche su nero, pannelli bianchi con bordo) è stato sostituito dalla grammatica di cursor.com; la rampa fredda (hue ~215) è diventata calda (hue ~100); l'accento arancio di Cursor è stato valutato e tenuto spento: l'accento è l'inchiostro. I colori di stato sono quelli della piattaforma (`platform/css/css.css`): verde per il completato, rosso per l'errore, nessun colore per l'"in corso".
 
 **Key Characteristics:**
-- Cornice tratteggiata `base-200` come sistema strutturale: colonna, righe di sezione, divisori di cella, righe di elenco.
-- Un solo inchiostro: il Nero Verbalist riempie pillole, targhette, punti e bordi attivi. Il resto è una rampa fredda di grigi.
-- Un solo carattere (Geist) più Geist Mono per etichette e artefatti tecnici; titoli 400, mai colorati.
-- Superfici piatte: bianco e `base-50`; le uniche ombre stanno sui due bottoni e nell'anello `base-100` dell'elemento attivo.
-- Pillole per azioni e navigazione, pannelli a 12 px, celle squadrate.
+- Due superfici: pagina avorio (`background`) e pannelli di carta (`panel`), un passo più scuri; `bg-white` non si usa più.
+- Un solo inchiostro: il Nero Verbalist caldo riempie pillole, punti e voci attive. Il resto è una rampa calda di grigi.
+- Un solo carattere (Geist) in 400, 500 solo per `strong`; etichette in sans 14 px grigie; Geist Mono solo per artefatti.
+- Pannelli tinti a 4 px senza bordo, righe piene `base-200` da 1 px; nessun tratteggio.
+- Nessuna ombra su pannelli, card, nav e bottoni; l'unica luce è sugli oggetti di prodotto (finestre dell'app, card in primo piano).
+- Pillole per azioni e navigazione; sezioni separate dall'aria (`rhythm`), con più spazio sotto che sopra.
 
 ## Colors
 
-Una rampa fredda di grigi (hue ~215) con il Nero Verbalist come inchiostro unico; due colori di stato presi dalla piattaforma, mai usati come accento.
+Una rampa calda di grigi (hue ~97–100 in oklch) tra l'avorio della pagina e un nero caldo; due colori di stato presi dalla piattaforma, mai usati come accento.
 
 ### Primary
-- **Nero Verbalist** (`ink` = `accent-500`/`accent-600` = `base-900`, brand #161B1D): l'unico inchiostro. Riempie la pillola primaria, la targhetta di sezione, i punti degli elenchi e degli angoli, la voce attiva della SubNav, il chip delle lacune, il bordo del pannello o nodo attivo. Su bianco vale ~16:1: regge anche il testo più piccolo.
-- **Nero profondo** (`ink-deep` = `accent-700` = `base-950`): voce nav attiva e in hover, testo del footer. Non è una superficie.
-- **Inchiostro diluito** (`ink-soft` = `accent-400` = `base-600`; `ink-line` = `accent-300` = `base-400`): la barretta 2×12 px accanto alla targhetta è `accent-300`; il bordo in hover dei nodi della catena è `accent-400`. Sono grigi, non un secondo colore.
+- **Nero Verbalist** (`ink` = `accent-500`/`accent-600` = `base-900`, brand #26251E): l'unico inchiostro. Riempie la pillola primaria, i punti degli elenchi, la voce attiva della SubNav, il selettore A/B premuto, i riquadri scuri della pagina brand; è il colore dei titoli, del testo primario e delle voci nav. Sull'avorio regge il testo più piccolo. Gli alias `accent-*` vivono in `:root` come `--vb-accent-*`, così il colore si cambia in un punto solo.
+- **Nero profondo** (`ink-deep` = `accent-700` = `base-950`, #14120B): voce nav attiva e in hover, blocco del marchio nel footer. Non è una superficie.
+- **Inchiostro diluito** (`ink-soft` = `accent-400` = `base-600`; `ink-line` = `accent-300` = `base-400`): grigi della stessa rampa, non un secondo colore. Il filetto dei link nella prose e nelle sezioni è `base-400`.
 
 ### Neutral
-- **Bianco** (#ffffff): foglio, pannelli, bottoni secondari, nav e barra mobile (95% con blur).
-- **Grigio foglio** (`base-50`): sezioni "soft" (hero, chiusure), piano consigliato, hover delle celle e delle righe, campo keyword, blocco metadati dei fogli A/B, nodo attivo della catena.
-- **Mist** (`base-100`, brand #F1F3F3): sfondo della voce nav attiva, evidenziazione `mark` nell'anatomia GEO, anello da 3 px intorno al pannello attivo.
-- **Tratteggio** (`base-200`): ogni linea del sistema; bordo dei pannelli, dei nodi e dei bottoni secondari. Hover del `mark` attivo.
-- **Grigio sigla** (`base-300`): sigle `Sec 0.n`, punto dei pannelli in attesa, bordo in hover del bottone muted.
-- **Grigio muto** (`base-400`): filetto tratteggiato dei link nella prose, marker delle liste nei fogli. Non è un colore da testo (2.6:1).
-- **Grigio testo** (`base-500`, brand #67787C): etichette mono, note, rassicurazioni, "/" del campo keyword, contatori. 4.7:1 su bianco.
-- **Grigio secondario** (`base-600`): lede, descrizioni, risposte FAQ, righe di footer.
-- **Grigio prosa** (`base-700`) e **grigio scuro** (`base-800`): testo a fianco dei titoli, prose, righe di elenco, `dd` dei metadati.
-- **Inchiostro** (`base-900`): titoli, testo primario, "Versione A/B" nei fogli, chip delle lacune.
-- **Verde stato** (`status-success`): spunta `✓` sui nodi passati, punto dei pannelli completati, contatore "5 di 5", indicatore dei sistemi nel cartiglio, punti dei pannelli della 404. I due stati stanno in un blocco `@theme static` di `global.css`: così esistono le utility (`bg-status-success`, `text-status-success`, `bg-status-error`) e le variabili sono sempre emesse.
+- **Avorio** (`background`, brand #F7F7F4): la pagina, la nav (opaca) e la barra mobile (95% con blur). Mai bianco puro: `--color-white` compare solo come base delle velature nelle card di prodotto e come testo sulle pillole piene.
+- **Carta** (`panel`, brand #F2F1ED): i pannelli che stanno sulla pagina (porte, capacità, card degli agenti, piani non consigliati), le finestre dell'app, il footer, il menu mobile, il campo di ricerca del blog, le card in primo piano negli hero. `card` e `popover` sono alias dello stesso valore.
+- **Grigio foglio** (`base-50`): tono "soft" delle sezioni (`Frame tone="soft"`: hero delle pagine interne, casi studio, brand), pannello di prodotto dell'hero della home, blocco metadati dei fogli A/B, citazione delle prove, hover di celle e righe.
+- **Mist** (`base-100`, #E6E5E0): pillola secondaria (`muted`), piano consigliato, hover delle voci nav e delle card degli agenti, riquadri chiari della pagina brand, evidenziazione nei fogli.
+- **Linea** (`base-200`, #E1E0DB): ogni linea del sistema, piena e da 1 px: righe di elenco, divisori di cella, riga sotto la SubNav, bordo delle finestre dell'app e dei fogli A/B, bordo della pillola di stato nel footer. Hover della pillola `muted`.
+- **Grigio filetto** (`base-300`): bordo della pillola `ghost`, barre di scorrimento, hover del bordo della pillola "Markdown".
+- **Grigio muto** (`base-400`): filetto dei link (`border-b`), commenti del codice, marker. Non è un colore da testo.
+- **Grigio testo** (`base-500`, brand #6A6961): etichette di sezione, numeri dei passi e delle card, etichette dei pannelli, rassicurazioni sotto le CTA, metadati, intestazioni del footer, breadcrumb, segnaposto del campo di ricerca. 5:1 sull'avorio.
+- **Grigio secondario** (`base-600`): lede, testo a fianco dei titoli (`Head`), seconda riga delle coppie titolo/lede, descrizioni di card, risposte FAQ, cartiglio del footer.
+- **Grigio prosa** (`base-700`) e **grigio scuro** (`base-800`): prose, note dell'anatomia, righe di elenco con punto, `dd` dei metadati.
+- **Inchiostro** (`base-900`): titoli, testo primario, voci nav, link del footer, "Versione A/B".
+- **Verde stato** (`status-success`): punto "Tutti i sistemi operativi" nel footer, punto "Per Google e per le AI" nell'hero, spunte e punti di completamento nelle finestre dell'app. I due stati stanno in un blocco `@theme static` di `global.css`: esistono le utility (`bg-status-success`, `text-status-success`, `bg-status-error`) e le variabili sono sempre emesse.
 - **Rosso stato** (`status-error`): solo il footer quando un monitor è giù.
-- **Velature** (`wash-warm` oklch(95% 0.03 60), `wash-cool` oklch(96% 0.012 200)): solo come gradienti radiali in basso nelle card di prodotto (hero, nodi della catena), mai come superficie piena né come colore di testo o bordo. Introdotte il 2026-10-07 sul modello delle card di claude.com.
+- **Velature** (`wash-warm` oklch(95% 0.03 60), `wash-cool` oklch(96% 0.006 97)): solo come gradienti radiali nelle card di prodotto (`ProductCard`), mai come superficie piena né come colore di testo o bordo. La velatura fredda dal 2026-10-17 è sulla stessa tinta della rampa.
 
 ### Named Rules
-**The One Ink Rule.** Il sito ha un solo inchiostro, il Nero Verbalist. Non esiste un secondo colore né una tinta di sezione diversa da `base-50`; i verdi e i rossi sono stati della piattaforma, mai elementi di design.
+**The One Ink Rule.** Il sito ha un solo inchiostro, il Nero Verbalist caldo (#26251E). Non esiste un secondo colore: l'arancio di try.cloudflare.com è stato ritirato (2026-09-26) e quello di cursor.com valutato e tenuto spento (2026-10-17). I verdi e i rossi sono stati della piattaforma, mai elementi di design.
 
-**The Black Title Rule.** I titoli sono interamente `base-900`. Il segnale sta nella targhetta mono nera sopra il titolo, mai in una parola colorata o grigia dentro il titolo.
+**The Two Surfaces Rule.** La pagina è avorio (`background`) e tutto ciò che vi sta sopra è carta (`panel`) o un grigio della rampa (`base-50` per il tono soft, `base-100` per ciò che è premuto, consigliato o in hover). Niente bianco puro come superficie e nessuna tinta di sezione fuori da questi tre toni.
 
-**The Grey Status Rule.** "In corso" non ha colore: si riconosce da bordo `base-900`, fondo `base-50`/`base-100` e anello `base-100`. Il verde arriva solo a lavoro concluso.
+**The Black Title Rule.** I titoli sono interamente `base-900`. Il segnale sta nell'etichetta grigia sopra il titolo o nella misura, mai in una parola colorata o grigia dentro il titolo.
+
+**The Grey Status Rule.** "In corso" non ha colore: si riconosce da fondo `base-50`/`base-100` e inchiostro. Il verde arriva solo a lavoro concluso o a sistemi operativi.
 
 ## Typography
 
 **Display Font:** Geist Variable (fallback: Geist Fallback, ui-sans-serif, system-ui)
 **Body Font:** Geist Variable (stesso)
-**Label/Mono Font:** Geist Mono Variable (fallback: Geist Mono Fallback, ui-monospace)
+**Label/Mono Font:** Geist Mono Variable (fallback: Geist Mono Fallback, ui-monospace), solo per artefatti
 
 `Geist Fallback` (Arial/Helvetica) e `Geist Mono Fallback` (Menlo/Consolas) sono `@font-face` locali con `size-adjust` e override di ascent/descent in `global.css`: occupano lo stesso spazio finché il woff2 non arriva. Self-hosted via `@fontsource-variable/geist` e `geist-mono`, importati in `BaseLayout.astro`, con preload del solo file latin. `font-serif` è un alias storico che punta a Geist: non usarlo per nuovo codice.
 
-**Character:** un grottesco solo, in peso regolare; i titoli si distinguono per dimensione e tracking stretto, non per peso o colore. Il mono maiuscolo dà il tono "targhetta" alle etichette. Ogni misura fuori dalla scala Tailwind ha un nome in `@theme` (`--text-2xs` 11, `--text-md` 15, `--text-lede` 19, `--text-headline` 28, `--text-display-xs` 32, `--text-display` 52, `--text-hero-sm` 56, `--text-hero` 60).
+**Character:** un grottesco solo, in peso regolare; i titoli si distinguono per misura, tracking stretto e tono di grigio, non per peso, colore o maiuscole. Le etichette sono in sans, grigie, in sentence case, come il testo corrente: niente targhette. Ogni misura fuori dalla scala Tailwind ha un nome in `@theme` (`--text-2xs` 11, `--text-md` 15, `--text-lede` 19, `--text-headline` 28, `--text-display-xs` 32, `--text-display` 52, `--text-hero-sm` 56, `--text-hero` 60).
 
 ### Hierarchy
-- **Hero** (400, 44 px → 56 px da `sm` → 60 px da `lg`, line-height 1.06, tracking −0.03em): solo l'H1 della home. Il prezzo dei piani usa 44 px con `tabular-nums` e il "€" a 24 px `base-500`.
-- **Display** (400, 36 px → 52 px da `lg`, line-height 1.1/1.08, tracking −0.025em, `text-balance`): H1 delle pagine interne e H2 di sezione, sempre via `section/Head.astro`.
-- **Display-xs** (400, 32 px, line-height 1.15): "Su richiesta" nei piani.
-- **Headline** (400, 24 px → 28 px da `lg` per le citazioni, tracking −0.025em): H2 di cella (porte, clienti), H3 dei fogli A/B, blockquote.
-- **Title** (400, 18–20 px, line-height 1.375): titoli di card blog (20), help/team/casi (18), domande FAQ (18).
-- **Lede** (300, 18 px → 19 px da `lg`, line-height 1.375, `base-600`, `max-w-lg`): il paragrafo sotto hero, Manifesto e chiusure.
-- **Body** (400, 16 px, line-height 1.625; prose 1.75): testo a fianco dei titoli, nodi della catena, prose. Colonna prose `max-w-xl`, sempre a sinistra.
-- **Secondary** (400, 15 px, line-height 1.6, `base-600`/`base-800`): descrizioni di card, righe dei passi, risposte FAQ, corpo dei fogli A/B, fatti dei casi.
-- **Meta** (400, 14 px): voci nav e SubNav, righe di elenco con punto, "Leggi →", footer, rassicurazioni sotto le CTA, intro dei fogli.
-- **Label** (400, 12 px, tracking 0.05em, MAIUSCOLO, Geist Mono): targhette, etichette dei pannelli, categorie, intestazioni del footer, sigle, `dt` dei metadati. `base-500`, o bianco su nero quando è la targhetta di sezione.
-- **Mono** (400, 13 px, Geist Mono): keyword, slug, titoli digitati nei pannelli; `accent-600` per lo slug come artefatto del prodotto, `base-800` nel campo keyword.
-- **Note** (400, 12 px, `base-500`): rassicurazioni nei piani e nella barra mobile, metadati nei pannelli. Minimo assoluto di lettura: 12 px; 11 px (`text-2xs`) solo per decorazioni nei mockup.
+- **Hero** (400, 44 px → 56 px da `sm` → 60 px da `lg`, line-height 1.06, tracking −0.03em): dal 2026-10-17 non è più l'H1 della home ma il titolo della chiusura (`Close`) e il numero del caso in testa a `/clienti/` e nell'hero dei casi studio. Il prezzo dei piani usa 44 px con `tabular-nums` e il "€" a 24 px `base-500`.
+- **Display** (400, 36 px → 52 px da `lg`, line-height 1.15/1.1, tracking −0.025em, `text-balance`): H1 delle pagine interne e H2 di sezione via `section/Head.astro`; titolo di `Cta2`.
+- **Display-xs** (400, 32 px, line-height 1.15): "Su richiesta" nei piani, numero dei casi nell'indice clienti su mobile.
+- **Headline** (400, 24 px → 28 px da `lg`, tracking −0.0125em sull'hero, `tracking-tight` sulle citazioni): l'H1 dell'hero della home (`text-headline`, una frase su due righe) e la citazione delle prove.
+- **Coppia titolo/lede** (400, stessa misura per i due: 20 px, che nelle porte sale a 24 da `lg`; titolo `base-900`, lede `base-600`, `leading-snug`, `tracking-tight`, `mt-1`, `text-pretty`): porte e "Intorno alla catena". La gerarchia la fa solo il colore. Meccanismo preso da cursor.com il 2026-10-17; non si applica alle griglie a quattro colonne (card degli agenti), dove il testo a 20 px andrebbe su troppe righe.
+- **Title** (400, 18–20 px, line-height 1.375): nome delle card degli agenti e dei piani, titoli di card blog (20), help/team/casi (18), domande FAQ (18), nome delle righe di registro (18).
+- **Lede** (400, 18 px `leading-snug` → 19 px `text-lede` da `lg`, `base-600`, `max-w-lg`/`max-w-xl`): il paragrafo sotto hero e Manifesto; nelle chiusure resta 18 px con `max-w-md`. In peso regolare dal 2026-10-17: la distanza dal titolo la fa il grigio, non il peso.
+- **Body** (400, 16 px, line-height 1.625; prose 1.75): testo a fianco dei titoli (`Head`, `base-600`), note dell'anatomia, prose. Colonna prose `max-w-xl`, sempre a sinistra.
+- **Secondary** (400, 15 px, line-height 1.6, `base-600`/`base-800`): descrizioni di card, riassunti degli agenti, descrizione dei piani, risposte FAQ, corpo dei fogli A/B, fatti dei casi.
+- **Label** (400, 14 px, sans, `base-500`, sentence case): etichette di sezione (`Head` prop `tag`), etichette dei pannelli ("Per le agenzie", "Brief"), numeri delle card degli agenti, intestazioni del footer, breadcrumb, categoria e data delle celle, rassicurazioni sotto le CTA. È lo stesso passo di voci nav, SubNav, righe con punto, "Vedi l'agente →" e cartiglio, in `base-900`/`base-600`.
+- **Mono** (400, 12 px, Geist Mono): solo artefatti del prodotto e della build: numeri dei passi nel Manifesto (`accent-600`), riferimenti dell'anatomia, numeri `01 02 03` dei risultati nei casi, indirizzo del foglio e versione della piattaforma nel cartiglio, esadecimali nella pagina brand, slug e codice. Mai per etichette di testo.
+- **Note** (400, 12 px, `base-500`): rassicurazioni nei piani e nella barra mobile, metadati nei pannelli, targhetta "Consigliato". Minimo assoluto di lettura: 12 px; 11 px (`text-2xs`) solo per decorazioni nei mockup.
 
 ### Named Rules
-**The Regular Weight Rule.** Titoli in 400 con tracking negativo. Il 500 esiste solo per `strong` nella prose, gli H4 da 15 px dentro i fogli A/B e la domanda-H2 nell'anatomia. Niente 600–700.
+**The Two Weights Rule.** Due pesi in tutto il sito: 400 per titoli, lede, corpo e UI; 500 solo per `strong` nella prose, gli H4 dentro i fogli A/B e le enfasi nei mockup. Il 300 è stato ritirato il 2026-10-17; niente 600–700.
 
-**The Light-From-18 Rule.** Il peso 300 compare solo dai 18 px in su (lede). Sotto, Geist light è troppo sottile: testo secondario a 15 px e metadati a 14 px restano regular.
+**The Grey Label Rule.** L'etichetta sopra i titoli (`Head` prop `tag`, eyebrow del Manifesto, etichette dei pannelli) è in Geist a 14 px, `base-500`, sentence case, a 16 px dal titolo. Una per titolo, mai due. Le targhette mono maiuscole bianche su nero sono state eliminate il 2026-10-17.
 
-**The Mono Kicker Rule.** La targhetta sopra i titoli (`Head` prop `tag`, eyebrow del Manifesto, etichette dei pannelli) è grammatica del sistema: sempre Geist Mono, 12 px, maiuscolo, tracking 0.05em. Una per titolo, mai due.
+**The Mono Artefact Rule.** Geist Mono si usa solo per ciò che la piattaforma o la build producono (slug, versioni, numeri dei passi, esadecimali, codice), a 12 px, senza maiuscole forzate. Un'etichetta scritta da noi non va mai in mono.
+
+**The Same Size Pair Rule.** Dove titolo e lede di un pannello stanno alla stessa misura (porte 20→24, capacità 20), la gerarchia la fa solo il colore: `base-900` sopra, `base-600` sotto, a 4 px di distanza.
 
 ## Layout
 
-Una colonna incorniciata: `Wrapper variant="standard"` è `max-w-5xl` (1024 px) con `px-4`, che sale a `max-w-6xl` (1152 px) con `px-12` da `2xl`; i bordi laterali tratteggiati `base-200` corrono per tutta la pagina, nav e footer compresi. Le sezioni aggiungono `lg:!px-14` (56 px) dentro la cornice, oppure `!px-0` quando il contenuto è a celle che toccano il bordo (porte, piani).
+Una colonna di 1300 px senza cornice: `Wrapper variant="standard"` è `max-w-[1300px] px-5` (20 px di gutter), nav e footer compresi; le sezioni aggiungono `lg:!px-14` (56 px). I bordi laterali tratteggiati sono stati rimossi il 2026-10-17.
 
-Ogni sezione è un `section/Frame.astro`: riga tratteggiata in testa (omessa con `flush` sotto una SubNav), sigla `Sec 0.n` in mono `base-300` nel margine esterno da `xl`, due punti da 3 px `accent-500` a 8 px dagli angoli superiori, `scroll-mt-[72px]`, tono `white` o `soft`. Ritmo verticale: `py-14` (56 px) su mobile, `py-20` (80 px) da `lg`; hero `pt-12/pb-16` → `pt-14/pb-16`; Manifesto `pt-10/pb-12` → `pt-16/pb-16`; chiusura `py-16/20`, variante compatta `py-12/14`.
+Ogni sezione è un `section/Frame.astro`: niente riga in testa, niente sigla nel margine, niente punti d'angolo (le prop `n` e `flush` restano nella firma perché i chiamanti le passano ancora, ma non disegnano nulla). `scroll-mt-[72px]`; tono `white` (la pagina) o `soft` (pannello `bg-base-50 rounded-md`: hero delle pagine interne, casi studio, brand). Ritmo verticale con la prop `rhythm` (meccanismo preso da cursor.com): l'unità è una riga di corpo da 24 px (token `--spacing-v1…v6` in `global.css`) e le sezioni ne prendono multipli, con più aria sotto che sopra: `section` 48/96 px su mobile e 72/120 da `lg`; `open` solo sopra, per le sezioni che finiscono con celle sul bordo (griglie dei casi e delle soluzioni); `close` 72/96 → 96/120 per le chiusure (`Close`, `Cta2`, 404). Le hero tengono il loro padding: home `pt-12/pb-10` → `pt-20/pb-14`, pagine interne `pt-12/pb-14` → `pt-20/pb-20`, Manifesto `pt-10/pb-12` → `pt-16/pb-16`, casi studio `pt-8/pb-14` → `pt-10/pb-20`. Il footer sta a `mt-v4` (96 px) dall'ultima sezione.
 
-Griglie interne: testa di sezione 7/5 (`lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]`, gap 64 px) con il testo a fianco `max-w-md`; FAQ 5/7; hero della home 1fr/34rem, hero delle pagine agente 1fr/31rem; anatomia 1/1; porte e piani a celle intere divise da `lg:divide-x lg:divide-dashed`, con `border-b border-dashed` tra le righe su mobile; card blog/help/team come celle `px-4 py-8` → `lg:px-8 lg:py-10`; casi studio in una griglia 1 + 3 + 3 (il caso in testa a tutta larghezza, poi tre per riga) con `px-8 py-10` → `px-14 py-14` sul caso in testa. Distanze ricorrenti: 8 px tra pannelli impilati nell'hero, 12 px tra pillole e tra nodi, 24 px tra targhetta e titolo e tra titolo e lede, 32 px tra lede e azioni, 16 px tra azioni e nota, 40–64 px tra testa di sezione e contenuto.
+Griglie interne: testa di sezione 7/5 (`lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]`, gap 64 px, `items-end`) con il testo a fianco `max-w-md`; FAQ e pagina brand 5/7; hero delle pagine agente e soluzione 7/5 con la `ProductCard` a destra; anatomia 1/1. Pannelli affiancati con `gap-3` (12 px): porte 1/1, capacità 1/1/1, piani 1/1/1; card degli agenti 2 → 4 colonne con `gap-4`. Celle a tutta larghezza per blog, help, team e indice clienti, divise da righe piene (`border-b`, `md:border-r`). Distanze ricorrenti: 4 px tra titolo e lede di una coppia, 16 px tra etichetta e titolo di sezione, 16 px tra H1 e lede dell'hero, 24 px tra titolo e lede nelle chiusure e tra `Head` e lede del Manifesto, 32 px tra lede e azioni, 16 px tra azioni e nota, 12 px tra pillole, 40–64 px tra testa di sezione e contenuto (`mt-10 lg:mt-14`, `mt-12 lg:mt-16`). Nei pannelli il padding è 24 px → 40 px da `lg` (`p-6 lg:p-10`), nelle card degli agenti 24 px.
 
-La densità si governa per sottrazione: i fogli A/B mostrano intro e prima sezione, il resto sta in un `details` "Leggi il testo intero"; le prove mostrano quattro casi e un `details` "Altri n casi"; le liste sono righe da 12 px di padding. Su mobile i due fogli scorrono in orizzontale con `snap-x` e un selettore a pillola; una barra fissa in basso (`global/MobileCta.astro`) porta "Prova gratis" nella zona del pollice dopo il primo viewport, con `padding-bottom` che include `env(safe-area-inset-bottom)`, e sparisce vicino alla chiusura.
+La densità si governa per sottrazione: i fogli A/B mostrano intro e prima sezione, il resto sta in un `details`; le prove mostrano quattro casi e un `details` "Altri n casi"; le liste sono righe da 12 px di padding. Su mobile i due fogli scorrono in orizzontale con `snap-x` e un selettore a pillola; una barra fissa in basso (`global/MobileCta.astro`) porta "Prova gratis" nella zona del pollice dopo il primo viewport, con `padding-bottom` che include `env(safe-area-inset-bottom)`, e sparisce vicino al footer.
 
-Breakpoint usati: `sm` 640, `md` 768 (fogli affiancati, casi a due colonne), `lg` 1024 (nav desktop, griglie, barra mobile nascosta), `xl` 1280 (sigle, footer a tre colonne), `2xl` 1536 (cornice larga). Nav fissa 72 px; le pagine interne partono con `pt-[72px]` e la SubNav alta 56 px su mobile, 48 px da `lg`. Touch: i bottoni `xs`/`sm`/`base` estendono l'area cliccabile in verticale con `.tap-target` (`pointer: coarse`); voci del footer `min-h-11`; pillole della SubNav `h-10` su mobile.
+Breakpoint usati: `sm` 640, `md` 768 (fogli affiancati, capacità a tre, casi a tre), `lg` 1024 (nav desktop, griglie, barra mobile nascosta), `xl` 1280 (footer a tre colonne). Nav fissa 72 px; le pagine interne partono con `pt-[72px]` e la SubNav alta 56 px su mobile, 48 px da `lg`. Touch: i bottoni `xs`/`sm`/`base` estendono l'area cliccabile in verticale con `.tap-target` (`pointer: coarse`); voci del footer `min-h-11`; pillole della SubNav `h-10` su mobile; voci del menu mobile `min-h-13`.
+
+### Named Rules
+**The More Air Below Rule.** Una sezione prende 2/4 righe di corpo sopra/sotto su mobile e 3/5 da `lg` (`Frame rhythm="section"`): il titolo di una sezione sta più vicino a ciò che la precede che a ciò che la segue. Il ritmo non si scrive a mano: si passa `rhythm`.
 
 ## Elevation & Depth
 
-Sistema piatto: la profondità è tono (`base-50` su bianco) e linea, non ombra. Le uniche ombre stanno sui bottoni: la pillola accent porta un filo di luce interno e un'ombra corta, la pillola muted un'ombra quasi invisibile. Nessun pannello, card, nav, sheet o barra ha ombra; nav e barra mobile usano `bg-white/95` con `backdrop-blur-sm`. Lo stato "attivo" di un pannello o nodo si segnala con bordo `base-900` e un anello piatto da 3 px in `base-100`, senza sfocatura: è un contorno, non un'elevazione.
+Sistema piatto per tono: la profondità è carta su avorio (`panel` su `background`), `base-50` per il tono soft e `base-100` per ciò che è premuto o consigliato. Nessun pannello, card, nav, menu, sheet, barra o bottone ha ombra. La nav è opaca sull'avorio, senza riga; la barra mobile usa `bg-background/95` con `backdrop-blur-sm` e una riga `base-200` in alto. I pannelli tinti non hanno bordo; le finestre dell'app e i fogli hanno un bordo `base-200` da 1 px perché dentro mostrano un'interfaccia.
 
 ### Shadow Vocabulary
-- **Pillola accent** (`box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.22), 0 1px 2px rgb(0 0 0 / 0.14)`): solo su `variant="accent"`.
-- **Pillola muted** (`box-shadow: 0 1px 2px rgb(0 0 0 / 0.05)`): solo su `variant="muted"`.
-- **Anello attivo** (`box-shadow: 0 0 0 3px var(--color-base-100)`): pannello dell'hero e nodo della catena mentre lavorano; `mark` acceso nell'anatomia con `0 0 0 2px base-200`.
+Le sole ombre del sito stanno sugli oggetti di prodotto, in inchiostro (`rgb(38 37 30)`), definite in `home/Hero.astro`, `featurepage/ProductCard.astro` e `global.css`:
+- **Finestra dell'app** (`.vb-window`: `inset 0 1px 0 rgb(255 255 255 / 0.9), 0 0 0 1px rgb(38 37 30 / 0.08), 0 2px 4px rgb(38 37 30 / 0.04), 0 16px 32px -12px rgb(38 37 30 / 0.14), 0 48px 96px -32px rgb(38 37 30 / 0.28)`): filo chiaro in alto, bordo sottile, ombra lunga. La pagina del documento nell'hero e nei Manifesto, le finestre `features/agents/*Window.astro`.
+- **Card in primo piano** (`.vb-float`: `0 0 0 1px rgb(38 37 30 / 0.06), 0 1px 2px rgb(38 37 30 / 0.05), 0 12px 24px -10px rgb(38 37 30 / 0.16), 0 32px 56px -24px rgb(38 37 30 / 0.2)`): il brief come messaggio, la card "Per Google e per le AI", i passi numerati del Manifesto.
+- **Pezzo di prodotto in testa a una cella** (`.vb-peek-card`: `0 0 0 1px rgb(38 37 30 / 0.08), 0 12px 24px -12px rgb(38 37 30 / 0.25)`, raggio 8 px, con `.vb-peek` che sfuma in basso con `mask-image`): le prime tre celle di "Cosa cambia" nelle pagine soluzione.
 
 ### Named Rules
-**The Lines Not Shadows Rule.** Un contenitore si separa dal foglio con un bordo `base-200` (pieno sui pannelli, tratteggiato sulle celle) o con `bg-base-50`. Mai con un'ombra diffusa. Eccezione (2026-10-07): il prodotto mostrato come oggetto, la finestra dell'app nell'hero e i frammenti nella catena, porta un'ombra lunga e morbida: è luce su un oggetto, non elevazione di un contenitore.
+**The Tone Not Shadows Rule.** Un contenitore si separa dalla pagina con il tono (`panel`, `base-50`, `base-100`), mai con un'ombra e, se è un pannello di testo, nemmeno con un bordo. L'unica luce del sito è quella sugli oggetti di prodotto: è luce su un oggetto appoggiato, non elevazione di un contenitore.
 
 ## Shapes
 
-Quattro forme, ognuna con un ruolo. Pillole (`rounded-full`) per tutto ciò che si preme o seleziona: bottoni, voci nav e SubNav, selettore A/B, campo keyword, chip delle lacune, `summary` dei `details`, punti. Pannelli a 12 px (`rounded-xl`) per le schede che stanno sul foglio: pannelli dell'hero, scatola della catena, fogli A/B, lista dei passi del Manifesto, citazione, articolo annotato, `pre` e immagini della prose, ritratti del team. Angoli a 8 px (`rounded-lg`) per le scatole dentro un pannello: i quattro nodi della catena, "Versione A/B" nell'hero, le statistiche delle porte. Angoli a 2 px (`rounded-sm`) solo per il `mark` dell'anatomia. Celle, targhette, elenchi e tabelle sono squadrati (0 px): la targhetta di sezione è un rettangolo pieno nero con una barretta 2×12 px `accent-300` a fianco.
+Quattro raggi, ognuno con un ruolo, con i nomi Tailwind ridefiniti in `@theme` (dal 2026-10-17). Pillole (`rounded-full`) per tutto ciò che si preme o seleziona: bottoni, voci nav e SubNav, selettore A/B, pillola di stato nel footer, targhetta "Consigliato", pillola "Markdown", punti. Angoli a 4 px (`rounded-md` = `rounded-lg` = `--radius-md/lg`) per pannelli e scatole che stanno sulla pagina: porte, capacità, card degli agenti, piani, pannello di prodotto dell'hero, sezioni `soft`, righe in hover dentro le porte, campo di ricerca del blog, riquadri dei motori. Angoli a 6 px (`rounded-xl` = `--radius-xl`) per le finestre dell'app e i contenitori che mostrano un'interfaccia o dati: pagina del documento, fogli A/B, articolo annotato dell'anatomia, `dl` dell'azienda nei casi, citazione delle prove, riquadri della pagina brand, `pre` e immagini della prose. Angoli a 8 px (`rounded-2xl`/`rounded-3xl` = `--radius-2xl/3xl`) per le card in primo piano (brief, motori, passi) e la `ProductCard`. Celle, elenchi, tabelle e cartiglio sono squadrati (0 px).
 
-Bordi: sempre 1 px. Pieno `base-200` sui pannelli, nodi, bottoni muted e header dei fogli; tratteggiato `base-200` su cornice, righe di sezione, divisori di cella, righe di elenco, `hr` e link della prose (`border-b border-dashed border-base-400`, che passa ad `accent-500` in hover). Le icone sono SVG a tratto 1.4–1.6 (`+` delle FAQ e dei `details`, copia, chevron, menu), mai glifi di font o icone piene.
+Bordi: sempre 1 px, pieni, `base-200`. I tratteggi sono stati eliminati ovunque il 2026-10-17. Righe di elenco `border-t … last:border-b`, divisori di cella `border-b`/`md:border-r`, riga sotto la SubNav, bordo delle finestre e dei fogli; link con filetto `border-b border-base-400` che passa a `accent-500`/`base-900` in hover. Le icone sono SVG a tratto 1.4–1.6 (`+` delle FAQ, chevron, menu, icone degli agenti e delle capacità a 20–24 px), mai glifi di font o icone piene.
 
 ## Components
 
 ### Buttons
-`fundations/elements/Button.astro`, props `variant` (`accent` | `muted` | `default` | `none`), `size` (`xs` 32 px/`sm` 36/`base` 40/`md` 44/`lg` 48/`xl` 56), `isLink`, `iconOnly`.
-- **Shape:** pillola piena (`rounded-full`), altezza fissa, testo centrato, peso 400.
-- **Accent (primaria):** fondo `accent-500` (Nero Verbalist), testo bianco, `px-6` a 40 px (`px-4` a 32–36 px), ombra "pillola accent". Una sola per gruppo di azioni ("Prova gratis"), con la rassicurazione a 12–14 px `base-500` sotto.
-- **Muted (secondaria):** bianco, bordo `base-200`, testo `base-900`, ombra "pillola muted" ("Parla con noi", "Accedi" nel sheet, piani non consigliati).
-- **Hover / Focus:** transizione 300 ms; accent → `base-700`; muted → bordo `base-300` e testo `accent-600`; focus `ring-2` con offset 2 (`base-900` / `base-300`). Le taglie xs/sm/base su touch estendono l'area cliccabile con `.tap-target`.
+`fundations/elements/Button.astro`, props `variant` (`accent` | `muted` | `ghost` | `default` | `none`), `size` (`xs` 32 px/`sm` 36/`base` 40/`md` 44/`lg` 48/`xl` 56), `isLink`, `iconOnly`.
+- **Shape:** pillola piena (`rounded-full`), altezza fissa, testo centrato, peso 400, nessuna ombra.
+- **Accent (primaria):** fondo `accent-500` (Nero Verbalist), testo bianco, `px-6` a 40 px (`px-4` a 32–36 px). Una sola per gruppo di azioni ("Prova gratis"), con la rassicurazione a 12–14 px `base-500` sotto. Hover `base-700`.
+- **Muted (secondaria):** fondo `base-100`, bordo trasparente, testo `base-900`; hover `base-200` ("Parla con noi" negli hero e nelle chiusure, "Accedi" nel menu mobile, piani non consigliati, download della pagina brand).
+- **Ghost (nuova, 2026-10-17):** trasparente con bordo `base-300`, testo `base-900`; hover `bg-panel`. Solo nella nav ("Parla con noi", `size="sm"`).
+- **Hover / Focus:** transizione 150 ms (come `--m-micro`); focus `ring-2` con offset 2 (`base-900` per accent, `base-300` per muted e ghost). Le taglie xs/sm/base su touch estendono l'area cliccabile con `.tap-target`.
 - **Default:** `bg-black`/hover `base-700`; esiste nella primitiva ma le superfici usano `accent`.
-- **Bottoni di pannello (36 px):** `summary` dei `details` e "Copia lo slug" sono pillole `h-9`/`h-8` bianche con bordo `base-200`, testo 14/12 px, hover bordo `base-300` + testo `accent-600`; l'icona `+` in `accent-500` ruota di 45° all'apertura.
+- **Bottoni di pannello (32–36 px):** `summary` dei `details` e la pillola "Markdown" nei post sono pillole `h-8`/`h-9` su `bg-panel` con bordo `base-200`, testo 14 px, hover bordo `base-300` + testo `base-900`; l'icona `+` in `accent-500`/`accent-600` ruota di 45° all'apertura.
 
 ### Chips
-- **Targhetta di sezione** (`Head` prop `tag`): mono 12 px maiuscolo bianco su `accent-600`, `px-1.5 py-0.5`, angoli vivi, barretta `accent-300` a destra. Stessa forma per "Consigliato" nei piani.
-- **Chip delle lacune** (run): pillola bianca con bordo `base-200`, testo `base-800` 12 px, `px-2 py-0.5`.
+- **Etichetta di sezione** (`Head` prop `tag`, eyebrow del Manifesto): testo sans 14 px `base-500`, senza fondo né bordo, a 16 px dal titolo. Stessa forma per le etichette dei pannelli ("Per le agenzie", "Brief") e i numeri delle card degli agenti.
+- **Targhetta "Consigliato"** (piani): pillola `h-6 px-2.5 text-xs`, bordo `border-current` in `base-900`, trasparente.
+- **Pillola di stato** (footer): `h-8 px-3 text-sm`, bordo `base-200`, punto `size-1.5` in `status-success` (o `status-error`), hover `base-100`.
 - **Selettore A/B (mobile):** contenitore pillola con bordo `base-200` e `p-1`; il bottone premuto è `bg-accent-600 text-white`, alto 40 px (`aria-pressed`).
-- **Etichetta mono con punto:** `size-1.5` in `accent-500` seguito dall'etichetta `base-500`; il punto diventa `base-300` in attesa e `status-success` a lavoro concluso.
+- **Etichetta con punto:** `size-1.5` in `accent-500` davanti alle righe di elenco; `status-success` per "Per Google e per le AI" e lo stato dei sistemi.
 
 ### Cards / Containers
-- **Pannello** (`p-4 bg-white border rounded-xl border-base-200`; `p-8`/`p-10` da `sm`/`lg` nella scatola della catena): la scheda che sta sul foglio. Dentro, riga di etichette mono `justify-between`, poi contenuto a `mt-2/3`. Attivo: bordo `base-900` + anello `base-100` (transizione 400 ms).
-- **Nodo della catena** (`p-5 rounded-lg border-base-200`, link): etichetta mono, nome 16 px, sommario 12 px `base-600`, riga "→ output" mono su tratteggio. Hover bordo `accent-400`; attivo `bg-base-50` + bordo `base-900` + anello; passato bordo `base-300` con `✓` verde davanti all'etichetta.
-- **Foglio A/B** (`Prints.astro`): pannello con `overflow-hidden`, header 44 px `border-b` (nome versione 14 px `accent-600`, "Generato da Verbalist" mono), blocco metadati `bg-base-50` con `dl` a due colonne e `border-b border-dashed`, corpo `px-5 py-6` con H3 24 px e intro 15 px `base-700`, poi `details` "Leggi un estratto" con una sola sezione per versione (A: la classificazione A1–A6; B: i 7 passaggi), H4 15 px medium, testo 15 px `base-600`, elenchi e tabelle. I due fogli stanno in un contenitore con `data-nosnippet`: il testo dimostrativo non finisce negli snippet della home. I segnaposto della piattaforma (`[SOURCE NEEDED]`, `[INTERNAL: …]`) sono targhette mono 12 px su `base-100`.
-- **Cella con numero** (`CustomerCard4`, indice `/clienti/`): logo e settore mono in testa, poi il numero del caso (frontmatter `figure`: `200+`, `14`, `½`) a 32 → 52 px come titolo, la sua riga a 15 px `base-600`, "Leggi il caso …" in fondo. Il caso in testa (`featured`, `pages/clienti/index.astro`) sta a tutta larghezza: numero a 60 px a sinistra, `partnership` e link a destra. Nessun titolo del caso nell'indice: lo porta la pagina.
-- **Cella** (`BlogCard`, `HelpCenterCard`, `TeamCard`, porte, piani): nessun raggio e nessun bordo proprio, solo `border-b border-dashed border-base-200` e i divisori della griglia; `px-4 py-8` → `lg:px-8 lg:py-10`; riga mono in testa (data/categoria, con la categoria in `accent-600`), titolo a `mt-8`, descrizione 15 px `base-600`, "Leggi →" o chevron in fondo con `mt-auto`. Hover: `bg-base-50` (200 ms) e titolo `accent-600`; il link copre la cella con `after:absolute after:inset-0`.
-- **Riga di registro** (`Proofs`): `li` a tre colonne 3/5/4 con `py-6`, tratteggio sopra, nome 18 px, fatto 15 px `base-800`, crediti `dl` 12 px; hover `bg-base-50`.
-- **Elenco a righe** (`Doors`, `Plans`, catena, prose): `li` con `py-3`, `border-t border-dashed border-base-200`, `last:border-b`, punto `size-1.5 bg-accent-500`, testo 14 px `base-800`.
-- **Citazione** (`Proofs`): pannello `bg-base-50 rounded-xl` con blockquote 24/28 px e firma 14 px con logo grayscale.
+- **Pannello tinto** (`p-6 bg-panel rounded-md lg:p-10`): la scheda che sta sulla pagina, senza bordo. Dentro, etichetta 14 px `base-500`, poi titolo a `mt-6` e lede a `mt-1` (coppia), elenco a righe a `mt-8`, link "… →" in fondo con `mt-auto pt-6`. Quando il pannello è un link intero (`after:absolute after:inset-0` sul titolo), in hover il link in fondo passa a `opacity-75`; le righe interne che sono link a sé stanno a `z-10` con hover `bg-base-100 rounded-md`. Usato da porte e capacità.
+- **Card degli agenti** (`home/Chain.astro`): `p-6 bg-panel rounded-md gap-8`, icona 24 px `base-900`, numero 14 px `base-500`, nome 20 px, riassunto 15 px `base-600`, "Vedi l'agente" con chevron in fondo; tutta la card è il link, in hover il fondo passa a `base-100` (200 ms) e il chevron scorre di 4 px (300 ms).
+- **Card dei piani** (`home/Plans.astro`): `p-6 rounded-md lg:p-10`, `bg-panel` o `bg-base-100` per il consigliato (con la targhetta); nome 20 px, prezzo 44 px `tabular-nums`, periodo 14 px `base-500`, descrizione 15 px, elenco a righe, pillola (accent sul consigliato, muted altrove) con la nota a 12 px sotto.
+- **Pannello di prodotto dell'hero** (`home/Hero.astro`): `rounded-md bg-base-50 overflow-hidden`, alto 17/26/32 rem, a tutta larghezza sotto il testo; dentro la pagina del documento (`AppWindow`, `rounded-xl .vb-window`, zoom 0.3/0.56/0.76, spostata al 54% da `lg`), il brief come messaggio (`bg-panel rounded-2xl rounded-tl-md .vb-float`) e la card "Per Google e per le AI" con i cinque marchi in riquadri `size-6 rounded-md bg-panel border-base-200`. Statico; i marchi dei motori sono gli unici colori.
+- **Finestra / foglio** (`bg-panel border border-base-200 rounded-xl`): contenitori che mostrano un'interfaccia o dati. Fogli A/B (`Prints.astro`: header 44 px `border-b` con nome versione 14 px `accent-600`, blocco metadati `bg-base-50` con `dl` a due colonne, corpo `px-5 py-6`, `details` "Leggi un estratto"), articolo annotato dell'anatomia (`p-6 sm:p-8`), `dl` dell'azienda nei casi (`p-6`, righe `border-b base-200`), riquadro "In breve" dei post. I fogli stanno in un contenitore con `data-nosnippet`; i segnaposto della piattaforma (`[SOURCE NEEDED]`, `[INTERNAL: …]`) restano visibili.
+- **Citazione** (`Proofs`): `p-6 sm:p-10 bg-base-50 border border-base-200 rounded-xl`, blockquote 24 → 28 px `tracking-tight`, firma 14 px `base-600` con logo grayscale.
+- **Cella** (`BlogCard`, `HelpCenterCard`, `TeamCard`, indice clienti): nessun raggio e nessun bordo proprio, solo `border-b border-base-200` e i divisori della griglia; `px-4 py-8` → `lg:px-8 lg:py-10`; riga 14 px `base-500` in testa (data/categoria, con la categoria in `accent-600`), titolo a `mt-8`, descrizione 15 px `base-600`, "Leggi →" in fondo con `mt-auto`. Hover: `bg-base-50` (200 ms) e titolo `accent-600`; il link copre la cella con `after:absolute after:inset-0`.
+- **Cella con numero** (`CustomerCard4`, indice `/clienti/`): logo grayscale e settore 14 px in testa, poi il numero del caso (frontmatter `figure`) a 32 → 52 px come titolo, la sua riga 15 px `base-600`, "Leggi il caso →" in fondo. Il caso in testa (`featured`) sta a tutta larghezza con il numero a 60 px.
+- **Riga di registro** (`Proofs`): `li` a tre colonne 3/5/4 con `py-6`, riga piena sopra, nome 18 px, fatto 15 px `base-800`, crediti 12 px; hover `bg-base-50`.
+- **Elenco a righe** (porte, piani, Manifesto, pagine agente): `li` con `py-3`, `border-t border-base-200`, `last:border-b`, punto `size-1.5 bg-accent-500`, testo 14 px `base-800`.
 
 ### Inputs / Fields
-- **Campo keyword (nell'hero)**: pillola alta 36 px, `bg-base-50`, bordo `base-200`, mono 13 px `base-800` con prefisso "/" in `base-500`. Il sito non ha form propri oltre a HubSpot e alla ricerca del blog; i campi nuovi seguono questa forma (pillola, `base-50`, bordo `base-200`, focus con ring `base-900`).
+- **Campo di ricerca del blog** (`blog/BlogSearch.astro`): `h-9 rounded-md bg-panel`, `ring-1 ring-base-200`, testo e segnaposto `base-500`; focus bordo `accent-500` e `ring-2 ring-accent-100`. Risultati in un pannello `bg-panel rounded-xl`, voci `rounded-lg hover:bg-mist-100`. Il sito non ha altri form propri oltre a HubSpot; i campi nuovi seguono questa forma (carta, 4 px, riga `base-200`, focus con ring in inchiostro).
 
 ### Navigation
-- **Nav principale** (`global/Navigation.astro`): fissa, 72 px, `bg-white/95 backdrop-blur-sm`, `border-b border-dashed border-base-200`; logo alto 20 px; voci separate dal logo da un `border-l base-200`; ogni voce è una pillola 36 px `px-3 text-sm text-base-600`, hover e attiva `bg-base-100 text-base-950` (200 ms); "Accedi" testuale; CTA "Prova gratis" `Button size="sm" variant="accent"`; toggle menu `size-11` con icona a tratto 1.5.
-- **Sheet mobile:** pannello bianco a tutto schermo sotto la nav, voci 20 px alte ≥52 px separate da tratteggi, voce corrente in `accent-600`, due pillole `lg` piene in fondo (muted + accent).
-- **SubNav** (`featurepage/SubNav.astro`): riga alta 56/48 px sotto la nav, voce di testa mono maiuscola `base-500` con `border-r` tratteggiato, poi pillole 40/32 px `text-sm`; la corrente è `bg-accent-500 text-white` con numero mono al 80% di bianco, le altre `base-600` con hover `bg-base-100`. Scorre in orizzontale su mobile con sfumatura bianca a destra.
-- **Barra mobile** (`global/MobileCta.astro`): fissa in basso sotto `lg`, `bg-white/95` con blur e tratteggio in alto, nota 12 px `base-600` a sinistra e pillola accent 40 px a destra; entra con `translate-y` 300 ms dopo il 90% del primo viewport, sparisce a 420 px dal footer.
-- **Footer**: `border-t` tratteggiato, quattro colonne con intestazioni mono `base-500` e link 14 px `base-700` alti ≥44 px su mobile (hover `accent-600`), poi il cartiglio.
-- **Cartiglio** (fine del footer, ogni pagina): come il riquadro di un disegno tecnico, una griglia di celle squadrate a tratteggio `base-200` (due colonne su mobile, cinque da `lg`), etichetta mono 12 px `base-500` sopra un valore 12 px. Celle: `© anno` con NUR S.r.l. e P.IVA; **Foglio**, l'indirizzo della pagina in mono ("404" sulla 404); **Piattaforma**, la versione dell'ultima release del changelog (link, cella intera cliccabile, hover `base-50`); **Revisione**, la data della build; **Stato**, l'indicatore dei sistemi letto da uptime (link esterno, cella intera). Statico.
+- **Nav principale** (`global/Navigation.astro`): fissa, 72 px, `bg-background` opaco, senza riga; logo alto 20 px a sinistra; voci al centro (`absolute left-1/2`), ognuna una pillola `h-9 px-3 text-sm text-base-900`, hover `bg-base-100 text-base-950` (200 ms), attiva `text-base-950`; a destra "Accedi" testuale (`hover:opacity-75`), la pillola `ghost` "Parla con noi" e la pillola `accent` "Prova gratis", entrambe `size="sm"`; toggle menu `size-11` con icona a tratto 1.5.
+- **Menu mobile:** pannello `bg-panel` a tutto schermo sotto la nav, voci 20 px alte ≥52 px separate da righe `base-200`, voce corrente in `accent-600`, "Help center" in coda, due pillole `lg` piene in fondo (muted "Accedi" + accent "Prova gratis").
+- **SubNav** (`featurepage/SubNav.astro`): riga alta 56/48 px sotto la nav con `border-b base-200`, voce di testa 14 px `base-500` con `border-r`, poi pillole 40/32 px `text-sm`; la corrente è `bg-accent-500 text-white` con numero mono al 80% di bianco, le altre `base-600` con hover `bg-base-100`. Scorre in orizzontale su mobile.
+- **Barra mobile** (`global/MobileCta.astro`): fissa in basso sotto `lg`, `bg-background/95` con blur e riga `base-200` in alto, nota 12 px `base-600` a sinistra e pillola accent 40 px a destra; entra con `translate-y` 300 ms dopo il 90% del primo viewport, sparisce a 420 px dal footer.
+- **Footer** (`global/Footer.astro`): `bg-panel` a tutta larghezza, `mt-v4`, `pt-v3 pb-8`; marchio e una riga 14 px `base-600` a sinistra, quattro colonne con intestazioni 14 px `base-500` e link 14 px `base-900` (`hover:opacity-75`, alti ≥44 px su mobile).
+- **Cartiglio** (fine del footer, ogni pagina): dal 2026-10-17 una sola riga `dl` a 14 px `base-600` con `gap-x-6`: `© anno` NUR S.r.l. con P.IVA; il foglio (indirizzo della pagina in mono 12 px, "404" sulla 404); **Piattaforma**, la versione dell'ultima release del changelog in mono (link); **Revisione**, la data della build; a destra lo stato dei sistemi come pillola con punto, letto da uptime. Statico.
 
-### Section frame (firma)
-`section/Frame.astro` + `section/Head.astro` costruiscono ogni sezione: cornice con sigla e punti d'angolo, targhetta mono nera, titolo 36/52 px interamente `base-900`, testo a fianco 5/12 in `base-700`. Le pagine "feature" li riusano tramite `featurepage/Manifesto.astro` (H1 con lista dei passi numerati in mono `accent-600` dentro un pannello `p-2`) e `featurepage/SectionHead.astro`; `ctas/Cta2.astro` è la chiusura su fondo `base-50` con titolo, lede light e pillole.
+### Section head (firma)
+`section/Frame.astro` + `section/Head.astro` costruiscono ogni sezione: `Frame` dà colonna, tono e ritmo; `Head` dà etichetta 14 px `base-500`, titolo 36/52 px interamente `base-900` a `mt-4`, e a fianco (5/12) il testo 16 px `base-600` `max-w-md`, allineato in basso. Le pagine "feature" li riusano tramite `featurepage/Manifesto.astro` e `featurepage/SectionHead.astro` (azioni nello slot a `mt-8`).
+
+### Chiusure (`home/Close.astro`, `ctas/Cta2.astro`)
+Centrate, `rhythm="close"`: titolo grande (`Close` 44/56/60 px `text-hero`, `Cta2` 36/52 px `text-display`), lede 18 px `base-600` `max-w-md` a `mt-6`, pillole a `mt-8` (`Close` una sola accent; `Cta2` accent + muted opzionale), rassicurazione 14 px `base-500` a `mt-4` quando il link è una registrazione.
 
 ### Hero della home
-`home/Hero.astro`, centrata (composizione delle hero di Fulldev e Craft, 2026-10-11): H1 su due righe, lede `max-w-2xl`, le due pillole e la nota, tutto al centro, 112 px sotto l'header da `lg`. Sotto, il palco senza riquadro: la pagina del documento (`AppWindow`, zoom 0.3/0.56/0.76, spostata al 54%) con la luce di un oggetto appoggiato, il brief come messaggio in alto a sinistra e la card "Per Google e per le AI" con i cinque marchi in basso a sinistra (da `sm`). Il palco è alto 17/26/32 rem e sfuma in basso (`mask-image`) prima del bordo della sezione. Statico. I marchi dei motori sono gli unici colori.
+`home/Hero.astro`, a sinistra (grammatica di cursor.com, 2026-10-17): H1 24 → 28 px (`text-headline`, tracking −0.0125em) su due righe, lede a `mt-4` (18 → 19 px), due pillole (accent + muted) a `mt-8`, nota 14 px `base-500` a `mt-4`, tutto in `max-w-2xl`; sotto, a `mt-12 lg:mt-16`, il pannello di prodotto tinto a tutta larghezza (vedi Cards). Statico.
 
 ### Card di prodotto (`featurepage/ProductCard.astro`)
-Il contenitore delle illustrazioni di prodotto, sul modello delle card di claude.com: `rounded-3xl`, bordo `base-200`, bianca con le due velature radiali in basso (`wash-warm` a destra, `wash-cool` a sinistra), `overflow-hidden`, `role="img"` con descrizione, `data-nosnippet`. Dentro, oggetti assoluti che i bordi tagliano netti: finestre dell'app (`.vb-window`: filo chiaro in alto, bordo 1 px, ombra lunga) e card in primo piano (`.vb-float`: ombra corta). Quattro toni di sfondo (prop `tone`): `alba` (caldo in basso a destra, freddo in basso a sinistra; hero di home e soluzioni), `sera` (caldo a sinistra, freddo in alto a destra; sezione prodotto delle pagine agente), `foschia` (solo la velatura fredda in alto a destra; blocco In breve delle soluzioni), `carta` (`base-50` pieno, senza velature; disponibile, al momento non usato): due card vicine non hanno mai lo stesso sfondo. Nell'hero delle soluzioni la finestra cambia con il pubblico: Progetti (agenzie), contesto con PDF (corporate, B2B), Documenti (PMI), pagina prodotto (e-commerce); nelle pagine agente: Nuovo documento, analisi in corso con la coda dei risultati, pagina del documento, export con il menu Scarica. Le finestre stanno in `features/agents/*Window.astro`; i vecchi `Mockup*` sono stati rimossi. La usano la hero della home (direttamente, stessa grammatica), l'hero delle pagine soluzione (`Manifesto` senza `run`: la pagina del documento senza barra laterale a destra, i passi numerati in una card in basso a sinistra; alta 18/24/27 rem) e il blocco "In breve" delle soluzioni (le finestre "Nuovo documento" di `features/agents/BriefWindow.astro`, una per brief d'esempio, sfalsate in diagonale quando sono tre, centrata quando è una; alte 20/22/24 rem, `zoom` 0,62/0,72/0,8). `BriefWindow` ricostruisce il passo 2 della procedura dell'app (tipo scelto, keyword principale, località, lingua, contesto con il PDF, progetto, "Continua") a 420 px.
-
-### Casi studio (`layouts/CustomersLayout.astro`)
-Hero 7/5 su `base-50`: logo, H1 e azienda a sinistra, a destra il numero del caso a 60 px con la sua riga in `lede` light, allineato in basso al testo. Poi problema e soluzione (due celle), i tre risultati in tre celle numerate `01 02 03` (mono `base-500`, testo 18 px) e il racconto in prose `max-w-xl` con a fianco, `sticky top-24`, il pannello dell'azienda (`dl` a righe tratteggiate: settore, sede, fondazione, dipendenti, sito), senza azioni. Senza `figure` il pannello resta nell'hero.
+Il contenitore delle illustrazioni nelle pagine agente e soluzione, sul modello delle card di claude.com: `rounded-3xl` (8 px), bordo `base-200`, fondo bianco con le velature radiali (prop `tone`: `alba` calda in basso a destra e fredda in basso a sinistra; `sera` invertita; `foschia` solo la fredda in alto a destra; `carta` = `base-50` pieno), `overflow-hidden`, `role="img"` con descrizione, `data-nosnippet`. Dentro, oggetti assoluti che i bordi tagliano netti: finestre dell'app (`.vb-window`, `rounded-xl`) e card in primo piano (`.vb-float`, `bg-panel rounded-2xl`). Due card vicine non hanno mai lo stesso sfondo. Le finestre stanno in `features/agents/*Window.astro`.
 
 ### Hero delle pagine agente e soluzione
-`featurepage/Manifesto.astro`: a sinistra targhetta, H1, lede, azioni; a destra una `ProductCard` (tono `alba`) con i passi numerati in primo piano e, dietro, la finestra dell'app passata nello slot `card`. Pagine agente: Nuovo documento (01), analisi in corso con la coda dei risultati (02), pagina del documento senza barra laterale (03), export con il menu Scarica (04). Pagine soluzione: Progetti (agenzie), contesto con PDF (corporate, B2B), Documenti (PMI), pagina prodotto (e-commerce). Statico. Nelle pagine agente le azioni stanno nell'hero e la sezione "Il prodotto" è solo testo (targhetta, frase citabile, introduzione); il blocco "Come funziona" è prosa `max-w-xl` a capitoli (`.vb-chapters`, in `AgentsLayout`): ogni paragrafo ha il numero mono `01 02 03` su un filo tratteggiato `base-200` a sinistra, rientro 3rem, statico. Pagine soluzione, griglia "Cosa cambia" 3×2: le prime tre celle portano in testa un pezzo di prodotto che sfuma (`.vb-peek`, `h-44`, zoom 0.66), scelto nel frontmatter (`peek`) o dal link della cella tra le dieci schermate di `home/ChainFragment.astro` (brief, contesto con PDF, "Cosa succederà", documento in elaborazione, riepilogo con "~ 1.5 crediti", due versioni, export, modalità "Ottimizza contenuto esistente", scheda crediti della Panoramica, tabella Documenti), rilette in app il 2026-10-10; per ogni link c'è una lista di alternative e si prende la prima non ancora usata nella pagina; le altre tre celle sono di testo. Niente punto prima dei titoli di cella. L'animazione a quattro pannelli (`run/Run.astro`) è stata ritirata il 2026-10-07.
+`featurepage/Manifesto.astro`, su `Frame tone="soft"`: a sinistra `Head` con etichetta e H1, lede a `mt-6`, azioni a `mt-8`; a destra una `ProductCard` (alta 22/24/27 rem) con, in primo piano, i passi numerati (mono 12 px `accent-600` + testo 14 px, righe `base-200`) in una card `bg-panel rounded-2xl .vb-float` e, dietro, la finestra dell'app passata nello slot `card`. Pagine agente: Nuovo documento (01), analisi in corso (02), pagina del documento (03), export (04). Pagine soluzione: Progetti (agenzie), contesto con PDF (corporate, B2B), Documenti (PMI), pagina prodotto (e-commerce). Statico. Nelle pagine agente "Come funziona" è prosa `max-w-xl` a capitoli (`.vb-chapters`): ogni paragrafo ha il numero su un filo pieno `base-200` a sinistra. Pagine soluzione, griglia "Cosa cambia" 3×2: le prime tre celle portano in testa un pezzo di prodotto che sfuma (`.vb-peek`, `h-44`), scelto nel frontmatter (`peek`) o dal link della cella tra le schermate di `home/ChainFragment.astro`.
 
-### Agenti (`home/Chain.astro`)
-Quattro card in una riga (composizione del blocco "Feature" di Craft, 2026-10-11): `rounded-xl`, bordo `base-200`, `p-6`; dentro icona dell'agente (`fundations/icons`, 24 px), numero mono, nome a 20 px, riassunto 15 px `base-600`, "Vedi l'agente" con chevron in fondo; tutta la card è il link, in hover solo il bordo passa a `base-400`. Testa di sezione standard (targhetta, titolo, testo a fianco). La catena animata con le finestre dell'app è stata ritirata; i pezzi di prodotto restano in `home/ChainFragment.astro` per le celle delle pagine soluzione.
-
-I nodi sono `rounded-2xl`. In fondo a ogni nodo c'è un pezzo dell'app (`home/ChainFragment.astro`): una finestra bianca `rounded-xl` con barra a tre punti `base-200`, disegnata a 320–560 px e ridotta con `zoom` 0,56 in un'area alta 7 rem su mobile, 0,66 in 10 rem da `lg`, su una velatura `wash-warm` in basso. Dentro: il brief del nuovo documento (keyword, località, lingua, contesto), i passaggi "Cosa succederà" dell'analisi, le due versioni con "Usa questa versione", i menu Copia/Esporta aperti. Esce dal nodo a destra e in basso, tagliata netta dal bordo, con bordo da 1 px e ombra morbida.
+### Casi studio (`layouts/CustomersLayout.astro`)
+Hero 7/5 su `base-50`: breadcrumb 14 px `base-500`, logo, H1 e azienda a sinistra, a destra il numero del caso a 52 → 60 px. Poi problema e soluzione (due celle divise da righe piene), i tre risultati in tre celle numerate `01 02 03` (mono 12 px `base-500`) e il racconto in prose `max-w-xl` con a fianco, `sticky top-24`, il `dl` dell'azienda in una finestra (`bg-panel border rounded-xl`).
 
 ### Anatomy (firma)
-`home/Anatomy.astro`: articolo annotato con `mark` `base-100` e riferimenti mono `accent-600` a fianco di quattro note; hover/focus su una nota accende il `mark` corrispondente (`base-200` + anello 2 px, 200 ms) e viceversa. Le note sono `tabindex="0"`.
+`home/Anatomy.astro`: articolo annotato in una finestra (`p-6 bg-panel border rounded-xl`) con riferimenti mono `accent-600` a fianco di quattro note su righe piene; hover/focus su una nota accende il passaggio corrispondente (200 ms) e viceversa. Le note sono `tabindex="0"`.
 
 ### FAQ
-`faqs/Faq1.astro`: `details` con righe tratteggiate, domanda 18 px `base-900` (hover `accent-600`), icona `+` a tratto 1.4 in `accent-500` che ruota di 45° in 300 ms, risposta 15 px `base-600` `max-w-2xl`.
-
-### Titoli con trattino
-`fundations/elements/Unbroken.astro` tiene intere le parole con il trattino (GEO-ready, E-E-A-T) negli H1 dei post e dei casi cliente: niente a capo dopo il trattino.
+`faqs/Faq1.astro`, `home/Questions.astro`: `details` su righe piene `base-200`, domanda 18 px `base-900` `py-5` (hover `accent-600`), icona `+` a tratto 1.4 in `accent-500` che ruota di 45° in 300 ms, risposta 15 px `base-600` `max-w-2xl`.
 
 ### 404 (`pages/404.astro`)
-L'indirizzo richiesto letto come una keyword. A sinistra targhetta "404", titolo, lede e due azioni; a destra due pannelli come quelli della catena: **Indirizzo** (campo a pillola mono con il percorso richiesto) e **Analisi** ("n pagine lette" e cinque righe numerate come risultati di ricerca: titolo 14 px sopra, indirizzo mono 12 px sotto, hover `base-50`). La pagina porta l'indice del sito (titolo, indirizzo, parole: 67 pagine più le ancore della home) e lo script confronta le parole dell'URL con quelle dell'indice (`lib/nearest.ts`: stessa parola, stessa radice, parola contenuta). Senza JavaScript, o senza parole in comune, restano cinque pagine da cui ripartire. Nessuna animazione.
+L'indirizzo richiesto letto come una keyword: a sinistra etichetta "404", titolo, lede e due azioni; a destra due pannelli con l'indirizzo e le pagine più vicine (`lib/nearest.ts`). Nessuna animazione.
 
 ### Superfici del browser
-Selezione bianco su Nero Verbalist (utility `selection:` su `<html>`), invertita dove il fondo è già nero (targhette, pillole piene); cursore di testo e controlli nativi (`caret-color`, `accent-color`) in `base-900`; focus da tastiera `outline` 2 px `base-900` con 2 px di distanza, in base layer così le utility dei componenti hanno la meglio; barre di scorrimento `base-300` su fondo trasparente. Nei post del blog, accanto al breadcrumb, una pillola mono "Markdown" porta a `/blog/<articolo>.md`. In testa al sorgente di ogni pagina un commento indica `/llms.txt`, le versioni Markdown e `/robots.txt`.
+Selezione bianco su Nero Verbalist (utility `selection:` su `<html>`), invertita dove il fondo è già nero (pillole piene, riquadri scuri); cursore di testo e controlli nativi (`caret-color`, `accent-color`) in `base-900`; focus da tastiera `outline` 2 px `base-900` con 2 px di distanza, in base layer così le utility dei componenti hanno la meglio; barre di scorrimento `base-300` su fondo trasparente. Nei post del blog, accanto al breadcrumb, una pillola "Markdown" porta a `/blog/<articolo>.md`.
 
 ### Motion
-Una sola animazione per sezione, e solo dove mostra il prodotto. Dal 2026-10-11 nessuna sezione del sito ha un'animazione in loop: la catena animata è stata sostituita dalle quattro card degli agenti. Il linguaggio resta disponibile per lavori futuri (`.claude/skills/motion-design/`). Token di durata e curve in `src/styles/motion.css` e `src/lib/motion.ts`. Il resto sono transizioni di colore (`duration-200` su celle, voci nav, link della prose; `duration-300` su bottoni, bordi dei nodi, icone `+`), la traslazione di 4 px del chevron nelle card clienti, lo scroll-snap dei fogli A/B sotto `md` e l'ingresso della barra mobile. `prefers-reduced-motion` azzera tutto in `global.css` e i copioni JS mostrano lo stato finale. Vietati: fade-and-rise allo scroll, hover-lift, parallax, stagger per sezione, cursori lampeggianti fuori dalla digitazione dell'hero.
+Una sola animazione per sezione, e solo dove mostra il prodotto. Dal 2026-10-11 nessuna sezione del sito ha un'animazione in loop. Il linguaggio resta disponibile per lavori futuri (`.claude/skills/motion-design/`); token di durata e curve in `src/styles/motion.css` (`--m-micro` 150, `--m-base` 320, `--m-wide` 600) e `src/lib/motion.ts`. Il resto sono transizioni di colore (`duration-150` sui bottoni; `duration-200` su celle, righe, voci nav e SubNav, card degli agenti, link della prose; `duration-300` sull'icona `+`, sul chevron che scorre di 4 px e sull'ingresso della barra mobile), lo scroll-snap dei fogli A/B sotto `md`. `prefers-reduced-motion` azzera tutto in `global.css`. Vietati: fade-and-rise allo scroll, hover-lift, parallax, stagger per sezione.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** costruire ogni sezione con `Frame` (n, tone, flush) e `Head` (tag, title, text): cornice tratteggiata, sigla e punti d'angolo non si replicano a mano.
-- **Do** usare il Nero Verbalist (`accent-500`/`accent-600`, `base-900`) per tutto ciò che deve pesare: pillola primaria, targhetta, punti, bordo attivo. Nessun altro colore.
-- **Do** separare i contenuti con tratteggi `base-200` (righe, celle, elenchi) e i pannelli con bordo pieno `base-200` a 12 px.
-- **Do** tenere i titoli in peso 400 con tracking −0.025em (hero −0.03em), interamente `base-900`, sotto una targhetta mono.
-- **Do** scrivere etichette e artefatti tecnici in Geist Mono 12–13 px, maiuscolo con tracking 0.05em quando sono etichette.
-- **Do** usare pillole per tutto ciò che si preme (`Button`, voci nav, SubNav, selettori, `summary`) e una sola pillola accent per gruppo di azioni, con la rassicurazione a 12–14 px sotto.
-- **Do** usare `bg-base-50` per il tono "soft" (hero, chiusure, piano consigliato, hover delle celle, nodo attivo) e nient'altro come tinta di superficie.
-- **Do** segnalare lo stato con forma e tono: bordo `base-900` + anello `base-100` per "in corso", `✓` e punto in `status-success` per "fatto".
-- **Do** dare a ogni animazione pausa, stop fuori schermo e stato finale con `prefers-reduced-motion`.
+- **Do** costruire ogni sezione con `Frame` (tone, rhythm) e `Head` (tag, title, text): colonna da 1300 px, ritmo verticale e testa di sezione non si replicano a mano.
+- **Do** usare il Nero Verbalist (`accent-500`/`accent-600`, `base-900`) per tutto ciò che deve pesare: pillola primaria, punti, voce attiva, titoli. Nessun altro colore.
+- **Do** posare i contenuti su pannelli tinti `bg-panel rounded-md` senza bordo (`p-6 lg:p-10`), e separare righe e celle con linee piene `base-200` da 1 px.
+- **Do** tenere i titoli in peso 400 con tracking −0.025em (chiusura −0.03em, hero −0.0125em), interamente `base-900`, sotto un'etichetta sans 14 px `base-500`.
+- **Do** scrivere in Geist Mono 12 px solo gli artefatti (slug, versioni, numeri dei passi, esadecimali, codice); etichette e intestazioni restano in Geist 14 px.
+- **Do** usare pillole per tutto ciò che si preme (`Button`, voci nav, SubNav, selettori, `summary`) e una sola pillola accent per gruppo di azioni, con la rassicurazione a 12–14 px sotto; `muted` come secondaria, `ghost` solo nella nav.
+- **Do** usare `bg-base-50` per il tono "soft" (hero delle pagine interne, pannello di prodotto dell'hero, hover delle celle) e `bg-base-100` per ciò che è premuto, consigliato o in hover; nient'altro come tinta di superficie.
+- **Do** mettere titolo e lede di un pannello alla stessa misura (20, 24 nelle porte) con la gerarchia affidata al colore, salvo nelle griglie a quattro colonne.
+- **Do** dare a ogni transizione una durata dal set 150/200/300 ms e lo stato finale con `prefers-reduced-motion`.
 
 ### Don't:
-- **Don't** introdurre texture, gradienti, immagini decorative o illustrazioni: le uniche immagini sono i loghi dei clienti (grayscale), i ritratti del team (grayscale) e le copertine dei post dentro il post.
-- **Don't** aggiungere ombre a pannelli, card, nav, sheet o barra mobile: le ombre esistono solo sulle due pillole di `Button` e nell'anello piatto dell'elemento attivo.
-- **Don't** usare un colore saturo o una parola colorata nel titolo: l'arancio è stato ritirato; verde e rosso sono stati di sistema.
-- **Don't** usare pesi 500–700 sui titoli, il peso 300 sotto i 18 px o un secondo carattere (Familjen Grotesk è stato rimosso; `font-serif` è un alias di Geist).
+- **Don't** introdurre texture, gradienti, immagini decorative o illustrazioni: le uniche immagini sono i loghi dei clienti (grayscale), i ritratti del team (grayscale), i marchi dei motori nell'hero e le copertine dei post dentro il post; le velature restano nelle card di prodotto.
+- **Don't** aggiungere ombre a pannelli, card, nav, menu, barra mobile o bottoni: le uniche ombre sono quelle degli oggetti di prodotto (`.vb-window`, `.vb-float`, `.vb-peek-card`).
+- **Don't** usare `bg-white`, bordi tratteggiati, cornici, sigle nel margine o punti d'angolo: la grammatica del foglio tecnico è stata ritirata il 2026-10-17.
+- **Don't** usare un colore saturo o una parola colorata nel titolo: l'arancio (di Cloudflare e di Cursor) è stato ritirato; verde e rosso sono stati di sistema.
+- **Don't** usare pesi 500–700 sui titoli, il peso 300 (ritirato il 2026-10-17) o un secondo carattere (`font-serif` è un alias di Geist).
 - **Don't** mettere testo di lettura sotto i 12 px.
-- **Don't** usare glifi da font o icone piene: solo SVG a tratto 1.4–1.6 in `accent-500`/`base-700`.
-- **Don't** ricreare eyebrow in Geist o con colori diversi da bianco-su-nero/`base-500`, né impilarne due sullo stesso titolo.
+- **Don't** usare glifi da font o icone piene: solo SVG a tratto 1.4–1.6 in `accent-500`/`base-900`.
+- **Don't** ricreare targhette: niente etichette mono maiuscole, niente fondo nero sotto un'etichetta, niente due etichette sullo stesso titolo.
 - **Don't** aggiungere reveal allo scroll, hover-lift, parallax o stagger: una sola animazione per sezione, e solo se mostra il prodotto.

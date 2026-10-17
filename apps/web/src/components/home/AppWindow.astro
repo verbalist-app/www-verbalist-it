@@ -44,10 +44,10 @@ const menu = [
   { group: "Supporto", items: [["Aiuto", I.help]] },
 ];
 const stroke = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"';
-const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rounded-lg gap-2 border-base-200 text-base-800";
+const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-panel border rounded-lg gap-2 border-base-200 text-base-800";
 ---
 
-<div class="flex w-[1100px] bg-white text-base-900 antialiased [zoom:var(--vb-zoom,1)]">
+<div class="flex w-[1100px] bg-panel text-base-900 antialiased [zoom:var(--vb-zoom,1)]">
   <!-- Barra laterale -->
   {sidebar && (
   <aside class="w-[208px] shrink-0 border-r border-base-200">
@@ -82,7 +82,7 @@ const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rou
 
   <div class="flex-1 min-w-0 bg-base-50">
     <!-- Barra in alto -->
-    <div class="flex items-center h-12 px-5 bg-white border-b border-base-200 gap-5 text-[13px] text-base-700">
+    <div class="flex items-center h-12 px-5 bg-panel border-b border-base-200 gap-5 text-[13px] text-base-700">
       <svg class="size-4" set:html={I.panel} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
       <span class="flex items-center ml-auto gap-1.5"><svg class="size-3.5 text-base-900" set:html={I.zap} viewBox="0 0 24 24" fill="currentColor" />15 documenti residui</span>
       <span class="flex items-center gap-1.5"><svg class="size-3.5" set:html={I.globe} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" />EN</span>
@@ -118,7 +118,7 @@ const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rou
 
       <!-- Avviso delle due versioni -->
       <div class="flex items-center p-4 mt-6 rounded-lg gap-4 bg-base-200/70">
-        <span class="flex items-center justify-center bg-white rounded-md size-10 text-base-900">
+        <span class="flex items-center justify-center bg-panel rounded-md size-10 text-base-900">
           <svg class="size-5" set:html={I.sparkles} viewBox="0 0 24 24" fill="currentColor" />
         </span>
         <span>
@@ -131,10 +131,10 @@ const btn = "inline-flex items-center h-9 px-3.5 text-[13px] bg-white border rou
       <div class="grid grid-cols-2 mt-5 gap-5">
         {
           demoVersions.map((v) => (
-            <div class="bg-white border rounded-xl border-base-200">
+            <div class="bg-panel border rounded-xl border-base-200">
               <div class="flex items-center justify-between px-5 border-b h-14 border-base-200">
                 <span class="text-[14px] font-medium text-base-900">{v.label}</span>
-                <span class="inline-flex items-center h-8 px-3.5 text-[13px] bg-white border rounded-full gap-2 border-base-200 text-base-900">
+                <span class="inline-flex items-center h-8 px-3.5 text-[13px] bg-panel border rounded-full gap-2 border-base-200 text-base-900">
                   Usa questa versione
                   <svg class="size-3.5" set:html={I.check} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </span>

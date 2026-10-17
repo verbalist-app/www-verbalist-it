@@ -37,7 +37,7 @@ const tags = await getAllPostTags();
                 href={`/categorie/${slugifyTag(tag)}/`}
                 title={tag}
                 data-gtm="blog-filter"
-                class="flex items-center h-11 lg:h-9 px-4 text-sm capitalize bg-white border rounded-full shrink-0 border-base-200 text-base-700 hover:border-base-300 hover:text-accent-600"
+                class="flex items-center h-11 lg:h-9 px-4 text-sm capitalize bg-panel border rounded-full shrink-0 border-base-200 text-base-700 hover:border-base-300 hover:text-accent-600"
               >
                 {tag}
               </a>
@@ -47,7 +47,7 @@ const tags = await getAllPostTags();
       </div>
     </Frame>
     <Frame n={2} class="!px-0">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]:border-dashed lg:[&>*:not(:nth-child(3n))]:border-r lg:[&>*:nth-child(3n)]:border-r-0">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 md:[&>*:nth-child(2n+1)]:border-r md:[&>*]: lg:[&>*:not(:nth-child(3n))]:border-r lg:[&>*:nth-child(3n)]:border-r-0">
         {allPosts.map((post, i) => <BlogCard post={post} headingTag="h2" eager={i < 3} />)}
       </div>
     </Frame>

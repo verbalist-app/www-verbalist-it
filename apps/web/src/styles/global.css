@@ -47,6 +47,16 @@
   --text-hero-sm--line-height: 1.06;
   --text-hero: 3.75rem; /* 60px: hero della home (desktop) */
   --text-hero--line-height: 1.06;
+  /* Ritmo verticale: l'unità è una riga di corpo (16px × 1.5 = 24px) e le
+     sezioni ne prendono multipli, con più aria sotto che sopra (pt-v3/pb-v5
+     da lg). Il meccanismo viene da cursor.com (lì l'unità è 22,4px e le
+     sezioni stanno a 3 sopra e 6 sotto); le utility sono pt-v3, pb-v5… */
+  --spacing-v1: 1.5rem; /* 24px */
+  --spacing-v2: 3rem; /* 48px: sopra le sezioni su mobile */
+  --spacing-v3: 4.5rem; /* 72px: sopra le sezioni da lg */
+  --spacing-v4: 6rem; /* 96px: sotto le sezioni su mobile */
+  --spacing-v5: 7.5rem; /* 120px: sotto le sezioni da lg */
+  --spacing-v6: 9rem; /* 144px */
   /* Colors */
   /* Accent = l'unico colore saturo del sito: CTA, icone, parole chiave,
      etichette di sezione. I valori vivono in :root (--vb-accent-*), così il
@@ -62,19 +72,21 @@
   --color-accent-800: var(--vb-accent-700);
   --color-accent-900: var(--vb-accent-700);
   --color-accent-950: var(--vb-accent-700);
-  /* Neutri del brand: rampa fredda (hue ~215) con Mist #F1F3F3 a 100,
-     Grigio testo #67787C a 500 e Nero Verbalist #161B1D a 900. */
-  --color-base-50: oklch(98.7% 0.002 197.1);
-  --color-base-100: oklch(96.3% 0.002 197.1);
-  --color-base-200: oklch(92.5% 0.005 214.3);
-  --color-base-300: oklch(87.2% 0.007 219.6);
-  --color-base-400: oklch(72.3% 0.014 214.4);
-  --color-base-500: oklch(54% 0.021 213.5);
-  --color-base-600: oklch(45% 0.017 213.2);
-  --color-base-700: oklch(37.8% 0.015 216);
-  --color-base-800: oklch(27.5% 0.011 216.9);
-  --color-base-900: oklch(21.8% 0.008 223.9);
-  --color-base-950: oklch(14.8% 0.004 228.8);
+  /* Neutri del brand (dal 2026-10-17): rampa calda, tinta oklch ~100, con la
+     logica delle superfici di cursor.com. Pagina avorio (`background`),
+     pannelli un passo più scuri (`panel`), nero caldo #26251E a 900. I
+     grigi intermedi hanno le stesse luminosità della vecchia rampa fredda. */
+  --color-base-50: oklch(94.6% 0.006 97); /* sezioni soft, hover delle celle */
+  --color-base-100: oklch(92.1% 0.007 97); /* #e6e5e0: pillola secondaria, anello */
+  --color-base-200: oklch(90.6% 0.007 97); /* #e1e0db: ogni linea del sistema */
+  --color-base-300: oklch(85% 0.008 97);
+  --color-base-400: oklch(70% 0.012 100);
+  --color-base-500: oklch(52% 0.012 100); /* grigio testo: 5:1 sull'avorio */
+  --color-base-600: oklch(45% 0.012 100);
+  --color-base-700: oklch(37.8% 0.012 100);
+  --color-base-800: oklch(30% 0.012 100);
+  --color-base-900: oklch(26.3% 0.013 100.5); /* #26251e: l'inchiostro */
+  --color-base-950: oklch(18.2% 0.014 94); /* #14120b */
 
   /* Alias storico (mockup di prodotto, bottoni): stessa rampa di base-*. */
   --color-mist-50: var(--color-base-50);
@@ -88,11 +100,21 @@
   --color-mist-800: var(--color-base-800);
   --color-mist-900: var(--color-base-900);
   --color-mist-950: var(--color-base-950);
-  --color-background: oklch(1 0 0);
-  --color-card: oklch(1 0 0);
-  --color-popover: oklch(1 0 0);
-  --color-border: oklch(94% 0 0);
-  --color-foreground: oklch(22% 0 0);
+  /* Superfici: la pagina è avorio, i pannelli (card, finestre dell'app, nav
+     mobile, footer) stanno un passo più scuri. `bg-white` non si usa più. */
+  --color-background: oklch(97.5% 0.004 106.5); /* #f7f7f4 */
+  --color-panel: oklch(95.8% 0.005 95); /* #f2f1ed */
+  --color-card: oklch(95.8% 0.005 95);
+  --color-popover: oklch(95.8% 0.005 95);
+  --color-border: oklch(90.6% 0.007 97);
+  --color-foreground: oklch(26.3% 0.013 100.5);
+  /* Angoli (dal 2026-10-17): 4px per pannelli e scatole, 6px per le finestre
+     dell'app, 8px per le card grandi. I nomi Tailwind restano, cambiano i valori. */
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+  --radius-3xl: 8px;
 /* Keyframes */
   --animate-marquee: marquee 12s linear infinite;
   --animate-rightMarquee: rightMarquee 300s linear infinite;
@@ -123,19 +145,19 @@
   --color-status-error: oklch(60% 0.13 25);
   /* Velature delle card di prodotto (hero, catena): calda e fredda, quasi bianche. */
   --color-wash-warm: oklch(95% 0.03 60);
-  --color-wash-cool: oklch(96% 0.012 200);
+  --color-wash-cool: oklch(96% 0.006 97);
 }
 :root {
-  /* Accento = Nero Verbalist (#161B1D), l'identità registrata in /brand:
-     pillole, targhette, punti. Nessun colore saturo nel sito. */
-  --vb-accent-50: oklch(96.3% 0.002 197.1);
-  --vb-accent-100: oklch(92.5% 0.005 214.3);
-  --vb-accent-200: oklch(87.2% 0.007 219.6);
-  --vb-accent-300: oklch(72.3% 0.014 214.4);
-  --vb-accent-400: oklch(45% 0.017 213.2);
-  --vb-accent-500: oklch(21.8% 0.008 223.9);
-  --vb-accent-600: oklch(21.8% 0.008 223.9);
-  --vb-accent-700: oklch(14.8% 0.004 228.8);
+  /* Accento = l'inchiostro (#26251E, dal 2026-10-17): pillole, punti, bordo
+     attivo. Nessun colore saturo nel sito. */
+  --vb-accent-50: oklch(92.1% 0.007 97);
+  --vb-accent-100: oklch(90.6% 0.007 97);
+  --vb-accent-200: oklch(85% 0.008 97);
+  --vb-accent-300: oklch(70% 0.012 100);
+  --vb-accent-400: oklch(45% 0.012 100);
+  --vb-accent-500: oklch(26.3% 0.013 100.5);
+  --vb-accent-600: oklch(26.3% 0.013 100.5);
+  --vb-accent-700: oklch(18.2% 0.014 94);
   --astro-code-color-text: var(--color-base-500);
   --astro-code-foreground: var(--color-base-500);
   --astro-code-token-link: var(--color-accent-500);
@@ -226,6 +248,6 @@ code .line::before {
 .vb-peek-card {
   border-radius: 0.5rem;
   box-shadow:
-    0 0 0 1px rgb(22 27 29 / 0.08),
-    0 12px 24px -12px rgb(22 27 29 / 0.25);
+    0 0 0 1px rgb(38 37 30 / 0.08),
+    0 12px 24px -12px rgb(38 37 30 / 0.25);
 }

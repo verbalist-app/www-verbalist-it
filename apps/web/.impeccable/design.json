@@ -1,64 +1,494 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-26T00:00:00Z",
+  "generatedAt": "2026-10-17T00:00:00Z",
   "title": "Design System: Verbalist",
   "extensions": {
     "colorMeta": {
-      "ink": { "role": "primary", "displayName": "Nero Verbalist", "canonical": "oklch(21.8% 0.008 223.9)", "brandHex": "#161B1D", "aliases": ["accent-500", "accent-600", "base-900"], "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "ink-deep": { "role": "primary", "displayName": "Nero profondo", "canonical": "oklch(14.8% 0.004 228.8)", "aliases": ["accent-700", "base-950"], "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "ink-soft": { "role": "primary", "displayName": "Inchiostro diluito", "canonical": "oklch(45% 0.017 213.2)", "aliases": ["accent-400", "base-600"], "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "ink-line": { "role": "primary", "displayName": "Barretta della targhetta", "canonical": "oklch(72.3% 0.014 214.4)", "aliases": ["accent-300", "base-400"], "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "white": { "role": "neutral", "displayName": "Bianco", "canonical": "#ffffff", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-50": { "role": "neutral", "displayName": "Grigio foglio", "canonical": "oklch(98.7% 0.002 197.1)", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-100": { "role": "neutral", "displayName": "Mist", "canonical": "oklch(96.3% 0.002 197.1)", "brandHex": "#F1F3F3", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-200": { "role": "neutral", "displayName": "Tratteggio", "canonical": "oklch(92.5% 0.005 214.3)", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-300": { "role": "neutral", "displayName": "Grigio sigla", "canonical": "oklch(87.2% 0.007 219.6)", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-400": { "role": "neutral", "displayName": "Grigio muto", "canonical": "oklch(72.3% 0.014 214.4)", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-500": { "role": "neutral", "displayName": "Grigio testo", "canonical": "oklch(54% 0.021 213.5)", "brandHex": "#67787C", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-600": { "role": "neutral", "displayName": "Grigio secondario", "canonical": "oklch(45% 0.017 213.2)", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-700": { "role": "neutral", "displayName": "Grigio prosa", "canonical": "oklch(37.8% 0.015 216)", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-800": { "role": "neutral", "displayName": "Grigio scuro", "canonical": "oklch(27.5% 0.011 216.9)", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-900": { "role": "neutral", "displayName": "Inchiostro", "canonical": "oklch(21.8% 0.008 223.9)", "brandHex": "#161B1D", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "base-950": { "role": "neutral", "displayName": "Nero quasi", "canonical": "oklch(14.8% 0.004 228.8)", "tonalRamp": ["oklch(14.8% 0.004 228.8)", "oklch(21.8% 0.008 223.9)", "oklch(37.8% 0.015 216)", "oklch(45% 0.017 213.2)", "oklch(54% 0.021 213.5)", "oklch(72.3% 0.014 214.4)", "oklch(92.5% 0.005 214.3)", "oklch(98.7% 0.002 197.1)"] },
-      "status-success": { "role": "status", "displayName": "Verde stato (piattaforma)", "canonical": "oklch(65% 0.1 150)", "source": "app.verbalist.it platform/css/css.css", "tonalRamp": ["oklch(20% 0.06 150)", "oklch(32% 0.08 150)", "oklch(45% 0.1 150)", "oklch(55% 0.1 150)", "oklch(65% 0.1 150)", "oklch(78% 0.08 150)", "oklch(90% 0.05 150)", "oklch(96% 0.02 150)"] },
-      "status-error": { "role": "status", "displayName": "Rosso stato (piattaforma)", "canonical": "oklch(60% 0.13 25)", "source": "app.verbalist.it platform/css/css.css", "tonalRamp": ["oklch(20% 0.08 25)", "oklch(32% 0.11 25)", "oklch(45% 0.13 25)", "oklch(52% 0.13 25)", "oklch(60% 0.13 25)", "oklch(75% 0.1 25)", "oklch(88% 0.06 25)", "oklch(96% 0.02 25)"] }
+      "ink": {
+        "role": "primary",
+        "displayName": "Nero Verbalist",
+        "canonical": "oklch(26.3% 0.013 100.5)",
+        "brandHex": "#26251E",
+        "aliases": [
+          "accent-500",
+          "accent-600",
+          "base-900"
+        ],
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "ink-deep": {
+        "role": "primary",
+        "displayName": "Nero profondo",
+        "canonical": "oklch(18.2% 0.014 94)",
+        "brandHex": "#14120B",
+        "aliases": [
+          "accent-700",
+          "base-950"
+        ],
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "ink-soft": {
+        "role": "primary",
+        "displayName": "Inchiostro diluito",
+        "canonical": "oklch(45% 0.012 100)",
+        "aliases": [
+          "accent-400",
+          "base-600"
+        ],
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "ink-line": {
+        "role": "primary",
+        "displayName": "Filetto",
+        "canonical": "oklch(70% 0.012 100)",
+        "aliases": [
+          "accent-300",
+          "base-400"
+        ],
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Avorio (pagina)",
+        "canonical": "oklch(97.5% 0.004 106.5)",
+        "brandHex": "#F7F7F4",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Carta (pannelli)",
+        "canonical": "oklch(95.8% 0.005 95)",
+        "brandHex": "#F2F1ED",
+        "aliases": [
+          "card",
+          "popover"
+        ],
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Bianco (solo testo su pillole piene e base delle velature)",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-50": {
+        "role": "neutral",
+        "displayName": "Grigio foglio (tono soft)",
+        "canonical": "oklch(94.6% 0.006 97)",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-100": {
+        "role": "neutral",
+        "displayName": "Mist (premuto, consigliato, hover)",
+        "canonical": "oklch(92.1% 0.007 97)",
+        "brandHex": "#E6E5E0",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-200": {
+        "role": "neutral",
+        "displayName": "Linea",
+        "canonical": "oklch(90.6% 0.007 97)",
+        "brandHex": "#E1E0DB",
+        "aliases": [
+          "border"
+        ],
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-300": {
+        "role": "neutral",
+        "displayName": "Grigio filetto (ghost)",
+        "canonical": "oklch(85% 0.008 97)",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-400": {
+        "role": "neutral",
+        "displayName": "Grigio muto",
+        "canonical": "oklch(70% 0.012 100)",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-500": {
+        "role": "neutral",
+        "displayName": "Grigio testo (etichette)",
+        "canonical": "oklch(52% 0.012 100)",
+        "brandHex": "#6A6961",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-600": {
+        "role": "neutral",
+        "displayName": "Grigio secondario (lede)",
+        "canonical": "oklch(45% 0.012 100)",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-700": {
+        "role": "neutral",
+        "displayName": "Grigio prosa",
+        "canonical": "oklch(37.8% 0.012 100)",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-800": {
+        "role": "neutral",
+        "displayName": "Grigio scuro",
+        "canonical": "oklch(30% 0.012 100)",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-900": {
+        "role": "neutral",
+        "displayName": "Inchiostro",
+        "canonical": "oklch(26.3% 0.013 100.5)",
+        "brandHex": "#26251E",
+        "aliases": [
+          "foreground"
+        ],
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "base-950": {
+        "role": "neutral",
+        "displayName": "Nero profondo",
+        "canonical": "oklch(18.2% 0.014 94)",
+        "brandHex": "#14120B",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "status-success": {
+        "role": "status",
+        "displayName": "Verde stato (piattaforma)",
+        "canonical": "oklch(65% 0.1 150)",
+        "source": "app.verbalist.it platform/css/css.css",
+        "tonalRamp": [
+          "oklch(20% 0.06 150)",
+          "oklch(32% 0.08 150)",
+          "oklch(45% 0.1 150)",
+          "oklch(55% 0.1 150)",
+          "oklch(65% 0.1 150)",
+          "oklch(78% 0.08 150)",
+          "oklch(90% 0.05 150)",
+          "oklch(96% 0.02 150)"
+        ]
+      },
+      "status-error": {
+        "role": "status",
+        "displayName": "Rosso stato (piattaforma)",
+        "canonical": "oklch(60% 0.13 25)",
+        "source": "app.verbalist.it platform/css/css.css",
+        "tonalRamp": [
+          "oklch(20% 0.08 25)",
+          "oklch(32% 0.11 25)",
+          "oklch(45% 0.13 25)",
+          "oklch(52% 0.13 25)",
+          "oklch(60% 0.13 25)",
+          "oklch(75% 0.1 25)",
+          "oklch(88% 0.06 25)",
+          "oklch(96% 0.02 25)"
+        ]
+      },
+      "wash-warm": {
+        "role": "neutral",
+        "displayName": "Velatura calda (solo card di prodotto)",
+        "canonical": "oklch(95% 0.03 60)",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      },
+      "wash-cool": {
+        "role": "neutral",
+        "displayName": "Velatura fredda (solo card di prodotto)",
+        "canonical": "oklch(96% 0.006 97)",
+        "tonalRamp": [
+          "oklch(18.2% 0.014 94)",
+          "oklch(26.3% 0.013 100.5)",
+          "oklch(37.8% 0.012 100)",
+          "oklch(45% 0.012 100)",
+          "oklch(52% 0.012 100)",
+          "oklch(70% 0.012 100)",
+          "oklch(90.6% 0.007 97)",
+          "oklch(97.5% 0.004 106.5)"
+        ]
+      }
     },
     "typographyMeta": {
-      "hero": { "displayName": "Hero", "purpose": "Solo l'H1 della home: 44 px, 56 da sm, 60 da lg. Il prezzo dei piani a 44 px con tabular-nums." },
-      "display": { "displayName": "Display", "purpose": "H1 delle pagine interne e H2 di sezione via section/Head.astro: 36 px, 52 da lg, text-balance." },
-      "display-xs": { "displayName": "Display XS", "purpose": "32 px: 'Su richiesta' nei piani." },
-      "headline": { "displayName": "Headline", "purpose": "H2 di cella (porte, clienti), H3 dei fogli A/B a 24 px; citazioni a 28 px da lg." },
-      "title": { "displayName": "Title", "purpose": "Titoli di card: blog 20 px, help/team/casi 18 px, domande FAQ 18 px." },
-      "lede": { "displayName": "Lede", "purpose": "Paragrafo light sotto hero, Manifesto e chiusure: 18 px, 19 da lg, max-w-lg. L'unico posto per il peso 300." },
-      "body": { "displayName": "Body", "purpose": "Testo di lettura 16 px regular; prose line-height 1.75, colonna max-w-xl." },
-      "secondary": { "displayName": "Secondary", "purpose": "15 px regular (--text-md): descrizioni di card, passi, risposte FAQ, corpo dei fogli, fatti dei casi." },
-      "meta": { "displayName": "Meta", "purpose": "14 px: voci nav e SubNav, righe con punto, 'Leggi →', footer, rassicurazioni sotto le CTA." },
-      "label": { "displayName": "Label (mono)", "purpose": "Targhette, etichette dei pannelli, categorie, sigle, dt dei metadati: Geist Mono 12 px maiuscolo tracking 0.05em." },
-      "mono": { "displayName": "Mono", "purpose": "Keyword, slug, titoli digitati nei pannelli: Geist Mono 13 px." }
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "44 px, 56 da sm, 60 da lg: titolo della chiusura (Close) e numero del caso in testa ai clienti. Dal 2026-10-17 non è più l'H1 della home. Il prezzo dei piani a 44 px con tabular-nums."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "H1 delle pagine interne, H2 di sezione (section/Head.astro) e titolo di Cta2: 36 px, 52 da lg, text-balance."
+      },
+      "display-xs": {
+        "displayName": "Display XS",
+        "purpose": "32 px: 'Su richiesta' nei piani, numero dei casi nell'indice clienti su mobile."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "H1 dell'hero della home (24 px, 28 da lg, tracking -0.0125em) e citazione delle prove."
+      },
+      "pair": {
+        "displayName": "Coppia titolo/lede",
+        "purpose": "Titolo base-900 e lede base-600 alla stessa misura: 20 px (24 da lg nelle porte), leading-snug, 4 px di distanza. Non nelle griglie a quattro colonne."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Titoli di card: agenti, piani e blog 20 px; help/team/casi, FAQ e righe di registro 18 px."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Paragrafo regolare in base-600 sotto hero e Manifesto: 18 px leading-snug, 19 da lg; nelle chiusure resta 18 px max-w-md. Nessun peso 300 dal 2026-10-17."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Testo di lettura 16 px regular: testo a fianco dei titoli (base-600), note, prose (line-height 1.75, colonna max-w-xl)."
+      },
+      "secondary": {
+        "displayName": "Secondary",
+        "purpose": "15 px regular (--text-md): descrizioni di card, riassunti degli agenti, risposte FAQ, corpo dei fogli, fatti dei casi."
+      },
+      "label": {
+        "displayName": "Label (sans)",
+        "purpose": "14 px Geist base-500 sentence case: etichette di sezione e dei pannelli, numeri delle card, intestazioni del footer, breadcrumb, rassicurazioni. Stesso passo di voci nav, SubNav, righe con punto e cartiglio."
+      },
+      "mono": {
+        "displayName": "Mono (artefatti)",
+        "purpose": "Geist Mono 12 px solo per slug, versioni, numeri dei passi, esadecimali, codice. Mai per etichette scritte da noi."
+      }
     },
     "shadows": [
-      { "name": "button-accent", "value": "inset 0 1px 0 rgb(255 255 255 / 0.22), 0 1px 2px rgb(0 0 0 / 0.14)", "purpose": "Solo sulla pillola accent: filo di luce in alto e ombra corta." },
-      { "name": "button-muted", "value": "0 1px 2px rgb(0 0 0 / 0.05)", "purpose": "Solo sulla pillola muted." },
-      { "name": "ring-active", "value": "0 0 0 3px var(--color-base-100)", "purpose": "Anello piatto del pannello dell'hero e del nodo della catena mentre lavorano. Non è un'elevazione." },
-      { "name": "ring-mark", "value": "0 0 0 2px var(--color-base-200)", "purpose": "Il mark acceso nell'anatomia GEO." }
+      {
+        "name": "vb-window",
+        "value": "inset 0 1px 0 rgb(255 255 255 / 0.9), 0 0 0 1px rgb(38 37 30 / 0.08), 0 2px 4px rgb(38 37 30 / 0.04), 0 16px 32px -12px rgb(38 37 30 / 0.14), 0 48px 96px -32px rgb(38 37 30 / 0.28)",
+        "purpose": "Finestra dell'app come oggetto appoggiato (hero della home, ProductCard, pagine agente). Luce su un oggetto, non elevazione di un contenitore."
+      },
+      {
+        "name": "vb-float",
+        "value": "0 0 0 1px rgb(38 37 30 / 0.06), 0 1px 2px rgb(38 37 30 / 0.05), 0 12px 24px -10px rgb(38 37 30 / 0.16), 0 32px 56px -24px rgb(38 37 30 / 0.2)",
+        "purpose": "Card in primo piano dentro il pannello di prodotto: brief, motori, passi numerati."
+      },
+      {
+        "name": "vb-peek-card",
+        "value": "0 0 0 1px rgb(38 37 30 / 0.08), 0 12px 24px -12px rgb(38 37 30 / 0.25)",
+        "purpose": "Pezzo di prodotto in testa alle celle 'Cosa cambia' delle pagine soluzione (con .vb-peek che sfuma in basso)."
+      },
+      {
+        "name": "none",
+        "value": "none",
+        "purpose": "Pannelli, card, nav, menu, barra mobile, bottoni: nessuna ombra. La profondità è tono (panel su background)."
+      }
     ],
     "motion": [
-      { "name": "color-fast", "value": "200ms", "purpose": "Transizione di colore su celle, righe, voci nav e SubNav, link della prose, mark." },
-      { "name": "color-standard", "value": "300ms", "purpose": "Bottoni, bordi dei nodi, rotazione del + dei details, chevron delle card clienti (translate 4px ease-out), ingresso della barra mobile." },
-      { "name": "panel-state", "value": "400ms", "purpose": "Bordo e anello del pannello attivo nell'hero; colore dei connettori della catena." },
-      { "name": "hero-type", "value": "34ms/char (30 per i titoli, 22 per i metadati)", "purpose": "Digitazione nei pannelli dell'hero." },
-      { "name": "hero-row", "value": "opacity 300ms, transform 400ms cubic-bezier(0.16, 1, 0.3, 1), passo 420ms", "purpose": "Le cinque righe SERP che entrano una alla volta." },
-      { "name": "hero-count", "value": "2400ms, ease-out cubico", "purpose": "Contatori di parole delle due versioni." },
-      { "name": "chain-flow", "value": "stroke-dashoffset -6 in 600ms linear infinite", "purpose": "La corrente sul connettore attivo della catena; nodo 1500ms (2200 sull'analisi), pausa 1600ms a fine giro." },
-      { "name": "hero-loop-pause", "value": "5000ms", "purpose": "Pausa tra un giro e l'altro dell'hero." },
-      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce → 0.01ms; copioni JS = stato finale, bottone Ferma rimosso", "purpose": "In global.css e in Hero/Chain." }
+      {
+        "name": "button",
+        "value": "150ms",
+        "purpose": "Bottoni: fondo in hover (--m-micro). Senza ombre dal 2026-10-17."
+      },
+      {
+        "name": "color-fast",
+        "value": "200ms",
+        "purpose": "Transizione di colore su celle, righe, voci nav e SubNav, card degli agenti, link della prose, note dell'anatomia."
+      },
+      {
+        "name": "color-standard",
+        "value": "300ms",
+        "purpose": "Rotazione del + dei details, chevron delle card (translate 4px ease-out), ingresso della barra mobile."
+      },
+      {
+        "name": "m-tokens",
+        "value": "--m-micro 150ms, --m-base 320ms, --m-wide 600ms, --m-exit 0.7, --m-stagger 55ms",
+        "purpose": "Linguaggio di movimento in src/styles/motion.css e src/lib/motion.ts; nessuna sezione in loop dal 2026-10-11."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce → 0.01ms",
+        "purpose": "In global.css: animazioni e transizioni azzerate."
+      }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" },
-      { "name": "xl", "value": "1280px" },
-      { "name": "2xl", "value": "1536px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1536px"
+      }
     ]
   },
   "components": [
@@ -66,137 +496,182 @@
       "name": "Pillola accent",
       "kind": "button",
       "refersTo": "button-accent",
-      "description": "Azione primaria (Prova gratis): pillola nera con filo di luce e ombra corta.",
+      "description": "Azione primaria (Prova gratis): pillola nell'inchiostro, senza ombra; in hover si apre di un passo.",
       "html": "<a class=\"ds-btn-accent\" href=\"#\">Prova gratis</a>",
-      "css": ".ds-btn-accent { display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 24px; border-radius: 9999px; background: var(--color-accent-500, oklch(21.8% 0.008 223.9)); color: #fff; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 16px; font-weight: 400; text-decoration: none; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.22), 0 1px 2px rgb(0 0 0 / 0.14); transition: background-color 300ms; } .ds-btn-accent:hover { background: var(--color-base-700, oklch(37.8% 0.015 216)); } .ds-btn-accent:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-base-900, oklch(21.8% 0.008 223.9)); }"
+      "css": ".ds-btn-accent { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 40px; padding: 0 24px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); color: #fff; font-size: 16px; } .ds-btn-accent:hover { background: var(--color-base-700, oklch(37.8% 0.012 100)); } .ds-btn-accent:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-background, oklch(97.5% 0.004 106.5)), 0 0 0 4px var(--color-base-900, oklch(26.3% 0.013 100.5)); }"
     },
     {
       "name": "Pillola muted",
       "kind": "button",
       "refersTo": "button-muted",
-      "description": "Azione secondaria (Parla con noi): pillola bianca con filetto base-200.",
+      "description": "Azione secondaria (Parla con noi): pillola tinta base-100 senza bordo, in hover un tono più scura.",
       "html": "<a class=\"ds-btn-muted\" href=\"#\">Parla con noi</a>",
-      "css": ".ds-btn-muted { display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 24px; border-radius: 9999px; background: #fff; border: 1px solid var(--color-base-200, oklch(92.5% 0.005 214.3)); color: var(--color-base-900, oklch(21.8% 0.008 223.9)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 16px; font-weight: 400; text-decoration: none; box-shadow: 0 1px 2px rgb(0 0 0 / 0.05); transition: color 300ms, border-color 300ms; } .ds-btn-muted:hover { border-color: var(--color-base-300, oklch(87.2% 0.007 219.6)); color: var(--color-accent-600, oklch(21.8% 0.008 223.9)); } .ds-btn-muted:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-base-300, oklch(87.2% 0.007 219.6)); }"
+      "css": ".ds-btn-muted { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 40px; padding: 0 24px; background: var(--color-base-100, oklch(92.1% 0.007 97)); border: 1px solid transparent; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-size: 16px; } .ds-btn-muted:hover { background: var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-btn-muted:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-background, oklch(97.5% 0.004 106.5)), 0 0 0 4px var(--color-base-300, oklch(85% 0.008 97)); }"
     },
     {
-      "name": "Campo keyword",
+      "name": "Pillola ghost",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Solo nella nav: trasparente con filetto base-300, si riempie di carta in hover (36 px).",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Parla con noi</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 36px; padding: 0 16px; background: transparent; border: 1px solid var(--color-base-300, oklch(85% 0.008 97)); color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-size: 14px; } .ds-btn-ghost:hover { background: var(--color-panel, oklch(95.8% 0.005 95)); } .ds-btn-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-background, oklch(97.5% 0.004 106.5)), 0 0 0 4px var(--color-base-300, oklch(85% 0.008 97)); }"
+    },
+    {
+      "name": "Campo di ricerca",
       "kind": "input",
-      "refersTo": "input-keyword",
-      "description": "Campo a pillola su fondo base-50, mono 13 px con prefisso /.",
-      "html": "<label class=\"ds-field\"><span class=\"ds-field-prefix\">/</span><input class=\"ds-field-input\" value=\"scarpe da running 2026\" aria-label=\"Keyword\"></label>",
-      "css": ".ds-field { display: flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 9999px; border: 1px solid var(--color-base-200, oklch(92.5% 0.005 214.3)); background: var(--color-base-50, oklch(98.7% 0.002 197.1)); font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 13px; color: var(--color-base-800, oklch(27.5% 0.011 216.9)); transition: border-color 300ms, box-shadow 300ms; } .ds-field-prefix { margin-right: 8px; color: var(--color-base-500, oklch(54% 0.021 213.5)); } .ds-field-input { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; color: inherit; outline: none; } .ds-field:focus-within { border-color: var(--color-base-900, oklch(21.8% 0.008 223.9)); box-shadow: 0 0 0 3px var(--color-base-100, oklch(96.3% 0.002 197.1)); }"
+      "refersTo": "input-search",
+      "description": "La ricerca del blog: campo di carta a 4 px alto 36 px con anello base-200; focus nell'inchiostro.",
+      "html": "<input class=\"ds-search\" type=\"search\" placeholder=\"Cerca nel blog\" aria-label=\"Cerca nel blog\">",
+      "css": ".ds-search { display: block; width: 100%; height: 36px; padding: 0 16px; border-radius: 4px; border: 1px solid transparent; background: var(--color-panel, oklch(95.8% 0.005 95)); box-shadow: 0 0 0 1px var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 16px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: box-shadow 300ms, border-color 300ms; } .ds-search::placeholder { color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-search:focus { outline: none; border-color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); box-shadow: 0 0 0 2px var(--color-base-100, oklch(92.1% 0.007 97)); }"
     },
     {
       "name": "Nav principale",
       "kind": "nav",
       "refersTo": "nav-item",
-      "description": "Barra fissa 72 px con voci a pillola; la voce attiva è base-100.",
-      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">Verbalist</span><nav class=\"ds-nav-links\"><a class=\"ds-nav-item\" href=\"#\">Agenti</a><a class=\"ds-nav-item is-active\" href=\"#\" aria-current=\"page\">Soluzioni</a><a class=\"ds-nav-item\" href=\"#\">Prezzi</a><a class=\"ds-nav-item\" href=\"#\">Blog</a></nav><a class=\"ds-nav-login\" href=\"#\">Accedi</a><a class=\"ds-nav-cta\" href=\"#\">Prova gratis</a></header>",
-      "css": ".ds-nav { display: flex; align-items: center; gap: 24px; height: 72px; padding: 0 16px; background: rgb(255 255 255 / 0.95); border-bottom: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-nav-logo { font-weight: 500; color: var(--color-base-900, oklch(21.8% 0.008 223.9)); } .ds-nav-links { display: flex; gap: 4px; padding-left: 24px; border-left: 1px solid var(--color-base-200, oklch(92.5% 0.005 214.3)); } .ds-nav-item { display: flex; align-items: center; height: 36px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-600, oklch(45% 0.017 213.2)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-nav-item:hover, .ds-nav-item.is-active { color: var(--color-base-950, oklch(14.8% 0.004 228.8)); background: var(--color-base-100, oklch(96.3% 0.002 197.1)); } .ds-nav-login { margin-left: auto; font-size: 14px; color: var(--color-base-600, oklch(45% 0.017 213.2)); text-decoration: none; padding: 0 12px; } .ds-nav-login:hover { color: var(--color-base-950, oklch(14.8% 0.004 228.8)); } .ds-nav-cta { display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 9999px; background: var(--color-accent-500, oklch(21.8% 0.008 223.9)); color: #fff; font-size: 14px; text-decoration: none; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.22), 0 1px 2px rgb(0 0 0 / 0.14); transition: background-color 300ms; } .ds-nav-cta:hover { background: var(--color-base-700, oklch(37.8% 0.015 216)); } .ds-nav-item:focus-visible, .ds-nav-cta:focus-visible { outline: 2px solid var(--color-base-900, oklch(21.8% 0.008 223.9)); outline-offset: 2px; }"
-    },
-    {
-      "name": "Targhetta di sezione",
-      "kind": "chip",
-      "refersTo": "tag-section",
-      "description": "Kicker mono bianco su Nero Verbalist con barretta accent-300: la testa di ogni sezione (grammatica scelta dal maintainer).",
-      "html": "<p class=\"ds-tag\"><span class=\"ds-tag-text\">Quattro agenti</span><span class=\"ds-tag-bar\" aria-hidden=\"true\"></span></p>",
-      "css": ".ds-tag { display: flex; align-items: center; gap: 6px; margin: 0; } .ds-tag-text { padding: 2px 6px; background: var(--color-accent-600, oklch(21.8% 0.008 223.9)); color: #fff; font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.33; } .ds-tag-bar { width: 2px; height: 12px; background: var(--color-accent-300, oklch(72.3% 0.014 214.4)); }"
+      "description": "Barra fissa 72 px sull'avorio, opaca e senza riga: marchio, voci a pillola al centro, a destra Accedi, pillola ghost e pillola accent.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">Verbalist</span><nav class=\"ds-nav-links\"><a class=\"ds-nav-item\" href=\"#\">Agenti</a><a class=\"ds-nav-item is-active\" href=\"#\" aria-current=\"page\">Soluzioni</a><a class=\"ds-nav-item\" href=\"#\">Prezzi</a><a class=\"ds-nav-item\" href=\"#\">Clienti</a><a class=\"ds-nav-item\" href=\"#\">Blog</a></nav><div class=\"ds-nav-right\"><a class=\"ds-nav-login\" href=\"#\">Accedi</a><a class=\"ds-nav-ghost\" href=\"#\">Parla con noi</a><a class=\"ds-nav-cta\" href=\"#\">Prova gratis</a></div></header>",
+      "css": ".ds-nav { position: relative; display: flex; align-items: center; gap: 24px; height: 72px; padding: 0 20px; background: var(--color-background, oklch(97.5% 0.004 106.5)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-nav-logo { font-weight: 500; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-nav-links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; } .ds-nav-item { display: flex; align-items: center; height: 36px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-nav-item:hover { color: var(--color-base-950, oklch(18.2% 0.014 94)); background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-nav-item.is-active { color: var(--color-base-950, oklch(18.2% 0.014 94)); } .ds-nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; } .ds-nav-login { display: flex; align-items: center; height: 36px; padding: 0 12px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; } .ds-nav-login:hover { opacity: 0.75; } .ds-nav-ghost { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 36px; padding: 0 16px; border: 1px solid var(--color-base-300, oklch(85% 0.008 97)); color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-size: 14px; } .ds-nav-ghost:hover { background: var(--color-panel, oklch(95.8% 0.005 95)); } .ds-nav-cta { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 36px; padding: 0 16px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); color: #fff; font-size: 14px; } .ds-nav-cta:hover { background: var(--color-base-700, oklch(37.8% 0.012 100)); } .ds-nav-item:focus-visible, .ds-nav-ghost:focus-visible, .ds-nav-cta:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
     },
     {
       "name": "Testa di sezione",
       "kind": "custom",
-      "refersTo": "tag-section",
-      "description": "Targhetta mono, titolo 36/52 px regular interamente nero, testo a fianco.",
-      "html": "<div class=\"ds-head\"><p class=\"ds-head-tag\">Quattro agenti</p><h2 class=\"ds-head-title\">Una catena di quattro agenti, non un prompt.</h2><p class=\"ds-head-aside\">Ogni agente consegna il suo lavoro al successivo. Il tuo serve una volta sola, all'inizio.</p></div>",
-      "css": ".ds-head { font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; max-width: 640px; } .ds-head-tag { display: inline-block; margin: 0; padding: 2px 6px; background: var(--color-accent-600, oklch(21.8% 0.008 223.9)); color: #fff; font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; } .ds-head-title { margin: 24px 0 0; font-size: 36px; line-height: 1.1; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(21.8% 0.008 223.9)); text-wrap: balance; } .ds-head-aside { margin: 16px 0 0; max-width: 448px; font-size: 16px; line-height: 1.625; color: var(--color-base-700, oklch(37.8% 0.015 216)); }"
+      "refersTo": "label-section",
+      "description": "Etichetta sans 14 px grigia, titolo 36/52 px regular interamente nero a 16 px, testo a fianco in base-600 (section/Head.astro).",
+      "html": "<div class=\"ds-head\"><div><p class=\"ds-head-tag\">Quattro agenti</p><h2 class=\"ds-head-title\">Una catena di quattro agenti, non un prompt.</h2></div><p class=\"ds-head-aside\">Ogni agente consegna il suo lavoro al successivo. Il tuo serve una volta sola, all'inizio: compili un brief, non scrivi un prompt.</p></div>",
+      "css": ".ds-head { display: grid; gap: 32px; align-items: end; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } @media (min-width: 64rem) { .ds-head { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; } } .ds-head-tag { margin: 0; font-size: 14px; line-height: 1.5; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-head-title { margin: 16px 0 0; font-size: 36px; line-height: 1.15; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-wrap: balance; } .ds-head-aside { margin: 0; max-width: 448px; padding-bottom: 4px; font-size: 16px; line-height: 1.625; color: var(--color-base-600, oklch(45% 0.012 100)); }"
     },
     {
-      "name": "Pannello al lavoro",
+      "name": "Pannello tinto con coppia",
       "kind": "card",
-      "refersTo": "panel-active",
-      "description": "Scheda bianca a 12 px con etichette mono; attiva = bordo nero e anello base-100, fatta = punto verde.",
-      "html": "<div class=\"ds-panel is-active\"><div class=\"ds-panel-row\"><p class=\"ds-label\"><span class=\"ds-dot\"></span>Analisi</p><p class=\"ds-label\"><span class=\"ds-ok\">5</span> di 5 letti · Google IT</p></div><ol class=\"ds-serp\"><li><span class=\"ds-serp-n\">1</span><span class=\"ds-serp-t\">Le migliori scarpe da running del 2026</span><span class=\"ds-serp-m\">14 arg.</span></li><li><span class=\"ds-serp-n\">2</span><span class=\"ds-serp-t\">Scarpe running: guida alla scelta</span><span class=\"ds-serp-m\">11 arg.</span></li></ol><p class=\"ds-gaps\"><span class=\"ds-label ds-gaps-label\">3 lacune</span><span class=\"ds-gap\">drop</span><span class=\"ds-gap\">pronazione</span><span class=\"ds-gap\">schiume</span></p></div>",
-      "css": ".ds-panel { position: relative; padding: 16px; background: #fff; border: 1px solid var(--color-base-200, oklch(92.5% 0.005 214.3)); border-radius: 12px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; transition: border-color 400ms, box-shadow 400ms; } .ds-panel.is-active { border-color: var(--color-base-900, oklch(21.8% 0.008 223.9)); box-shadow: 0 0 0 3px var(--color-base-100, oklch(96.3% 0.002 197.1)); } .ds-panel-row { display: flex; justify-content: space-between; align-items: center; } .ds-label { display: flex; align-items: center; gap: 8px; margin: 0; font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-base-500, oklch(54% 0.021 213.5)); } .ds-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--color-accent-500, oklch(21.8% 0.008 223.9)); } .ds-ok { color: var(--color-status-success, oklch(65% 0.1 150)); } .ds-serp { list-style: none; margin: 12px 0 0; padding: 0; font-size: 12px; } .ds-serp li { display: grid; grid-template-columns: 1rem minmax(0, 1fr) auto; gap: 0 12px; align-items: baseline; padding: 4px 0; border-top: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); } .ds-serp li:first-child { border-top: 0; } .ds-serp-n, .ds-serp-m { font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; color: var(--color-base-500, oklch(54% 0.021 213.5)); font-variant-numeric: tabular-nums; } .ds-serp-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--color-base-900, oklch(21.8% 0.008 223.9)); } .ds-gaps { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 8px 0 0; padding-top: 8px; border-top: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); font-size: 12px; } .ds-gaps-label { margin-right: 4px; color: var(--color-accent-600, oklch(21.8% 0.008 223.9)); } .ds-gap { padding: 2px 8px; border-radius: 9999px; background: var(--color-base-900, oklch(21.8% 0.008 223.9)); color: #fff; }"
+      "refersTo": "panel",
+      "description": "La porta della home: carta a 4 px senza bordo, etichetta, titolo e lede alla stessa misura, righe piene con punto, link in fondo.",
+      "html": "<a class=\"ds-panel\" href=\"#\"><p class=\"ds-panel-label\">Per le agenzie</p><h3 class=\"ds-panel-title\">Contenuti per più clienti, con un metodo solo.</h3><p class=\"ds-panel-lede\">Un progetto per cliente, un brief per contenuto, due versioni da revisionare.</p><ul class=\"ds-panel-list\"><li><span class=\"ds-dot\"></span>Progetti separati per cliente</li><li><span class=\"ds-dot\"></span>Due versioni, due modelli</li><li><span class=\"ds-dot\"></span>Export in HTML, Word e Markdown</li></ul><p class=\"ds-panel-more\">Verbalist per le agenzie →</p></a>",
+      "css": ".ds-panel { display: flex; flex-direction: column; padding: 24px; background: var(--color-panel, oklch(95.8% 0.005 95)); border-radius: 4px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; text-decoration: none; color: inherit; } @media (min-width: 64rem) { .ds-panel { padding: 40px; } } .ds-panel-label { margin: 0; font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-panel-title { margin: 24px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-panel-lede { margin: 4px 0 0; max-width: 448px; font-size: 20px; line-height: 1.375; letter-spacing: -0.025em; color: var(--color-base-600, oklch(45% 0.012 100)); text-wrap: pretty; } .ds-panel-list { list-style: none; margin: 32px 0 0; padding: 0; font-size: 14px; color: var(--color-base-800, oklch(30% 0.012 100)); } .ds-panel-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-panel-list li:last-child { border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 9999px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-panel-more { margin: auto 0 0; padding-top: 24px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: opacity 200ms; } .ds-panel:hover .ds-panel-more { opacity: 0.75; } .ds-panel:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
     },
     {
-      "name": "Nodo della catena",
+      "name": "Card dell'agente",
       "kind": "card",
-      "refersTo": "node",
-      "description": "Le quattro scatole a 8 px della catena: passato con ✓ verde, attivo con fondo base-50 e anello, hover con bordo accent-400.",
-      "html": "<ol class=\"ds-chain\"><li><a class=\"ds-node is-past\" href=\"#\"><span class=\"ds-node-label\">01 · Analista</span><span class=\"ds-node-title\">Legge la SERP</span><span class=\"ds-node-text\">I primi cinque risultati per la keyword.</span><span class=\"ds-node-io\">→ Mappa degli argomenti</span></a></li><li><a class=\"ds-node is-on\" href=\"#\"><span class=\"ds-node-label\">02 · Redattore</span><span class=\"ds-node-title\">Scrive due versioni</span><span class=\"ds-node-text\">Due modelli, due testi interi.</span><span class=\"ds-node-io\">→ Testo A e B</span></a></li></ol>",
-      "css": ".ds-chain { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; list-style: none; margin: 0; padding: 0; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-node { display: flex; flex-direction: column; padding: 20px; background: #fff; border: 1px solid var(--color-base-200, oklch(92.5% 0.005 214.3)); border-radius: 8px; text-decoration: none; transition: border-color 300ms, background-color 300ms, box-shadow 300ms; } .ds-node:hover { border-color: var(--color-accent-400, oklch(45% 0.017 213.2)); } .ds-node:focus-visible { outline: 2px solid var(--color-base-900, oklch(21.8% 0.008 223.9)); outline-offset: 2px; } .ds-node.is-on { border-color: var(--color-base-900, oklch(21.8% 0.008 223.9)); background: var(--color-base-50, oklch(98.7% 0.002 197.1)); box-shadow: 0 0 0 3px var(--color-base-100, oklch(96.3% 0.002 197.1)); } .ds-node.is-past { border-color: var(--color-base-300, oklch(87.2% 0.007 219.6)); } .ds-node-label { font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-base-500, oklch(54% 0.021 213.5)); } .ds-node.is-past .ds-node-label::before { content: '✓ '; color: var(--color-status-success, oklch(65% 0.1 150)); } .ds-node.is-on .ds-node-label, .ds-node.is-on .ds-node-title { color: var(--color-base-900, oklch(21.8% 0.008 223.9)); } .ds-node-title { margin-top: 12px; font-size: 16px; line-height: 1.375; color: var(--color-base-900, oklch(21.8% 0.008 223.9)); } .ds-node-text { margin-top: 8px; font-size: 12px; line-height: 1.625; color: var(--color-base-600, oklch(45% 0.017 213.2)); } .ds-node-io { margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; color: var(--color-base-500, oklch(54% 0.021 213.5)); }"
+      "refersTo": "panel-hover",
+      "description": "Le quattro card della catena: carta a 4 px, icona, numero 14 px grigio, nome 20 px, riassunto 15 px; in hover il fondo passa a base-100 e il chevron scorre di 4 px.",
+      "html": "<a class=\"ds-agent\" href=\"#\"><div class=\"ds-agent-top\"><svg class=\"ds-agent-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-3.5-3.5\"/></svg><h3 class=\"ds-agent-title\"><span class=\"ds-agent-n\">01</span>Analista</h3><p class=\"ds-agent-text\">Legge i primi cinque risultati per la keyword e ne ricava argomenti, struttura e lacune.</p></div><p class=\"ds-agent-more\">Vedi l'agente <svg class=\"ds-agent-chev\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></p></a>",
+      "css": ".ds-agent { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 24px; background: var(--color-panel, oklch(95.8% 0.005 95)); border-radius: 4px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; text-decoration: none; color: inherit; transition: background-color 200ms; } .ds-agent:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-agent:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; } .ds-agent-top { display: grid; gap: 16px; } .ds-agent-icon { width: 24px; height: 24px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-agent-title { margin: 0; font-size: 20px; line-height: 1.375; font-weight: 400; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-agent-n { display: block; margin-bottom: 4px; font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-agent-text { margin: 0; font-size: 15px; line-height: 1.625; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-agent-more { display: flex; align-items: center; gap: 4px; margin: 0; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-agent-chev { width: 16px; height: 16px; color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); transition: transform 300ms ease-out; } .ds-agent:hover .ds-agent-chev { transform: translateX(4px); }"
     },
     {
       "name": "Cella di elenco",
       "kind": "card",
       "refersTo": "cell",
-      "description": "Card blog/help/clienti: nessun raggio, tratteggio in basso, hover base-50, titolo che scurisce.",
+      "description": "Card blog/help/clienti: nessun raggio, riga piena in basso, hover base-50, titolo che scurisce.",
       "html": "<article class=\"ds-cell\"><p class=\"ds-cell-meta\"><time>21 set 2026</time><span class=\"ds-cell-cat\">SEO</span></p><h3 class=\"ds-cell-title\"><a href=\"#\">Come scrivere un brief che un agente capisce</a></h3><p class=\"ds-cell-text\">Keyword, mercato, contesto del brand: le tre cose che servono prima di generare.</p><p class=\"ds-cell-more\">Leggi →</p></article>",
-      "css": ".ds-cell { position: relative; display: flex; flex-direction: column; padding: 32px 16px; border-bottom: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; transition: background-color 200ms; } .ds-cell:hover { background: var(--color-base-50, oklch(98.7% 0.002 197.1)); } .ds-cell-meta { display: flex; justify-content: space-between; margin: 0; font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-base-500, oklch(54% 0.021 213.5)); } .ds-cell-cat { color: var(--color-accent-600, oklch(21.8% 0.008 223.9)); } .ds-cell-title { margin: 32px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; text-wrap: balance; } .ds-cell-title a { color: var(--color-base-900, oklch(21.8% 0.008 223.9)); text-decoration: none; } .ds-cell-title a::after { content: ''; position: absolute; inset: 0; } .ds-cell:hover .ds-cell-title a { color: var(--color-accent-600, oklch(21.8% 0.008 223.9)); } .ds-cell-title a:focus-visible { outline: 2px solid var(--color-base-900, oklch(21.8% 0.008 223.9)); outline-offset: 2px; } .ds-cell-text { margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-base-600, oklch(45% 0.017 213.2)); } .ds-cell-more { margin: 24px 0 0; font-size: 14px; color: var(--color-base-900, oklch(21.8% 0.008 223.9)); }"
-    },
-    {
-      "name": "Riga di elenco con punto",
-      "kind": "custom",
-      "refersTo": "cell",
-      "description": "Elenco a righe tratteggiate con punto nero: porte, piani, fatti della catena.",
-      "html": "<ul class=\"ds-list\"><li class=\"ds-list-item\"><span class=\"ds-list-dot\"></span>I primi 5 risultati di Google, o fino a 5 URL scelti da te</li><li class=\"ds-list-item\"><span class=\"ds-list-dot\"></span>Due versioni complete, scritte da due modelli</li><li class=\"ds-list-item\"><span class=\"ds-list-dot\"></span>HTML con title tag, meta description, slug e alt text</li></ul>",
-      "css": ".ds-list { list-style: none; margin: 0; padding: 0; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 14px; color: var(--color-base-800, oklch(27.5% 0.011 216.9)); } .ds-list-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); } .ds-list-item:last-child { border-bottom: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); } .ds-list-dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 9999px; background: var(--color-accent-500, oklch(21.8% 0.008 223.9)); }"
+      "css": ".ds-cell { position: relative; display: flex; flex-direction: column; padding: 32px 16px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; transition: background-color 200ms; } .ds-cell:hover { background: var(--color-base-50, oklch(94.6% 0.006 97)); } .ds-cell-meta { display: flex; justify-content: space-between; gap: 16px; margin: 0; font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-cell-cat { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-cell-title { margin: 32px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; text-wrap: balance; } .ds-cell-title a { color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; } .ds-cell-title a::after { content: ''; position: absolute; inset: 0; } .ds-cell:hover .ds-cell-title a { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-cell-title a:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; } .ds-cell-text { margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-cell-more { margin: auto 0 0; padding-top: 24px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); }"
     },
     {
       "name": "SubNav a pillole",
       "kind": "nav",
       "refersTo": "subnav-pill",
-      "description": "Riga 48 px sotto la nav (56 su mobile): voce di testa mono, pillole 32 px (40 su mobile), la corrente piena nera.",
-      "html": "<nav class=\"ds-subnav\"><a class=\"ds-subnav-home\" href=\"#\">Agenti</a><a class=\"ds-subnav-pill is-active\" href=\"#\" aria-current=\"page\"><span class=\"ds-subnav-n\">01</span>Keyword</a><a class=\"ds-subnav-pill\" href=\"#\"><span class=\"ds-subnav-n\">02</span>Analisi</a><a class=\"ds-subnav-pill\" href=\"#\"><span class=\"ds-subnav-n\">03</span>Scrittura</a></nav>",
-      "css": ".ds-subnav { display: flex; align-items: center; gap: 4px; height: 48px; border-bottom: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-subnav-home { display: flex; align-items: center; height: 100%; padding: 0 16px; margin-right: 4px; border-right: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-base-500, oklch(54% 0.021 213.5)); text-decoration: none; } .ds-subnav-home:hover { color: var(--color-accent-600, oklch(21.8% 0.008 223.9)); } .ds-subnav-pill { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-600, oklch(45% 0.017 213.2)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-subnav-pill:hover { color: var(--color-base-950, oklch(14.8% 0.004 228.8)); background: var(--color-base-100, oklch(96.3% 0.002 197.1)); } .ds-subnav-pill.is-active { color: #fff; background: var(--color-accent-500, oklch(21.8% 0.008 223.9)); } .ds-subnav-n { font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; color: var(--color-base-500, oklch(54% 0.021 213.5)); } .ds-subnav-pill.is-active .ds-subnav-n { color: rgb(255 255 255 / 0.8); } .ds-subnav-pill:focus-visible { outline: 2px solid var(--color-base-900, oklch(21.8% 0.008 223.9)); outline-offset: 2px; }"
+      "description": "Riga 48 px sotto la nav (56 su mobile) con riga piena: voce di testa 14 px grigia, pillole 32 px (40 su mobile), la corrente piena nell'inchiostro.",
+      "html": "<nav class=\"ds-subnav\"><a class=\"ds-subnav-home\" href=\"#\">Agenti</a><a class=\"ds-subnav-pill is-active\" href=\"#\" aria-current=\"page\"><span class=\"ds-subnav-n\">01</span>Analista</a><a class=\"ds-subnav-pill\" href=\"#\"><span class=\"ds-subnav-n\">02</span>Stratega</a><a class=\"ds-subnav-pill\" href=\"#\"><span class=\"ds-subnav-n\">03</span>Redattore</a></nav>",
+      "css": ".ds-subnav { display: flex; align-items: center; gap: 4px; height: 48px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-subnav-home { display: flex; align-items: center; height: 100%; padding: 0 16px; margin-right: 4px; border-right: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); text-decoration: none; } .ds-subnav-home:hover { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-pill { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-subnav-pill:hover { color: var(--color-base-950, oklch(18.2% 0.014 94)); background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-subnav-pill.is-active { color: #fff; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-n { font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-subnav-pill.is-active .ds-subnav-n { color: rgb(255 255 255 / 0.8); } .ds-subnav-pill:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Cartiglio del footer",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "Una riga a 14 px in fondo al footer di carta: © NUR, foglio e piattaforma in mono, revisione, stato dei sistemi come pillola con punto.",
+      "html": "<dl class=\"ds-colophon\"><div><dt>© 2026</dt><dd>NUR S.r.l. · P.IVA 01902640208</dd></div><div><dt class=\"ds-sr\">Foglio</dt><dd class=\"ds-colophon-mono\">/agenti/analista/</dd></div><div><dt>Piattaforma</dt><dd class=\"ds-colophon-mono\">v2.6.1</dd></div><div><dt>Revisione</dt><dd>17 ottobre 2026</dd></div><div class=\"ds-colophon-end\"><dt class=\"ds-sr\">Stato</dt><dd><a class=\"ds-status\" href=\"#\"><span class=\"ds-status-dot\"></span>Tutti i sistemi operativi</a></dd></div></dl>",
+      "css": ".ds-colophon { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin: 0; padding: 24px 20px; background: var(--color-panel, oklch(95.8% 0.005 95)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-colophon > div { display: flex; gap: 6px; } .ds-colophon dd { margin: 0; } .ds-colophon-mono { font-family: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace; font-size: 12px; } .ds-colophon-end { margin-left: auto; } .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .ds-status { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); border-radius: 9999px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: background-color 150ms; } .ds-status:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-status-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--color-status-success, oklch(65% 0.1 150)); }"
     },
     {
       "name": "Barra CTA mobile",
       "kind": "custom",
       "refersTo": "mobile-cta-bar",
-      "description": "Barra fissa in basso sotto lg: nota 12 px e pillola accent nella zona del pollice, con safe-area iOS.",
+      "description": "Barra fissa in basso sotto lg: avorio al 95% con blur e riga base-200, nota 12 px e pillola accent nella zona del pollice, con safe-area iOS.",
       "html": "<div class=\"ds-mobile-cta\"><p class=\"ds-mobile-cta-note\">30 giorni, 15 documenti,<br>senza carta di credito.</p><a class=\"ds-mobile-cta-btn\" href=\"#\">Prova gratis</a></div>",
-      "css": ".ds-mobile-cta { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; padding-bottom: calc(10px + env(safe-area-inset-bottom)); background: rgb(255 255 255 / 0.95); border-top: 1px dashed var(--color-base-200, oklch(92.5% 0.005 214.3)); backdrop-filter: blur(4px); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; transition: transform 300ms ease-out; } .ds-mobile-cta-note { margin: 0; font-size: 12px; line-height: 1.25; color: var(--color-base-600, oklch(45% 0.017 213.2)); } .ds-mobile-cta-btn { display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 24px; border-radius: 9999px; background: var(--color-accent-500, oklch(21.8% 0.008 223.9)); color: #fff; font-size: 16px; text-decoration: none; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.22), 0 1px 2px rgb(0 0 0 / 0.14); transition: background-color 300ms; } .ds-mobile-cta-btn:hover { background: var(--color-base-700, oklch(37.8% 0.015 216)); } .ds-mobile-cta-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-base-900, oklch(21.8% 0.008 223.9)); }"
+      "css": ".ds-mobile-cta { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; padding-bottom: calc(10px + env(safe-area-inset-bottom)); background: color-mix(in oklab, var(--color-background, oklch(97.5% 0.004 106.5)) 95%, transparent); border-top: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); backdrop-filter: blur(4px); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; transition: transform 300ms ease-out; } .ds-mobile-cta-note { margin: 0; font-size: 12px; line-height: 1.25; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-mobile-cta-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 40px; padding: 0 24px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); color: #fff; font-size: 16px; } .ds-mobile-cta-btn:hover { background: var(--color-base-700, oklch(37.8% 0.012 100)); } .ds-mobile-cta-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-background, oklch(97.5% 0.004 106.5)), 0 0 0 4px var(--color-base-900, oklch(26.3% 0.013 100.5)); }"
     }
   ],
   "narrative": {
-    "northStar": "Il foglio tecnico",
-    "overview": "Il sito è un foglio tecnico stampato in un solo inchiostro. Una colonna incorniciata da linee tratteggiate, la sigla di sezione nel margine (`Sec 0.n`), due punti d'angolo da 3 px su ogni sezione, pannelli bianchi con bordo sottile dentro cui la catena di Verbalist lavora davvero. L'identità è quella registrata in `/brand/`: Nero Verbalist, Bianco, Mist e Grigio testo. Nessun colore saturo. La fiducia viene dalla precisione e dal fatto che il prodotto si vede all'opera, non dall'effetto.\n\nLa densità è quella di uno strumento: celle divise da tratteggi, elenchi a righe con un punto pieno, tabelle e metadati in mono. Un solo carattere, Geist, in peso regolare per i titoli e light solo per il lede; Geist Mono maiuscolo per targhette, etichette, slug e versioni. La gerarchia si regge su dimensione, tracking e tono di grigio, non su peso o colore: i titoli sono interamente neri sotto una targhetta mono nera.\n\nIl movimento è funzionale e uno per sezione: nell'hero i quattro pannelli eseguono il flusso in sequenza (keyword digitata, cinque risultati letti, contatori di parole, metadati compilati), nella catena la corrente scorre sul connettore attivo, nell'anatomia GEO nota e passaggio si accendono a vicenda. Tutto ha pausa, si ferma fuori schermo e con `prefers-reduced-motion` mostra lo stato finale.\n\nDecisioni registrate (2026-09-26). L'accento arancio preso da try.cloudflare.com è stato ritirato dopo il confronto di tre dosi di segnale (\"Mono\" scelta dal maintainer). Le rampe `accent-*` restano nel tema come alias del Nero Verbalist. I colori di stato sono quelli della piattaforma (`platform/css/css.css`): verde per il completato, rosso per l'errore, nessun colore per l'\"in corso\". Il mondo precedente (\"Bacino di inchiostro\") è stato scartato dopo la prima build.",
+    "northStar": "Carta avorio, un solo inchiostro",
+    "overview": "Il sito è una pagina avorio su cui stanno pannelli di carta un passo più scura, scritti in un solo inchiostro caldo. La grammatica è quella di cursor.com (riferimento estratto il 2026-10-16, adottata il 2026-10-17): nessuna cornice, nessuna riga in testa alle sezioni, le sezioni si separano con l'aria e con il tono dei pannelli; colonna da 1300 px; nav opaca senza riga; chiusure centrate con il titolo grande. L'identità resta quella registrata in `/brand/`, aggiornata ai nuovi valori: Nero Verbalist #26251E, Avorio #F7F7F4, Carta #F2F1ED, Grigio testo #6A6961. Nessun colore saturo. La fiducia viene dal prodotto che si vede all'opera dentro pannelli tinti, non dall'effetto.\n\nLa densità è quella di uno strumento: pannelli a 4 px senza bordo, righe piene `base-200` da 1 px per elenchi e celle, un punto pieno davanti ai fatti. Un solo carattere, Geist, in due pesi: 400 per tutto, 500 solo per `strong` e le enfasi nei mockup. Le etichette di sezione sono in sans a 14 px grigie, in sentence case; Geist Mono resta solo per gli artefatti (slug, versioni, numeri dei passi, codice). La gerarchia si regge su misura e tono di grigio: titoli interamente neri sotto un'etichetta grigia, e nelle coppie titolo/lede alla stessa misura la distanza la fa solo il colore.\n\nIl movimento è funzionale e uno per sezione, e dal 2026-10-11 nessuna sezione ha un'animazione in loop: restano transizioni di colore e il chevron che scorre di 4 px. Tutto rispetta `prefers-reduced-motion`.\n\n**Decisioni registrate.** 2026-09-26: l'accento arancio preso da try.cloudflare.com è stato ritirato (\"Mono\" scelta dal maintainer); le rampe `accent-*` restano nel tema come alias dell'inchiostro. 2026-10-17: il \"foglio tecnico\" di try.cloudflare.com (cornice tratteggiata, sigle nel margine, punti d'angolo, targhette mono bianche su nero, pannelli bianchi con bordo) è stato sostituito dalla grammatica di cursor.com; la rampa fredda (hue ~215) è diventata calda (hue ~100); l'accento arancio di Cursor è stato valutato e tenuto spento: l'accento è l'inchiostro. I colori di stato sono quelli della piattaforma (`platform/css/css.css`): verde per il completato, rosso per l'errore, nessun colore per l'\"in corso\".",
     "keyCharacteristics": [
-      "Cornice tratteggiata `base-200` come sistema strutturale: colonna, righe di sezione, divisori di cella, righe di elenco.",
-      "Un solo inchiostro: il Nero Verbalist riempie pillole, targhette, punti e bordi attivi. Il resto è una rampa fredda di grigi.",
-      "Un solo carattere (Geist) più Geist Mono per etichette e artefatti tecnici; titoli 400, mai colorati.",
-      "Superfici piatte: bianco e `base-50`; le uniche ombre stanno sui due bottoni e nell'anello `base-100` dell'elemento attivo.",
-      "Pillole per azioni e navigazione, pannelli a 12 px, celle squadrate."
+      "Due superfici: pagina avorio (`background`) e pannelli di carta (`panel`), un passo più scuri; `bg-white` non si usa più.",
+      "Un solo inchiostro: il Nero Verbalist caldo riempie pillole, punti e voci attive. Il resto è una rampa calda di grigi.",
+      "Un solo carattere (Geist) in 400, 500 solo per `strong`; etichette in sans 14 px grigie; Geist Mono solo per artefatti.",
+      "Pannelli tinti a 4 px senza bordo, righe piene `base-200` da 1 px; nessun tratteggio.",
+      "Nessuna ombra su pannelli, card, nav e bottoni; l'unica luce è sugli oggetti di prodotto (finestre dell'app, card in primo piano).",
+      "Pillole per azioni e navigazione; sezioni separate dall'aria (`rhythm`), con più spazio sotto che sopra."
     ],
     "rules": [
-      { "name": "The One Ink Rule", "body": "Il sito ha un solo inchiostro, il Nero Verbalist. Non esiste un secondo colore né una tinta di sezione diversa da `base-50`; i verdi e i rossi sono stati della piattaforma, mai elementi di design.", "section": "colors" },
-      { "name": "The Black Title Rule", "body": "I titoli sono interamente `base-900`. Il segnale sta nella targhetta mono nera sopra il titolo, mai in una parola colorata o grigia dentro il titolo.", "section": "colors" },
-      { "name": "The Grey Status Rule", "body": "\"In corso\" non ha colore: si riconosce da bordo `base-900`, fondo `base-50`/`base-100` e anello `base-100`. Il verde arriva solo a lavoro concluso.", "section": "colors" },
-      { "name": "The Regular Weight Rule", "body": "Titoli in 400 con tracking negativo. Il 500 esiste solo per `strong` nella prose, gli H4 da 15 px dentro i fogli A/B e la domanda-H2 nell'anatomia. Niente 600–700.", "section": "typography" },
-      { "name": "The Light-From-18 Rule", "body": "Il peso 300 compare solo dai 18 px in su (lede). Sotto, Geist light è troppo sottile: testo secondario a 15 px e metadati a 14 px restano regular.", "section": "typography" },
-      { "name": "The Mono Kicker Rule", "body": "La targhetta sopra i titoli (`Head` prop `tag`, eyebrow del Manifesto, etichette dei pannelli) è grammatica del sistema: sempre Geist Mono, 12 px, maiuscolo, tracking 0.05em. Una per titolo, mai due.", "section": "typography" },
-      { "name": "The Lines Not Shadows Rule", "body": "Un contenitore si separa dal foglio con un bordo `base-200` (pieno sui pannelli, tratteggiato sulle celle) o con `bg-base-50`. Mai con un'ombra diffusa.", "section": "elevation" }
+      {
+        "name": "The One Ink Rule",
+        "body": "Il sito ha un solo inchiostro, il Nero Verbalist caldo (#26251E). Non esiste un secondo colore: l'arancio di try.cloudflare.com è stato ritirato (2026-09-26) e quello di cursor.com valutato e tenuto spento (2026-10-17). I verdi e i rossi sono stati della piattaforma, mai elementi di design.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Surfaces Rule",
+        "body": "La pagina è avorio (`background`) e tutto ciò che vi sta sopra è carta (`panel`) o un grigio della rampa (`base-50` per il tono soft, `base-100` per ciò che è premuto, consigliato o in hover). Niente bianco puro come superficie e nessuna tinta di sezione fuori da questi tre toni.",
+        "section": "colors"
+      },
+      {
+        "name": "The Black Title Rule",
+        "body": "I titoli sono interamente `base-900`. Il segnale sta nell'etichetta grigia sopra il titolo o nella misura, mai in una parola colorata o grigia dentro il titolo.",
+        "section": "colors"
+      },
+      {
+        "name": "The Grey Status Rule",
+        "body": "\"In corso\" non ha colore: si riconosce da fondo `base-50`/`base-100` e inchiostro. Il verde arriva solo a lavoro concluso o a sistemi operativi.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Weights Rule",
+        "body": "Due pesi in tutto il sito: 400 per titoli, lede, corpo e UI; 500 solo per `strong` nella prose, gli H4 dentro i fogli A/B e le enfasi nei mockup. Il 300 è stato ritirato il 2026-10-17; niente 600–700.",
+        "section": "typography"
+      },
+      {
+        "name": "The Grey Label Rule",
+        "body": "L'etichetta sopra i titoli (`Head` prop `tag`, eyebrow del Manifesto, etichette dei pannelli) è in Geist a 14 px, `base-500`, sentence case, a 16 px dal titolo. Una per titolo, mai due. Le targhette mono maiuscole bianche su nero sono state eliminate il 2026-10-17.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Artefact Rule",
+        "body": "Geist Mono si usa solo per ciò che la piattaforma o la build producono (slug, versioni, numeri dei passi, esadecimali, codice), a 12 px, senza maiuscole forzate. Un'etichetta scritta da noi non va mai in mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Same Size Pair Rule",
+        "body": "Dove titolo e lede di un pannello stanno alla stessa misura (porte 20→24, capacità 20), la gerarchia la fa solo il colore: `base-900` sopra, `base-600` sotto, a 4 px di distanza.",
+        "section": "typography"
+      },
+      {
+        "name": "The More Air Below Rule",
+        "body": "Una sezione prende 2/4 righe di corpo sopra/sotto su mobile e 3/5 da `lg` (`Frame rhythm=\"section\"`): il titolo di una sezione sta più vicino a ciò che la precede che a ciò che la segue. Il ritmo non si scrive a mano: si passa `rhythm`.",
+        "section": "layout"
+      },
+      {
+        "name": "The Tone Not Shadows Rule",
+        "body": "Un contenitore si separa dalla pagina con il tono (`panel`, `base-50`, `base-100`), mai con un'ombra e, se è un pannello di testo, nemmeno con un bordo. L'unica luce del sito è quella sugli oggetti di prodotto: è luce su un oggetto appoggiato, non elevazione di un contenitore.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do costruire ogni sezione con `Frame` (n, tone, flush) e `Head` (tag, title, text): cornice tratteggiata, sigla e punti d'angolo non si replicano a mano.",
-      "Do usare il Nero Verbalist (`accent-500`/`accent-600`, `base-900`) per tutto ciò che deve pesare: pillola primaria, targhetta, punti, bordo attivo. Nessun altro colore.",
-      "Do separare i contenuti con tratteggi `base-200` (righe, celle, elenchi) e i pannelli con bordo pieno `base-200` a 12 px.",
-      "Do tenere i titoli in peso 400 con tracking −0.025em (hero −0.03em), interamente `base-900`, sotto una targhetta mono.",
-      "Do scrivere etichette e artefatti tecnici in Geist Mono 12–13 px, maiuscolo con tracking 0.05em quando sono etichette.",
-      "Do usare pillole per tutto ciò che si preme (`Button`, voci nav, SubNav, selettori, `summary`) e una sola pillola accent per gruppo di azioni, con la rassicurazione a 12–14 px sotto.",
-      "Do usare `bg-base-50` per il tono \"soft\" (hero, chiusure, piano consigliato, hover delle celle, nodo attivo) e nient'altro come tinta di superficie.",
-      "Do segnalare lo stato con forma e tono: bordo `base-900` + anello `base-100` per \"in corso\", `✓` e punto in `status-success` per \"fatto\".",
-      "Do dare a ogni animazione pausa, stop fuori schermo e stato finale con `prefers-reduced-motion`."
+      "Do costruire ogni sezione con `Frame` (tone, rhythm) e `Head` (tag, title, text): colonna da 1300 px, ritmo verticale e testa di sezione non si replicano a mano.",
+      "Do usare il Nero Verbalist (`accent-500`/`accent-600`, `base-900`) per tutto ciò che deve pesare: pillola primaria, punti, voce attiva, titoli. Nessun altro colore.",
+      "Do posare i contenuti su pannelli tinti `bg-panel rounded-md` senza bordo (`p-6 lg:p-10`), e separare righe e celle con linee piene `base-200` da 1 px.",
+      "Do tenere i titoli in peso 400 con tracking −0.025em (chiusura −0.03em, hero −0.0125em), interamente `base-900`, sotto un'etichetta sans 14 px `base-500`.",
+      "Do scrivere in Geist Mono 12 px solo gli artefatti (slug, versioni, numeri dei passi, esadecimali, codice); etichette e intestazioni restano in Geist 14 px.",
+      "Do usare pillole per tutto ciò che si preme (`Button`, voci nav, SubNav, selettori, `summary`) e una sola pillola accent per gruppo di azioni, con la rassicurazione a 12–14 px sotto; `muted` come secondaria, `ghost` solo nella nav.",
+      "Do usare `bg-base-50` per il tono \"soft\" (hero delle pagine interne, pannello di prodotto dell'hero, hover delle celle) e `bg-base-100` per ciò che è premuto, consigliato o in hover; nient'altro come tinta di superficie.",
+      "Do mettere titolo e lede di un pannello alla stessa misura (20, 24 nelle porte) con la gerarchia affidata al colore, salvo nelle griglie a quattro colonne.",
+      "Do dare a ogni transizione una durata dal set 150/200/300 ms e lo stato finale con `prefers-reduced-motion`."
     ],
     "donts": [
-      "Don't introdurre texture, gradienti, immagini decorative o illustrazioni: le uniche immagini sono i loghi dei clienti (grayscale), i ritratti del team (grayscale) e le copertine dei post dentro il post.",
-      "Don't aggiungere ombre a pannelli, card, nav, sheet o barra mobile: le ombre esistono solo sulle due pillole di `Button` e nell'anello piatto dell'elemento attivo.",
-      "Don't usare un colore saturo o una parola colorata nel titolo: l'arancio è stato ritirato; verde e rosso sono stati di sistema.",
-      "Don't usare pesi 500–700 sui titoli, il peso 300 sotto i 18 px o un secondo carattere (Familjen Grotesk è stato rimosso; `font-serif` è un alias di Geist).",
+      "Don't introdurre texture, gradienti, immagini decorative o illustrazioni: le uniche immagini sono i loghi dei clienti (grayscale), i ritratti del team (grayscale), i marchi dei motori nell'hero e le copertine dei post dentro il post; le velature restano nelle card di prodotto.",
+      "Don't aggiungere ombre a pannelli, card, nav, menu, barra mobile o bottoni: le uniche ombre sono quelle degli oggetti di prodotto (`.vb-window`, `.vb-float`, `.vb-peek-card`).",
+      "Don't usare `bg-white`, bordi tratteggiati, cornici, sigle nel margine o punti d'angolo: la grammatica del foglio tecnico è stata ritirata il 2026-10-17.",
+      "Don't usare un colore saturo o una parola colorata nel titolo: l'arancio (di Cloudflare e di Cursor) è stato ritirato; verde e rosso sono stati di sistema.",
+      "Don't usare pesi 500–700 sui titoli, il peso 300 (ritirato il 2026-10-17) o un secondo carattere (`font-serif` è un alias di Geist).",
       "Don't mettere testo di lettura sotto i 12 px.",
-      "Don't usare glifi da font o icone piene: solo SVG a tratto 1.4–1.6 in `accent-500`/`base-700`.",
-      "Don't ricreare eyebrow in Geist o con colori diversi da bianco-su-nero/`base-500`, né impilarne due sullo stesso titolo.",
+      "Don't usare glifi da font o icone piene: solo SVG a tratto 1.4–1.6 in `accent-500`/`base-900`.",
+      "Don't ricreare targhette: niente etichette mono maiuscole, niente fondo nero sotto un'etichetta, niente due etichette sullo stesso titolo.",
       "Don't aggiungere reveal allo scroll, hover-lift, parallax o stagger: una sola animazione per sezione, e solo se mostra il prodotto."
     ]
   }

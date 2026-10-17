@@ -47,20 +47,20 @@ const dateOf = (d: Date) =>
             const { Content } = await render(release);
             return (
               <li
-                class="flex flex-col py-12 gap-4 border-b border-dashed border-base-200 last:border-b-0 md:flex-row md:gap-10"
+                class="flex flex-col py-12 gap-4 border-b border-base-200 last:border-b-0 md:flex-row md:gap-10"
                 id={release.id}
               >
                 <div class="md:w-40 shrink-0">
                   <div class="flex items-baseline gap-3 md:sticky md:top-24 md:block">
                     <a
                       href={`/changelog/${release.id}/`}
-                      class="inline-flex items-center min-h-8 px-2 font-mono text-xs tracking-wider text-white uppercase bg-accent-600 hover:bg-accent-700"
+                      class="inline-flex items-center min-h-8 px-3 text-sm text-base-900 border border-current rounded-full hover:bg-accent-700"
                     >
                       v{versionOf(release.id)}
                     </a>
                     <time
                       datetime={release.data.pubDate.toISOString()}
-                      class="block font-mono text-xs tracking-wider uppercase text-base-500 md:mt-3"
+                      class="block text-sm text-base-500 md:mt-3"
                     >
                       {dateOf(release.data.pubDate)}
                     </time>
@@ -72,7 +72,7 @@ const dateOf = (d: Date) =>
                       {release.data.page}
                     </a>
                   </h2>
-                  <Wrapper variant="prose" class="mt-4 [&_h3]:font-mono [&_h3]:text-xs [&_h3]:font-normal [&_h3]:uppercase [&_h3]:tracking-wider [&_h3]:text-accent-600 [&_h3]:mt-8 [&_h3]:mb-3">
+                  <Wrapper variant="prose" class="mt-4 [&_h3]:text-sm [&_h3]:font-normal [&_h3]:text-base-500 [&_h3]:mt-8 [&_h3]:mb-3">
                     <Content />
                   </Wrapper>
                 </div>

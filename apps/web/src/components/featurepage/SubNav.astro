@@ -19,15 +19,15 @@ interface Props {
 const { label, home, items, current } = Astro.props;
 ---
 
-<div class="pt-[72px] border-b border-dashed border-base-200">
-  <Wrapper variant="standard" class="relative py-0 after:absolute after:inset-y-0 after:right-0 after:w-10 after:bg-gradient-to-l after:from-white after:to-transparent after:pointer-events-none lg:after:hidden">
+<div class="pt-[72px] border-b border-base-200">
+  <Wrapper variant="standard" class="relative py-0 after:absolute after:inset-y-0 after:right-0 after:w-10 after:bg-gradient-to-l after:from-background after:to-transparent after:pointer-events-none lg:after:hidden">
     <nav
       aria-label={label}
       class="flex items-center h-14 lg:h-12 -mx-4 overflow-x-auto gap-1 scrollbar-hide 2xl:-mx-12"
     >
       <a
         href={home.href}
-        class="flex items-center h-full px-4 mr-1 font-mono text-xs tracking-wider uppercase border-r border-dashed shrink-0 text-base-500 border-base-200 hover:text-accent-600 2xl:pl-12"
+        class="flex items-center h-full px-4 mr-1 text-sm border-r shrink-0 text-base-500 border-base-200 hover:text-accent-600 2xl:pl-12"
       >
         {home.label}
       </a>

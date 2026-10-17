@@ -118,7 +118,7 @@ const ioCells = [
   </Manifesto>
 
   <!-- Il punto: la frase citabile e l'introduzione, solo testo -->
-  <Frame n={2} class="pt-14 pb-14 lg:pt-20 lg:pb-20 lg:!px-14">
+  <Frame n={2} rhythm="section" class="lg:!px-14">
       <SectionHead
         eyebrow={`Agente ${frontmatter.n} di 04`}
         title={frontmatter.pitch ?? frontmatter.name}
@@ -136,11 +136,11 @@ const ioCells = [
               class:list={[
                 "py-8 lg:py-12",
                 i === 0
-                  ? "md:pr-10 md:border-r md:border-dashed md:border-base-200 max-md:border-b max-md:border-dashed max-md:border-base-200"
+                  ? "md:pr-10 md:border-r  md:border-base-200 max-md:border-b  max-md:border-base-200"
                   : "md:pl-10",
               ]}
             >
-              <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
+              <p class="text-sm text-accent-600">
                 {cell.eyebrow}
               </p>
               <h3 class="mt-4 text-2xl font-normal tracking-tight text-base-900">
@@ -148,7 +148,7 @@ const ioCells = [
               </h3>
               <ul role="list" class="mt-6 text-md text-base-800">
                 {cell.items.map((item: string) => (
-                  <li class="flex items-start py-3.5 border-t border-dashed gap-3 border-base-200 last:border-b">
+                  <li class="flex items-start py-3.5 border-t gap-3 border-base-200 last:border-b">
                     <span class="mt-2 rounded-full size-1.5 bg-accent-500 shrink-0" />{item}
                   </li>
                 ))}
@@ -162,7 +162,7 @@ const ioCells = [
   <!-- Come funziona: la prosa a capitoli, un numero mono su un filo a sinistra -->
   {
     Astro.slots.has("default") && (
-      <Frame n={4} class="py-12 lg:py-16 lg:!px-14">
+      <Frame n={4} rhythm="section" class="lg:!px-14">
         <Wrapper
           variant="prose"
           class="max-w-xl vb-chapters [&_h2]:font-normal [&_h2]:tracking-[-0.025em] [&_h2]:text-base-900 [&_h2]:text-3xl lg:[&_h2]:text-[2.75rem] lg:[&_h2]:leading-[1.1] [&_h2]:mt-0 [&_h2]:mb-8"
@@ -178,8 +178,8 @@ const ioCells = [
     frontmatter.note && (
       <Frame n={5} class="!px-0">
           <div class="grid grid-cols-1 px-4 md:grid-cols-2 lg:px-14">
-            <div class="pt-10 md:py-14 md:pr-10 md:border-r md:border-dashed md:border-base-200">
-              <p class="font-mono text-xs tracking-wider uppercase text-accent-600">
+            <div class="pt-10 md:py-14 md:pr-10 md:border-r md:border-base-200">
+              <p class="text-sm text-accent-600">
                 Da sapere
               </p>
               <h2 class="mt-4 text-2xl font-normal tracking-tight text-base-900">
@@ -205,9 +205,9 @@ const ioCells = [
         <a
           href={prev ? "/agenti/" + prev.id + "/" : "/#agenti"}
           rel={prev ? "prev" : undefined}
-          class="flex flex-col py-10 gap-2 group md:pr-10 md:border-r md:border-dashed md:border-base-200 max-md:border-b max-md:border-dashed max-md:border-base-200"
+          class="flex flex-col py-10 gap-2 group md:pr-10 md:border-r md:border-base-200 max-md:border-b max-md:border-base-200"
         >
-          <span class="flex items-center font-mono text-xs tracking-wider uppercase gap-1 text-accent-600">
+          <span class="flex items-center text-sm gap-1 text-accent-600">
             <ChevronRight
               size="sm"
               class="rotate-180 duration-300 group-hover:-translate-x-1"
@@ -230,7 +230,7 @@ const ioCells = [
           rel={next ? "next" : undefined}
           class="flex flex-col py-10 gap-2 group md:pl-10 md:items-end md:text-right"
         >
-          <span class="flex items-center font-mono text-xs tracking-wider uppercase gap-1 text-accent-600">
+          <span class="flex items-center text-sm gap-1 text-accent-600">
             {next ? "Agente " + next.n : "La catena"}
             <ChevronRight
               size="sm"
@@ -269,7 +269,7 @@ const ioCells = [
     counter-increment: chapter;
     margin: 0;
     padding: 0 0 2rem 3rem;
-    border-left: 1px dashed var(--color-base-200);
+    border-left: 1px solid var(--color-base-200);
   }
   .vb-chapters > p:last-child { padding-bottom: 0; border-left-color: transparent; }
   .vb-chapters > p::before {

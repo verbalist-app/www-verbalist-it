@@ -7,21 +7,28 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 
 - **Verità di prodotto**: ogni claim sulle funzionalità va verificato contro la
   piattaforma reale (app.verbalist.it). Non inventare feature, limiti o numeri.
-- **Brand** (redesign, branch `redesign`, dal 2026-09-23): grammatica "foglio
-  tecnico" sul modello di try.cloudflare.com. Un solo carattere, Geist
-  (self-hosted via fontsource; `font-serif` è un alias storico che punta a
-  Geist), Geist Mono per etichette di sezione, targhette e artefatti tecnici.
-  Palette monocroma del brand (`/brand/`): Nero Verbalist #161B1D, Bianco,
-  Mist #F1F3F3, Grigio testo #67787C. `base-*` è la rampa fredda del brand,
-  `accent-*` (in `:root` come `--vb-accent-*`, `src/styles/global.css`) è la
-  rampa del nero: CTA, targhette, punti. Nessun colore saturo: gli unici
-  colori sono gli stati presi dall'app (`status-success` per il completato,
-  `status-error` per l'errore; "in corso" non ha colore). Una sola
-  animazione per sezione; niente reveal allo scroll, hover-lift, parallax. Pillole per bottoni e voci nav, pannelli `rounded-xl`
-  con bordo `base-200`, cornice e righe tratteggiate `base-200`, sigla di
-  sezione nel margine (`components/section/Frame.astro`, testa di sezione in
-  `components/section/Head.astro`). Titoli in peso regolare
-  con tracking stretto, interamente neri sotto la targhetta mono.
+- **Brand** (dal 2026-10-17, ramo `meccanica-cursor`; prima il "foglio
+  tecnico" di try.cloudflare.com, dal 2026-09-23): grammatica presa da
+  cursor.com. Un solo carattere, Geist (self-hosted via fontsource;
+  `font-serif` è un alias storico che punta a Geist), Geist Mono solo per
+  artefatti tecnici (slug, versioni, numeri dei passi, codice). Palette
+  monocroma calda (`/brand/`): Nero Verbalist #26251E, Avorio #F7F7F4
+  (pagina, `bg-background`), Carta #F2F1ED (pannelli, `bg-panel`;
+  `bg-white` non si usa), Grigio testo #6A6961. `base-*` è la rampa calda
+  del brand, `accent-*` (in `:root` come `--vb-accent-*`,
+  `src/styles/global.css`) è la rampa del nero: CTA, punti, bordo attivo.
+  Nessun colore saturo: gli unici colori sono gli stati presi dall'app
+  (`status-success` per il completato, `status-error` per l'errore; "in
+  corso" non ha colore); l'arancio di Cursor è stato valutato e tenuto
+  spento. Una sola animazione per sezione; niente reveal allo scroll,
+  hover-lift, parallax. Pillole per bottoni e voci nav (`accent`, `muted`
+  tinta, `ghost`), pannelli tinti `bg-panel rounded-md` senza bordo, righe
+  piene `border-base-200` (niente tratteggi), nessuna cornice né sigla di
+  sezione: le sezioni si separano con l'aria (`components/section/Frame.astro`,
+  prop `rhythm`; testa di sezione in `components/section/Head.astro`, con
+  l'etichetta sans 14px grigia sopra il titolo). Titoli in peso regolare
+  con tracking stretto, interamente neri. Hero della home a sinistra, con
+  il prodotto in un pannello tinto a tutta larghezza; chiusure centrate.
   Sistema completo in `apps/web/DESIGN.md`; `.impeccable.md` è l'indice
   del contesto di design: leggilo prima di ogni lavoro di UI.
 - **Copy**: italiano, pratico, niente sensazionalismo né AI-isms (vedi le
@@ -49,19 +56,20 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
 
 ## Scala tipografica (regole vincolanti)
 
-- Un solo carattere di testo e display, Geist (peso 300 solo per il lede da 18px in su,
-  400 per corpo, titoli e UI, 500 per bottoni ed enfasi); Geist Mono solo per
-  targhette, etichette di sezione (uppercase, tracking-wider, 12px) e
-  artefatti tecnici (versioni, slug, codice).
-- Titoli in peso regolare con tracking −0.025em: hero della home 60px
-  (`text-hero`, 44px su mobile), H1/H2 di sezione 52px
+- Un solo carattere di testo e display, Geist (400 per corpo, titoli, lede e UI; 500 solo per
+  `strong` e le enfasi nei mockup; nessun peso 300); Geist Mono solo per
+  artefatti tecnici (versioni, slug, numeri dei passi, codice); le
+  etichette di sezione sono Geist 14px `base-500`, sentence case.
+- Titoli in peso regolare con tracking −0.025em: hero della home 28px
+  (`text-headline`, 24px su mobile; `text-hero` 60px solo per la chiusura),
+  H1/H2 di sezione 52px
   (`components/section/Head.astro`, 36px su mobile), H2 di cella 24px,
   H3 di card 18–20px. Titoli interamente `base-900`: niente parole colorate.
-- Corpo 16–18px con line-height ≥1.5 (lede 19px, light); secondario di
-  lettura 15px regolare; metadati 14px; etichette mono 12px. Mai testo di
-  lettura sotto i 12px, mai peso 300 sotto i 16px.
+- Corpo 16–18px con line-height ≥1.5 (lede 19px, regolare, `base-600`); secondario di
+  lettura 15px regolare; metadati ed etichette 14px; mono 12–13px solo per gli artefatti. Mai testo di
+  lettura sotto i 12px, mai peso 300.
 - Prose (blog, help, changelog, legali): colonna `max-w-xl`, testo regolare,
-  link con bordo tratteggiato, elenchi con marker nell'accento.
+  link con bordo sottile, elenchi con marker nell'accento.
 - Unità sempre rem (le utility Tailwind lo sono già); righe 45–75 caratteri;
   testo lungo sempre allineato a sinistra.
 
@@ -75,11 +83,14 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   campo `audience` alimenta il tracking (vedi `docs/tracking-plan.md`).
 - `src/components/featurepage/` — blocchi condivisi da pagine agente e
   soluzioni: `SubNav` (pagine sorelle, voci a pillola), `Manifesto` (hero
-  statico: targhetta, titolo, testo; a destra una `ProductCard` con i passi
+  statico: etichetta, titolo, testo; a destra una `ProductCard` con i passi
   numerati e la finestra dell'app passata nello slot `card`),
   `SectionHead` (alias di `components/section/Head.astro`).
-- `src/components/section/` — `Frame` (cornice di sezione) e `Head` (testa
-  di sezione): il pattern con cui si costruisce ogni sezione del sito.
+- `src/components/section/` — `Frame` (cornice di sezione; il ritmo verticale
+  sta nella sua prop `rhythm`, sui token `--spacing-v*`: più aria sotto che
+  sopra) e `Head` (testa di sezione): il pattern con cui si costruisce ogni
+  sezione del sito. I bottoni non hanno ombre: le sole ombre del sito sono
+  sugli oggetti di prodotto.
 - `src/components/home/` — sezioni della home; `demo.ts` contiene un output
   vero della piattaforma (documento 408 del 2026-10-07, versioni A e B):
   va riportato senza ritocchi, segnaposto `[SOURCE NEEDED]` e `[INTERNAL: …]`

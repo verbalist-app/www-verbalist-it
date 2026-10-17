@@ -8,10 +8,10 @@ import Logo from "@/components/assets/Logo.astro";
 import LogoFooter from "@/components/assets/LogoFooter.astro";
 
 const colors = [
-  { name: "Nero Verbalist", hex: "#161B1D", swatch: "bg-accent-500", light: false },
-  { name: "Bianco", hex: "#FFFFFF", swatch: "bg-white border border-base-200", light: true },
-  { name: "Mist", hex: "#F1F3F3", swatch: "bg-base-100 border border-base-200", light: true },
-  { name: "Grigio testo", hex: "#67787C", swatch: "bg-base-500", light: false },
+  { name: "Nero Verbalist", hex: "#26251E", swatch: "bg-accent-500", light: false },
+  { name: "Avorio", hex: "#F7F7F4", swatch: "bg-background border border-base-200", light: true },
+  { name: "Carta", hex: "#F2F1ED", swatch: "bg-panel border border-base-200", light: true },
+  { name: "Grigio testo", hex: "#6A6961", swatch: "bg-base-500", light: false },
 ];
 ---
 
@@ -37,7 +37,7 @@ const colors = [
       </div>
     </Frame>
 
-    <Frame n={2} class="py-14 lg:py-20 lg:!px-14">
+    <Frame n={2} rhythm="section" class="lg:!px-14">
       <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <Head tag="Nome" title="Una sola parola, con la V maiuscola" />
         <div>
@@ -54,7 +54,7 @@ const colors = [
         </div>
       </div>
     </Frame>
-    <Frame n={3} class="py-14 lg:py-20 lg:!px-14">
+    <Frame n={3} rhythm="section" class="lg:!px-14">
       <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <Head tag="Simbolo" title="La V, nelle proporzioni originali" />
         <div>
@@ -64,7 +64,7 @@ const colors = [
             colore: nero su fondi chiari, bianco su fondi scuri.
           </p>
           <div class="grid grid-cols-1 mt-8 gap-3 sm:grid-cols-2">
-            <div class="flex items-center justify-center p-10 border rounded-xl border-base-200 bg-base-100">
+            <div class="flex items-center justify-center p-10 rounded-md bg-base-100">
               <Logo class="h-12 text-accent-500" />
             </div>
             <div class="flex items-center justify-center p-10 rounded-xl bg-accent-500">
@@ -78,7 +78,7 @@ const colors = [
         </div>
       </div>
     </Frame>
-    <Frame n={4} class="py-14 lg:py-20 lg:!px-14">
+    <Frame n={4} rhythm="section" class="lg:!px-14">
       <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <Head tag="Logotipo" title="La scelta predefinita, senza effetti" />
         <div>
@@ -88,7 +88,7 @@ const colors = [
             si ombreggia, non si inclina, non si colora.
           </p>
           <div class="grid grid-cols-1 mt-8 gap-3 sm:grid-cols-2">
-            <div class="flex items-center justify-center p-10 border rounded-xl border-base-200 bg-base-100">
+            <div class="flex items-center justify-center p-10 rounded-md bg-base-100">
               <LogoFooter class="h-8 text-accent-500" />
             </div>
             <div class="flex items-center justify-center p-10 rounded-xl bg-accent-500">
@@ -102,13 +102,14 @@ const colors = [
         </div>
       </div>
     </Frame>
-    <Frame n={5} class="py-14 lg:py-20 lg:!px-14">
+    <Frame n={5} rhythm="section" class="lg:!px-14">
       <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
-        <Head tag="Colori" title="Bianco e nero, con grigi freddi" />
+        <Head tag="Colori" title="Avorio e nero, con grigi caldi" />
         <div>
           <p class="text-md leading-relaxed text-base-600">
-            L'identità visiva di Verbalist è in bianco e nero, con una scala di
-            grigi freddi. Niente colori accesi: la sobrietà è parte del brand.
+            L'identità visiva di Verbalist è un nero caldo su carta avorio, con una
+            scala di grigi caldi (dal 17 ottobre 2026; prima bianco e grigi
+            freddi). Niente colori accesi: la sobrietà è parte del brand.
           </p>
           <div class="grid grid-cols-2 mt-8 gap-3 md:grid-cols-4">
             {
@@ -130,7 +131,7 @@ const colors = [
           </div>
           <p class="mt-10 text-sm text-base-500">
             Domande sull'uso del brand o serve un formato che non trovi qui?
-            <a href="/contatti/" class="border-b border-dashed text-base-900 border-base-400 hover:border-base-900">Scrivici.</a>
+            <a href="/contatti/" class="border-b text-base-900 border-base-400 hover:border-base-900">Scrivici.</a>
           </p>
         </div>
       </div>

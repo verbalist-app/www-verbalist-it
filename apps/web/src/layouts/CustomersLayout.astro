@@ -55,7 +55,7 @@ const figure = frontmatter.figure;
   <div class="pt-[72px]">
     <Frame n={1} flush tone="soft" class="pt-8 pb-14 lg:pt-10 lg:pb-20 lg:!px-14">
       <nav aria-label="Breadcrumb">
-        <ol class="flex flex-wrap items-center font-mono text-xs tracking-wider uppercase gap-2 text-base-500">
+        <ol class="flex flex-wrap items-center text-sm gap-2 text-base-500">
           {
             breadcrumbs.map((item, index) => (
               <>
@@ -78,19 +78,19 @@ const figure = frontmatter.figure;
           <h1 class="mt-8 text-4xl leading-[1.1] font-normal tracking-[-0.025em] text-base-900 text-balance lg:text-display lg:leading-[1.08]">
             <Unbroken text={frontmatter.ctaTitle ?? frontmatter.customer} />
           </h1>
-          <p class="max-w-lg mt-6 text-lg font-light leading-snug text-base-600">{frontmatter.about}</p>
+          <p class="max-w-lg mt-6 text-lg leading-snug text-base-600">{frontmatter.about}</p>
         </div>
         {
           figure ? (
             <p class="lg:pb-1">
               <span class="block leading-none tracking-[-0.025em] text-base-900 text-display lg:text-hero">{figure.value}</span>
-              <span class="block max-w-xs mt-4 text-lg font-light leading-snug text-base-600">{figure.label}</span>
+              <span class="block max-w-xs mt-4 text-lg leading-snug text-base-600">{figure.label}</span>
             </p>
           ) : (
-            <dl class="p-6 bg-white border rounded-xl border-base-200">
+            <dl class="p-6 bg-panel rounded-md">
               {Object.entries(frontmatter.details).map(([key, value]) => (
-                <div class="flex justify-between py-2.5 text-sm border-b border-dashed gap-4 border-base-200 last:border-b-0">
-                  <dt class="font-mono text-xs leading-5 tracking-wider uppercase text-base-500">{key}</dt>
+                <div class="flex justify-between py-2.5 text-sm border-b gap-4 border-base-200 last:border-b-0">
+                  <dt class="text-sm leading-5 text-base-500">{key}</dt>
                   <dd class="text-right text-base-800">{value}</dd>
                 </div>
               ))}
@@ -101,11 +101,11 @@ const figure = frontmatter.figure;
     </Frame>
 
     <Frame n={2} class="!px-0">
-      <div class="grid md:grid-cols-2 md:divide-x md:divide-dashed md:divide-base-200">
+      <div class="grid md:grid-cols-2 md:divide-x md:divide-base-200">
         {
           frontmatter.challengesAndSolutions.map((item, i) => (
-            <div class="px-4 py-10 border-b border-dashed border-base-200 md:border-b-0 lg:px-10 lg:py-12 lg:first:pl-14 lg:last:pr-14">
-              <p class={`font-mono text-xs tracking-wider uppercase ${i === 0 ? "text-base-500" : "text-accent-600"}`}>{item.title}</p>
+            <div class="px-4 py-10 border-b border-base-200 md:border-b-0 lg:px-10 lg:py-12 lg:first:pl-14 lg:last:pr-14">
+              <p class={`text-sm ${i === 0 ? "text-base-500" : "text-accent-600"}`}>{item.title}</p>
               <p class="mt-6 text-xl font-normal leading-snug tracking-tight text-base-900">{item.content}</p>
             </div>
           ))
@@ -114,12 +114,12 @@ const figure = frontmatter.figure;
     </Frame>
 
     <!-- Risultati: una cella per risultato, numerata -->
-    <Frame n={3} class="pt-14 pb-0 lg:pt-20 lg:!px-14">
+    <Frame n={3} rhythm="open" class="lg:!px-14">
       <Head tag="Risultati" title={`Cosa è cambiato per ${frontmatter.customer}`} />
-      <ol role="list" class="grid grid-cols-1 mt-12 -mx-4 border-t border-dashed border-base-200 md:grid-cols-3 lg:-mx-14">
+      <ol role="list" class="grid grid-cols-1 mt-12 -mx-4 border-t border-base-200 md:grid-cols-3 lg:-mx-14">
         {
           frontmatter.results.map((result, i) => (
-            <li class="px-4 py-8 border-b border-dashed border-base-200 md:border-b-0 md:[&:not(:last-child)]:border-r lg:px-8 lg:py-10 lg:first:pl-14 lg:last:pr-14">
+            <li class="px-4 py-8 border-b border-base-200 md:border-b-0 md:[&:not(:last-child)]:border-r lg:px-8 lg:py-10 lg:first:pl-14 lg:last:pr-14">
               <span class="font-mono text-xs tracking-wider text-base-500">0{i + 1}</span>
               <p class="mt-4 text-lg leading-snug text-base-900 text-balance">{result}</p>
             </li>
@@ -133,7 +133,7 @@ const figure = frontmatter.figure;
       hasBody && (
         <Frame n={4} class="!px-0">
           <div class="grid grid-cols-1 px-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:px-14">
-            <div class="py-12 lg:py-16 lg:pr-10 lg:border-r lg:border-dashed lg:border-base-200">
+            <div class="py-12 lg:py-16 lg:pr-10 lg:border-r lg:border-base-200">
               <Wrapper
                 variant="prose"
                 class="max-w-xl [&_h2]:font-normal [&_h2]:tracking-[-0.025em] [&_h2]:text-base-900 [&_h2]:text-2xl lg:[&_h2]:text-3xl lg:[&_h2]:leading-[1.2] [&_h2]:mb-6 [&_h2:first-child]:mt-0"
@@ -143,11 +143,11 @@ const figure = frontmatter.figure;
             </div>
             <div class="pb-12 lg:py-16 lg:pl-10">
               <div class="lg:sticky lg:top-24">
-                <div class="p-6 bg-white border rounded-xl border-base-200">
+                <div class="p-6 bg-panel rounded-md">
                   <dl>
                     {Object.entries(frontmatter.details).map(([key, value]) => (
-                      <div class="flex justify-between py-2.5 text-sm border-b border-dashed gap-4 border-base-200">
-                        <dt class="font-mono text-xs leading-5 tracking-wider uppercase text-base-500">{key}</dt>
+                      <div class="flex justify-between py-2.5 text-sm border-b gap-4 border-base-200">
+                        <dt class="text-sm leading-5 text-base-500">{key}</dt>
                         <dd class="text-right text-base-800">{value}</dd>
                       </div>
                     ))}

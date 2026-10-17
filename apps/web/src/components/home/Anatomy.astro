@@ -16,11 +16,11 @@ const traits = [
 ];
 const mark = "px-1 -mx-0.5 rounded-sm bg-base-100 text-base-900 box-decoration-clone";
 const ref = "ml-1 font-mono text-xs text-accent-600";
-const label = "font-mono text-xs tracking-wider uppercase text-base-500";
+const label = "text-sm text-base-500";
 const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600";
 ---
 
-<Frame n={6} labelledby="anatomy-title" class="py-14 lg:py-20 lg:!px-14">
+<Frame n={6} labelledby="anatomy-title" rhythm="section" class="lg:!px-14">
   <Head tag="GEO" id="anatomy-title">
     <Fragment slot="title">
       Le AI non leggono le pagine. Ne estraggono
@@ -30,7 +30,7 @@ const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600";
   </Head>
 
   <div class="grid mt-12 gap-10 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:items-center">
-    <article aria-label="Estratto annotato della versione B, generata da Verbalist" class="p-6 bg-white border rounded-xl border-base-200 sm:p-8">
+    <article aria-label="Estratto annotato della versione B, generata da Verbalist" class="p-6 bg-panel rounded-md sm:p-8">
       <div data-nosnippet>
       <p class={label}>Estratto · {article.label}</p>
       <h3 class="mt-3 text-xl font-normal tracking-tight text-base-900">{article.h1}</h3>
@@ -51,7 +51,7 @@ const tag = "px-1 font-mono text-xs rounded-sm bg-base-100 text-base-600";
     <ol role="list">
       {
         traits.map((t, i) => (
-          <li class="flex py-5 border-t border-dashed gap-5 border-base-200 last:border-b transition-colors duration-200 vb-note" data-note={i + 1} tabindex="0">
+          <li class="flex py-5 border-t gap-5 border-base-200 last:border-b transition-colors duration-200 vb-note" data-note={i + 1} tabindex="0">
             <span class="font-mono text-xs leading-6 text-accent-600">{i + 1}</span>
             <div>
               <h3 class="text-base text-base-900">{t.title}</h3>

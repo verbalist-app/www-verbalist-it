@@ -8,8 +8,8 @@ import Frame from "@/components/section/Frame.astro";
 import SectionHead from "@/components/featurepage/SectionHead.astro";
 import Cta2 from "@/components/ctas/Cta2.astro";
 
-const label = "font-mono text-xs tracking-wider uppercase text-accent-600";
-const link = "text-base-900 border-b border-dashed border-base-400 hover:text-accent-600 hover:border-accent-500";
+const label = "text-sm text-accent-600";
+const link = "text-base-900 border-b  border-base-400 hover:text-accent-600 hover:border-accent-500";
 const agency = [
   "Google Premier Partner, nel 3% delle agenzie in Italia",
   "HubSpot Partner Platinum",
@@ -37,7 +37,7 @@ const agency = [
 
     <Frame n={2} labelledby="about-title" class="!px-0">
       <h2 id="about-title" class="sr-only">L'agenzia e il metodo dietro Verbalist</h2>
-      <div class="grid lg:grid-cols-2 lg:divide-x lg:divide-dashed lg:divide-base-200">
+      <div class="grid lg:grid-cols-2 lg:divide-x lg:divide-base-200">
         <div class="flex flex-col px-4 py-10 lg:px-10 lg:py-14">
           <p class={label}>L'agenzia</p>
           <h3 class="mt-6 text-2xl font-normal tracking-tight text-base-900">Dal 1999, oltre 430 aziende</h3>
@@ -46,13 +46,13 @@ const agency = [
           </p>
           <ul role="list" class="mt-8 text-sm text-base-800">
             {agency.map((p) => (
-              <li class="flex items-center py-3 border-t border-dashed gap-3 border-base-200 last:border-b">
+              <li class="flex items-center py-3 border-t gap-3 border-base-200 last:border-b">
                 <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>{p}
               </li>
             ))}
           </ul>
         </div>
-        <div class="flex flex-col px-4 py-10 border-t border-dashed lg:px-10 lg:py-14 border-base-200 lg:border-t-0">
+        <div class="flex flex-col px-4 py-10 border-t lg:px-10 lg:py-14 border-base-200 lg:border-t-0">
           <p class={label}>Ricerca e GEO</p>
           <h3 class="mt-6 text-2xl font-normal tracking-tight text-base-900">Dal metodo al software</h3>
           <p class="max-w-md mt-3 text-md leading-relaxed text-base-600">
@@ -60,16 +60,16 @@ const agency = [
             università ed enti di ricerca italiani come la Fondazione Bruno Kessler.
           </p>
           <ul role="list" class="mt-8 text-sm text-base-800">
-            <li class="flex items-center py-3 border-t border-dashed gap-3 border-base-200">
+            <li class="flex items-center py-3 border-t gap-3 border-base-200">
               <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>Tra le prime realtà in Italia con un framework dedicato alla Generative Engine Optimization
             </li>
-            <li class="flex items-center py-3 border-t border-dashed gap-3 border-base-200">
+            <li class="flex items-center py-3 border-t gap-3 border-base-200">
               <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>
               <span>
                 <a href="https://amzn.eu/d/00Ki6HeV" target="_blank" rel="noopener" class={link}>Il primo libro italiano sulla GEO</a>, oggi citato come fonte su Wikipedia
               </span>
             </li>
-            <li class="flex items-center py-3 border-t border-b border-dashed gap-3 border-base-200">
+            <li class="flex items-center py-3 border-t border-b gap-3 border-base-200">
               <span class="rounded-full size-1.5 bg-accent-500 shrink-0"></span>Verbalist: lo stesso processo che facevamo a mano con i clienti, dentro un software
             </li>
           </ul>
@@ -80,7 +80,7 @@ const agency = [
       </div>
     </Frame>
 
-    <Frame n={3} class="py-12 lg:py-16 lg:!px-14">
+    <Frame n={3} rhythm="section" class="lg:!px-14">
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <img
           src="/img/about/nur-stand.webp"
@@ -88,7 +88,7 @@ const agency = [
           width="1400"
           height="788"
           loading="lazy"
-          class="object-cover w-full aspect-[4/3] rounded-xl border border-base-200"
+          class="object-cover w-full aspect-[4/3] rounded-md"
         />
         <img
           src="/img/about/nur-keynote.webp"
@@ -96,7 +96,7 @@ const agency = [
           width="1400"
           height="788"
           loading="lazy"
-          class="object-cover w-full aspect-[4/3] rounded-xl border border-base-200"
+          class="object-cover w-full aspect-[4/3] rounded-md"
         />
       </div>
     </Frame>

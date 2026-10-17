@@ -67,8 +67,8 @@ const restart = ["/soluzioni/", "/#prezzi", "/clienti/", "/blog/", "/help/"].map
   (url) => index.find((p) => p.url === url)!,
 );
 
-const label = "font-mono text-xs tracking-wider uppercase text-base-500";
-const panel = "p-4 bg-white border rounded-xl border-base-200";
+const label = "text-sm text-base-500";
+const panel = "p-4 bg-panel rounded-md";
 // Come un risultato di ricerca: titolo sopra, indirizzo sotto.
 const row =
   "grid grid-cols-[1.25rem_minmax(0,1fr)] items-baseline gap-x-3 px-2 py-2.5 -mx-2 rounded-md min-h-11 transition-colors duration-200 hover:bg-base-50";
@@ -77,12 +77,12 @@ const json = JSON.stringify(index).replace(/</g, "\\u003c");
 
 <BaseLayout seo={{ title: "Pagina non trovata", noindex: true }}>
   <div class="pt-[72px]">
-    <Frame n={4} flush tone="soft" labelledby="nf-title" class="py-16 lg:py-24 lg:!px-14">
+    <Frame n={4} flush tone="soft" labelledby="nf-title" rhythm="close" class="lg:!px-14">
       <div class="grid items-start grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,27rem)] lg:gap-14">
         <div class="min-w-0">
           <Head tag="404" id="nf-title" title="Questa pagina si è persa." level="h1" />
           <p
-            class="max-w-md mt-6 text-lg font-light leading-snug text-base-600"
+            class="max-w-md mt-6 text-lg leading-snug text-base-600"
             data-lede="Questo indirizzo non porta a nessuna pagina. L'abbiamo letto come una keyword e abbiamo cercato le pagine del sito più vicine."
           >
             Questo indirizzo non porta a nessuna pagina. Riparti da una di
@@ -117,7 +117,7 @@ const json = JSON.stringify(index).replace(/</g, "\\u003c");
             <ol role="list" class="mt-2" data-results>
               {
                 restart.map((p, i) => (
-                  <li class="border-t border-dashed border-base-200 first:border-t-0">
+                  <li class="border-t border-base-200 first:border-t-0">
                     <a href={p.url} class={row}>
                       <span class="font-mono text-xs text-base-500">{i + 1}</span>
                       <span class="min-w-0">
@@ -129,7 +129,7 @@ const json = JSON.stringify(index).replace(/</g, "\\u003c");
                 ))
               }
             </ol>
-            <p class="pt-3 mt-1 text-xs border-t border-dashed text-base-500 border-base-200" data-note>
+            <p class="pt-3 mt-1 text-xs border-t text-base-500 border-base-200" data-note>
               Da dove ripartire.
             </p>
           </div>
