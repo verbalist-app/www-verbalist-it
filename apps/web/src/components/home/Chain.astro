@@ -1,7 +1,8 @@
 ---
 // I quattro agenti come quattro card (composizione del blocco "Feature" di
 // Craft): la testa di sezione, poi una riga di card con icona, numero, nome,
-// riassunto e "Vedi l'agente →", tutta la card cliccabile. Nomi, riassunti e
+// riassunto e una freccia in basso a destra, tutta la card cliccabile (il
+// link è il nome: "Vedi l'agente" ripetuto quattro volte era rumore). Nomi, riassunti e
 // icone dalla collection `agents`. Statico: la catena animata con le finestre
 // dell'app è stata ritirata il 2026-10-11 (i pezzi di prodotto restano in
 // ChainFragment.astro per le pagine soluzione).
@@ -40,8 +41,8 @@ const agents = (await getCollection("agents")).sort((a, b) => a.data.n.localeCom
               </h3>
               <p class="text-base leading-snug text-base-600">{agent.data.summary}</p>
             </div>
-            <p class="flex items-center text-sm text-base-900 gap-1" aria-hidden="true">
-              Vedi l'agente<ChevronRight size="sm" class="duration-300 ease-out text-accent-500 group-hover:translate-x-1" />
+            <p class="flex justify-end" aria-hidden="true">
+              <ChevronRight size="sm" class="duration-300 ease-out text-base-900 group-hover:translate-x-1" />
             </p>
           </li>
         );

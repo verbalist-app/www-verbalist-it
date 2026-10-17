@@ -1,9 +1,11 @@
 ---
 // Prove: NUR dal 1999, la citazione firmata, poi i sette casi come registro.
+// (La riga "Ultima release" è stata tolta il 2026-10-17: la versione sta nel
+// footer, con il link al changelog.)
 // Ogni riga ha i suoi crediti, presi dai case study: niente campi inventati
 // (lingua solo dove il caso la dichiara; mercato e data non ci sono).
 import Logo from "@/components/assets/Logo.astro";
-import { getAllCustomers, getAllChangelog } from "@/lib/data";
+import { getAllCustomers } from "@/lib/data";
 import Frame from "@/components/section/Frame.astro";
 import Head from "@/components/section/Head.astro";
 import { svgSize } from "@/lib/svgSize";
@@ -31,12 +33,6 @@ const cases = customers.map((c) => {
   };
 });
 
-const [latest] = await getAllChangelog();
-const latestDate = latest?.data.pubDate.toLocaleDateString("it-IT", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
 const label = "text-sm text-base-500";
 ---
 
@@ -110,16 +106,6 @@ const label = "text-sm text-base-500";
           ))}
         </ul>
       </details>
-    )
-  }
-  {
-    latest && (
-      <p class="flex flex-wrap items-center mt-8 text-sm gap-x-4 gap-y-2 text-base-600">
-        <span class={`${label} flex items-center gap-2`}><Logo aria-hidden="true" class="size-3 shrink-0 text-base-900" />Ultima release</span>
-        <a href={`/changelog/${latest.slug}/`} class="text-base-900 hover:text-accent-600">{latest.data.page}</a>
-        <span>{latestDate}</span>
-        <a href="/changelog/" class="border-b border-base-400 hover:text-accent-600 hover:border-accent-500">Tutto il changelog</a>
-      </p>
     )
   }
 </Frame>

@@ -1,8 +1,9 @@
 ---
 // Primo viewport, a sinistra: titolo a 32/36/44px in peso medio, con
-// il motore per cui Verbalist scrive che cambia (ChatGPT, Gemini, Claude,
-// Perplexity, Google: la sola animazione della sezione, ferma con
-// prefers-reduced-motion e al passaggio del mouse), il lede e le due pillole.
+// il motore per cui Verbalist scrive che cambia per un giro solo (ChatGPT,
+// Gemini, Claude, Perplexity, Google, poi fermo: la sola animazione della
+// sezione, ferma dall'inizio con prefers-reduced-motion, in pausa col mouse
+// o col focus), il lede e le due pillole.
 // Sotto, il prodotto in un pannello tinto a tutta larghezza con la V del
 // brand in filigrana: la pagina del documento in app (AppWindow.astro) con la
 // luce di un oggetto appoggiato e il brief come un messaggio. I marchi dei
@@ -68,7 +69,7 @@ const label = "text-sm text-base-500";
     role="img"
     data-nosnippet
     aria-label={`Il brief con la keyword «${demoBrief.keyword}» e la pagina del documento in Verbalist con le due versioni generate, A e B.`}
-    class="relative mt-12 h-[18rem] overflow-hidden rounded-md bg-base-50 sm:h-[28rem] lg:mt-16 lg:h-[36rem] vb-stage [--vb-zoom:0.3] sm:[--vb-zoom:0.56] lg:[--vb-zoom:0.76]"
+    class="relative mt-12 h-[18rem] overflow-hidden rounded-md bg-base-50 sm:h-[28rem] lg:mt-16 lg:h-[36rem] vb-stage [--vb-zoom:0.32] sm:[--vb-zoom:0.6] lg:[--vb-zoom:0.86]"
   >
     <Watermark class="-right-4 -top-10 h-[120%] sm:-right-8 sm:h-[140%]" />
 
@@ -118,8 +119,10 @@ const label = "text-sm text-base-500";
 </style>
 
 <script>
-  // Un motore alla volta, ogni 2,6 s. Fermo con prefers-reduced-motion, in
-  // pausa quando la scheda non è visibile o il mouse è sul titolo.
+  // Un motore alla volta, ogni 2,6 s, per un giro solo: poi il titolo resta
+  // fermo (WCAG 2.2.2: niente contenuto che si aggiorna da solo oltre il
+  // primo giro). Fermo dall'inizio con prefers-reduced-motion; in pausa
+  // quando la scheda non è visibile, col mouse sopra o col focus nella sezione.
   const host = document.querySelector<HTMLElement>("[data-engines]");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (host && !reduce.matches) {
@@ -128,10 +131,13 @@ const label = "text-sm text-base-500";
     const icon = host.querySelector<HTMLImageElement>("[data-engine-icon]")!;
     engines.forEach((e) => { const i = new Image(); i.src = `/img/engines/${e.logo}.svg`; });
     let n = 0;
+    let steps = 0;
     let paused = false;
     const leave = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--m-micro")) || 150;
     const step = () => {
       if (paused || document.hidden) return;
+      if (steps >= engines.length) { window.clearInterval(timer); return; }
+      steps += 1;
       host.classList.add("is-leaving");
       window.setTimeout(() => {
         n = (n + 1) % engines.length;
@@ -141,8 +147,11 @@ const label = "text-sm text-base-500";
       }, leave);
     };
     const title = host.closest("h1")!;
+    const section = title.closest("section") ?? title;
     title.addEventListener("mouseenter", () => (paused = true));
     title.addEventListener("mouseleave", () => (paused = false));
-    window.setInterval(step, 2600);
+    section.addEventListener("focusin", () => (paused = true));
+    section.addEventListener("focusout", () => (paused = false));
+    const timer = window.setInterval(step, 2600);
   }
 </script>

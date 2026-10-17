@@ -51,10 +51,10 @@ const panel = "relative flex flex-col p-6 bg-panel rounded-md lg:p-10 group";
       <ul role="list" class="mt-8 text-sm">
         {companies.map((s) => (
           <li class="border-t border-base-200 last:border-b">
-            <a href={`/soluzioni/${s.id}/`} class="relative z-10 flex items-baseline py-3 -mx-2 px-2 gap-4 transition-colors duration-200 rounded-md group/row min-h-11 hover:bg-base-100">
-              <span class="text-base-900 whitespace-nowrap shrink-0">{s.data.name}</span>
-              <span class="ml-auto text-right text-base-500">{s.data.doorTitle}</span>
-              <span class="text-base-900" aria-hidden="true">→</span>
+            <a href={`/soluzioni/${s.id}/`} class="relative z-10 grid grid-cols-[minmax(0,1fr)_auto] items-center py-3 -mx-2 px-2 gap-x-4 transition-colors duration-200 rounded-md group/row min-h-11 hover:bg-base-100 sm:flex sm:items-baseline">
+              <span class="text-base-900 sm:whitespace-nowrap sm:shrink-0">{s.data.name}</span>
+              <span class="row-start-2 text-base-500 sm:row-auto sm:ml-auto sm:text-right">{s.data.doorTitle}</span>
+              <span class="row-span-2 text-base-900 sm:row-auto" aria-hidden="true">→</span>
             </a>
           </li>
         ))}
