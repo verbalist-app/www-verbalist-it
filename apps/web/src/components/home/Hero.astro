@@ -64,16 +64,17 @@ const label = "text-sm text-base-500";
     </p>
   </div>
 
-  <!-- Il pannello di prodotto: la V in filigrana, la finestra dell'app, il brief in primo piano -->
+  <!-- Il pannello di prodotto: la V in filigrana, la finestra dell'app intera
+       (il pannello si adatta alla sua altezza: niente tagli), il brief in primo piano -->
   <div
     role="img"
     data-nosnippet
     aria-label={`Il brief con la keyword «${demoBrief.keyword}» e la pagina del documento in Verbalist con le due versioni generate, A e B.`}
-    class="relative mt-12 h-[18rem] overflow-hidden rounded-md bg-base-50 sm:h-[28rem] lg:mt-16 lg:h-[36rem] vb-stage [--vb-zoom:0.32] sm:[--vb-zoom:0.6] lg:[--vb-zoom:0.86]"
+    class="relative mt-12 overflow-hidden rounded-md bg-base-50 px-4 pt-6 pb-20 sm:px-8 sm:pt-8 sm:pb-24 lg:mt-16 lg:px-12 lg:pt-10 lg:pb-16 vb-stage [--vb-zoom:0.28] sm:[--vb-zoom:0.6] lg:[--vb-zoom:0.86]"
   >
     <Watermark class="-right-4 -top-10 h-[120%] sm:-right-8 sm:h-[140%]" />
 
-    <div class="absolute overflow-hidden rounded-xl vb-window top-6 left-1/2 -translate-x-1/2 sm:-top-4 lg:-top-10">
+    <div class="relative mx-auto overflow-hidden rounded-xl w-fit vb-window">
       <AppWindow sidebar={false} />
     </div>
 
