@@ -292,7 +292,7 @@ Una rampa calda di grigi (hue ~97–100 in oklch) tra l'avorio della pagina e un
 ### Neutral
 - **Avorio** (`background`, brand #F7F7F4): la pagina, la nav (opaca) e la barra mobile (95% con blur). Mai bianco puro: `--color-white` compare solo come base delle velature nelle card di prodotto e come testo sulle pillole piene.
 - **Carta** (`panel`, brand #F2F1ED): i pannelli che stanno sulla pagina (porte, capacità, card degli agenti, piani non consigliati), le finestre dell'app, il footer, il menu mobile, il campo di ricerca del blog, le card in primo piano negli hero. `card` e `popover` sono alias dello stesso valore.
-- **Grigio foglio** (`base-50`): tono "soft" delle sezioni (`Frame tone="soft"`: hero delle pagine interne, casi studio, brand), pannello di prodotto dell'hero della home, blocco metadati dei fogli A/B, citazione delle prove, hover di celle e righe.
+- **Grigio foglio** (`base-50`): pannello di prodotto dell'hero della home, blocco metadati dei fogli A/B, citazione delle prove, hover di celle e righe.
 - **Mist** (`base-100`, #E6E5E0): pillola secondaria (`muted`), piano consigliato, hover delle voci nav e delle card degli agenti, riquadri chiari della pagina brand, evidenziazione nei fogli.
 - **Linea** (`base-200`, #E1E0DB): ogni linea del sistema, piena e da 1 px: righe di elenco, divisori di cella, riga sotto la SubNav, bordo delle finestre dell'app e dei fogli A/B, bordo della pillola di stato nel footer. Hover della pillola `muted`.
 - **Grigio filetto** (`base-300`): bordo della pillola `ghost`, barre di scorrimento, hover del bordo della pillola "Markdown".
@@ -364,7 +364,7 @@ Breakpoint usati: `sm` 640, `md` 768 (fogli affiancati, capacità a tre, casi a 
 
 ## Elevation & Depth
 
-Sistema piatto per tono: la profondità è carta su avorio (`panel` su `background`), `base-50` per il tono soft e `base-100` per ciò che è premuto o consigliato. Nessun pannello, card, nav, menu, sheet, barra o bottone ha ombra. La nav è opaca sull'avorio, senza riga; la barra mobile usa `bg-background/95` con `backdrop-blur-sm` e una riga `base-200` in alto. I pannelli tinti non hanno bordo; le finestre dell'app e i fogli hanno un bordo `base-200` da 1 px perché dentro mostrano un'interfaccia.
+Sistema piatto per tono: la profondità è carta su avorio (`panel` su `background`), `base-50` per il palco di prodotto e `base-100` per ciò che è premuto o consigliato. Nessun pannello, card, nav, menu, sheet, barra o bottone ha ombra. La nav è opaca sull'avorio, senza riga; la barra mobile usa `bg-background/95` con `backdrop-blur-sm` e una riga `base-200` in alto. I pannelli tinti non hanno bordo; le finestre dell'app e i fogli hanno un bordo `base-200` da 1 px perché dentro mostrano un'interfaccia.
 
 ### Shadow Vocabulary
 Le sole ombre del sito stanno sugli oggetti di prodotto, in inchiostro (`rgb(38 37 30)`), definite in `home/Hero.astro`, `featurepage/ProductCard.astro` e `global.css`:
@@ -439,7 +439,7 @@ Centrate, `rhythm="close"`: titolo grande (`Close` 44/56/60 px `text-hero`, `Cta
 Il contenitore delle illustrazioni nelle pagine agente e soluzione, con velature radiali: `rounded-3xl` (8 px), bordo `base-200`, fondo bianco con le velature radiali (prop `tone`: `alba` calda in basso a destra e fredda in basso a sinistra; `sera` invertita; `foschia` solo la fredda in alto a destra; `carta` = `base-50` pieno), `overflow-hidden`, `role="img"` con descrizione, `data-nosnippet`. Dentro, oggetti assoluti che i bordi tagliano netti: finestre dell'app (`.vb-window`, `rounded-xl`) e card in primo piano (`.vb-float`, `bg-panel rounded-2xl`). Due card vicine non hanno mai lo stesso sfondo. Le finestre stanno in `features/agents/*Window.astro`.
 
 ### Hero delle pagine agente e soluzione
-`featurepage/Manifesto.astro`, su `Frame tone="soft"`: a sinistra `Head` con etichetta e H1, lede a `mt-6`, azioni a `mt-8`; a destra una `ProductCard` (alta 22/24/27 rem) con, in primo piano, i passi numerati (numero 12 px `accent-600` + testo 14 px, righe `base-200`) in una card `bg-panel rounded-2xl .vb-float` e, dietro, la finestra dell'app passata nello slot `card`. Pagine agente: Nuovo documento (01), analisi in corso (02), pagina del documento (03), export (04). Pagine soluzione: Progetti (agenzie), contesto con PDF (corporate, B2B), Documenti (PMI), pagina prodotto (e-commerce). Statico. Nelle pagine agente "Come funziona" è prosa `max-w-xl` a capitoli (`.vb-chapters`): ogni paragrafo ha il numero a 12 px `base-500` su un filo pieno `base-200` a sinistra. Pagine soluzione, griglia "Cosa cambia" 3×2: le prime tre celle portano in testa un pezzo di prodotto che sfuma (`.vb-peek`, `h-44`), scelto nel frontmatter (`peek`) o dal link della cella tra le schermate di `home/ChainFragment.astro`.
+`featurepage/Manifesto.astro`, sul colore della pagina: a sinistra `Head` con etichetta e H1, lede a `mt-6`, azioni a `mt-8`; a destra una `ProductCard` (alta 22/24/27 rem) con, in primo piano, i passi numerati (numero 12 px `accent-600` + testo 14 px, righe `base-200`) in una card `bg-panel rounded-2xl .vb-float` e, dietro, la finestra dell'app passata nello slot `card`. Pagine agente: Nuovo documento (01), analisi in corso (02), pagina del documento (03), export (04). Pagine soluzione: Progetti (agenzie), contesto con PDF (corporate, B2B), Documenti (PMI), pagina prodotto (e-commerce). Statico. Nelle pagine agente "Come funziona" è prosa `max-w-xl` a capitoli (`.vb-chapters`): ogni paragrafo ha il numero a 12 px `base-500` su un filo pieno `base-200` a sinistra. Pagine soluzione, griglia "Cosa cambia" 3×2: le prime tre celle portano in testa un pezzo di prodotto che sfuma (`.vb-peek`, `h-44`), scelto nel frontmatter (`peek`) o dal link della cella tra le schermate di `home/ChainFragment.astro`.
 
 ### Casi studio (`layouts/CustomersLayout.astro`)
 Hero 7/5 su `base-50`: breadcrumb 14 px `base-500`, logo, H1 e azienda a sinistra, a destra il numero del caso a 52 → 60 px. Poi problema e soluzione (due celle divise da righe piene), i tre risultati in tre celle numerate `01 02 03` (12 px `base-500`, `tracking-wider`) e il racconto in prose `max-w-xl` con a fianco, `sticky top-24`, il `dl` dell'azienda in una finestra (`bg-panel border rounded-xl`).
@@ -451,7 +451,7 @@ Hero 7/5 su `base-50`: breadcrumb 14 px `base-500`, logo, H1 e azienda a sinistr
 `faqs/Faq1.astro`, `home/Questions.astro`: `details` su righe piene `base-200`, domanda 18 px `base-900` `py-5` (hover `accent-600`), icona `+` a tratto 1.4 in `accent-500` che ruota di 45° in 300 ms, risposta 15 px `base-600` `max-w-2xl`.
 
 ### 404 (`pages/404.astro`)
-L'indirizzo richiesto letto come una keyword, su `Frame tone="soft" rhythm="close"` con `overflow-hidden` e la V in filigrana in basso a destra (`Watermark -right-20 -bottom-24 h-[24rem] lg:h-[32rem]`): a sinistra etichetta "404", titolo, lede e due azioni; a destra due pannelli con l'indirizzo e le pagine più vicine (`lib/nearest.ts`). Nessuna animazione.
+L'indirizzo richiesto letto come una keyword, su `Frame rhythm="close"` con `overflow-hidden` e la V in filigrana in basso a destra (`Watermark -right-20 -bottom-24 h-[24rem] lg:h-[32rem]`): a sinistra etichetta "404", titolo, lede e due azioni; a destra due pannelli con l'indirizzo e le pagine più vicine (`lib/nearest.ts`). Nessuna animazione.
 
 ### Superfici del browser
 Selezione bianco su Nero Verbalist (utility `selection:` su `<html>`), invertita dove il fondo è già nero (pillole piene, riquadri scuri); cursore di testo e controlli nativi (`caret-color`, `accent-color`) in `base-900`; focus da tastiera `outline` 2 px `base-900` con 2 px di distanza, in base layer così le utility dei componenti hanno la meglio; barre di scorrimento `base-300` su fondo trasparente. Nei post del blog, accanto al breadcrumb, una pillola "Markdown" porta a `/blog/<articolo>.md`.
@@ -462,7 +462,7 @@ Una sola animazione per sezione, e solo dove mostra il prodotto o la sua destina
 ## Do's and Don'ts
 
 ### Do:
-- **Do** costruire ogni sezione con `Frame` (tone, rhythm) e `Head` (tag, title, text): colonna da 1300 px, ritmo verticale e testa di sezione non si replicano a mano.
+- **Do** costruire ogni sezione con `Frame` (rhythm) e `Head` (tag, title, text): colonna da 1300 px, ritmo verticale e testa di sezione non si replicano a mano.
 - **Do** usare il Nero Verbalist (`accent-500`/`accent-600`, `base-900`) per tutto ciò che deve pesare: pillola primaria, marker a V, voce attiva, titoli. Nessun altro colore.
 - **Do** posare i contenuti su pannelli tinti `bg-panel rounded-md` senza bordo (`p-6 lg:p-10`), e separare righe e celle con linee piene `base-200` da 1 px.
 - **Do** tenere i titoli in peso 400 con tracking −0.025em (chiusura −0.03em), interamente `base-900`, sotto un'etichetta sans 14 px `base-500`; l'H1 dell'hero della home (500, −0.03em) è l'unica eccezione e non si replica.
