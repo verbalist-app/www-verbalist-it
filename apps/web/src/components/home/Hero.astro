@@ -1,5 +1,5 @@
 ---
-// Primo viewport, a sinistra: titolo a 44px in peso medio su due righe, con
+// Primo viewport, a sinistra: titolo a 32/36/44px in peso medio, con
 // il motore per cui Verbalist scrive che cambia (ChatGPT, Gemini, Claude,
 // Perplexity, Google: la sola animazione della sezione, ferma con
 // prefers-reduced-motion e al passaggio del mouse), il lede e le due pillole.
@@ -31,11 +31,12 @@ const label = "text-sm text-base-500";
   <div class="max-w-3xl">
     <h1
       id="home-title"
-      class="text-4xl leading-[1.1] font-medium tracking-[-0.03em] text-base-900 text-balance lg:text-hero-md"
+      class="text-[2rem] leading-[1.1] font-medium tracking-[-0.03em] text-base-900 text-balance sm:text-4xl lg:text-hero-md"
     >
       Prima legge Google.<br />
-      Poi scrive per
-      <span class="inline-flex items-baseline whitespace-nowrap gap-[0.3em]" data-engines={JSON.stringify(engines)}>
+      Poi scrive
+      <span class="whitespace-nowrap">per
+      <span class="inline-flex items-baseline gap-[0.3em]" data-engines={JSON.stringify(engines)}>
         <img
           src={`/img/engines/${first.logo}.svg`}
           alt=""
@@ -47,7 +48,7 @@ const label = "text-sm text-base-500";
         />
         <span class="vb-engine-name" data-engine-name>{first.name}</span>
         <span class="sr-only">, {others.map((e) => e.name).join(", ")}</span>
-      </span>.
+      </span>.</span>
     </h1>
     <p class="max-w-xl mt-5 text-lg leading-snug text-base-600 lg:text-lede">
       Verbalist analizza i primi cinque risultati per la tua keyword, ne

@@ -326,7 +326,7 @@ Una rampa calda di grigi (hue ~97–100 in oklch) tra l'avorio della pagina e un
 
 ### Hierarchy
 - **Hero** (400, 44 px → 56 px da `sm` → 60 px da `lg`, line-height 1.06, tracking −0.03em): dal 2026-10-17 non è più l'H1 della home ma il titolo della chiusura (`Close`) e il numero del caso in testa a `/clienti/` e nell'hero dei casi studio. Il prezzo dei piani usa 44 px con `tabular-nums` e il "€" a 24 px `base-500`.
-- **Hero-md** (500, 36 px `text-4xl` → 44 px `text-hero-md` da `lg`, line-height 1.1, tracking −0.03em, `text-balance`): solo l'H1 dell'hero della home, due righe ("Prima legge Google." / "Poi scrive per <motore>"), con l'icona del motore a `0.72em` e il nome che cambia. È l'unico titolo del sito in peso 500: a 44 px il 400 non reggeva il confronto con la finestra del prodotto sotto.
+- **Hero-md** (500, 32 px → 36 px da `sm` → 44 px `text-hero-md` da `lg`, line-height 1.1, tracking −0.03em, `text-balance`): solo l'H1 dell'hero della home, due righe ("Prima legge Google." / "Poi scrive per <motore>"), con l'icona del motore a `0.72em` e il nome che cambia. È l'unico titolo del sito in peso 500: a 44 px il 400 non reggeva il confronto con la finestra del prodotto sotto.
 - **Display** (400, 36 px → 52 px da `lg`, line-height 1.15/1.1, tracking −0.025em, `text-balance`): H1 delle pagine interne e H2 di sezione via `section/Head.astro`; titolo di `Cta2`.
 - **Display-xs** (400, 32 px, line-height 1.15): "Su richiesta" nei piani, numero dei casi nell'indice clienti su mobile.
 - **Headline** (400, 24 px → 28 px da `lg`, `tracking-tight`): la citazione delle prove e i titoli di release; dal 2026-10-17 (sera) non è più l'H1 dell'hero della home.

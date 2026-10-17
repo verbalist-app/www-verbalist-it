@@ -61,7 +61,7 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   nessun mono: dati, slug e versioni si distinguono per misura e colore); le
   etichette di sezione sono Geist 14px `base-500`, sentence case.
 - Titoli in peso regolare con tracking −0.025em: hero della home 44px in
-  peso 500 (`text-hero-md`, 36px su mobile; `text-hero` 60px solo per la
+  peso 500 (`text-hero-md`, 32px su mobile e 36 da `sm`; `text-hero` 60px solo per la
   chiusura),
   H1/H2 di sezione 52px
   (`components/section/Head.astro`, 36px su mobile), H2 di cella 24px,
