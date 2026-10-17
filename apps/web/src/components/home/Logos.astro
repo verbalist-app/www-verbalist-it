@@ -1,7 +1,7 @@
 ---
-// La fila dei clienti, subito sotto l'hero (dal 2026-10-17): un'etichetta a
-// sinistra, il link ai casi a destra, poi una riga di celle con i loghi in
-// grigio, una per caso studio. Sono i clienti dell'agenzia NUR che usano
+// La fila dei clienti, subito sotto l'hero (dal 2026-10-17): una riga di
+// celle con i loghi in grigio, una per caso studio, senza etichetta e senza
+// link (i casi si raggiungono da "Nasce in un'agenzia" e dal nav). Sono i clienti dell'agenzia NUR che usano
 // Verbalist: gli stessi sette della sezione "Nasce in un'agenzia" e di
 // /clienti/, nessun logo decorativo in più. Ogni cella porta al suo caso.
 import { getAllCustomers } from "@/lib/data";
@@ -12,20 +12,12 @@ const customers = await getAllCustomers();
 ---
 
 <Frame n={1} labelledby="logos-title" class="pt-v2 lg:pt-v3 lg:!px-14">
-  <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-    <h2 id="logos-title" class="text-sm font-normal text-base-500">
-      Lavora già per i clienti di NUR, agenzia dal 1999
-    </h2>
-    <a href="/clienti/" class="text-sm text-base-900 hover:opacity-75">I casi studio →</a>
-  </div>
-  <ul role="list" class="grid grid-cols-2 mt-4 border-t border-l border-base-200 sm:grid-cols-4 lg:grid-cols-7">
+  <h2 id="logos-title" class="sr-only">Clienti che usano Verbalist</h2>
+  <ul role="list" class="grid grid-cols-2 border-t border-l border-base-200 sm:grid-cols-4 lg:grid-cols-7">
     {
       customers.map((c) => (
         <li class="border-r border-b border-base-200 [&:last-child]:col-span-2 lg:[&:last-child]:col-span-1">
-          <a
-            href={`/clienti/${c.slug}/`}
-            class="flex items-center justify-center h-20 px-6 transition-colors duration-200 hover:bg-panel"
-          >
+          <div class="flex items-center justify-center h-20 px-6">
             <img
               src={c.data.logo.url}
               alt={c.data.logo.alt ?? c.data.customer}
@@ -34,7 +26,7 @@ const customers = await getAllCustomers();
               loading="lazy"
               decoding="async"
             />
-          </a>
+          </div>
         </li>
       ))
     }
