@@ -14,7 +14,7 @@ Astro 6 + Tailwind v4, contenuti markdown in Content Collections. Niente CMS.
   (`assets/Watermark.astro`) e come marker degli elenchi al posto del punto. Palette
   monocroma calda (`/brand/`): Nero Verbalist #26251E, Avorio #F7F7F4
   (pagina, `bg-background`), Carta #F2F1ED (pannelli, `bg-panel`;
-  `bg-white` non si usa), Grigio testo #6A6961. `base-*` è la rampa calda
+  `bg-white` non si usa), Grigio testo #65635C. `base-*` è la rampa calda
   del brand, `accent-*` (in `:root` come `--vb-accent-*`,
   `src/styles/global.css`) è la rampa del nero: CTA, punti, bordo attivo.
   Nessun colore saturo: gli unici colori sono gli stati presi dall'app

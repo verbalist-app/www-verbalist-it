@@ -38,7 +38,7 @@ const agents = (await getCollection("agents")).sort((a, b) => a.data.n.localeCom
                 <span class="block mb-1 text-sm text-base-500">{agent.data.n}</span>
                 <a href={`/agenti/${agent.id}/`} class="after:absolute after:inset-0">{agent.data.name}</a>
               </h3>
-              <p class="text-md leading-relaxed text-base-600">{agent.data.summary}</p>
+              <p class="text-base leading-snug text-base-600">{agent.data.summary}</p>
             </div>
             <p class="flex items-center text-sm text-base-900 gap-1" aria-hidden="true">
               Vedi l'agente<ChevronRight size="sm" class="duration-300 ease-out text-accent-500 group-hover:translate-x-1" />

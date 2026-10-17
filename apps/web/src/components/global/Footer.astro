@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
 // l'indirizzo della pagina, la piattaforma è l'ultima release del changelog,
 // la revisione è la data in cui il sito è stato pubblicato (la build).
 const path = Astro.url.pathname.replace(/\.html$/, "");
-const sheet = /^\/404\/?$/.test(path) ? "404" : path;
+const sheet = /^\/404\/?$/.test(path) ? "404" : path === "/" ? "Home" : path;
 const [latest] = await getAllChangelog();
 const release = latest && {
   version: `v${latest.slug.replace(/^verbalist-/, "").replaceAll("-", ".")}`,

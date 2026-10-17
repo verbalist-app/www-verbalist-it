@@ -37,10 +37,10 @@ const count = (n: number) => n.toLocaleString("it-IT");
     {
       demoVersions.map((v) => (
         <article data-sheet={v.id} aria-label={`${v.label}: ${v.angle}`} class="overflow-hidden bg-panel border snap-start rounded-xl border-base-200">
-          <header class="flex items-center justify-between px-5 border-b h-11 border-base-200 gap-4">
+          <div class="flex items-center justify-between px-5 border-b h-11 border-base-200 gap-4">
             <p class="text-sm text-accent-600 whitespace-nowrap">{v.label}</p>
             <p class={`${label} whitespace-nowrap`}>Generato da Verbalist</p>
-          </header>
+          </div>
           <dl class="grid grid-cols-[auto_1fr] px-5 py-4 text-xs border-b gap-x-4 gap-y-1.5 border-base-200 bg-base-50">
             <dt class={label}>Taglio</dt><dd class="text-base-800">{v.angle}</dd>
             <dt class={label}>Testo</dt><dd class="text-base-800 tabular-nums">{count(v.words)} parole, {v.headings} sezioni</dd>

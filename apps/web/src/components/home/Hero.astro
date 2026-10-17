@@ -51,10 +51,8 @@ const label = "text-sm text-base-500";
       </span>.</span>
     </h1>
     <p class="max-w-xl mt-5 text-lg leading-snug text-base-600 lg:text-lede">
-      Verbalist analizza i primi cinque risultati per la tua keyword, ne
-      ricava argomenti, struttura e lacune, e scrive il contenuto ex novo
-      nella lingua del tuo mercato: per Google e per le risposte delle AI
-      (GEO).
+      Legge i primi cinque risultati per la tua keyword e scrive un
+      contenuto nuovo, nella lingua del tuo mercato, pronto per il CMS.
     </p>
     <div class="flex flex-wrap items-center mt-8 gap-3">
       <Button isLink size="base" variant="accent" href={TRIAL_HREF}>Prova gratis</Button>
@@ -70,16 +68,16 @@ const label = "text-sm text-base-500";
     role="img"
     data-nosnippet
     aria-label={`Il brief con la keyword «${demoBrief.keyword}» e la pagina del documento in Verbalist con le due versioni generate, A e B.`}
-    class="relative mt-12 h-[17rem] overflow-hidden rounded-md bg-base-50 sm:h-[26rem] lg:mt-16 lg:h-[32rem] vb-stage [--vb-zoom:0.3] sm:[--vb-zoom:0.56] lg:[--vb-zoom:0.76]"
+    class="relative mt-12 h-[18rem] overflow-hidden rounded-md bg-base-50 sm:h-[28rem] lg:mt-16 lg:h-[36rem] vb-stage [--vb-zoom:0.3] sm:[--vb-zoom:0.56] lg:[--vb-zoom:0.76]"
   >
-    <Watermark class="-right-10 -top-12 h-[130%] lg:-right-16" />
+    <Watermark class="-right-4 -top-10 h-[120%] sm:-right-8 sm:h-[140%]" />
 
-    <div class="absolute overflow-hidden rounded-xl vb-window top-10 left-1/2 -translate-x-1/2 sm:top-12 lg:top-14 lg:left-[54%]">
-      <AppWindow />
+    <div class="absolute overflow-hidden rounded-xl vb-window top-6 left-1/2 -translate-x-1/2 sm:-top-4 lg:-top-10">
+      <AppWindow sidebar={false} />
     </div>
 
     <!-- Il brief di partenza, come un messaggio -->
-    <div class="absolute z-10 p-4 bg-panel top-4 left-4 w-[15.5rem] rounded-2xl rounded-tl-md vb-float sm:left-6 sm:w-72 lg:top-6 lg:left-8">
+    <div class="absolute z-10 p-4 bg-panel bottom-4 left-4 w-[15.5rem] rounded-2xl rounded-bl-md vb-float sm:left-6 sm:w-72 lg:bottom-8 lg:left-8">
       <p class={label}>Brief</p>
       <p class="mt-2 text-sm leading-snug text-base-900">«{demoBrief.keyword}»</p>
       <p class="mt-2 text-xs text-base-500">{demoBrief.type} · {demoBrief.market} · {demoBrief.language}</p>

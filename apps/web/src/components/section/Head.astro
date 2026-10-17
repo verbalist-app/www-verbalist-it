@@ -17,7 +17,7 @@ const { tag, id, title, level: Level = "h2", text, class: className = "" } = Ast
 const hasAside = text || Astro.slots.has("default");
 ---
 
-<div class={`grid items-end gap-8 ${hasAside ? "lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16" : ""} ${className}`}>
+<div class={`grid items-start gap-8 ${hasAside ? "lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16" : ""} ${className}`}>
   <div>
     {tag && <p class="text-sm text-base-500">{tag}</p>}
     <Level
@@ -29,7 +29,7 @@ const hasAside = text || Astro.slots.has("default");
   </div>
   {
     hasAside && (
-      <div class="max-w-md pb-1 text-base leading-relaxed space-y-4 text-base-600">
+      <div class={`max-w-md text-base leading-relaxed space-y-4 text-base-600 ${tag ? "lg:pt-9" : "lg:pt-2"}`}>
         {text ? <p>{text}</p> : <slot />}
       </div>
     )
