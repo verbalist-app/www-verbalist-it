@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-17T18:00:00Z",
+  "generatedAt": "2026-10-18T09:00:00Z",
   "title": "Design System: Verbalist",
   "extensions": {
     "colorMeta": {
@@ -19,7 +19,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -39,7 +39,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -58,7 +58,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -77,7 +77,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -93,7 +93,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -113,7 +113,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -128,7 +128,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -136,14 +136,14 @@
       },
       "base-50": {
         "role": "neutral",
-        "displayName": "Grigio foglio (tono soft)",
+        "displayName": "Grigio foglio (pannello di prodotto dell'hero, hover delle celle)",
         "canonical": "oklch(94.6% 0.006 97)",
         "tonalRamp": [
           "oklch(18.2% 0.014 94)",
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -159,7 +159,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -178,7 +178,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -193,7 +193,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -208,7 +208,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -216,15 +216,15 @@
       },
       "base-500": {
         "role": "neutral",
-        "displayName": "Grigio testo (etichette)",
-        "canonical": "oklch(52% 0.012 100)",
-        "brandHex": "#6A6961",
+        "displayName": "Grigio testo (etichette, 5,4:1 sull'avorio)",
+        "canonical": "oklch(50% 0.012 100)",
+        "brandHex": "#65635C",
         "tonalRamp": [
           "oklch(18.2% 0.014 94)",
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -239,7 +239,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -254,7 +254,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -269,7 +269,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -288,7 +288,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -304,7 +304,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -351,7 +351,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -366,7 +366,7 @@
           "oklch(26.3% 0.013 100.5)",
           "oklch(37.8% 0.012 100)",
           "oklch(45% 0.012 100)",
-          "oklch(52% 0.012 100)",
+          "oklch(50% 0.012 100)",
           "oklch(70% 0.012 100)",
           "oklch(90.6% 0.007 97)",
           "oklch(97.5% 0.004 106.5)"
@@ -380,7 +380,7 @@
       },
       "hero-md": {
         "displayName": "Hero home",
-        "purpose": "Solo l'H1 dell'hero della home: 36 px (text-4xl, leading 1.1), 44 da lg (text-hero-md), peso 500, tracking -0.03em, text-balance. Unico titolo in 500; il motore di destinazione cambia nel titolo ogni 2,6 s."
+        "purpose": "Solo l'H1 dell'hero della home: 32 px (text-[2rem], leading 1.1), 36 da sm (text-4xl), 44 da lg (text-hero-md, 2.75rem/1.1), peso 500, tracking -0.03em, text-balance. Unico titolo in 500; il motore di destinazione cambia nel titolo per un solo giro (5 passi da 2,6 s) e poi resta fermo."
       },
       "display": {
         "displayName": "Display",
@@ -404,19 +404,19 @@
       },
       "lede": {
         "displayName": "Lede",
-        "purpose": "Paragrafo regolare in base-600 sotto hero e Manifesto: 18 px leading-snug, 19 da lg; nelle chiusure resta 18 px max-w-md. Nessun peso 300 dal 2026-10-17."
+        "purpose": "Paragrafo regolare in base-600 sotto hero e Manifesto: 18 px leading-snug, 19 da lg (text-lede, 1.1875rem/1.375); nell'hero della home max-w-xl su due righe; nelle chiusure resta 18 px max-w-md. Nessun peso 300 dal 2026-10-17."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Testo di lettura 16 px regular: testo a fianco dei titoli (base-600), note, prose (line-height 1.75, colonna max-w-xl)."
+        "purpose": "Testo di lettura 16 px regular: testo a fianco dei titoli (base-600), riassunto delle card degli agenti (leading-snug, base-600), note, prose (line-height 1.75, colonna max-w-xl)."
       },
       "secondary": {
         "displayName": "Secondary",
-        "purpose": "15 px regular (--text-md): descrizioni di card, riassunti degli agenti, risposte FAQ, corpo dei fogli, fatti dei casi."
+        "purpose": "15 px regular (--text-md): descrizioni di card e dei piani, risposte FAQ, corpo dei fogli, fatti dei casi."
       },
       "label": {
         "displayName": "Label (sans)",
-        "purpose": "14 px Geist base-500 sentence case: etichette di sezione e dei pannelli, numeri delle card, intestazioni del footer, breadcrumb, rassicurazioni. Stesso passo di voci nav, SubNav, righe con punto e cartiglio."
+        "purpose": "14 px Geist base-500 sentence case: etichette di sezione e dei pannelli, numeri delle card, intestazioni del footer, breadcrumb, rassicurazioni. Stesso passo di voci nav, SubNav, righe con punto, link \"… →\" in fondo ai pannelli e cartiglio."
       },
       "note": {
         "displayName": "Dati e note",
@@ -464,12 +464,12 @@
       {
         "name": "m-tokens",
         "value": "--m-micro 150ms, --m-base 320ms, --m-wide 600ms, --m-exit 0.7, --m-stagger 55ms",
-        "purpose": "Linguaggio di movimento in src/styles/motion.css e src/lib/motion.ts. Unico loop del sito: il motore nel titolo dell'hero della home (ogni 2,6 s, --m-micro/--m-ease-out, fermo con prefers-reduced-motion, in pausa con il mouse sul titolo e a scheda nascosta)."
+        "purpose": "Linguaggio di movimento in src/styles/motion.css e src/lib/motion.ts. Il sito non ha loop: l'unica sequenza è il motore nel titolo dell'hero della home, che cambia per un giro solo (--m-micro/--m-ease-out) e poi si ferma."
       },
       {
         "name": "hero-engine",
-        "value": "2600ms interval, leave/enter --m-micro --m-ease-out, translateY(0.18em)",
-        "purpose": "home/Hero.astro: il nome e l'icona del motore scendono di 0.18em e sfumano, poi risalgono col nuovo (ChatGPT, Gemini, Claude, Perplexity, Google). Non parte con prefers-reduced-motion; salta i passi con il mouse sul titolo o document.hidden."
+        "value": "2600ms interval × 5 passi (un giro), leave/enter --m-micro --m-ease-out, translateY(0.18em)",
+        "purpose": "home/Hero.astro: il nome e l'icona del motore scendono di 0.18em e sfumano, poi risalgono col nuovo (ChatGPT, Gemini, Claude, Perplexity, Google). Un giro solo, poi il titolo resta fermo (WCAG 2.2.2). Non parte con prefers-reduced-motion; salta i passi con il mouse sul titolo, con il focus nella sezione o a scheda nascosta."
       },
       {
         "name": "reduced-motion",
@@ -505,7 +505,7 @@
       "name": "Pillola accent",
       "kind": "button",
       "refersTo": "button-accent",
-      "description": "Azione primaria (Prova gratis): pillola nell'inchiostro, senza ombra; in hover si apre di un passo.",
+      "description": "Azione primaria (Prova gratis): pillola nell'inchiostro, senza ombra, 150 ms; in hover il nero si apre di un passo. 40 px negli hero e nelle chiusure, 36 px nella nav da lg (40 sotto).",
       "html": "<a class=\"ds-btn-accent\" href=\"#\">Prova gratis</a>",
       "css": ".ds-btn-accent { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 40px; padding: 0 24px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); color: #fff; font-size: 16px; } .ds-btn-accent:hover { background: var(--color-base-700, oklch(37.8% 0.012 100)); } .ds-btn-accent:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-background, oklch(97.5% 0.004 106.5)), 0 0 0 4px var(--color-base-900, oklch(26.3% 0.013 100.5)); }"
     },
@@ -513,7 +513,7 @@
       "name": "Pillola muted",
       "kind": "button",
       "refersTo": "button-muted",
-      "description": "Azione secondaria (Parla con noi): pillola tinta base-100 senza bordo, in hover un tono più scura.",
+      "description": "Azione secondaria (Parla con noi, Accedi nel menu mobile, piani non consigliati): pillola tinta base-100 con bordo trasparente, in hover base-200. Nessuna ombra.",
       "html": "<a class=\"ds-btn-muted\" href=\"#\">Parla con noi</a>",
       "css": ".ds-btn-muted { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 40px; padding: 0 24px; background: var(--color-base-100, oklch(92.1% 0.007 97)); border: 1px solid transparent; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-size: 16px; } .ds-btn-muted:hover { background: var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-btn-muted:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-background, oklch(97.5% 0.004 106.5)), 0 0 0 4px var(--color-base-300, oklch(85% 0.008 97)); }"
     },
@@ -521,7 +521,7 @@
       "name": "Pillola ghost",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Solo nella nav: trasparente con filetto base-300, si riempie di carta in hover (36 px).",
+      "description": "Solo nella nav: trasparente con filetto base-300, si riempie di carta (panel) in hover, 36 px, 150 ms.",
       "html": "<a class=\"ds-btn-ghost\" href=\"#\">Parla con noi</a>",
       "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 36px; padding: 0 16px; background: transparent; border: 1px solid var(--color-base-300, oklch(85% 0.008 97)); color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-size: 14px; } .ds-btn-ghost:hover { background: var(--color-panel, oklch(95.8% 0.005 95)); } .ds-btn-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-background, oklch(97.5% 0.004 106.5)), 0 0 0 4px var(--color-base-300, oklch(85% 0.008 97)); }"
     },
@@ -531,39 +531,71 @@
       "refersTo": "input-search",
       "description": "La ricerca del blog: campo di carta a 4 px alto 36 px con anello base-200; focus nell'inchiostro.",
       "html": "<input class=\"ds-search\" type=\"search\" placeholder=\"Cerca nel blog\" aria-label=\"Cerca nel blog\">",
-      "css": ".ds-search { display: block; width: 100%; height: 36px; padding: 0 16px; border-radius: 4px; border: 1px solid transparent; background: var(--color-panel, oklch(95.8% 0.005 95)); box-shadow: 0 0 0 1px var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 16px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: box-shadow 300ms, border-color 300ms; } .ds-search::placeholder { color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-search:focus { outline: none; border-color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); box-shadow: 0 0 0 2px var(--color-base-100, oklch(92.1% 0.007 97)); }"
+      "css": ".ds-search { display: block; width: 100%; height: 36px; padding: 0 16px; border-radius: 4px; border: 1px solid transparent; background: var(--color-panel, oklch(95.8% 0.005 95)); box-shadow: 0 0 0 1px var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 16px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: box-shadow 300ms, border-color 300ms; } .ds-search::placeholder { color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-search:focus { outline: none; border-color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); box-shadow: 0 0 0 2px var(--color-base-100, oklch(92.1% 0.007 97)); }"
+    },
+    {
+      "name": "Campo del form (contatti)",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "pages/contatti.astro, form HubSpot ristilizzato: campi a pillola alti 44 px sul colore della pagina (var(--color-background)) con bordo base-200, segnaposto base-500; textarea a 6 px (var(--radius-xl)); focus bordo nell'inchiostro e anello 3 px base-100 (200 ms); checkbox squadrate con bordo base-300; bottone pillola accent 44 px, testo in avorio, senza ombra, 150 ms.",
+      "html": "<form class=\"ds-form\"><label class=\"ds-form-label\">Email<input class=\"ds-field\" type=\"email\" placeholder=\"nome@azienda.it\"></label><label class=\"ds-form-label\">Messaggio<textarea class=\"ds-field ds-field-area\" placeholder=\"Di cosa hai bisogno?\"></textarea></label><label class=\"ds-form-check\"><input type=\"checkbox\"> Accetto l'informativa sulla privacy</label><button class=\"ds-form-btn\" type=\"button\">Invia</button></form>",
+      "css": ".ds-form { display: grid; gap: 16px; max-width: 420px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-form-label { display: grid; gap: 6px; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-field { box-sizing: border-box; width: 100%; height: 44px; padding: 0 16px; border: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); border-radius: 9999px; background: var(--color-background, oklch(97.5% 0.004 106.5)); color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-family: inherit; font-size: 16px; transition: border-color 200ms, box-shadow 200ms; } .ds-field-area { height: auto; min-height: 112px; padding: 12px 16px; border-radius: var(--radius-xl, 6px); resize: vertical; } .ds-field::placeholder { color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-field:focus-visible { outline: none; border-color: var(--color-base-900, oklch(26.3% 0.013 100.5)); box-shadow: 0 0 0 3px var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-form-check { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.45; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-form-check input { flex: none; width: 18px; height: 18px; margin: 2px 0 0; border: 1px solid var(--color-base-300, oklch(85% 0.008 97)); border-radius: 0; accent-color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-form-btn { display: inline-flex; align-items: center; justify-content: center; justify-self: start; min-width: 144px; height: 44px; margin-top: 8px; padding: 0 24px; border: 0; border-radius: 9999px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); color: var(--color-background, oklch(97.5% 0.004 106.5)); font-family: inherit; font-size: 16px; font-weight: 500; transition: background-color 150ms; } .ds-form-btn:hover { background: var(--color-base-700, oklch(37.8% 0.012 100)); } .ds-form-btn:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
     },
     {
       "name": "Nav principale",
       "kind": "nav",
       "refersTo": "nav-item",
-      "description": "Barra fissa 72 px sull'avorio, opaca e senza riga: marchio, voci a pillola al centro, a destra Accedi, pillola ghost e pillola accent.",
+      "description": "Barra fissa 72 px sull'avorio, opaca e senza riga: marchio, voci a pillola al centro, a destra Accedi, pillola ghost (solo da lg) e pillola accent size sm (36 px da lg, 40 px sotto).",
       "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">Verbalist</span><nav class=\"ds-nav-links\"><a class=\"ds-nav-item\" href=\"#\">Agenti</a><a class=\"ds-nav-item is-active\" href=\"#\" aria-current=\"page\">Soluzioni</a><a class=\"ds-nav-item\" href=\"#\">Prezzi</a><a class=\"ds-nav-item\" href=\"#\">Clienti</a><a class=\"ds-nav-item\" href=\"#\">Blog</a></nav><div class=\"ds-nav-right\"><a class=\"ds-nav-login\" href=\"#\">Accedi</a><a class=\"ds-nav-ghost\" href=\"#\">Parla con noi</a><a class=\"ds-nav-cta\" href=\"#\">Prova gratis</a></div></header>",
-      "css": ".ds-nav { position: relative; display: flex; align-items: center; gap: 24px; height: 72px; padding: 0 20px; background: var(--color-background, oklch(97.5% 0.004 106.5)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-nav-logo { font-weight: 500; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-nav-links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; } .ds-nav-item { display: flex; align-items: center; height: 36px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-nav-item:hover { color: var(--color-base-950, oklch(18.2% 0.014 94)); background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-nav-item.is-active { color: var(--color-base-950, oklch(18.2% 0.014 94)); } .ds-nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; } .ds-nav-login { display: flex; align-items: center; height: 36px; padding: 0 12px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; } .ds-nav-login:hover { opacity: 0.75; } .ds-nav-ghost { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 36px; padding: 0 16px; border: 1px solid var(--color-base-300, oklch(85% 0.008 97)); color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-size: 14px; } .ds-nav-ghost:hover { background: var(--color-panel, oklch(95.8% 0.005 95)); } .ds-nav-cta { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 36px; padding: 0 16px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); color: #fff; font-size: 14px; } .ds-nav-cta:hover { background: var(--color-base-700, oklch(37.8% 0.012 100)); } .ds-nav-item:focus-visible, .ds-nav-ghost:focus-visible, .ds-nav-cta:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
+      "css": ".ds-nav { position: relative; display: flex; align-items: center; gap: 24px; height: 72px; padding: 0 20px; background: var(--color-background, oklch(97.5% 0.004 106.5)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-nav-logo { font-weight: 500; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-nav-links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; } .ds-nav-item { display: flex; align-items: center; height: 36px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-nav-item:hover { color: var(--color-base-950, oklch(18.2% 0.014 94)); background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-nav-item.is-active { color: var(--color-base-950, oklch(18.2% 0.014 94)); } .ds-nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; } .ds-nav-login { display: flex; align-items: center; height: 36px; padding: 0 12px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; } .ds-nav-login:hover { opacity: 0.75; } .ds-nav-ghost { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 36px; padding: 0 16px; border: 1px solid var(--color-base-300, oklch(85% 0.008 97)); color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-size: 14px; } .ds-nav-ghost:hover { background: var(--color-panel, oklch(95.8% 0.005 95)); } .ds-nav-cta { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-weight: 400; text-decoration: none; transition: background-color 150ms; height: 40px; padding: 0 16px; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); color: #fff; font-size: 14px; } .ds-nav-cta:hover { background: var(--color-base-700, oklch(37.8% 0.012 100)); } .ds-nav-item:focus-visible, .ds-nav-ghost:focus-visible, .ds-nav-cta:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; } @media (min-width: 64rem) { .ds-nav-cta { height: 36px; } }"
     },
     {
       "name": "Testa di sezione",
       "kind": "custom",
       "refersTo": "label-section",
-      "description": "Etichetta sans 14 px grigia, titolo 36/52 px regular interamente nero a 16 px, testo a fianco in base-600 (section/Head.astro).",
+      "description": "Etichetta sans 14 px grigia, titolo 36/52 px regular interamente nero a 16 px, testo a fianco in base-600 allineato in alto (items-start) e abbassato di 36 px da lg (lg:pt-9; lg:pt-2 senza etichetta) per cadere sulla prima riga del titolo (section/Head.astro).",
       "html": "<div class=\"ds-head\"><div><p class=\"ds-head-tag\">Quattro agenti</p><h2 class=\"ds-head-title\">Una catena di quattro agenti, non un prompt.</h2></div><p class=\"ds-head-aside\">Ogni agente consegna il suo lavoro al successivo. Il tuo serve una volta sola, all'inizio: compili un brief, non scrivi un prompt.</p></div>",
-      "css": ".ds-head { display: grid; gap: 32px; align-items: end; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } @media (min-width: 64rem) { .ds-head { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; } } .ds-head-tag { margin: 0; font-size: 14px; line-height: 1.5; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-head-title { margin: 16px 0 0; font-size: 36px; line-height: 1.15; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-wrap: balance; } .ds-head-aside { margin: 0; max-width: 448px; padding-bottom: 4px; font-size: 16px; line-height: 1.625; color: var(--color-base-600, oklch(45% 0.012 100)); }"
+      "css": ".ds-head { display: grid; gap: 32px; align-items: start; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } @media (min-width: 64rem) { .ds-head { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; } .ds-head-aside { padding-top: 36px; } .ds-head-title { font-size: 52px; line-height: 1.1; } } .ds-head-tag { margin: 0; font-size: 14px; line-height: 1.5; color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-head-title { margin: 16px 0 0; font-size: 36px; line-height: 1.15; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-wrap: balance; } .ds-head-aside { margin: 0; max-width: 448px; font-size: 16px; line-height: 1.625; color: var(--color-base-600, oklch(45% 0.012 100)); }"
     },
     {
       "name": "Pannello tinto con coppia",
       "kind": "card",
       "refersTo": "panel",
-      "description": "La porta della home: carta a 4 px senza bordo, etichetta, titolo e lede alla stessa misura, righe piene con la V del marchio come marker, link in fondo.",
+      "description": "La porta della home: carta a 4 px senza bordo, etichetta, titolo e lede alla stessa misura (20 px, 24 da lg), righe piene con la V del marchio a 12 px come marker, link \"… →\" in fondo.",
       "html": "<a class=\"ds-panel\" href=\"#\"><p class=\"ds-panel-label\">Per le agenzie</p><h3 class=\"ds-panel-title\">Contenuti per più clienti, con un metodo solo.</h3><p class=\"ds-panel-lede\">Un progetto per cliente, un brief per contenuto, due versioni da revisionare.</p><ul class=\"ds-panel-list\"><li><svg class=\"ds-v\" viewBox=\"0 -0.078 28.727 33.652\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m23.77-.078-4.454 7.84-2.691 4.734-2.566 4.516-1.473 2.593-3.227 5.684-.004.004 4.704 8.281 2.945-5.18 1.762-3.101.937-1.652 4.184-7.368 4.84-8.511ZM.309 9.816l4.058 7.149 2.895 5.09 4.789-8.13-2.332-4.109Z\"></path></svg>Progetti separati per cliente</li><li><svg class=\"ds-v\" viewBox=\"0 -0.078 28.727 33.652\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m23.77-.078-4.454 7.84-2.691 4.734-2.566 4.516-1.473 2.593-3.227 5.684-.004.004 4.704 8.281 2.945-5.18 1.762-3.101.937-1.652 4.184-7.368 4.84-8.511ZM.309 9.816l4.058 7.149 2.895 5.09 4.789-8.13-2.332-4.109Z\"></path></svg>Due versioni, due modelli</li><li><svg class=\"ds-v\" viewBox=\"0 -0.078 28.727 33.652\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m23.77-.078-4.454 7.84-2.691 4.734-2.566 4.516-1.473 2.593-3.227 5.684-.004.004 4.704 8.281 2.945-5.18 1.762-3.101.937-1.652 4.184-7.368 4.84-8.511ZM.309 9.816l4.058 7.149 2.895 5.09 4.789-8.13-2.332-4.109Z\"></path></svg>Export in HTML, Word e Markdown</li></ul><p class=\"ds-panel-more\">Verbalist per le agenzie →</p></a>",
-      "css": ".ds-panel { display: flex; flex-direction: column; padding: 24px; background: var(--color-panel, oklch(95.8% 0.005 95)); border-radius: 4px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; text-decoration: none; color: inherit; } @media (min-width: 64rem) { .ds-panel { padding: 40px; } } .ds-panel-label { margin: 0; font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-panel-title { margin: 24px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-panel-lede { margin: 4px 0 0; max-width: 448px; font-size: 20px; line-height: 1.375; letter-spacing: -0.025em; color: var(--color-base-600, oklch(45% 0.012 100)); text-wrap: pretty; } .ds-panel-list { list-style: none; margin: 32px 0 0; padding: 0; font-size: 14px; color: var(--color-base-800, oklch(30% 0.012 100)); } .ds-panel-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-panel-list li:last-child { border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-v { flex-shrink: 0; width: 10px; height: 10px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-panel-more { margin: auto 0 0; padding-top: 24px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: opacity 200ms; } .ds-panel:hover .ds-panel-more { opacity: 0.75; } .ds-panel:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
+      "css": ".ds-panel { display: flex; flex-direction: column; padding: 24px; background: var(--color-panel, oklch(95.8% 0.005 95)); border-radius: 4px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; text-decoration: none; color: inherit; } @media (min-width: 64rem) { .ds-panel { padding: 40px; } } .ds-panel-label { margin: 0; font-size: 14px; color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-panel-title { margin: 24px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-panel-lede { margin: 4px 0 0; max-width: 448px; font-size: 20px; line-height: 1.375; letter-spacing: -0.025em; color: var(--color-base-600, oklch(45% 0.012 100)); text-wrap: pretty; } .ds-panel-list { list-style: none; margin: 32px 0 0; padding: 0; font-size: 14px; color: var(--color-base-800, oklch(30% 0.012 100)); } .ds-panel-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-panel-list li:last-child { border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-v { flex-shrink: 0; width: 12px; height: 12px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-panel-more { margin: auto 0 0; padding-top: 24px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: opacity 200ms; } .ds-panel:hover .ds-panel-more { opacity: 0.75; } .ds-panel:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Righe delle aziende (porta)",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "home/Doors.astro, pannello \"Per le aziende\": ogni riga è un link a sé (z-10 sopra il link del pannello), min-h-11, py-3, riga piena base-200 sopra (last:border-b), hover bg-base-100 rounded-md con -mx-2 px-2. Sotto sm è una griglia: nome sopra, descrizione grigia sotto, freccia a fine riga su due righe; da sm diventa flex con il nome a sinistra, la descrizione a destra (ml-auto, text-right) e la freccia.",
+      "html": "<ul class=\"ds-rows\" role=\"list\"><li><a class=\"ds-row\" href=\"#\"><span class=\"ds-row-name\">Corporate</span><span class=\"ds-row-desc\">Più mercati, un solo metodo</span><span class=\"ds-row-arrow\" aria-hidden=\"true\">→</span></a></li><li><a class=\"ds-row\" href=\"#\"><span class=\"ds-row-name\">PMI</span><span class=\"ds-row-desc\">Contenuti senza una redazione interna</span><span class=\"ds-row-arrow\" aria-hidden=\"true\">→</span></a></li><li><a class=\"ds-row\" href=\"#\"><span class=\"ds-row-name\">E-commerce</span><span class=\"ds-row-desc\">Schede e categorie che si leggono</span><span class=\"ds-row-arrow\" aria-hidden=\"true\">→</span></a></li></ul>",
+      "css": ".ds-rows { list-style: none; margin: 0; padding: 0; font-size: 14px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-rows li { border-top: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-rows li:last-child { border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-row { position: relative; z-index: 10; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 16px; min-height: 44px; margin: 0 -8px; padding: 12px 8px; border-radius: 4px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: background-color 200ms; } .ds-row:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-row:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; } .ds-row-desc { grid-row-start: 2; color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-row-arrow { grid-row: span 2; } @media (min-width: 40rem) { .ds-row { display: flex; align-items: baseline; } .ds-row-name { white-space: nowrap; flex-shrink: 0; } .ds-row-desc { grid-row: auto; margin-left: auto; text-align: right; } .ds-row-arrow { grid-row: auto; } }"
     },
     {
       "name": "Card dell'agente",
       "kind": "card",
       "refersTo": "panel-hover",
-      "description": "Le quattro card della catena: carta a 4 px, icona, numero 14 px grigio, nome 20 px, riassunto 15 px; in hover il fondo passa a base-100 e il chevron scorre di 4 px.",
-      "html": "<a class=\"ds-agent\" href=\"#\"><div class=\"ds-agent-top\"><svg class=\"ds-agent-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-3.5-3.5\"/></svg><h3 class=\"ds-agent-title\"><span class=\"ds-agent-n\">01</span>Analista</h3><p class=\"ds-agent-text\">Legge i primi cinque risultati per la keyword e ne ricava argomenti, struttura e lacune.</p></div><p class=\"ds-agent-more\">Vedi l'agente <svg class=\"ds-agent-chev\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></p></a>",
-      "css": ".ds-agent { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 24px; background: var(--color-panel, oklch(95.8% 0.005 95)); border-radius: 4px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; text-decoration: none; color: inherit; transition: background-color 200ms; } .ds-agent:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-agent:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; } .ds-agent-top { display: grid; gap: 16px; } .ds-agent-icon { width: 24px; height: 24px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-agent-title { margin: 0; font-size: 20px; line-height: 1.375; font-weight: 400; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-agent-n { display: block; margin-bottom: 4px; font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-agent-text { margin: 0; font-size: 15px; line-height: 1.625; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-agent-more { display: flex; align-items: center; gap: 4px; margin: 0; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-agent-chev { width: 16px; height: 16px; color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); transition: transform 300ms ease-out; } .ds-agent:hover .ds-agent-chev { transform: translateX(4px); }"
+      "description": "Le quattro card della catena: carta a 4 px, icona 24 px, numero 14 px grigio, nome 20 px (il link, che copre la card), riassunto 16 px leading-snug base-600; in fondo solo una freccia a destra, nessun testo. In hover il fondo passa a base-100 (200 ms) e il chevron scorre di 4 px (300 ms).",
+      "html": "<a class=\"ds-agent\" href=\"#\"><div class=\"ds-agent-top\"><svg class=\"ds-agent-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-3.5-3.5\"/></svg><h3 class=\"ds-agent-title\"><span class=\"ds-agent-n\">01</span>Analista</h3><p class=\"ds-agent-text\">Legge i primi cinque risultati per la keyword e ne ricava argomenti, struttura e lacune.</p></div><p class=\"ds-agent-more\" aria-hidden=\"true\"><svg class=\"ds-agent-chev\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></p></a>",
+      "css": ".ds-agent { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 24px; background: var(--color-panel, oklch(95.8% 0.005 95)); border-radius: 4px; font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; text-decoration: none; color: inherit; transition: background-color 200ms; } .ds-agent:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-agent:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; } .ds-agent-top { display: grid; gap: 16px; } .ds-agent-icon { width: 24px; height: 24px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-agent-title { margin: 0; font-size: 20px; line-height: 1.375; font-weight: 400; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-agent-n { display: block; margin-bottom: 4px; font-size: 14px; color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-agent-text { margin: 0; font-size: 16px; line-height: 1.375; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-agent-more { display: flex; justify-content: flex-end; margin: 0; } .ds-agent-chev { width: 16px; height: 16px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); transition: transform 300ms ease-out; } .ds-agent:hover .ds-agent-chev { transform: translateX(4px); }"
+    },
+    {
+      "name": "Pannello di prodotto dell'hero",
+      "kind": "custom",
+      "refersTo": "panel-soft",
+      "description": "home/Hero.astro: pannello base-50 a 4 px senza altezza fissa (padding 24/32/40 px sopra, 80/96/64 px sotto), a tutta larghezza sotto il testo; dentro la V in filigrana al 7% (-right-4 -top-10 h-[120%], sm:-right-8 sm:h-[140%]), la finestra dell'app intera in flusso (AppWindow sidebar={false}, zoom 0,28/0,6/0,86, mx-auto w-fit, .vb-window) e il brief come messaggio in basso a sinistra (.vb-float, rounded-2xl rounded-bl-md). Statico.",
+      "html": "<div class=\"ds-stage\" role=\"img\" aria-label=\"Il brief e la pagina del documento in Verbalist\"><svg class=\"ds-stage-v\" viewBox=\"0 -0.078 28.727 33.652\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m23.77-.078-4.454 7.84-2.691 4.734-2.566 4.516-1.473 2.593-3.227 5.684-.004.004 4.704 8.281 2.945-5.18 1.762-3.101.937-1.652 4.184-7.368 4.84-8.511ZM.309 9.816l4.058 7.149 2.895 5.09 4.789-8.13-2.332-4.109Z\"></path></svg><div class=\"ds-stage-window\"><div class=\"ds-stage-bar\"><span></span><span></span><span></span></div><div class=\"ds-stage-body\"><div class=\"ds-stage-line\" style=\"width:38%\"></div><div class=\"ds-stage-line\" style=\"width:92%\"></div><div class=\"ds-stage-line\" style=\"width:85%\"></div><div class=\"ds-stage-line\" style=\"width:70%\"></div></div></div><div class=\"ds-stage-brief\"><p class=\"ds-stage-label\">Brief</p><p class=\"ds-stage-kw\">«scarpe da trekking impermeabili»</p><p class=\"ds-stage-meta\">Articolo · Italia · Italiano</p></div></div>",
+      "css": ".ds-stage { position: relative; overflow: hidden; padding: 24px 16px 80px; border-radius: 4px; background: var(--color-base-50, oklch(94.6% 0.006 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } @media (min-width: 40rem) { .ds-stage { padding: 32px 32px 96px; } } @media (min-width: 64rem) { .ds-stage { padding: 40px 48px 64px; } } .ds-stage-v { position: absolute; right: -16px; top: -40px; height: 120%; width: auto; pointer-events: none; color: rgb(38 37 30 / 0.07); } @media (min-width: 40rem) { .ds-stage-v { right: -32px; height: 140%; } } .ds-stage-window { position: relative; width: fit-content; max-width: 100%; min-width: 60%; margin: 0 auto; overflow: hidden; border-radius: 6px; background: var(--color-panel, oklch(95.8% 0.005 95)); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9), 0 0 0 1px rgb(38 37 30 / 0.08), 0 2px 4px rgb(38 37 30 / 0.04), 0 16px 32px -12px rgb(38 37 30 / 0.14), 0 48px 96px -32px rgb(38 37 30 / 0.28); } .ds-stage-bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-stage-bar span { width: 8px; height: 8px; border-radius: 9999px; background: var(--color-base-300, oklch(85% 0.008 97)); } .ds-stage-body { display: grid; gap: 10px; padding: 20px 24px 28px; } .ds-stage-line { height: 8px; border-radius: 2px; background: var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-stage-line:first-child { height: 14px; background: var(--color-base-300, oklch(85% 0.008 97)); } .ds-stage-brief { position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 248px; padding: 16px; border-radius: 8px; border-bottom-left-radius: 4px; background: var(--color-panel, oklch(95.8% 0.005 95)); box-shadow: 0 0 0 1px rgb(38 37 30 / 0.06), 0 1px 2px rgb(38 37 30 / 0.05), 0 12px 24px -10px rgb(38 37 30 / 0.16), 0 32px 56px -24px rgb(38 37 30 / 0.2); } @media (min-width: 40rem) { .ds-stage-brief { left: 24px; width: 288px; } } @media (min-width: 64rem) { .ds-stage-brief { left: 32px; bottom: 32px; } } .ds-stage-label { margin: 0; font-size: 14px; color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-stage-kw { margin: 8px 0 0; font-size: 14px; line-height: 1.375; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); } .ds-stage-meta { margin: 8px 0 0; font-size: 12px; color: var(--color-base-500, oklch(50% 0.012 100)); }"
+    },
+    {
+      "name": "Fila dei clienti",
+      "kind": "custom",
+      "refersTo": "cell",
+      "description": "home/Logos.astro, subito sotto l'hero: titolo sr-only, poi una riga di celle (grid-cols-2 → sm:4 → lg:7) con bordi base-200 (border-t border-l sulla lista, border-r border-b sulle celle), alte 80 px, con i loghi dei sette casi studio in grigio (grayscale, opacity .8, h-5 / h-[1.375rem] da sm), non cliccabili, nessuna etichetta; l'ultima cella occupa due colonne sotto lg.",
+      "html": "<ul class=\"ds-logos\" role=\"list\"><li><div class=\"ds-logos-cell\"><span class=\"ds-logos-mark\">Cliente 1</span></div></li><li><div class=\"ds-logos-cell\"><span class=\"ds-logos-mark\">Cliente 2</span></div></li><li><div class=\"ds-logos-cell\"><span class=\"ds-logos-mark\">Cliente 3</span></div></li><li><div class=\"ds-logos-cell\"><span class=\"ds-logos-mark\">Cliente 4</span></div></li><li><div class=\"ds-logos-cell\"><span class=\"ds-logos-mark\">Cliente 5</span></div></li><li><div class=\"ds-logos-cell\"><span class=\"ds-logos-mark\">Cliente 6</span></div></li><li><div class=\"ds-logos-cell\"><span class=\"ds-logos-mark\">Cliente 7</span></div></li></ul>",
+      "css": ".ds-logos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); border-left: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-logos li { border-right: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); } .ds-logos li:last-child { grid-column: span 2; } @media (min-width: 40rem) { .ds-logos { grid-template-columns: repeat(4, minmax(0, 1fr)); } } @media (min-width: 64rem) { .ds-logos { grid-template-columns: repeat(7, minmax(0, 1fr)); } .ds-logos li:last-child { grid-column: span 1; } .ds-logos-mark { height: 22px; } } .ds-logos-cell { display: flex; align-items: center; justify-content: center; height: 80px; padding: 0 24px; } .ds-logos-mark { display: inline-flex; align-items: center; height: 20px; padding: 0 10px; border-radius: 2px; background: var(--color-base-300, oklch(85% 0.008 97)); color: var(--color-base-900, oklch(26.3% 0.013 100.5)); font-size: 12px; filter: grayscale(1); opacity: 0.8; }"
     },
     {
       "name": "Cella di elenco",
@@ -571,23 +603,23 @@
       "refersTo": "cell",
       "description": "Card blog/help/clienti: nessun raggio, riga piena in basso, hover base-50, titolo che scurisce.",
       "html": "<article class=\"ds-cell\"><p class=\"ds-cell-meta\"><time>21 set 2026</time><span class=\"ds-cell-cat\">SEO</span></p><h3 class=\"ds-cell-title\"><a href=\"#\">Come scrivere un brief che un agente capisce</a></h3><p class=\"ds-cell-text\">Keyword, mercato, contesto del brand: le tre cose che servono prima di generare.</p><p class=\"ds-cell-more\">Leggi →</p></article>",
-      "css": ".ds-cell { position: relative; display: flex; flex-direction: column; padding: 32px 16px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; transition: background-color 200ms; } .ds-cell:hover { background: var(--color-base-50, oklch(94.6% 0.006 97)); } .ds-cell-meta { display: flex; justify-content: space-between; gap: 16px; margin: 0; font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-cell-cat { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-cell-title { margin: 32px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; text-wrap: balance; } .ds-cell-title a { color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; } .ds-cell-title a::after { content: ''; position: absolute; inset: 0; } .ds-cell:hover .ds-cell-title a { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-cell-title a:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; } .ds-cell-text { margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-cell-more { margin: auto 0 0; padding-top: 24px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); }"
+      "css": ".ds-cell { position: relative; display: flex; flex-direction: column; padding: 32px 16px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; transition: background-color 200ms; } .ds-cell:hover { background: var(--color-base-50, oklch(94.6% 0.006 97)); } .ds-cell-meta { display: flex; justify-content: space-between; gap: 16px; margin: 0; font-size: 14px; color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-cell-cat { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-cell-title { margin: 32px 0 0; font-size: 20px; line-height: 1.375; font-weight: 400; letter-spacing: -0.025em; text-wrap: balance; } .ds-cell-title a { color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; } .ds-cell-title a::after { content: ''; position: absolute; inset: 0; } .ds-cell:hover .ds-cell-title a { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-cell-title a:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; } .ds-cell-text { margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-cell-more { margin: auto 0 0; padding-top: 24px; font-size: 14px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); }"
     },
     {
       "name": "SubNav a pillole",
       "kind": "nav",
       "refersTo": "subnav-pill",
-      "description": "Riga 48 px sotto la nav (56 su mobile) con riga piena: voce di testa 14 px grigia, pillole 32 px (40 su mobile), la corrente piena nell'inchiostro.",
+      "description": "Riga 56 px sotto la nav (48 da lg) con riga piena: voce di testa 14 px grigia con border-r, pillole alte 44 px (h-11, tap target) e 32 px da lg (h-8), la corrente piena nell'inchiostro con il numero a 12 px all'80% di bianco.",
       "html": "<nav class=\"ds-subnav\"><a class=\"ds-subnav-home\" href=\"#\">Agenti</a><a class=\"ds-subnav-pill is-active\" href=\"#\" aria-current=\"page\"><span class=\"ds-subnav-n\">01</span>Analista</a><a class=\"ds-subnav-pill\" href=\"#\"><span class=\"ds-subnav-n\">02</span>Stratega</a><a class=\"ds-subnav-pill\" href=\"#\"><span class=\"ds-subnav-n\">03</span>Redattore</a></nav>",
-      "css": ".ds-subnav { display: flex; align-items: center; gap: 4px; height: 48px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } .ds-subnav-home { display: flex; align-items: center; height: 100%; padding: 0 16px; margin-right: 4px; border-right: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-size: 14px; color: var(--color-base-500, oklch(52% 0.012 100)); text-decoration: none; } .ds-subnav-home:hover { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-pill { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-subnav-pill:hover { color: var(--color-base-950, oklch(18.2% 0.014 94)); background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-subnav-pill.is-active { color: #fff; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-n { font-size: 12px; color: var(--color-base-500, oklch(52% 0.012 100)); } .ds-subnav-pill.is-active .ds-subnav-n { color: rgb(255 255 255 / 0.8); } .ds-subnav-pill:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
+      "css": ".ds-subnav { display: flex; align-items: center; gap: 4px; height: 56px; border-bottom: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; } @media (min-width: 64rem) { .ds-subnav { height: 48px; } .ds-subnav-pill { height: 32px; } } .ds-subnav-home { display: flex; align-items: center; height: 100%; padding: 0 16px; margin-right: 4px; border-right: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); font-size: 14px; color: var(--color-base-500, oklch(50% 0.012 100)); text-decoration: none; } .ds-subnav-home:hover { color: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-pill { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border-radius: 9999px; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-subnav-pill:hover { color: var(--color-base-950, oklch(18.2% 0.014 94)); background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-subnav-pill.is-active { color: #fff; background: var(--color-accent-500, oklch(26.3% 0.013 100.5)); } .ds-subnav-n { font-size: 12px; color: var(--color-base-500, oklch(50% 0.012 100)); } .ds-subnav-pill.is-active .ds-subnav-n { color: rgb(255 255 255 / 0.8); } .ds-subnav-pill:focus-visible { outline: 2px solid var(--color-base-900, oklch(26.3% 0.013 100.5)); outline-offset: 2px; }"
     },
     {
       "name": "Cartiglio del footer",
       "kind": "custom",
       "refersTo": "footer",
-      "description": "Una riga a 14 px in fondo al footer di carta: © NUR, foglio e piattaforma a 12 px nello stesso Geist, revisione, stato dei sistemi come pillola con punto.",
+      "description": "Una riga a 14 px in fondo al footer di carta: © NUR, foglio (indirizzo della pagina a 12 px; \"Home\" sulla home, \"404\" sulla 404), piattaforma a 12 px nello stesso Geist, revisione, stato dei sistemi come pillola alta 40 px con punto.",
       "html": "<dl class=\"ds-colophon\"><div><dt>© 2026</dt><dd>NUR S.r.l. · P.IVA 01902640208</dd></div><div><dt class=\"ds-sr\">Foglio</dt><dd class=\"ds-colophon-data\">/agenti/analista/</dd></div><div><dt>Piattaforma</dt><dd class=\"ds-colophon-data\">v2.6.1</dd></div><div><dt>Revisione</dt><dd>17 ottobre 2026</dd></div><div class=\"ds-colophon-end\"><dt class=\"ds-sr\">Stato</dt><dd><a class=\"ds-status\" href=\"#\"><span class=\"ds-status-dot\"></span>Tutti i sistemi operativi</a></dd></div></dl>",
-      "css": ".ds-colophon { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin: 0; padding: 24px 20px; background: var(--color-panel, oklch(95.8% 0.005 95)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-colophon > div { display: flex; gap: 6px; } .ds-colophon dd { margin: 0; } .ds-colophon-data { font-size: 12px; } .ds-colophon-end { margin-left: auto; } .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .ds-status { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); border-radius: 9999px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: background-color 150ms; } .ds-status:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-status-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--color-status-success, oklch(65% 0.1 150)); }"
+      "css": ".ds-colophon { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin: 0; padding: 24px 20px; background: var(--color-panel, oklch(95.8% 0.005 95)); font-family: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif; font-size: 14px; color: var(--color-base-600, oklch(45% 0.012 100)); } .ds-colophon > div { display: flex; gap: 6px; } .ds-colophon dd { margin: 0; } .ds-colophon-data { font-size: 12px; } .ds-colophon-end { margin-left: auto; } .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .ds-status { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border: 1px solid var(--color-base-200, oklch(90.6% 0.007 97)); border-radius: 9999px; color: var(--color-base-900, oklch(26.3% 0.013 100.5)); text-decoration: none; transition: background-color 150ms; } .ds-status:hover { background: var(--color-base-100, oklch(92.1% 0.007 97)); } .ds-status-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--color-status-success, oklch(65% 0.1 150)); }"
     },
     {
       "name": "Barra CTA mobile",
@@ -600,25 +632,25 @@
   ],
   "narrative": {
     "northStar": "Carta avorio, un solo inchiostro",
-    "overview": "Il sito è una pagina avorio su cui stanno pannelli di carta un passo più scura, scritti in un solo inchiostro caldo. La grammatica a carta avorio (riferimento estratto il 2026-10-16, adottata il 2026-10-17): nessuna cornice, nessuna riga in testa alle sezioni, le sezioni si separano con l'aria e con il tono dei pannelli; colonna da 1300 px; nav opaca senza riga; chiusure centrate con il titolo grande. L'identità resta quella registrata in `/brand/`, aggiornata ai nuovi valori: Nero Verbalist #26251E, Avorio #F7F7F4, Carta #F2F1ED, Grigio testo #6A6961. Nessun colore saturo. La fiducia viene dal prodotto che si vede all'opera dentro pannelli tinti, non dall'effetto.\n\nLa densità è quella di uno strumento: pannelli a 4 px senza bordo, righe piene `base-200` da 1 px per elenchi e celle, la V del marchio davanti ai fatti. Un solo carattere, Geist, per tutto (display, testo, dati, codice, slug, versioni), in due pesi: 400 per tutto, 500 per `strong`, le enfasi nei mockup e, unica eccezione tra i titoli, l'H1 dell'hero della home. Dal 2026-10-17 non c'è più un mono: gli artefatti (slug, versioni, numeri dei passi, codice) si distinguono per misura e colore (12 px, `base-500`), non per carattere. Le etichette di sezione sono in sans a 14 px grigie, in sentence case. La gerarchia si regge su misura e tono di grigio: titoli interamente neri sotto un'etichetta grigia, e nelle coppie titolo/lede alla stessa misura la distanza la fa solo il colore.\n\nIl movimento è funzionale e uno per sezione. L'unica animazione in loop del sito è nel titolo dell'hero della home: il motore per cui Verbalist scrive cambia ogni 2,6 s con una dissolvenza sui token `--m-micro`/`--m-ease-out`, ferma con `prefers-reduced-motion`, in pausa al passaggio del mouse e a scheda nascosta. Il resto sono transizioni di colore e il chevron che scorre di 4 px.\n\n**Decisioni registrate.** 2026-09-26: l'accento arancio preso da il primo riferimento esterno è stato ritirato (\"Mono\" scelta dal maintainer); le rampe `accent-*` restano nel tema come alias dell'inchiostro. 2026-10-17: il \"foglio tecnico\" di il primo riferimento esterno (cornice tratteggiata, sigle nel margine, punti d'angolo, targhette mono bianche su nero, pannelli bianchi con bordo) è stato sostituito dalla grammatica a carta avorio; la rampa fredda (hue ~215) è diventata calda (hue ~100); l'accento arancio di il riferimento esterno è stato valutato e tenuto spento: l'accento è l'inchiostro. I colori di stato sono quelli della piattaforma (`platform/css/css.css`): verde per il completato, rosso per l'errore, nessun colore per l'\"in corso\". 2026-10-17, più tardi: il mono è stato ritirato del tutto (`--font-mono` è un alias di Geist, il pacchetto e il suo fallback sono stati rimossi da `BaseLayout.astro` e `global.css`); la V del marchio (`assets/Logo.astro`) è diventata la firma del sito, in filigrana nei pannelli-palco (`assets/Watermark.astro`) e come marker degli elenchi al posto del punto; l'H1 dell'hero della home è sceso a 36/44 px in peso 500 con il motore di destinazione che cambia nel titolo.",
+    "overview": "Il sito è una pagina avorio su cui stanno pannelli di carta un passo più scura, scritti in un solo inchiostro caldo. La grammatica a carta avorio (riferimento estratto il 2026-10-16, adottata il 2026-10-17): nessuna cornice, nessuna riga in testa alle sezioni, le sezioni si separano con l'aria e con il tono dei pannelli; colonna da 1300 px; nav opaca senza riga; chiusure centrate con il titolo grande. L'identità resta quella registrata in `/brand/`, aggiornata ai nuovi valori: Nero Verbalist #26251E, Avorio #F7F7F4, Carta #F2F1ED, Grigio testo #65635C. Nessun colore saturo. La fiducia viene dal prodotto che si vede all'opera dentro pannelli tinti, non dall'effetto.\n\nLa densità è quella di uno strumento: pannelli a 4 px senza bordo, righe piene `base-200` da 1 px per elenchi e celle, la V del marchio davanti ai fatti. Un solo carattere, Geist, per tutto (display, testo, dati, codice, slug, versioni), in due pesi: 400 per tutto, 500 per `strong`, le enfasi nei mockup e, unica eccezione tra i titoli, l'H1 dell'hero della home. Dal 2026-10-17 non c'è più un mono: gli artefatti (slug, versioni, numeri dei passi, codice) si distinguono per misura e colore (12 px, `base-500`), non per carattere. Le etichette di sezione sono in sans a 14 px grigie, in sentence case. La gerarchia si regge su misura e tono di grigio: titoli interamente neri sotto un'etichetta grigia, e nelle coppie titolo/lede alla stessa misura la distanza la fa solo il colore.\n\nIl movimento è funzionale e uno per sezione. Il sito non ha loop: l'unica sequenza è nel titolo dell'hero della home, dove il motore per cui Verbalist scrive cambia per un giro solo (cinque passi da 2,6 s) con una dissolvenza sui token `--m-micro`/`--m-ease-out` e poi resta fermo; non parte con `prefers-reduced-motion`, si ferma con il mouse sul titolo, con il focus nella sezione e a scheda nascosta. Il resto sono transizioni di colore e il chevron che scorre di 4 px.\n\n**Decisioni registrate.** 2026-09-26: l'accento arancio preso dal primo riferimento esterno è stato ritirato (\"Mono\" scelta dal maintainer); le rampe `accent-*` restano nel tema come alias dell'inchiostro. 2026-10-17: il \"foglio tecnico\" del primo riferimento esterno (cornice tratteggiata, sigle nel margine, punti d'angolo, targhette mono bianche su nero, pannelli bianchi con bordo) è stato sostituito dalla grammatica a carta avorio; la rampa fredda (hue ~215) è diventata calda (hue ~100); l'accento arancio del riferimento esterno è stato valutato e tenuto spento: l'accento è l'inchiostro. I colori di stato sono quelli della piattaforma (`platform/css/css.css`): verde per il completato, rosso per l'errore, nessun colore per l'\"in corso\". 2026-10-17, più tardi: il mono è stato ritirato del tutto (`--font-mono` è un alias di Geist); la V del marchio (`assets/Logo.astro`) è diventata la firma del sito, in filigrana al 7% nei pannelli-palco (`assets/Watermark.astro`: pannello di prodotto dell'hero, chiusura della home, 404) e come marker a 12 px degli elenchi al posto del punto; l'H1 dell'hero della home è sceso a 32/36/44 px in peso 500 con il motore di destinazione che cambia nel titolo per un giro solo; `Frame tone=\"soft\"` non disegna più nulla e le hero interne stanno sul colore della pagina; il pannello di prodotto dell'hero ha perso l'altezza fissa e mostra la finestra dell'app intera; la card dei motori, la riga \"Ultima release\" delle prove e il testo \"Vedi l'agente\" delle card sono stati tolti; sotto l'hero è nata la fila dei clienti (`home/Logos.astro`); `base-500` è sceso a oklch 50% (#65635C) per il contrasto; i bottoni hanno perso le ombre e sono scesi a 150 ms.",
     "keyCharacteristics": [
       "Due superfici: pagina avorio (`background`) e pannelli di carta (`panel`), un passo più scuri; `bg-white` non si usa più.",
       "Un solo inchiostro: il Nero Verbalist caldo riempie pillole, le V dei marker e voci attive. Il resto è una rampa calda di grigi.",
       "Un solo carattere, Geist, per tutto: 400, con il 500 per `strong` e per l'H1 dell'hero; etichette in sans 14 px grigie; dati e artefatti a 12 px `base-500`, nello stesso carattere.",
-      "La V del marchio come firma: in filigrana al 5% nei pannelli-palco (hero della home, 404) e come marker a 10 px davanti alle righe di elenco; mai colorata.",
+      "La V del marchio come firma: in filigrana al 7% nei pannelli-palco (pannello di prodotto dell'hero, chiusura della home, 404) e come marker a 12 px davanti alle righe di elenco; mai colorata.",
       "Pannelli tinti a 4 px senza bordo, righe piene `base-200` da 1 px; nessun tratteggio.",
       "Nessuna ombra su pannelli, card, nav e bottoni; l'unica luce è sugli oggetti di prodotto (finestre dell'app, card in primo piano).",
-      "Pillole per azioni e navigazione; sezioni separate dall'aria (`rhythm`), con più spazio sotto che sopra."
+      "Pillole per azioni e navigazione; sezioni separate dall'aria (`rhythm`), con più spazio sotto che sopra; le hero stanno sul colore della pagina."
     ],
     "rules": [
       {
         "name": "The One Ink Rule",
-        "body": "Il sito ha un solo inchiostro, il Nero Verbalist caldo (#26251E). Non esiste un secondo colore: l'arancio del primo riferimento esterno è stato ritirato (2026-09-26) e quello di il riferimento esterno valutato e tenuto spento (2026-10-17). I verdi e i rossi sono stati della piattaforma, mai elementi di design.",
+        "body": "Il sito ha un solo inchiostro, il Nero Verbalist caldo (#26251E). Non esiste un secondo colore: l'arancio del primo riferimento esterno è stato ritirato (2026-09-26) e quello del riferimento esterno valutato e tenuto spento (2026-10-17). I verdi e i rossi sono stati della piattaforma, mai elementi di design.",
         "section": "colors"
       },
       {
         "name": "The Two Surfaces Rule",
-        "body": "La pagina è avorio (`background`) e tutto ciò che vi sta sopra è carta (`panel`) o un grigio della rampa (`base-50` per il tono soft, `base-100` per ciò che è premuto, consigliato o in hover). Niente bianco puro come superficie e nessuna tinta di sezione fuori da questi tre toni.",
+        "body": "La pagina è avorio (`background`) e tutto ciò che vi sta sopra è carta (`panel`) o un grigio della rampa (`base-50` per il pannello di prodotto dell'hero e l'hover delle celle, `base-100` per ciò che è premuto, consigliato o in hover). Niente bianco puro come superficie, nessuna tinta di sezione a tutta larghezza (le hero stanno sul colore della pagina) e nessun tono fuori da questi tre.",
         "section": "colors"
       },
       {
@@ -633,7 +665,7 @@
       },
       {
         "name": "The Two Weights Rule",
-        "body": "Due pesi in tutto il sito: 400 per titoli, lede, corpo e UI; 500 per `strong` nella prose, gli H4 dentro i fogli A/B, le enfasi nei mockup e, sola eccezione tra i titoli, l'H1 dell'hero della home (`font-medium`, 36/44 px). Ogni altro titolo resta in 400. Il 300 è stato ritirato il 2026-10-17; niente 600–700.",
+        "body": "Due pesi in tutto il sito: 400 per titoli, lede, corpo e UI; 500 per `strong` nella prose, gli H4 dentro i fogli A/B, le enfasi nei mockup e, sola eccezione tra i titoli, l'H1 dell'hero della home (`font-medium`, 32/36/44 px). Ogni altro titolo resta in 400. Il 300 è stato ritirato il 2026-10-17; niente 600–700.",
         "section": "typography"
       },
       {
@@ -653,7 +685,7 @@
       },
       {
         "name": "The V Mark Rule",
-        "body": "La V del marchio è la firma del sito e compare in due soli modi: in filigrana al 5% dell'inchiostro dentro un pannello-palco (il pannello di prodotto dell'hero, l'hero della 404), sempre assoluta e tagliata dal bordo; e come marker a 10 px davanti alle righe di elenco, al posto del punto. Mai come decorazione libera su una pagina, mai colorata, mai più di una filigrana per viewport. I punti restano solo per gli stati (`status-success`, `status-error`, `base-300` per l'attesa).",
+        "body": "La V del marchio è la firma del sito e compare in due soli modi: in filigrana al 7% dell'inchiostro (`text-base-900/[0.07]`) dentro un pannello-palco o una chiusura (il pannello di prodotto dell'hero, la chiusura della home, l'hero della 404), sempre assoluta e tagliata da un contenitore `relative overflow-hidden`; e come marker a 12 px (`size-3`) davanti alle righe di elenco, al posto del punto. Mai come decorazione libera su una pagina, mai colorata, mai più di una filigrana per viewport. I punti restano solo per gli stati (`status-success`, `status-error`, `base-300` per l'attesa).",
         "section": "shapes"
       },
       {
@@ -668,28 +700,28 @@
       }
     ],
     "dos": [
-      "Do costruire ogni sezione con `Frame` (tone, rhythm) e `Head` (tag, title, text): colonna da 1300 px, ritmo verticale e testa di sezione non si replicano a mano.",
+      "Do costruire ogni sezione con `Frame` (rhythm) e `Head` (tag, title, text): colonna da 1300 px, ritmo verticale e testa di sezione non si replicano a mano.",
       "Do usare il Nero Verbalist (`accent-500`/`accent-600`, `base-900`) per tutto ciò che deve pesare: pillola primaria, marker a V, voce attiva, titoli. Nessun altro colore.",
       "Do posare i contenuti su pannelli tinti `bg-panel rounded-md` senza bordo (`p-6 lg:p-10`), e separare righe e celle con linee piene `base-200` da 1 px.",
       "Do tenere i titoli in peso 400 con tracking −0.025em (chiusura −0.03em), interamente `base-900`, sotto un'etichetta sans 14 px `base-500`; l'H1 dell'hero della home (500, −0.03em) è l'unica eccezione e non si replica.",
       "Do scrivere dati e artefatti (slug, versioni, numeri dei passi, esadecimali, codice) nello stesso Geist, a 12 px `base-500`; etichette e intestazioni restano a 14 px. Nessun secondo carattere.",
-      "Do mettere la V del marchio davanti alle righe di elenco (`Logo` a `size-2.5 text-base-900`) e, in filigrana al 5%, dentro i pannelli-palco (`Watermark` in un contenitore `relative overflow-hidden`).",
-      "Do usare pillole per tutto ciò che si preme (`Button`, voci nav, SubNav, selettori, `summary`) e una sola pillola accent per gruppo di azioni, con la rassicurazione a 12–14 px sotto; `muted` come secondaria, `ghost` solo nella nav.",
-      "Do usare `bg-base-50` per il tono \"soft\" (hero delle pagine interne, pannello di prodotto dell'hero, hover delle celle) e `bg-base-100` per ciò che è premuto, consigliato o in hover; nient'altro come tinta di superficie.",
+      "Do mettere la V del marchio davanti alle righe di elenco (`Logo` a `size-3 text-base-900`) e, in filigrana al 7%, dentro i pannelli-palco (`Watermark` in un contenitore `relative overflow-hidden`).",
+      "Do usare pillole per tutto ciò che si preme (`Button`, voci nav, SubNav, selettori, `summary`) e una sola pillola accent per gruppo di azioni, con la rassicurazione a 12–14 px sotto; `muted` come secondaria, `ghost` solo nella nav; nessuna ombra, 150 ms.",
+      "Do usare `bg-base-50` solo per il pannello di prodotto dell'hero e l'hover delle celle, `bg-base-100` per ciò che è premuto, consigliato o in hover; le hero stanno sul colore della pagina, nient'altro come tinta di superficie.",
       "Do mettere titolo e lede di un pannello alla stessa misura (20, 24 nelle porte) con la gerarchia affidata al colore, salvo nelle griglie a quattro colonne.",
       "Do dare a ogni transizione una durata dal set 150/200/300 ms e lo stato finale con `prefers-reduced-motion`."
     ],
     "donts": [
-      "Don't introdurre texture, gradienti, immagini decorative o illustrazioni: le uniche immagini sono i loghi dei clienti (grayscale), i ritratti del team (grayscale), i marchi dei motori nell'hero e le copertine dei post dentro il post; le velature restano nelle card di prodotto.",
+      "Don't introdurre texture, gradienti, immagini decorative o illustrazioni: le uniche immagini sono i loghi dei clienti (grayscale, nella fila sotto l'hero e nelle prove), i ritratti del team (grayscale), i marchi dei motori nell'hero e le copertine dei post dentro il post; le velature restano nelle card di prodotto.",
       "Don't aggiungere ombre a pannelli, card, nav, menu, barra mobile o bottoni: le uniche ombre sono quelle degli oggetti di prodotto (`.vb-window`, `.vb-float`, `.vb-peek-card`).",
-      "Don't usare `bg-white`, bordi tratteggiati, cornici, sigle nel margine o punti d'angolo: la grammatica del foglio tecnico è stata ritirata il 2026-10-17.",
+      "Don't usare `bg-white`, bordi tratteggiati, cornici, sigle nel margine, punti d'angolo o lastre tinte a tutta larghezza sotto le hero: la grammatica del foglio tecnico e il tono `soft` sono stati ritirati il 2026-10-17.",
       "Don't usare un colore saturo o una parola colorata nel titolo: l'arancio dei riferimenti esterni è stato ritirato; verde e rosso sono stati di sistema.",
       "Don't usare pesi 500–700 sui titoli (salvo l'H1 dell'hero della home), il peso 300 (ritirato il 2026-10-17) o un secondo carattere: `font-serif` e `font-mono` sono alias di Geist e il mono è stato ritirato il 2026-10-17.",
       "Don't mettere testo di lettura sotto i 12 px.",
       "Don't usare glifi da font o icone piene: solo SVG a tratto 1.4–1.6 in `accent-500`/`base-900`.",
       "Don't ricreare targhette: niente etichette maiuscole a 12 px, niente fondo nero sotto un'etichetta, niente due etichette sullo stesso titolo.",
       "Don't usare la V come decorazione libera, colorarla o metterne più di una in filigrana per viewport; i punti restano solo per gli stati.",
-      "Don't aggiungere reveal allo scroll, hover-lift, parallax o stagger: una sola animazione per sezione, e solo se mostra il prodotto."
+      "Don't aggiungere reveal allo scroll, hover-lift, parallax, stagger o loop: una sola animazione per sezione, solo se mostra il prodotto, e si ferma da sola dopo un giro."
     ]
   }
 }

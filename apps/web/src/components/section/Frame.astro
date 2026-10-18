@@ -1,10 +1,10 @@
 ---
 // Sezione nella grammatica a carta avorio (dal 2026-10-17): niente riga
 // in testa, niente sigla nel margine, niente punti d'angolo. Le sezioni si
-// separano con l'aria (prop `rhythm`). Le prop `n`, `flush` e `tone` restano
-// nella firma perché i chiamanti le passano ancora: `tone="soft"` non disegna
-// più nulla (sulla carta avorio una seconda tinta a tutta larghezza era una
-// lastra), le hero stanno sul colore della pagina.
+// separano con l'aria (prop `rhythm`). Le prop `n` e `flush` restano nella
+// firma perché i chiamanti le passano ancora; il vecchio `tone="soft"` è
+// stato tolto il 2026-10-18 (sulla carta avorio una seconda tinta a tutta
+// larghezza era una lastra): le hero stanno sul colore della pagina.
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 interface Props {
@@ -12,7 +12,6 @@ interface Props {
   id?: string;
   labelledby?: string;
   class?: string;
-  tone?: "white" | "soft";
   flush?: boolean;
   /**
    * Ritmo verticale della sezione, in righe di corpo (token `--spacing-v*`):

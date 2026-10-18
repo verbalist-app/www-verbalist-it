@@ -26,7 +26,7 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const split = steps.length > 0;
 ---
 
-<Frame n={1} flush tone="soft" class="pt-10 pb-12 lg:pt-16 lg:pb-16 lg:!px-14">
+<Frame n={1} flush class="pt-10 pb-12 lg:pt-16 lg:pb-16 lg:!px-14">
   <div class={`grid gap-10 ${split ? "lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:items-center" : ""}`}>
     <div class="min-w-0">
       <Head tag={eyebrow} title={title} level="h1" />
