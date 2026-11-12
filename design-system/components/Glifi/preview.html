@@ -1,0 +1,48 @@
+<!-- @dsCard group="Segni" height=440 width=1080 -->
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Glifi a blocchi — anteprima</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../type.css">
+<link rel="stylesheet" href="../preview-base.css">
+<link rel="stylesheet" href="../components.css">
+<style>
+  .sky-band { display: flex; align-items: center; gap: 100px; height: 180px; padding: 0 var(--space-80); }
+  .paper-band { display: grid; grid-template-columns: 216px repeat(5, 1fr); align-items: start; padding: 50px var(--space-80) 0; height: 260px; }
+  /* la griglia di costruzione: 4 × 4 celle */
+  .grid { position: relative; width: 160px; height: 160px; color: var(--ink);
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 40px 40px; box-shadow: inset -1px -1px 0 var(--line); }
+  .grid .vb-glyph { width: 160px; height: 160px; opacity: .88; }
+  .grid::after { content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 40px 40px; box-shadow: inset -1px -1px 0 var(--line); }
+  .item > .vb-glyph { width: 56px; height: 56px; }
+  .solids { display: flex; align-items: center; gap: 12px; height: 56px; }
+  .item h3 { margin-top: 24px; color: var(--ink); }
+  .item p { margin-top: 4px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="vb-sky sky-band">
+  <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 0h2v1H1v1H0zM4 4H2V3h1V2h1z"/></svg>
+  <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 3h1V2h1V1h1V0h1v4H0z"/></svg>
+  <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 0h4v1H3v3H1V1H0z"/></svg>
+  <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 2h1v1h2V2h1v2H0zM1 0h2v1H1z"/></svg>
+</div>
+<div class="paper-band">
+  <div class="grid"><svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 3h1V2h1V1h1V0h1v4H0z"/></svg></div>
+  <div class="item"><svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><defs><linearGradient id="g-0" x1="0" y1="0" x2="1" y2=".5"><stop offset="0" class="vb-iris-1"/><stop offset=".34" class="vb-iris-2"/><stop offset=".6" class="vb-iris-3"/><stop offset=".86" class="vb-iris-4"/><stop offset="1" class="vb-iris-5"/></linearGradient></defs><path fill="url(#g-0)" d="M0 0h2v1H1v1H0zM4 4H2V3h1V2h1z"/></svg><h3 class="paper-heading">Brief</h3><p class="paper-chip">Messa a fuoco</p></div>
+  <div class="item"><svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><defs><linearGradient id="g-1" x1="1" y1="0" x2="0" y2="1"><stop offset="0" class="vb-iris-1"/><stop offset=".34" class="vb-iris-2"/><stop offset=".6" class="vb-iris-3"/><stop offset=".86" class="vb-iris-4"/><stop offset="1" class="vb-iris-5"/></linearGradient></defs><path fill="url(#g-1)" d="M0 3h1V2h1V1h1V0h1v4H0z"/></svg><h3 class="paper-heading">Analisi</h3><p class="paper-chip">Gradini</p></div>
+  <div class="item"><svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><defs><linearGradient id="g-2" x1=".1" y1="1" x2=".9" y2="0"><stop offset="0" class="vb-iris-1"/><stop offset=".34" class="vb-iris-2"/><stop offset=".6" class="vb-iris-3"/><stop offset=".86" class="vb-iris-4"/><stop offset="1" class="vb-iris-5"/></linearGradient></defs><path fill="url(#g-2)" d="M0 0h4v1H3v3H1V1H0z"/></svg><h3 class="paper-heading">Scrittura</h3><p class="paper-chip">La T del testo</p></div>
+  <div class="item"><svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><defs><linearGradient id="g-3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="vb-iris-1"/><stop offset=".34" class="vb-iris-2"/><stop offset=".6" class="vb-iris-3"/><stop offset=".86" class="vb-iris-4"/><stop offset="1" class="vb-iris-5"/></linearGradient></defs><path fill="url(#g-3)" d="M0 2h1v1h2V2h1v2H0zM1 0h2v1H1z"/></svg><h3 class="paper-heading">Esportazione</h3><p class="paper-chip">Vassoio in uscita</p></div>
+  <div class="item"><div class="solids"><span class="vb-solid"><svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 0h4v1H3v3H1V1H0z"/></svg></span><span class="vb-solid vb-solid--disc"><svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 0h2v1H1v1H0zM4 4H2V3h1V2h1z"/></svg></span></div><h3 class="paper-heading">In negativo</h3><p class="paper-chip">Per le voci sul foglio</p></div>
+</div>
+</body>
+</html>

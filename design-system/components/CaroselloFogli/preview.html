@@ -1,0 +1,115 @@
+<!-- @dsCard group="Composizioni" height=540 width=1080 -->
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Carosello di fogli — anteprima</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../type.css">
+<link rel="stylesheet" href="../preview-base.css">
+<link rel="stylesheet" href="../components.css">
+<style>
+  .stage { height: 540px; }
+  .slot { position: absolute; top: 84px; width: 662px; height: 372px; overflow: hidden; }
+  .slot--left { left: -483px; }
+  .slot--center { left: 209px; }
+  .slot--right { left: 901px; }
+  .page { width: 1344px; height: 756px; transform: scale(.4926); transform-origin: 0 0; }
+  /* il foglio fantasma è un vicino fuori fuoco: tutto bianco, niente da leggere */
+  .vb-paper--ghost .vb-stage__name, .vb-paper--ghost .vb-step__name { color: var(--on-sky); }
+  .vb-paper--ghost .vb-stage__desc { color: var(--on-sky-muted); }
+  .vb-paper--ghost .vb-badge { background: var(--on-sky); color: var(--sky-700); }
+  .vb-paper--ghost .vb-stage__mark::before { background: var(--rule-on-sky); }
+  .vb-paper--ghost .vb-chip { background: var(--glass); color: var(--on-sky); }
+  .vb-paper--ghost .vb-faint { color: var(--on-sky-muted); }
+</style>
+</head>
+<body>
+<div class="vb-sky stage">
+  <div class="slot slot--left" aria-hidden="true">
+    <article class="vb-paper vb-paper--ghost page">
+      <div class="label vb-paper__head"><span>GEO <span class="vb-faint">· 5</span></span><span>Verbalist</span></div>
+      <h2 class="paper-title vb-paper__title">Le AI non leggono le pagine</h2>
+      <p class="paper-subtitle vb-paper__sub">Ne estraggono risposte: ogni contenuto nasce con i pezzi che i motori generativi cercano</p>
+      <div class="vb-stages">
+        <div class="vb-stage">
+          <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 0h2v1H1v1H0zM4 4H2V3h1V2h1z"/></svg>
+          <h3 class="paper-name vb-stage__name">Brief</h3>
+          <p class="paper-subtitle vb-stage__desc">Keyword e contesto</p>
+          <div class="vb-stage__mark"><span class="vb-badge vb-badge--pill">1</span></div>
+          <div class="vb-chips"><span class="paper-chip vb-chip">Tipo di contenuto</span><span class="paper-chip vb-chip">Keyword</span><span class="paper-chip vb-chip">Mercato</span><span class="paper-chip vb-chip">Brand guidelines</span></div>
+        </div>
+        <div class="vb-stage">
+          <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 3h1V2h1V1h1V0h1v4H0z"/></svg>
+          <h3 class="paper-name vb-stage__name">Analisi</h3>
+          <p class="paper-subtitle vb-stage__desc">I primi 5 su Google</p>
+          <div class="vb-stage__mark"><span class="vb-badge vb-badge--pill">2</span></div>
+          <div class="vb-chips"><span class="paper-chip vb-chip">Intento</span><span class="paper-chip vb-chip">Struttura</span><span class="paper-chip vb-chip">Lacune</span><span class="paper-chip vb-chip">Competitor a scelta</span></div>
+        </div>
+        <div class="vb-stage">
+          <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 0h4v1H3v3H1V1H0z"/></svg>
+          <h3 class="paper-name vb-stage__name">Scrittura</h3>
+          <p class="paper-subtitle vb-stage__desc">Nella lingua del mercato</p>
+          <div class="vb-stage__mark"><span class="vb-badge vb-badge--pill">3</span></div>
+          <div class="vb-chips"><span class="paper-chip vb-chip">Featured snippet</span><span class="paper-chip vb-chip">People Also Ask</span><span class="paper-chip vb-chip">30+ lingue</span><span class="paper-chip vb-chip">Due versioni</span></div>
+        </div>
+        <div class="vb-stage">
+          <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><path d="M0 2h1v1h2V2h1v2H0zM1 0h2v1H1z"/></svg>
+          <h3 class="paper-name vb-stage__name">Esportazione</h3>
+          <p class="paper-subtitle vb-stage__desc">HTML pronto per il CMS</p>
+          <div class="vb-stage__mark"><span class="vb-badge vb-badge--pill">4</span></div>
+          <div class="vb-chips"><span class="paper-chip vb-chip">Title tag</span><span class="paper-chip vb-chip">Meta description</span><span class="paper-chip vb-chip">Slug</span><span class="paper-chip vb-chip">Alt text</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="slot slot--center">
+    <article class="vb-paper  page">
+      <div class="label vb-paper__head"><span>Panoramica <span class="vb-faint">· 4</span></span><span>Verbalist</span></div>
+      <h2 class="paper-title vb-paper__title">Una catena di quattro agenti</h2>
+      <p class="paper-subtitle vb-paper__sub">Ogni agente consegna il suo lavoro al successivo: compili un brief, non scrivi un prompt</p>
+      <div class="vb-stages">
+        <div class="vb-stage">
+          <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><defs><linearGradient id="ir-0" x1="0" y1="0" x2="1" y2=".5"><stop offset="0" class="vb-iris-1"/><stop offset=".34" class="vb-iris-2"/><stop offset=".6" class="vb-iris-3"/><stop offset=".86" class="vb-iris-4"/><stop offset="1" class="vb-iris-5"/></linearGradient></defs><path fill="url(#ir-0)" d="M0 0h2v1H1v1H0zM4 4H2V3h1V2h1z"/></svg>
+          <h3 class="paper-name vb-stage__name">Brief</h3>
+          <p class="paper-subtitle vb-stage__desc">Keyword e contesto</p>
+          <div class="vb-stage__mark"><span class="vb-badge vb-badge--pill">1</span></div>
+          <div class="vb-chips"><span class="paper-chip vb-chip">Tipo di contenuto</span><span class="paper-chip vb-chip">Keyword</span><span class="paper-chip vb-chip">Mercato</span><span class="paper-chip vb-chip">Brand guidelines</span></div>
+        </div>
+        <div class="vb-stage">
+          <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><defs><linearGradient id="ir-1" x1="1" y1="0" x2="0" y2="1"><stop offset="0" class="vb-iris-1"/><stop offset=".34" class="vb-iris-2"/><stop offset=".6" class="vb-iris-3"/><stop offset=".86" class="vb-iris-4"/><stop offset="1" class="vb-iris-5"/></linearGradient></defs><path fill="url(#ir-1)" d="M0 3h1V2h1V1h1V0h1v4H0z"/></svg>
+          <h3 class="paper-name vb-stage__name">Analisi</h3>
+          <p class="paper-subtitle vb-stage__desc">I primi 5 su Google</p>
+          <div class="vb-stage__mark"><span class="vb-badge vb-badge--pill">2</span></div>
+          <div class="vb-chips"><span class="paper-chip vb-chip">Intento</span><span class="paper-chip vb-chip">Struttura</span><span class="paper-chip vb-chip">Lacune</span><span class="paper-chip vb-chip">Competitor a scelta</span></div>
+        </div>
+        <div class="vb-stage">
+          <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><defs><linearGradient id="ir-2" x1=".1" y1="1" x2=".9" y2="0"><stop offset="0" class="vb-iris-1"/><stop offset=".34" class="vb-iris-2"/><stop offset=".6" class="vb-iris-3"/><stop offset=".86" class="vb-iris-4"/><stop offset="1" class="vb-iris-5"/></linearGradient></defs><path fill="url(#ir-2)" d="M0 0h4v1H3v3H1V1H0z"/></svg>
+          <h3 class="paper-name vb-stage__name">Scrittura</h3>
+          <p class="paper-subtitle vb-stage__desc">Nella lingua del mercato</p>
+          <div class="vb-stage__mark"><span class="vb-badge vb-badge--pill">3</span></div>
+          <div class="vb-chips"><span class="paper-chip vb-chip">Featured snippet</span><span class="paper-chip vb-chip">People Also Ask</span><span class="paper-chip vb-chip">30+ lingue</span><span class="paper-chip vb-chip">Due versioni</span></div>
+        </div>
+        <div class="vb-stage">
+          <svg class="vb-glyph" viewBox="0 0 4 4" aria-hidden="true"><defs><linearGradient id="ir-3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="vb-iris-1"/><stop offset=".34" class="vb-iris-2"/><stop offset=".6" class="vb-iris-3"/><stop offset=".86" class="vb-iris-4"/><stop offset="1" class="vb-iris-5"/></linearGradient></defs><path fill="url(#ir-3)" d="M0 2h1v1h2V2h1v2H0zM1 0h2v1H1z"/></svg>
+          <h3 class="paper-name vb-stage__name">Esportazione</h3>
+          <p class="paper-subtitle vb-stage__desc">HTML pronto per il CMS</p>
+          <div class="vb-stage__mark"><span class="vb-badge vb-badge--pill">4</span></div>
+          <div class="vb-chips"><span class="paper-chip vb-chip">Title tag</span><span class="paper-chip vb-chip">Meta description</span><span class="paper-chip vb-chip">Slug</span><span class="paper-chip vb-chip">Alt text</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="slot slot--right" aria-hidden="true">
+    <article class="vb-paper vb-paper--ghost page">
+      <div class="label vb-paper__head"><span>Come funziona <span class="vb-faint">· 3</span></span><span>Verbalist</span></div>
+      <h2 class="paper-title vb-paper__title">Come nasce un contenuto</h2>
+      <p class="paper-subtitle vb-paper__sub">Quattro passaggi, dal brief all’HTML pronto per il CMS</p>
+      <div class="vb-steps">
+        <div><span class="vb-badge">1</span><h3 class="paper-heading vb-step__name">Imposti</h3><p class="paper-body vb-step__text">Keyword, mercato e contesto del brand: compili un brief, non scrivi un prompt</p></div>
+      </div>
+    </article>
+  </div>
+</div>
+</body>
+</html>

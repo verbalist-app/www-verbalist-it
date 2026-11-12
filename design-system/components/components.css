@@ -1,0 +1,245 @@
+/* Verbalist — CSS di riferimento dei componenti: solo classi .vb-*, nessuno script.
+   Colori, spazi, raggi, ombre e caratteri arrivano da tokens.css; qui restano le misure interne
+   dei singoli componenti, che non sono token. Misure in px su una tela larga 1080.
+   Presuppone box-sizing: border-box. */
+
+/* ── Cielo ─────────────────────────────────────────────────────────────── */
+
+/* Cielo limpido: il gradiente della fotografia, profondo a sinistra e chiaro a destra. */
+.vb-sky {
+  position: relative;
+  overflow: hidden;
+  color: var(--on-sky);
+  background: linear-gradient(98deg, var(--sky-700) 0%, var(--sky-600) 42%, var(--sky-500) 74%, var(--sky-400) 100%);
+}
+/* Cielo profondo: l'aggiunta per il testo piccolo. */
+.vb-sky--deep {
+  background: linear-gradient(98deg, var(--sky-800) 0%, var(--sky-800) 46%, var(--sky-700) 100%);
+}
+/* Cielo sfocato: la stessa fotografia fuori fuoco, con gli aloni caldi dei fiori. */
+.vb-sky--soft {
+  background:
+    radial-gradient(14% 13% at 77% 12%, color-mix(in srgb, var(--bloom-yellow) 34%, transparent) 0%, transparent 100%),
+    radial-gradient(38% 36% at 76% 10%, color-mix(in srgb, var(--bloom-cream) 78%, transparent) 0%, transparent 100%),
+    radial-gradient(22% 30% at 0% 24%, color-mix(in srgb, var(--bloom-cream) 60%, transparent) 0%, transparent 100%),
+    radial-gradient(18% 26% at 100% 30%, color-mix(in srgb, var(--bloom-rose) 42%, transparent) 0%, transparent 100%),
+    radial-gradient(14% 16% at 98% 2%, color-mix(in srgb, var(--bloom-sage) 34%, transparent) 0%, transparent 100%),
+    linear-gradient(162deg, var(--sky-100) 0%, var(--sky-200) 22%, var(--sky-300) 56%, var(--sky-400) 100%);
+}
+/* Fioritura: segnaposto della fascia di fiori in basso. Sul sito è una fotografia. */
+.vb-sky--bloom::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  bottom: -12%;
+  height: 44%;
+  pointer-events: none;
+  filter: blur(22px);
+  background:
+    radial-gradient(11% 46% at 8% 86%, var(--bloom-rose) 0%, transparent 100%),
+    radial-gradient(12% 52% at 24% 92%, var(--bloom-blush) 0%, transparent 100%),
+    radial-gradient(9% 40% at 41% 96%, var(--sky-50) 0%, transparent 100%),
+    radial-gradient(12% 50% at 58% 92%, var(--bloom-blush) 0%, transparent 100%),
+    radial-gradient(11% 48% at 77% 88%, var(--bloom-yellow) 0%, transparent 100%),
+    radial-gradient(10% 44% at 93% 90%, var(--bloom-rose) 0%, transparent 100%),
+    radial-gradient(60% 30% at 50% 108%, var(--bloom-sage) 0%, transparent 100%);
+}
+
+/* ── Filetto e titolo sul cielo ────────────────────────────────────────── */
+
+.vb-rule {
+  display: block;
+  height: var(--stroke-hairline);
+  margin: 0;
+  border: 0;
+  background: var(--rule-on-sky);
+}
+.vb-headline { margin-top: var(--space-64); color: var(--on-sky); }
+.vb-quiet { color: var(--on-sky-muted); }
+.vb-sub { margin-top: var(--space-48); color: var(--on-sky-muted); }
+
+/* ── Glifi a blocchi e iride ───────────────────────────────────────────── */
+
+.vb-glyph {
+  display: block;
+  flex: none;
+  width: var(--space-40);
+  height: var(--space-40);
+  fill: currentColor;
+  shape-rendering: crispEdges;
+}
+.vb-iris-1 { stop-color: var(--iris-600); }
+.vb-iris-2 { stop-color: var(--iris-400); }
+.vb-iris-3 { stop-color: var(--iris-200); }
+.vb-iris-4 { stop-color: var(--iris-peach); }
+.vb-iris-5 { stop-color: var(--iris-cream); }
+.vb-iris {
+  background: linear-gradient(135deg, var(--iris-600) 0%, var(--iris-400) 34%, var(--iris-200) 60%, var(--iris-peach) 86%, var(--iris-cream) 100%);
+}
+
+/* Icona piena: il glifo in negativo su un quadrato o un disco d'inchiostro, per le voci sul foglio. */
+.vb-solid {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-chip);
+  background: var(--ink);
+  color: var(--paper);
+}
+.vb-solid--disc { border-radius: var(--radius-full); }
+.vb-solid .vb-glyph { width: 16px; height: 16px; }
+
+/* ── Riga elenco sul cielo ─────────────────────────────────────────────── */
+
+.vb-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-40);
+  height: var(--space-140);
+  color: var(--on-sky);
+  border-bottom: var(--stroke-hairline) solid var(--rule-on-sky);
+}
+.vb-row__desc { margin-left: auto; color: var(--on-sky-muted); white-space: nowrap; }
+
+/* ── Scheda selezionata, pannello vetro, spunta ────────────────────────── */
+
+.vb-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-40);
+  height: var(--space-140);
+  padding: 0 var(--space-40);
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  color: var(--navy);
+  box-shadow: var(--shadow-card);
+}
+.vb-glass {
+  margin-top: var(--space-16);
+  padding: 0 var(--space-40);
+  border-radius: var(--radius-card);
+  background: var(--glass);
+  box-shadow: inset 0 0 0 var(--stroke-hairline) var(--glass-border);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+  color: var(--on-sky);
+}
+.vb-glass__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-40);
+  height: var(--space-140);
+}
+.vb-glass__row + .vb-glass__row { border-top: var(--stroke-hairline) solid var(--rule-on-sky); }
+
+.vb-check {
+  flex: none;
+  display: block;
+  width: var(--space-40);
+  height: var(--space-40);
+  border-radius: var(--radius-full);
+  background: var(--navy);
+  color: var(--paper);
+}
+.vb-check svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--stroke-check);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.vb-check--idle { background: var(--paper); color: var(--check-idle); }
+
+/* ── Foglio ────────────────────────────────────────────────────────────── */
+
+/* Le distanze interne (60, 18, 72, 22, 10) sono misurate sul foglio in primo piano della slide 4. */
+.vb-paper {
+  position: relative;
+  padding: var(--space-56);
+  border-radius: var(--radius-none);
+  background: var(--paper);
+  color: var(--ink);
+}
+.vb-paper__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.vb-faint { color: var(--ink-faint); }
+.vb-paper__title { margin-top: 60px; color: var(--ink); }
+.vb-paper__sub { margin-top: 18px; max-width: 640px; color: var(--ink-soft); }
+
+/* Foglio fantasma: il vicino non a fuoco nel carosello. */
+.vb-paper--ghost {
+  background: var(--ghost);
+  color: var(--on-sky);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+}
+.vb-paper--ghost .vb-paper__head,
+.vb-paper--ghost .vb-paper__title { color: var(--on-sky); }
+.vb-paper--ghost .vb-paper__sub,
+.vb-paper--ghost .vb-step__text { color: var(--on-sky-muted); }
+
+/* Tappe: colonne da 420 con badge, nome e testo. */
+.vb-steps { display: grid; grid-template-columns: repeat(3, 420px); margin-top: 72px; }
+.vb-step__name { margin-top: 22px; color: var(--ink); }
+.vb-step__text { margin-top: 10px; max-width: 348px; color: var(--ink-soft); }
+
+/* Fasi: colonne da 308 con glifo, nome, descrizione, badge sul filetto e chip. */
+.vb-stages { display: grid; grid-template-columns: repeat(4, 308px); margin-top: 48px; }
+.vb-stages .vb-glyph { width: 56px; height: 56px; }
+.vb-stage__name { margin-top: 24px; color: var(--ink); }
+.vb-stage__desc { margin-top: 4px; color: var(--ink-muted); }
+.vb-stage__mark { position: relative; display: flex; align-items: center; margin-top: 24px; }
+.vb-stage__mark::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: var(--stroke-hairline);
+  background: var(--line);
+}
+.vb-stage:first-child .vb-stage__mark::before { left: calc(-1 * var(--space-56)); }
+.vb-stage:last-child .vb-stage__mark::before { right: calc(-1 * var(--space-56)); }
+.vb-stage__mark .vb-badge { position: relative; }
+.vb-chips { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 30px; }
+
+/* ── Badge numerato ────────────────────────────────────────────────────── */
+
+.vb-badge {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--ink);
+  color: var(--paper);
+  font: 500 14px/1 var(--font-sans);
+}
+.vb-badge--pill { width: 30px; height: 21px; font-size: 12px; }
+/* Iride al centro, così il numero bianco resta sopra l'indaco (5,4:1). */
+.vb-badge--iris {
+  background: radial-gradient(circle at 44% 42%, var(--iris-600) 0%, var(--iris-600) 34%, var(--iris-400) 58%, var(--iris-200) 78%, var(--iris-peach) 100%);
+}
+
+/* ── Chip ──────────────────────────────────────────────────────────────── */
+
+.vb-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-chip);
+  background: var(--chip);
+  color: var(--ink-muted);
+  white-space: nowrap;
+}

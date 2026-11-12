@@ -1,0 +1,15 @@
+/* Base delle pagine di anteprima: azzera i margini e imposta carattere e fondo della pagina.
+   Serve solo a components/<Nome>/preview.html. Non importarla nel sito. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, p, ul, ol { margin: 0; padding: 0; }
+ul, ol { list-style: none; }

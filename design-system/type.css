@@ -1,0 +1,100 @@
+/* Verbalist — stili tipografici, una classe per stile.
+   Le famiglie e i file dei caratteri sono dichiarati in tokens.css.
+   I nomi sono quelli usati nel README (`display`, `lead`, `label`, `paper-*`): sono generici,
+   quindi prima di importare questo file in un sito controlla che non esistano già. */
+
+/* ── Cielo ───────────────────────────────────────────────────────────────────────────────────── */
+/* Testo bianco sul cielo. Misure in px sulla tela di riferimento larga 1080. */
+
+/* Il titolo, uno per schermata, due o tre righe. Inter Display Medium verificato per
+   sovrapposizione delle lettere (corrispondenza 93%); corpo 7,4% della larghezza della tela. */
+.display {
+  font-family: var(--font-display);
+  font-size: 80px;
+  line-height: 88px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+/* Sottotitolo sotto il titolo, etichette e descrizioni delle righe, testo delle schede
+   selezionabili. Sempre su una riga: l'interlinea è stimata, nel riferimento non va mai a capo. */
+.lead {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+/* ── Foglio ──────────────────────────────────────────────────────────────────────────────────── */
+/* Testo nero e grigio sulla carta. Scala del foglio in primo piano (slide 4): il 70% del
+   documento originale a 1920. */
+
+/* Titolo del foglio, uno per foglio, in `ink`. */
+.paper-title {
+  font-family: var(--font-display);
+  font-size: 42px;
+  line-height: 46px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Sottotitolo del foglio: metà del titolo, in `ink-soft`, al massimo due righe. */
+.paper-subtitle {
+  font-family: var(--font-sans);
+  font-size: 21px;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* Nome di una fase accanto al suo glifo, una parola sola, in `ink` (misurato sul foglio della
+   slide 1). */
+.paper-name {
+  font-family: var(--font-sans);
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Nome di una tappa o di una voce, in `ink`. */
+.paper-heading {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+/* Testo corrente sul foglio, in `ink-soft`; colonne di circa 32–36 caratteri. */
+.paper-body {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* Testo dei chip e delle descrizioni brevi, in `ink-muted`. */
+.paper-chip {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* ── Etichette ───────────────────────────────────────────────────────────────────────────────── */
+/* Sempre in maiuscolo. Famiglia compatibile, non identificata con certezza: a 12px di altezza le
+   lettere non bastano per distinguerla. */
+
+/* Etichetta in testa al foglio: sezione, punto medio, numero di pagina in `ink-faint`; a destra
+   il nome del marchio. Tutto maiuscolo, senza spaziatura aggiunta. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  letter-spacing: 0em;
+}

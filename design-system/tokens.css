@@ -1,0 +1,254 @@
+/* Verbalist — token del design system.
+   Fonte dei valori: si modifica qui. Ogni commento dice dove si usa il token.
+   Nel README i token sono citati per nome: `sky-700` è var(--sky-700).
+   Le misure sono in px su una tela di riferimento larga 1080: sono proporzioni,
+   non la scala responsiva del sito. */
+
+:root {
+  /* ── Cielo ─────────────────────────────────────────────────────────────────────────────────── */
+
+  /* AGGIUNTA, non presente nel riferimento: stessa tinta di `sky-700`, un passo più profonda. È
+     il primo azzurro su cui `on-sky` raggiunge 4,5:1: mettilo dietro a ogni testo sotto i 24px
+     che deve stare sul cielo. */
+  --sky-800: #4679b4;
+
+  /* Cielo profondo: angolo alto-sinistro della fotografia (slide 1). Fondo dei titoli. `on-sky`
+     vi legge a 4,0:1, quindi solo testo da 24px in su. */
+  --sky-700: #5182bb;
+
+  /* Tono dominante del cielo fotografico. `on-sky` 3,7:1 (testo da 24px in su, glifi). */
+  --sky-600: #5d88bc;
+
+  /* Cielo medio. Ultimo tono su cui `on-sky` regge il 3:1 (3,2:1): limite per titoli e glifi
+     bianchi. */
+  --sky-500: #6a93c4;
+
+  /* Lato destro della foto e base dei fondi sfocati. `on-sky` 2,7:1: da qui in giù il bianco è
+     solo decorativo; il testo scuro ammesso è `navy` (5,1:1). */
+  --sky-400: #7aa1cf;
+
+  /* Tono centrale dei fondi sfocati (slide 2–5). Nel riferimento porta testo bianco a 2,2:1: sul
+     sito no, vedi Contrasto nel README. */
+  --sky-300: #8fb3de;
+
+  /* Fondo sfocato chiaro, parte alta delle slide 2 e 3. */
+  --sky-200: #9cbce3;
+
+  /* Schiariture del cielo sfocato accanto agli aloni caldi. */
+  --sky-100: #bacee6;
+
+  /* Punto più chiaro del cielo (riflessi). Mai campitura estesa. */
+  --sky-50: #cadcf1;
+
+  /* ── Fioritura: solo dentro fotografie e aloni ─────────────────────────────────────────────── */
+
+  /* Giallo polline: i centri dei fiori nella fotografia. Vive solo dentro immagini e aloni, mai
+     come colore d'interfaccia. */
+  --bloom-yellow: #e1bb60;
+
+  /* Alone caldo dei fondi sfocati: il giallo polline dopo la sfocatura. */
+  --bloom-cream: #d3c2a6;
+
+  /* Rosa malva dei petali; alone ai bordi dei fondi sfocati (slide 4, lato sinistro). */
+  --bloom-rose: #b889a4;
+
+  /* Rosa chiaro dei petali in luce. */
+  --bloom-blush: #d9bac8;
+
+  /* Verde-grigio degli steli, sfocato; compare negli angoli delle slide 2 e 5. */
+  --bloom-sage: #a4a89b;
+
+  /* ── Sul cielo ─────────────────────────────────────────────────────────────────────────────── */
+
+  /* Titoli, etichette di riga e glifi sul cielo. Da 24px in su su `sky-500` o più profondo
+     (≥3:1); sotto i 24px solo su `sky-800` (4,5:1). */
+  --on-sky: #ffffff;
+
+  /* Seconda voce del titolo, sottotitoli, descrizioni a destra nelle righe: bianco al 72%.
+     Coppia del riferimento sotto soglia (2,9:1 su `sky-700`, 3,2:1 su `sky-800`): usala da 32px
+     in su e solo per testo che completa un'informazione già leggibile in `on-sky`. */
+  --on-sky-muted: #ffffffb8;
+
+  /* Filetti da 1px sul cielo: linea d'apertura e divisori di riga (bianco al 50%). */
+  --rule-on-sky: #ffffff80;
+
+  /* Riempimento del pannello vetro che raccoglie le righe non selezionate (bianco al 12%). */
+  --glass: #ffffff1f;
+
+  /* Bordo interno da 1px del pannello vetro (bianco al 40%). */
+  --glass-border: #ffffff66;
+
+  /* Riempimento dei fogli vicini nel carosello, quelli non a fuoco (bianco al 15%). */
+  --ghost: #ffffff26;
+
+  /* ── Carta ─────────────────────────────────────────────────────────────────────────────────── */
+
+  /* Fogli, schede selezionate, cerchi di spunta. Sempre bianco pieno: la carta non si tinge. */
+  --paper: #ffffff;
+
+  /* Titoli, nomi, etichette mono e badge numerati sul foglio. Su `paper` (21:1) e su `chip`. */
+  --ink: #000000;
+
+  /* Sottotitoli e testo corrente sul foglio, su `paper` (7,8:1). Valore stimato: i campioni sono
+     tratti sottili diluiti dalla compressione (letti tra #4d4d4d e #5a5a5a). */
+  --ink-soft: #525252;
+
+  /* Descrizioni di due-quattro parole sotto i nomi e testo dei chip. Su `paper` (5,3:1) e su
+     `chip` (4,9:1). Valore stimato, scelto sul lato leggibile dell'intervallo letto. */
+  --ink-muted: #6b6b6b;
+
+  /* Numero di pagina e punto separatore nelle etichette mono. Solo segni che non portano
+     informazione: su `paper` fa 2,1:1. */
+  --ink-faint: #b3b3b3;
+
+  /* Filetti da 1px sul foglio: la linea del percorso a tappe e la chiusura di sezione.
+     Decorativi, mai unico bordo di un controllo. */
+  --line: #ebebeb;
+
+  /* Fondo dei chip sul foglio. */
+  --chip: #f5f5f5;
+
+  /* ── Schede sul cielo ──────────────────────────────────────────────────────────────────────── */
+
+  /* Testo e cerchio di spunta della scheda selezionata, su `paper` (13,7:1). È anche l'unico
+     testo scuro ammesso direttamente sul cielo chiaro, da `sky-400` in su (≥5:1). */
+  --navy: #1a2e48;
+
+  /* Segno di spunta delle righe non selezionate, dentro il cerchio `paper`. Decorativo (2,2:1):
+     lo stato lo dice il fondo della riga, non la spunta. */
+  --check-idle: var(--sky-300);
+
+  /* ── Iride ─────────────────────────────────────────────────────────────────────────────────── */
+
+  /* Indaco: partenza del gradiente iride. Da solo, come tinta piatta, solo per segni o testo su
+     `paper` (5,4:1). */
+  --iris-600: #4f5be2;
+
+  /* Pervinca: secondo passo dell'iride. Mai testo. */
+  --iris-400: #8b93eb;
+
+  /* Lilla: terzo passo dell'iride. */
+  --iris-200: #b4b3ea;
+
+  /* Pesca: chiusura calda dell'iride. */
+  --iris-peach: #efddd3;
+
+  /* Crema: coda dell'iride, dove sfuma nel bianco del foglio. */
+  --iris-cream: #f0e6d3;
+
+  /* ── Ombre ─────────────────────────────────────────────────────────────────────────────────── */
+  /* Una sola ombra in tutto il sistema. I fogli non ne hanno. */
+
+  /* Scheda selezionata sul cielo: ombra fredda e corta, più visibile sotto che ai lati. Stimata
+     dal profilo di luminosità attorno alla scheda (−11% sotto il bordo, −4% a 12px, nulla
+     sopra). */
+  --shadow-card: 0 1px 2px #172b431f, 0 12px 32px #172b431a;
+
+  /* ── Spazio ────────────────────────────────────────────────────────────────────────────────── */
+  /* Px sulla tela di riferimento larga 1080. Base 8, con due eccezioni misurate: 10 (cella dei
+     glifi) e 30 (distanza tra fogli). */
+
+  /* Cella dei glifi a blocchi e spessore delle loro barre: un quarto del glifo. */
+  --space-10: 10px;
+
+  /* Distanza tra la scheda selezionata e il pannello vetro sotto di lei. */
+  --space-16: 16px;
+
+  /* Distanza tra i fogli nel carosello. */
+  --space-30: 30px;
+
+  /* Lato di glifi e cerchi di spunta; rientro interno di schede e pannelli; distanza dal glifo
+     alla sua etichetta. */
+  --space-40: 40px;
+
+  /* Dal titolo al sottotitolo. */
+  --space-48: 48px;
+
+  /* Margine interno del foglio alla scala di lettura (80 nel documento originale a 1920). */
+  --space-56: 56px;
+
+  /* Dal filetto d'apertura al titolo. */
+  --space-64: 64px;
+
+  /* Margine laterale della tela, 7,4% della larghezza. Filetto, titolo, glifi, schede e fogli
+     partono tutti da questa linea. */
+  --space-80: 80px;
+
+  /* Dal blocco del titolo ai fogli o al primo gruppo di contenuto. */
+  --space-120: 120px;
+
+  /* Altezza di ogni riga e di ogni scheda selezionabile; passo orizzontale delle file di
+     simboli. */
+  --space-140: 140px;
+
+  /* ── Raggi ─────────────────────────────────────────────────────────────────────────────────── */
+  /* Due mondi: la carta ha spigoli vivi, quello che galleggia sul cielo è molto arrotondato. */
+
+  /* Fogli: spigoli vivi, sempre. È ciò che li fa leggere come pagine e non come card. */
+  --radius-none: 0px;
+
+  /* Chip e icone piene quadrate sul foglio (stimato: elementi di pochi pixel). */
+  --radius-chip: 4px;
+
+  /* Schede selezionate e pannelli vetro sul cielo. Nel riferimento l'angolo è continuo
+     (smussatura tipo squircle): la curva parte circa 40px prima dello spigolo. */
+  --radius-card: 32px;
+
+  /* Badge numerati, cerchi di spunta, sfere iride. */
+  --radius-full: 9999px;
+
+  /* ── Tratto ────────────────────────────────────────────────────────────────────────────────── */
+  /* Spessori delle linee. */
+
+  /* Tutti i filetti: sul cielo (`rule-on-sky`), sul foglio (`line`) e il bordo del vetro
+     (`glass-border`). */
+  --stroke-hairline: 1px;
+
+  /* Tratto del segno di spunta, estremità e giunzione arrotondate. */
+  --stroke-check: 3.5px;
+
+  /* ── Sfocatura ─────────────────────────────────────────────────────────────────────────────── */
+  /* Stimate: da un'immagine piatta la sfocatura non si misura, si riconosce. */
+
+  /* Sfocatura dello sfondo dietro il pannello vetro e i fogli fantasma. */
+  --blur-glass: 24px;
+
+  /* Sfocatura da dare alla fotografia per ottenere i fondi morbidi delle slide 2–5. */
+  --blur-sky: 80px;
+
+  /* ── Caratteri ─────────────────────────────────────────────────────────────────────────────── */
+  /* Le famiglie. I file sono in fonts/, dichiarati qui sotto. */
+
+  --font-display: "Inter Display", Inter, system-ui, sans-serif;
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@font-face {
+  font-family: "Inter Display";
+  src: url("fonts/InterDisplay-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
